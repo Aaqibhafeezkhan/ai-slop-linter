@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.1.5
+
+**No rule changed.** `src/` is byte for byte what 0.1.4 shipped, so a run on your text gives the
+same findings and the same grade. This release exists because the README on the registry page had
+gone wrong in two ways and because there is now somewhere to try the tool without installing it.
+
+**A browser playground, at
+[bubblegunn.github.io/ai-slop-linter](https://bubblegunn.github.io/ai-slop-linter/).** It runs this
+engine in your own browser: no request in the page can carry your text anywhere and it loads nothing
+from a third party. Two tests assert exactly that, and the deploy builds the page from this
+repository rather than from anything uploaded by hand. `npm run playground` builds the same page
+locally to read offline. It is not shipped inside the npm package, which is why this is a patch: the
+tarball is the linter, and the playground is a place to read it.
+
+**A fixer safety suite over the whole corpus.** What `--fix` is allowed to touch is now asserted
+against every committed corpus document rather than against hand written cases, which is the only
+version of that claim worth making: a fixer proven safe on the examples its author thought of is
+proven safe on the examples its author thought of. 66 tests before, 80 after.
+
+**The published README said things that were not true.** The demo block advertised output the tool no
+longer prints, and the self measurement table had not been re run since the version it quoted. Both
+are corrected, the opening says plainly that this is not an authorship detector before it says
+anything else, and the Turkish README is in step. `CITATION.cff` carries the concept DOI so a finding
+rate quoted anywhere can name the rule set that produced it.
+
+A note kept rather than quietly fixed: two of the typography figures in `bench/TYPOGRAPHY.md` depend
+on a transcription whose em dashes were typed as two hyphens, and the table prints both columns
+rather than picking the flattering one.
+
 ## 0.1.4 (2026-09-05)
 
 Before this went out, every rule was run against correct published typography in thirteen languages, one text per language, all public domain and all typeset before any language model existed. The table is `bench/TYPOGRAPHY.md`, the corpus and its licences are in `bench/typography`, and the argument is `docs/typography-across-languages.md`.
