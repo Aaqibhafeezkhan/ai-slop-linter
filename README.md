@@ -42,12 +42,14 @@ npx ai-slop-linter README.md --fix    # apply the safe fixes in place
 for pull requests, a `commit-msg` hook, a commitlint rule and an agent skill, and
 [In a repository](#in-a-repository) sets up each of them.
 
-To read the rules against your own text in a browser before installing anything, clone
-this repository and run `npm run playground`. It builds a single static page and prints
-one command to serve it locally. The page runs the same engine this README documents:
-there is no request in it that could carry your text anywhere, and it loads nothing from
-a third party. Two tests check that. It is not hosted anywhere, so the page is
-repository-local for now.
+To read the rules against your own text in a browser before installing anything:
+
+**[bubblegunn.github.io/ai-slop-linter](https://bubblegunn.github.io/ai-slop-linter/)**
+
+The page runs the same engine this README documents, in your own browser: there is no request in
+it that could carry your text anywhere, and it loads nothing from a third party. Two tests check
+that, and the deploy builds it from this repository rather than from anything uploaded by hand.
+`npm run playground` builds the same page locally if you would rather read it offline.
 
 ### One finding that was taken, and why
 
