@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.5
+## 0.1.5 (2026-09-12)
 
 **No rule changed.** `src/` is byte for byte what 0.1.4 shipped, so a run on your text gives the
 same findings and the same grade. This release exists because the README on the registry page had
