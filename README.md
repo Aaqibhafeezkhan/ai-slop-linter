@@ -574,7 +574,23 @@ own rules that way: the curly quotes that flagged Jane Austen, and a `filler` ma
   set is in place and switched off: `--languages` and `checkLanguagePack` are there, and
   no pack ships yet. What holds one up is a source, not code, and there is no equivalent
   of Wikipedia's Signs of AI writing in Turkish, Japanese, Korean, Hindi or Arabic.
+  Hindi has since been tested against a corpus rather than assumed, and produced no rule
+  worth shipping: see [the Hindi negative result](docs/hindi-rules-negative-result.md).
   See [CONTRIBUTING.md](CONTRIBUTING.md) and issue #1.
+
+## Research
+
+Two questions about this tool were answered by measurement rather than by argument, and both
+answers are written down whether or not they flattered the tool.
+
+- [Typography across languages](docs/typography-across-languages.md). The `dash` rule was
+  penalising correct French, Polish and Russian punctuation. Measured across thirteen
+  languages, then fixed by letting a repository declare its language.
+- [A Hindi rule set, and why none of it shipped](docs/hindi-rules-negative-result.md), by
+  [@shivam-070208](https://github.com/shivam-070208). Six families of candidate pattern tested
+  against the CT² Hindi corpus (7,043 human articles, five models); every one rejected, with the
+  reason stated. A frequency ratio is not a tell, and a pattern strong in one model is a fact
+  about that model.
 
 ## Cite this
 

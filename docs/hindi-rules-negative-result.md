@@ -130,7 +130,7 @@ not establish that the phrase was an AI-writing characteristic.
 Other candidates had similar problems.
 
 For example, `का उपयोग` showed a strong difference in the BBC data, while
-`के खिलाफ`, `का निर्णय`, `में सक्षम`, and `करने में मदद` also showed elevated
+`के खिलाफ`, `का निर्णय`, `में सक्षम`, and `करने में मदद` also showed higher
 rates in generated text. Context inspection showed that these expressions
 were commonly used in ordinary Hindi news writing.
 
