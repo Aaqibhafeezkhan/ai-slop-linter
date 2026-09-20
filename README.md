@@ -372,14 +372,14 @@ jobs:
 
 The Action outputs `findings`, the total count, for a later step.
 
-**pre-commit.** The repository ships both a Markdown hook and a `commit-msg` hook. The Node environment is created and the published package is installed by `pre-commit`, so neither Node nor `ai-slop-linter` needs to be installed globally.
+**pre-commit.** The repository ships both a Markdown hook and a `commit-msg` hook. `pre-commit` creates the Node environment and installs this repository at the pinned rev, so neither Node nor `ai-slop-linter` needs to be installed globally.
 
-Paste these four lines into `.pre-commit-config.yaml`:
+Pin the `-pre-commit` rev, not the plain release tag: it is the same release plus the built output, which is what `pre-commit` needs to find an executable. Paste these four lines into `.pre-commit-config.yaml`:
 
 ```yaml
 repos:
 - repo: https://github.com/Bubblegunn/ai-slop-linter
-  rev: v0.1.5
+  rev: v0.1.6-pre-commit
   hooks: [{id: ai-slop-markdown}, {id: ai-slop-commit-msg}]
 ```
 
