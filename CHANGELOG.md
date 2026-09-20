@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.6 (unreleased)
+## 0.1.6 (2026-09-20)
 
 **No rule changed. A checkout of this repository could not run, and nothing here could tell.**
 `bin` pointed at `dist/src/cli.js`, `dist/` is gitignored, and nothing built it at install time, so
