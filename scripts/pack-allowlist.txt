@@ -29,3 +29,5 @@ integrations/commitlint/index.d.mts
 integrations/commitlint/index.mjs
 package.json
 skills/ai-slop-linter/SKILL.md
+dist/src/sarif.d.ts
+dist/src/sarif.js

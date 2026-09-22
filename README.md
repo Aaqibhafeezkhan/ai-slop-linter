@@ -618,6 +618,46 @@ you ran, open that page, pick the version in the sidebar, and use the DOI shown 
 `CITATION.cff` in this repository carries the same identifier, so GitHub's "Cite this repository"
 button produces correct BibTeX and APA without any copying by hand.
 
+
+## GitHub code scanning (SARIF)
+
+Use `--format sarif` to emit SARIF 2.1.0 for GitHub code scanning. Every rule is included in the run metadata with its description and source citation. Severities map directly: `error` to `error`, `warning` to `warning`, and `info` to `note`.
+
+The run declares `utf16CodeUnits` for SARIF columns, matching the tool's documented 1-based UTF-16 column convention. Do not convert these columns to Unicode scalar values.
+
+Example workflow:
+
+```yaml
+name: ai-slop-linter code scanning
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  slop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "20"
+      - run: npm ci
+      - run: npm run build
+      - run: node dist/src/cli.js --format sarif --warn "**/*.md" > results.sarif
+      - run: npx --yes @microsoft/sarif-multitool validate results.sarif
+      - uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: results.sarif
+```
+
+The validator step is intentional: validate the generated SARIF before upload rather than eyeballing it. The upload requires `security-events: write`; no broader write permission is needed. `--max-score` remains a separate repository policy and is not encoded as SARIF severity.
+
 ## Contributing
 
 Adding a rule is one function, one fixture sentence and one table row; see
