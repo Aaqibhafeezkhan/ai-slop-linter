@@ -5,6 +5,8 @@ import { mkdtemp, writeFile, readFile, rm, mkdir } from "node:fs/promises";
 import { readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { lintText, rules } from "../src/index.js";
+import { renderSarif } from "../src/sarif.js";
 
 const cli = join(process.cwd(), "dist", "src", "cli.js");
 const fixtures = join(process.cwd(), "test", "fixtures");
@@ -259,4 +261,27 @@ test("--init writes a config, and the Action or the hook on request, without ove
   } finally {
     await rm(dir, { recursive: true, force: true });
   }
+});
+
+
+test("SARIF output parses and preserves rule metadata, source, severity and columns", () => {
+  const result = lintText("docs/example.md", "𝔸 Studies show the effect is small.\n");
+  const parsed = JSON.parse(renderSarif([result], rules, "0.1.6")) as any;
+  assert.equal(parsed.version, "2.1.0");
+  assert.equal(parsed.runs[0].columnKind, "utf16CodeUnits");
+  assert.equal(parsed.runs[0].tool.driver.rules.length, rules.length);
+  for (const rule of rules) {
+    const metadata = parsed.runs[0].tool.driver.rules.find((candidate: any) => candidate.id === rule.id);
+    assert.ok(metadata, `missing SARIF rule ${rule.id}`);
+    assert.equal(metadata.fullDescription.text, rule.why);
+    assert.equal(metadata.properties.source, rule.source);
+    assert.equal(metadata.defaultConfiguration.level, rule.severity === "error" ? "error" : rule.severity === "warning" ? "warning" : "note");
+  }
+  const finding = parsed.runs[0].results.find((candidate: any) => candidate.ruleId === "vague-source");
+  assert.ok(finding);
+  assert.equal(finding.level, "warning");
+  assert.equal(finding.locations[0].physicalLocation.artifactLocation.uri, "docs/example.md");
+  assert.equal(finding.ruleIndex, rules.findIndex((rule) => rule.id === "vague-source"));
+  assert.equal(finding.locations[0].physicalLocation.region.startLine, 1);
+  assert.equal(finding.locations[0].physicalLocation.region.startColumn, 4);
 });

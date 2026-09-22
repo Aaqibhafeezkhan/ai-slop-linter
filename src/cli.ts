@@ -5,10 +5,11 @@ import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "no
 import { dirname, resolve, relative, sep } from "node:path";
 import { pathToFileURL } from "node:url";
 import { createRequire } from "node:module";
-import { GRADE_FLOOR, lintText, fixText, rules } from "./index.js";
+import { GRADE_FLOOR, lintText, fixText, rules, rulesFor } from "./index.js";
 import type { LintResult, Finding, Rule } from "./index.js";
 import { expand, globToRegExp, skippedByDefault } from "./glob.js";
 import { applyBaseline, createBaseline, parseBaseline } from "./baseline.js";
+import { renderSarif } from "./sarif.js";
 
 const HELP = `usage: slop [options] [file|dir|glob|-]...
        slop --commit            lint the last commit message
@@ -23,7 +24,7 @@ Lints text for the patterns that mark writing as machine-made. It does not guess
 wrote it; it shows the tells, with line numbers, and fixes the safe ones.
 
   --fix                 apply safe fixes in place (dashes, curly quotes, filler phrases)
-  --format <f>          text (default), json, github (workflow annotations) or markdown (a table to paste)
+  --format <f>          text (default), json, github (workflow annotations), markdown (a table to paste) or sarif
   --ignore <rule,...>   skip rules by id (--skip is the same flag)
   --only <rule,...>     run only these rules
   --language <tag>      the language this repository's prose is written in (default en);
@@ -52,7 +53,7 @@ interface Options {
   commitMsg?: string;
   pr?: string;
   fix: boolean;
-  format: "text" | "json" | "github" | "markdown";
+  format: "text" | "json" | "github" | "markdown" | "sarif";
   ignore: string[];
   only: string[];
   languages: string[];
@@ -87,7 +88,7 @@ export function parse(argv: string[]): Options {
     else if (a === "--fix") o.fix = true;
     else if (a === "--format") {
       const f = next();
-      if (f !== "text" && f !== "json" && f !== "github" && f !== "markdown") throw new Error(`--format must be text, json, github or markdown`);
+      if (f !== "text" && f !== "json" && f !== "github" && f !== "markdown" && f !== "sarif") throw new Error(`--format must be text, json, github, markdown or sarif`);
       o.format = f;
     } else if (a === "--ignore" || a === "--skip") o.ignore.push(...next().split(",").map((s) => s.trim()).filter(Boolean));
     else if (a === "--only") o.only.push(...next().split(",").map((s) => s.trim()).filter(Boolean));
@@ -471,6 +472,7 @@ async function main() {
   if (o.format === "json") console.log(JSON.stringify(results.map((r) => ({ ...r, findings: r.findings.map(withoutFix) })), null, 2));
   else if (o.format === "github") console.log(renderGithub(results, maxScore));
   else if (o.format === "markdown") console.log(renderMarkdown(results, maxScore));
+  else if (o.format === "sarif") console.log(renderSarif(results, rulesFor(o.languages), createRequire(import.meta.url)("../../package.json").version as string));
   else {
     console.log(renderText(results, fixed));
     // Guidance for a person, kept off stdout so the text format stays parseable
