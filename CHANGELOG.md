@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.8 (unreleased)
+## 0.1.8 (2026-10-14)
 
 **SARIF artifact paths now remain valid URI references.** Paths are normalized from backslashes to
 forward slashes and each segment is percent-encoded, so spaces and non-ASCII names survive schema
