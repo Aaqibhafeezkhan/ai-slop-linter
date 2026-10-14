@@ -2,6 +2,8 @@
 
 ## 0.1.8 (unreleased)
 
+**SARIF artifact paths now remain valid URI references.** Paths are normalized from backslashes to forward slashes and each segment is percent-encoded, so spaces and non-ASCII names survive schema validation. The `$schema` field now uses the OASIS SARIF 2.1.0 errata01 schema URL. The schema test invokes the CLI on real filenames with spaces and non-ASCII characters and validates each emitted log. Written by [@Aaqibhafeezkhan](https://github.com/Aaqibhafeezkhan) (fix for [#45](https://github.com/Bubblegunn/ai-slop-linter/issues/45)).
+
 **The SARIF check in CI could not fail.** `sarif-multitool validate` exited 0 on every broken file it
 was given: a missing required property, a missing `version`, a file that is not JSON, a result
 `level` of `fatal` and a `columnKind` of `bytes`. It printed the first three as errors and then
