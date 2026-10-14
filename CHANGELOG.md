@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.9 (unreleased)
+## 0.1.9 (2026-10-14)
 
 **The Action can be listed on GitHub Marketplace.** Marketplace refused `action.yml` because the description was 148
 characters, where it accepts fewer than 125. It is now 123. A test now fails on a description of 125 characters or more.

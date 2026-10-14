@@ -382,7 +382,7 @@ Pin the `-pre-commit` rev, not the plain release tag: it is the same release plu
 ```yaml
 repos:
 - repo: https://github.com/Bubblegunn/ai-slop-linter
-  rev: v0.1.8-pre-commit
+  rev: v0.1.9-pre-commit
   hooks: [{id: ai-slop-markdown}, {id: ai-slop-commit-msg}]
 ```
 
