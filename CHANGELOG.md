@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.10 (unreleased)
+## 0.1.10 (2026-10-14)
 
 **`--format markdown` keeps a backslash before a pipe inside its cell.** The table escaped `|` but copied
 `\` through, so a path or message containing `a\|b` came out as `a\\|b`: an escaped backslash followed by a
