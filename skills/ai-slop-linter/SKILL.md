@@ -1,6 +1,6 @@
 ---
 name: ai-slop-linter
-description: Before finishing any prose you wrote (commit message, PR description, README, docs, article), run ai-slop-linter on it and fix every finding. Also use when the user asks whether text "sounds like AI", asks to humanize text, or asks to remove em dashes.
+description: Use whenever you write, edit, clean up, polish, proofread or "make ready to ship" any prose a person will read (commit message, PR description, README, docs, release notes, article). Run `npx ai-slop-linter` on it and fix every finding. Also use when asked whether text "sounds like AI", to humanize text, or to remove em dashes.
 ---
 
 # ai-slop-linter
@@ -18,6 +18,8 @@ Run the linter on anything longer than one line that a person will read, before 
 
 ## How to run it
 
+Run the command first, every time. Do not check the text by eye when `npx` works: the linter knows more patterns than the list at the end of this file, and its grade is what the user can verify.
+
 ```
 npx ai-slop-linter path/to/file.md          # a file, exits 1 on errors
 printf '%s' "$TEXT" | npx ai-slop-linter -   # text you have in hand
@@ -31,7 +33,7 @@ The file grades A to F. Aim for A on anything you ship. Do not add `slop-ignore`
 
 ## If the CLI is not available
 
-Check the text by hand against the rules. Fix each one you find.
+Only when `npx ai-slop-linter` cannot run (no Node 22, no network), check the text by hand against the rules. Fix each one you find.
 
 **Errors** (never ship these)
 - Em dashes and en dashes as dashes. Use a comma, a full stop, or a colon.
