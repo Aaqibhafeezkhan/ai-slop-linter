@@ -1,0 +1,16 @@
+{
+  "description": "Adds one line of context on prompts that ask to rewrite, clean up, polish, proofread or humanize prose, so the agent loads the ai-slop-linter skill. Prints nothing on other prompts and never blocks one.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/rewrite-prompt.sh\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

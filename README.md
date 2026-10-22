@@ -478,6 +478,8 @@ Or as a Claude Code plugin:
 /plugin install ai-slop-linter@ai-slop-linter
 ```
 
+The plugin also adds a `UserPromptSubmit` hook (`hooks/rewrite-prompt.sh`, POSIX `sh`, no network). When a prompt asks to rewrite, polish, proofread or humanize prose, in English or in French, Spanish, German, Turkish and a few other languages, it adds one line telling the agent to use the skill and to treat a failing `--compare` as blocking; on any other prompt it prints nothing. It matches keywords, so it misses some phrasings: on prompts it was not tuned on it caught about half.
+
 ## From code
 
 ```ts

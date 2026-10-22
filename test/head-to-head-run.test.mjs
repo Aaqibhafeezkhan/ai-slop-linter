@@ -1568,12 +1568,13 @@ test("score.mjs flags every transcript with a tool call that mentions the answer
   assert.match(s.stdout, /Leak-flagged runs: 15/);
 });
 
-test("export_plugin: ours is exported as .claude-plugin and skills only (no THIRD-PARTY-NOTICES.md), read-only, and no answer-key file is reachable", () => {
+test("export_plugin: ours is exported as .claude-plugin, skills and hooks only (no THIRD-PARTY-NOTICES.md), read-only, and no answer-key file is reachable", () => {
   const out = tmp("export");
   const dest = spawnSync("bash", ["-c", `. "${RUN}/export-plugins.sh"; export_plugin ours "${ROOT}"`], { encoding: "utf8", env: { ...process.env, H2H_OUT: out } });
   assert.equal(dest.status, 0, dest.stderr);
   assert.equal(dest.stdout, join(out, "plugin-ours"));
-  assert.deepEqual(readdirSync(dest.stdout).sort(), [".claude-plugin", "skills"]);
+  assert.deepEqual(readdirSync(dest.stdout).sort(), [".claude-plugin", "hooks", "skills"]);
+  assert.ok(existsSync(join(dest.stdout, "hooks", "hooks.json")) && existsSync(join(dest.stdout, "hooks", "rewrite-prompt.sh")), "the UserPromptSubmit hook is exported");
   assert.equal(statSync(join(dest.stdout, ".claude-plugin", "plugin.json")).mode & 0o222, 0, "exported files are read-only");
   assert.equal(statSync(dest.stdout).mode & 0o222, 0, "the export directory is read-only");
   const again = spawnSync("bash", ["-c", `. "${RUN}/export-plugins.sh"; export_plugin ours "${ROOT}"`], { encoding: "utf8", env: { ...process.env, H2H_OUT: out } });

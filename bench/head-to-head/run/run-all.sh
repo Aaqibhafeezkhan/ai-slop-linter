@@ -162,7 +162,7 @@ guard() {
 }
 
 # Plugin exports (R4): every arm gets a copy of its plugin in $H2H_OUT/plugin-<arm>/. The copy of ours holds
-# .claude-plugin/ and skills/ only; the copies of the competitors come from their
+# .claude-plugin/, skills/ and hooks/ only; the copies of the competitors come from their
 # clones; so the answer key (bench/head-to-head/golden, tasks.json, checker-data, home, checks) is not
 # reachable from any plugin directory. run-one.sh then uses the copies (H2H_PLUGINS_EXPORTED=1).
 # shellcheck source=export-plugins.sh

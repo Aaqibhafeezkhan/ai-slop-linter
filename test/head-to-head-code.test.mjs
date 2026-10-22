@@ -80,6 +80,7 @@ function makeRepo() {
     "src/cli.js": cliSource(),
     "skills/ai-slop-linter/SKILL.md": "the skill\n",
     ".claude-plugin/plugin.json": "{}\n",
+    "hooks/hooks.json": "{}\n",
     "marker.txt": "A\n",
     "bench/head-to-head/tasks.json": '{"tasks":[]}\n',
     ".gitignore": "bench/head-to-head/competitors/\n",
@@ -120,14 +121,14 @@ test("prepare-code archives the requested commit, not a dirty or different worki
   rmTree(out);
 });
 
-test("prepare-code records the manifest of dist js, skills and .claude-plugin, and the probe results", () => {
+test("prepare-code records the manifest of dist js, skills, hooks and .claude-plugin, and the probe results", () => {
   const repo = makeRepo();
   const a = repo.commit(repo.base);
   const out = tmp("out");
   const r = prepare(repo, [a, out]);
   assert.equal(r.status, 0, r.stderr);
   const copy = join(out, `code-${a.slice(0, 12)}`);
-  const want = [".claude-plugin/plugin.json", "dist/src/cli.js", "skills/ai-slop-linter/SKILL.md"]
+  const want = [".claude-plugin/plugin.json", "dist/src/cli.js", "hooks/hooks.json", "skills/ai-slop-linter/SKILL.md"]
     .map((p) => `${sha256(readFileSync(join(copy, p)))}  ${p}\n`).join("");
   assert.equal(readFileSync(join(out, "code-manifest.txt"), "utf8"), want);
   assert.equal(readFileSync(join(copy, "dist", "src", "cli.js"), "utf8"), cliSource(), "the copy was built");

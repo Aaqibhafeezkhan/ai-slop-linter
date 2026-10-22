@@ -10,7 +10,7 @@
 #   bench   exit 4 unless bench/head-to-head of the working tree is identical to the commit's (see below);
 #           code-bench-tree.txt records `git rev-parse <commit>:bench/head-to-head`.
 #   record  <out>/code-commit.txt (full sha), code-tree.txt (tree sha), code-manifest.txt (SHA-256 of
-#           dist/**/*.js, skills/** and .claude-plugin/**), code-probe.txt (verify-code.sh results).
+#           dist/**/*.js, skills/**, hooks/** and .claude-plugin/**), code-probe.txt (verify-code.sh results).
 #   verify  verify-code.sh: version, --compare, French auto language, dash, SKILL.md. Exit 4 when any fails; the
 #           failed copy is removed and code-probe.txt keeps the reasons.
 #   lock    chmod -R a-w on the copy (restored before any cleanup).

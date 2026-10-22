@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // usage: node code-manifest.mjs <dir> [--all | --hash]
 // Prints "<sha256>  <relative path>" for the files of <dir> that matter for the code under test, sorted by
-// path: dist/**/*.js, skills/** and .claude-plugin/** (or every file with --all). Symbolic links are never
-// followed or listed. --hash prints the SHA-256 of the whole listing instead (with --all as well when given
+// path: dist/**/*.js, skills/**, hooks/** and .claude-plugin/** (or every file with --all). Symbolic links
+// are never followed or listed. --hash prints the SHA-256 of the whole listing instead (with --all as well when given
 // first: `--all --hash`). Node built-ins only.
 import { createHash } from "node:crypto";
 import { lstatSync, readFileSync, readdirSync } from "node:fs";
@@ -21,7 +21,7 @@ export function listFiles(dir, rel = "") {
 }
 
 const sha = (buf) => createHash("sha256").update(buf).digest("hex");
-const matters = (r) => (r.startsWith("dist/") && r.endsWith(".js")) || r.startsWith("skills/") || r.startsWith(".claude-plugin/");
+const matters = (r) => (r.startsWith("dist/") && r.endsWith(".js")) || r.startsWith("skills/") || r.startsWith("hooks/") || r.startsWith(".claude-plugin/");
 
 export function manifest(dir, all = false) {
   const files = listFiles(dir).filter((r) => all || matters(r)).sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));

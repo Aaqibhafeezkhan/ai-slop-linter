@@ -2,8 +2,9 @@
 # plugin into $H2H_OUT/plugin-<arm>/ and prints that path. An arm is started with the copy, never with the
 # repository or a clone, so no arm can walk from its plugin directory to bench/head-to-head/golden,
 # tasks.json, checker-data, home/*.json or checks (the answer key).
-#   ours: only .claude-plugin/ and skills/ of the repository (not THIRD-PARTY-NOTICES.md, which maps the
-#   answer key; it ships in the npm package anyway).
+#   ours: only .claude-plugin/, skills/ and hooks/ of the repository (hooks/ holds the UserPromptSubmit
+#   hook that points rewrite prompts at the skill; not THIRD-PARTY-NOTICES.md, which maps the answer key;
+#   it ships in the npm package anyway).
 #   others (competitors, base): the whole directory without .git.
 # The export is made read-only (chmod -R a-w) so a run cannot change it; export_plugin restores write
 # permission before it replaces an earlier export. The sandbox profile also denies writes to plugin-*.
@@ -15,7 +16,7 @@ export_plugin() {
   mkdir -p "$dest" || return 1
   if [ "$arm" = "ours" ]; then
     local item
-    for item in .claude-plugin skills; do
+    for item in .claude-plugin skills hooks; do
       if [ -e "$src/$item" ]; then cp -R "$src/$item" "$dest/$item" || return 1; fi
     done
   else
