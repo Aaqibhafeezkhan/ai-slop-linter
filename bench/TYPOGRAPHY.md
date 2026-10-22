@@ -30,13 +30,13 @@ author, its date, its source and its licence.
 | Spanish | 1 | 1119 | 0 | 0 |
 | Finnish | 1 | 1094 | 0 | 0 |
 | French | 1 | 1136 | 0 | 0 |
-| Hungarian | 1 | 1056 | 2 | 1.9 |
+| Hungarian | 1 | 1056 | 1 | 0.9 |
 | Italian | 1 | 1105 | 0 | 0 |
 | Japanese | 1 | 1572 | 0 | 0 |
 | Dutch | 1 | 1181 | 0 | 0 |
-| Polish | 1 | 1048 | 77 | 73.5 |
+| Polish | 1 | 1048 | 70 | 66.8 |
 | Portuguese | 1 | 1216 | 0 | 0 |
-| Russian | 1 | 1084 | 7 | 6.5 |
+| Russian | 1 | 1084 | 0 | 0 |
 | Turkish | 1 | 561 | 0 | 0 |
 | Chinese | 1 | 1564 | 0 | 0 |
 
@@ -47,7 +47,7 @@ Findings per 1,000 words. Only the rules that fire somewhere have a column here;
 
 | rule | severity | German | English | Spanish | Finnish | French | Hungarian | Italian | Japanese | Dutch | Polish | Portuguese | Russian | Turkish | Chinese |
 |---|---|---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---:|
-| `dash` | error | 0 | 1 | 0 | 0 | 0 | 1.9 | 0 | 0 | 0 | 73.5 | 0 | 6.5 | 0 | 0 |
+| `dash` | error | 0 | 1 | 0 | 0 | 0 | 0.9 | 0 | 0 | 0 | 66.8 | 0 | 0 | 0 | 0 |
 | `not-x-but-y` | warning | 0 | 0.2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `ai-vocabulary` | warning | 0 | 0.2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
@@ -69,13 +69,13 @@ label, a list marker or an emoji have nothing to match, whatever language they a
 | `typography/es-pardo-bazan-insolacion.md` | 1119 | A | 0 | 0 |
 | `typography/fi-haanpaa-karavaani.md` | 1094 | A | 0 | 0 |
 | `typography/fr-dumas-monte-cristo.md` | 1136 | A | 0 | 0 |
-| `typography/hu-jokai-uj-foldesur.md` | 1056 | B | 5.7 | 2 |
+| `typography/hu-jokai-uj-foldesur.md` | 1056 | A | 2.8 | 1 |
 | `typography/it-manzoni-promessi-sposi.md` | 1105 | A | 0 | 0 |
 | `typography/ja-akutagawa-rashomon.md` | 1572 | A | 0 | 0 |
 | `typography/nl-multatuli-max-havelaar.md` | 1181 | A | 0 | 0 |
-| `typography/pl-doyle-baskerville.md` | 1048 | F | 220.4 | 77 |
+| `typography/pl-doyle-baskerville.md` | 1048 | F | 200.4 | 70 |
 | `typography/pt-eca-de-queiros-ramires.md` | 1216 | A | 0 | 0 |
-| `typography/ru-chekhov-dama-s-sobachkoy.md` | 1084 | D | 19.4 | 7 |
+| `typography/ru-chekhov-dama-s-sobachkoy.md` | 1084 | A | 0 | 0 |
 | `typography/tr-omer-seyfettin-kasagi.md` | 561 | A | 0 | 0 |
 | `typography/zh-song-ling-li-ji-guang.md` | 1564 | A | 0 | 0 |
 
@@ -96,7 +96,7 @@ corpus is untouched.
 | Spanish | 15 | 0 | 0 |
 | French | 25 | 0 | 0 |
 | Dutch | 18 | 0 | 0 |
-| Polish | 77 | 73.5 | 1 |
+| Polish | 77 | 66.8 | 1 |
 | Portuguese | 15 | 0 | 0 |
 
 English is listed for comparison but is never restored: two of its five files are Python
@@ -127,4 +127,3 @@ that produced it.
 | English | `ai-vocabulary` | …at it be written across multiple lines, it's worth noting that the combination of a two character… |
 | Hungarian | `dash` | …csátani nagy felelősséggel járó helyzet; – a mely észrevételt Garanvölgyi ur igen h… |
 | Polish | `dash` | …. Nie spostrzegł ich, ale ja dostrzegłem -- zupełnie świeże, w pobliżu. |
-| Russian | `dash` | …к незнакомые; но после обеда пошли рядом — и начался шутливый, легкий разговор люде… |
