@@ -764,6 +764,16 @@ Totals of the reused arms (of 60): blader 52.33, blader-inv 56.00, unslop 52.33,
 
 Ours cells: 12 tasks x 3 runs = 36 runs, from a `git archive` copy of the commit under test, parallelism 2, a failed cell (rate limit) is re-run and never graded, the config guard runs around every cell, then the blind grader on the ours cells only.
 
+## Results, round 3
+
+Scope: protocol "Round 3 measurement protocol" above (frozen in commit `d844833` before any run): only the ours arm ran, 12 tasks x 3 runs, model `claude-sonnet-5-5`, 2026-10-22, macOS with the `sandbox-exec` write sandbox and a scrubbed environment (the scrubbed environment passes `ANTHROPIC_API_KEY`; a Haiku probe through it reported `apiKeySource` `ANTHROPIC_API_KEY`). Rival and baseline values are the round-2 means, marked "r2 reused" in `bench/head-to-head/results/round-3/summary.md`. Code under test: `d8448330248a4639fb2a6fe85b64b9b6a48403c2` (product code identical to `995a5c7`, the last round-3 change). 36 runs, 0 failed cells, 9 blind verdicts, config guard unchanged. Cost of the 36 runs: 3.14 US dollars; the 9 grader calls about 0.30 (estimate).
+
+- Total (of 60): ours 55.67, blader-inv 56.00 (r2 reused), everwrite 54.33, everwrite-inv 53.33, blader 52.33, unslop 52.33, unslop-inv 51.67, base 44.00. Ours is 1.00 lower than in round 2 (56.67) and now second.
+- Rule A: FAIL. Ours lost 4.33, the strongest other arm lost 4.00, the limit is 3.20.
+- Rule B: FAIL, 6 of 12 tasks pass (h3, h10, h11, h13, h15, h16). Failing: h1 (4.67 against 5.00; one run kept a stock phrase, C3), h2 (4.33 against 5.00; one run failed C4, an added word), h9 (4.00 against 4.33; `streamlines` kept in 2 runs, not in the linter or the references), h14 (4.67 against 5.00; one run failed C4), h17 (4.00 against 4.33; 3 of 3 runs kept `Unser Tool entscheidet selbst`, a false-agency pattern from the unslop catalog that `references/de.md` does not list), h18 (4.00 against 4.67; 3 of 3 runs kept `not publicly available`, which `references/en.md` lists and the agent still left).
+- Reading: the round-3 product changes (`f417fa7`, `4e3b226`, `d0d8cf3`, `3cd64d9`, `995a5c7`) did not raise the total; the h9, h17 and h18 C2 losses are unchanged in size. h1 and h2 moved down by one run each, which is within the spread seen between rounds. Win rule: FAIL; nothing here may be quoted as a leadership claim.
+- Not done: no product change was made in this session, because passing rule B on all 12 tasks needs every run of h1, h2, h14 to be perfect and the three C2 tasks to be clean, and a further round was judged unlikely to flip the gate for its cost. F6, F9 and the held-out tasks are not started.
+
 ## How to re-run
 
 One command repeats a round: it pins and clones the competitors, runs all eight arms on every task, scores the runs, and prepares the blind grading.
