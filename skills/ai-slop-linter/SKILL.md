@@ -5,7 +5,7 @@ description: Use whenever you write, edit, rewrite, clean up, polish, proofread 
 
 # ai-slop-linter
 
-You write a lot of prose: commit messages, pull request descriptions, docs, release notes. Most of it carries the same tells, and readers skip text that carries them. This skill makes you check before you hand text over, and check that a rewrite kept the facts.
+You write a lot of prose: commit messages, pull request descriptions, docs, release notes. Most of it carries the same tells, and readers skip text that carries them. This skill makes you check before you hand text over, and check that a rewrite kept the facts. This plugin also has a `UserPromptSubmit` hook that adds one line pointing here when a prompt asks for a rewrite, clean-up, polish or proofread. The order, every time: run the linter, read the reference file for the language, rewrite, run `--compare` until it passes.
 
 ## Check the language first
 
@@ -40,20 +40,23 @@ TMP=$(mktemp -d)
 cp path/to/file.md "$TMP/before.md"                  # or: git show HEAD:path/to/file.md > "$TMP/before.md"
 ```
 
-For text in hand, write it to "$TMP/before.md" first. Compare against that one original for every rewrite of the task.
-
-After every rewrite, run:
+For text in hand, write it to "$TMP/before.md" first. After every rewrite, compare against that one original:
 
 ```
 npx ai-slop-linter --compare "$TMP/before.md" path/to/file.md
 ```
 
-The comparison lists each number, name, version, link, quote and code span that was lost or added, and exits 1 when there is one. It also lists `person` lines (a first-person word such as `our` or `we` that you added, or dropped) and `claim` lines (a word such as `always` or `guaranteed` that you added). A `person` or `claim` line blocks the rewrite like a lost number: remove the added word, because an added "our" needs a source that says whose it is. Restate the rule to yourself: add no fact, change no number, add no owner. Treat each line as a defect. Restore the fact or undo the edit, compare again, and report the line in your answer. Do not keep a lost or added fact because the new sentence reads better.
+The comparison lists each number, name, version, link, quote and code span that was lost or added, and exits 1 when there is one. It also lists `person` lines (a first-person word such as `our` or `we` that you added, or dropped) and `claim` lines (a word such as `always` or `guaranteed` that you added).
+
+A failing compare is blocking. Lines such as `added person our`, `added claim always` or `lost number 40%` mean the rewrite is not done: put the lost fact back, remove the added word, and run the compare again until it exits 0. Never add "we", "our", "I" or a claim the source does not make, and change no number or fact; an added "our" needs a source that says whose it is. The one line you may leave is a loss where the cut words were the tell itself (a lost `us` from `Let us dive in`); name it in your answer. Do not keep a lost or added fact because the new sentence reads better.
+
+## Read the reference file
+
+After the linter, read the file for the text's language in `references/` next to this file: `en.md` (English), `fr.md` (French), `de.md` (German), `es.md` (Spanish). Do it for every rewrite, English included. Each lists tells a regular expression cannot catch, with the fix direction; remove the ones you find by judgement, and add no fact, change no number. The linter ships almost no French, Spanish or German rules, so for those languages a clean lint proves little and the reference file is the check. For another language, read `en.md` and apply the families that carry over.
 
 ## Add no fact
 
 Removing tells must never add content.
-
 - Do not add a fact, name, number, date, quote, citation, attribution or owner that the source lacks. If a sentence needs a detail you do not have, write a simpler sentence or ask the user for it.
 - Do not add "we", "our", "I" or any first person the source does not use. Do not invent an anecdote or an "in my experience".
 - Do not drop a supported claim, number, name, date, quote or list item. A lost one is a defect, unless the tell itself is what you cut.
@@ -63,10 +66,11 @@ Removing tells must never add content.
 
 ## How to work
 
-1. Lint the text and read every finding. Mark the tells, strongest first. Look at the paragraph shape too: the same closer after each section is one tell at a larger scale.
-2. Draft the rewrite. State each point directly rather than patching one flagged phrase at a time. Vary sentence length by building sentences differently, not by chopping them into fragments.
-3. Check the draft: lint it, run `--compare` against the original, and fix each defect.
-4. Write the final version to the file and lint it once more.
+1. Save the original, lint the text and read every finding. Mark the tells, strongest first. Look at the paragraph shape too: the same closer after each section is one tell at a larger scale.
+2. Read the reference file for the language and mark the tells it lists that the linter missed.
+3. Draft the rewrite. State each point directly rather than patching one flagged phrase at a time. Vary sentence length by building sentences differently, not by chopping them into fragments.
+4. Check the draft: lint it, run `--compare` against the original, and fix each defect until the compare exits 0.
+5. Write the final version to the file, lint it once more and compare once more.
 
 The closing test: every fact in the new version must come from the source. Cutting and sharpening are allowed. Adding and losing are not.
 
@@ -98,13 +102,13 @@ Only when `npx ai-slop-linter` cannot run (no Node 20, no network), check the te
 
 ## Judgment checks for other languages
 
-Look for these by reading the text; the CLI does not enforce them. Each one is a stock phrase that machine-written text in that language repeats. A person may write any of them, so judge the sentence, not the phrase.
+Look for these by reading the text; the CLI does not enforce them. The full lists are in `references/fr.md`, `de.md` and `es.md`; these are the commonest. A person may write any of them, so judge the sentence, not the phrase.
 
 - French: `ce n'est pas seulement ... c'est`, `véritable révolution`, `Plongeons dans`, `sans faille`, `En conclusion`, `N'hésitez pas à`, `l'avenir s'annonce radieux`.
 - Spanish: `sumérgete en`, `no solo ... sino`, `no dudes en`.
 - German: `tauchen wir ein`, `nicht nur ... sondern auch`, `zögern Sie nicht`.
 
-The lists come from the h1 fixture and from the stock-phrase word lists of unslop and anti-ai-writing (both MIT, see `THIRD-PARTY-NOTICES.md`).
+The lists come from the h1 fixture and from the stock-phrase word lists of unslop and anti-ai-writing; `references/de.md` adapts unslop's German lists and `references/en.md` adapts everwrite's catalog (all MIT, see `THIRD-PARTY-NOTICES.md`).
 
 ## Set up a prose check in CI
 

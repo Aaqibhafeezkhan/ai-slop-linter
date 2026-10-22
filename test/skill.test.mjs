@@ -186,3 +186,41 @@ test("the CI section covers the README, the CHANGELOG and a README that quotes a
   assert.match(section, /copy the repository's top-level ignores/);
   assert.match(skill, /`--fix` also rewrites a dash inside a quotation in another language/);
 });
+
+// The reference files the skill makes the agent read after the linter (round 2 plan item 3). The agent
+// reads one on every rewrite, so each stays small, names its source, and passes the linter it serves.
+const REFERENCES = ["en", "fr", "de", "es"].map((l) => `skills/ai-slop-linter/references/${l}.md`);
+
+test("SKILL.md names every reference file, says when to read it and that a failing compare blocks", () => {
+  for (const file of ["references/", "en.md", "fr.md", "de.md", "es.md"]) {
+    assert.ok(skill.includes(file), `SKILL.md does not name ${file}`);
+  }
+  assert.match(skill, /^## Read the reference file$/m);
+  assert.match(skill, /A failing compare is blocking/);
+  assert.match(skill, /`added person our`/);
+  assert.match(skill, /until it exits 0/);
+  assert.match(skill, /UserPromptSubmit/);
+});
+
+for (const file of REFERENCES) {
+  test(`${file} exists, is under 250 lines, names its source and lints clean`, () => {
+    assert.ok(existsSync(file), `${file} is missing`);
+    const text = readFileSync(file, "utf8");
+    assert.ok(text.split("\n").length < 250, `${file} is too long`);
+    assert.match(text.split("\n")[2], /^Source: /, "the third line is not the source note");
+    assert.match(text, /Add no fact\. Change no number\./);
+    const run = spawnSync(process.execPath, ["dist/src/cli.js", "--warn", file], { encoding: "utf8" });
+    assert.match(run.stdout, /, 0 findings\)/, run.stdout + run.stderr);
+  });
+}
+
+test("the reference files adapted from a competitor name its commit in the source note and in the notices", () => {
+  const notices = readFileSync("THIRD-PARTY-NOTICES.md", "utf8");
+  for (const [file, commit] of [
+    ["skills/ai-slop-linter/references/en.md", "38912ce43453129c63eef958bf65faef4833c18e"],
+    ["skills/ai-slop-linter/references/de.md", "d65241e66f2b0e0d0b305cb55dadbffac0f9ef52"],
+  ]) {
+    assert.ok(readFileSync(file, "utf8").split("\n")[2].includes(commit), `${file} does not name ${commit}`);
+    assert.ok(notices.includes(file), `THIRD-PARTY-NOTICES.md does not name ${file}`);
+  }
+});
