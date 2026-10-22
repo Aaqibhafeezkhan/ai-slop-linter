@@ -830,6 +830,20 @@ Rejected alternatives (with the reason):
 Home-ground disclosure for this round: D1 and D2 take the idea of the constructions from competitor catalogs (everwrite, unslop) whose phrases are the h9, h17 and h18 tests; results on those three tasks stay marked home-ground.
 
 
+## Round deep measurement protocol (frozen 2026-10-22, owner decision)
+
+Written and committed before any measurement run of this round and before the held-out tasks were opened. It is not changed after results exist. It replaces the budget and arm order of the round-4 protocol (owner limit of 8 US dollars in total for research, implementation and measurement, set the same day).
+
+Code under test. Product code of commit `d21102e` (`--verify` structure checks, English hedge and false-agency families, skill paragraphs). The commit of this protocol adds only `docs/` and `bench/head-to-head/heldout/score.mjs`; `git diff d21102e..HEAD -- src skills hooks .claude-plugin package.json` must be empty and is checked before the run. The product does not change after the held-out tasks are opened.
+
+Held-out set. Four new tasks, ho1 to ho4 (German, Turkish, English, French; the languages and document types were reported by the writer, the task text was not read by the controller). They were written by a fresh Sonnet agent that was given only the user-problem sentence of the README, the task format and `heldout/score.mjs`, and that read no repository file (its transcript has no repository path). They sit on the local branch `heldout-2026-10-b`, which is never pushed, and are copied into a harness directory outside the repository. Scoring is by `bench/head-to-head/heldout/score.mjs` (committed with this protocol, before the tasks were opened): C1 listed facts kept verbatim, C2 listed tells absent outside protected text, C3 protected text byte-identical, C4 nothing added (numbers, URLs, code spans, listed first-person words, wrong-language words), C5 front matter, headings and fenced blocks unchanged. Every criterion is a script, so no blind grading is used. Max score 5 per run, 20 per arm and run index.
+
+Arms and runs. `ours`, `blader-inv` (the best competitor arm in rounds 1 to 3) and `base` (no plugin), 4 tasks, 2 runs each: 24 runs, model `claude-sonnet-5-5`, same sandbox, scrubbed environment and config guard as every earlier round, parallelism 2. The win rule asks for 3 runs and for every competitor; this round has 2 runs and 2 comparison arms because of the budget. Not run, and reported as not run (budget): everwrite, unslop, blader natural, the three scan arms (avoid-ai-writing, slopless, slop-cop), the public tasks h1 to h18, Haiku and Opus (F9), the independent 10 percent re-grade (F6).
+
+Rules. Rule B and Rule A are computed over the arms that ran, per the "Win rule" section, and are labelled partial: no leadership claim is made from this round, whatever the numbers. A failed cell (rate limit) is re-run and never scored. Criteria, check data and tasks are not changed after the runs. Diagnostic runs of `ours` on seen public tasks may be made after the held-out runs if budget remains; they are labelled diagnostic and do not enter any score.
+
+Budget. No new run starts when the logged total of `claude -p` costs exceeds 7.0 US dollars or when `spend.sh` prints a first number above 150. A run set that is cut off is reported as partial.
+
 ## How to re-run
 
 One command repeats a round: it pins and clones the competitors, runs all eight arms on every task, scores the runs, and prepares the blind grading.
