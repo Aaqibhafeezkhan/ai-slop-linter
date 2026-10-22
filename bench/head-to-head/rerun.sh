@@ -14,7 +14,8 @@
 # commit is refused (exit 5) unless --new-code is given, which reruns the ours cells on the new commit and keeps
 # the competitor and baseline cells whose recorded hashes still match. No git checkout, restore, stash or reset.
 # The real claude is called by run-all.sh and by grade-run.sh only. Each run is wrapped in a
-# sandbox-exec write profile with --setting-sources project. The config guard is compared here around
+# write sandbox (sandbox-exec on macOS, bwrap on Linux) with a scrubbed environment and --setting-sources
+# project. The config guard is compared here around
 # the whole of run-all, and by run-all.sh before and after every cell; a change stops everything with exit 3.
 set -u
 

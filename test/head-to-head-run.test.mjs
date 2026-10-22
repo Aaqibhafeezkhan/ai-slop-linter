@@ -24,6 +24,21 @@ const rmRound = (dir) => {
   rmSync(dir, { recursive: true, force: true });
 };
 const tmp = (name) => mkdtempSync(join(tmpdir(), `h2h-${name}-`));
+
+// The write sandbox of the platform (sandbox.sh): sandbox-exec on macOS, bubblewrap on Linux. HAS_SANDBOX is
+// true only when the tool exists and works (bwrap can be installed but blocked from making namespaces). On a
+// machine without it the scripts refuse to run, so the tests that are not about the sandbox run with
+// H2H_ALLOW_UNSANDBOXED=1 there (never on macOS, where sandbox-exec is always present).
+const BACKEND = process.platform === "darwin" ? "sandbox-exec" : "bwrap";
+const HAS_SANDBOX = BACKEND === "bwrap"
+  ? spawnSync("bwrap", ["--ro-bind", "/", "/", "--dev", "/dev", "--proc", "/proc", "true"]).status === 0
+  : spawnSync("which", ["sandbox-exec"]).status === 0;
+if (!HAS_SANDBOX) process.env.H2H_ALLOW_UNSANDBOXED = "1";
+// Runs `sh -c <script>` inside the sandbox rendered as <profile> (the .sb file; the bwrap argument list,
+// NUL separated, sits next to it as .bwrap).
+const sandboxed = (profile) => (script) => (BACKEND === "bwrap"
+  ? spawnSync("bwrap", [...readFileSync(profile.replace(/\.sb$/, ".bwrap"), "utf8").split("\0").slice(0, -1), "sh", "-c", script], { encoding: "utf8", timeout: 30000 })
+  : spawnSync("sandbox-exec", ["-f", profile, "sh", "-c", script], { encoding: "utf8", timeout: 30000 }));
 const tasks = () => JSON.parse(readFileSync(join(BENCH, "tasks.json"), "utf8")).tasks;
 // The scripts work on the active tasks only; the retired ones are checked in their own tests.
 const IDS = tasks().filter((t) => t.status !== "retired").map((t) => t.id);
@@ -770,8 +785,10 @@ function runEnv(work, extra = {}) {
   mkdirSync(plugin, { recursive: true });
   const guardSettings = join(work, "settings.json");
   const guardClaude = join(work, "claude.json");
+  const guardLauncher = join(work, "launcher-settings.json");
   writeFileSync(guardSettings, JSON.stringify({ hooks: { a: 1 }, other: 1 }));
   writeFileSync(guardClaude, JSON.stringify({ mcpServers: { s: 1 }, other: 1 }));
+  writeFileSync(guardLauncher, JSON.stringify({ hooks: { Stop: [] }, permissions: { allow: [] } }));
   return {
     ...process.env,
     PATH: `${fakeClaude(work)}${delimiter}${process.env.PATH}`,
@@ -783,6 +800,7 @@ function runEnv(work, extra = {}) {
     H2H_DIR_BASE: plugin,
     H2H_GUARD_SETTINGS: guardSettings,
     H2H_GUARD_CLAUDE_JSON: guardClaude,
+    H2H_GUARD_LAUNCHER_SETTINGS: guardLauncher,
     ...extra,
   };
 }
@@ -808,16 +826,25 @@ test("run-one.sh: an invoked arm uses the natural arm's plugin dir and prefixes 
   assert.equal(ours.status, 2, "ours has no invoked arm");
 });
 
-// A sandbox-exec shim: records its arguments, then runs the wrapped command like the real one would.
+// Shims for sandbox-exec and bwrap: each records its arguments, then runs the wrapped command like the real
+// one would (sandbox-exec: after "-f <profile>"; bwrap: after "--").
 function fakeSandboxExec(work) {
   const bin = join(work, "sbbin");
   mkdirSync(bin, { recursive: true });
   writeFileSync(join(bin, "sandbox-exec"), `#!/usr/bin/env bash\necho "SANDBOX_ARGS=$*" >> "${work}/sandbox.log"\nshift 2\nexec "$@"\n`);
+  writeFileSync(join(bin, "bwrap"), `#!/usr/bin/env bash\necho "SANDBOX_ARGS=$*" >> "${work}/sandbox.log"\nwhile [ $# -gt 0 ] && [ "$1" != "--" ]; do shift; done\nshift\nexec "$@"\n`);
   chmodSync(join(bin, "sandbox-exec"), 0o755);
+  chmodSync(join(bin, "bwrap"), 0o755);
   return bin;
 }
+const reEsc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+// The wrapped claude call as the shim logged it: "sandbox-exec -f <profile> claude -p", or "bwrap <mounts with
+// the writable run directory> -- claude -p".
+const wrapped = (out, name, runDir) => (BACKEND === "bwrap"
+  ? new RegExp(`SANDBOX_ARGS=--die-with-parent --ro-bind / / .* --bind ${reEsc(runDir)} ${reEsc(runDir)} .* -- claude -p `)
+  : new RegExp(`SANDBOX_ARGS=-f ${reEsc(join(out, `sandbox-${name}.sb`))} claude -p `));
 
-test("run-one.sh: the claude command is wrapped by sandbox-exec with a rendered profile; HOME is not replaced; H2H_MODEL sets the model", () => {
+test("run-one.sh: the claude command is wrapped by the platform's sandbox (sandbox-exec or bwrap) with a rendered profile; HOME is not replaced; H2H_MODEL sets the model", () => {
   const work = tmp("sandbox");
   const fakeHome = join(work, "fakehome");
   mkdirSync(join(fakeHome, ".claude"), { recursive: true });
@@ -826,8 +853,8 @@ test("run-one.sh: the claude command is wrapped by sandbox-exec with a rendered 
   const r = spawnSync("bash", [join(RUN, "run-one.sh"), "h2", "base", "2"], { encoding: "utf8", env });
   assert.equal(r.status, 0, r.stderr);
   const log = readFileSync(join(work, "sandbox.log"), "utf8");
-  const profile = join(work, "out", "sandbox-h2-base-2.sb");
-  assert.ok(log.includes(`SANDBOX_ARGS=-f ${profile} claude -p `), log);
+  assert.match(log, wrapped(join(work, "out"), "h2-base-2", join(realpathSync(join(work, "out")), "h2-base-2")), log);
+  if (BACKEND === "bwrap") assert.ok(existsSync(join(work, "out", "sandbox-h2-base-2.bwrap")), "the bwrap argument list is kept next to the profile");
   const text = readFileSync(join(work, "out", "h2-base-2.jsonl"), "utf8");
   assert.ok(text.includes(`HOME=${fakeHome}`), "claude sees the real HOME (a fresh one cannot log in)");
   const argv = argvOf(join(work, "out", "h2-base-2.jsonl"));
@@ -864,10 +891,11 @@ test("run-one.sh: the rendered profile denies writes to the config locations of 
   assert.doesNotMatch(profile, /@HOME@|@REPO@|@OUT@/, "every placeholder is filled");
 });
 
-test("run-one.sh refuses with exit 3 without sandbox-exec, unless H2H_ALLOW_UNSANDBOXED=1", () => {
+test("run-one.sh refuses with exit 3 without the sandbox tool (sandbox-exec or bwrap), unless H2H_ALLOW_UNSANDBOXED=1", () => {
   const work = tmp("nosandbox");
   const env = runEnv(work);
-  // A PATH with only the tools the script needs, and no sandbox-exec.
+  delete env.H2H_ALLOW_UNSANDBOXED;
+  // A PATH with only the tools the script needs, and no sandbox-exec or bwrap.
   const bin = join(work, "minimal");
   mkdirSync(bin);
   for (const tool of ["bash", "node", "cp", "rm", "mv", "mkdir", "dirname", "tr", "cat", "env"]) {
@@ -878,7 +906,7 @@ test("run-one.sh refuses with exit 3 without sandbox-exec, unless H2H_ALLOW_UNSA
   env.PATH = bin;
   const refused = spawnSync(join(bin, "bash"), [join(RUN, "run-one.sh"), "h1", "base", "1"], { encoding: "utf8", env });
   assert.equal(refused.status, 3, refused.stderr);
-  assert.match(refused.stderr, /sandbox-exec not found: refusing to run/);
+  assert.match(refused.stderr, new RegExp(`${BACKEND} not found: refusing to run`));
   assert.equal(existsSync(join(work, "out", "h1-base-1.jsonl")), false, "claude did not run");
   const allowed = spawnSync(join(bin, "bash"), [join(RUN, "run-one.sh"), "h1", "base", "1"], { encoding: "utf8", env: { ...env, H2H_ALLOW_UNSANDBOXED: "1" } });
   assert.equal(allowed.status, 0, allowed.stderr);
@@ -886,7 +914,7 @@ test("run-one.sh refuses with exit 3 without sandbox-exec, unless H2H_ALLOW_UNSA
   assert.ok(existsSync(join(work, "out", "h1-base-1.jsonl")));
 });
 
-test("the real sandbox-exec denies writes to the config locations of a fake HOME and allows a temp directory", { skip: spawnSync("which", ["sandbox-exec"]).status !== 0 }, () => {
+test("the real sandbox (sandbox-exec or bwrap) denies writes to the config locations of a fake HOME and allows a temp directory", { skip: !HAS_SANDBOX }, () => {
   const work = tmp("realsandbox");
   const fakeHome = realpathSync(work) + "/fakehome";
   mkdirSync(join(fakeHome, ".claude", "skills"), { recursive: true });
@@ -896,7 +924,7 @@ test("the real sandbox-exec denies writes to the config locations of a fake HOME
   const rendered = spawnSync("bash", ["-c", `. "${RUN}/sandbox.sh"; render_sandbox "${out}" probe; printf '%s\\n' "\${SANDBOX_CMD[@]}"`], { encoding: "utf8", env });
   assert.equal(rendered.status, 0, rendered.stderr);
   const profile = join(out, "sandbox-probe.sb");
-  const sb = (script) => spawnSync("sandbox-exec", ["-f", profile, "sh", "-c", script], { encoding: "utf8" });
+  const sb = sandboxed(profile);
   const denied = sb(`touch "${fakeHome}/.claude/skills/x"`);
   assert.notEqual(denied.status, 0, "a write under .claude/skills is denied");
   assert.equal(existsSync(join(fakeHome, ".claude", "skills", "x")), false);
@@ -904,6 +932,91 @@ test("the real sandbox-exec denies writes to the config locations of a fake HOME
   assert.equal(sb(`touch "${out}/ok.txt"`).status, 0, "the output directory is writable");
   const elsewhere = tmp("elsewhere");
   assert.equal(sb(`touch "${elsewhere}/ok.txt"`).status, 0, "a temp directory is writable");
+});
+
+// The bwrap argument list in order (mounts later in the list win). Runs on any platform with a fake bwrap.
+test("bwrap backend: the mounts go from wide to narrow, so the run directory is the only writable place under the output directory and the answer key is hidden", () => {
+  const work = realpathSync(tmp("bwrapargs"));
+  const fakeHome = join(work, "fakehome");
+  for (const d of [".claude/skills", ".claude/projects", ".config"]) mkdirSync(join(fakeHome, d), { recursive: true });
+  writeFileSync(join(fakeHome, ".claude", "settings.json"), "{}");
+  writeFileSync(join(fakeHome, ".claude.json"), "{}");
+  const out = join(work, "out");
+  for (const d of ["run-a", "run-b", "plugin-ours", "ours-tarball"]) mkdirSync(join(out, d), { recursive: true });
+  const env = { ...process.env, HOME: fakeHome, H2H_SANDBOX_BACKEND: "bwrap", PATH: `${fakeSandboxExec(work)}${delimiter}${process.env.PATH}` };
+  delete env.H2H_CODE_DIR;
+  const r = spawnSync("bash", ["-c", `. "${RUN}/sandbox.sh"; render_sandbox "${out}" probe "${out}/run-a"; printf '%s\\n' "\${SANDBOX_CMD[0]}"`], { encoding: "utf8", env });
+  assert.equal(r.status, 0, r.stderr);
+  assert.equal(r.stdout.trim(), "bwrap");
+  const args = readFileSync(join(out, "sandbox-probe.bwrap"), "utf8").split("\0").slice(0, -1);
+  const at = (...seq) => {
+    for (let i = 0; i <= args.length - seq.length; i++) if (seq.every((s, j) => args[i + j] === s)) return i;
+    return -1;
+  };
+  const repo = realpathSync(ROOT);
+  const pairs = {
+    root: at("--ro-bind", "/", "/"),
+    tmp: at("--bind", "/tmp", "/tmp"),
+    home: at("--ro-bind", fakeHome, fakeHome),
+    projects: at("--bind", join(fakeHome, ".claude", "projects"), join(fakeHome, ".claude", "projects")),
+    claudeJson: at("--bind", join(fakeHome, ".claude.json"), join(fakeHome, ".claude.json")),
+    skills: at("--ro-bind", join(fakeHome, ".claude", "skills"), join(fakeHome, ".claude", "skills")),
+    settings: at("--ro-bind", join(fakeHome, ".claude", "settings.json"), join(fakeHome, ".claude", "settings.json")),
+    config: at("--ro-bind", join(fakeHome, ".config"), join(fakeHome, ".config")),
+    repo: at("--ro-bind", repo, repo),
+    out: at("--ro-bind", out, out),
+    run: at("--bind", join(out, "run-a"), join(out, "run-a")),
+    plugin: at("--ro-bind", join(out, "plugin-ours"), join(out, "plugin-ours")),
+    tarball: at("--ro-bind", join(out, "ours-tarball"), join(out, "ours-tarball")),
+    bench: at("--tmpfs", join(repo, "bench")),
+    test: at("--tmpfs", join(repo, "test")),
+    binOurs: at("--ro-bind", join(repo, "bench/head-to-head/run/bin-ours"), join(repo, "bench/head-to-head/run/bin-ours")),
+  };
+  for (const [k, v] of Object.entries(pairs)) assert.ok(v >= 0, `${k} is mounted: ${args.join(" ")}`);
+  const before = (a, b) => assert.ok(pairs[a] < pairs[b], `${a} comes before ${b}`);
+  before("root", "tmp");
+  before("tmp", "home");
+  before("home", "projects");
+  before("projects", "skills");
+  before("claudeJson", "settings");
+  before("config", "repo");
+  before("out", "run");
+  before("run", "plugin");
+  before("run", "tarball");
+  before("repo", "bench");
+  before("bench", "binOurs");
+  assert.ok(at("--ro-bind", "/dev/null", join(repo, ".git")) >= 0 || at("--tmpfs", join(repo, ".git")) >= 0, "the repository's .git is hidden");
+  assert.ok(!args.includes("--unshare-net") && !args.includes("--unshare-all"), "the network is kept");
+  assert.equal(args[args.length - 1], "--", "the command follows the mounts");
+  assert.ok(!args.some((a) => a === join(fakeHome, ".claude") && args[args.indexOf(a) - 1] === "--bind"), "~/.claude itself is never writable");
+  const bogus = spawnSync("bash", ["-c", `. "${RUN}/sandbox.sh"; render_sandbox "${out}" probe "${out}/run-a"`], { encoding: "utf8", env: { ...env, H2H_SANDBOX_BACKEND: "chroot" } });
+  assert.equal(bogus.status, 3, "an unknown backend is refused");
+});
+
+test("run-one.sh passes claude a scrubbed environment: PATH, HOME, login and network variables only (plus H2H_ENV_KEEP)", () => {
+  const work = tmp("scrub");
+  const env = runEnv(work, {
+    CLAUDECODE: "1",
+    CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD: "1",
+    CLAUDE_ADDITIONAL_DIRECTORIES: "/mnt/user-data",
+    CLAUDE_CODE_REMOTE: "true",
+    CLAUDE_EFFORT: "medium",
+    MAX_THINKING_TOKENS: "31999",
+    GH_TOKEN: "do-not-pass",
+    ANTHROPIC_BASE_URL: "https://api.example.invalid",
+    CLAUDE_SESSION_INGRESS_TOKEN_FILE: "/nonexistent/token",
+    HTTPS_PROXY: "http://proxy.invalid:1",
+    H2H_EXTRA_FOR_TEST: "kept",
+    H2H_ENV_KEEP: "H2H_EXTRA_FOR_TEST",
+  });
+  env.PATH = `${fakeSandboxExec(work)}${delimiter}${env.PATH}`;
+  setClaude(work, `env | sed 's/^/ENV:/'\n${OK_RESULT}`);
+  const r = spawnSync("bash", [join(RUN, "run-one.sh"), "h1", "base", "1"], { encoding: "utf8", env });
+  assert.equal(r.status, 0, r.stderr);
+  const names = readFileSync(join(work, "out", "h1-base-1.jsonl"), "utf8").split("\n").filter((l) => l.startsWith("ENV:")).map((l) => l.slice(4).split("=")[0]);
+  for (const kept of ["PATH", "HOME", "ANTHROPIC_BASE_URL", "CLAUDE_SESSION_INGRESS_TOKEN_FILE", "HTTPS_PROXY", "H2H_EXTRA_FOR_TEST"]) assert.ok(names.includes(kept), `${kept} is kept`);
+  for (const dropped of ["CLAUDECODE", "CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD", "CLAUDE_ADDITIONAL_DIRECTORIES", "CLAUDE_CODE_REMOTE", "CLAUDE_EFFORT", "MAX_THINKING_TOKENS", "GH_TOKEN", "H2H_ENV_KEEP", "H2H_DIR_BASE", "H2H_GUARD_SETTINGS"]) assert.ok(!names.includes(dropped), `${dropped} is dropped`);
+  assert.ok(!names.some((n) => n.startsWith("CLAUDE_CODE_")), "no CLAUDE_CODE_* variable reaches an arm");
 });
 
 test("run-one.sh: hooks reach claude only through --settings <file>", () => {
@@ -917,11 +1030,11 @@ test("run-one.sh: hooks reach claude only through --settings <file>", () => {
   assert.equal(argv[argv.indexOf("--settings") + 1], settings);
 });
 
-test("config-guard hashes only hooks and mcpServers, prints no content, and trips on a change", () => {
+test("config-guard hashes only hooks, mcpServers and the launcher hooks, prints no content, and trips on a change", () => {
   const work = tmp("guard");
   const env = runEnv(work);
   const printed = spawnSync(process.execPath, [join(RUN, "config-guard.mjs"), "print"], { encoding: "utf8", env });
-  assert.match(printed.stdout.trim(), /^hooks=[0-9a-f]{16} mcpServers=[0-9a-f]{16}$/);
+  assert.match(printed.stdout.trim(), /^hooks=[0-9a-f]{16} mcpServers=[0-9a-f]{16} launcherHooks=[0-9a-f]{16}$/);
   const state = join(work, "state.json");
   assert.equal(spawnSync(process.execPath, [join(RUN, "config-guard.mjs"), "record", state], { encoding: "utf8", env }).status, 0);
   const check = () => spawnSync(process.execPath, [join(RUN, "config-guard.mjs"), "check", state], { encoding: "utf8", env });
@@ -944,6 +1057,17 @@ test("config-guard hashes only hooks and mcpServers, prints no content, and trip
   const mcp = check();
   assert.equal(mcp.status, 3);
   assert.match(mcp.stderr, /mcpServers in the real Claude config changed/);
+
+  writeFileSync(env.H2H_GUARD_CLAUDE_JSON, JSON.stringify({ mcpServers: { s: 1 } }));
+  writeFileSync(env.H2H_GUARD_LAUNCHER_SETTINGS, JSON.stringify({ hooks: { Stop: [] }, permissions: { allow: ["x"] } }));
+  assert.equal(check().status, 0, "keys of the launcher settings other than hooks are ignored");
+  writeFileSync(env.H2H_GUARD_LAUNCHER_SETTINGS, JSON.stringify({ hooks: { Stop: [{ matcher: "" }] } }));
+  const launcher = check();
+  assert.equal(launcher.status, 3);
+  assert.match(launcher.stderr, /launcherHooks in the real Claude config changed/);
+  assert.doesNotMatch(launcher.stdout + launcher.stderr, /matcher|Stop/, "no launcher content is printed");
+  const missing = spawnSync(process.execPath, [join(RUN, "config-guard.mjs"), "print"], { encoding: "utf8", env: { ...env, H2H_GUARD_LAUNCHER_SETTINGS: join(work, "none.json") } });
+  assert.match(missing.stdout, /launcherHooks=absent$/m, "a missing launcher file (a desktop machine) hashes as absent");
 });
 
 test("run-all.sh: --tasks and --iterations run a subset, 8 arms per cell, and a finished cell is skipped unless --force", () => {
@@ -1185,7 +1309,7 @@ test("rerun.sh --dry-run prints every command, runs none, and creates nothing", 
   assert.equal(r.stdout.includes("ARG="), false, "claude was not called");
 });
 
-test("grade-run.sh feeds each grading file to claude on stdin with the model, under sandbox-exec and with no file names", () => {
+test("grade-run.sh feeds each grading file to claude on stdin with the model, under the platform's sandbox and with no file names", () => {
   const work = tmp("graderun");
   const out = join(work, "out");
   mkdirSync(join(out, "grading"), { recursive: true });
@@ -1197,7 +1321,7 @@ test("grade-run.sh feeds each grading file to claude on stdin with the model, un
   mkdirSync(fakeBin);
   writeFileSync(join(fakeBin, "claude"), '#!/usr/bin/env bash\nprintf "ARGS=%s\\n" "$*"\nprintf "HOME=%s\\n" "$HOME"\nprintf "STDIN=%s\\n" "$(cat)"\n');
   chmodSync(join(fakeBin, "claude"), 0o755);
-  const env = { ...process.env, PATH: `${fakeSandboxExec(work)}${delimiter}${fakeBin}${delimiter}${process.env.PATH}`, H2H_GUARD_SETTINGS: join(work, "none1.json"), H2H_GUARD_CLAUDE_JSON: join(work, "none2.json") };
+  const env = { ...process.env, PATH: `${fakeSandboxExec(work)}${delimiter}${fakeBin}${delimiter}${process.env.PATH}`, H2H_GUARD_SETTINGS: join(work, "none1.json"), H2H_GUARD_CLAUDE_JSON: join(work, "none2.json"), H2H_GUARD_LAUNCHER_SETTINGS: join(work, "none3.json") };
   const r = spawnSync("bash", [join(RUN, "grade-run.sh"), out], { encoding: "utf8", env });
   assert.equal(r.status, 0, r.stderr);
   const one = readFileSync(join(out, "grading", "g-000001.out"), "utf8");
@@ -1206,7 +1330,7 @@ test("grade-run.sh feeds each grading file to claude on stdin with the model, un
   
   assert.doesNotMatch(one, /g-000001/, "the file name never reaches the model");
   assert.match(readFileSync(join(out, "grading", "g-000002.out"), "utf8"), /STDIN=GRADE ME TWO/);
-  assert.match(readFileSync(join(work, "sandbox.log"), "utf8"), /SANDBOX_ARGS=-f \S*sandbox-grader\.sb claude -p/);
+  assert.match(readFileSync(join(work, "sandbox.log"), "utf8"), wrapped(out, "grader", join(realpathSync(out), "grader-work", "cwd")));
   assert.equal(readFileSync(join(out, "grading", "g-000003.out"), "utf8"), '{"pass":false,"reason":"kept"}\n', "an answered file is skipped");
 });
 
@@ -1654,7 +1778,6 @@ test("run-one.sh uses an existing export when H2H_PLUGINS_EXPORTED=1 and makes i
   assert.equal(existsSync(join(out, "plugin-base", "sentinel.txt")), false, "a standalone run exports afresh");
 });
 
-const HAS_SANDBOX = spawnSync("which", ["sandbox-exec"]).status === 0;
 function renderProbe(extraEnv = {}) {
   const work = tmp("sbprobe");
   const out = join(work, "out");
@@ -1667,17 +1790,57 @@ function renderProbe(extraEnv = {}) {
   return { r, work, out, fakeHome, profile: join(out, "sandbox-probe.sb") };
 }
 
-test("the real sandbox-exec hides bench, .superpowers and test from reads, keeps dist and the bin-ours shims readable", { skip: !HAS_SANDBOX }, () => {
+test("the real bwrap: a denied config path and the code are not writable, the run directory and claude's state are, bench and test are hidden, bin-ours is readable", { skip: BACKEND !== "bwrap" || !HAS_SANDBOX }, () => {
+  const work = realpathSync(tmp("realbwrap"));
+  const fakeHome = join(work, "fakehome");
+  for (const d of [".claude/skills", ".claude/projects", ".config"]) mkdirSync(join(fakeHome, d), { recursive: true });
+  writeFileSync(join(fakeHome, ".claude", "settings.json"), '{"hooks":{}}');
+  writeFileSync(join(fakeHome, ".claude.json"), "{}");
+  const code = fakeCodeDir(work, "copyB");
+  writeFileSync(join(code, "bench", "head-to-head", "tasks.json"), "answer key\n");
+  const codeBin = join(code, "bench", "head-to-head", "run", "bin-ours");
+  const out = join(work, "out");
+  for (const d of ["run-a", "run-b", "plugin-ours"]) mkdirSync(join(out, d), { recursive: true });
+  const r = spawnSync("bash", ["-c", `. "${RUN}/sandbox.sh"; render_sandbox "${out}" probe "${out}/run-a"`], { encoding: "utf8", env: { ...process.env, HOME: fakeHome, H2H_CODE_DIR: code } });
+  assert.equal(r.status, 0, r.stderr);
+  const sb = sandboxed(join(out, "sandbox-probe.sb"));
+  const repo = realpathSync(ROOT);
+  assert.notEqual(sb(`echo x > "${fakeHome}/.claude/settings.json"`).status, 0, "settings.json is not writable");
+  assert.equal(readFileSync(join(fakeHome, ".claude", "settings.json"), "utf8"), '{"hooks":{}}');
+  assert.notEqual(sb(`touch "${fakeHome}/.claude/skills/x"`).status, 0, "~/.claude/skills is not writable");
+  assert.notEqual(sb(`touch "${fakeHome}/.claude/settings.local.json"`).status, 0, "a missing config file cannot be created");
+  assert.notEqual(sb(`touch "${fakeHome}/.npmrc"`).status, 0, "nor a file in the home");
+  assert.notEqual(sb(`touch "${repo}/package.json"`).status, 0, "the repository is not writable");
+  assert.notEqual(sb(`touch "${code}/dist/x"`).status, 0, "the code copy is not writable");
+  assert.notEqual(sb(`touch "${out}/run-b/x"`).status, 0, "another run's directory is not writable");
+  assert.equal(sb(`touch "${out}/run-a/x" && mkdir "${out}/run-a/d"`).status, 0, "the run directory is writable");
+  assert.equal(sb(`touch "${fakeHome}/.claude/projects/x" && echo '{}' > "${fakeHome}/.claude.json"`).status, 0, "claude's own state stays writable");
+  for (const hidden of [`${repo}/bench/head-to-head/tasks.json`, `${code}/bench/head-to-head/tasks.json`]) assert.ok(existsSync(hidden), `precondition: ${hidden} exists`);
+  for (const hidden of [`${repo}/bench/head-to-head/tasks.json`, `${repo}/test/head-to-head-run.test.mjs`, `${code}/bench/head-to-head/tasks.json`]) {
+    assert.notEqual(sb(`cat "${hidden}"`).status, 0, `${hidden} is not readable`);
+  }
+  assert.equal(sb(`ls "${repo}/test"`).stdout, "", "test/ is an empty directory inside");
+  assert.equal(sb(`cat "${repo}/bench/head-to-head/run/bin-ours/npx" > /dev/null && cat "${codeBin}/npx" > /dev/null`).status, 0, "bin-ours of the repository and of the copy are readable");
+  assert.equal(sb(`cat "${repo}/package.json" > /dev/null`).status, 0, "other repository files are readable");
+});
+
+test("the real sandbox (sandbox-exec or bwrap) hides bench, .superpowers and test from reads, keeps dist and the bin-ours shims readable", { skip: !HAS_SANDBOX }, () => {
   const { r, profile } = renderProbe({ H2H_CODE_DIR: ROOT });
   assert.equal(r.status, 0, r.stderr);
   const repo = realpathSync(ROOT);
-  const sb = (script) => spawnSync("sandbox-exec", ["-f", profile, "sh", "-c", script], { encoding: "utf8", timeout: 30000 });
+  const sb = sandboxed(profile);
   for (const hidden of ["bench/head-to-head/tasks.json", "bench/head-to-head/golden/h1/note.md", "bench/head-to-head/checker-data/h6-clean-guide.md", "test/head-to-head.test.mjs"]) {
     const res = sb(`cat "${repo}/${hidden}" > /dev/null`);
     assert.notEqual(res.status, 0, `${hidden} must not be readable`);
   }
-  assert.notEqual(sb(`ls "${repo}/bench"`).status, 0, "bench cannot be listed");
-  assert.notEqual(sb(`ls "${repo}/.superpowers"`).status, 0, ".superpowers cannot be listed");
+  if (BACKEND === "sandbox-exec") assert.notEqual(sb(`ls "${repo}/bench"`).status, 0, "bench cannot be listed");
+  else {
+    // bwrap puts an empty tmpfs over bench/; only the path down to the re-exposed bin-ours shows.
+    const listing = sb(`cd "${repo}/bench" && find . -path ./head-to-head/run/bin-ours -prune -print -o -print`);
+    assert.deepEqual(listing.stdout.trim().split("\n").sort(), [".", "./head-to-head", "./head-to-head/run", "./head-to-head/run/bin-ours"], listing.stderr);
+  }
+  if (BACKEND === "sandbox-exec") assert.notEqual(sb(`ls "${repo}/.superpowers"`).status, 0, ".superpowers cannot be listed");
+  else assert.equal(sb(`ls -A "${repo}/.superpowers" 2>/dev/null`).stdout, "", ".superpowers is missing or an empty tmpfs");
   assert.equal(sb(`cat "${repo}/dist/src/cli.js" > /dev/null`).status, 0, "dist stays readable");
   assert.equal(sb(`cat "${repo}/package.json" > /dev/null`).status, 0, "other repository files stay readable");
   assert.equal(sb(`cat "${repo}/bench/head-to-head/run/bin-ours/npx" > /dev/null`).status, 0, "the shim directory is readable");
@@ -1686,7 +1849,7 @@ test("the real sandbox-exec hides bench, .superpowers and test from reads, keeps
   assert.match(shim.stdout.trim(), /^\d+\.\d+\.\d+/);
 });
 
-test("sandbox profile: no machine-specific file is named, and H2H_SANDBOX_EXTRA_DENY adds write denies (real sandbox-exec)", () => {
+test("sandbox profile: no machine-specific file is named, and H2H_SANDBOX_EXTRA_DENY adds write denies (real sandbox-exec or bwrap)", () => {
   const work = tmp("extradeny");
   const a = join(realpathSync(work), "secret-a");
   const b = join(realpathSync(work), "secret-b");
@@ -1698,7 +1861,7 @@ test("sandbox profile: no machine-specific file is named, and H2H_SANDBOX_EXTRA_
   assert.ok(text.includes(`(subpath "${a}")`) && text.includes(`(subpath "${b}")`));
   assert.doesNotMatch(text, /\.vaara|RTK|@EXTRA_DENY@/);
   if (HAS_SANDBOX) {
-    const sb = (script) => spawnSync("sandbox-exec", ["-f", profile, "sh", "-c", script], { encoding: "utf8" });
+    const sb = sandboxed(profile);
     assert.notEqual(sb(`touch "${a}/x"`).status, 0, "extra path a is write-denied");
     assert.notEqual(sb(`touch "${b}/x"`).status, 0, "extra path b is write-denied");
     assert.equal(sb(`touch "${tmp("ok")}/x"`).status, 0, "other temp paths stay writable");
@@ -1712,13 +1875,13 @@ test("sandbox profile: no machine-specific file is named, and H2H_SANDBOX_EXTRA_
   }
 });
 
-test("the real sandbox-exec hides the git history, so git show of a bench file fails inside and works outside", { skip: !HAS_SANDBOX }, () => {
+test("the real sandbox (sandbox-exec or bwrap) hides the git history, so git show of a bench file fails inside and works outside", { skip: !HAS_SANDBOX }, () => {
   const { r, profile } = renderProbe();
   assert.equal(r.status, 0, r.stderr);
   const repo = realpathSync(ROOT);
   const outside = spawnSync("git", ["-C", repo, "show", "HEAD:bench/head-to-head/tasks.json"], { encoding: "utf8" });
   assert.equal(outside.status, 0, "precondition: git show works outside the sandbox");
-  const sb = (script) => spawnSync("sandbox-exec", ["-f", profile, "sh", "-c", script], { encoding: "utf8", timeout: 30000 });
+  const sb = sandboxed(profile);
   const show = sb(`git -C "${repo}" show HEAD:bench/head-to-head/tasks.json`);
   assert.notEqual(show.status, 0, "git show of an answer-key file fails inside the sandbox");
   assert.doesNotMatch(show.stdout, /"tasks"/);
@@ -1728,10 +1891,10 @@ test("the real sandbox-exec hides the git history, so git show of a bench file f
   assert.equal(sb(`cat "${repo}/bench/head-to-head/run/bin-ours/npm" > /dev/null`).status, 0, "bin-ours stays readable");
 });
 
-test("the real sandbox-exec lets a run write only its own directory: not siblings, plugin exports, the tarball or the output root", { skip: !HAS_SANDBOX }, () => {
+test("the real sandbox (sandbox-exec or bwrap) lets a run write only its own directory: not siblings, plugin exports, the tarball or the output root", { skip: !HAS_SANDBOX }, () => {
   const { r, out, profile } = renderProbe();
   assert.equal(r.status, 0, r.stderr);
-  const sb = (script) => spawnSync("sandbox-exec", ["-f", profile, "sh", "-c", script], { encoding: "utf8", timeout: 30000 });
+  const sb = sandboxed(profile);
   assert.equal(sb(`touch "${out}/run-a/mine.txt"`).status, 0, "its own run directory is writable");
   assert.equal(sb(`mkdir "${out}/run-a/sub" && touch "${out}/run-a/sub/x"`).status, 0);
   assert.notEqual(sb(`touch "${out}/run-b/theirs-new.txt"`).status, 0, "a sibling run directory is not writable");
@@ -1744,7 +1907,7 @@ test("the real sandbox-exec lets a run write only its own directory: not sibling
   // Without a run directory the whole output directory is the run directory, but plugin-* and the tarball stay protected.
   const whole = spawnSync("bash", ["-c", `. "${RUN}/sandbox.sh"; render_sandbox "${out}" whole`], { encoding: "utf8", env: { ...process.env, HOME: realpathSync(dirname(out)) } });
   assert.equal(whole.status, 0, whole.stderr);
-  const sbw = (script) => spawnSync("sandbox-exec", ["-f", join(out, "sandbox-whole.sb"), "sh", "-c", script], { encoding: "utf8", timeout: 30000 });
+  const sbw = sandboxed(join(out, "sandbox-whole.sb"));
   assert.equal(sbw(`touch "${out}/anything.txt"`).status, 0);
   assert.notEqual(sbw(`touch "${out}/plugin-ours/x"`).status, 0, "plugin-* is denied even when the run directory is the output root");
   assert.notEqual(sbw(`touch "${out}/ours-tarball/x"`).status, 0, "the tarball directory too");

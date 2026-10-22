@@ -22,9 +22,17 @@ const rmTree = (dir) => {
   rmSync(dir, { recursive: true, force: true });
 };
 const sha256 = (b) => createHash("sha256").update(b).digest("hex");
+// The write sandbox of the platform (sandbox.sh): sandbox-exec on macOS, bubblewrap on Linux. Where it is missing
+// or cannot run, the scripts refuse to run, so these tests (none is about the sandbox but the last two) run with
+// H2H_ALLOW_UNSANDBOXED=1 there; never on macOS, where sandbox-exec is always present.
+const BACKEND = process.platform === "darwin" ? "sandbox-exec" : "bwrap";
+const HAS_SANDBOX = BACKEND === "bwrap"
+  ? spawnSync("bwrap", ["--ro-bind", "/", "/", "--dev", "/dev", "--proc", "/proc", "true"]).status === 0
+  : spawnSync("which", ["sandbox-exec"]).status === 0;
 const cleanEnv = () => {
   const env = { ...process.env };
   for (const k of Object.keys(env)) if (k.startsWith("GIT_") || k.startsWith("H2H_")) delete env[k];
+  if (!HAS_SANDBOX) env.H2H_ALLOW_UNSANDBOXED = "1";
   return env;
 };
 const git = (cwd, ...args) => {
@@ -329,7 +337,7 @@ const guardFiles = (work) => {
   const claudeJson = join(work, "claude.json");
   writeFileSync(settings, JSON.stringify({ hooks: { a: 1 } }));
   writeFileSync(claudeJson, JSON.stringify({ mcpServers: { s: 1 } }));
-  return { H2H_GUARD_SETTINGS: settings, H2H_GUARD_CLAUDE_JSON: claudeJson };
+  return { H2H_GUARD_SETTINGS: settings, H2H_GUARD_CLAUDE_JSON: claudeJson, H2H_GUARD_LAUNCHER_SETTINGS: join(work, "launcher-settings.json") };
 };
 const rerun = (repo, work, args) =>
   spawnSync("bash", [join(BENCH, "rerun.sh"), ...args], { encoding: "utf8", env: { ...cleanEnv(), H2H_REPO: repo.dir, H2H_TSC: repo.tsc, H2H_COMPETITORS: join(work, "competitors"), ...guardFiles(work) } });
@@ -678,7 +686,6 @@ test("an ours cell without a record cannot be tied to the code and is refused li
 });
 
 // The sandbox profile covers the working repository and the code copy.
-const HAS_SANDBOX = spawnSync("which", ["sandbox-exec"]).status === 0;
 function render(codeDir) {
   const work = tmp("sb");
   const out = join(work, "out");
@@ -706,11 +713,13 @@ test("the sandbox profile denies writes to, and reads of the answer key in, the 
   assert.doesNotMatch(without, /@CODE@/, "without a copy the placeholder falls back to the repository");
 });
 
-test("the real sandbox-exec keeps the copy's dist and shims readable, hides its bench and test, and makes it unwritable", { skip: !HAS_SANDBOX }, () => {
+test("the real sandbox (sandbox-exec or bwrap) keeps the copy's dist and shims readable, hides its bench and test, and makes it unwritable", { skip: !HAS_SANDBOX }, () => {
   const parent = tmp("sb-real");
   const code = fakeCode(parent, "copyR");
   const profile = render(code);
-  const sb = (script) => spawnSync("sandbox-exec", ["-f", profile, "sh", "-c", script], { encoding: "utf8", timeout: 30000 });
+  const sb = (script) => (BACKEND === "bwrap"
+    ? spawnSync("bwrap", [...readFileSync(profile.replace(/\.sb$/, ".bwrap"), "utf8").split("\0").slice(0, -1), "sh", "-c", script], { encoding: "utf8", timeout: 30000 })
+    : spawnSync("sandbox-exec", ["-f", profile, "sh", "-c", script], { encoding: "utf8", timeout: 30000 }));
   assert.equal(sb(`cat "${code}/dist/src/cli.js" > /dev/null`).status, 0, "dist readable");
   assert.equal(sb(`cat "${code}/package.json" > /dev/null`).status, 0, "package.json readable");
   assert.equal(sb(`cat "${code}/bench/head-to-head/run/bin-ours/npx" > /dev/null`).status, 0, "shims readable");

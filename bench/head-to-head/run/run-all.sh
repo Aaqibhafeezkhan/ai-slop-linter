@@ -25,7 +25,8 @@
 # <task>-<arm>-<i>.jsonl is valid (claude exited 0 and the last event is a successful result); a failed run is
 # kept as <task>-<arm>-<i>.failed.jsonl, listed at the end, and makes the exit status 1. The output directory
 # must be outside the repository. Every run uses a
-# sandbox-exec write profile and --setting-sources project (see run-one.sh).
+# write sandbox (sandbox-exec on macOS, bwrap on Linux), a scrubbed environment and --setting-sources project
+# (see run-one.sh and sandbox.sh).
 set -u
 
 HERE="$(cd "$(dirname "$0")" && pwd)"

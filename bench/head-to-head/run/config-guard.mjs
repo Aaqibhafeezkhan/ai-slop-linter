@@ -1,13 +1,16 @@
 #!/usr/bin/env node
 // usage: node config-guard.mjs [print | record <file> | check <file>]
-// Hashes only the `hooks` object of the Claude settings file and the `mcpServers` object of the
-// Claude JSON file and prints the two short hashes. It never prints any content of either file.
-//   print          print "hooks=<hash> mcpServers=<hash>"
+// Hashes only the `hooks` object of the Claude settings file, the `mcpServers` object of the Claude JSON file
+// and the `hooks` object of the launcher settings file, and prints the three short hashes. It never prints any
+// content of the files.
+//   print          print "hooks=<hash> mcpServers=<hash> launcherHooks=<hash>"
 //   record <file>  write the current hashes to <file> as the start state
 //   check <file>   compare the current hashes with the start state in <file>; exit 3 with a loud
 //                  message on stderr when either changed (exit 2 when <file> is missing)
-// Paths: ~/.claude/settings.json and ~/.claude.json, overridable with H2H_GUARD_SETTINGS and
-// H2H_GUARD_CLAUDE_JSON (tests use temp files). A missing file hashes as "absent".
+// Paths: ~/.claude/settings.json, ~/.claude.json and ~/.claude/launcher-settings.json, overridable with
+// H2H_GUARD_SETTINGS, H2H_GUARD_CLAUDE_JSON and H2H_GUARD_LAUNCHER_SETTINGS (tests use temp files). A missing
+// file hashes as "absent". The launcher settings file is where a Claude Code cloud container keeps the
+// user-level hooks of its sessions (there is no ~/.claude/settings.json there); on a desktop it is absent.
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
@@ -30,16 +33,20 @@ function readHash(path, key) {
 export function currentState() {
   const settings = process.env.H2H_GUARD_SETTINGS || join(homedir(), ".claude", "settings.json");
   const claudeJson = process.env.H2H_GUARD_CLAUDE_JSON || join(homedir(), ".claude.json");
-  return { hooks: readHash(settings, "hooks"), mcpServers: readHash(claudeJson, "mcpServers") };
+  const launcher = process.env.H2H_GUARD_LAUNCHER_SETTINGS || join(homedir(), ".claude", "launcher-settings.json");
+  return { hooks: readHash(settings, "hooks"), mcpServers: readHash(claudeJson, "mcpServers"), launcherHooks: readHash(launcher, "hooks") };
 }
+
+const KEYS = ["hooks", "mcpServers", "launcherHooks"];
+const show = (state) => KEYS.map((k) => `${k}=${state[k]}`).join(" ");
 
 const [mode = "print", file] = process.argv.slice(2);
 const now = currentState();
 if (mode === "print") {
-  console.log(`hooks=${now.hooks} mcpServers=${now.mcpServers}`);
+  console.log(show(now));
 } else if (mode === "record" && file) {
   writeFileSync(file, JSON.stringify(now) + "\n");
-  console.log(`config guard recorded: hooks=${now.hooks} mcpServers=${now.mcpServers}`);
+  console.log(`config guard recorded: ${show(now)}`);
 } else if (mode === "check" && file) {
   if (!existsSync(file)) {
     console.error(`config guard: no start state at ${file}`);
@@ -52,12 +59,12 @@ if (mode === "print") {
     console.error("config guard: the recorded start state could not be read. Aborting.");
     process.exit(3);
   }
-  const changed = ["hooks", "mcpServers"].filter((k) => start[k] !== now[k]);
+  const changed = KEYS.filter((k) => start[k] !== now[k]);
   if (changed.length) {
     console.error("!!! CONFIG GUARD TRIPPED !!!");
     console.error(`!!! ${changed.join(" and ")} in the real Claude config changed during the run.`);
-    console.error(`!!! start: hooks=${start.hooks} mcpServers=${start.mcpServers}`);
-    console.error(`!!! now:   hooks=${now.hooks} mcpServers=${now.mcpServers}`);
+    console.error(`!!! start: ${show(start)}`);
+    console.error(`!!! now:   ${show(now)}`);
     console.error("!!! Aborting. Find out what touched the config before running anything else.");
     process.exit(3);
   }

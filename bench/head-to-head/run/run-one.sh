@@ -15,8 +15,10 @@
 #
 # Isolation: claude cannot log in under a fresh HOME, so it runs with the real HOME but with
 # --setting-sources project (no user-level skills, hooks or settings load), wrapped in
-# `sandbox-exec -f $H2H_OUT/sandbox-<run>.sb` (rendered from sandbox.sb.tmpl; denies writes to the
-# config locations and the repository). Without sandbox-exec the script exits 3 unless
+# the write sandbox of sandbox.sh (macOS: `sandbox-exec -f $H2H_OUT/sandbox-<run>.sb`, rendered from
+# sandbox.sb.tmpl; Linux: bwrap with the same policy, $H2H_OUT/sandbox-<run>.bwrap; both deny writes to the
+# config locations and the repository), with the environment scrubbed to what PATH, the login and the network
+# need (scrub_env in sandbox.sh). Without the sandbox tool the script exits 3 unless
 # H2H_ALLOW_UNSANDBOXED=1. run-all.sh adds the config guard around every cell. Hooks reach claude only
 # through --settings <json file>: set H2H_SETTINGS_<ARM> (arm name upper-cased, "-" as "_") to such a
 # file. Nothing here runs a competitor's installer or init command.
@@ -130,7 +132,8 @@ fi
 # The transcript is written to <cell>.jsonl.tmp and becomes <cell>.jsonl only when claude exits 0 and the
 # last stream event is a result with is_error false. Anything else (a failure, a rate limit, a kill) is
 # kept as <cell>.failed.jsonl, so a resumed round re-runs it. claude reads stdin from /dev/null.
-(cd "$RUN_DIR" && "${SANDBOX_CMD[@]+"${SANDBOX_CMD[@]}"}" claude -p "$PROMPT" --setting-sources project --plugin-dir "$ARM_DIR" "${EXTRA[@]+"${EXTRA[@]}"}" --model "$MODEL" --dangerously-skip-permissions --strict-mcp-config --output-format stream-json --verbose < /dev/null > "$RUN_DIR.jsonl.tmp" 2>&1)
+scrub_env
+(cd "$RUN_DIR" && "${ENV_CMD[@]}" "${SANDBOX_CMD[@]+"${SANDBOX_CMD[@]}"}" claude -p "$PROMPT" --setting-sources project --plugin-dir "$ARM_DIR" "${EXTRA[@]+"${EXTRA[@]}"}" --model "$MODEL" --dangerously-skip-permissions --strict-mcp-config --output-format stream-json --verbose < /dev/null > "$RUN_DIR.jsonl.tmp" 2>&1)
 STATUS=$?
 if [ "$STATUS" -eq 0 ] && node "$HERE/valid-transcript.mjs" "$RUN_DIR.jsonl.tmp"; then
   node "$HERE/cell-meta.mjs" write "$H2H_OUT" "$TASK" "$ARM" "$ITER" || { echo "run-one: cannot write the meta of $TASK-$ARM-$ITER" >&2; mv "$RUN_DIR.jsonl.tmp" "$RUN_DIR.failed.jsonl"; exit 1; }
