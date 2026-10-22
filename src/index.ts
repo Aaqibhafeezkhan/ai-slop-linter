@@ -6,7 +6,7 @@ import { aiVocabulary, sales, filler } from "./rules/vocabulary.js";
 import { chatbot, announcing, closer, challenges, vagueSource, cutoff } from "./rules/residue.js";
 import { referenceMarkup } from "./rules/reference-markup.js";
 import { frRules } from "./rules/fr.js";
-import { boldLabel, titleCase, emoji, curlyQuotes, hyphenDensity } from "./rules/formatting.js";
+import { boldLabel, titleCase, emoji, curlyQuotes, hyphenDensity, invisibleCharacter } from "./rules/formatting.js";
 import { PARAGRAPH_DETECT, detectLanguage, frontMatterLanguage, splitParagraphs } from "./lang.js";
 
 export type { Doc, Finding, Fix, Rule, Severity } from "./doc.js";
@@ -37,6 +37,7 @@ export const rules: Rule[] = [
   challenges,
   hyphenDensity,
   referenceMarkup,
+  invisibleCharacter,
 ];
 
 /**

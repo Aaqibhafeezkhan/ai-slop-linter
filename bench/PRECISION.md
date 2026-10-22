@@ -58,6 +58,7 @@ output looks like, not what every model produces. A corpus this size cannot supp
 | `challenges-section` | info | 0 | 0 | no data |
 | `hyphen-density` | info | 0 | 0 | no data |
 | `reference-markup` | error | 0 | 0 | no data |
+| `invisible-character` | warning | 0 | 0 | no data |
 
 `clean` means the rule never fired on the human corpus. `no data` means it fired on neither,
 so this corpus says nothing about it. The machine corpus was typed as plain text, so the

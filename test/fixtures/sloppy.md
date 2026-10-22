@@ -30,3 +30,5 @@ this — is code, not prose; let's dive in; I hope this helps
 Inline `code — with a dash` is fine, and so is https://example.com/a—b in a link.
 
 The copied answer left :contentReference[oaicite:0]{index=0} in this sentence.
+
+The pasted answer hid a zero-width space​ inside this sentence.

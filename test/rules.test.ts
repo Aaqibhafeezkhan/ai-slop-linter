@@ -67,6 +67,53 @@ test("reference markup: every alternative is covered individually and masked tok
 });
 
 
+// Round 3 plan item 17: invisible characters, an idea from everwrite's scripts/tells.py (MIT); our code.
+test("invisible-character: each invisible character in Latin-script prose is one finding, named, and --fix deletes it", () => {
+  const found = (text: string) => lintText("invisible.md", text).findings.filter((f) => f.rule === "invisible-character");
+  for (const [ch, name] of [
+    ["\u200b", "U+200B ZERO WIDTH SPACE"],
+    ["\u200c", "U+200C ZERO WIDTH NON-JOINER"],
+    ["\u200d", "U+200D ZERO WIDTH JOINER"],
+    ["\u2060", "U+2060 WORD JOINER"],
+    ["\ufeff", "U+FEFF ZERO WIDTH NO-BREAK SPACE"],
+    ["\u200e", "U+200E LEFT-TO-RIGHT MARK"],
+    ["\u202e", "U+202E BIDIRECTIONAL CONTROL"],
+    ["\u2066", "U+2066 BIDIRECTIONAL CONTROL"],
+    ["\u180e", "U+180E MONGOLIAN VOWEL SEPARATOR"],
+    ["\u2062", "U+2062 INVISIBLE OPERATOR"],
+    ["\u{e0041}", "U+E0041 TAG CHARACTER"],
+  ] as const) {
+    const f = found(`The cache${ch} is warm.`);
+    assert.equal(f.length, 1, name);
+    assert.equal(f[0]!.message, `${name}: invisible character; delete it`);
+    assert.equal(f[0]!.severity, "warning");
+    assert.equal(fixText("invisible.md", `The cache${ch} is warm.`).text, "The cache is warm.", name);
+  }
+  // Between two word characters the run is reported without a fix: deleting it would join two words.
+  assert.equal(found("zero\u200bwidth")[0]!.fix, undefined);
+  // A run is one finding, each name once.
+  assert.equal(found("a\u200b\u200b\u200dz").length, 1);
+  assert.equal(found("a\u200b\u200b\u200dz")[0]!.message, "U+200B ZERO WIDTH SPACE, U+200D ZERO WIDTH JOINER: invisible character; delete it");
+});
+
+test("invisible-character: joined emoji, flags, other scripts, a leading byte order mark, right-to-left lines and code are left alone", () => {
+  const found = (text: string) => lintText("invisible.md", text).findings.filter((f) => f.rule === "invisible-character");
+  for (const text of [
+    "The family \u{1F468}\u200d\u{1F469}\u200d\u{1F467} emoji.",
+    "A rainbow flag \u{1F3F3}\uFE0F\u200d\u{1F308} here.",
+    "The flag \u{1F3F4}\u{E0067}\u{E0062}\u{E0073}\u{E0063}\u{E0074}\u{E007F} of Scotland.",
+    "Thai \u0E20\u0E32\u0E29\u0E32\u200b\u0E44\u0E17\u0E22 splits words this way.",
+    "Persian \u0645\u06CC\u200c\u062E\u0648\u0627\u0647\u0645 uses a non-joiner.",
+    "Hindi \u0915\u094D\u200d\u0937 uses a joiner.",
+    "\ufeffThe file starts with a byte order mark.",
+    "Hebrew \u05E2\u05D1\u05E8\u05D9\u05EA \u200f mixed with English.",
+    "Inline `a\u200bb` code is masked.",
+    "A soft\u00adhyphen is not reported.",
+  ]) assert.deepEqual(found(text), [], JSON.stringify(text));
+  // A direction mark on a line without right-to-left text is reported.
+  assert.equal(found("English only \u200f here.").length, 1);
+});
+
 test("masking: patterns inside code blocks, inline code, URLs and front matter are not flagged", () => {
   const r = lintText("s.md", sloppy);
   const codeLines = new Set<number>();

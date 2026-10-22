@@ -2,10 +2,12 @@
  * What `--fix` is allowed to touch, checked over every committed corpus rather than over one
  * fixture. Issue #15.
  *
- * Three of the twenty rules produce a fix: `dash` (a character swap, or a dash dropped after
- * sentence-final punctuation), `curly-quotes` (a character swap) and `filler` (the only one
- * that deletes or substitutes words). So the surface these tests have to cover is small, and
- * the point of them is that it stays small.
+ * Four of the twenty-two rules produce a fix: `dash` (a character swap, or a dash dropped after
+ * sentence-final punctuation), `curly-quotes` (a character swap), `invisible-character` (deletes
+ * a run of characters that render as nothing, and only where the run touches a space, punctuation
+ * or a line end, so no two words are joined) and `filler` (the only one that deletes or
+ * substitutes words). So the surface these tests have to cover is small, and the point of them is
+ * that it stays small.
  *
  * The protected-field checks reuse `prepare(...).masked` from src/doc.ts instead of carrying
  * their own idea of where code lives. That is deliberate: a second list of exclusions would
@@ -26,7 +28,7 @@
  *   check that no word changes except the ones a reported `filler` finding could account for.
  * - **Not that the fixed text reads better.** Nothing here measures quality; see issue #16, which
  *   needs human readers and has none yet.
- * - **Not anything about a rule with no fix.** Seventeen rules report and never rewrite, so they
+ * - **Not anything about a rule with no fix.** Eighteen rules report and never rewrite, so they
  *   cannot be unsafe in this sense and are not exercised here.
  * - **Not coverage of text unlike these files.** Fourteen documents, all Markdown, almost all
  *   English. A protected construct that appears in none of them is untested.
@@ -225,14 +227,31 @@ test("every protected field survives a document whose only unprotected tell is o
   assert.deepEqual(changed, [before.indexOf("Prose here — the one real finding.")], "more than the prose line changed");
 });
 
-test("the fixable surface is three rules, and only one of them touches words", () => {
+test("the fixable surface is four rules, and only one of them touches words", () => {
   // Not a behaviour assertion so much as a tripwire. These tests are sized to `dash`,
-  // `curly-quotes` and `filler`; a fourth fixable rule, or a fix on a rule that rewrites words,
-  // needs its own protected-field and word-sequence reasoning rather than inheriting theirs.
+  // `curly-quotes`, `invisible-character` and `filler`; a fifth fixable rule, or a fix on a rule
+  // that rewrites words, needs its own protected-field and word-sequence reasoning rather than
+  // inheriting theirs.
   const seen = new Set<string>();
   for (const rel of DOCUMENTS) for (const f of fixable(lintText(rel, read(rel)).findings)) seen.add(f.rule);
   // Every fixable rule the corpora reach must be one this file reasoned about.
-  for (const id of seen) assert.ok(["dash", "curly-quotes", "filler"].includes(id), `${id} produces a fix and is not covered by test/fixer-safety.test.ts`);
-  // And the corpora do reach all three, so the tests above are not vacuous.
-  assert.deepEqual([...seen].sort(), ["curly-quotes", "dash", "filler"]);
+  for (const id of seen) assert.ok(["dash", "curly-quotes", "filler", "invisible-character"].includes(id), `${id} produces a fix and is not covered by test/fixer-safety.test.ts`);
+  // And the corpora do reach all four, so the tests above are not vacuous.
+  assert.deepEqual([...seen].sort(), ["curly-quotes", "dash", "filler", "invisible-character"]);
+});
+
+test("an invisible-character fix deletes only invisible characters, and never between two word characters", () => {
+  const INVISIBLE = /^[\u180e\u200b-\u200f\u202a-\u202e\u2060-\u2064\u2066-\u2069\ufeff\u{e0000}-\u{e007f}]+$/u;
+  const sample = "A space\u200b here, a joiner\u200d. And one inside a wo\u200brd.\n";
+  for (const rel of [...DOCUMENTS, "sample.md"]) {
+    const text = rel === "sample.md" ? sample : read(rel);
+    for (const f of lintText(rel, text).findings.filter((x) => x.rule === "invisible-character" && x.fix)) {
+      assert.equal(f.fix!.replacement, "", `${rel}: ${JSON.stringify(f)}`);
+      assert.match(text.slice(f.fix!.start, f.fix!.end), INVISIBLE, `${rel}: the span holds a visible character`);
+      assert.ok(!(/[\p{L}\p{N}\p{M}]/u.test(text[f.fix!.start - 1] ?? "") && /[\p{L}\p{N}\p{M}]/u.test(text[f.fix!.end] ?? "")), `${rel}: a fix between two word characters`);
+    }
+  }
+  const findings = lintText("sample.md", sample).findings.filter((x) => x.rule === "invisible-character");
+  assert.deepEqual(findings.map((f) => !!f.fix), [true, true, false]);
+  assert.equal(fixText("sample.md", sample).text, "A space here, a joiner. And one inside a wo\u200brd.\n");
 });

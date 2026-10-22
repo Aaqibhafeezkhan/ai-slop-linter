@@ -144,11 +144,11 @@ Some readers have learned these tells: the em dash, `not just X but Y`, `I hope 
 
 ## What it looks like
 
-Real output on [`test/fixtures/sloppy.md`](test/fixtures/sloppy.md), a 271-word file
-written to trip every rule once (first eleven of fifty-one findings):
+Real output on [`test/fixtures/sloppy.md`](test/fixtures/sloppy.md), a 282-word file
+written to trip every rule once (first eleven of fifty-two findings):
 
 ```
-test/fixtures/sloppy.md  F (score 196.7, 271 words, 51 findings)
+test/fixtures/sloppy.md  F (score 192.6, 282 words, 52 findings)
      5:1   info    title-case-heading   Title Case heading; sentence case reads as written by a person
      7:1   warning announcing           "Let's dive into": make the point instead of announcing it
      7:26  error   dash                 em dash
@@ -172,9 +172,9 @@ column means: [docs/SCORING.md](docs/SCORING.md).
 
 ## The rules
 
-Twenty-one rules. Most come from the Wikipedia page
+Twenty-two rules. Most come from the Wikipedia page
 [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing),
-written by editors who review thousands of machine-written edits; the two marked "house"
+written by editors who review thousands of machine-written edits; the three marked "house"
 are ours. Run `npx ai-slop-linter --rules` for the same list from the binary, and
 `npx ai-slop-linter --explain <rule>` for one rule in full: why the pattern reads as
 machine-made, a line that trips it, the same line rewritten, and the case where you should
@@ -227,6 +227,7 @@ actually trips the rule it illustrates.
 | `challenges-section` | info | a `Challenges and future outlook` section | |
 | `hyphen-density` | info | more than three hyphenated compounds per hundred words | |
 | `reference-markup` | error | internal citation and rendering residue such as `contentReference`, `oaicite`, `turn0search0`, `grok_card`, `attached_file` and related markers | |
+| `invisible-character` | warning (house) | zero-width spaces and joiners, direction controls and Unicode tag characters in Latin-script text (joined emoji, flags, other scripts, a leading byte order mark and right-to-left lines are left alone) | deleted |
 
 `reference-markup` was written by [@Aaqibhafeezkhan](https://github.com/Aaqibhafeezkhan) ([#46](https://github.com/Bubblegunn/ai-slop-linter/pull/46)), with one test line per marker so that deleting any of them fails the suite.
 
@@ -303,7 +304,8 @@ continuation is prose more often than it is code.
 ## Fixes
 
 `--fix` only does what cannot change meaning: dashes become commas or full stops, curly
-quotes become straight, filler phrases become their plain form. It runs to a fixed
+quotes become straight, filler phrases become their plain form, and an invisible character
+next to a space or punctuation is deleted (one between two letters is only reported). It runs to a fixed
 point (fixing a fixed file changes nothing) and leaves every other finding for you,
 because `not just X but Y` needs a rewritten sentence, not a character swap.
 
@@ -521,7 +523,7 @@ The tool is run on the READMEs of the author's five repositories. The dated resu
   says the tells are absent; it says nothing about who typed.
 - Meaning. It cannot tell a hollow paragraph from a good one when the hollow one
   avoids every listed phrase. Text that passes can still be empty.
-- Style outside the list. Twenty-one rules cover the patterns editors flag most; a
+- Style outside the list. Twenty-two rules cover the patterns editors flag most; a
   writer with a different tell passes. Add a rule when you find one.
 - Other languages. The vocabulary rules are English, and the structural ones work anywhere. Outside English the `dash` and `title-case-heading` rules stand down. There is one provisional French rule and no Spanish or German rule, because no candidate passed the shipping limit, so the tool does not claim to detect model text in those languages. Hindi has since been tested against a corpus rather than assumed, and produced no rule worth shipping: see [the Hindi negative result](docs/hindi-rules-negative-result.md). See [CONTRIBUTING.md](CONTRIBUTING.md) and issue #1.
 

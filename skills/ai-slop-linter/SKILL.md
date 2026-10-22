@@ -25,7 +25,7 @@ npx ai-slop-linter path/to/file.md --fix     # apply the safe fixes in place
 npx ai-slop-linter --compare before.md after.md   # facts a rewrite lost or added
 ```
 
-Read the output top to bottom. Each line is `line:col severity rule message`. Apply the fixes yourself rather than only running `--fix`: it handles dashes, curly quotes and filler phrases, and leaves the rest to you because those need a sentence rewritten, not a character swapped. `--fix` also rewrites a dash inside a quotation in another language, for example a Turkish sentence in an English file, so mark those lines with a directive (see below) before you run it. The file grades A to F. Aim for A on anything you ship.
+Read the output top to bottom. Each line is `line:col severity rule message`. Apply the fixes yourself rather than only running `--fix`: it handles dashes, curly quotes, invisible characters and filler phrases, and leaves the rest to you because those need a sentence rewritten, not a character swapped. `--fix` also rewrites a dash inside a quotation in another language, for example a Turkish sentence in an English file, so mark those lines with a directive (see below) before you run it. The file grades A to F. Aim for A on anything you ship.
 
 ## Fix the real tells
 
