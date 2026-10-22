@@ -41,6 +41,8 @@ process criteria are reported separately.
 - **Benchmark only an immutable copy of our code** (`git archive <sha>`), and probe a new feature in the copy
   first. Implementers and reviewers never run checkout, restore, stash or reset on the working tree.
 - **Rate limits:** run at parallelism 2. Cells that fail on a rate limit are retried and never graded.
+- **Budget:** the session quota was low at the end of 2026-10-22. A 200 US dollar promotional API credit (expires 2026-10-29) can pay for runs through an `ANTHROPIC_API_KEY` environment secret; confirm with one cheap call that it is charged to the credit, and never add a payment method.
+- **Linux:** the ai-slop-linter harness runs on Linux with bubblewrap (`apt-get install bubblewrap`) and a scrubbed environment; set `H2H_SANDBOX_HIDE` to the session scratch directory so arms cannot read it.
 - **Headless runs:** `claude -p` needs to be logged in. In a cloud session, check this first, or use an API key.
   The harness takes the model as a parameter.
 
@@ -67,7 +69,7 @@ Read `docs/HEAD-TO-HEAD.md` in each repository: tasks, rulings, results per roun
 | workproof | passes every public task (34.33 vs 23.33 of 35) | final gate: T6 re-run for ours, held-out tasks (in this branch), Haiku/Opus runs, then the 10 percent audit |
 | surviving-lines | 49.00 vs 41.33 of 51; rule A passes; rule B fails only T3 | round 4: T3 writes the `.mailmap` as proposals and hedges; re-run T3 for all arms plus ours on all tasks; then the final gate |
 | product-engineer | core 23.00 vs 21.33 (lost 7.00, needs at most 6.93); fails T2, T3, T4, H4, H5 | round 3 (see Resume): act-and-unstage rule for H5, release notes without code identifiers, verdict-only answers, replace T3, fixed H4 answer shape |
-| ai-slop-linter | 54.33 vs 56.33 of 60 (blader humanizer, invoked): behind | round 2: `--compare` flags first-person words and new claims, a prompt hook, an agent-checked catalog for tells a regex cannot catch (MIT sources, attribution kept) |
+| ai-slop-linter | round 2: 56.67 vs 56.00 of 60 (blader-inv): highest total, but rule A fails narrowly (lost 3.33, limit 3.20) and rule B fails h9, h14, h17, h18 | round 3: re-run the ours cells on the round-3 commit (changes already committed, unmeasured); see Resume in docs/HEAD-TO-HEAD.md |
 | proactive-gate | Sonnet and Haiku write simple gates correctly without the library | round 3: tasks Z1 to Z6 (under-specified product prompts with public sources), `assistantNudge` preset, `scaffold nudge`, synchronous evaluate, explain; extra rule: our cost per run is not above the baseline's |
 
 Held-out tasks for the other four repositories are on a separate branch, `heldout-2026-10`, in each
