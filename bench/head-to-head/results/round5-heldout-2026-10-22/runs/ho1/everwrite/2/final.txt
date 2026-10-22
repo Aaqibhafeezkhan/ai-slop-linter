@@ -1,0 +1,7 @@
+I rewrote `pr.md` in place. I didn't run the checker script. I also dropped one detail you may want back: the "game-changer" line had no fact behind it, so I cut it and kept only the failed-deliveries-dropped claim.
+
+I removed the chat greeting and sign-off, the hype words, the "in conclusion" closer and the em dash. The code spans, v3.8.0, the URL, the YAML block and the quoted phrase are unchanged. I added no new facts.
+
+I did reword two lines, so check them:
+- **Notes:** the old text said the quote "is the term to keep". It now says "so I kept that wording".
+- **Testing:** I changed "I ran the suite and all 214 tests pass" to "All 214 tests pass".

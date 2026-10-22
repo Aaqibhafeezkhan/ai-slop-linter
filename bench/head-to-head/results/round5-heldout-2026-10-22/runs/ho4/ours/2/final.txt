@@ -1,0 +1,12 @@
+I'm wrapping up. I made a few small edits to `status.md`, then restored the original because the linter found nothing in it to fix.
+
+I've left the file unchanged. It's a Dutch status update with plain, concrete sentences, and no tell was worth editing.
+
+- **Lint:** `npx ai-slop-linter --language nl status.md` gave grade A with 0 findings. The `dash` and `title-case-heading` rules don't run for non-English text.
+- **Reference check:** there is no Dutch reference file, so I read the English one and applied the families that carry over. None showed up: no staged contrasts, no kicker endings, no inflated-significance wording, no bold-label bullets.
+- **Edits tried:** I shortened a few sentences. `--verify` flagged them as unrequested edits, since the linter and the stock-phrase catalog found nothing to remove. I reverted to the original.
+- **Verify:** `--verify` on the final file reports `verify: ok (unchanged)`. The names, dates, numbers, amounts, the code span `import_klanten.py` and the URL are all as they were.
+
+If you still want it to sound looser, I can rework the rhythm. That would be a style change rather than removing tells, and I'd need you to say which direction you want.
+
+Residuals: none.

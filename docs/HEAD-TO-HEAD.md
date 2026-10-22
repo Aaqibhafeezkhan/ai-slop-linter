@@ -910,6 +910,29 @@ Evidence. `bench/head-to-head/results/round5-heldout-2026-10-22/` per the owner'
 
 The first 15 cells (run index 1 of ours, blader-inv and base on ho1 to ho5; 0.79 US dollars by `total_cost_usd`) ran under the protocol above and cost 0.79 dollars while the session counter rose by about 0.02. So the premise of the "Budget fact" paragraph was wrong for the sandboxed cells: the cells run under `env -i` and the counter does not see them. The counter did include the three unsandboxed child runs (writer, implementer, reviewer). The reduced scope is therefore not forced. The owner's original scope is restored before any further run: all 11 arms (`ours`, `blader`, `blader-inv`, `everwrite`, `everwrite-inv`, `unslop`, `unslop-inv`, `avoid-ai-writing`, `slopless`, `slop-cop`, `base`), 5 tasks, 3 runs, 165 cells, same code (`5eb1a61`, product code of `7cba348`), same tasks, same scorer, same parallelism. The 15 cells already run stay in the set (same code, same path, same scorer); no cell is reused from an earlier round. The owner's stop rule applies: no new run starts when the logged `claude -p` total reaches 14 US dollars. Disclosure: iteration 1 of three arms was seen before this amendment; the amendment only adds arms and runs, and changes no task, scorer or rule. In the "Arms and runs" paragraph, "Not run" now lists only what is still not run when the stop rule or a limit error cuts the set off. Each `slop-cop`, `slopless` and `avoid-ai-writing` natural arm is the checker or skill as set up by `setup-round4.sh`; their invoked arms (`-inv`) exist in `invocations.json` and run only when the owner list names them: this round runs the natural arm of those three, as in the deep-round plan.
 
+## Results, round 5 (held-out only, 11 arms, 2026-10-22)
+
+Run under "Round 5 measurement protocol" and its amendment A. Evidence folder, with every cell, the scorer output and a script that rebuilds the tables: `bench/head-to-head/results/round5-heldout-2026-10-22/` (`SUMMARY.md` equals the output of `score.py` byte for byte). Code under test: `5eb1a61` (product code of `7cba348`). Five held-out tasks written by an agent that saw no code (ho1 en PR, ho2 es release notes, ho3 pt-BR incident note, ho4 nl status update that is already clean, ho5 en README), 11 arms, 3 runs, 165 cells, `claude-sonnet-5-5`, Agent SDK path, scripted scoring, 0 failed cells after one SIGTERM re-run, cost 11.27 US dollars by `total_cost_usd`.
+
+| Arm | total of 25 |
+|---|---|
+| blader-inv | 24.33 |
+| ours | 23.33 |
+| unslop, unslop-inv | 23.00, 23.00 |
+| base, avoid-ai-writing | 21.67, 21.67 |
+| blader | 22.00 |
+| slopless | 20.67 |
+| everwrite-inv, everwrite | 20.33, 20.00 |
+| slop-cop | 19.00 |
+
+- Rule B: FAIL, 3 of 5 tasks. ours passes ho1, ho4 (clean source: ours 5.00; best rival blader-inv 4.33; base 2.00) and ho5 (all at the maximum). ours fails ho2 (4.00 against blader-inv and base at 5.00: `podría reducir`, a Spanish hedge left in 3 of 3 runs) and ho3 (4.33 against 5.00: `parece estar relacionada` left in 2 of 3 runs).
+- Rule A: FAIL. ours lost 1.67, the best other arm (blader-inv) lost 0.67, the limit is 0.53.
+- Against base alone, ours is higher in total (23.33 against 21.67), and the design target "do not touch clean text" shows on ho4: ours kept the clean text, base added first-person words and changed protected sentences in 3 of 3 runs.
+- Reading: the round-5 checks (length bound, clean source, alignment report) did their job on the clean task. The two remaining losses are again tells that no catalog or lint rule lists (Spanish and Portuguese hedge constructions), the same class as in the deep round. The catalog still has no Spanish or Portuguese hedge family; adding `podría reducir` or `parece estar relacionada` now would fit these fixtures and was not done.
+- Not run: public tasks h1 to h18, F9, F6, ours diagnostic runs on ho1 to ho4 of the deep round.
+
+One-sentence result: on 5 held-out tasks written by an agent that saw no code, across 11 arms with 3 runs each on `claude-sonnet-5-5` through the Agent SDK on 2026-10-22, ours scored 23.33 of 25 (second to blader-inv with 24.33, above base with 21.67) and failed Rule A and Rule B, so the gate does not pass and no first-place claim is made; the public tasks, Haiku and Opus runs and the independent re-grade were not run.
+
 ## How to re-run
 
 One command repeats a round: it pins and clones the competitors, runs all eight arms on every task, scores the runs, and prepares the blind grading.

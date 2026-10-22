@@ -1,0 +1,26 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"everwrite:everwrite\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py <TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Nota de incidente: falha no processamento de pagamentos em 2026-05-07\\n\\n## Resumo\\n\\nNo dia 7 de maio de 2026, o serviço `pagamentos-api` ficou instável e parte dos pagamentos falhou. A equipe fez rollback e a taxa de erro voltou ao normal em menos de uma hora.\\n\\n## Linha do tempo\\n\\n| Horário (UTC-3) | Evento |\\n|---|---|\\n| 14:02 | Alerta de latência acima "
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py <TMP>\"}"
+ }
+]

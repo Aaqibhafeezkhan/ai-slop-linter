@@ -1,0 +1,3 @@
+I rewrote `pr.md` in place. It no longer opens with the chatbot greeting and closes without the sign-off. The hype and filler are gone, and the sentence lengths now vary. The checker went from many strong hits to 2. Both are "robust" and "seamless" inside the quoted phrase, which you said must stay.
+
+The code spans, v3.8.0, the URL, the YAML block and the quoted phrase are unchanged. I added no new facts.

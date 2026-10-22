@@ -1,0 +1,19 @@
+I've rewritten `README.md` in place and re-read it. I used the docs profile, since it's a README.
+
+**Edits**
+- **Chatbot lines:** I removed "Sure! Here's a polished README intro…" from the top and "I hope this helps! Feel free to reach out… let me know if you want a different tone." from the end.
+- **Intro:** "a cutting-edge, blazing-fast command-line tool that empowers developers to seamlessly clean up… a rich tapestry of features designed to elevate your workflow" is now "a command-line tool that cleans up RSS and Atom feeds." The "seasoned engineer or just getting started" sentence went with it.
+- **Why tidyfeed?:** I cut "In the ever-evolving world of content syndication" and "serves as a testament to what a thoughtful tool can achieve", and replaced the em dash. The section now starts "Feeds are often messy, with duplicate entries, broken dates, and inconsistent encodings."
+- **Quick start:** "Simply run the following command to clean a feed:" is now "To clean a feed, run:".
+
+**Left alone**
+- Both shell blocks, `1.6.2`, Python 3.9, `--keep-days 30`, the URL, `feed.xml`, `clean.xml`, ISO 8601, UTF-8, the 50 MB and 3 second figures, and the MIT license line are unchanged.
+- The Installation paragraph and the "Contributions are welcome." line were already plain.
+
+**Verification**
+- **Editing passes:** 1 of 2 allowed.
+- **Checks:** This was a model-only audit and re-read. I didn't run the detector, the quote normalizer or the preservation validator. The edited prose has no quotes or apostrophes left, so there was nothing to normalize.
+- **Residuals:** None found.
+- **Stop reason:** No further justified edit remains.
+
+I didn't add any facts or personality. The speed claim is the original sentence, kept as is.

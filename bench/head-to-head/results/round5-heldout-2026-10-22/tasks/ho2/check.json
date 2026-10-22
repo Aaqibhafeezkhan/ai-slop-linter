@@ -1,0 +1,6 @@
+{"output":"notas.md",
+"facts":["Facturalia","4.2.0","2026-03-14","10.000 facturas","2.500","`nif_cliente`","1,2 segundos","4,8 segundos","`POST /v2/facturas/lote`","`FACTURALIA_TIMEOUT`","de 30 a 60 segundos","`npm install facturalia@4.2.0`","https://docs.example.com/facturalia/4.2.0","Marta Olmedo","CSV","Tienda Verde SL"],
+"tells":["¡claro!","completas y bien estructuradas","nos complace anunciar","revoluciona","en el panorama actual","robusta y sin fisuras","una actualización clave","una experiencia de exportación totalmente renovada","es importante destacar","podría reducir","significativamente","cabe destacar","en definitiva","un antes y un después","no dudes en contactarnos",{"re":"—|–"}],
+"protected":["> \"Hemos reducido el cierre mensual de dos días a una tarde.\" — Marta Olmedo, Tienda Verde SL"],
+"forbidden_added":["nosotros","estamos","queremos","creemos","pensamos","nuestro","nuestra","nuestros","nuestras","hemos"],
+"language_absent":["the","and","with","this","please"]}

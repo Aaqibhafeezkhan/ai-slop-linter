@@ -1,0 +1,9 @@
+I rewrote `incidente.md` in place. The timeline table, the code spans (`pagamentos-api`, `transacoes`), the version numbers (2.19.0, 2.18.4), the times and the URL are unchanged.
+
+What I changed:
+- **Chatbot wrapper:** I removed "Com certeza! Segue abaixo…", "Espero que este resumo ajude!" and the closing line about the incident being "um valioso aprendizado".
+- **Filler and inflated phrasing:** I cut "É importante ressaltar", "Vale destacar", "Em última análise", "garantindo uma experiência fluida" and "instabilidade significativa". I also replaced the em dash.
+- **Summary:** It now says plainly that the service became unstable and some customers couldn't complete payments. "Cerca de meia hora depois de confirmado o erro" is my own arithmetic from the table: 14:09 confirmation to 14:31 rollback is 22 minutes. Change it if you'd rather not state it.
+- **Causa raiz and Impacto:** I rewrote them as short, direct sentences with the same facts: the 80-connection limit, about 1,340 failed payments over 45 minutes, and no duplicate charges.
+
+I also changed "ambiente representativo" to "ambiente parecido com o de produção". That is a small interpretation of what "representativo" meant, so check that it matches what you intended.

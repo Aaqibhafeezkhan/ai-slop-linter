@@ -1,0 +1,9 @@
+I rewrote `README.md` in place. The linter now grades it A with no findings, and `--verify` against the original exits ok.
+
+- **Removed:** the chatbot lines ("Sure! Here's a polished README intro…" and "I hope this helps! Feel free to reach out…").
+- **Reworded:** the intro, which had "cutting-edge", "blazing-fast", "seamlessly", "rich tapestry" and "elevate your workflow". It is now one plain sentence. I rewrote the "Why tidyfeed?" opener the same way ("ever-evolving world", the em dash, "serves as a testament"). "Simply run the following command" became "To clean a feed, run:".
+- **Unchanged:** both shell blocks, `1.6.2`, Python 3.9, `--keep-days 30`, the URL, the file names, and the 50 MB, 3 seconds, 2023 laptop, ISO 8601, UTF-8 and MIT details.
+
+I did a second pass for leftover tells and found none, apart from "Contributions are welcome", which I kept.
+
+Residuals: none.

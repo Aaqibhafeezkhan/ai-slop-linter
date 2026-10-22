@@ -1,0 +1,5 @@
+Ik heb `status.md` ter plekke herschreven. De tekst klinkt nu losser en menselijker, bijvoorbeeld met "we" in plaats van de stijve lijdende vorm. Alle namen, data, getallen, bedragen, het codefragment `import_klanten.py` en de URL zijn ongewijzigd.
+
+Ik heb de slop-cop-check zelf niet gedraaid, omdat de regels voor het Engels zijn en de tekst Nederlands is.
+
+Ik had in de eerste versie twee dingen veranderd die feiten raakten: wie het herstel testte en wat het besluit over de MySQL-server inhield. Die heb ik teruggezet, dus de inhoud klopt weer met het origineel.

@@ -1,0 +1,14 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"slopless:slopless\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"---\\ntitle: Notas de la versión 4.2.0\\ndate: 2026-03-14\\ntags: [release, facturacion]\\n---\\n\\n# Notas de la versión 4.2.0 de Facturalia\\n\\n## Resumen\\n\\nYa está disponible la versión 4.2.0 de Facturalia. Exportar facturas es bastante más cómodo, el listado carga más rápido y hay un endpoint nuevo para crear facturas por lotes.\\n\\n## Novedades\\n\\n- Exportación a C"
+ }
+]

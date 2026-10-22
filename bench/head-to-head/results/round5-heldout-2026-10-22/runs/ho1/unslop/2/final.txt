@@ -1,0 +1,19 @@
+I rewrote `pr.md` in place. I didn't re-read the file afterward.
+
+**Cut**
+- The chat opener ("Hey! Great question…").
+- The closing paragraph ("In conclusion…", "Let me know if you'd like me to make any changes! I hope this helps.").
+- Filler: "game-changer", "In today's fast-paced integration landscape", "it's important to note", "it's worth noting".
+
+**Reworded**
+- "seamlessly introduces" is now "adds".
+- "could potentially cause" is now "could miss events". It had two hedges stacked on one claim.
+- "Leverages a robust exponential backoff" is now "Adds exponential backoff".
+- "Delves into the failure path… to record" now says plainly that each attempt is recorded in `delivery_attempts` from the failure path in `dispatcher.ts`.
+- The spaced em dash in the Notes sentence is now a comma.
+
+**Left alone**
+- Every code span, v3.8.0, the URL, the YAML block and the quoted phrase "a robust, seamless delivery guarantee". The quote is attributed to the upstream docs, so I didn't touch it.
+- The headings and the Testing figures: 214 tests, a forced 503, recovery on the third attempt, and delays of 250 ms and 500 ms.
+
+I didn't add any facts. The sentence about the delay doubling is unchanged apart from the dash.

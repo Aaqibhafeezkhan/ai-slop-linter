@@ -1,0 +1,5 @@
+I rewrote `pr.md` in place. I cut the chatbot opener and closer ("Great question", "I hope this helps"), the filler and buzzwords ("seamlessly", "game-changer", "leverages", "delves into"), and the "In conclusion" paragraph. The summary is now two plain sentences.
+
+The code spans, v3.8.0, the URL, the YAML block and the quoted phrase in Notes are unchanged. I kept the Notes sentence about the delay doubling as it was.
+
+Slopless found nothing in the new version (exit 0). Its output is saved in `.slopless/findings/`.

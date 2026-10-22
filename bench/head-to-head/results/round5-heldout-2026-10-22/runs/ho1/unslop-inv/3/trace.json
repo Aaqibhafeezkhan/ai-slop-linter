@@ -1,0 +1,14 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"unslop:unslop\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"python3 -I - <<'EOF'\\np='pr.md'\\ns=open(p).read()\\nR=[\\n(\\\"Hey! Great question. Here's a comprehensive overview of this PR.\\\\n\\\\n\\\",\\\"\\\"),\\n(\\\"This PR seamlessly introduces retry logic to the webhook dispatcher, a game-changer for delivery reliability. In today's fast-paced integration landscape, it's important to note that failed deliveries were silently dropped, which could potentia"
+ }
+]

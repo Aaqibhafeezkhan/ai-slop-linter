@@ -1,0 +1,14 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"slopless:slopless\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Nota de incidente: falha no processamento de pagamentos em 2026-05-07\\n\\n## Resumo\\n\\nEm 7 de maio de 2026, o `pagamentos-api` ficou instável e parte dos clientes não conseguiu concluir pagamentos. Fizemos rollback e o serviço voltou ao normal em cerca de 45 minutos.\\n\\n## Linha do tempo\\n\\n| Horário (UTC-3) | Evento |\\n|---|---|\\n| 14:02 | Alerta de latência a"
+ }
+]

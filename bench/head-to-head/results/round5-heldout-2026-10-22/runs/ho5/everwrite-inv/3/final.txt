@@ -1,0 +1,3 @@
+I rewrote `README.md` in place. I cut the chat wrapper at the top and bottom, the hype words and the "testament" line. The checker went from 11 strong hits to 0.
+
+The two shell blocks, `tidyfeed==1.6.2`, Python 3.9, `--keep-days 30`, the URL and the file names are unchanged. The facts are unchanged too: duplicate removal, ISO 8601, UTF-8, and the 50 MB in about 3 seconds figure.

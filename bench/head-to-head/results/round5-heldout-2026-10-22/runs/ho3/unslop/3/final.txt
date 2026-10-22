@@ -1,0 +1,11 @@
+Reescrevi `incidente.md` no próprio arquivo. A tabela, os code spans, as versões, os horários e a URL ficaram intactos.
+
+**O que mudou**
+- **Abertura:** removi "Com certeza! Segue abaixo um resumo abrangente…", que é fala de chatbot.
+- **Resumo:** o texto antigo dizia "instabilidade significativa" e "impactando potencialmente uma parcela dos clientes". Agora diz que o `pagamentos-api` ficou instável, que cerca de 1.340 pagamentos falharam e que o rollback para a 2.18.4 foi às 14:31. Todos esses dados já estavam no arquivo. Cortei "É importante ressaltar…" e "garantindo uma experiência fluida", que não diziam nada verificável.
+- **Causa raiz:** tirei "Vale destacar que", "acabou sobrecarregando" e "Em última análise". Mantive a ressalva como "causa provável", porque o original dizia "parece". A frase sobre o teste em ambiente representativo ficou como fato.
+- **Fecho:** removi "Espero que este resumo ajude!…" e o "Em suma… valioso aprendizado". O texto agora termina no último item de próximos passos.
+
+**Não alterei** as seções "Impacto" e "Próximos passos", porque já estavam objetivas.
+
+Não acrescentei nenhum fato novo. O resumo agora cita o rollback às 14:31 e o número de 1.340 pagamentos, ambos tirados do próprio arquivo.

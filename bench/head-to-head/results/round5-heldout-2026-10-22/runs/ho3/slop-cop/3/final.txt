@@ -1,0 +1,11 @@
+I rewrote `incidente.md` in place. A final slop-cop check flagged two things, and I left both alone. One is a table row that must stay as it is. The other is the three-item next-steps list, which is the format you'd expect for that section.
+
+What I changed:
+- **Removed:** the "Com certeza!" opener, the "Espero que este resumo ajude" closer, and the "valioso aprendizado" line.
+- **Cut filler:** phrases like "É importante ressaltar", "Vale destacar", "Em última análise" and "experiência fluida".
+- **Resumo:** it now says plainly that `pagamentos-api` became unstable, that some payments failed, and that the team rolled back.
+- **Causa raiz:** I kept one hedge ("A causa provável") and made the sentences direct.
+
+The timeline table, the code-span names (`pagamentos-api`, `transacoes`), the versions 2.19.0 and 2.18.4, the times, the numbers and the wiki URL are unchanged.
+
+I only ran slop-cop's client-side check (`--no-llm`). I skipped its semantic pass, so that pass hasn't looked at the rewrite. The tool's rules are written for English, so for this Portuguese text my own reading of the result matters more than a clean report.

@@ -1,0 +1,6 @@
+I rewrote `notas.md` in place so it sounds like a person wrote it.
+
+- **Removed:** the chatbot opener ("¡Claro! Aquí tienes…") and the stock phrases ("revoluciona", "panorama actual", "es importante destacar", "cabe destacar", "marca un antes y un después"). I also took out the inflated adjectives ("totalmente renovada", "significativamente").
+- **Rewritten:** the summary is now short and says what changed. The bullets and the closing line are more direct.
+- **One wording change you may want to check:** "podría reducir los rechazos" is now "debería reducir los rechazos".
+- **Left as it was:** the front matter, the customer quote and its attribution, the code spans, the endpoint, the URL and all numbers.

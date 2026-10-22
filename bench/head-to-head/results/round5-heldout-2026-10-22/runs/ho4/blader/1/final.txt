@@ -1,0 +1,5 @@
+Ik heb `status.md` op zijn plek herschreven. De tekst was al vrij nuchter, dus het zijn kleine ingrepen.
+
+- **Zinsbouw:** een paar stijve passieve zinnen zijn actief of directer gemaakt. "Het veld is verbreed en de import is opnieuw gedraaid" is nu "We hebben het veld verbreed en de import opnieuw gedraaid". "Controle van de rapportages door Dewi Hartman" is nu "Dewi Hartman controleert de rapportages".
+- **Woordkeus:** "nu" en "overige" zijn weggehaald of vervangen. "Een veld met adressen" is "een adresveld". "Daarmee" is "Daardoor".
+- **Ongewijzigd:** namen, data, getallen, bedragen, `import_klanten.py` en de URL zijn exact gelaten. De kopjes en de opbouw zijn ook niet aangepast.

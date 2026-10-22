@@ -1,0 +1,18 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"ai-slop-linter:ai-slop-linter\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"TMP=$(mktemp -d) && cp status.md \\\"$TMP/before.md\\\" && echo $TMP && npx ai-slop-linter --language nl status.md; ls <TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"npx ai-slop-linter --language nl --verify /var/folders/0f/lb8m_j5s7nq7tkf97krdnj800000gn/T/tmp.QghlhY8WBP/before.md status.md\"}"
+ }
+]

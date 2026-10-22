@@ -1,0 +1,9 @@
+I left `status.md` unchanged, because I found nothing in it that needed rewriting.
+
+- **Linter:** `npx ai-slop-linter --language nl status.md` gave grade A with 0 findings in 189 words. The `dash` and `title-case-heading` rules don't run for Dutch, so I checked by eye that the text has no dashes in prose.
+- **Verify:** `--verify` reported `clean source: no edit is expected` and `verify: ok (unchanged)`.
+- **Reference file:** the skill has no Dutch reference, so I used `en.md` for the general tells. The text has no stacked hedges, no announcing openers, no "not X but Y" contrasts, no closing line that sums up, and no participle tails. The sentences are short and concrete, and they carry the names, numbers and dates directly. Rewriting it would only risk changing facts, and the names, dates, amounts, the code span `import_klanten.py` and the URL are all intact.
+
+If it still reads too stiff to you, I can loosen the tone, for example by making the headings less formal. That would be a style choice rather than removing tells.
+
+Residuals: none.

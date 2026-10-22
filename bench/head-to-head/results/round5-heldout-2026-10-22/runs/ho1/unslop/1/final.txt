@@ -1,0 +1,15 @@
+I rewrote `pr.md` in place. I didn't re-read the file afterward, but the write succeeded.
+
+**Removed**
+- The chat-style opener ("Hey! Great question. Here's a comprehensive overview…").
+- The closing lines ("In conclusion…", "Let me know if you'd like me to make any changes!", "I hope this helps.").
+
+**Reworded**
+- **Summary:** Dropped "seamlessly", "game-changer", "In today's fast-paced integration landscape" and "it's important to note". It now states the problem and the fix: dropped deliveries meant missed events, and the dispatcher now retries.
+- **What changed:** "Leverages a robust exponential backoff" is now "Adds exponential backoff", and "Delves into the failure path" now says what the code does. The retry count, defaults and file names are unchanged.
+- **Testing:** Cut "It's worth noting that". The facts are the same.
+- **Notes:** Replaced the em dash with a comma.
+
+**Left exactly as they were:** all code spans, v3.8.0, the URL, the YAML block, and the quoted phrase "a robust, seamless delivery guarantee". The section headings are unchanged too.
+
+I added no facts, numbers or first-person details that weren't already there.

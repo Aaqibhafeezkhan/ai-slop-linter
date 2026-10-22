@@ -1,0 +1,3 @@
+The only hit is the dash in the customer quote's attribution. You asked me to keep that exactly as it is, so it stays.
+
+I rewrote `notas.md` in place. I removed the chatbot opener, the hype in the summary and the closing lines, and I tightened the bullets. The front matter, quote and attribution, code spans, endpoint, URL and numbers are unchanged. The checker went from several hits to 1 strong, and that one is the dash I kept on purpose.

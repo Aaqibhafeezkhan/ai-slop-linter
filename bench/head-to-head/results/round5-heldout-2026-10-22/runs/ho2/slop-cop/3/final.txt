@@ -1,0 +1,16 @@
+I rewrote `notas.md` in place. I didn't run the slop-cop check on it. I edited the text by hand and didn't verify the result with the tool.
+
+**What I removed or changed**
+- I deleted the chatbot opener ("¡Claro! Aquí tienes…").
+- I cut the marketing language: "revoluciona", "panorama actual", "robusta y sin fisuras", "marca un antes y un después", "totalmente renovada" and "significativamente".
+- I dropped the filler phrases "Es importante destacar" and "Cabe destacar".
+- I replaced the summary with a plain three-part description of what changed.
+- I turned the passive and impersonal phrasing into direct statements. The `FACTURALIA_TIMEOUT` note now says "Si ya la fijas a mano, no tienes que hacer nada".
+- I split the 10.000-invoice export line into two short sentences.
+- I closed with a short "Si tienes dudas, escríbenos" in place of the exclamation-mark sign-off.
+
+**What I left alone**
+- The front matter, the customer quote with Marta Olmedo's attribution, and the code spans.
+- The `POST /v2/facturas/lote` endpoint, the URL, and all the numbers.
+
+I kept the "podría reducir los rechazos" hedge because the claim really is uncertain.

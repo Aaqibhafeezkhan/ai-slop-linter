@@ -1,0 +1,22 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"everwrite:everwrite\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && cat evergreen.json | head -60; python3 scripts/tells.py <TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Statusupdate week 41: migratie van de planningsapp\\n\\nDatum: 9 oktober 2026\\n\\n## Stand van zaken\\n\\nWe zijn voor 80 procent klaar met de migratie van de planningsapp naar Postgres 16. De klantendata van 12 van de 15 vestigingen staat al in de nieuwe database. De andere drie komen op 16 oktober.\\n\\n## Wat is gedaan\\n\\nDewi Hartman heeft het importscript `import"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py <TMP>\"}"
+ }
+]

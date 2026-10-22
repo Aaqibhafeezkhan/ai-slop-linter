@@ -1,0 +1,22 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"unslop:unslop\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"ingesteld. Een herstel uit back-up duurde 22 minuten.\", \"new_string\": \"ingesteld; een herstel uit back-up duurde 22 minuten.\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Het veld is verbreed en de import is opnieuw gedraaid. Dat kostte een halve dag.\", \"new_string\": \"We hebben het veld verbreed en de import opnieuw gedraaid, wat een halve dag kostte.\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"We hebben het veld verbreed en de import opnieuw gedraaid, wat een halve dag kostte.\", \"new_string\": \"Het veld is verbreed en de import is opnieuw gedraaid. Dat kostte een halve dag.\"}"
+ }
+]

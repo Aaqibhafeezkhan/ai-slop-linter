@@ -1,0 +1,3 @@
+Both remaining hits are inside the quoted phrase, which has to stay as it is.
+
+I rewrote `pr.md` in place. I cut the chatbot opener and closer, the hype words and the stacked hedges, and I removed the em dash in Notes. The code spans, v3.8.0, the URL, the YAML block and the quoted phrase are unchanged. The checker went from many strong hits to 2, both inside that quoted phrase.

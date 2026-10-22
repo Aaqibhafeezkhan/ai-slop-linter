@@ -1,0 +1,5 @@
+Ik heb `status.md` ter plekke herschreven, in het Nederlands zoals het origineel. De zinnen zijn korter en directer. Zo is "voor 80 procent klaar" nu "we zijn er voor 80 procent", en de actieve vorm vervangt een paar stijve passieve zinnen.
+
+Alle namen, data, getallen, bedragen, de code span `import_klanten.py` en de URL staan nog precies zoals ze waren. Ik heb de skills van slop-cop niet gebruikt. Ik heb de tekst met de hand herschreven en niet door `slop-cop check` gehaald.
+
+Eén kleine wijziging in de inhoud: in de bijzin over Postgres 16 noem ik de database nu in "Stand van zaken". De zin over de migratienaam is daardoor korter geworden.

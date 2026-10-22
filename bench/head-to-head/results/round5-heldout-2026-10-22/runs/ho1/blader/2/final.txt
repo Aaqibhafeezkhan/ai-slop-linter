@@ -1,0 +1,7 @@
+I rewrote `pr.md` in place.
+
+- **Cut:** the chat wrapper at the start ("Hey! Great question…"), the closing paragraph ("In conclusion…", "I hope this helps"), and the sales and filler language ("seamlessly", "game-changer", "it's important to note").
+- **Changed:** the "Leverages" and "Delves into" bullets now use plain verbs. The em dash in the Notes sentence is gone.
+- **Left alone:** the code spans, v3.8.0, the URL, the YAML block and the quoted phrase "a robust, seamless delivery guarantee". The test and delay figures are unchanged too.
+
+One thing to know: the quoted phrase still says "robust, seamless". That's the upstream docs' wording, so I kept it as you asked.

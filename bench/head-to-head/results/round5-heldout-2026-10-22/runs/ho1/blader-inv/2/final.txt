@@ -1,0 +1,10 @@
+I rewrote `pr.md` in place.
+
+- **Removed:**
+  - The chatbot opener ("Hey! Great question...").
+  - The closing paragraph ("In conclusion...", "Let me know...", "I hope this helps").
+  - Filler such as "seamlessly", "game-changer", "In today's fast-paced integration landscape", "it's important to note", "it's worth noting" and "could potentially".
+- **Reworded:** "Leverages a robust exponential backoff" and "Delves into the failure path" are now plain verbs. The em dash in Notes became a comma.
+- **Unchanged:** the code spans, v3.8.0, the URL, the YAML block and the quoted phrase in Notes.
+
+I added no new facts.

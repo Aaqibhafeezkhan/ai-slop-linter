@@ -1,0 +1,14 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"slop-cop:slop-cop-prose\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Statusupdate week 41: migratie van de planningsapp\\n\\nDatum: 9 oktober 2026\\n\\n## Waar we staan\\n\\nDe migratie van de planningsapp naar Postgres 16 is voor 80 procent klaar. De klantendata van 12 van de 15 vestigingen staat al in de nieuwe database. De andere drie komen op 16 oktober.\\n\\n## Wat er gebeurd is\\n\\nDewi Hartman heeft `import_klanten.py` herschreven"
+ }
+]

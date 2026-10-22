@@ -1,0 +1,5 @@
+I rewrote `pr.md` in place. It dropped the chat greeting and sign-off, the hype words and the em dash, and the checker went from 15 strong hits to 2.
+
+The two left are "robust" and "seamless" inside the quoted phrase in Notes. I kept the quote as you asked. The code spans, v3.8.0, the URL and the YAML block are unchanged.
+
+I didn't add any facts. The test result now reads in plain terms, and the Summary says only that failed deliveries were dropped and are now retried.

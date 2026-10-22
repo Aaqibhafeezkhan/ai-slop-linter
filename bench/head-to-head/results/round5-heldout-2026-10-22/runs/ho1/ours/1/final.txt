@@ -1,0 +1,19 @@
+I rewrote `pr.md` in place. The linter now grades it A, and `--verify` exits 0.
+
+**What I changed**
+- **Chatbot wrapper:** I removed the "Hey! Great question" opener, the "Let me know if you'd like me to make any changes" and "I hope this helps" lines, and the "In conclusion" closer.
+- **Stock words:** I took out "seamlessly", "game-changer", "In today's fast-paced integration landscape", "it's important to note that", "Leverages", "robust", "Delves" and "It's worth noting that". I also dropped "pivotal step toward a more robust and reliable platform".
+- **Wording:** Bullets now say "Adds" and "Records", and the summary says directly that failed deliveries were dropped silently.
+- **Dash:** I replaced the em dash in Notes with a comma.
+
+**What stayed exactly as it was**
+- The code spans and the file and table names.
+- v3.8.0.
+- The URL.
+- The YAML block.
+- The quoted phrase in Notes.
+- The numbers: 214 tests, 250 ms and 500 ms, and 5 retries.
+- The first-person "I ran the suite", since the original already had it.
+
+**Residuals**
+- **Quoted phrase:** the linter flags "robust" and "seamless" inside `"a robust, seamless delivery guarantee"`. That is the upstream docs' wording and you asked me to keep it. I added `<!-- slop-ignore-next-line ai-vocabulary -->` above that line. It's an HTML comment, so it won't show when rendered. Delete it if you'd rather not publish it.

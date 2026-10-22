@@ -1,0 +1,10 @@
+Reescrevi o `incidente.md` no próprio arquivo. A tabela da linha do tempo, os nomes em code spans, as versões, os horários, os números e a URL ficaram intactos. Não reli o arquivo depois das edições.
+
+- **Abertura:** removi "Com certeza! Segue abaixo um resumo abrangente…", que era resto de resposta de chatbot.
+- **Resumo:** tirei "instabilidade significativa", "impactando potencialmente", "É importante ressaltar" e "garantindo uma experiência fluida". O parágrafo agora diz o que aconteceu: o serviço ficou instável, parte dos pagamentos falhou e o rollback para a 2.18.4 normalizou a taxa de erro.
+- **Causa raiz:** cortei "Vale destacar que", "acabou sobrecarregando" e "Em última análise". Mantive o "parece ser", porque a causa é de fato incerta.
+- **Fechamento:** apaguei "Espero que este resumo ajude!", o convite para pedir ajustes e a frase final sobre "valioso aprendizado". O texto agora termina no último item dos próximos passos.
+
+Também tirei a afirmação de que a equipe "agiu rapidamente", porque o texto não trazia nada que a sustentasse. Se quiser manter algo nesse sentido, o dado concreto está na tabela: 14:02 o alerta, 14:31 o rollback.
+
+Deixei como estavam as seções Impacto e Próximos passos, que já soavam humanas.

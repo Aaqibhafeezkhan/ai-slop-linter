@@ -1,0 +1,10 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Add retry with backoff to the webhook dispatcher\\n\\n## Summary\\n\\nThe webhook dispatcher used to drop failed deliveries without a trace, so customers could miss events. This PR adds retries with exponential backoff.\\n\\n## What changed\\n\\n- Adds exponential backoff in `src/dispatch/retry.ts` and retries failed deliveries up to 5 times\\n- Adds a `WEBHOOK_MAX_RETR"
+ }
+]

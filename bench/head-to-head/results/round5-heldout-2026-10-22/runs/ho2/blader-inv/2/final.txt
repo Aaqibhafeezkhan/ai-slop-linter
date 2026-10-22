@@ -1,0 +1,9 @@
+I rewrote `notas.md` in place. I didn't re-read the file afterwards.
+
+- **Chat residue:** I removed "¡Claro! Aquí tienes unas notas…" and "¡No dudes en contactarnos…". The ending is now a plain "Si tienes alguna pregunta, escríbenos."
+- **Inflated language:** I cut "actualización clave que revoluciona", "panorama actual", "robusta y sin fisuras", "totalmente renovada", "mejorado significativamente", "marca un antes y un después" and "En definitiva". The summary now says what changed.
+- **Filler phrases:** I dropped "Es importante destacar que" and "Cabe destacar que".
+- **Hedging and passives:** "podría reducir" became "puede reducir". I used "Ahora se pueden…" and "Nuevo endpoint…" in place of the "Se ha añadido…" and "Se ha mejorado…" constructions.
+- **Dashes:** I removed the em dash in the summary. The one in the customer quote's attribution stays.
+
+I kept the front matter, the quote with its attribution, the code spans, the endpoint, the URL and all numbers exactly as they were. The summary now lists four changes: the export, the NIF validation, the faster listing and the batch endpoint. I didn't add any facts.

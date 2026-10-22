@@ -1,0 +1,18 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"slop-cop:slop-cop-prose\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Nota de incidente: falha no processamento de pagamentos em 2026-05-07\\n\\n## Resumo\\n\\nNo dia 7 de maio de 2026, o `pagamentos-api` ficou instável e parte dos pagamentos falhou. Desfizemos o deploy da versão 2.19.0 e o serviço voltou ao normal em cerca de 45 minutos.\\n\\n## Linha do tempo\\n\\n| Horário (UTC-3) | Evento |\\n|---|---|\\n| 14:02 | Alerta de latência ac"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"P=<TMP> \\\"$P/bin/slop-cop\\\" --version && \\\"$P/bin/slop-cop\\\" check <TMP> --no-llm --format=compact\"}"
+ }
+]

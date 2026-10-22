@@ -1,0 +1,18 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"slopless:slopless\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Add retry with backoff to the webhook dispatcher\\n\\n## Summary\\n\\nFailed webhook deliveries were being dropped without a trace, so customers could miss events. This PR retries them with exponential backoff.\\n\\n## What changed\\n\\n- Adds exponential backoff in `src/dispatch/retry.ts`, retrying failed deliveries up to 5 times\\n- Adds a `WEBHOOK_MAX_RETRIES` settin"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"mkdir -p .slopless/findings && npx slopless pr.md > \\\".slopless/findings/$(date +%Y-%m-%d-%H%M%S)--pr.json\\\"; echo exit $?; cat .slopless/findings/*--pr.json | head -c 3000\"}"
+ }
+]

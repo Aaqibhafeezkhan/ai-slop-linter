@@ -1,0 +1,16 @@
+I rewrote `README.md` in place. The two shell blocks, `tidyfeed==1.6.2`, Python 3.9, ISO 8601, UTF-8, `--keep-days 30`, the docs URL and the file names are untouched.
+
+**What changed**
+- **Chatbot lines:** I deleted "Sure! Here's a polished README intro for your project." from the top. I also deleted "I hope this helps! Feel free to reach out… let me know if you want a different tone." from the end.
+- **Intro:** The "cutting-edge, blazing-fast… empowers developers to seamlessly… rich tapestry… elevate your workflow" paragraph and the "Whether you're a seasoned engineer or just getting started" line are now one sentence: "tidyfeed is a command-line tool for cleaning up RSS and Atom feeds."
+- **Why tidyfeed?:** I cut "In the ever-evolving world of content syndication" and "serves as a testament to what a thoughtful tool can achieve", and replaced the em dash with a colon. The concrete claims stay, including the 50 MB in about 3 seconds figure.
+- **Quick start:** "Simply run the following command to clean a feed:" is now "To clean a feed, run:".
+- **License:** "Contributions are welcome." stays.
+
+**Verification**
+- **Editing passes:** 1 of a possible 2.
+- **Checks:** Model-only. The detector, quote normalizer and preservation validator didn't run. The text has no curly quotes, so the marks pass had nothing to change.
+- **Residuals:** None found. I left the bold on **tidyfeed** out of the rewrite when I dropped the intro paragraph, so there's no bold left.
+- **Stop reason:** No further justified edit remains.
+
+The intro is now short, and the other paragraphs are untouched where they were already plain. I added no facts, so if you want to say who the tool is for, you'll need to supply that.

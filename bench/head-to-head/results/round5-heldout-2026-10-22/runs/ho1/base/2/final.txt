@@ -1,0 +1,3 @@
+I rewrote `pr.md` in place. I removed the chatbot greeting and sign-off, the filler words ("seamlessly", "game-changer", "leverages", "delves") and the "it's important to note" phrasing. What's left is plain statements of what changed and why.
+
+The code spans, v3.8.0, the URL, the YAML block and the quoted phrase in Notes are exactly as they were.

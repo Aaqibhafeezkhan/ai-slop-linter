@@ -1,0 +1,10 @@
+Reescrevi o `incidente.md` no próprio arquivo. A tabela da linha do tempo, os nomes em code spans (`pagamentos-api`, `transacoes`), as versões 2.19.0 e 2.18.4, os horários e a URL ficaram exatamente como estavam.
+
+O que mudou no texto:
+- **Resíduos de chatbot:** tirei o "Com certeza! Segue abaixo..." do começo e o "Espero que este resumo ajude!..." do fim.
+- **Fecho de lição aprendida:** tirei o "valioso aprendizado para toda a equipe". O texto agora termina nos próximos passos.
+- **Frases infladas:** cortei "enfrentou uma instabilidade significativa", "É importante ressaltar", "Vale destacar", "Em última análise" e "garantindo uma experiência fluida".
+- **Travessão:** o do resumo virou uma frase separada.
+- **Causa raiz e impacto:** dividi em frases curtas. Mantive o "parece" da causa, porque o original já era incerto. "Aproximadamente" virou "cerca de".
+
+O resumo diz agora que a equipe fez o rollback e o serviço voltou ao normal, em vez de dizer que agiu "rapidamente". Esse elogio não tinha base no texto, e a linha do tempo já mostra o que aconteceu.

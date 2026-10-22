@@ -1,0 +1,10 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"---\\ntitle: Notas de la versión 4.2.0\\ndate: 2026-03-14\\ntags: [release, facturacion]\\n---\\n\\n# Notas de la versión 4.2.0 de Facturalia\\n\\n## Resumen\\n\\nYa está disponible la versión 4.2.0 de Facturalia. Cambia la exportación de facturas, valida mejor el NIF del cliente, acelera el listado y añade un endpoint para crear facturas por lotes.\\n\\n## Novedades\\n\\n- Ah"
+ }
+]

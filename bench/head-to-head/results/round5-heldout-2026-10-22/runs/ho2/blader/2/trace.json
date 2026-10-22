@@ -1,0 +1,14 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"humanizer:humanizer\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"---\\ntitle: Notas de la versión 4.2.0\\ndate: 2026-03-14\\ntags: [release, facturacion]\\n---\\n\\n# Notas de la versión 4.2.0 de Facturalia\\n\\n## Resumen\\n\\nLa versión 4.2.0 de Facturalia sube el límite de exportación a CSV, valida el NIF del cliente y acelera el listado de facturas. También añade un endpoint para crear facturas por lotes.\\n\\n## Novedades\\n\\n- Ahora "
+ }
+]

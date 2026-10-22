@@ -1,0 +1,9 @@
+I rewrote `README.md` in place. The linter now grades it A with no findings, and `--verify` against the original exits 0.
+
+- **Removed:** the "Sure! Here's a polished README intro" line and the closing "I hope this helps / feel free to reach out" lines. I also cut the sales wording ("cutting-edge, blazing-fast", "empowers", "seamlessly", "rich tapestry", "elevate your workflow"), the "seasoned engineer" aside, and the "testament" sentence.
+- **Reworded:** the em dash in the "Why" section became a colon. "Simply run" became "Run".
+- **Unchanged:** both shell blocks, `1.6.2`, `3.9`, `--keep-days 30`, the URL, `feed.xml`, `clean.xml`, and the 50 MB / 3 second claim.
+
+`--verify` also reported the "Sure!", "Here's a polished README intro" and "Simply run" sentences as edits it couldn't tie to a finding. They are the chatbot wrapper and a filler word I removed on purpose.
+
+Residuals: none.

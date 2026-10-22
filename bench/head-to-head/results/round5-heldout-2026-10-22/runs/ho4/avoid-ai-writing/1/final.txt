@@ -1,0 +1,3 @@
+I rewrote `status.md` in place. The text was already plain, so the edits are light. I shortened a few stiff, formal sentences and used more active phrasing ("we hebben het veld verbreed", "Dewi Hartman controleert de rapportages"). I kept the Dutch.
+
+The names, dates, numbers, amounts, the `import_klanten.py` code span and the URL are unchanged.

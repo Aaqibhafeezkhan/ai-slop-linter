@@ -1,0 +1,9 @@
+I rewrote `README.md` in place. The two shell blocks, `tidyfeed==1.6.2`, Python 3.9, `--keep-days 30`, the docs URL and the file names (`feed.xml`, `clean.xml`) are unchanged.
+
+What I removed:
+- **Chatbot leftovers:** "Sure! Here's a polished README intro…" at the top, and "I hope this helps! Feel free to reach out… let me know if you want a different tone" in the License section.
+- **Hype and filler:** "cutting-edge, blazing-fast", "empowers developers to seamlessly", "rich tapestry of features designed to elevate your workflow", "In the ever-evolving world of content syndication", "serves as a testament", and "Whether you're a seasoned engineer or just getting started".
+- **Dashes and wording:** the em dash is now a colon, "Simply run the following command" became "To clean a feed, run:", and the intro sentence is plain.
+- **Claims I couldn't back up:** I didn't add any facts. The performance figure (50 MB in about 3 seconds on a 2023 laptop) and the three features (dedupe, ISO 8601 dates, UTF-8) are still there.
+
+The README now has less text overall.

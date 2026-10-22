@@ -1,0 +1,6 @@
+{"output":"status.md",
+"facts":["Postgres 16","80 procent","12 van de 15 vestigingen","16 oktober","Dewi Hartman","`import_klanten.py`","37 dubbele klantrecords","Jasper de Wit","22 minuten","Zwolle","4 oktober","255 tekens","30 oktober","€ 148","€ 30","Karin Vos","MySQL","9 oktober 2026","https://wiki.example.com/planning/migratie"],
+"tells":["ik hoop dat","kortom","het is belangrijk om te benadrukken","naadloos","in het huidige","graag gedaan","laten we",{"re":"—|–"}],
+"protected":["De migratie van de planningsapp naar Postgres 16 is voor 80 procent klaar.","De klantendata van 12 van de 15 vestigingen staat nu in de nieuwe database.","De drie overige vestigingen volgen op 16 oktober.","Daarmee zijn 37 dubbele klantrecords samengevoegd.","Jasper de Wit heeft de back-ups op de nieuwe server ingesteld.","Een herstel uit back-up duurde 22 minuten.","De import van vestiging Zwolle liep vast op 4 oktober, omdat een veld met adressen langer was dan 255 tekens.","Het veld is verbreed en de import is opnieuw gedraaid.","Dat kostte een halve dag."],
+"forbidden_added":["ik","wij","we","ons","onze","mijn","jullie"],
+"language_absent":["the","and","with","this","please","der","und"]}

@@ -1,0 +1,10 @@
+Reescrevi `incidente.md` no próprio arquivo, mexendo só nos trechos com marcas de IA. Não reli o arquivo depois das edições.
+
+- **Abertura:** apaguei "Com certeza! Segue abaixo um resumo abrangente…", que é fala de chatbot.
+- **Resumo:** troquei "enfrentou uma instabilidade significativa — impactando potencialmente…" por "ficou instável e parte dos clientes foi afetada". Tirei "É importante ressaltar", "agiu rapidamente" e "experiência fluida", porque eram elogio sem nada que se possa conferir. A frase passou a dizer só o que o texto sustenta: a equipe fez rollback para a versão anterior.
+- **Causa raiz:** tirei "Vale destacar que", "em um cenário de", "acabou" e "Em última análise". Mantive o "parece", porque a causa ainda é incerta.
+- **Fecho:** apaguei "Espero que este resumo ajude! Fique à vontade…" e o "valioso aprendizado para toda a equipe". O texto agora termina nos próximos passos.
+
+Não mexi na tabela da linha do tempo, nos nomes entre crases, nas versões, nos horários, nos números (1.340 pagamentos, 45 minutos, limites de 80 e 120), na URL nem nas seções "Impacto" e "Próximos passos". Essas partes já soavam como texto de pessoa.
+
+Não inventei nada. Se quiser dizer em quanto tempo o rollback saiu, esse dado não está no texto além dos horários da tabela. Também não há nome de quem decidiu o rollback.

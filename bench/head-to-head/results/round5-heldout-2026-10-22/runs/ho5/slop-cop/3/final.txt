@@ -1,0 +1,11 @@
+I rewrote `README.md` in place. Both shell blocks, `tidyfeed==1.6.2`, Python 3.9, `--keep-days 30`, the URL and the file names are unchanged.
+
+**What I cut:**
+- The "Sure! Here's a polished README intro" line at the top.
+- The closing "I hope this helps! Feel free to reach out…" lines.
+- The marketing phrases: "cutting-edge, blazing-fast", "empowers", "seamlessly", "rich tapestry", "ever-evolving world", "serves as a testament".
+- The "seasoned engineer or just getting started" sentence.
+
+**What I changed:** I reworded the "Quick start" lead-in and the sentence that holds the URL. I kept the benchmark and the facts about dates, UTF-8 and duplicates.
+
+I ran slop-cop's client-side check (`--no-llm`) on the file. One hit remains, `colon-elaboration` on the colon in `https:`, which is a false positive. I didn't run the LLM semantic pass.

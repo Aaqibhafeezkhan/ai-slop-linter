@@ -1,0 +1,9 @@
+I rewrote `pr.md` in place. It now opens on the problem (failed deliveries were silently dropped) instead of "Hey! Great question." I also cut the filler phrases, the buzzwords and the closing "I hope this helps" paragraph.
+
+The code spans, v3.8.0, the URL, the YAML block and the quoted phrase are unchanged.
+
+A final slop-cop check still flags these:
+- **Quoted phrase:** "robust" and "seamless" inside the Notes quote, plus the comma placement after it. I left the quote as it was, as you asked.
+- **URL:** the colon in `https://` was read as a stray colon. It's a false positive.
+
+I changed "5 times" to "five times" to clear the numeral rule, and didn't re-run the check after that edit. I also ran only the client-side rules, not the LLM pass.

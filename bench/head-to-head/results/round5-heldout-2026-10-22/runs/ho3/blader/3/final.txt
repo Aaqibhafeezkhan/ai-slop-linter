@@ -1,0 +1,8 @@
+I rewrote `incidente.md` in place. I didn't reread the file after saving.
+
+- **Chat wrapper removed:** the "Com certeza! Segue abaixo..." opener and the closing "Espero que este resumo ajude... Em suma, valioso aprendizado" are gone.
+- **Filler cut:** I dropped "É importante ressaltar", "Vale destacar", "Em última análise" and "garantindo uma experiência fluida". That last phrase was an unsupported claim.
+- **Plainer wording:** "enfrentou uma instabilidade significativa, impactando potencialmente uma parcela dos clientes" became "ficou instável e parte dos clientes foi afetada". The cause paragraph is now three short sentences, and the em dash is gone.
+- **Left as it was:** the timeline table, the code spans (`pagamentos-api`, `transacoes`), the versions (2.19.0 and 2.18.4), the times, the figures, the "Próximos passos" list and the URL.
+
+I added no new facts. I kept the original hedge, "parece ser", on the root cause, because the source only said it appeared to be that.

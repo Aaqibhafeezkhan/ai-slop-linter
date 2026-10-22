@@ -1,0 +1,13 @@
+I rewrote `incidente.md` in place. I didn't re-read the file after the edits.
+
+**Changed**
+- **Opener:** I removed "Com certeza! Segue abaixo um resumo abrangente do incidente."
+- **Resumo:** The vague "instabilidade significativa", "potencialmente uma parcela dos clientes" and "experiência fluida" are gone. The paragraph now uses figures already in the note: the 502 errors, about 1.340 failed payments, the rollback, and recovery 45 minutes after the first alert. I dropped "agiu rapidamente" because nothing in the note supports it.
+- **Causa raiz:** I cut "Vale destacar que" and "Em última análise", and tightened the wording. The single "parece" stays, since the original was already uncertain about the cause.
+- **Closing:** I removed "Espero que este resumo ajude! … valioso aprendizado para toda a equipe."
+
+**Left as it was**
+- The timeline table, the code spans, the version numbers, the times and the URL.
+- The Impacto section and the Próximos passos list, which already read plainly.
+
+I added no facts. The skill's word lists are German and English, so I applied its structural rules to the Portuguese text without them.

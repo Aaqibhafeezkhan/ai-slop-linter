@@ -1,0 +1,10 @@
+I rewrote `README.md` in place. The two shell blocks, `tidyfeed==1.6.2`, Python 3.9, `--keep-days 30`, the URL and the file names are unchanged.
+
+I cut or changed these things:
+- **Chatbot leftovers:** I removed "Sure! Here's a polished README intro…" and the closing "I hope this helps! Feel free to reach out…".
+- **Sales language:** "cutting-edge, blazing-fast", "empowers", "seamlessly", "rich tapestry of features" and "elevate your workflow" are gone. The intro is now one plain sentence saying what the tool does.
+- **Inflated phrasing:** I dropped "In the ever-evolving world of content syndication" and "serves as a testament to what a thoughtful tool can achieve".
+- **Dash:** The em dash in the "Why" section is now a colon.
+- **Filler:** "Simply run the following command" is now "To clean a feed, run:".
+
+I kept the claims about duplicate removal, ISO 8601, UTF-8, and the 50 MB feed in about 3 seconds on a 2023 laptop.

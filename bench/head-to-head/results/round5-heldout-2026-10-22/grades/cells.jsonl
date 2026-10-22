@@ -1,0 +1,165 @@
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-avoid-ai-writing-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-avoid-ai-writing-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-avoid-ai-writing-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-base-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-base-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-base-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-blader-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-blader-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-blader-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-blader-inv-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-blader-inv-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-blader-inv-3"}
+{"C1": false, "C2": true, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["missing fact: exponential backoff"], "cell": "ho1-everwrite-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-everwrite-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": false, "score": 4, "detail": ["heading changed: ## Summary"], "cell": "ho1-everwrite-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": false, "score": 4, "detail": ["heading changed: ## Summary"], "cell": "ho1-everwrite-inv-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-everwrite-inv-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-everwrite-inv-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-ours-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-ours-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-ours-3"}
+{"C1": false, "C2": true, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["missing fact: up to 5 times"], "cell": "ho1-slop-cop-1"}
+{"C1": false, "C2": true, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["missing fact: up to 5 times"], "cell": "ho1-slop-cop-2"}
+{"C1": false, "C2": true, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["missing fact: up to 5 times"], "cell": "ho1-slop-cop-3"}
+{"C1": true, "C2": true, "C3": true, "C4": false, "C5": true, "score": 4, "detail": ["added word: we"], "cell": "ho1-slopless-1"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: —|–"], "cell": "ho1-slopless-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-slopless-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-unslop-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-unslop-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-unslop-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-unslop-inv-1"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: —|–"], "cell": "ho1-unslop-inv-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-unslop-inv-3"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: podría reducir"], "cell": "ho2-avoid-ai-writing-1"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: podría reducir"], "cell": "ho2-avoid-ai-writing-2"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: podría reducir"], "cell": "ho2-avoid-ai-writing-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho2-base-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho2-base-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho2-base-3"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: podría reducir"], "cell": "ho2-blader-1"}
+{"C1": false, "C2": true, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["missing fact: 4,8 segundos"], "cell": "ho2-blader-2"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: podría reducir"], "cell": "ho2-blader-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho2-blader-inv-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho2-blader-inv-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho2-blader-inv-3"}
+{"C1": false, "C2": false, "C3": true, "C4": true, "C5": true, "score": 3, "detail": ["missing fact: 4,8 segundos", "tell left: podría reducir"], "cell": "ho2-everwrite-1"}
+{"C1": false, "C2": false, "C3": true, "C4": true, "C5": true, "score": 3, "detail": ["missing fact: 4,8 segundos", "tell left: podría reducir"], "cell": "ho2-everwrite-2"}
+{"C1": false, "C2": false, "C3": true, "C4": true, "C5": true, "score": 3, "detail": ["missing fact: 4,8 segundos", "tell left: podría reducir"], "cell": "ho2-everwrite-3"}
+{"C1": false, "C2": false, "C3": true, "C4": true, "C5": true, "score": 3, "detail": ["missing fact: 4,8 segundos", "tell left: podría reducir"], "cell": "ho2-everwrite-inv-1"}
+{"C1": false, "C2": false, "C3": true, "C4": true, "C5": true, "score": 3, "detail": ["missing fact: 4,8 segundos", "tell left: podría reducir"], "cell": "ho2-everwrite-inv-2"}
+{"C1": false, "C2": true, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["missing fact: 4,8 segundos"], "cell": "ho2-everwrite-inv-3"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: podría reducir"], "cell": "ho2-ours-1"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: podría reducir"], "cell": "ho2-ours-2"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: podría reducir"], "cell": "ho2-ours-3"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: podría reducir"], "cell": "ho2-slop-cop-1"}
+{"C1": false, "C2": true, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["missing fact: 4,8 segundos"], "cell": "ho2-slop-cop-2"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: podría reducir"], "cell": "ho2-slop-cop-3"}
+{"C1": false, "C2": true, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["missing fact: 4,8 segundos"], "cell": "ho2-slopless-1"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: podría reducir"], "cell": "ho2-slopless-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho2-slopless-3"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: podría reducir"], "cell": "ho2-unslop-1"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: podría reducir"], "cell": "ho2-unslop-2"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: podría reducir"], "cell": "ho2-unslop-3"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: podría reducir"], "cell": "ho2-unslop-inv-1"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: podría reducir"], "cell": "ho2-unslop-inv-2"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: podría reducir"], "cell": "ho2-unslop-inv-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-avoid-ai-writing-1"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: parece estar relacionada"], "cell": "ho3-avoid-ai-writing-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-avoid-ai-writing-3"}
+{"C1": true, "C2": true, "C3": true, "C4": false, "C5": true, "score": 4, "detail": ["added word: fizemos"], "cell": "ho3-base-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-base-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-base-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-blader-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-blader-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-blader-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-blader-inv-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-blader-inv-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-blader-inv-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-everwrite-1"}
+{"C1": true, "C2": true, "C3": true, "C4": false, "C5": true, "score": 4, "detail": ["added word: fizemos"], "cell": "ho3-everwrite-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-everwrite-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-everwrite-inv-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-everwrite-inv-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-everwrite-inv-3"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: parece estar relacionada"], "cell": "ho3-ours-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-ours-2"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: parece estar relacionada"], "cell": "ho3-ours-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-slop-cop-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-slop-cop-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-slop-cop-3"}
+{"C1": true, "C2": true, "C3": true, "C4": false, "C5": true, "score": 4, "detail": ["added word: fizemos"], "cell": "ho3-slopless-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-slopless-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-slopless-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-unslop-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-unslop-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-unslop-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-unslop-inv-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-unslop-inv-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-unslop-inv-3"}
+{"C1": true, "C2": true, "C3": false, "C4": false, "C5": true, "score": 3, "detail": ["protected text changed: De klantendata van 12 van de 15 vestigin", "added word: we"], "cell": "ho4-avoid-ai-writing-1"}
+{"C1": true, "C2": true, "C3": false, "C4": false, "C5": true, "score": 3, "detail": ["protected text changed: De klantendata van 12 van de 15 vestigin", "added word: we"], "cell": "ho4-avoid-ai-writing-2"}
+{"C1": true, "C2": true, "C3": false, "C4": false, "C5": true, "score": 3, "detail": ["protected text changed: De klantendata van 12 van de 15 vestigin", "added word: we"], "cell": "ho4-avoid-ai-writing-3"}
+{"C1": false, "C2": false, "C3": false, "C4": false, "C5": true, "score": 1, "detail": ["missing fact: 37 dubbele klantrecords", "protected text changed: De klantendata van 12 van de 15 vestigin", "tell left: laten we", "added word: we", "added word: ons"], "cell": "ho4-base-1"}
+{"C1": true, "C2": true, "C3": false, "C4": false, "C5": false, "score": 2, "detail": ["protected text changed: De migratie van de planningsapp naar Pos", "added word: we", "added word: ons", "heading changed: ## Wat niet goed ging"], "cell": "ho4-base-2"}
+{"C1": true, "C2": true, "C3": false, "C4": false, "C5": true, "score": 3, "detail": ["protected text changed: De migratie van de planningsapp naar Pos", "added word: we"], "cell": "ho4-base-3"}
+{"C1": true, "C2": true, "C3": false, "C4": false, "C5": true, "score": 3, "detail": ["protected text changed: De klantendata van 12 van de 15 vestigin", "added word: we"], "cell": "ho4-blader-1"}
+{"C1": true, "C2": true, "C3": false, "C4": false, "C5": true, "score": 3, "detail": ["protected text changed: De klantendata van 12 van de 15 vestigin", "added word: we"], "cell": "ho4-blader-2"}
+{"C1": true, "C2": true, "C3": false, "C4": false, "C5": true, "score": 3, "detail": ["protected text changed: De klantendata van 12 van de 15 vestigin", "added word: we"], "cell": "ho4-blader-3"}
+{"C1": true, "C2": true, "C3": false, "C4": false, "C5": true, "score": 3, "detail": ["protected text changed: De klantendata van 12 van de 15 vestigin", "added word: we"], "cell": "ho4-blader-inv-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho4-blader-inv-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho4-blader-inv-3"}
+{"C1": true, "C2": true, "C3": false, "C4": false, "C5": true, "score": 3, "detail": ["protected text changed: De migratie van de planningsapp naar Pos", "added word: we"], "cell": "ho4-everwrite-1"}
+{"C1": true, "C2": true, "C3": false, "C4": false, "C5": true, "score": 3, "detail": ["protected text changed: De klantendata van 12 van de 15 vestigin", "added word: we"], "cell": "ho4-everwrite-2"}
+{"C1": true, "C2": true, "C3": false, "C4": false, "C5": true, "score": 3, "detail": ["protected text changed: De klantendata van 12 van de 15 vestigin", "added word: we"], "cell": "ho4-everwrite-3"}
+{"C1": true, "C2": false, "C3": false, "C4": false, "C5": true, "score": 2, "detail": ["protected text changed: De migratie van de planningsapp naar Pos", "tell left: laten we", "added word: we"], "cell": "ho4-everwrite-inv-1"}
+{"C1": true, "C2": true, "C3": false, "C4": false, "C5": true, "score": 3, "detail": ["protected text changed: De klantendata van 12 van de 15 vestigin", "added word: we"], "cell": "ho4-everwrite-inv-2"}
+{"C1": false, "C2": true, "C3": false, "C4": false, "C5": true, "score": 2, "detail": ["missing fact: 37 dubbele klantrecords", "protected text changed: De migratie van de planningsapp naar Pos", "added word: we"], "cell": "ho4-everwrite-inv-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho4-ours-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho4-ours-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho4-ours-3"}
+{"C1": true, "C2": false, "C3": false, "C4": false, "C5": false, "score": 1, "detail": ["protected text changed: De migratie van de planningsapp naar Pos", "tell left: laten we", "added word: we", "added word: ons", "heading changed: ## Wat is gedaan"], "cell": "ho4-slop-cop-1"}
+{"C1": true, "C2": true, "C3": false, "C4": false, "C5": false, "score": 2, "detail": ["protected text changed: De klantendata van 12 van de 15 vestigin", "added word: we", "heading changed: ## Stand van zaken"], "cell": "ho4-slop-cop-2"}
+{"C1": true, "C2": true, "C3": false, "C4": false, "C5": true, "score": 3, "detail": ["protected text changed: De migratie van de planningsapp naar Pos", "added word: we"], "cell": "ho4-slop-cop-3"}
+{"C1": true, "C2": true, "C3": false, "C4": false, "C5": true, "score": 3, "detail": ["protected text changed: De migratie van de planningsapp naar Pos", "added word: we"], "cell": "ho4-slopless-1"}
+{"C1": false, "C2": false, "C3": false, "C4": false, "C5": true, "score": 1, "detail": ["missing fact: 37 dubbele klantrecords", "protected text changed: De migratie van de planningsapp naar Pos", "tell left: laten we", "added word: we"], "cell": "ho4-slopless-2"}
+{"C1": true, "C2": true, "C3": false, "C4": false, "C5": true, "score": 3, "detail": ["protected text changed: De klantendata van 12 van de 15 vestigin", "added word: we", "added word: ons"], "cell": "ho4-slopless-3"}
+{"C1": true, "C2": true, "C3": false, "C4": true, "C5": true, "score": 4, "detail": ["protected text changed: De migratie van de planningsapp naar Pos"], "cell": "ho4-unslop-1"}
+{"C1": true, "C2": true, "C3": false, "C4": true, "C5": true, "score": 4, "detail": ["protected text changed: Daarmee zijn 37 dubbele klantrecords sam"], "cell": "ho4-unslop-2"}
+{"C1": true, "C2": true, "C3": false, "C4": true, "C5": true, "score": 4, "detail": ["protected text changed: Jasper de Wit heeft de back-ups op de ni"], "cell": "ho4-unslop-3"}
+{"C1": true, "C2": true, "C3": false, "C4": true, "C5": true, "score": 4, "detail": ["protected text changed: Daarmee zijn 37 dubbele klantrecords sam"], "cell": "ho4-unslop-inv-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho4-unslop-inv-2"}
+{"C1": true, "C2": true, "C3": false, "C4": true, "C5": true, "score": 4, "detail": ["protected text changed: Daarmee zijn 37 dubbele klantrecords sam"], "cell": "ho4-unslop-inv-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-avoid-ai-writing-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-avoid-ai-writing-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-avoid-ai-writing-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-base-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-base-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-base-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-blader-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-blader-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-blader-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-blader-inv-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-blader-inv-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-blader-inv-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-everwrite-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-everwrite-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-everwrite-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-everwrite-inv-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-everwrite-inv-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-everwrite-inv-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-ours-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-ours-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-ours-3"}
+{"C1": true, "C2": true, "C3": true, "C4": false, "C5": true, "score": 4, "detail": ["url: https://tidyfeed.example.com/docs"], "cell": "ho5-slop-cop-1"}
+{"C1": true, "C2": true, "C3": true, "C4": false, "C5": true, "score": 4, "detail": ["url: https://tidyfeed.example.com/docs"], "cell": "ho5-slop-cop-2"}
+{"C1": true, "C2": true, "C3": true, "C4": false, "C5": true, "score": 4, "detail": ["url: https://tidyfeed.example.com/docs"], "cell": "ho5-slop-cop-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-slopless-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-slopless-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-slopless-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-unslop-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-unslop-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-unslop-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-unslop-inv-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-unslop-inv-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-unslop-inv-3"}

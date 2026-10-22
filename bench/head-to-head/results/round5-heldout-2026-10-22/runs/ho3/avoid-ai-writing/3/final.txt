@@ -1,0 +1,20 @@
+I rewrote `incidente.md` in place. I didn't re-read the file afterward, and I didn't run the detector, the marks normalizer or the preservation validator. The audit and the preservation check were model-only.
+
+**What changed**
+- **Chatbot opener:** I deleted "Com certeza! Segue abaixo um resumo abrangente do incidente."
+- **Resumo:**
+  - I removed "instabilidade significativa", the em dash, "É importante ressaltar que" and "garantindo uma experiência fluida". The last one was a claim the note never supported.
+  - It now says the service became unstable and may have affected part of the customers. I kept that hedge because the source had it.
+  - It now says the team mitigated the problem with a rollback, which the timeline backs up.
+- **Causa raiz:** I cut "Vale destacar que", "em um cenário de alto tráfego, acabou sobrecarregando" and "Em última análise". The cause still "parece" to be the index migration, and the limit of 80 is unchanged.
+- **Closer:** I deleted "Espero que este resumo ajude! Fique à vontade para pedir ajustes. Em suma, esse incidente é um valioso aprendizado para toda a equipe."
+
+**Left untouched**
+- The timeline table, the code spans (`pagamentos-api`, `transacoes`), the versions 2.19.0 and 2.18.4, all times and numbers, and the URL.
+- The Impacto and Próximos passos sections, because they had nothing to fix.
+
+The skill's rules are calibrated for English, so I applied them to the Portuguese by judgment.
+
+**Residual:** the Resumo says the incident "pode ter afetado" customers, while Impacto says about 1,340 payments failed. That hedge is from your original, and I didn't change it because it's your call. You may want it to say "afetou" before publishing.
+
+**Editing passes:** 1 of a possible 2. I stopped because I found no further justified edit.

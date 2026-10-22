@@ -1,0 +1,12 @@
+I edited `notas.md` in place. I didn't re-read the file afterwards; the edit calls all reported success. The front matter, the customer quote with its attribution, the code spans, the endpoint, the URL and every number are untouched.
+
+- **Chat artifact:** I deleted "¡Claro! Aquí tienes unas notas de la versión completas…". It was the assistant talking to the user, and it would have been published.
+- **Resumen:** I replaced the press-release opener ("Nos complace anunciar… revoluciona…", "En el panorama actual…") with one plain sentence listing what the release does. It uses only the facts already in the notes: CSV export, `nif_cliente` validation and the batch endpoint.
+- **Novedades:**
+  - I cut "Una experiencia de exportación totalmente renovada:", "Es importante destacar que" and "Se ha mejorado significativamente el rendimiento:".
+  - The 1,2 s versus 4,8 s figures now carry the item on their own.
+  - I kept the original hedge "podría reducir los rechazos".
+- **Cambios que requieren atención:** I removed "Cabe destacar que".
+- **Cierre:** I cut "En definitiva, esta versión marca un antes y un después. ¡No dudes en contactarnos…!". The section now ends on the upgrade command and the docs link.
+
+I left the bullets, the section order and the "Cita de un cliente" heading as they were, since they already read fine.

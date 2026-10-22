@@ -1,0 +1,11 @@
+I rewrote `incidente.md` in place, and `--verify` exits 0 (`verify: ok`). The linter found nothing in the original because it can't check Portuguese, so I made the edits by reading the text myself.
+
+- **Opener:** I cut the chatbot opener ("Com certeza! Segue abaixo um resumo abrangente...").
+- **Resumo:** I replaced the padded summary ("instabilidade significativa", "É importante ressaltar", "experiência fluida") with two plain sentences. The "experiência fluida" claim wasn't backed by anything in the note, so it's gone. The summary now says the team did the rollback and the service went back to normal.
+- **Causa raiz:** I removed "Vale destacar", "em um cenário de" and "Em última análise". The hedge "parece estar relacionada" stays because the original says it.
+- **Closer:** I deleted the closing paragraph ("Espero que este resumo ajude!... Em suma... valioso aprendizado").
+- **Untouched:** The timeline table, the code spans, the versions, the times, the URL, the numbers and the next-steps list are exactly as they were.
+
+The "unrequested edit" lines in the verify output all refer to the sentences I removed on purpose.
+
+Residuals: none.

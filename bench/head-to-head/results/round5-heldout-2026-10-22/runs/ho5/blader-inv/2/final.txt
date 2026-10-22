@@ -1,0 +1,14 @@
+I rewrote `README.md` in place. I didn't re-read the file after saving.
+
+- **Chatbot leftovers removed:** the "Sure! Here's a polished README intro" line and the closing "I hope this helps! … let me know if you want a different tone."
+- **Sales language cut:** "cutting-edge, blazing-fast", "empowers developers to seamlessly", "rich tapestry of features designed to elevate your workflow" and "serves as a testament" are gone. The intro is now one plain sentence saying what the tool does.
+- **Other edits:** I removed the "ever-evolving world of content syndication" opener and the em dash, which is now a colon. "Simply run the following command" became "To clean a feed, run:".
+- **Kept as they were:**
+  - Both shell blocks.
+  - `1.6.2`, Python 3.9, ISO 8601, UTF-8, 50 MB, 3 seconds and 2023.
+  - The `--keep-days 30` option.
+  - The docs URL.
+  - The file names `feed.xml` and `clean.xml`.
+  - The MIT license line.
+
+I dropped the "seasoned engineer or just getting started" sentence because it made no claim. I didn't add any facts.

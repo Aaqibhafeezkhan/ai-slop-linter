@@ -1,0 +1,9 @@
+I rewrote `README.md` in place. The linter now grades it A with no findings, and `--verify` against the original exits 0.
+
+- **Removed:** the chatbot lines ("Sure! Here's a polished README intro…", "I hope this helps! Feel free to reach out…"). I also cut the sales words from the intro ("cutting-edge", "blazing-fast", "empowers", "seamlessly", "rich tapestry", "elevate your workflow") and the "seasoned engineer" sentence. In the "Why tidyfeed?" section I cut "ever-evolving world of content syndication" and "serves as a testament".
+- **Reworded:** the em dash became a colon. "Simply run the following command to clean a feed:" became "To clean a feed, run:".
+- **Unchanged:** both shell blocks, `1.6.2`, Python 3.9, ISO 8601, UTF-8, 50 MB, 3 seconds, `--keep-days 30`, the URL, `feed.xml`, `clean.xml`, the MIT license line and the headings.
+
+`--verify` listed three "unrequested edits": "Sure!", "Here's a polished README intro for your project." and the "Simply run…" sentence. All three were deliberate cuts or rewrites.
+
+Residuals: none.

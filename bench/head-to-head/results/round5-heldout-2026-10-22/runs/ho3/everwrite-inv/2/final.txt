@@ -1,0 +1,5 @@
+Reescrevi o `incidente.md` no próprio arquivo: tirei a abertura de chatbot, o fecho, o tom de elogio e o travessão, e o checker foi de 1 strong e 1 weak para 0. A tabela, os nomes em code spans, as versões, os horários e a URL ficaram idênticos.
+
+Mudei duas coisas além do estilo:
+- O resumo agora diz que o serviço voltou ao normal em cerca de 45 minutos. Isso vem dos horários da tabela (14:02 a 14:47), mas a frase é nova.
+- Cortei "agiu rapidamente" e "experiência fluida", que ninguém tinha afirmado com base em fatos do incidente.

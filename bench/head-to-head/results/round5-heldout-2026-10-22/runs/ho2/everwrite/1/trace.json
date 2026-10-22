@@ -1,0 +1,22 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"everwrite:everwrite\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cat <TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"---\\ntitle: Notas de la versión 4.2.0\\ndate: 2026-03-14\\ntags: [release, facturacion]\\n---\\n\\n# Notas de la versión 4.2.0 de Facturalia\\n\\n## Resumen\\n\\nYa está disponible la versión 4.2.0 de Facturalia. Los cambios principales afectan a la exportación a CSV, a la validación del NIF del cliente y a la velocidad del listado de facturas.\\n\\n## Novedades\\n\\n- Se pue"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py <TMP>\"}"
+ }
+]

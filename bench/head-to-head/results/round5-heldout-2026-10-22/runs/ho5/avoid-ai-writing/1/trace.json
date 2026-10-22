@@ -1,0 +1,30 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"avoid-ai-writing:avoid-ai-writing\", \"args\": \"README.md edit in place; keep the two shell blocks, version numbers, option name, URL and file names exactly as they are\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\", \"offset\": 456, \"limit\": 455}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Sure! Here's a polished README intro for your project.\\n\\n**tidyfeed** is a cutting-edge, blazing-fast command-line tool that empowers developers to seamlessly clean up RSS and Atom feeds. Whether you're a seasoned engineer or just getting started, tidyfeed offers a rich tapestry of features designed to elevate your workflow.\\n\\n## Why ti"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Simply run the following command to clean a feed:\", \"new_string\": \"To clean a feed, run:\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Contributions are welcome. I hope this helps! Feel free to reach out if you have any questions, and let me know if you want a different tone.\", \"new_string\": \"Contributions are welcome.\"}"
+ }
+]

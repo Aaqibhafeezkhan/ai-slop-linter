@@ -1,0 +1,7 @@
+Ik heb `status.md` ter plekke herschreven. Het was al vrij nuchter, dus ik heb het licht bewerkt:
+
+- Ik heb het lijdende en afstandelijke taalgebruik vervangen door directere zinnen. Voorbeelden zijn "Het herkent nu…" en "We hebben het veld verbreed…".
+- De stijve bijzinnen met "zodat" en "omdat" heb ik korter gemaakt.
+- Bij "Controle van de rapportages door Dewi Hartman" en "moet Karin Vos nog bevestigen" heb ik de zinsopbouw natuurlijker gemaakt.
+
+Namen, datums, getallen, bedragen, `import_klanten.py` en de URL zijn ongewijzigd.

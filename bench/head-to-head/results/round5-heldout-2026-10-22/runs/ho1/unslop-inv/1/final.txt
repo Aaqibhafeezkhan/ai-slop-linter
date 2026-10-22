@@ -1,0 +1,17 @@
+I rewrote `pr.md` in place. I didn't re-read the file afterwards.
+
+**What I changed**
+- **Chat artifacts:** I removed the "Hey! Great question…" opener and the "Let me know if you'd like me to make any changes! I hope this helps." closer.
+- **Closing paragraph:** I cut the "In conclusion… pivotal step" paragraph. It only restated the summary.
+- **Summary:** I dropped "seamlessly", "game-changer", the "fast-paced integration landscape" opener and the "it's important to note" and "could potentially" hedging. It now says what was wrong (deliveries silently dropped, events missed) and what the PR does.
+- **Bullets:** "Leverages a robust exponential backoff" became "Adds exponential backoff". "Delves into the failure path" became "Records each attempt… from the failure path".
+- **Testing:** I removed "It's worth noting that".
+- **Notes:** I replaced the em dash with a comma.
+
+**What I left alone**
+- The code spans, v3.8.0, the URL, the YAML block and the quoted phrase are exactly as they were.
+- The facts and numbers are unchanged: 5 retries, 214 tests, the 503 test, the 250 ms and 500 ms delays and the third-attempt recovery.
+- I kept the first-person "I ran" because the original used it.
+- I kept the section headings.
+
+I didn't add any facts. One thing to check: the Notes sentence "which is the term to keep" reads like an instruction to a reviewer rather than PR content. I left it because it sits next to the quoted phrase you asked me to preserve, but you may want to cut it.

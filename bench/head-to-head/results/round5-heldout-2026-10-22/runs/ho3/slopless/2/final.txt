@@ -1,0 +1,10 @@
+I rewrote `incidente.md` in place. I didn't run the Slopless skill or any other check on the result.
+
+- **Removed:** the chatbot opener ("Com certeza! Segue abaixo…") and closer ("Espero que este resumo ajude…"), plus filler like "Vale destacar", "É importante ressaltar", "Em última análise" and "Em suma".
+- **Rewritten:**
+  - The summary now says what happened: 502 errors, high latency, about 1.340 failed payments, and a rollback.
+  - The root cause is now a plain statement, not "parece estar relacionada a…".
+  - I took out "garantindo uma experiência fluida" and "valioso aprendizado".
+- **Left exactly as they were:** the timeline table, the code spans (`pagamentos-api`, `transacoes`), the version numbers, the times, the pool limits, the impact paragraph, the next-steps list and the URL.
+
+The summary and root cause now carry two claims the original didn't state: the rollback ended the failures, and the migration wasn't caught because it was never tested somewhere production-like. Check that both match what happened before you publish.

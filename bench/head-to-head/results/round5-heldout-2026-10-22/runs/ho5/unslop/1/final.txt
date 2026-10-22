@@ -1,0 +1,8 @@
+I rewrote `README.md` in place. I didn't re-read the file after editing. Both shell blocks, `tidyfeed==1.6.2`, Python 3.9, `--keep-days 30`, the docs URL, `feed.xml`, `clean.xml` and the MIT license line are unchanged.
+
+- **Chat leftovers (cut):** the opening "Sure! Here's a polished README intro…" and the closing "I hope this helps! Feel free to reach out… different tone."
+- **Intro:** it now reads "**tidyfeed** is a command-line tool that cleans up RSS and Atom feeds." I dropped "cutting-edge, blazing-fast", "empowers", "seamlessly", "rich tapestry", "elevate your workflow" and the "seasoned engineer or just getting started" line. None of them said anything checkable.
+- **Why tidyfeed?:** I cut "In the ever-evolving world of content syndication" and "serves as a testament to what a thoughtful tool can achieve". The em dash became a colon. The concrete claims stay: duplicate removal, ISO 8601 dates, UTF-8, and 50 MB in about 3 seconds on a 2023 laptop.
+- **Quick start:** "Simply run the following command to clean a feed:" became "To clean a feed:".
+
+I added no facts. The README never says what makes tidyfeed different from other feed tools, and I left that gap open rather than invent a claim.

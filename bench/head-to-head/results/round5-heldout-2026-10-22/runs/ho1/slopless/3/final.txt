@@ -1,0 +1,7 @@
+I rewrote `pr.md` in place. I didn't run the Slopless skill or any other check on the result.
+
+- **Removed:** the chatbot opener ("Hey! Great question"), the closing pleasantries, the "In conclusion" paragraph, and filler like "game-changer", "seamlessly" and "it's worth noting".
+- **Reworded:** the bullets and the Summary now use plain verbs and say what the PR does.
+- **Left alone:** the code spans, v3.8.0, the URL, the YAML block and the quoted phrase in Notes.
+
+In the Notes sentence about the delay, I replaced the em dash with a comma. The wording is otherwise the same.

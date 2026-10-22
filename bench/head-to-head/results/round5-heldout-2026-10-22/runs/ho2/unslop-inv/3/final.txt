@@ -1,0 +1,14 @@
+He reescrito `notas.md` en el propio archivo. No lo he vuelto a leer después de las ediciones; las cuatro se aplicaron sin error.
+
+**Qué he cambiado**
+- **Apertura del chat:** he quitado «¡Claro! Aquí tienes unas notas…», que era un resto de la conversación con la IA.
+- **Resumen:** he sustituido el párrafo de «Nos complace anunciar», «revoluciona» y «En el panorama actual» por una frase con lo que trae la versión: exportación a CSV ampliada, listado más rápido y creación de facturas por lotes.
+- **Novedades:** he quitado los rellenos «Una experiencia de exportación totalmente renovada», «Es importante destacar que» y «Se ha mejorado significativamente el rendimiento». He dejado el matiz «podría reducir los rechazos».
+- **Cambios que requieren atención:** he quitado «Cabe destacar que».
+- **Cierre:** he eliminado «En definitiva, esta versión marca un antes y un después» y «¡No dudes en contactarnos…!». Ahora el texto termina en el comando de actualización y la URL.
+
+**Sin tocar**
+- El front matter, la cita de Marta Olmedo con su atribución, los code spans, el endpoint `POST /v2/facturas/lote`, la URL y todas las cifras.
+- Las frases que ya sonaban naturales, como la de `FACTURALIA_TIMEOUT` y la de actualización.
+
+No he añadido datos que no estuvieran en el original.

@@ -1,0 +1,7 @@
+Reescrevi `incidente.md` no próprio arquivo.
+
+- **Removido:** a abertura de chatbot ("Com certeza! Segue abaixo…") e o fecho ("Espero que este resumo ajude…", "valioso aprendizado"). Também saíram as frases de enchimento ("É importante ressaltar", "Vale destacar", "Em última análise") e o "garantindo uma experiência fluida", que não tinha base no texto.
+- **Reescrito:** o resumo, a causa raiz e o impacto agora dizem os fatos de forma direta, sem os travessões. Mantive uma só ressalva na causa raiz ("causa provável"), porque o original também não afirmava com certeza.
+- **Inalterado:** a tabela da linha do tempo, os nomes em code spans (`pagamentos-api`, `transacoes`), as versões 2.19.0 e 2.18.4, os horários, os números e a URL.
+
+Ajustei duas coisas pequenas: "durante 45 minutos" virou "ao longo de 45 minutos" e "aproximadamente 1.340" virou "cerca de 1.340". Não acrescentei nenhum fato novo.

@@ -1,0 +1,26 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"unslop:unslop\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Sure! Here's a polished README intro for your project.\\n\\n**tidyfeed** is a cutting-edge, blazing-fast command-line tool that empowers developers to seamlessly clean up RSS and Atom feeds. Whether you're a seasoned engineer or just getting started, tidyfeed offers a rich tapestry of features designed to elevate your workflow.\", \"new_strin"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"In the ever-evolving world of content syndication, feeds are often messy — duplicate entries, broken dates, and inconsistent encodings abound. tidyfeed serves as a testament to what a thoughtful tool can achieve. It removes\", \"new_string\": \"Feeds are often messy: duplicate entries, broken dates and inconsistent encodings. tidyfeed removes"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Simply run the following command to clean a feed:\", \"new_string\": \"To clean a feed, run:\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \" I hope this helps! Feel free to reach out if you have any questions, and let me know if you want a different tone.\", \"new_string\": \"\"}"
+ }
+]

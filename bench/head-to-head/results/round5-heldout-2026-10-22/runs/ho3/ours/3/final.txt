@@ -1,0 +1,10 @@
+I rewrote `incidente.md` in place, and `--verify` exits 0.
+
+- **Removed:** the chatbot opener ("Com certeza! Segue abaixo um resumo abrangente…") and the closer ("Espero que este resumo ajude!… Em suma, esse incidente é um valioso aprendizado…").
+- **Removed filler:** "É importante ressaltar", "Vale destacar", "Em última análise" and "garantindo uma experiência fluida".
+- **Reworded:** the summary now says the service "ficou instável e pode ter afetado uma parcela dos clientes". I kept the source's hedge there, and the one on the cause ("parece estar relacionada").
+- **Unchanged:** the timeline table, the code spans, the versions, the times, the numbers and the URL.
+
+The linter found nothing on the original (grade A, 0 findings), so the fixes came from reading the text myself. There is no Portuguese reference file, so I applied the English tell families that carry over. `--verify` printed "clean source: no edit is expected", which doesn't fit this file, because the tells it missed were obvious on a read. It also listed the removed sentences as unrequested edits, and I made all of them on purpose.
+
+Residuals: none.

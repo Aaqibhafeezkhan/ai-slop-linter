@@ -1,0 +1,7 @@
+I rewrote `notas.md` in place. I didn't run slop-cop, because its rules target English and the file is in Spanish. I edited it by hand instead.
+
+- **Removed:** the leftover chatbot line ("¡Claro! Aquí tienes…"), the "revoluciona" and "panorama actual" opener, "Es importante destacar", "Cabe destacar", "En definitiva… marca un antes y un después", and "¡No dudes en contactarnos!".
+- **Rewritten:** the summary now says what the release contains. "Una experiencia de exportación totalmente renovada" became a plain statement of the new limit, and "mejorado significativamente" is gone. The `FACTURALIA_TIMEOUT` note now speaks to the reader directly. The closing line is a simple "escríbenos".
+- **Unchanged:** the front matter, the customer quote and its attribution, the code spans (`nif_cliente`, `FACTURALIA_TIMEOUT`, `npm install facturalia@4.2.0`), the `POST /v2/facturas/lote` endpoint, the URL, and every number.
+
+I kept the "podría reducir los rechazos" hedge, since the claim really is uncertain.

@@ -1,0 +1,24 @@
+Reescrevi `incidente.md` no próprio arquivo, em português, como estava.
+
+**O que removi**
+- O "Com certeza! Segue abaixo…" do começo e o "Espero que este resumo ajude…" do fim, que eram resto de chatbot.
+- O fecho sobre "valioso aprendizado para toda a equipe".
+- Os marcadores "É importante ressaltar" e "Vale destacar", o "Em última análise" e o "garantindo uma experiência fluida". Esse último não tinha base no texto original.
+- Os travessões.
+
+**O que mudei**
+- O resumo dizia "impactando potencialmente uma parcela dos clientes". Agora diz que parte dos clientes não conseguiu concluir pagamentos.
+- A causa raiz está em frases mais curtas e diretas.
+- "Aproximadamente" virou "cerca de".
+
+**O que ficou igual**
+- A tabela da linha do tempo.
+- Os nomes em code spans (`pagamentos-api`, `transacoes`).
+- As versões 2.19.0 e 2.18.4.
+- Os horários, os números e a URL.
+- Os três itens dos próximos passos.
+
+**Uma frase nova**
+No resumo escrevi que a equipe fez o rollback "em cerca de meia hora depois do primeiro alerta". Isso sai da tabela: o alerta foi às 14:02 e o rollback às 14:31. Troquei com isso a frase vaga sobre a equipe ter agido rapidamente, mas confira se o tom serve para a publicação.
+
+Mantive o "parece" na causa raiz porque o original já tratava a causa como provável.

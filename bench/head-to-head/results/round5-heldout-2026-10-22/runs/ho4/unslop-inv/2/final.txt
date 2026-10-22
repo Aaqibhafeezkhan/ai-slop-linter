@@ -1,0 +1,11 @@
+Ik heb `status.md` niet aangepast. Het leest al als een tekst van een mens, en de skill zegt dat je een tekst die goed is zo moet laten.
+
+Ik heb de tekst op alle drie de niveaus nagelopen:
+
+- **Woorden:** geen opgeblazen vaktaal, geen stockzinnen, geen opvulwoorden, geen em-streepjes.
+- **Zinnen:** de zinnen wisselen van lengte en hebben een concreet onderwerp en werkwoord ("Dewi Hartman heeft het importscript … herschreven", "Jasper de Wit heeft de back-ups … ingesteld"). Er zijn geen tegenstellingen van het type "niet X maar Y", geen drieslagen en geen metaforen die niets zeggen.
+- **Structuur:** de kopjes benoemen de inhoud. Er is geen aanloop en geen slotzin die de tekst nog eens samenvat, en de tekst eindigt op het open punt met het budget. Het probleem met Zwolle staat er met oorzaak, datum en kosten ("een halve dag") in, zonder de gebruikelijke "we hebben hier veel van geleerd".
+
+Elk zinsdeel dat ik zou herschrijven, zou de tekst alleen gladder of onpersoonlijker maken. Een wijziging helpt dan niet en kan de tekst juist meer als AI laten klinken.
+
+De enige twijfel is dat "Het veld is verbreed en de import is opnieuw gedraaid" in de lijdende vorm staat, zonder naam. De bron noemt geen uitvoerder. Ik had er dus alleen een naam kunnen invullen door iets te verzinnen, en dat doe ik niet. Weet je wie het deed, dan kun je die naam zelf toevoegen.

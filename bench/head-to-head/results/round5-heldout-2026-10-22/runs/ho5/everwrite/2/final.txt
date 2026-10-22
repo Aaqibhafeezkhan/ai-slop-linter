@@ -1,0 +1,1 @@
+I rewrote `README.md` in place. I cut the chatbot opener and sign-off, the hype words and the dashes, and left the facts as they were. The two shell blocks, the version numbers, `--keep-days`, the URL and the file names are unchanged. The checker went from several strong hits to 0.

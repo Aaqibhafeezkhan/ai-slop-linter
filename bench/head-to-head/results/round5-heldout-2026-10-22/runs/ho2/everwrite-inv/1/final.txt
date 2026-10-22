@@ -1,0 +1,5 @@
+I rewrote `notas.md` in place. The checker now reports 1 strong hit, down from 2. That hit is the dash in the customer quote's attribution, which you asked me to keep.
+
+I cut the chatbot opener, the hype ("revoluciona", "panorama actual"), the filler phrases ("Es importante destacar", "Cabe destacar", "En definitiva") and the closing line inviting contact. The new summary only restates what the notes already say. The front matter, the quote, the code spans, the endpoint, the URL and every number are unchanged.
+
+The checker is tuned for English, so I did the Spanish edit by hand and used the checker only for the dash rule.

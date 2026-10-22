@@ -1,0 +1,30 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"everwrite:everwrite\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py <TMP>\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"¡Claro! Aquí tienes unas notas de la versión completas y bien estructuradas.\\n\\n## Resumen\\n\\nNos complace anunciar el lanzamiento de la versión 4.2.0 de Facturalia, una actualización clave que revoluciona la forma de emitir facturas. En el panorama actual, cada vez más empresas necesitan una solución robusta y sin fisuras — y esta versió"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \" En definitiva, esta versión marca un antes y un después. ¡No dudes en contactarnos si tienes alguna pregunta!\", \"new_string\": \"\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py <TMP>\"}"
+ }
+]

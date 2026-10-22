@@ -1,0 +1,21 @@
+I edited `incidente.md` in place. The timeline table, the code spans, the version numbers, the times and the URL are unchanged.
+
+**What changed**
+- **Chatbot lines:** I removed the opener ("Com certeza! Segue abaixo um resumo abrangente…") and the closer ("Espero que este resumo ajude! Fique à vontade…").
+- **Closing platitude:** I removed "Em suma, esse incidente é um valioso aprendizado para toda a equipe", which had no content.
+- **Resumo:**
+  - It now reads "ficou instável e pode ter afetado parte dos clientes. A equipe agiu rápido para mitigar o problema."
+  - I cut the em dash, "significativa", and "É importante ressaltar que".
+  - I cut "garantindo uma experiência fluida" because nothing in the text supports it.
+  - I kept the original's uncertainty about customer impact ("pode ter afetado").
+- **Causa raiz:**
+  - I cut "Vale destacar que", "Em última análise" and "acabou".
+  - I shortened "em um cenário de alto tráfego" to "com alto tráfego".
+  - I kept "parece estar" because the cause is stated as uncertain.
+  - I changed "não foi testada" to "não tinha sido testada", which keeps the meaning and fits the past-tense narration.
+
+**Verification**
+- **Editing passes:** 1 of a maximum of 2.
+- **Checks:** model-only. I re-read my edits against the original, but I didn't re-read the whole file afterwards. The detector, the quote normalizer and the preservation validator did not run, and `patterns.md` was only read up to line 455 of 871. The skill's rules are calibrated for English and this text is Portuguese, so I applied them by judgment.
+- **Residuals:** none found. I left the "Impacto" and "Próximos passos" sections untouched because they were already plain. The text had no quotation marks, so there was nothing to normalize.
+- **Stop reason:** no further justified edit remained.

@@ -1,0 +1,22 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"slop-cop:slop-cop-prose\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Add retry with backoff to the webhook dispatcher\\n\\n## Summary\\n\\nThe webhook dispatcher used to drop failed deliveries without a trace, so customers could miss events. It now retries them with exponential backoff.\\n\\n## What changed\\n\\n- Failed deliveries retry up to 5 times with exponential backoff, implemented in `src/dispatch/retry.ts`\\n- Adds a `WEBHOOK_MA"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"PLUGIN_ROOT=<TMP> \\\"$PLUGIN_ROOT/bin/slop-cop\\\" --version && \\\"$PLUGIN_ROOT/bin/slop-cop\\\" check <TMP> --no-llm --format=compact\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"up to 5 times\", \"new_string\": \"up to five times\"}"
+ }
+]

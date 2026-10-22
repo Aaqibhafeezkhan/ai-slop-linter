@@ -1,0 +1,13 @@
+I rewrote `README.md` in place. I didn't re-read it after the edits.
+
+**Edits**
+- **Chat leftovers:** I deleted "Sure! Here's a polished README intro for your project." from the top. I also deleted "I hope this helps! Feel free to reach out… let me know if you want a different tone." from the end.
+- **Intro:** The promotional sentences ("cutting-edge, blazing-fast… empowers… seamlessly… rich tapestry… elevate your workflow") are now one plain sentence: "tidyfeed is a command-line tool that cleans up RSS and Atom feeds."
+- **Why tidyfeed?:** I cut the "ever-evolving world of content syndication" opener, the "testament to what a thoughtful tool can achieve" line, and the em dash. The concrete content is unchanged: duplicates, ISO 8601, UTF-8, and 50 MB in about 3 seconds on a 2023 laptop.
+- **Quick start:** "Simply run the following command to clean a feed:" is now "To clean a feed:".
+
+**Left alone**
+- Both shell blocks, `tidyfeed==1.6.2`, Python 3.9, `--keep-days 30`, the docs URL, the MIT license line and the file names `feed.xml` and `clean.xml`.
+- The Installation section, the sentence about `--keep-days`, and "Contributions are welcome."
+
+I added no new facts. The README has no author voice or anecdote, so it now reads as short and factual.

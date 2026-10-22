@@ -1,0 +1,1 @@
+incidente.md is going to be published. It reads like an AI wrote it. Rewrite it in place so it reads like a person wrote it. The timeline table, the service and table names in code spans, the version numbers, the times and the URL must stay exactly as they are.

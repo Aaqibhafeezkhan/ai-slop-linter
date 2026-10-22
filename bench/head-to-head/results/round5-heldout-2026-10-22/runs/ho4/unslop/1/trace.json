@@ -1,0 +1,26 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"unslop:unslop\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"is voor 80 procent klaar. De klantendata van 12 van de 15 vestigingen staat nu in de nieuwe database. De drie overige vestigingen volgen op 16 oktober.\", \"new_string\": \"is voor 80 procent klaar: de klantendata van 12 van de 15 vestigingen staat in de nieuwe database en de drie overige volgen op 16 oktober.\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"zodat het dubbele telefoonnummers herkent. Daarmee zijn 37 dubbele klantrecords samengevoegd. Jasper de Wit heeft de back-ups op de nieuwe server ingesteld. Een herstel uit back-up duurde 22 minuten.\", \"new_string\": \"zodat het dubbele telefoonnummers herkent; daarmee zijn 37 dubbele klantrecords samengevoegd. Jasper de Wit heeft de back-u"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Het veld is verbreed en de import is opnieuw gedraaid. Dat kostte een halve dag.\", \"new_string\": \"We hebben het veld verbreed en de import opnieuw gedraaid, wat een halve dag kostte.\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"We hebben het veld verbreed en de import opnieuw gedraaid, wat een halve dag kostte.\", \"new_string\": \"Het veld is verbreed en de import opnieuw gedraaid, wat een halve dag kostte.\"}"
+ }
+]

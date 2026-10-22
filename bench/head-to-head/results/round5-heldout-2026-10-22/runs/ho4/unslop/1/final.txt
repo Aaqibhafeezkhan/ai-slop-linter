@@ -1,0 +1,9 @@
+I edited `status.md` in place, but only lightly. The text was already plain and concrete, with names, figures and dates, so there wasn't much to remove. I made three changes:
+
+- **Stand van zaken:** I merged the three short sentences into one, so the 80 procent, the 12 van de 15 vestigingen and the 16 oktober date now sit in a single sentence.
+- **Importscript:** I joined the two sentences about `import_klanten.py` and the 37 samengevoegde records with a semicolon.
+- **Zwolle:** I joined "Dat kostte een halve dag" onto the previous sentence as "…, wat een halve dag kostte."
+
+At first I wrote "We hebben het veld verbreed…", then took it back out. The original doesn't say who did it, and I didn't want to invent a "we".
+
+The names, dates, numbers, amounts, `import_klanten.py` and the URL are unchanged. The headings and the bullet list are as they were. The skill is written for German and English, so I applied its general rules to this Dutch text.

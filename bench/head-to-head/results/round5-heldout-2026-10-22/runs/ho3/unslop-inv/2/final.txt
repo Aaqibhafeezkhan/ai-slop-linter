@@ -1,0 +1,12 @@
+I rewrote `incidente.md` in place. The timeline table, the code-span names (`pagamentos-api`, `transacoes`), the versions, the times and the URL are untouched.
+
+**Changes**
+- **Chat artifacts removed:** I deleted the opening "Com certeza! Segue abaixo um resumo abrangente…". I also deleted the closing "Espero que este resumo ajude! Fique à vontade…" and the line about the incident being a valuable lesson for the team.
+- **Resumo:** The padded opening ("enfrentou uma instabilidade significativa — impactando potencialmente uma parcela dos clientes", "É importante ressaltar…", "garantindo uma experiência fluida") is now two plain sentences. They say the service returned 502 errors, some payments failed, and the team rolled back and the error rate returned to normal. Every claim comes from the table and the Impacto section, and I removed the em dash.
+- **Causa raiz:** I cut "Vale destacar que" and "Em última análise", and tightened "acabou sobrecarregando" to "sobrecarregou". I kept the single hedge "parece", because the cause is not confirmed. I also changed "não foi testada" to "não tinha sido testada" so the tense fits the incident being over.
+
+I left the Impacto section and the bullet list alone because they already read plainly.
+
+**Gaps**
+- The original said the team "agiu rapidamente". I dropped that because nothing in the note supports it. The only evidence is the table, where the rollback comes 29 minutes after the alert, and "rapidamente" is the author's judgment to restore if they want it.
+- The note names no customer-facing impact beyond the failed payments.

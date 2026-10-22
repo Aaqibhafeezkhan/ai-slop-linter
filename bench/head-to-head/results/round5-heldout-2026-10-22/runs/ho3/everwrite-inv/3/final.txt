@@ -1,0 +1,3 @@
+Reescrevi `incidente.md` no lugar. Cortei a abertura e o fecho de chatbot, o tom de hype e o travessão. Também dividi a frase longa da causa raiz. O checker foi de 1 forte e 1 fraco para 0.
+
+A tabela da linha do tempo, os nomes em code spans, as versões, os horários e a URL ficaram como estavam. Tirei "garantindo uma experiência fluida", que ninguém tinha medido. No resumo, a frase sobre rollback e taxa de erro "em menos de uma hora" vem da linha do tempo, de 14:02 a 14:47.

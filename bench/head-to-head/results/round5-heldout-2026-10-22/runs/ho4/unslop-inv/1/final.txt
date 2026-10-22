@@ -1,0 +1,6 @@
+Ik heb `status.md` op één plek aangepast, in "Wat is gedaan". De tekst was al nuchter en feitelijk, dus de rest heb ik laten staan.
+
+- **Gewijzigd:** In de alinea over Dewi Hartman en Jasper de Wit stonden vier korte hoofdzinnen van gelijke lengte achter elkaar. Ik heb ze deels samengevoegd. "Daarmee zijn 37 dubbele klantrecords samengevoegd" is nu "daarmee voegde het 37 dubbele klantrecords samen", met het script als actor. Jasper de Wits back-ups en het herstel van 22 minuten staan nu in één zin.
+- **Niet gewijzigd:** De kopjes noemen de inhoud, er zijn geen opvullers of slogans, en alles staat concreet met naam, datum en bedrag. Een stijf "mensachtig" jasje eroverheen zou meer verdacht klinken dan de huidige tekst.
+
+Alle namen, data, getallen, bedragen, `import_klanten.py` en de URL zijn ongewijzigd. Ik heb niets toegevoegd.

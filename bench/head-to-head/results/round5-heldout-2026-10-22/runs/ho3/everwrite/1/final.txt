@@ -1,0 +1,5 @@
+I rewrote `incidente.md` in place. I cut the chat opener and closer, the "vale destacar" and "em suma" filler, and the unsupported claims about a smooth customer experience. The timeline table, code spans, version numbers, times and URL are unchanged. The checker went from 1 strong and 1 weak hit to 0.
+
+Two sentences are a little different in substance:
+- **Summary:** it now says the service recovered in about 45 minutes. That figure comes from your Impact section.
+- **Root cause:** "Em última análise" became a plain statement that nobody tested the change in a production-like environment.

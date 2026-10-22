@@ -1,0 +1,18 @@
+Edits are done and I've re-read the file. I'm writing up the report now.
+
+**Edits made to `incidente.md`**
+- **Opening line:** I removed "Com certeza! Segue abaixo um resumo abrangente do incidente." It was a chatbot opener.
+- **Resumo:**
+  - "enfrentou uma instabilidade significativa — impactando potencialmente uma parcela dos clientes" is now "ficou instável e pode ter afetado parte dos clientes". The em dash is gone and the uncertainty stays.
+  - "É importante ressaltar que a equipe agiu rapidamente para mitigar o problema, garantindo uma experiência fluida" is now "A equipe agiu rápido para mitigar o problema." I cut "garantindo uma experiência fluida" because nothing in the note supports it, and the 1.340 failed payments contradict it.
+- **Causa raiz:**
+  - I cut "Vale destacar que" and "Em última análise".
+  - "em um cenário de alto tráfego" is now "com alto tráfego".
+  - "parece estar relacionada" stays, since it carries real uncertainty.
+- **Closing paragraph:** I deleted "Espero que este resumo ajude! Fique à vontade para pedir ajustes. Em suma, esse incidente é um valioso aprendizado para toda a equipe." It was a chatbot sign-off plus a generic lesson-learned line. The note now ends on the next-steps list.
+
+**Verification**
+- **Editing passes:** 1 of 2 allowed.
+- **Checks:** model-only. The detector, the quote normalizer and the preservation validator did not run. The quote normalizer wasn't needed because the text has no curly quotes. I re-read the file by eye. The timeline table, the code spans (`pagamentos-api`, `transacoes`), versions 2.19.0 and 2.18.4, all the times, and the runbook URL are unchanged.
+- **Residuals:** none that I found. I left the headings and the bullet list alone because they match the note's structure and aren't padding. The skill's rules are calibrated for English, so for this Portuguese text I applied the patterns by judgment.
+- **Stop reason:** no further justified edit remains.

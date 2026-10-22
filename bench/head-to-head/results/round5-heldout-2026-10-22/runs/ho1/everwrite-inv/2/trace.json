@@ -1,0 +1,30 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"everwrite:everwrite\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py <TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Add retry with backoff to the webhook dispatcher\\n\\n## Summary\\n\\nThe webhook dispatcher used to drop failed deliveries without a trace, so customers could miss events. It now retries them.\\n\\n## What changed\\n\\n- `src/dispatch/retry.ts` adds exponential backoff and retries a failed delivery up to 5 times.\\n- Two new settings: `WEBHOOK_MAX_RETRIES` (default `5`"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py <TMP>\"}"
+ }
+]

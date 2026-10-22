@@ -1,0 +1,7 @@
+Reescrevi `incidente.md` no próprio arquivo: tirei a abertura de chatbot, o fecho, o travessão e as frases de efeito, e deixei a causa e o resumo mais diretos. O verificador foi de 1 hit forte e 1 fraco para 0.
+
+A tabela da linha do tempo, os nomes em code spans, as versões, os horários e a URL ficaram exatamente como estavam.
+
+Duas frases mudaram de sentido:
+- **Resumo:** tirei "garantindo uma experiência fluida", porque o texto não sustentava isso. Também troquei "potencialmente uma parcela dos clientes" por "parte dos clientes não conseguiu concluir pagamentos", já que o impacto cita 1.340 pagamentos que falharam.
+- **Causa raiz:** "a mudança não foi testada em um ambiente representativo" virou "ninguém testou a mudança em um ambiente parecido com o de produção". Se não foi isso que você quis dizer, vale ajustar.

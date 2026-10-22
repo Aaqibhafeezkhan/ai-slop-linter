@@ -1,0 +1,3 @@
+I rewrote `pr.md` in place. It dropped from 15 strong hits to 2, and the 2 left are "robust" and "seamless" inside the quoted phrase, which you said to keep.
+
+I cut the chatbot opener and closer and the hype wording. I turned the bullets into plain statements and removed the em dash in the Notes section. The code spans, v3.8.0, the URL, the YAML block and the quoted phrase are unchanged.

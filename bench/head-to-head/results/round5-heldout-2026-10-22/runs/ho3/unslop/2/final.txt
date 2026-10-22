@@ -1,0 +1,10 @@
+I rewrote `incidente.md` in place with three edits and left everything else alone. I didn't re-read the file afterwards; the edit tool reported each change as applied.
+
+- **Opening line:** I deleted "Com certeza! Segue abaixo um resumo abrangente…". It's a chat reply left in the document.
+- **Resumo:** "enfrentou uma instabilidade significativa — impactando potencialmente uma parcela dos clientes. É importante ressaltar que a equipe agiu rapidamente… garantindo uma experiência fluida" now reads "ficou instável e parte dos pagamentos falhou. A equipe reverteu a versão às 14:31." The "experiência fluida" claim contradicted the 1,340 failed payments. I also removed the vague "agiu rapidamente" and the em dash.
+- **Causa raiz:** I cut "Vale destacar que", "acabou" and "Em última análise", and tightened the sentence. I kept the hedge "parece", since the source is unsure of the cause.
+- **Closing paragraph:** I deleted "Espero que este resumo ajude… valioso aprendizado para toda a equipe". It's a chat sign-off plus a generic moral.
+
+The timeline table, the `pagamentos-api` and `transacoes` code spans, the versions 2.19.0 and 2.18.4, all the times, the pool limits (80 and 120), the 1,340 / 45 minutes figures and the runbook URL are unchanged. The Impacto and Próximos passos sections already read like a person wrote them, so I didn't touch them.
+
+I added no facts. If you want the summary to say how long the outage lasted, take the figure from the timeline yourself.

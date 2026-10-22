@@ -1,0 +1,11 @@
+I rewrote `notas.md` in place.
+
+- **Removed:**
+  - The chatbot opener ("¡Claro! Aquí tienes…").
+  - The inflated lines: "revoluciona", "panorama actual", "robusta y sin fisuras", "marca un antes y un después".
+  - The filler phrases "Es importante destacar", "Cabe destacar" and "En definitiva".
+  - The "mejorado significativamente" and "totalmente renovada" wording.
+- **Rewrote:** The summary now says what changed in the release. The closing line is a plain invitation to write in with questions.
+- **Left alone:** The front matter, the customer quote and its attribution, the code spans, the endpoint, the URL, and all the numbers.
+
+I kept the dash in the quote attribution because you said the quote and its attribution must stay as they are. I also kept the "podría reducir los rechazos" hedge, since the original makes that claim tentatively. Nothing in the file was run or tested.

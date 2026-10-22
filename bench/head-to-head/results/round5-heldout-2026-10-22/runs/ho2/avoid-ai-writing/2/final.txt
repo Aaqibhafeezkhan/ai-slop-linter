@@ -1,0 +1,14 @@
+I've rewritten `notas.md` in place. I read it back afterward, and the front matter, quote with attribution, code spans, endpoint, URL and numbers are all unchanged.
+
+**What I changed**
+- **Chatbot opener:** I deleted "¡Claro! Aquí tienes unas notas…".
+- **Summary:** I replaced the launch boilerplate ("Nos complace anunciar…", "revoluciona", "En el panorama actual", "robusta y sin fisuras", and the em dash) with two plain sentences. They only restate what the release list already says.
+- **Release items:** I cut "Una experiencia… totalmente renovada", "Es importante destacar que", and "significativamente". I kept "podría reducir los rechazos" because it expresses real uncertainty.
+- **Breaking-change note:** I cut "Cabe destacar que".
+- **Closing:** I deleted "En definitiva, esta versión marca un antes y un después" and "¡No dudes en contactarnos…".
+
+**Verification**
+- **Editing passes:** 1 of a maximum of 2.
+- **Checks:** The audit was model-only. The detector, marks normalizer and preservation validator did not run. The skill's rules are calibrated for English, so I applied their Spanish equivalents by judgment. The edited prose has no quotes, so there was nothing for the normalizer to change.
+- **Residuals:** The "Resumen" heading is generic. I left it because you asked for a wording cleanup, not a restructure. The customer quote is protected and I didn't touch it.
+- **Stop reason:** No further justified edit remains.

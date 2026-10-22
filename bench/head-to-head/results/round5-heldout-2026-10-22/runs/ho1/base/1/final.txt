@@ -1,0 +1,3 @@
+I rewrote `pr.md` in place. I cut the chatbot opener and closer ("Great question", "In conclusion", "I hope this helps"). I also dropped the filler words ("seamlessly", "game-changer", "leverages", "delves into", "it's worth noting") and tightened the sentences.
+
+The code spans, v3.8.0, the URL, the YAML block and the quoted phrase in Notes are unchanged.

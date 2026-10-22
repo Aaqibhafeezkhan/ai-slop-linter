@@ -1,0 +1,7 @@
+Reescrevi o `incidente.md` no próprio arquivo. Não rodei o Slopless, porque ele só analisa inglês e o texto está em português.
+
+- **Removido:** a abertura "Com certeza! Segue abaixo…", o fecho "Espero que este resumo ajude… valioso aprendizado" e as expressões de enchimento ("É importante ressaltar", "Vale destacar", "Em última análise", "experiência fluida").
+- **Mais direto:** o resumo agora diz o que aconteceu (cerca de 45 minutos de instabilidade, erro 502, rollback). A causa raiz explica o mecanismo sem rodeios.
+- **Intocado:** a tabela da linha do tempo, os nomes em code spans (`pagamentos-api`, `transacoes`), as versões 2.19.0 e 2.18.4, os horários, os números e a URL.
+
+Acrescentei uma frase na causa raiz, dizendo que o problema só apareceu depois do deploy porque a mudança não foi testada em ambiente parecido com produção. É uma inferência minha a partir do texto original, então confirme se ela está certa. Também troquei "impactando potencialmente uma parcela dos clientes" por "parte dos pagamentos falhou", que é o que os números do impacto já dizem.

@@ -1,0 +1,8 @@
+I rewrote `notas.md` in place. It's still in Spanish.
+
+- **Removed:** the chatbot opener ("¡Claro! Aquí tienes…"), the sales language ("revoluciona", "robusta y sin fisuras", "marca un antes y un después"), the filler ("Es importante destacar", "Cabe destacar", "En definitiva") and the exclamation in the closing line.
+- **Rewritten:** the summary now says what changed. The bullets state each change directly, without "totalmente renovada" or "mejorado significativamente".
+- **Dashes:** I removed the dash in the summary. The one before the customer's attribution stays.
+- **Unchanged:** the front matter, the customer quote and its attribution, the code spans, the endpoint, the URL and all numbers.
+
+I made a typo while writing the file and fixed it straight away. I didn't re-read the file afterwards, so give it a quick look before you publish.

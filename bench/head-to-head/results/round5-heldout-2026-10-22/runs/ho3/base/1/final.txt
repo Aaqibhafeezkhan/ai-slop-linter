@@ -1,0 +1,7 @@
+I rewrote `incidente.md` in place. I haven't diffed it against the original.
+
+- **Removed:** the chatbot opener ("Com certeza!"), the closing offer ("Espero que este resumo ajude!") and the filler phrases ("É importante ressaltar", "Vale destacar", "Em suma", "Em última análise").
+- **Rewritten:** the summary, root cause and impact sections, now in plainer wording. I also dropped the "experiência fluida" line and the closing "valioso aprendizado" sentence.
+- **Unchanged:** the timeline table, the code spans (`pagamentos-api`, `transacoes`), the versions 2.19.0 and 2.18.4, the times, the figures, the URL and the next-steps bullets.
+
+The summary now says the rollback took "cerca de meia hora". I took that from the timeline: the alert was at 14:02 and the rollback at 14:31, so about 29 minutes. Change it if you'd rather not state a duration there.

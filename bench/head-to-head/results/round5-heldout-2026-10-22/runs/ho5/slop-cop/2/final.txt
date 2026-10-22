@@ -1,0 +1,10 @@
+I rewrote `README.md` in place. slop-cop (client-side rules only) reports one hit. It flags the colon in `https:` inside the URL, which has to stay exactly as it is. I skipped the semantic pass.
+
+What changed:
+- **Removed the chatbot text:** the opening "Sure! Here's a polished README intro for your project." and the closing "I hope this helps! Feel free to reach out…".
+- **Cut the filler:** words like "cutting-edge", "blazing-fast", "empowers", "seamlessly", "rich tapestry" and "serves as a testament". The intro is now one plain sentence.
+- **Simplified the prose:** "Simply run the following command" is now "To clean a feed, run:", and "Why tidyfeed?" is shorter and more direct.
+
+The two shell blocks, `1.6.2`, Python 3.9, `--keep-days 30`, the URL, `feed.xml` and `clean.xml` are unchanged. So are the other facts: ISO 8601, UTF-8, the 2023 laptop, 50 MB, about 3 seconds, and the MIT license.
+
+I reworded the sentence around the URL to "For every other option, see https://tidyfeed.example.com/docs for the full list." The old wording ended on the URL, which triggered a separate trailing-period hit. The new line reads a little stiffly. If you'd rather have the original sentence back, it will only add that one flag.

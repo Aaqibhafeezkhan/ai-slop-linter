@@ -1,0 +1,26 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"everwrite:everwrite\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py <TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"---\\ntitle: Notas de la versión 4.2.0\\ndate: 2026-03-14\\ntags: [release, facturacion]\\n---\\n\\n# Notas de la versión 4.2.0 de Facturalia\\n\\n## Resumen\\n\\nLa versión 4.2.0 de Facturalia cambia la exportación, la validación del NIF y la velocidad del listado de facturas. También añade un endpoint para crear facturas por lotes.\\n\\n## Novedades\\n\\n- Ahora se pueden ex"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py <TMP>\"}"
+ }
+]

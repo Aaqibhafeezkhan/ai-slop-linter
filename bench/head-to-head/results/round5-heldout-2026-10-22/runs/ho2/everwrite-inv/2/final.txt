@@ -1,0 +1,3 @@
+Reescribí `notas.md` en el sitio. Quité la frase de chatbot del principio, el texto promocional del resumen, los rellenos ("Es importante destacar", "Cabe destacar") y el cierre. El resumen ahora dice lo que trae la versión. El comprobador pasó de 2 avisos fuertes a 1: el guion largo de la atribución de la cita, que dejé tal cual como pediste.
+
+El front matter, la cita, los code spans, el endpoint, la URL y todos los números siguen igual. Solo ejecuté el comprobador antes de la última edición, que fue un cambio menor de redacción (volví a "La variable `FACTURALIA_TIMEOUT`"). No lo repetí después.

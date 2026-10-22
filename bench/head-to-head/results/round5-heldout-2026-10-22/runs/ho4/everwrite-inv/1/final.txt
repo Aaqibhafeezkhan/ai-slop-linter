@@ -1,0 +1,3 @@
+I rewrote `status.md` in place with a more direct voice and more varied sentences, and the checker now reports 0 hits (it had 1 weak). Names, dates, numbers, amounts, `import_klanten.py` and the URL are unchanged.
+
+Two small changes to flag. I dropped "vestiging" before Zwolle, Utrecht, Breda and Leiden, and "Controle van de rapportages door Dewi Hartman" became "Dewi Hartman controleert de rapportages".

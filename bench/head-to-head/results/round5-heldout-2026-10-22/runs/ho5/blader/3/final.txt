@@ -1,0 +1,6 @@
+I rewrote `README.md` in place. The two shell blocks, `tidyfeed==1.6.2`, Python 3.9, `--keep-days 30`, the URL, and the file names (`feed.xml`, `clean.xml`) are unchanged.
+
+- **Chatbot leftovers:** I removed "Sure! Here's a polished README intro…" at the top. I also removed "I hope this helps! Feel free to reach out… let me know if you want a different tone" at the bottom.
+- **Hype:** the "cutting-edge, blazing-fast… empowers developers to seamlessly… rich tapestry of features" intro is now one plain sentence saying what the tool does.
+- **Filler:** "serves as a testament to what a thoughtful tool can achieve" is gone, and so is "Simply run the following command". I also dropped the em dash and the "Whether you're a seasoned engineer…" line.
+- **Facts kept:** the dedupe, ISO 8601 and UTF-8 behavior and the "50 MB feed in about 3 seconds on a 2023 laptop" claim all stay. The MIT license and the invitation to contribute stay too.

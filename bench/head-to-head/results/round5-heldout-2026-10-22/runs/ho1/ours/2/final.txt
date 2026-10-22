@@ -1,0 +1,11 @@
+I rewrote `pr.md` in place. The linter now grades it A with 0 findings, and `--verify` against the original exits 0.
+
+- **Cut:** the "Great question" opener, the "Here's a comprehensive overview" line, the "I hope this helps" and "Let me know" closer, and the "In conclusion" paragraph. I also cut the filler ("In today's fast-paced…", "it's important to note", "It's worth noting") and the hype words ("game-changer", "seamlessly", "pivotal"). In the bullets, "Leverages a robust" became "Adds" and "Delves into" became a plain statement.
+- **Kept exactly:** the code spans, v3.8.0, the URL, the YAML block, the quoted phrase, and all the numbers.
+- **Em dash:** the one in the Notes section is now a comma.
+
+I added one HTML comment, `<!-- slop-ignore-next-line ai-vocabulary -->`, above the Notes sentence. The quote contains "robust" and "seamless", which the linter flags, and the quote has to stay as written. The comment doesn't show when rendered, but you can delete it before publishing if you'd rather not have it in the file. The linter will then flag that quote again.
+
+The second-pass read for leftover tells found none.
+
+Residuals: "robust, seamless" inside the quoted phrase, because quoted words aren't edited.

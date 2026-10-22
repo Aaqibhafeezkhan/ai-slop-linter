@@ -1,0 +1,10 @@
+I rewrote `incidente.md` in place. `npx ai-slop-linter --verify` exits 0, and the timeline table, code spans, versions, times and URL are unchanged.
+
+The linter has almost no Portuguese rules, so it reported nothing on the original and called it a clean source. I made the edits by reading the text myself. Its "unrequested edit" lines only list the sentences I changed.
+
+What I cut or changed:
+- **Opener and closer:** I deleted "Com certeza! Segue abaixo um resumo abrangente…" and "Espero que este resumo ajude! Fique à vontade… Em suma, esse incidente é um valioso aprendizado…".
+- **Summary:** it now reads "ficou instável e parte dos clientes pode ter sido afetada. A equipe agiu rápido para mitigar o problema." I dropped "É importante ressaltar" and "garantindo uma experiência fluida".
+- **Root cause:** I dropped "Vale destacar" and "Em última análise", and tightened the rest of the wording.
+
+Residuals: "parece ser" and "pode ter sido afetada" stay as hedges. The original hedged the cause and the customer impact, so I kept them.

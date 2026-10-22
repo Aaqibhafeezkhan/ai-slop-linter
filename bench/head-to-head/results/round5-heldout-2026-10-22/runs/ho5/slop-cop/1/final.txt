@@ -1,0 +1,5 @@
+I rewrote `README.md` in place. The final `slop-cop` check, run with `--no-llm` (client-side rules only), has one hit left. It's `colon-elaboration` on the colon in `https://`, which is a false positive, and the URL has to stay as it is. I didn't run the LLM semantic pass.
+
+- **Removed the AI tells.** The "Sure! Here's a polished README intro" opener and the closing "I hope this helps!" paragraph are gone, along with the "cutting-edge, blazing-fast … empowers … seamlessly … rich tapestry" intro and the "ever-evolving world" and "testament" lines in the "Why tidyfeed?" section. "Simply run the following command" now reads "Run this command".
+- **Kept as they were.** Both shell blocks, `1.6.2`, Python 3.9, the `--keep-days 30` option, the URL and the file names (`feed.xml`, `clean.xml`) are unchanged. So are the ISO 8601 and UTF-8 details, the 50 MB / 3 seconds figure, and the MIT license line.
+- **Reworded around two rule hits.** "messy: duplicate entries" became "messy, with duplicate entries". The URL sentence now starts with the URL ("https://tidyfeed.example.com/docs has the full option list."), so a period doesn't end up attached to it.

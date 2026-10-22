@@ -1,0 +1,7 @@
+I rewrote `status.md` in place. The original was already fairly plain, so I only made light edits:
+
+- Shorter sentences with a more direct subject, such as "De andere drie komen op 16 oktober" and "we hebben het veld verbreed".
+- More active phrasing ("Dewi Hartman controleert de rapportages", "Karin Vos moet nog bevestigen…").
+- A first-person "we" where the team did the work.
+
+All names, dates, numbers, amounts, the `import_klanten.py` code span and the URL are unchanged. I didn't run the avoid-ai-writing skill.

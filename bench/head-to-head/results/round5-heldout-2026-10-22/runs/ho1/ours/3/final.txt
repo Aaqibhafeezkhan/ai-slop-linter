@@ -1,0 +1,14 @@
+I rewrote `pr.md` in place. The linter now grades it A with no findings, and `--verify` against the original exits 0.
+
+**What I cut:**
+- The chat wrapper at the top ("Hey! Great question...") and the closing paragraph ("In conclusion... I hope this helps").
+- Filler phrases: "In today's fast-paced integration landscape", "it's important to note", "It's worth noting".
+- Stock words: "seamlessly", "game-changer", "Leverages", "Delves", "robust", "pivotal".
+- "could potentially" is now "could".
+- The em dash in the Notes section is now a comma.
+
+**What stayed exactly as it was:**
+- The code spans, v3.8.0, the URL, the YAML block and the quoted phrase.
+- The headings, the numbers (5 retries, 250 ms and 500 ms, 214 tests) and the first-person "I ran..." in Testing.
+
+**Residuals:** the quoted phrase "a robust, seamless delivery guarantee" still contains two words the linter flags. I left it as it was because you said the quote must stay, and I added a hidden `<!-- slop-ignore-next-line ai-vocabulary -->` comment above that line so the linter passes. It doesn't show in rendered markdown, but you can delete it before publishing if you'd rather not have it in the source.

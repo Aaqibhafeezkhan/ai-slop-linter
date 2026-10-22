@@ -1,0 +1,8 @@
+I rewrote `status.md` in place. The text was already fairly plain Dutch, so the edits are small.
+
+- **Sentence flow:** I merged choppy sentences, such as the 12-of-15 and 16 October lines in "Stand van zaken". I also changed some passive or impersonal phrasing to "we" and active verbs, for example "Daardoor konden we 37 dubbele klantrecords samenvoegen".
+- **Word order:** Some sentences now read more naturally, for example the Zwolle sentence and the Karin Vos sentence.
+- **Bullets:** "Controle van de rapportages door Dewi Hartman" is now "Dewi Hartman controleert de rapportages".
+- **Unchanged:** All names, dates, numbers, amounts, `import_klanten.py` and the URL are exactly as before.
+
+I didn't add any facts or opinions.

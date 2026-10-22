@@ -1,0 +1,11 @@
+I rewrote `README.md` in place. The two shell blocks, `1.6.2`, `3.9`, `--keep-days 30`, the URL and the file names (`feed.xml`, `clean.xml`) are unchanged. I didn't re-read the file after writing it.
+
+What I cut or changed:
+- **Chatbot residue:** I removed the "Sure! Here's a polished README intro" line. I also removed the closing "I hope this helps! … let me know if you want a different tone."
+- **Sales language and AI words:** the intro had "cutting-edge, blazing-fast", "empowers", "seamlessly", "rich tapestry", "elevate your workflow" and the "seasoned engineer or just getting started" line. I replaced all of it with a plain one-sentence description.
+- **Inflated significance:** I dropped "in the ever-evolving world of content syndication" and "serves as a testament to…".
+- **Dash:** I swapped the em dash in the "Why" section for a colon.
+- **Filler:** I changed "Simply run the following command" to "To clean a feed, run:".
+- **Bold:** I removed the bold from the tool name.
+
+The intro now says less than the old one. I didn't add any claims that weren't already there.

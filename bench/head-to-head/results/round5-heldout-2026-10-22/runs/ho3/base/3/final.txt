@@ -1,0 +1,7 @@
+I rewrote `incidente.md` in place. I didn't re-read it after saving.
+
+- **Removed:** the "Com certeza!" opener, the "Espero que este resumo ajude!" sign-off, and the filler phrases ("Vale destacar", "É importante ressaltar", "Em última análise", "Em suma"). I also cut the line about the incident being a valuable lesson for the team.
+- **Rewritten:** the summary, root cause and impact sections now use shorter, more direct sentences. I kept the hedge in the root cause ("Tudo indica…"), since the original wasn't certain either.
+- **Unchanged:** the timeline table, the code spans (`pagamentos-api`, `transacoes`), the versions (2.19.0, 2.18.4), the times, the numbers, and the URL.
+
+I made two small wording choices of my own. The summary now says a part of the customers couldn't complete payments and that the deploy was reverted. The root cause says the change wasn't tested in an environment like production.

@@ -1,0 +1,5 @@
+Ik heb in `status.md` één ding aangepast. Verder las de tekst al als door een mens geschreven, dus ik heb de rest laten staan.
+
+- **Gewijzigd:** in "Wat is gedaan" staat nu "…op de nieuwe server ingesteld; een herstel uit back-up duurde 22 minuten." Dat waren twee losse zinnen. Ik heb ze samengevoegd om de reeks even lange zinnen te doorbreken.
+- **Laten staan:** de kopjes, de opsomming, de bedragen, namen, data, `import_klanten.py` en de URL. Alle feiten zijn ongewijzigd. De zinnen zijn concreet en bevatten geen opvulling, dus er viel niets te verbeteren.
+- **Teruggedraaid:** ik had ook de zinnen over Zwolle samengevoegd met "We hebben…". Dat voegde een "wij" toe dat de bron niet heeft, dus ik heb het hersteld.

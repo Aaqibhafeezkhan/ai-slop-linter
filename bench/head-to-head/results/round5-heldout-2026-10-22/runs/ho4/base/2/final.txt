@@ -1,0 +1,6 @@
+I rewrote `status.md` in place, in Dutch, with a plainer and more personal tone: "we" instead of passive phrasing, and shorter sentences. The names, dates, numbers, amounts, the `import_klanten.py` code span and the URL are unchanged.
+
+I changed a few small things beyond the tone:
+- The restore time now says it was a test: "Als test hebben we een herstel uit back-up gedaan". The original only said a restore took 22 minutes.
+- The "Wat niet goed ging" heading is now "Wat er misging".
+- The MySQL bullet now reads "Beslissen of en wanneer de oude MySQL-server uit gaat". The original only said "Besluit over het uitzetten".

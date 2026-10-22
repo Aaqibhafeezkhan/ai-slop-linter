@@ -1,0 +1,16 @@
+I rewrote `notas.md` in place, and `npx ai-slop-linter --verify` exits 0 (`verify: ok`). The lint grade is A with 0 findings.
+
+**What I changed**
+- I deleted the chatbot opener ("¡Claro! Aquí tienes...").
+- I replaced the summary paragraph with two plain sentences. They say the release is out and list what changed.
+- I removed the filler openers "Es importante destacar que" and "Cabe destacar que", and the adverb "significativamente".
+- I cut "Una experiencia de exportación totalmente renovada:", so the bullet now starts with the fact.
+- I dropped the closing "En definitiva... un antes y un después" and "¡No dudes en contactarnos...".
+
+**What I left alone**
+- The front matter, the customer quote with its attribution, the code spans (`nif_cliente`, `FACTURALIA_TIMEOUT`, `POST /v2/facturas/lote`, the `npm install` command), the URL and all the numbers are exactly as they were.
+- I kept "lo que podría reducir los rechazos" because the hedge is in the original.
+
+`--verify` listed four "unrequested edit" lines. They are the opener and the two bullets I trimmed, and each is a tell I removed on purpose.
+
+**Residuals:** none. I read it a second time against the Spanish reference list and found no remaining tells.

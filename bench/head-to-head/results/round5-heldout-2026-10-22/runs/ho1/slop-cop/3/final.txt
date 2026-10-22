@@ -1,0 +1,12 @@
+I rewrote `pr.md` in place so it reads like a person wrote it.
+
+- **Removed:** the chatbot opener, "In conclusion", the offer to make changes, "I hope this helps", and filler such as "game-changer", "seamlessly", "leverages", "delves into" and "it's worth noting".
+- **Rewritten:** the summary now says what was wrong and what the PR does about it. The bullets are plainer, and the testing paragraph is shorter.
+- **Kept as required:** the code spans, v3.8.0, the URL, the YAML block and the quoted phrase.
+- **Reworded around the quote:** the Notes sentence now reads `The upstream docs call this "a robust, seamless delivery guarantee" and that is the term to keep.` I did this so no punctuation touches the quote. I also changed "5 times" to "five times".
+
+The final slop-cop check still flags three things, and all three are deliberate:
+- The colon in `https:` is part of the URL.
+- "robust" and "seamless" are inside the quoted phrase.
+
+I did not run the slop-cop semantic pass. The client-side check was the only one I ran.

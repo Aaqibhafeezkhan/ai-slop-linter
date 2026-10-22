@@ -1,0 +1,5 @@
+Reescribí `notas.md` en el mismo archivo. No ejecuté Slopless porque solo analiza inglés y la nota está en español.
+
+- **Quité:** la línea de chatbot "¡Claro! Aquí tienes…", la frase de lanzamiento "una actualización clave que revoluciona…", el "panorama actual", el "robusta y sin fisuras" y el cierre "marca un antes y un después". También quité muletillas como "Es importante destacar", "Cabe destacar" y "mejorado significativamente".
+- **Cambié:** el resumen ahora dice qué trae la versión. Las viñetas y el aviso del timeout son más directos, y el cierre es una frase corta.
+- **Sin tocar:** el front matter, la cita de Marta Olmedo con su atribución, los code spans, `POST /v2/facturas/lote`, la URL y todas las cifras.

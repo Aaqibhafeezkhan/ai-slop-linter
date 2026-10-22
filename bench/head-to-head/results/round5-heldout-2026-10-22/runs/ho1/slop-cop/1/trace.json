@@ -1,0 +1,30 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"slop-cop:slop-cop-prose\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Add retry with backoff to the webhook dispatcher\\n\\n## Summary\\n\\nThe webhook dispatcher now retries failed deliveries. Before this change it dropped them silently, so customers could miss events.\\n\\n## What changed\\n\\n- `src/dispatch/retry.ts` retries failed deliveries with exponential backoff, up to 5 times.\\n- Two new settings: `WEBHOOK_MAX_RETRIES` (default"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"PLUGIN_ROOT=\\\"${CLAUDE_PLUGIN_ROOT:-<TMP>\\\"; if [ -x \\\"$PLUGIN_ROOT/bin/slop-cop\\\" ]; then S=\\\"$PLUGIN_ROOT/bin/slop-cop\\\"; else S=slop-cop; fi; \\\"$S\\\" --version && \\\"$S\\\" check <TMP> --no-llm --format=compact\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"python3 -I - <<'E'\\np='pr.md'\\ns=open(p).read()\\ns=s.replace(\\\"up to 5 times.\\\",\\\"up to five times.\\\")\\ns=s.replace(\\\"- Two new settings: `WEBHOOK_MAX_RETRIES` (default `5`) and `WEBHOOK_BASE_DELAY_MS` (default `250`).\\\",\\\"- `WEBHOOK_MAX_RETRIES` (default `5`) and `WEBHOOK_BASE_DELAY_MS` (default `250`) are new settings.\\\")\\nopen(p,'w').write(s)\\nE\\nS=<TMP> $S check pr.md --no-llm --f"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"python3 -I - <<'E'\\np='pr.md'\\ns=open(p).read()\\ns=s.replace(\\\"- The failure path in `dispatcher.ts` records each attempt in the `delivery_attempts` table.\\\",\\\"- `dispatcher.ts` now records each failed attempt in the `delivery_attempts` table.\\\")\\ns=s.replace(\\\"- The package is now at v3.8.0.\\\",\\\"- `package.json` moves to v3.8.0.\\\")\\nopen(p,'w').write(s)\\nE\\n<TMP> check pr.md --no-llm"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"python3 -I - <<'E'\\np='pr.md'\\ns=open(p).read()\\ns=s.replace(\\\"- `package.json` moves to v3.8.0.\\\",\\\"- v3.8.0 is the new package version.\\\")\\nopen(p,'w').write(s)\\nE\\n<TMP> check pr.md --no-llm --format=compact\"}"
+ }
+]

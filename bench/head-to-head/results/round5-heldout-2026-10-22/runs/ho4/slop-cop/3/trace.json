@@ -1,0 +1,14 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Statusupdate week 41: migratie van de planningsapp\\n\\nDatum: 9 oktober 2026\\n\\n## Stand van zaken\\n\\nWe zijn er voor 80 procent. De klantendata van 12 van de 15 vestigingen staat in Postgres 16, en de andere drie gaan op 16 oktober over.\\n\\n## Wat is gedaan\\n\\nDewi Hartman heeft het importscript `import_klanten.py` herschreven, zodat het dubbele telefoonnummers"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Ik heb een herstel uit back-up getest en dat duurde 22 minuten.\", \"new_string\": \"Een herstel uit back-up duurde 22 minuten.\"}"
+ }
+]

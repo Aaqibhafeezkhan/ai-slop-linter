@@ -1,0 +1,5 @@
+I rewrote `notas.md` in place. The checker went from 2 strong hits to 1. The remaining hit is the dash in Marta Olmedo's attribution, which you asked me to keep.
+
+- **Removed:** the "¡Claro! Aquí tienes…" chatbot line, the hype in the summary ("revoluciona", "robusta y sin fisuras", "clave"), the filler phrases ("Es importante destacar", "Cabe destacar"), and the closing "antes y un después" and "no dudes en contactarnos".
+- **Rewritten:** the summary now says what changed, and the bullets are plainer.
+- **Unchanged:** the front matter, the customer quote and attribution, the code spans, the endpoint, the URL and every number.

@@ -1,0 +1,9 @@
+I edited `README.md` in place. I didn't re-read it after the edits, and I didn't touch the two shell blocks, the version numbers, `--keep-days`, the URL or the file names.
+
+- **Chat leftovers:** I deleted "Sure! Here's a polished README intro…" at the top. I also deleted the "I hope this helps! Feel free to reach out…" sign-off at the bottom.
+- **Intro:** The sentence with "cutting-edge, blazing-fast", "empowers" and "rich tapestry", plus the "seasoned engineer" line, is now one sentence: "**tidyfeed** is a command-line tool that cleans up RSS and Atom feeds."
+- **Why tidyfeed?:** I cut the "ever-evolving world" opener and the "testament" sentence. It now says feeds are messy and then lists what tidyfeed fixes. The 50 MB in about 3 seconds figure stays.
+- **Quick start:** "Simply run the following command to clean a feed:" became "To clean a feed, run:".
+- **License:** "Contributions are welcome." stays.
+
+I added no facts. The README doesn't say why the tool is fast or what else it does, so I dropped those claims instead of making something up.

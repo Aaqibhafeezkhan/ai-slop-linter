@@ -1,0 +1,14 @@
+I rewrote `incidente.md` in place. The remaining two hits are `list-item-sentence-case`, which fires on a protected table row, and `listicle-instinct`, which fires on the three-item next-steps list. I left both alone.
+
+What changed:
+- Removed the "Com certeza! Segue abaixo…" opener and the closing "Espero que este resumo ajude…" paragraph.
+- Cut the filler phrases ("É importante ressaltar", "Vale destacar", "Em última análise", "Em suma") and the "valioso aprendizado" sign-off.
+- Rewrote the summary to say plainly what happened. The old "garantindo uma experiência fluida" had no content.
+- Rewrote the root-cause paragraph in shorter, more direct sentences.
+- Gave the impact section a simpler opening.
+
+I also changed the hedge on the cause from "parece estar relacionada" to "tudo indica". That is still a hedge, but a single one.
+
+The summary now says the rollback took "cerca de meia hora". I took that from the timeline, where the alert at 14:02 and the rollback at 14:31 are 29 minutes apart. Check that this is the figure you want to publish.
+
+The timeline table, the code spans, the version numbers, the times and the URL are unchanged. I only ran the client-side check, not the semantic pass.

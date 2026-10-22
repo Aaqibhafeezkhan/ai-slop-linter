@@ -1,0 +1,16 @@
+I rewrote `notas.md` in place. I didn't re-read the file afterward.
+
+- **Removed:**
+  - The chatbot opener ("¡Claro! Aquí tienes…").
+  - The inflated summary ("revoluciona", "panorama actual", "robusta y sin fisuras").
+  - The filler openers "Es importante destacar que" and "Cabe destacar que".
+  - The closing "marca un antes y un después" and "¡No dudes en contactarnos…!".
+  - "Totalmente renovada" and "significativamente".
+- **Rewritten:** The summary now says what the release does. The bullets state each change directly.
+- **Unchanged:**
+  - The front matter.
+  - The customer quote and its attribution, including the dash before the name.
+  - The code spans: `nif_cliente`, `POST /v2/facturas/lote`, `FACTURALIA_TIMEOUT` and the `npm install` command.
+  - The URL and every number.
+
+I also kept the original "podría reducir" hedge on the rejections claim, since the source supports it. I softened it slightly to "puede reducir".

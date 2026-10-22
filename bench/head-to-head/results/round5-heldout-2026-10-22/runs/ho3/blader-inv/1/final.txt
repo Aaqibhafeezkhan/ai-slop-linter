@@ -1,0 +1,10 @@
+Reescrevi `incidente.md` no próprio arquivo. A tabela da linha do tempo, os nomes em code spans, as versões, os horários e a URL continuam como estavam.
+
+- **Resíduo de chatbot:** cortei "Com certeza! Segue abaixo…" e o fecho "Espero que este resumo ajude!… Em suma, esse incidente é um valioso aprendizado". O texto agora termina nos próximos passos.
+- **Enchimento e inflação:** tirei "É importante ressaltar", "Vale destacar", "Em última análise", "significativa" e "abrangente".
+- **Afirmações sem apoio:** removi "agiu rapidamente" e "garantindo uma experiência fluida", porque nada no texto sustenta isso. A linha do tempo mostra 29 minutos entre a confirmação do erro e o rollback.
+- **Travessões:** troquei por frases separadas.
+- **Resumo:** o original dizia "impactando potencialmente uma parcela dos clientes". Troquei por "parte dos pagamentos dos clientes falhou", que é o que a seção de impacto já confirma. Se preferir manter o tom de incerteza, é só avisar.
+- **Causa raiz:** dividi a frase longa em três curtas. Mantive "parece", que era uma ressalva do original.
+
+Não acrescentei nenhum fato novo.

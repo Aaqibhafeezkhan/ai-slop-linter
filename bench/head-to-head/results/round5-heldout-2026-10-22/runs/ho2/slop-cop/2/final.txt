@@ -1,0 +1,7 @@
+I rewrote `notas.md` in place. I didn't run `slop-cop`. The file is in Spanish, and I edited it by hand.
+
+- **Removed:** the "¡Claro! Aquí tienes…" chatbot opener and the filler phrases. The cut phrases include "revoluciona", "en el panorama actual", "robusta y sin fisuras", "es importante destacar", "cabe destacar", "marca un antes y un después" and "¡No dudes en contactarnos!".
+- **Summary:** it now says what changed in three plain sentences.
+- **Bullets:** shorter and more direct. For example, "mejorado significativamente el rendimiento" is now just the before and after times.
+- **Tone:** it addresses the reader as "tú" ("Si ya la fijas a mano, no tienes que hacer nada").
+- **Unchanged:** the front matter, the customer quote and its attribution, every code span (`nif_cliente`, `FACTURALIA_TIMEOUT`, `npm install facturalia@4.2.0`), the endpoint `POST /v2/facturas/lote`, the URL, and all numbers.

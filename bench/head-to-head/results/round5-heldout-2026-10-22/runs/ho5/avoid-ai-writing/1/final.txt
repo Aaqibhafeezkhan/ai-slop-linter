@@ -1,0 +1,16 @@
+I rewrote `README.md` in place. Both shell blocks, `tidyfeed==1.6.2`, Python 3.9, ISO 8601, UTF-8, `--keep-days 30`, `https://tidyfeed.example.com/docs`, and the file names `feed.xml` and `clean.xml` are exactly as they were.
+
+**Edits**
+- **Intro:** I deleted "Sure! Here's a polished README intro for your project." It was a chatbot line pasted into the file.
+- **Opening paragraph:** The description now reads "tidyfeed is a command-line tool for cleaning up RSS and Atom feeds." I cut "cutting-edge, blazing-fast," "empowers… seamlessly," "Whether you're a seasoned engineer or just getting started," and "a rich tapestry of features designed to elevate your workflow." None of those said anything specific.
+- **Why tidyfeed?:** I dropped "In the ever-evolving world of content syndication," the em dash, and "serves as a testament to what a thoughtful tool can achieve." The paragraph now opens "Feeds are often messy: duplicate entries, broken dates, and inconsistent encodings." The concrete details stay: duplicate removal, ISO 8601 dates, UTF-8, and the 50 MB in about 3 seconds figure.
+- **Quick start:** "Simply run the following command to clean a feed:" became "To clean a feed, run:".
+- **License:** I removed "I hope this helps! Feel free to reach out… let me know if you want a different tone." It was another chatbot sign-off. "Contributions are welcome." stays.
+
+**Verification**
+- **Editing passes:** 1 used, out of a limit of 2.
+- **Checks:** model-only. The detector, the quote normalizer and the preservation validator did not run, because the skill's scripts aren't in this directory.
+- **Residuals:** none found. The README has no quotes or curly punctuation to normalize, and I added no claims.
+- **Stop reason:** no further justified edit remained.
+
+I didn't touch the remaining plain sentences, and I didn't add any personality that wasn't there.

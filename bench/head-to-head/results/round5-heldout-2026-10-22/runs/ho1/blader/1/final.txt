@@ -1,0 +1,8 @@
+I rewrote `pr.md` in place. I didn't re-read the file after writing it.
+
+- **Removed:** the chat opener ("Hey! Great question…"), the closing offer and "I hope this helps", and the "In conclusion" send-off. I also cut the sales and filler phrasing ("seamlessly", "game-changer", "robust", "leverages", "delves into", "fast-paced landscape", "it's worth noting").
+- **Kept as it was:** the code spans, v3.8.0, the URL, the YAML block, and the quoted phrase "a robust, seamless delivery guarantee".
+- **Facts:** nothing was added or dropped. The numbers are unchanged (5 retries, 250 ms default, 214 tests, third attempt, 250 ms and 500 ms delays).
+- **Dash:** the one em dash in Notes became a comma.
+
+I left the section headings as they were.

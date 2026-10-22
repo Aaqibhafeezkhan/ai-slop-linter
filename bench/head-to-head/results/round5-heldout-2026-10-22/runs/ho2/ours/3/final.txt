@@ -1,0 +1,12 @@
+I rewrote `notas.md` in place. The linter reports grade A with no findings, and `--verify` exits 0.
+
+**What I changed**
+- Cut the chatbot opener ("¡Claro! Aquí tienes…") and the closer ("En definitiva… un antes y un después. ¡No dudes en contactarnos…!").
+- Replaced the announcement paragraph ("Nos complace anunciar… revoluciona… panorama actual… robusta y sin fisuris") with a plain summary of what the release contains. Everything in it comes from the bullets.
+- Dropped "Una experiencia de exportación totalmente renovada:", "Es importante destacar que", "Se ha mejorado significativamente el rendimiento:" and "Cabe destacar que".
+
+**What I left alone**
+- The front matter, headings, customer quote and attribution, code spans, the endpoint, the URL and all numbers are unchanged.
+- The `--verify` run also listed four "unrequested edit" lines for the sentences I cut or trimmed. Each one is a tell I removed on purpose.
+
+**Residuals:** "lo que podría reducir los rechazos" stays. The hedge comes from the source and is a real claim about uncertainty, not filler.

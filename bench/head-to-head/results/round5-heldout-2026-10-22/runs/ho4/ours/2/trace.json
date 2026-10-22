@@ -1,0 +1,26 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"ai-slop-linter:ai-slop-linter\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"TMP=$(mktemp -d) && cp status.md \\\"$TMP/before.md\\\" && echo $TMP && npx ai-slop-linter --language nl status.md; ls <TMP>\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"python3 - <<'E'\\np='status.md'\\ns=open(p).read()\\nfor a,b in [\\n(\\\"De drie overige vestigingen volgen op 16 oktober.\\\",\\\"De andere drie volgen op 16 oktober.\\\"),\\n(\\\"Daarmee zijn 37 dubbele klantrecords samengevoegd. Jasper\\\",\\\"Zo zijn 37 dubbele klantrecords samengevoegd. Jasper\\\"),\\n(\\\"Het veld is verbreed en de import is opnieuw gedraaid. Dat kostte een halve dag.\\\",\\\"We hebben het"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"T=/var/folders/0f/lb8m_j5s7nq7tkf97krdnj800000gn/T/tmp.u2aVUdOod2 && cp $T/before.md status.md && npx ai-slop-linter --language nl --verify $T/before.md status.md\"}"
+ }
+]

@@ -1,0 +1,10 @@
+Reescribí `notas.md` en el mismo archivo. No ejecuté Slopless porque solo revisa inglés y el texto está en español.
+
+Qué quité o cambié:
+- **Frase de chatbot:** eliminé "¡Claro! Aquí tienes unas notas…".
+- **Resumen:** quité "revoluciona", "panorama actual", "robusta y sin fisuras" y "Nos complace anunciar". Ahora dice directamente qué trae la versión.
+- **Muletillas:** quité "Es importante destacar", "Cabe destacar", "En definitiva… marca un antes y un después" y "No dudes en contactarnos".
+- **Frases infladas:** "Una experiencia de exportación totalmente renovada" pasó a "Exportación a CSV", y "mejorado significativamente el rendimiento" pasó a una frase con la cifra.
+- **Voz:** pasé las frases pasivas a voz directa, por ejemplo "Si ya la fijas a mano, no tienes que hacer nada".
+
+No toqué el front matter, la cita con su atribución, los code spans, el endpoint, la URL ni las cifras.

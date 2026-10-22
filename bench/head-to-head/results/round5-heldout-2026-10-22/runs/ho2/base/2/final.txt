@@ -1,0 +1,7 @@
+I rewrote `notas.md` in place so it reads like a person wrote it.
+
+- **Removed:** the chatbot opener ("¡Claro! Aquí tienes…") and the hype phrases ("revoluciona", "panorama actual", "marca un antes y un después", "Es importante destacar", "Cabe destacar", "mejorado significativamente").
+- **Rewritten:** the summary, the bullets and the closing, all in plainer wording.
+- **Unchanged:** the front matter, the customer quote with its attribution, the code spans (including the `POST /v2/facturas/lote` endpoint), the URL and every number.
+
+I didn't add any new claims. I also changed "podría reducir los rechazos" to "debería haber menos rechazos", which is slightly more direct than the original. Say so if you want the more cautious wording back.

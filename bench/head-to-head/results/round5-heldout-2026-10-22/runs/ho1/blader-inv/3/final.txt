@@ -1,0 +1,8 @@
+I rewrote `pr.md` in place.
+
+- **Cut:** the chatbot opener ("Hey! Great question..."), the "In conclusion" closer with the offer to make changes, and the filler ("seamlessly", "game-changer", "it's important to note", "leverages", "delves into", "pivotal", "robust").
+- **Bullets:** I rewrote them as plain sentences.
+- **Dash:** I replaced the dash in the Notes section with a comma.
+- **Unchanged:** the code spans, v3.8.0, the URL, the YAML block and the quoted phrase "a robust, seamless delivery guarantee".
+
+I didn't add any facts. I dropped "could potentially" from "could potentially cause missed events", so it now says customers "could miss events".

@@ -1,0 +1,20 @@
+I've finished rewriting `pr.md` in place and re-read it to check the result.
+
+**Edits made**
+- **Opening:** I removed "Hey! Great question. Here's a comprehensive overview of this PR."
+- **Summary:** It now reads "This PR adds retry logic to the webhook dispatcher. Failed deliveries were silently dropped, which could cause missed events for customers." That drops "seamlessly", "game-changer", the "In today's…" opener, "it's important to note", and "potentially".
+- **Bullets:**
+  - "Leverages a robust exponential backoff…" is now "Retries failed deliveries up to 5 times with exponential backoff in `src/dispatch/retry.ts`".
+  - "Delves into the failure path…" is now "Records each attempt in the `delivery_attempts` table from the failure path in `dispatcher.ts`".
+- **Testing:** I cut "It's worth noting that".
+- **Notes:** I changed the em dash to a comma.
+- **Closing:** I deleted the whole "In conclusion… I hope this helps!" paragraph.
+
+**Verification**
+- **Editing passes:** 1 of 2 allowed.
+- **Checks:** All checks were model-only. The detector, marks normalizer and preservation validator did not run. The text I touched has no curly quotes, so there was nothing for the marks pass to change.
+- **Preserved exactly:**
+  - the code spans, `v3.8.0`, the URL and the YAML block;
+  - the quoted phrase "a robust, seamless delivery guarantee", which still contains "robust" and "seamless". I kept it because it's protected quoted text.
+- **Residuals:** None in the editable prose. The headings and section order are unchanged.
+- **Stop reason:** No further justified edit remains.

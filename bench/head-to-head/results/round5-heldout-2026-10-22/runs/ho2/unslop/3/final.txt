@@ -1,0 +1,11 @@
+He reescrito `notas.md` en el sitio. No lo he vuelto a leer después de los cambios; las cuatro ediciones se aplicaron sin error.
+
+- **Resto del chat:** he quitado la frase inicial «¡Claro! Aquí tienes unas notas…». Era un resto de conversación con un asistente.
+- **Resumen:** he sustituido el párrafo promocional («Nos complace anunciar…», «revoluciona…», «En el panorama actual…») por una frase que dice qué cambia: exportación a CSV ampliada, validación de `nif_cliente` y creación de facturas por lotes. Todo sale de la propia lista de novedades.
+- **Novedades:** he quitado «Una experiencia de exportación totalmente renovada», «Es importante destacar que» y «Se ha mejorado significativamente el rendimiento». Los datos concretos se quedan.
+- **Cambios que requieren atención:** he quitado «Cabe destacar que».
+- **Cierre:** he quitado «En definitiva, esta versión marca un antes y un después» y el «¡No dudes en contactarnos…!» final. La nota termina en el comando de actualización y la URL.
+
+No he tocado el front matter, la cita de Marta Olmedo con su atribución, los code spans (`nif_cliente`, `FACTURALIA_TIMEOUT`, `POST /v2/facturas/lote`, `npm install facturalia@4.2.0`), la URL ni las cifras.
+
+Una cosa que conviene mirar: la frase nueva del resumen nombra tres novedades, pero la lista de abajo también incluye la mejora de rendimiento. Si quieres que el resumen la mencione, dímelo.

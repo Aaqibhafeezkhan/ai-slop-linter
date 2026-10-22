@@ -1,0 +1,26 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"unslop:unslop\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"¡Claro! Aquí tienes unas notas de la versión completas y bien estructuradas.\\n\\n## Resumen\\n\\nNos complace anunciar el lanzamiento de la versión 4.2.0 de Facturalia, una actualización clave que revoluciona la forma de emitir facturas. En el panorama actual, cada vez más empresas necesitan una solución robusta y sin fisuras — y esta versió"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"- Una experiencia de exportación totalmente renovada: ahora se pueden exportar hasta 10.000 facturas a CSV en una sola operación (antes el límite era de 2.500).\\n- Es importante destacar que el campo `nif_cliente` ya se valida contra el formato del registro oficial, lo que podría reducir los rechazos.\\n- Se ha mejorado significativamente "
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Cabe destacar que quienes la fijen manualmente no necesitan hacer nada.\", \"new_string\": \"Quienes la fijen manualmente no necesitan hacer nada.\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \" En definitiva, esta versión marca un antes y un después. ¡No dudes en contactarnos si tienes alguna pregunta!\", \"new_string\": \"\"}"
+ }
+]

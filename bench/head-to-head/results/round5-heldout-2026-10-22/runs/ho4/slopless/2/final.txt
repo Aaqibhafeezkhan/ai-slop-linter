@@ -1,0 +1,5 @@
+I rewrote `status.md` in place. The Dutch is now more conversational: shorter sentences, "we" where it fits, and active phrasing such as "Dewi Hartman controleert de rapportages". I kept the structure and headings.
+
+All names, dates, numbers and amounts are unchanged. So are the `import_klanten.py` code span and the URL.
+
+I didn't run the Slopless review skill on it, so the result is judged by eye only.

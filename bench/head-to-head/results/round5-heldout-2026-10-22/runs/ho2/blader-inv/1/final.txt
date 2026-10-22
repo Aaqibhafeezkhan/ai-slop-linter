@@ -1,0 +1,16 @@
+I rewrote `notas.md` in place. I didn't re-read the file afterward or diff it against the original.
+
+- **Unchanged:** the front matter, the customer quote and its attribution, the code spans, the `POST /v2/facturas/lote` endpoint, the URL, and every number.
+- **Removed:**
+  - The chatbot opener ("¡Claro! Aquí tienes…").
+  - The sales language ("revoluciona", "robusta y sin fisuras", "panorama actual", "Una experiencia totalmente renovada").
+  - The filler openers ("Es importante destacar", "Cabe destacar").
+  - The closers ("marca un antes y un después", "¡No dudes en contactarnos…!").
+  - The em dash in the summary. I left the one in the quote's attribution, since the quote stays as is.
+- **Changed:**
+  - The summary now says what changed in the release instead of announcing it.
+  - The bullets use plain verbs.
+  - "Podría reducir" became "puede reducir".
+  - "Se ha mejorado significativamente el rendimiento" now just states the load times.
+
+I kept the `# Notas de la versión 4.2.0 de Facturalia` heading even though it repeats the front-matter title. Delete it if you want the title to appear once.

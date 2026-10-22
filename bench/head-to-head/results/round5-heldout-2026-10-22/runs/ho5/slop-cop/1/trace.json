@@ -1,0 +1,30 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"slop-cop:slop-cop-prose\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# tidyfeed\\n\\n**tidyfeed** is a command-line tool that cleans up RSS and Atom feeds.\\n\\n## Why tidyfeed?\\n\\nFeeds are often messy: duplicate entries, broken dates, and inconsistent encodings. tidyfeed removes duplicate entries, normalizes dates to ISO 8601, and converts all text to UTF-8. On a 2023 laptop it processes a 50 MB feed in about 3 seconds.\\n\\n## Instal"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"PLUGIN_ROOT=<TMP> \\\"$PLUGIN_ROOT/bin/slop-cop\\\" check <TMP> --no-llm --format=compact\", \"description\": \"Run slop-cop check on README\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"messy: duplicate entries\", \"new_string\": \"messy, with duplicate entries\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"The full option list is at https://tidyfeed.example.com/docs.\", \"new_string\": \"https://tidyfeed.example.com/docs has the full option list.\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"<TMP> check <TMP> --no-llm --format=compact\", \"description\": \"Re-run slop-cop check\"}"
+ }
+]

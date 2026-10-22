@@ -1,0 +1,10 @@
+I rewrote `pr.md` in place. The code spans, v3.8.0, the URL, the YAML block and the quoted phrase in Notes are unchanged.
+
+**What I cut or changed**
+- **Chat leftovers:** I removed the "Hey! Great question…" opener and the "Let me know… I hope this helps" ending.
+- **Filler:** I dropped the "In today's fast-paced…" opener, "it's important to note", "it's worth noting", "game-changer", "seamlessly", and the "In conclusion… pivotal step" paragraph.
+- **Stock verbs:** "Leverages a robust…" and "Delves into…" became plain statements of what the code does.
+- **Hedging:** "could potentially cause" became "so customers could miss events".
+- **Dash:** The em dash in Notes became a comma.
+
+I left the section headings, the facts, the numbers and the first-person "I ran the suite" as they were.

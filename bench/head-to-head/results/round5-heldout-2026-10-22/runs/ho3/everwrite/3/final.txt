@@ -1,0 +1,5 @@
+I rewrote `incidente.md` in place. I cut the chat opener and closer, the filler phrases and the dash, and split the long root-cause sentence. The checker went from 1 strong and 1 weak hit to 0.
+
+The timeline table, the code spans, the version numbers, the times and the URL are unchanged.
+
+I rewrote the summary's claim about "a parcela dos clientes" so it only says what the note supports. It now says part of the customers couldn't pay. I also added "cerca de meia hora" for the rollback, which is my own reading of the table (14:02 alert, 14:31 rollback). Check it before publishing.

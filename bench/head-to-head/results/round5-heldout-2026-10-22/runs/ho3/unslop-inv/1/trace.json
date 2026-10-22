@@ -1,0 +1,26 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"unslop:unslop\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Com certeza! Segue abaixo um resumo abrangente do incidente.\\n\\n\", \"new_string\": \"\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"o serviço `pagamentos-api` enfrentou uma instabilidade significativa — impactando potencialmente uma parcela dos clientes. É importante ressaltar que a equipe agiu rapidamente para mitigar o problema, garantindo uma experiência fluida.\", \"new_string\": \"o serviço `pagamentos-api` ficou instável e parte dos clientes foi afetada. A equipe fe"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Vale destacar que a causa raiz parece estar relacionada a uma migração de índice na tabela `transacoes`, que, em um cenário de alto tráfego, acabou sobrecarregando o pool de conexões (limite de 80). Em última análise, a mudança não foi testada em um ambiente representativo.\", \"new_string\": \"A causa raiz parece ser uma migração de índice n"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"\\n\\nEspero que este resumo ajude! Fique à vontade para pedir ajustes. Em suma, esse incidente é um valioso aprendizado para toda a equipe.\", \"new_string\": \"\"}"
+ }
+]

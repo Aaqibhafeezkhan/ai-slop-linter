@@ -1,0 +1,7 @@
+I rewrote `pr.md` in place. I didn't run any other checks on it.
+
+- **Removed:** the chatty opener, the closing "In conclusion… I hope this helps" lines, and filler like "game-changer", "seamlessly", "fast-paced integration landscape", "it's important to note" and "delves into".
+- **Reworded:** the summary now says plainly what was wrong and what the PR does. The "What changed" bullets are tighter.
+- **Left as they were:** the code spans, v3.8.0, the URL, the YAML block and the quoted phrase in Notes.
+
+I did edit the sentence next to the quote in Notes: the em dash became a comma. The quote itself still has "robust, seamless delivery guarantee".

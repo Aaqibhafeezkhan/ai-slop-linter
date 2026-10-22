@@ -1,0 +1,6 @@
+I rewrote `README.md` in place. I cut the AI-sounding parts and left the technical content alone.
+
+- **Removed:** the "Sure! Here's a polished README intro" opener and the closing "I hope this helps! … let me know if you want a different tone."
+- **Dropped the hype:** "cutting-edge, blazing-fast," "empowers developers to seamlessly," "rich tapestry of features," "ever-evolving world of content syndication," and "serves as a testament." The intro is now one plain sentence.
+- **Small edits:** "Simply run the following command" became "To clean a feed, run:".
+- **Unchanged:** both shell blocks, `1.6.2`, Python 3.9, the `--keep-days` option, the URL, and the file names (`feed.xml`, `clean.xml`). The 3-second benchmark and the MIT license line are also as they were.

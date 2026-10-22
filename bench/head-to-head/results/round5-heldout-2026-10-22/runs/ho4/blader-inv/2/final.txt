@@ -1,0 +1,13 @@
+Ik heb `status.md` niet aangepast, want ik vond er geen AI-patronen in die een ingreep rechtvaardigen.
+
+Het is een korte, feitelijke statusupdate in het Nederlands. Ik zocht naar de gebruikelijke signalen en vond ze niet:
+- **Constructies als "niet X maar Y":** geen.
+- **Afsluiters of slogans:** geen. Het stuk eindigt op een concreet open punt.
+- **Opgeblazen taal:** geen. De zinnen zijn gewoon.
+- **Opsommingen in drieën:** de lijst onder "Volgende week" bestaat uit drie echte taken.
+- **Gedachtestreepjes en vetgedrukte labels:** geen.
+- **Koppen:** ze staan in zinshoofdletters en benoemen wat eronder staat.
+
+Een herschrijving zou alleen smaakverschillen toevoegen, en het risico llopen dat een naam, datum, bedrag, `import_klanten.py` of de URL verandert. De getallen en namen heb ik dus ongemoeid gelaten.
+
+Als het toch niet menselijk genoeg klinkt, kan ik het persoonlijker maken, bijvoorbeeld in de ik-vorm of met een opmerking over de vertraging in Zwolle. Dan moet ik wel weten welke toon je wilt.

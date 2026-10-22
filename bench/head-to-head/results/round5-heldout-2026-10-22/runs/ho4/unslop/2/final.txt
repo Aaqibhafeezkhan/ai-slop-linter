@@ -1,0 +1,7 @@
+I changed one sentence in `status.md` and left the rest alone, because the text already reads like a person wrote it.
+
+The one change is in "Wat is gedaan". Dewi Hartman's two sentences about the import script are now a single sentence: "…zodat het dubbele telefoonnummers herkent, en voegde daarmee 37 dubbele klantrecords samen."
+
+I found no word-list tells, inflated claims, staged reveals, closing flourish or invented detail. The headings are plain labels, and the sentences are concrete and differ in length. Rewriting more would likely make it sound less like a person.
+
+The names, dates, numbers, amounts, `import_klanten.py` and the URL are unchanged.

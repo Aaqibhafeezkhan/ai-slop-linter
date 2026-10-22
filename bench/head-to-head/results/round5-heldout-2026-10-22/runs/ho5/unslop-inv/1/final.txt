@@ -1,0 +1,11 @@
+I rewrote `README.md` in place, changing only the spans that read as AI-written. I didn't re-read the file afterwards; the edits all applied cleanly.
+
+**Changes**
+- **Chat leftovers:** I deleted "Sure! Here's a polished README intro for your project." and the closing "I hope this helps! Feel free to reach out… let me know if you want a different tone."
+- **Intro:** "cutting-edge, blazing-fast… empowers developers to seamlessly clean up… rich tapestry… elevate your workflow" and the "seasoned engineer or just getting started" line are now one sentence: "**tidyfeed** is a command-line tool that cleans up RSS and Atom feeds." The speed claim is dropped, since the 3-second figure is already in the next section.
+- **Why tidyfeed?:** I cut the opener "In the ever-evolving world of content syndication" and the line "serves as a testament to what a thoughtful tool can achieve". I replaced the em dash with a colon. The 50 MB in about 3 seconds figure, the ISO 8601 date handling and the UTF-8 conversion are unchanged.
+- **Quick start:** "Simply run the following command to clean a feed:" became "To clean a feed, run:".
+
+**Left alone**
+- Both shell blocks, `1.6.2`, Python 3.9, `--keep-days 30`, the URL, the MIT license line and "Contributions are welcome" are exactly as they were.
+- I didn't add any facts, so the README is now shorter and plainer. You may want to add a line on what makes tidyfeed different, but I had nothing in the file to base that on.

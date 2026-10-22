@@ -1,0 +1,22 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"slop-cop:slop-cop-prose\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Statusupdate week 41: migratie van de planningsapp\\n\\nDatum: 9 oktober 2026\\n\\n## Stand van zaken\\n\\nWe zijn voor 80 procent klaar met de migratie van de planningsapp naar Postgres 16. De klantendata van 12 van de 15 vestigingen staat al in de nieuwe database. De andere drie gaan op 16 oktober over.\\n\\n## Wat er gedaan is\\n\\nDewi Hartman heeft het importscript "
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Ik heb ook een herstel uit back-up getest, en dat duurde 22 minuten.\", \"new_string\": \"Een herstel uit back-up duurde 22 minuten.\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Beslissen wat we met de oude MySQL-server doen, uiterlijk 30 oktober\", \"new_string\": \"Beslissen of we de oude MySQL-server uitzetten, uiterlijk 30 oktober\"}"
+ }
+]

@@ -1,0 +1,8 @@
+Reescrevi o `incidente.md` no próprio arquivo. A tabela da linha do tempo, os nomes em code spans (`pagamentos-api`, `transacoes`), as versões 2.19.0 e 2.18.4, os horários e a URL do runbook continuam exatamente como estavam.
+
+O que mudei:
+- **Abertura e fecho de chatbot:** tirei o "Com certeza! Segue abaixo…" e o "Espero que este resumo ajude!…". Também tirei a frase final sobre o incidente ser "um valioso aprendizado".
+- **Filler e elogio em causa própria:** saíram "É importante ressaltar", "Vale destacar", "Em última análise", "garantindo uma experiência fluida" e "impactando potencialmente".
+- **Frases mais diretas:** o resumo agora diz o que aconteceu. A causa raiz está em frases curtas, e o "parece estar relacionada" virou "Tudo indica", porque a causa ainda não está totalmente confirmada.
+
+Uma coisa a conferir: no resumo escrevi que o serviço voltou ao normal "em cerca de 45 minutos". Isso vem do impacto original ("durante 45 minutos") e da linha do tempo (14:02 a 14:47). Não acrescentei nenhum fato novo.

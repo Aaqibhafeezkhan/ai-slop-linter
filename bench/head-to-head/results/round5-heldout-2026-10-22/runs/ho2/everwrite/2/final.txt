@@ -1,0 +1,3 @@
+I rewrote `notas.md` in place. I cut the chat opener ("¡Claro! Aquí tienes…"), the hype in the summary, the filler phrases and the closing pitch, and kept every fact. The checker went from 2 strong hits to 1. The one left is the dash in the customer quote's attribution, which you asked me to keep as it is.
+
+The front matter, the quote and its attribution, the code spans, the endpoint, the URL and all the numbers are unchanged.

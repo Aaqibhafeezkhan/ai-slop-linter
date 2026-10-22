@@ -1,0 +1,6 @@
+I rewrote `README.md` in place. A Slopless pass on the new version found nothing; the report is in `.slopless/findings/`.
+
+- **Removed:** the leftover chatbot lines, "Sure! Here's a polished README intro…" at the top and "I hope this helps! … let me know if you want a different tone" at the bottom.
+- **Cut:** the marketing wording ("cutting-edge, blazing-fast," "empowers," "seamlessly," "rich tapestry," "testament to…") and the "Whether you're a seasoned engineer…" line. The intro is now one plain sentence saying what the tool does.
+- **Tightened:** the "Why tidyfeed?" paragraph states the problems and fixes directly. "Simply run the following command" became "To clean a feed, run:".
+- **Unchanged:** both shell blocks, `1.6.2`, Python 3.9, `--keep-days 30`, the docs URL, `feed.xml` and `clean.xml`. The ISO 8601, UTF-8, 50 MB, 3 seconds, 2023 and MIT details are also as they were.

@@ -1,0 +1,7 @@
+I rewrote `README.md` in place. The changes:
+
+- **Removed:** the "Sure! Here's a polished README intro…" line at the top and the "I hope this helps! … let me know if you want a different tone" line at the end.
+- **Cut filler:** phrases like "cutting-edge, blazing-fast", "empowers developers to seamlessly", "rich tapestry of features", "ever-evolving world of content syndication" and "serves as a testament" are gone. The intro is now one plain sentence.
+- **Kept as they were:** both shell blocks, `1.6.2`, Python 3.9, the `--keep-days 30` option, the docs URL, and the `feed.xml` and `clean.xml` file names. I also kept the factual claims (ISO 8601, UTF-8, the 50 MB in about 3 seconds benchmark, MIT license).
+
+I changed "Simply run the following command" to "To clean a feed, run:". I also tightened the "Why tidyfeed?" paragraph, and its wording differs a little from the original.

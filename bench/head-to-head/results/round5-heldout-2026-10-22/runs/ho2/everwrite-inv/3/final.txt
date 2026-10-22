@@ -1,0 +1,5 @@
+I rewrote `notas.md` in place. The checker went from 2 strong hits to 1, and the one left is the dash in the customer attribution, which you told me to keep.
+
+I removed the chat opener ("¡Claro! Aquí tienes…"), the hype ("revoluciona", "marca un antes y un después") and the filler phrases. I also removed the closing line inviting questions and replaced the summary with one plain sentence. The front matter, the quote, the code spans, the endpoint, the URL and all numbers are unchanged.
+
+I also made the bullets and the timeout sentence plainer: "Cabe destacar que quienes la fijen manualmente…" became "Si ya la fijas a mano, no tienes que hacer nada."

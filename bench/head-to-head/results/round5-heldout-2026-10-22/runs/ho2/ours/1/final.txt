@@ -1,0 +1,16 @@
+He reescrito `notas.md` en su sitio, y `--verify` termina con `verify: ok`. El linter da A con 0 hallazgos. Lo pasé con `--language es`, así que las reglas de guiones y de títulos en mayúsculas no se ejecutaron.
+
+Cambios:
+- **Frase de chatbot:** quité "¡Claro! Aquí tienes unas notas de la versión completas y bien estructuradas."
+- **Resumen:** sustituí "Nos complace anunciar… revoluciona… panorama actual… robusta y sin fisuris" por una frase que dice qué trae la versión. Solo usa datos que ya estaban en las notas: más exportación a CSV, validación de `nif_cliente`, listado más rápido y el endpoint de lotes.
+- **Muletillas:** quité "Es importante destacar que" y "Cabe destacar que", y dejé la afirmación directa.
+- **Adornos:** quité "experiencia de exportación totalmente renovada" y "mejorado significativamente".
+- **Cierre:** quité "En definitiva, esta versión marca un antes y un después. ¡No dudes en contactarnos…!". El texto termina en la instrucción de actualizar y el enlace.
+
+No toqué el front matter, la cita de Marta Olmedo con su atribución, los code spans, el endpoint, la URL ni ningún número. Conservé "podría reducir los rechazos" porque es una cautela del propio texto.
+
+El aviso `unrequested edit` que salió en `--verify` corresponde a las frases de chatbot y a los adornos de las dos viñetas que quité a propósito.
+
+Segunda pasada: no queda ningún tell de los que lista la referencia en español.
+
+Residuals: none

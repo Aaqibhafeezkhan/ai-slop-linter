@@ -1,0 +1,16 @@
+I've rewritten `notas.md` in place and re-read it to check. The file is done.
+
+**Changes**
+- I deleted the chatbot opener ("¡Claro! Aquí tienes unas notas…").
+- I replaced the Resumen paragraph with one plain sentence. The old one had "revoluciona", "panorama actual" and "robusta y sin fisuris" ("robusta y sin fisuras"). The new sentence only restates what the bullets already say.
+- I cut the filler from the bullets: "Una experiencia de exportación totalmente renovada", "Es importante destacar que" and "Se ha mejorado significativamente el rendimiento". The "podría" in the `nif_cliente` bullet stays, because it carries real uncertainty.
+- I removed "Cabe destacar que" from the `FACTURALIA_TIMEOUT` paragraph.
+- I cut the closing "En definitiva, esta versión marca un antes y un después. ¡No dudes en contactarnos…!".
+
+**Untouched:** the front matter, the customer quote with its attribution, all code spans, the `POST /v2/facturas/lote` endpoint, the URL and every number. The headings are unchanged too.
+
+**Verification**
+- **Editing passes:** 1 of a maximum of 2.
+- **Checks:** model-only. The detector, quote normalizer and preservation validator did not run. I skipped the quote normalizer because the edited prose has no quote marks.
+- **Residuals:** the skill's rules are calibrated for English, so I applied the equivalent Spanish patterns by judgment. The generic headings ("Resumen", "Novedades") are still there, since you didn't ask me to change the structure.
+- **Stop reason:** I found no further justified edit.

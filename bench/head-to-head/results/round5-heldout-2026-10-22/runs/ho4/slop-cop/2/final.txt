@@ -1,0 +1,5 @@
+I rewrote `status.md` in place. The wording is now looser and more direct, and I kept it in Dutch.
+
+- **Wording:** I used active verbs ("we hebben het veld verbreed", "Dewi Hartman controleert") and shorter headings, such as "Waar we staan" and "Wat misging". I also dropped some stiff phrasing like "Daarmee zijn… samengevoegd".
+- **Unchanged:** All names, dates, numbers, amounts, the `import_klanten.py` code span and the URL are exactly as before.
+- **No slop-cop run:** I edited by hand and didn't run the `slop-cop` check, because its rules are written for English and wouldn't have meant much on Dutch text.

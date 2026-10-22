@@ -1,0 +1,11 @@
+He reescrito `notas.md` en su sitio. No ejecuté Slopless porque solo analiza inglés y el archivo está en español, así que el texto no pasó por ningún chequeo automático.
+
+- **Quitado:**
+  - La frase de chatbot «¡Claro! Aquí tienes…».
+  - El resumen inflado («revoluciona», «panorama actual», «robusta y sin fisuris»).
+  - Las muletillas «Es importante destacar», «Cabe destacar», «En definitiva… marca un antes y un después» y «significativamente».
+- **Cambiado:**
+  - El resumen ahora dice qué trae la versión.
+  - Las viñetas son más directas.
+  - El tono pasa a ser de tú, también en la nota sobre `FACTURALIA_TIMEOUT` y en el cierre.
+- **Sin tocar:** el front matter, la cita de Marta Olmedo con su atribución, los code spans, el endpoint, la URL y todas las cifras.

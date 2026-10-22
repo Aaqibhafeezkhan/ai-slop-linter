@@ -1,0 +1,14 @@
+I rewrote `incidente.md` in place. A final `slop-cop` check found two hits, and I left both:
+
+- **Timeline row:** a sentence-case warning on the "Plantonista Rafael Souza" row. That row has to stay exactly as it was.
+- **Next-steps list:** a flag on the three-item list. It is a plain action list, and I kept it.
+
+What changed:
+- **Removed:** the "Com certeza!" opener, the "resumo abrangente" line, the "Espero que este resumo ajude!" closer and the "valioso aprendizado" sign-off.
+- **Removed:** the filler phrases ("É importante ressaltar", "Vale destacar", "Em última análise") and the unsupported claim about a "experiência fluida".
+- **Rewritten:** the summary now says plainly what happened and when it recovered.
+- **Rewritten:** the root cause is a direct statement with one hedge ("provável").
+
+The timeline table, the code-span names (`pagamentos-api`, `transacoes`), the versions (2.19.0 and 2.18.4), the times and the URL are unchanged.
+
+I also changed the impact line from "durante 45 minutos" to "em 45 minutos".

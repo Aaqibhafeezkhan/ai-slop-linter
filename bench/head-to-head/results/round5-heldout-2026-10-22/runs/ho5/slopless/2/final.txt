@@ -1,0 +1,18 @@
+I rewrote `README.md` in place, and Slopless now reports no findings on it (exit 0). It reported findings on the original.
+
+**Removed**
+- The chatbot lines: "Sure! Here's a polished README intro…" at the top, and "I hope this helps! Feel free to reach out…" at the bottom.
+- The marketing filler: "cutting-edge, blazing-fast", "empowers developers to seamlessly", "rich tapestry of features", "elevate your workflow", "serves as a testament", "ever-evolving world of content syndication", and the "seasoned engineer or just getting started" line.
+- The word "Simply" in the quick start.
+
+**Kept exactly as they were**
+- Both shell blocks.
+- `1.6.2` and Python 3.9.
+- `--keep-days 30`.
+- The URL.
+- The file names `feed.xml` and `clean.xml`.
+- The 50 MB, 3 seconds and 2023 laptop figures, and the MIT license line.
+
+I only changed wording around those. The intro, the "Why" paragraph and the quick-start lead-in are now short and plain.
+
+The Slopless JSON from before and after is saved in `.slopless/findings/`.

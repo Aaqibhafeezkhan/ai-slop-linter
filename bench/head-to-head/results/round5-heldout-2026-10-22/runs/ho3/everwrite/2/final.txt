@@ -1,0 +1,5 @@
+I rewrote `incidente.md` in place. I cut the chat opener and closer, the filler phrases, the em dash and the "potentially" hedge, and the checker went from 1 strong hit and 1 weak to 0.
+
+The timeline table, code spans, version numbers, times and URL are unchanged.
+
+I added one claim that wasn't in the original. The summary now says the rollback took "cerca de meia hora" (about half an hour). That comes from the timeline, where the alert at 14:02 is followed by the rollback at 14:31. Check that it matches how you'd describe it.

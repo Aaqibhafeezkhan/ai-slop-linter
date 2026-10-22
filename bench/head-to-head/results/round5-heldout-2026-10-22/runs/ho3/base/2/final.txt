@@ -1,0 +1,7 @@
+I rewrote `incidente.md` in place. I haven't re-read the saved file.
+
+- **Removed:** the chatbot filler ("Com certeza!", "Vale destacar", "Em suma", "Espero que este resumo ajude!") and the vague claims ("experiência fluida", "valioso aprendizado").
+- **Rewritten:** the summary, root cause and impact sections, in plainer and more direct wording.
+- **Unchanged:** the timeline table, the code spans (`pagamentos-api`, `transacoes`), the versions (2.19.0 and 2.18.4), the times, the numbers, the URL and the next-steps list.
+
+I changed one thing beyond tone. The old summary said the incident "potentially" affected "a portion of customers". The impact section says 1.340 payments actually failed, so I wrote that parte dos pagamentos falhou.

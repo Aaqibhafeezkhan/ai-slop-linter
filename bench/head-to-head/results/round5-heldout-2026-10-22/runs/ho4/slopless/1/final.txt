@@ -1,0 +1,3 @@
+I rewrote `status.md` in place in a more conversational Dutch. I used "we" and shorter sentences, and I made the bullets read more like quick notes.
+
+The names, dates, numbers, amounts, the `import_klanten.py` code span and the URL are all unchanged. I didn't run it through any checker, so the only check is my own comparison of those details against the original.

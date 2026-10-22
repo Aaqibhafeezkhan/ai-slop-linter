@@ -1,0 +1,18 @@
+I rewrote `notas.md` in place. The front matter, the customer quote and its attribution, the code spans, the `POST /v2/facturas/lote` endpoint, the URL and every number are unchanged.
+
+**Changes**
+- **Chatbot opener:** I deleted "¡Claro! Aquí tienes unas notas de la versión completas y bien estructuradas."
+- **Summary paragraph:**
+  - I cut "Nos complace anunciar", "una actualización clave que revoluciona…", "En el panorama actual…", "robusta y sin fisuras" and the em dash.
+  - The paragraph now reads: "Ya está disponible la versión 4.2.0 de Facturalia. Trae una exportación a CSV más amplia, validación del NIF del cliente y un listado de facturas más rápido." The second sentence only summarises items already listed below it.
+- **Novedades bullets:**
+  - I removed "Una experiencia de exportación totalmente renovada:", "Es importante destacar que" and "Se ha mejorado significativamente el rendimiento:".
+  - I kept the hedge "podría reducir los rechazos", since it carries real uncertainty.
+- **Cambios que requieren atención:** I dropped "Cabe destacar que".
+- **Closing:** I deleted "En definitiva, esta versión marca un antes y un después." and "¡No dudes en contactarnos si tienes alguna pregunta!". The update instruction and link remain.
+
+**Verification**
+- **Editing passes:** 1 of 2 allowed.
+- **Checks:** model-only. The detector, quote normalizer and preservation validator did not run. The pass is a manual read, and the file has no curly quotes in editable prose, so there was nothing to normalize. The skill's rules are calibrated for English, so I applied Spanish equivalents by judgment.
+- **Residuals:** the quote "Hemos reducido el cierre mensual de dos días a una tarde." has no flagged pattern, and its dash and attribution stay as written. I left the "Resumen" heading and the section structure alone, because you asked for a wording cleanup, not a restructure.
+- **Stop reason:** no further justified in-scope edit remains.

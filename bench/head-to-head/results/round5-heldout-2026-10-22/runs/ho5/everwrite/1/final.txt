@@ -1,0 +1,3 @@
+I rewrote `README.md` in place. I cut the chatbot opener and closer, the hype words, the "testament" sentence and the em dash. The checker went from 11 strong hits to 0.
+
+Both shell blocks, `tidyfeed==1.6.2`, Python 3.9, `--keep-days 30`, the URL and the file names are unchanged. So are the 2023 laptop and 50 MB / 3 seconds claim, and the MIT license line.

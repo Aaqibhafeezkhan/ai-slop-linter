@@ -1,0 +1,9 @@
+I edited `pr.md` in place. The code spans, v3.8.0, the URL, the YAML block and the quoted phrase in Notes are unchanged.
+
+- **Chat residue removed:** I cut the "Hey! Great question…" opener and the "In conclusion… I hope this helps" closer.
+- **Summary:** the filler ("seamlessly", "game-changer", "In today's fast-paced…", "it's important to note", "could potentially") is gone. It now says what was broken (failed deliveries were silently dropped, so customers could miss events) and what the PR does.
+- **Bullets:** "Leverages a robust…" became "Adds exponential backoff…", and "Delves into the failure path…" became "Records each attempt…".
+- **Testing:** I dropped "It's worth noting that".
+- **Notes:** I replaced the em dash in the delay sentence with a comma.
+
+I added no facts.

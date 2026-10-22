@@ -1,0 +1,16 @@
+I rewrote `README.md` in place. I didn't run any checks. I only compared the new text against the old by eye.
+
+- **Removed:**
+  - The chatbot lines: "Sure! Here's a polished README intro…" and "I hope this helps! Feel free to reach out…".
+  - The promotional wording: "cutting-edge, blazing-fast", "empowers developers to seamlessly", "rich tapestry of features", "serves as a testament".
+  - The "ever-evolving world of content syndication" opener.
+  - The dashes. The "Why tidyfeed?" sentence now uses a colon.
+  - "Simply" in the quick-start intro.
+- **Kept unchanged:**
+  - Both shell blocks.
+  - The versions: `1.6.2`, Python 3.9, ISO 8601, UTF-8.
+  - The `--keep-days 30` option and the URL.
+  - The 2023 laptop and 50 MB / 3 seconds claim.
+  - The MIT license line and "Contributions are welcome."
+
+I dropped the sentence "Whether you're a seasoned engineer or just getting started…" because it had no content. The intro is now a single plain sentence saying what the tool does. The README doesn't state that the tool is for developers, so I didn't add that back.

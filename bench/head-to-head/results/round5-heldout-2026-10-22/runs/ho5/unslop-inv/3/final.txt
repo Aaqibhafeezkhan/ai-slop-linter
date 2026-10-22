@@ -1,0 +1,14 @@
+I rewrote `README.md` in place. I didn't re-read it afterwards, but I kept the facts and the protected strings as they were.
+
+**Cut:**
+- The chat leftover at the top ("Sure! Here's a polished README intro for your project.") and the closing "I hope this helps! Feel free to reach out…".
+- The promo wording in the intro: "cutting-edge, blazing-fast", "empowers developers to seamlessly", "rich tapestry of features designed to elevate your workflow". The intro is now one plain sentence saying what the tool does.
+- The wide-angle opener "In the ever-evolving world of content syndication" and "serves as a testament to what a thoughtful tool can achieve".
+- "Simply run the following command", which is now "To clean a feed, run:".
+
+**Left alone:**
+- Both shell blocks, `1.6.2`, Python 3.9, `--keep-days 30`, the docs URL and the file names (`feed.xml`, `clean.xml`).
+- The facts: ISO 8601, UTF-8, "50 MB in about 3 seconds on a 2023 laptop", and the MIT license.
+- "Contributions are welcome."
+
+I added no new claims. The "Why tidyfeed?" section has no comparison or reason to pick it over other tools, because the source gave none. If you want one, you'd need to supply it.

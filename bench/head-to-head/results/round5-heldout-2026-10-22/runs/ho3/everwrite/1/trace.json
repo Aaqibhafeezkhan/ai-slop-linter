@@ -1,0 +1,22 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"everwrite:everwrite\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && cat evergreen.json | head -40; python3 scripts/tells.py <TMP> | tail -15\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Nota de incidente: falha no processamento de pagamentos em 2026-05-07\\n\\n## Resumo\\n\\nNo dia 7 de maio de 2026, o `pagamentos-api` ficou instável e parte dos pagamentos falhou. Voltamos a versão anterior e o serviço se recuperou em cerca de 45 minutos.\\n\\n## Linha do tempo\\n\\n| Horário (UTC-3) | Evento |\\n|---|---|\\n| 14:02 | Alerta de latência acima de 3 s no "
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py <TMP> | tail -5\"}"
+ }
+]

@@ -1,0 +1,22 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"everwrite:everwrite\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# tidyfeed\\n\\ntidyfeed is a command-line tool that cleans up RSS and Atom feeds.\\n\\n## Why tidyfeed?\\n\\nFeeds are often messy: duplicate entries, broken dates, mixed encodings. tidyfeed removes the duplicates, normalizes dates to ISO 8601, and converts all text to UTF-8. On a 2023 laptop it processes a 50 MB feed in about 3 seconds.\\n\\n## Installation\\n\\n```sh\\np"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"python3 <TMP> <TMP>\"}"
+ }
+]

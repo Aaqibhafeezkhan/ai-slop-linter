@@ -1,0 +1,7 @@
+I changed one thing in `status.md`: in "Wat is gedaan" I joined two sentences with a semicolon. The text was already close to how a person would write a status update, so I left the rest alone.
+
+The page names people, dates and amounts. It has no opening filler, no closing line that sums things up, no stock phrases and no dramatic wording. It says what went wrong, when, and what it cost: the Zwolle import failed on 4 oktober and cost half a day. The headings are plain labels, and the open point about the budget is stated as an open point.
+
+The skill's word lists are for German and English, so I judged this Dutch text on structure and rhythm only. The names, dates, numbers, amounts, `import_klanten.py` and the URL are untouched.
+
+If it still reads as AI to you, tell me which sentence. Rewriting more without a specific target would make the text less natural.

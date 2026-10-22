@@ -1,0 +1,22 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"ai-slop-linter:ai-slop-linter\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"TMP=$(mktemp -d) && cp README.md \\\"$TMP/before.md\\\" && echo $TMP && npx ai-slop-linter README.md; ls <TMP>\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cat > README.md <<'EOF'\\n# tidyfeed\\n\\n**tidyfeed** is a command-line tool that cleans up RSS and Atom feeds.\\n\\n## Why tidyfeed?\\n\\nFeeds are often messy: duplicate entries, broken dates and inconsistent encodings are common. tidyfeed removes duplicate entries, normalizes dates to ISO 8601, and converts all text to UTF-8. On a 2023 laptop it processes a 50 MB feed in about 3 seconds."
+ }
+]

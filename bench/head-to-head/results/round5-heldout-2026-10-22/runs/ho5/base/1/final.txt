@@ -1,0 +1,16 @@
+I rewrote `README.md` in place. I cut the AI-sounding parts and left the facts alone.
+
+**Removed:**
+- The "Sure! Here's a polished README intro…" opener.
+- The closing "I hope this helps! Feel free to reach out…" line.
+- The buzzwords: "cutting-edge, blazing-fast", "empowers", "seamlessly", "rich tapestry", "elevate your workflow", "serves as a testament", "ever-evolving world of content syndication".
+
+**Kept exactly as they were:**
+- Both shell blocks.
+- `1.6.2` and Python 3.9.
+- `--keep-days 30`.
+- The docs URL.
+- `feed.xml` and `clean.xml`.
+- The 3-second benchmark and the MIT license line.
+
+I replaced "Simply run the following command" with the plainer "To clean a feed, run:". The intro is now a single sentence.

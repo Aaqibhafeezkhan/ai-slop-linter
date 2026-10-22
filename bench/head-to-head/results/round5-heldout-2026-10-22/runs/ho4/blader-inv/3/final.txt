@@ -1,0 +1,7 @@
+Ik heb `status.md` niet aangepast, omdat ik er geen AI-patronen in vond.
+
+De tekst is Nederlands en zakelijk. Hij heeft korte feitelijke zinnen en concrete cijfers, namen en data. Er staan geen contrastzinnen als "niet X maar Y" in, geen dramatische slotzinnen, opsommingen van drie, gedachtestreepjes, vette labels of opgeklopte beweringen. De kopjes zijn gewoon beschrijvend. Elke zin voegt iets toe, bijvoorbeeld de oorzaak van de vastgelopen import in Zwolle (een adresveld langer dan 255 tekens) of de maandkosten van € 148.
+
+Als ik hem toch herschrijf, wordt hij alleen gladder of minder precies. Dat zou de tekst niet menselijker maken en het risico op wijzigingen aan namen, getallen en data vergroten.
+
+Als je een bepaalde passage toch verdacht vindt, wijs die dan aan. Dan kijk ik er gericht naar.

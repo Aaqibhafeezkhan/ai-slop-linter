@@ -1,0 +1,7 @@
+I rewrote `pr.md` in place. I didn't re-read the file after writing it.
+
+- **Removed:** the chat wrapper ("Hey! Great question…", "Let me know if you'd like me to make any changes! I hope this helps."), the "In conclusion… pivotal step" send-off, and the filler openers ("In today's fast-paced integration landscape", "it's important to note", "it's worth noting").
+- **Replaced:** "seamlessly", "game-changer", "leverages a robust", "delves into" and "could potentially" with plain wording. The em dash in Notes is now a comma.
+- **Kept as it was:** all code spans, v3.8.0, the URL, the YAML block, and the quoted phrase in Notes. The PR's facts and numbers are unchanged.
+
+I also reworded the testing sentence into two shorter ones and reordered the third bullet. The bullet now says the attempts are recorded in `delivery_attempts` from the failure path in `dispatcher.ts`.

@@ -1,0 +1,8 @@
+Ik heb `status.md` aangepast. De tekst had weinig AI-kenmerken: geen dramatische afsluiters, geen opgeblazen taal en geen opsommingen met vette labels. Daarom zijn de ingrepen klein:
+
+- Ik heb een paar zinnen losser gemaakt, bijvoorbeeld "omdat" werd "want". "Het veld is verbreed" werd "we hebben het veld verbreed".
+- Ik heb een paar passieve of stijve zinnen actief gemaakt. "Controle van de rapportages door Dewi Hartman" werd "Dewi Hartman controleert de rapportages".
+- Ik heb de zin over de open vraag omgedraaid, zodat die korter loopt.
+- Ik heb "vestiging(en)" weggelaten waar dat uit de context duidelijk is.
+
+Namen, data, bedragen, aantallen, `import_klanten.py` en de wiki-URL zijn ongewijzigd.

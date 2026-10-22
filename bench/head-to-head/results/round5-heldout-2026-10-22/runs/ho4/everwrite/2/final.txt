@@ -1,0 +1,1 @@
+I rewrote `status.md` in place. I varied the sentence rhythm and rephrased a few stiff passive constructions, such as "heeft ... herschreven, zodat" and "moet nog bevestigen". The names, dates, numbers, amounts, `import_klanten.py` and the URL are unchanged. The checker shows 0 strong hits and 1 weak one, a repeated "de" at the start of two sentences, which I left as is.

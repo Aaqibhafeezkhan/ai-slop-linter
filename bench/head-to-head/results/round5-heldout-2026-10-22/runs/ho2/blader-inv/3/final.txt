@@ -1,0 +1,11 @@
+I rewrote `notas.md` in place. I didn't re-read it afterwards or run any checks.
+
+- **Chatbot residue:** I removed "¡Claro! Aquí tienes…" and the "¡No dudes en contactarnos…!" closer. The ending is now a plain "Si tienes alguna pregunta, escríbenos."
+- **Inflation:** I cut "actualización clave que revoluciona", "panorama actual", "robusta y sin fisuras", "marca un antes y un después" and "experiencia totalmente renovada". The summary now says what changed.
+- **Filler openers and adverbs:** I dropped "Es importante destacar que", "Cabe destacar que" and "significativamente".
+- **Dash:** I removed the em dash in the summary. The one in the customer quote's attribution is untouched.
+- **Passive and "se ha añadido":** The passive "Se ha añadido" became "Nuevo endpoint". "podría reducir" became "puede reducir".
+
+I left the front matter, the quote with its attribution, the code spans, the endpoint, the URL and all numbers exactly as they were.
+
+I kept the `# Notas de la versión 4.2.0 de Facturalia` heading even though it nearly repeats the front-matter title. It adds the product name, and you may want it for publishing. Delete it if your site already renders the title.

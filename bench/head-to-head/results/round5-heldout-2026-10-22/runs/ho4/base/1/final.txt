@@ -1,0 +1,3 @@
+Ik heb `status.md` herschreven in een gewone, wat directere toon, met meer actieve zinnen en minder stijf ambtelijk Nederlands. Alle namen, data, getallen, bedragen, `import_klanten.py` en de URL staan er nog precies zo in.
+
+Tijdens het schrijven had ik per ongeluk een feit toegevoegd: dat ik zelf een herstel uit back-up had laten draaien. Dat heb ik er weer uit gehaald, dus de inhoud is niet veranderd. Alleen de formulering is anders.

@@ -1,0 +1,10 @@
+I rewrote `pr.md` in place. The code spans, v3.8.0, the URL, the YAML block and the quoted phrase in Notes are unchanged.
+
+- **Chat wrapper:** I removed the "Hey! Great question" opener and the closing "Let me know… I hope this helps."
+- **Inflated wording:** I cut "seamlessly", "game-changer", "leverages a robust", "delves into", "in today's fast-paced landscape" and the "In conclusion… pivotal step" paragraph. The Summary now just says what changed and why.
+- **Dash:** The dash in Notes became a comma. The skill says to avoid dashes, and the dash wasn't inside any of the protected text.
+- **Testing:** The Testing section now states the results directly.
+
+Every fact is still there: the 5 retries, both settings and their defaults, the `delivery_attempts` table, 214 passing tests, and the forced 503 that recovered on the third attempt after 250 ms and 500 ms delays.
+
+I left the "robust" inside the quoted phrase alone, since it has to stay as written.

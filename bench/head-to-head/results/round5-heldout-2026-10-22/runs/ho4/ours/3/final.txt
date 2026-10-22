@@ -1,0 +1,9 @@
+I didn't change `status.md`. It's plain, specific Dutch, and the checks found nothing that reads like AI writing.
+
+- **Linter:** `npx ai-slop-linter --language nl` scored it A with 0 findings. The English-only `dash` and `title-case-heading` rules didn't run, because the text is Dutch.
+- **Verify:** `--verify` against a saved copy of the original printed `clean source: no edit is expected` and `verify: ok (unchanged)`.
+- **By eye:** The reference file has no Dutch version, so I applied the English families by eye. I found no hedges, no announcing openers, no "not X but Y" constructions and no closing summary line. It has no bold labels or sales language either. The text is short factual sentences with names, dates and amounts.
+
+Rewriting it anyway would risk changing the names, dates, numbers, `import_klanten.py` or the URL, which you asked me to keep exactly.
+
+Residuals: none.

@@ -1,0 +1,8 @@
+I rewrote `pr.md` in place. Slopless reported findings on the original and none on the new version.
+
+- **Cut:** the chatbot greeting and sign-off, the "game-changer" and "pivotal step" filler, and the "In conclusion" ending. Also gone are the stock words like "seamlessly", "leverages", "delves" and "robust".
+- **Kept exactly:** the code spans, v3.8.0, the URL, the YAML block and the quoted phrase.
+- **Facts unchanged:** 214 tests, a retry cap of 5, the third-attempt recovery after 250 ms and 500 ms, and the doubling rule.
+- **Reworded:** I changed the line about the upstream docs to "so I kept that wording". The original said it was "the term to keep", which was odd.
+
+The raw Slopless JSON for both runs is saved in `.slopless/findings/`.

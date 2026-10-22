@@ -1,0 +1,18 @@
+I rewrote `pr.md` in place. I didn't re-read it afterwards. The code spans, v3.8.0, the URL, the YAML block and the quoted phrase are unchanged.
+
+**What I cut or changed**
+- **Chat leftovers:** I removed "Hey! Great question. Here's a comprehensive overview", "Let me know if you'd like me to make any changes!" and "I hope this helps."
+- **Filler and hype:**
+  - "seamlessly" and "a game-changer"
+  - the "In today's fast-paced integration landscape" opener
+  - "it's important to note" and "It's worth noting"
+  - "could potentially" is now "could"
+- **Closing paragraph:** I deleted the "In conclusion… pivotal step… more robust and reliable platform" paragraph. It repeated the summary and added no facts.
+- **Bullets:** "Leverages a robust exponential backoff" is now "Adds exponential backoff", and "Delves into the failure path" is now "Records each attempt… from the failure path". Both bullets still say the same thing.
+
+**What I left alone**
+- The numbers: 5 retries, 214 tests, the 503 test, the third-attempt recovery and the 250 ms and 500 ms delays.
+- The em dash in the Notes sentence. It's a single one in a technical doc, and that sentence is next to text you said to keep.
+- The headings, which already name their content.
+
+I added no facts. The Notes quote still calls the guarantee "robust, seamless", which is why those words survive there.

@@ -1,0 +1,11 @@
+I've rewritten `pr.md` in place. The slop-cop check (client-side rules only) now reports four hits. I can't fix any of them without breaking something you said to keep exactly as written.
+
+- **URL:** the `colon-elaboration` hit is the colon in `https://hooks.example.com/ping`.
+- **Quoted phrase:** the other three hits (`robust`, `seamless` and the comma inside the closing quote) are all in "a robust, seamless delivery guarantee".
+
+What I changed:
+- **Cut:** the chatbot opener ("Hey! Great question…"), the closing offer and "I hope this helps", the "In conclusion" paragraph, and the filler words (*seamlessly*, *game-changer*, *leverages*, *delves into*, *it's worth noting*).
+- **Tightened:** I wrote the summary and bullets as plain statements. I split the testing paragraph into shorter sentences and changed "5 times" to "five times".
+- **Bullets:** to clear the list-punctuation hit, I reworded the last two bullets. The `dispatcher.ts` bullet now says it records each failed attempt, and the version bullet reads "v3.8.0 is the new package version."
+
+I didn't run the semantic (LLM) pass.
