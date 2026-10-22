@@ -12,6 +12,8 @@ import { applyBaseline, createBaseline, parseBaseline } from "./baseline.js";
 import { renderSarif } from "./sarif.js";
 import { commitRules, lintCommitMessage } from "./commits.js";
 import { compareFacts, type Fact } from "./compare.js";
+import { scanCatalog } from "./catalog.js";
+import { prepare } from "./doc.js";
 import { maybeStarHint, realFs, type StarHintArgs } from "./star-hint.js";
 
 const HELP = `usage: slop [options] [file|dir|glob|-]...
@@ -20,6 +22,7 @@ const HELP = `usage: slop [options] [file|dir|glob|-]...
        slop --pr <number>       lint a pull request description (needs gh)
        slop --history           your own commit messages, read over time
        slop --compare <before> <after>  facts a rewrite lost or added, with first-person words, claim words and number qualifiers (also: slop diff)
+       slop --verify <before> <after>  the rewrite gate: lint errors, --compare and the tell catalog on <after>; exit 0 only if all are clean
        slop --rules             list the rules
        slop --explain <rule>    why one rule exists, with a before and after
        slop --init [action|hook] write .slop.json, and the workflow or the commit hook
@@ -82,6 +85,8 @@ export interface Options {
   since?: string;
   /** --compare, or the `diff` subcommand: the facts a rewrite added or lost. */
   compare: boolean;
+  /** --verify: lint errors, compare and catalog scan on the rewrite, one exit code. */
+  verify: boolean;
   json: boolean;
   /** Suppresses the one-time star hint and nothing else. */
   quiet: boolean;
@@ -91,7 +96,7 @@ export function parse(input: string[]): Options {
   // `slop diff <before> <after>` is the same command as `slop --compare`; only a first argument counts.
   const diff = input[0] === "diff";
   const argv = diff ? input.slice(1) : input;
-  const o: Options = { targets: [], commit: false, fix: false, format: "text", ignore: [], only: [], languages: [], maxScore: undefined, warn: false, baseline: false, baselineWrite: false, cwd: process.cwd(), listRules: false, mcp: false, historyMode: false, authors: [], compare: diff, json: false, quiet: false };
+  const o: Options = { targets: [], commit: false, fix: false, format: "text", ignore: [], only: [], languages: [], maxScore: undefined, warn: false, baseline: false, baselineWrite: false, cwd: process.cwd(), listRules: false, mcp: false, historyMode: false, authors: [], compare: diff, verify: false, json: false, quiet: false };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i]!;
     const next = () => {
@@ -127,6 +132,7 @@ export function parse(input: string[]): Options {
     else if (a === "--rules") o.listRules = true;
     else if (a === "--mcp") o.mcp = true;
     else if (a === "--compare") o.compare = true;
+    else if (a === "--verify") o.verify = true;
     else if (a === "--json") o.json = true;
     else if (a === "--quiet" || a === "-q") o.quiet = true;
     else if (a === "--explain") o.explain = next();
@@ -145,7 +151,9 @@ export function parse(input: string[]): Options {
     else o.targets.push(a);
   }
   if (o.json && !o.compare) throw new Error("--json applies to a comparison: slop --compare <before> <after> --json");
-  if (o.compare) {
+  if (o.verify && o.compare) throw new Error("--verify already includes --compare; use one of them");
+  if (o.verify && o.json) throw new Error("--verify has no --json output");
+  if (o.compare || o.verify) {
     // A comparison reads two files and prints a report; any mode that lints, writes or reads history is another command.
     const others: [string, boolean][] = [
       ["--fix", o.fix],
@@ -159,7 +167,7 @@ export function parse(input: string[]): Options {
       ["--rules", o.listRules],
     ];
     const clash = others.find(([, on]) => on);
-    if (clash) throw new Error(`--compare (and slop diff) cannot be combined with ${clash[0]}`);
+    if (clash) throw new Error(`${o.verify ? "--verify" : "--compare (and slop diff)"} cannot be combined with ${clash[0]}`);
   }
   return o;
 }
@@ -295,8 +303,8 @@ const factLine = (tag: string, f: Fact) => `${tag.padEnd(6)} ${f.kind.padEnd(8)}
  * `--compare` and `slop diff`. Returns true when a fact was lost or added. Usage problems throw,
  * and main reports them with exit 2.
  */
-function compareCommand(o: Options): boolean {
-  if (o.targets.length !== 2) throw new Error("--compare takes two files: slop --compare <before> <after> (one side may be - for stdin)");
+function readPair(o: Options, command: string): { before: string; after: string; afterArg: string } {
+  if (o.targets.length !== 2) throw new Error(`${command} takes two files: slop ${command} <before> <after> (one side may be - for stdin)`);
   const [beforeArg, afterArg] = o.targets as [string, string];
   if (beforeArg === "-" && afterArg === "-") throw new Error("only one side can be stdin (-)");
   const read = (target: string) => {
@@ -307,8 +315,11 @@ function compareCommand(o: Options): boolean {
       throw new Error(`cannot read ${target}: ${(err as NodeJS.ErrnoException).code ?? "error"}`);
     }
   };
-  const before = read(beforeArg);
-  const after = read(afterArg);
+  return { before: read(beforeArg), after: read(afterArg), afterArg };
+}
+
+function compareCommand(o: Options): boolean {
+  const { before, after } = readPair(o, "--compare");
   const { lost, added, kept } = compareFacts(before, after, { language: o.language });
   if (o.json) {
     console.log(JSON.stringify({ lost, added, kept }, null, 2));
@@ -320,6 +331,43 @@ function compareCommand(o: Options): boolean {
     console.log(lines.join("\n"));
   }
   return lost.length > 0 || added.length > 0;
+}
+
+/**
+ * `--verify <before> <after>`: the gate a rewrite has to pass. Three checks on the rewrite: the
+ * lint errors (what exit 1 means for a file), the fact comparison against the original, and the
+ * tell catalog of the text's language. Returns the number of problems; 0 means ok.
+ */
+function verifyCommand(o: Options): number {
+  const { before, after, afterArg } = readPair(o, "--verify");
+  const config = loadConfig(o.cwd);
+  const display = afterArg === "-" ? "stdin" : relative(o.cwd, resolve(o.cwd, afterArg)).split(sep).join("/");
+  const per = settingsFor(config, display);
+  const language = o.language ?? config.language;
+  const languages = o.languages.length ? o.languages : (config.languages ?? []);
+  const lint = lintText(display, after, { ignore: [...per.ignore, ...o.ignore], only: o.only.length ? o.only : per.only, languages, ...(language ? { language } : {}) });
+  const lines: string[] = [];
+  let problems = 0;
+  for (const f of lint.findings.filter((x) => x.severity === "error")) {
+    lines.push(`${f.line}:${f.column} ${f.rule} ${f.message}`);
+    problems++;
+  }
+  const limit = o.maxScore ?? per.maxScore ?? config.maxScore ?? 10;
+  if (lint.score !== null && lint.score > limit) {
+    lines.push(`score ${lint.score} is over the limit ${limit}`);
+    problems++;
+  }
+  const { lost, added } = compareFacts(before, after, { language: o.language });
+  for (const f of lost) lines.push(factLine("lost", f));
+  for (const f of added) lines.push(factLine("added", f));
+  problems += lost.length + added.length;
+  for (const h of scanCatalog(prepare(display, after), lint.language)) {
+    lines.push(`${h.line}:${h.column} catalog ${h.phrase.replace(/\s+/g, " ")}`);
+    problems++;
+  }
+  lines.push(problems === 0 ? "verify: ok" : `verify: ${problems} problem(s)`);
+  console.log(lines.join("\n"));
+  return problems;
 }
 
 /** One rule, in full, for someone who has just been told their text has it. */
@@ -475,6 +523,17 @@ async function main() {
     // Loaded only here, so every other command starts without it.
     const { serve } = await import("./mcp.js");
     await serve(process.stdin, process.stdout);
+    return;
+  }
+  if (o.verify) {
+    let problems: number;
+    try {
+      problems = verifyCommand(o);
+    } catch (err) {
+      console.error(err instanceof Error ? err.message : String(err));
+      process.exit(2);
+    }
+    if (problems > 0) process.exit(1);
     return;
   }
   if (o.compare) {

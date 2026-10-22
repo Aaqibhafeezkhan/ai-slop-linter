@@ -5,7 +5,7 @@ description: Use whenever you write, edit, rewrite, clean up, polish, proofread 
 
 # ai-slop-linter
 
-You write a lot of prose: commit messages, pull request descriptions, docs, release notes. Most of it carries the same tells, and readers skip text that carries them. This skill makes you check before you hand text over, and check that a rewrite kept the facts. This plugin also has a `UserPromptSubmit` hook that adds one line pointing here when a prompt asks for a rewrite, clean-up, polish or proofread. The order, every time: run the linter, read the reference file for the language, rewrite, run `--compare` until it passes.
+You write a lot of prose: commit messages, pull request descriptions, docs, release notes. Most of it carries the same tells, and readers skip text that carries them. This skill makes you check before you hand text over, and check that a rewrite kept the facts. This plugin also has a `UserPromptSubmit` hook that adds one line pointing here when a prompt asks for a rewrite, clean-up, polish or proofread. The order, every time: run the linter, read the reference file for the language, rewrite, run `--verify` until it exits 0.
 
 ## Check the language first
 
@@ -23,6 +23,7 @@ printf '%s' "$TEXT" | npx ai-slop-linter -   # text you have in hand
 npx ai-slop-linter --commit                  # the last commit message
 npx ai-slop-linter path/to/file.md --fix     # apply the safe fixes in place
 npx ai-slop-linter --compare before.md after.md   # facts a rewrite lost or added
+npx ai-slop-linter --verify before.md after.md    # lint errors, compare and the tell catalog, one exit code
 ```
 
 Read the output top to bottom. Each line is `line:col severity rule message`. Apply the fixes yourself rather than only running `--fix`: it handles dashes, curly quotes, invisible characters and filler phrases, and leaves the rest to you because those need a sentence rewritten, not a character swapped. `--fix` also rewrites a dash inside a quotation in another language, for example a Turkish sentence in an English file, so mark those lines with a directive (see below) before you run it. The file grades A to F. Aim for A on anything you ship.
@@ -48,6 +49,14 @@ npx ai-slop-linter --compare "$TMP/before.md" path/to/file.md
 
 The comparison lists each number, name, version, link, quote and code span that was lost or added, and exits 1 when there is one. It also lists `person` lines (a first-person word such as `our` or `we` that you added, or dropped) `claim` lines (a word such as `always` or `guaranteed` that you added) and `qualifier` lines (`lost qualifier up to 3`: a bound or an approximator next to a number that you dropped or added). English `about` is not checked, so keep it yourself.
 
+The rewrite is not done until `--verify` exits 0:
+
+```
+npx ai-slop-linter --verify "$TMP/before.md" path/to/file.md
+```
+
+It runs the lint errors, the compare above and a scan of the stock phrases in `references/<lang>.tells.txt`, and prints `verify: ok` or `verify: N problem(s)`. Fix each reported line by the smallest edit that adds no fact. For a `catalog` hit, cut or rewrite that sentence, and never add a first-person word, number or name. Never ship while it exits 1. Quoted foreign text stays untouched; the scan skips quotes, code and dialogue.
+
 A failing compare is blocking. Lines such as `added person our`, `added claim always` or `lost number 40%` mean the rewrite is not done: put the lost fact or word back, remove the added word, and run the compare again until it exits 0. Never add "we", "our", "I" or a claim the source does not make, and change no number or fact; an added "our" needs a source that says whose it is. The compare does not flag an added "I", "I'd" or German "uns": check those yourself. For a short or Turkish text, pass `--language` to the compare too. The one line you may leave is a loss where the cut words were the tell itself (a lost `us` from `Let us dive in`); name it in your answer. Do not keep a lost or added fact because the new sentence reads better.
 
 ## Read the reference file
@@ -71,8 +80,8 @@ Removing tells must never add content.
 3. For a text over about 300 words, outline it before you edit: one line per paragraph with its point, where the main point is made and how often it comes back, and any closer or section template that repeats. Fix that structure first (a point made three times, a recap, the same ending under each section), then sentences, then words. The outline is a working note; it never goes in the file.
 4. Draft with the smallest edit that removes each tell. Rewrite a sentence only when it holds a tell, or the paragraph built around one; copy every other sentence word for word, punctuation and typos included. A word on a reference list is a reason to look at the sentence, not a licence to rewrite it. Where you do rewrite, state the point directly rather than patching one phrase, and vary sentence length by building sentences differently, not by chopping them into fragments.
 5. Make a second pass over the draft, because a rewrite brings in tells of its own. Reread it with the reference file open and list every tell that is still there, quoting the line: a first-tier entry, or a family that often survives a rewrite (a contrast, a closing line that sums up, a triad, a participle tail, a bold label, a dash in English). Fix each one, or name in a few words why it stays (a quotation, a technical term, a hedge the source makes). Give the list in your reply, never in the file.
-6. Check the draft: lint it, run `--compare` against the original, and fix each defect until the compare exits 0.
-7. Write the final version to the file, lint it once more and compare once more.
+6. Check the draft: lint it, run `--verify` against the original, and fix each defect until the compare exits 0 and `--verify` exits 0.
+7. Write the final version to the file, lint it once more and run `--verify` once more.
 
 The closing test: every fact in the new version must come from the source, and every sentence without a tell is the source's own sentence. Cutting and sharpening are allowed. Adding and losing are not.
 

@@ -1,0 +1,30 @@
+# English first-tier tells for `ai-slop-linter --verify`. One entry per line:
+# a case-insensitive phrase, or a regular expression written as `re:<pattern>`.
+# Mirrors the "Act on one sighting" tier of en.md. Keep precision high: no bare common words.
+let us know
+let me know
+not publicly available
+re:\bstreamlin(?:e|es|ed|ing)\b
+the uncomfortable truth is
+what most teams get wrong
+the part everyone misses
+re:that['’]s the real win
+re:\bthe best part:
+which is more important than it sounds
+re:\bthis matters because\b
+re:\bthat last part matters\b
+re:\bthe journey continues\b
+re:\bthat['’]s when i realized\b
+re:\bmarking a pivotal moment\b
+a turning point for
+reflects broader trends
+setting the stage for
+re:\bdespite these challenges\b
+re:\b(?:does|doing|do) the heavy lifting\b
+the numbers speak for themselves
+the data tells a story
+re:\bexperts (?:believe|agree)\b
+re:\bindustry observers note\b
+re:\bnestled in\b
+re:\ba must-see\b
+re:\bin this section we will\b

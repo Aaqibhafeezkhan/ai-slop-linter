@@ -1,0 +1,40 @@
+# Spanish first-tier tells for `ai-slop-linter --verify`. One entry per line:
+# a case-insensitive phrase, or a regular expression written as `re:<pattern>`.
+# Mirrors the "Act on one sighting" tier of es.md. Keep precision high: no bare common words.
+no dudes en
+sumérgete en
+adentrémonos en
+vamos a sumergirnos en
+sin más preámbulos
+un antes y un después
+cambiar las reglas del juego
+sin fisuras
+pone de manifiesto
+un verdadero testimonio de
+es un claro reflejo de
+llevar al siguiente nivel
+sacar el máximo partido
+juega un papel crucial
+juega un papel fundamental
+es importante destacar que
+cabe señalar que
+cabe destacar que
+vale la pena mencionar que
+no es ningún secreto que
+los números hablan por sí solos
+los datos cuentan una historia
+pinta un panorama claro
+en conclusión
+en definitiva
+seamos claros
+seamos sinceros
+lo que nadie te cuenta
+espero que esto te ayude
+en este artículo exploraremos
+en el panorama actual
+en la era digital
+el futuro es prometedor
+abre un nuevo capítulo
+excelente pregunta
+da sus frutos
+re:no solo .{1,60} sino también

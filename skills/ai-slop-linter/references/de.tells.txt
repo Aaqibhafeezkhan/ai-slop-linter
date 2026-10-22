@@ -1,0 +1,45 @@
+# German first-tier tells for `ai-slop-linter --verify`. One entry per line:
+# a case-insensitive phrase, or a regular expression written as `re:<pattern>`.
+# Mirrors the "Act on one sighting" tier of de.md. Keep precision high: no bare common words.
+zögern Sie nicht
+tauchen wir ein
+werfen wir einen Blick auf
+Potenzial entfesseln
+das volle Potenzial ausschöpfen
+Gamechanger
+eine neue Ära einläuten
+die Weichen stellen
+den Grundstein legen
+Brücken schlagen
+Synergien nutzen
+Mehrwert bieten
+steht sinnbildlich für
+trägt Früchte
+In der heutigen digitalen Welt
+In unserer schnelllebigen Zeit
+Es ist wichtig zu beachten, dass
+Dabei gilt es zu berücksichtigen
+re:hierbei spielt .{1,40} eine entscheidende Rolle
+re:hier kommt \S+ ins Spiel
+Die unbequeme Wahrheit ist
+Was die meisten übersehen
+Was dir niemand sagt
+Lies das nochmal
+Lass das mal sacken
+Und das Beste daran
+Die Zahlen sprechen für sich
+Die Daten erzählen eine Geschichte
+zeichnet ein klares Bild
+Zusammenfassend lässt sich sagen
+Am Ende des Tages
+Es bleibt abzuwarten
+Die Zukunft bleibt spannend
+Gerne erstelle ich Ihnen
+Ich hoffe, das hilft
+Lassen Sie es mich wissen
+Das ist eine gute Frage
+# False agency: a tool, software or system that decides or acts on its own (unslop, pattern 28).
+re:\b(?:tool|software|system|ki|app|plattform|algorithmus|programm|werkzeug|assistent|router)\s+entscheidet\s+(?:selbst|selbstständig|selbständig|automatisch|eigenständig|von allein)
+re:\b(?:tool|software|system|ki|app|plattform|algorithmus|programm|werkzeug|assistent|router)\s+entscheidet,\s+(?:welche[rsmn]?|ob|wann|wie|was|wer)\b
+re:\b(?:tool|software|system|ki|app|plattform|algorithmus|programm|werkzeug|assistent)\s+weiß,?\s+was\b
+re:\b(?:regeln|einstellungen|konfiguration|tool|software|system|plattform)\s+(?:aktualisiert|aktualisieren|konfiguriert|konfigurieren|optimiert|optimieren|verbessert|verbessern)\s+sich\s+(?:selbst|von allein|automatisch)

@@ -1,6 +1,6 @@
 # English tells the linter cannot see
 
-Source: adapted and rewritten from the pattern catalog of everwrite (https://github.com/m4bwav/everwrite, commit 38912ce43453129c63eef958bf65faef4833c18e, MIT); the two tiers follow the strength ordering of Humanizer (https://github.com/blader/humanizer, commit 8c307f367c91bd974002f10f2be2965d642c13df, MIT) and the load-bearing metaphor family follows unslop (https://github.com/jlwin/unslop_ai, commit d65241e66f2b0e0d0b305cb55dadbffac0f9ef52, MIT); see `THIRD-PARTY-NOTICES.md`.
+Source: adapted and rewritten from the pattern catalog of everwrite (https://github.com/m4bwav/everwrite, commit 38912ce43453129c63eef958bf65faef4833c18e, MIT); the two tiers follow the strength ordering of Humanizer (https://github.com/blader/humanizer, commit 8c307f367c91bd974002f10f2be2965d642c13df, MIT) and the load-bearing metaphor family follows unslop (https://github.com/jlwin/unslop_ai, commit d65241e66f2b0e0d0b305cb55dadbffac0f9ef52, MIT), as does the `streamline` entry; see `THIRD-PARTY-NOTICES.md`.
 
 Read this after the linter has run. Each entry gives the tell, why readers take it for machine prose, and the direction of the fix. The linter already catches the word lists, the dashes and the chatbot phrases; these need a reader. A phrase on this page is a tell only when it does no work in its sentence: judge the sentence, not the words.
 
@@ -35,6 +35,7 @@ The entries come in two tiers. The first tier is a tell on one sighting: fix it 
 - Shallow rider: a clause tacked on with `, highlighting`, `, ensuring`, `, reflecting` that adds meaning without a fact. Cut it, or make it a real effect the source states.
 - Load-bearing metaphor: a verb of weight that stands in for a result, `the pattern holds`, `this is what carries the release`, `the caching layer does the heavy lifting`, `it pays off`, `underpins`. It sounds decisive and names no test or measure. Use the plain verb and the criterion from the source (`the cache serves 80% of reads`), or cut the sentence. Do not swap in a new image. Literal uses stay: `the beam carries the load`, `she paid off the loan`.
 - Borrowed authority: `experts believe`, `studies show`, `industry observers note`, a row of outlet names. Name who said what, from the source, or cut the claim. Never invent the source.
+- Empty process verb: `streamline`, `streamlines`, `streamlined`, `streamlining`. It claims an improvement and names none. Say what changed, with the source's facts only (`the setup takes 2 steps instead of 5`), or cut the clause. Add no number the source lacks.
 - Sales register: `nestled in`, `a must-see`, `breathtaking`. Say what it is and where.
 - False agency: `the data tells a story`, `the numbers speak for themselves`, `the decision emerged`. Name who acted or state the number, from the source.
 - Template balance: `While X shows promise, Y remains a challenge`, or `on one hand ... on the other` with no verdict. Give the verdict only if the source gives it; otherwise state both facts plainly.

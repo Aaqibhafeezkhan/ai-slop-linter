@@ -1,0 +1,40 @@
+# French first-tier tells for `ai-slop-linter --verify`. One entry per line:
+# a case-insensitive phrase, or a regular expression written as `re:<pattern>`.
+# Mirrors the "Act on one sighting" tier of fr.md. Keep precision high: no bare common words.
+re:n['’]hésitez pas
+robuste
+sans faille
+pas seulement
+plongeons
+en conclusion
+re:l['’]avenir s['’]annonce
+re:\brévolution(?!\s+(?:française|industrielle|russe|culturelle|américaine)\b)
+sans couture
+mettre en lumière
+mettre en exergue
+jouer un rôle clé
+un rôle crucial
+un rôle essentiel
+tirer parti de
+changer la donne
+à la pointe de
+à l['’]ère du numérique
+dans un monde en constante évolution
+dans le paysage actuel
+découvrons ensemble
+sans plus attendre
+il est important de noter que
+il convient de souligner que
+force est de constater que
+il va sans dire que
+les chiffres parlent d['’]eux-mêmes
+les données racontent une histoire
+re:ce n['’]est pas seulement
+plus qu['’]un simple
+soyons clairs
+soyons honnêtes
+ce que personne ne vous dit
+une chose est sûre
+j['’]espère que cela vous aide
+excellente question
+porte ses fruits

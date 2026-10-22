@@ -36,6 +36,10 @@ Each one stands in for a claim. Say what actually happens, or cut it. Every deta
 - A trailing clause that grades the sentence before it: `..., was die Bedeutung von X unterstreicht`, `..., was das Engagement des Teams zeigt`, `..., womit X einen wichtigen Beitrag leistet`, `..., und setzt damit ein Zeichen`. Cut it, or give it its own sentence with a fact from the source.
 - A trailing clause that states a fact stays: `..., was die Kosten um 12 % senkte`.
 
+### Tools that decide on their own
+
+- A tool, software or system given a will of its own: `Unser Tool entscheidet selbst`, `Die Software entscheidet selbst`, `Das System entscheidet automatisch`, `Das Tool entscheidet, welches Modell antwortet`, `Die KI weiß, was du brauchst`, `Die Regeln aktualisieren sich selbst`. It sounds like a feature and names no mechanism. Say what the software does and by which rule, from the source (`Das Tool wählt das Modell nach der Länge der Anfrage`), or name who decides. Add no mechanism, number or owner the source lacks; when the source gives none, write the plain verb (`wählt`, `setzt`) without a reason. Ordinary technical verbs stay: `der Parser liest die Datei`, `der Test schlägt fehl`.
+
 ### Stock phrases
 
 - Openers: `In der heutigen digitalen Welt`, `In unserer schnelllebigen Zeit`, `Im Zeitalter von`, `Immer mehr Unternehmen`, `Wir alle wissen`, `Kennen Sie das?`, `Stellen Sie sich vor` in place of the argument. Start with the first fact.
