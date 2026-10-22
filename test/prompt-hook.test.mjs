@@ -59,6 +59,22 @@ test("a trigger prints exactly one line of UserPromptSubmit JSON that names the 
   assert.equal(out.decision, undefined, "never blocks");
 });
 
+// Round 3 plan item 1: in round 1 both failing h2 runs never loaded the skill, so the guardrails ride in
+// the hook line itself. It stays one line of JSON and passes the linter it points to.
+test("the context line carries the guardrails: no added person or claim, numbers and qualifiers kept, fr/de/es reference, compare until exit 0", () => {
+  const ctx = JSON.parse(run(fixture.related[0]).stdout).hookSpecificOutput.additionalContext;
+  assert.doesNotMatch(ctx, /\n/, "one line");
+  assert.ok(ctx.length < 800, `${ctx.length} characters`);
+  assert.match(ctx, /Add no we, our or I/);
+  assert.match(ctx, /no claim or fact the source lacks/);
+  assert.match(ctx, /keep every number with its qualifier/);
+  assert.match(ctx, /references\/<lang>\.md/);
+  for (const lang of ["French", "German", "Spanish"]) assert.ok(ctx.includes(lang), lang);
+  assert.match(ctx, /until it exits 0/);
+  const lint = spawnSync(process.execPath, [join(root, "dist", "src", "cli.js"), "--warn", "-"], { input: ctx, encoding: "utf8" });
+  assert.match(lint.stdout, /0 findings/, lint.stdout + lint.stderr);
+});
+
 test("every prompt exits 0, and malformed input prints nothing and exits 0", () => {
   for (const p of [...fixture.related, ...fixture.unrelated]) assert.equal(run(p).status, 0, p);
   for (const input of ["", "not json", "{", '{"prompt":', '{"prompt":"polish this paragraph', '{"prompt":42}', "\u0000\u0001", '{"cwd":"/rewrite/this/paragraph"}']) {

@@ -3,7 +3,9 @@
 #
 # Reads the hook input (JSON with a "prompt" field) on standard input. When the prompt asks to rewrite,
 # clean up, polish, proofread or humanize existing prose, in English or in another language, it prints one
-# JSON object whose hookSpecificOutput.additionalContext tells the agent to use the ai-slop-linter skill.
+# JSON object whose hookSpecificOutput.additionalContext tells the agent to use the ai-slop-linter skill
+# and carries its guardrails (no added first person or claim, numbers and qualifiers kept, the reference
+# file for fr/de/es, --compare until exit 0), so they hold even when the skill is not loaded.
 # On every other prompt it prints nothing. It never blocks a prompt and always exits 0, also on malformed
 # input. POSIX sh, sed, tr and grep only: no network, no file writes, no jq.
 #
@@ -87,6 +89,6 @@ elif printf '%s\n' "$raw" | grep -Eq "$pasted"; then
 fi
 
 if [ "$hit" = yes ]; then
-  printf '%s\n' '{"hookSpecificOutput":{"hookEventName":"UserPromptSubmit","additionalContext":"ai-slop-linter: this prompt asks to rewrite or edit prose. Use the ai-slop-linter skill: lint the text with `npx ai-slop-linter` first, keep a copy of the original, and after the rewrite run `npx ai-slop-linter --compare <original> <rewrite>`; a failing compare is blocking, fix every line it reports before you answer."}}'
+  printf '%s\n' '{"hookSpecificOutput":{"hookEventName":"UserPromptSubmit","additionalContext":"ai-slop-linter: this prompt asks to rewrite or edit prose. Use the ai-slop-linter skill: keep a copy of the original and lint it with `npx ai-slop-linter`; for French, German or Spanish also read the skill file references/<lang>.md (fr.md, de.md, es.md), because the linter has almost no rules for those languages. Add no we, our or I and no claim or fact the source lacks; keep every number with its qualifier (about, up to, at least) and every hedge or condition. After the rewrite run `npx ai-slop-linter --compare <original> <rewrite>`; a failing compare is blocking, fix every line it reports and run it again until it exits 0 before you answer."}}'
 fi
 exit 0
