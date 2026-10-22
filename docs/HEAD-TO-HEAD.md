@@ -844,6 +844,24 @@ Rules. Rule B and Rule A are computed over the arms that ran, per the "Win rule"
 
 Budget. No new run starts when the logged total of `claude -p` costs exceeds 7.0 US dollars or when `spend.sh` prints a first number above 150. A run set that is cut off is reported as partial.
 
+## Results, deep round (held-out only, partial, 2026-10-22)
+
+Run under the "Round deep measurement protocol" above, unchanged. Code under test: commit `6a1d671` (product code of `d21102e`, `git diff` over `src skills hooks .claude-plugin package.json` empty). Held-out tasks ho1 (German README intro), ho2 (Turkish release notes), ho3 (English PR description), ho4 (French status update); model `claude-sonnet-5-5`; 24 cells (ours, blader-inv, base; 4 tasks; 2 runs), 0 failed cells; config guard unchanged before and after; scoring by `heldout/score.mjs`, maximum 5 per run. Cost of the 24 cells: 1.36 US dollars.
+
+| Task | ours | blader-inv | base |
+|---|---|---|---|
+| ho1 (de) | 4.50 (4, 5) | 5.00 | 5.00 |
+| ho2 (tr) | 5.00 | 3.50 (3, 4) | 5.00 |
+| ho3 (en) | 4.00 (4, 4) | 5.00 | 4.50 (4, 5) |
+| ho4 (fr) | 4.00 (4, 4) | 4.00 (4, 4) | 4.00 (3, 5) |
+| total of 20 | 17.50 | 17.50 | 18.50 |
+
+Verdict (partial, two comparison arms, 2 runs): Rule A fails (ours lost 2.50, the best other arm, base, lost 1.50, limit 1.20). Rule B fails on ho1, ho3 and ho4; ho2 is at the maximum. The gate does not pass. No leadership claim. The final gate steps F9 (Haiku, Opus) and F6 (independent re-grade) were not started, because the held-out result already fails the gate.
+
+Causes in the ours cells (from the scorer detail, C2 unless noted): ho1 one run kept a stock phrase of the form "Zu den wichtigsten Funktionen gehören" (an enumeration opener); ho3 both runs kept `hopefully` (a hedge adverb); ho4 both runs kept `sans aucune perte` (a French reassurance phrase). Transcripts show the skill loaded in 8 of 8 ours cells and `--verify` ran in 8 of 8, so the gate worked as built: the tells that remained are not in the catalogs (`en.tells.txt`, `de.tells.txt`, `fr.tells.txt`), and the lint rules do not cover them. The catalog approach is limited by catalog coverage, and the plain base arm (the model rewriting alone) did as well on unseen text. The new D1 to D3 changes did not show a benefit on this set; with 2 runs per cell and one set, a small benefit or harm cannot be excluded either.
+
+Disclosures. The writer agent reported the language and document type of each task; the controller did not read the task text before the runs, and saw only scorer detail lines of failing cells afterwards, so ho1 to ho4 are no longer held-out for any later round. Not run: everwrite, unslop, blader natural, the three scan arms, the public tasks, a third run per cell, F9, F6. The round-4 protocol above is superseded and was not run. The held-out branch `heldout-2026-10-b` is local and was not pushed.
+
 ## How to re-run
 
 One command repeats a round: it pins and clones the competitors, runs all eight arms on every task, scores the runs, and prepares the blind grading.
