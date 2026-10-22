@@ -798,6 +798,38 @@ Rules. Rule A, rule B and the ceiling rule are those of "Win rule", with the str
 
 Home-ground disclosure. The new catalog entries (`streamline`, the German false-agency class) were taken from the unslop catalog, the same source the h9 and h17 checks were written from, after round 3 showed that those tells were the cause of the C2 losses. A win on h9, h17 and h18 is home-ground and must be read that way. The `--verify` catalog scan also lists `let us know` and French stock phrases that the h14 and h1 checks penalise; they come from the existing reference lists and chatbot-residue lists, not from the check files.
 
+## Round deep design (frozen before code, 2026-10-22, owner decision)
+
+Written and committed before any code change of this round. Evidence: `docs/RESEARCH-DEEP-2026-10-22.md` (loss table, competitor reading, technology survey). Starting point is commit `f333695` (`--verify` and the round-4 arms exist). The round-4 protocol above stays on record, but its 15 dollar budget and seven-arm order are superseded by the owner's 8 dollar total of 2026-10-22; a new measurement protocol is frozen later, before any run.
+
+Design rules. Changes must be general: no phrase, file name or number taken from a seen task fixture may be the only reason for a change. Every new catalog entry is a family (a construction plus a protected-use note) and ships with at least two unseen positive sentences and two unseen negative sentences in a test. Code copied from a competitor only if MIT, Apache, BSD or CC0 and with attribution in `THIRD-PARTY-NOTICES.md`; the changes below are written independently and copy no competitor code.
+
+Chosen changes (all general; each lists the loss class it addresses):
+
+- D1. Hedge-about-missing-information family in `en.tells.txt` (`not (publicly|widely|readily|generally|freely) (available|documented|disclosed|known|shared|accessible)` and the same shape for "is/are not" and "remain(s) undisclosed"), and `let (me|us) know` as one entry. Class: residue and hedge phrases kept (h18, h14). Source of the idea: everwrite `scripts/tells.py:49,62` (MIT). Over-fitting risk: medium; guarded by the unseen-sentence test and a negative test on legal-style text that states a real restriction in the source (the scan already skips quotes and code).
+- D2. English "tool decides for itself" false-agency family (software/tool/system/platform/AI as subject of `decides|chooses|knows|understands` plus `for itself|on its own|by itself`), mirroring the German family added in `ddf2de6`. Class: false agency (h17 class in English). Source of the idea: unslop `skills/unslop/SKILL.md:89` (MIT). Risk: medium; negative test keeps ordinary technical verbs ("the parser reads the file").
+- D3. `--verify` structure checks that block: front matter changed, a fenced code block changed (byte comparison, comments included), a Markdown table row changed, a heading line changed. Class: broken protected blocks (h14, h2 heading and code block). Source of the idea: avoid-ai-writing `detector/validate.js:345-437` (MIT), implemented independently. Cost: a few hundred lines, no dependency, milliseconds. Risk: low; rewrites that legitimately edit a heading or table must pass `--verify` only through a documented allow flag is NOT added: the skill says to keep them, and a rewrite that must change them reports it.
+- D4. SKILL.md: a candidate, finding, edit paragraph (a match is checked against context and legitimate use before it is edited; detection alone does not authorise a rewrite), the three "never inject" items not already forbidden (staccato conversion of long sentences into fragments, em-dash theatrics, forced contrarianism), and a final "residuals" line in the answer (every tell left on purpose, quoted, with the reason). Class: over-editing and added content (h2, h9 C3, h18 C3). Source: avoid-ai-writing `skills/avoid-ai-writing/SKILL.md:34,125,301` (MIT, own words). Cost: about 250 tokens in the skill. Risk: low.
+- D5. English quote-span mask check: confirm the linter and the `--verify` tell scan do not flag text inside straight and curly double quotes, and do not treat an inch mark (`5"`) as a quote opener; fix only if a test fails. Class: legitimate quotes in CI and mixed files (h14, h15). Source of the idea: avoid-ai-writing `detector/patterns.js:1736-1747`. Risk: low.
+- D6. A held-out style regression corpus in `test/`: unseen positive and negative sentences for D1, D2 and the existing families, so that a catalog entry cannot pass by matching one fixture.
+
+Rejected alternatives (with the reason):
+
+- Hugging Face AI-text detectors and detection datasets as a gate or objective: English-centred, documented false positives on formal and non-native text, large dependency, and the benchmark scores tells and fact survival, not detector scores. Research input only.
+- Embedding-similarity or NLI gate for meaning preservation: adds a model download and does not reliably catch a changed number or negation; the deterministic fact guard in `--compare` is stronger for this benchmark. Optional advisory only, not built.
+- Copying more of the unslop or everwrite tier lists wholesale: those lists are the sources of the h9, h10, h17 and h18 checks, so more copying raises the circularity risk. Only family entries with an unseen test are taken.
+- Hedge-word lint rule (slop-cop `word_patterns.go`): technical prose uses `may` and `could` legitimately. The hedge residue stays in the tells scan.
+- Closed-em-dash-only rule (slopless `em-dashes.ts`): spaced em dashes are the common AI form; h2, h17 and h18 require none.
+- Hard two-pass cap on the rewrite loop (avoid-ai-writing `SKILL.md:125`): `--verify` is the stop condition; a cap could stop before the tells are gone.
+- Profile table that relaxes rules per document type, and a second false-positive-reviewer agent pass: token cost against Rule A, no measured false positive that needs it.
+- stop-slop rules "no adverbs", "no passive", and its self-scoring table: change meaning and are not deterministic.
+- Model-backed rewriting inside the tool (slop-cop `rewrite`, `plainify`): conflicts with the offline, deterministic claim.
+- French catalog expansion: no competitor ships French and no independent French source was opened in this research; building a list from the h1 fixture would be over-fitting. Recorded as open work.
+- Changing any check, criterion or task: not allowed after results exist; none changed.
+
+Home-ground disclosure for this round: D1 and D2 take the idea of the constructions from competitor catalogs (everwrite, unslop) whose phrases are the h9, h17 and h18 tests; results on those three tasks stay marked home-ground.
+
+
 ## How to re-run
 
 One command repeats a round: it pins and clones the competitors, runs all eight arms on every task, scores the runs, and prepares the blind grading.
