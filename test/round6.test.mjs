@@ -257,3 +257,20 @@ testR("hedge: --ignore hedge turns the check off", () => {
   const r = verifyR("Plain text here.\n", "It could potentially fail.\n", ["--ignore", "hedge"]);
   assertR.ok(!/ hedge /.test(r.stdout));
 });
+
+import { compareFacts as compareR } from "../dist/src/compare.js";
+test("compare pt: an added first-person plural verb is a person fact, nouns and passives are not", () => {
+  const src = "A mudança foi testada em produção. O problema ficou nos ramos extremos.";
+  const bad = compareR(src, "Testamos a mudança em produção. O problema ficou nos ramos extremos.", { language: "pt" });
+  assert.ok(bad.added.some((f) => f.kind === "person" && f.value === "testamos"));
+  const good = compareR(src, "A mudança foi testada em produção. O problema ficou nos ramos extremos, sem outro efeito.", { language: "pt" });
+  assert.ok(!good.added.some((f) => f.kind === "person"));
+  const same = compareR("Testamos a mudança.", "Testamos a mudança em produção.", { language: "pt" });
+  assert.ok(!same.added.some((f) => f.kind === "person"));
+});
+test("compare pt: a stoplisted noun that only the rewrite has is not a person; a swapped verb is not an added person", () => {
+  const a = compareR("O problema ficou aberto.", "O problema ficou nos extremos e nos reclamos.", { language: "pt" });
+  assert.ok(!a.added.some((f) => f.kind === "person"));
+  const b = compareR("Testamos a mudança.", "Fizemos a mudança.", { language: "pt" });
+  assert.ok(!b.added.some((f) => f.kind === "person"));
+});

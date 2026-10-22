@@ -207,6 +207,20 @@ export const PERSON_CANDIDATES: Readonly<Record<string, readonly string[]>> = {
 };
 
 /**
+ * A Portuguese first-person plural verb (`fizemos`, `testamos`): the ending -amos or -emos on a word
+ * of at least seven letters, minus the nouns and adjectives that end the same way. A rewrite that turns
+ * a passive into `we did` adds a person the source never had; compared by count, and only the
+ * increase is reported. It sits outside the PERSON_* tables on purpose: those hold the words
+ * measured in bench/COMPARE-WORDS.md, and the repository has no Portuguese golden to measure on.
+ * The guard is the closed form (ending, length, noun list) and the tests in test/round6.test.mjs.
+ */
+const PT_PLURAL_VERB = /^\p{L}{3,}(?:amos|emos)$/u;
+const PT_NOT_VERB = new Set(["extremos", "supremos", "ramos", "reclamos", "quilogramos", "miligramos", "telegramos", "blasfemos", "boêmos"]);
+export function isPortuguesePersonVerb(word: string): boolean {
+  return PT_PLURAL_VERB.test(word) && !PT_NOT_VERB.has(word);
+}
+
+/**
  * Claim words and phrases measured for the precision rule, by language tag. `leading` alone is not
  * a candidate: technical text adds it honestly (`the leading slash`, `leading zeros`), and the
  * corpus has no case of it either way; `industry-leading` is the claim.
@@ -483,6 +497,21 @@ export function compareFacts(before: string, after: string, options: CompareOpti
     const delta = (pa.get(word) ?? 0) - (pb.get(word) ?? 0);
     if (delta > 0 && PERSON_ADDED[personBase]?.includes(word)) added.push({ kind: "person", value: word });
     else if (delta < 0 && PERSON_LOST[personBase]?.includes(word)) lost.push({ kind: "person", value: word });
+  }
+  if (base === "pt") {
+    const verbs = (text: string) => {
+      const n = new Map<string, number>();
+      for (const m of proseOnly(text.normalize("NFC")).matchAll(/\p{L}+/gu)) {
+        const w = m[0].toLowerCase();
+        if (isPortuguesePersonVerb(w)) n.set(w, (n.get(w) ?? 0) + 1);
+      }
+      return n;
+    };
+    const total = (n: Map<string, number>) => [...n.values()].reduce((x, y) => x + y, 0);
+    const vb = verbs(before);
+    const va = verbs(after);
+    // One person verb swapped for another is not an added person; only a higher total is.
+    if (total(va) > total(vb)) for (const [w, n] of va) if (n > (vb.get(w) ?? 0)) added.push({ kind: "person", value: w });
   }
   const terms = CLAIM_WORDS[base] ?? [];
   const cb = countTerms(before, terms);
