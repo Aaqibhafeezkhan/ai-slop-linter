@@ -26,6 +26,14 @@
  *   the rewrite has more of them than the source. Removing a claim word is never reported. The
  *   list is short on purpose: `bench/COMPARE-WORDS.md` records each candidate word with its
  *   flags on honest rewrites, and a word that flagged too many honest rewrites was dropped.
+ * - `qualifier` facts are an approximator or a bound right before a number (`about 40%`, `up to 3`,
+ *   `bis zu 3`, `plus de 300`). A qualifier is part of the fact: `about 40%` becoming `40%` is a lost
+ *   qualifier, `300` becoming `over 300` an added one. Qualifiers are grouped by meaning (about,
+ *   at least, at most), so a swap within a group (`about` for `around`, `over` for `more than`) is
+ *   not reported. Only a number both texts have is read: a changed number is already a lost and an
+ *   added number. Only the words in QUALIFIERS are read; `bench/COMPARE-QUALIFIERS.md` records each
+ *   candidate with its flags on honest rewrites. Limits: a qualifier after its number (`40 % environ`)
+ *   or spelled-out numbers are not read; code, urls and quoted text are not read.
  * - In German (or Luxembourgish) text only a run of two or more capitalised words is a name:
  *   every noun is capitalised there, so a single "Kaufmann" or "Technik" says nothing, while
  *   "Herr Krause" does. A single surname alone is therefore not compared. The language is the
@@ -38,7 +46,7 @@
 
 import { detectLanguage, frontMatterLanguage } from "./lang.js";
 
-export type FactKind = "number" | "version" | "date" | "url" | "reference" | "quote" | "code" | "name" | "person" | "claim";
+export type FactKind = "number" | "version" | "date" | "url" | "reference" | "quote" | "code" | "name" | "person" | "claim" | "qualifier";
 
 export interface CompareOptions {
   /** The language of the texts, when the caller knows it. Unset or "auto": front matter, then detection. */
@@ -238,6 +246,131 @@ export const CLAIM_WORDS: Readonly<Record<string, readonly string[]>> = {
   de: ["daher", "deshalb", "immer", "nie", "garantiert"],
 };
 
+/**
+ * Qualifier candidates: an approximator or a bound written right before a number, by language tag,
+ * each mapped to its group. `approx` is "about that number", `min` "that number or more", `max` "that
+ * number or less". A swap within a group is not a change of fact; a move between groups, a lost or an
+ * added qualifier is. Which of these may raise a flag is decided from bench/COMPARE-QUALIFIERS.md.
+ */
+export const QUALIFIER_CANDIDATES: Readonly<Record<string, Readonly<Record<string, "approx" | "min" | "max">>>> = {
+  en: {
+    about: "approx", around: "approx", roughly: "approx", approximately: "approx", nearly: "approx", almost: "approx", "close to": "approx",
+    "up to": "max", "at most": "max", under: "max", "less than": "max", "fewer than": "max",
+    "at least": "min", over: "min", "more than": "min",
+  },
+  fr: {
+    environ: "approx", "près de": "approx", presque: "approx", quasiment: "approx",
+    "jusqu'à": "max", "moins de": "max", "au plus": "max",
+    "plus de": "min", "au moins": "min",
+  },
+  de: {
+    etwa: "approx", rund: "approx", ca: "approx", circa: "approx", fast: "approx", knapp: "approx", ungefähr: "approx",
+    "bis zu": "max", "weniger als": "max", "höchstens": "max",
+    "mehr als": "min", "mindestens": "min", "über": "min",
+  },
+  es: {
+    unos: "approx", unas: "approx", "alrededor de": "approx", casi: "approx", aproximadamente: "approx", "cerca de": "approx",
+    hasta: "max", "menos de": "max", "como máximo": "max",
+    "más de": "min", "al menos": "min", "como mínimo": "min",
+  },
+};
+
+/**
+ * Qualifiers reported when a rewrite drops or adds one next to a number both texts have. English `about`
+ * and `approximately` are not here: `about` flagged an honest round 1 rewrite, and without it a swap of
+ * `approximately` for `about` would flag (bench/COMPARE-QUALIFIERS.md).
+ */
+export const QUALIFIERS: Readonly<Record<string, readonly string[]>> = {
+  en: ["around", "roughly", "nearly", "almost", "close to", "up to", "at most", "under", "less than", "fewer than", "at least", "over", "more than"],
+  fr: ["environ", "près de", "presque", "quasiment", "jusqu'à", "moins de", "au plus", "plus de", "au moins"],
+  de: ["etwa", "rund", "ca", "circa", "fast", "knapp", "ungefähr", "bis zu", "weniger als", "höchstens", "mehr als", "mindestens", "über"],
+  es: ["unos", "unas", "alrededor de", "casi", "aproximadamente", "cerca de", "hasta", "menos de", "como máximo", "más de", "al menos", "como mínimo"],
+};
+
+/** One qualifier before a number: the words as written, its group, and the number it qualifies. */
+export interface QualifiedNumber {
+  qualifier: string;
+  group: string;
+  number: string;
+}
+
+/** Verbs and nouns after which English `about` means "on the subject of": `talked about 3 options`. */
+const ABOUT_TOPIC = /(?:^|[^\p{L}])(?:talk|talks|talked|talking|think|thinks|thought|thinking|write|writes|wrote|written|writing|ask|asks|asked|asking|know|knows|knew|known|learn|learns|learned|learnt|read|reads|reading|hear|hears|heard|care|cares|cared|worry|worries|worried|complain|complains|complained|say|says|said|tell|tells|told|story|stories|question|questions|post|posts|article|articles|note|notes|more|all)\s+$/iu;
+/** Units of time after which `over` and `über` mean "across" (`over 2 weeks`), not "more than". */
+const SPAN_UNIT = /^\s*(?:minutes?|hours?|days?|nights?|weeks?|months?|years?|decades?|quarters?|sprints?|releases?|versions?|Minuten|Stunden|Tagen?|Wochen|Monaten?|Jahren?|Jahrzehnten?|Quartalen?|Sprints?|Releases?|Versionen)(?![\p{L}])/iu;
+
+/**
+ * Whether a qualifier word is used in another sense here: English `about` after a verb of talking or
+ * thinking, `over` or `über` before a span of time, Spanish `hasta` before a year (until 2025).
+ */
+function otherSense(lang: string, key: string, before: string, after: string, number: string): boolean {
+  if (lang === "en" && key === "about") return ABOUT_TOPIC.test(before);
+  if ((lang === "en" && key === "over") || (lang === "de" && key === "über")) return SPAN_UNIT.test(after);
+  if (lang === "es" && key === "hasta") return /^(?:1[89]|20)\d\d$/.test(number) && !/^\s*%/.test(after);
+  return false;
+}
+
+/** Every listed qualifier written right before a number, in the prose of a text (code, urls and quotes are blanked). */
+export function qualifiedNumbers(text: string, tag?: string | null, words?: readonly string[]): QualifiedNumber[] {
+  const lang = tag ? tag.split(/[-_]/)[0]!.toLowerCase() : "en";
+  const groups = QUALIFIER_CANDIDATES[lang] ?? {};
+  const list = (words ?? QUALIFIERS[lang] ?? []).filter((w) => groups[w] !== undefined);
+  if (!list.length) return [];
+  const alternation = [...list]
+    .sort((a, b) => b.length - a.length)
+    .map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/'/g, "['’]").replace(/ /g, "\\s+"))
+    .join("|");
+  // `ca.` keeps its dot; a currency sign may sit between the qualifier and the digits (`about $40`). A
+  // qualifier glued to its number (`over40`) is not read.
+  const re = new RegExp(`(?<![\\p{L}\\d'’-])(${alternation})(?:\\.?\\s+(?:[$€£¥]\\s?)?|\\s*[$€£¥]\\s?)(\\d+(?:[.,]\\d+)*)(?![.,]?\\d)`, "giu");
+  const found: QualifiedNumber[] = [];
+  const prose = proseOnly(text);
+  for (const m of prose.matchAll(re)) {
+    // `jusqu'à` and `jusqu’à` are one word, and so are runs of spaces.
+    const key = m[1]!.toLowerCase().replace(/’/g, "'").replace(/\s+/g, " ");
+    const group = groups[key];
+    if (group === undefined) continue;
+    if (otherSense(lang, key, prose.slice(Math.max(0, m.index! - 24), m.index!), prose.slice(m.index! + m[0].length, m.index! + m[0].length + 16), m[2]!)) continue;
+    found.push({ qualifier: key, group, number: normaliseNumber(m[2]!) });
+  }
+  return found;
+}
+
+/** The plain numbers of a text's prose, normalised as number facts are. */
+function proseNumbers(text: string): Set<string> {
+  return new Set([...proseOnly(text).matchAll(/(?<![\p{L}\d.,])\d+(?:[.,]\d+)*/gu)].map((m) => normaliseNumber(m[0])));
+}
+
+/**
+ * The qualifier facts a rewrite lost or added: for each group and number, a rewrite with fewer
+ * qualified occurrences lost one, with more added one. Only a number that the other text also has
+ * counts, because a changed number is reported as a number already. `words` defaults to QUALIFIERS.
+ */
+export function qualifierChanges(before: string, after: string, tag?: string | null, words?: readonly string[]): { lost: Fact[]; added: Fact[] } {
+  const qb = qualifiedNumbers(before, tag, words);
+  const qa = qualifiedNumbers(after, tag, words);
+  const lost: Fact[] = [];
+  const added: Fact[] = [];
+  if (!qb.length && !qa.length) return { lost, added };
+  const tally = (list: QualifiedNumber[]) => {
+    const m = new Map<string, QualifiedNumber[]>();
+    for (const q of list) {
+      const key = `${q.group}\u0000${q.number}`;
+      m.set(key, [...(m.get(key) ?? []), q]);
+    }
+    return m;
+  };
+  const diff = (from: Map<string, QualifiedNumber[]>, to: Map<string, QualifiedNumber[]>, numbersOfTo: Set<string>, out: Fact[]) => {
+    for (const [key, list] of from) {
+      const q = list[0]!;
+      if ((to.get(key)?.length ?? 0) < list.length && numbersOfTo.has(q.number)) out.push({ kind: "qualifier", value: `${q.qualifier} ${q.number}` });
+    }
+  };
+  diff(tally(qb), tally(qa), proseNumbers(after), lost);
+  diff(tally(qa), tally(qb), proseNumbers(before), added);
+  return { lost, added };
+}
+
 /** Text with code, urls, link targets and quoted text blanked, so none of it is read as the author's own words. */
 export function proseOnly(text: string): string {
   let rest = text;
@@ -355,5 +488,10 @@ export function compareFacts(before: string, after: string, options: CompareOpti
   const cb = countTerms(before, terms);
   const ca = countTerms(after, terms);
   for (const [word, n] of ca) if (n > (cb.get(word) ?? 0)) added.push({ kind: "claim", value: word.toLowerCase() });
+
+  // Qualifiers: a number both texts have that lost its approximator or bound, or gained one.
+  const q = qualifierChanges(before, after, tag);
+  lost.push(...q.lost);
+  added.push(...q.added);
   return { lost: lost.sort(order), added: added.sort(order), kept };
 }

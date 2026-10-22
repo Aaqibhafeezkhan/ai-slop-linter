@@ -61,7 +61,7 @@ export const TOOLS = [
   },
   {
     name: "compare_facts",
-    description: "Compare a text with its rewrite: the numbers, versions, dates, urls, issue ids, quotations, code and names that the rewrite lost or added, plus kind person (a first-person word such as our that the rewrite added, or lost; set language for a short or Turkish text) and kind claim (a claim word such as always that the rewrite added). Read-only and deterministic.",
+    description: "Compare a text with its rewrite: the numbers, versions, dates, urls, issue ids, quotations, code and names that the rewrite lost or added, plus kind person (a first-person word such as our that the rewrite added, or lost; set language for a short or Turkish text) kind claim (a claim word such as always that the rewrite added) and kind qualifier (an approximator or bound next to a number, such as up to 3, that the rewrite dropped or added). Read-only and deterministic.",
     inputSchema: {
       type: "object",
       properties: {

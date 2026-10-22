@@ -104,6 +104,8 @@ OK: no fact lost or added
 
 It also reads first-person words and claim words, which a rewrite can add without touching a number or a name. A rewrite that turns "In benchmarks" into "In our benchmarks" prints `added  person   our` and exits 1, because the source never said whose benchmarks. Only words that passed a measurement on the head-to-head rewrites are flagged, and [`bench/COMPARE-WORDS.md`](bench/COMPARE-WORDS.md) lists every candidate word with its verdict. Text in double quotation marks, code, urls and link targets are not read.
 
+A qualifier next to a number is part of the fact. When the rewrite keeps the number but drops `up to`, `at least`, `nearly`, `environ`, `bis zu`, `más de` or a word like them, or adds one, the comparison prints `lost   qualifier up to 3` or `added  qualifier over 300` and exits 1. A swap within one meaning (`roughly` for `around`, `over` for `more than`) is not reported. Every qualifier passed a stricter measurement than the words above: it flags none of the goldens, none of the 357 round 1 rewrites by other tools and none of 40 hand-written honest pairs ([`bench/COMPARE-QUALIFIERS.md`](bench/COMPARE-QUALIFIERS.md)). English `about` is not read: it flagged one honest rewrite.
+
 ## How it compares
 
 A head-to-head benchmark against Humanizer, unslop and everwrite, on twelve editing tasks scored by scripted checks and blind grading. It is a result on those tasks, not a general ranking.

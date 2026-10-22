@@ -19,7 +19,7 @@ const HELP = `usage: slop [options] [file|dir|glob|-]...
        slop --commit-msg <file> lint the message being written (what a commit-msg hook receives)
        slop --pr <number>       lint a pull request description (needs gh)
        slop --history           your own commit messages, read over time
-       slop --compare <before> <after>  facts a rewrite lost or added, with first-person words and claim words (also: slop diff)
+       slop --compare <before> <after>  facts a rewrite lost or added, with first-person words, claim words and number qualifiers (also: slop diff)
        slop --rules             list the rules
        slop --explain <rule>    why one rule exists, with a before and after
        slop --init [action|hook] write .slop.json, and the workflow or the commit hook
@@ -44,7 +44,7 @@ wrote it; it shows the tells, with line numbers, and fixes the safe ones.
   --author <email,...>  --history: whose messages (default: this repository's user.email)
   --by <period>         --history: month (default), quarter or year
   --since <when>        --history: anything git log --since accepts
-  --json                a comparison as JSON: {lost, added, kept}; the kinds include person and claim
+  --json                a comparison as JSON: {lost, added, kept}; the kinds include person, claim and qualifier
   --quiet, -q           no star hint after a clean interactive run (changes nothing else)
   --cwd <dir>           working directory (default: current)
   -h, --help            this text

@@ -5,7 +5,7 @@ import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { compareFacts, countPersonWords, extractFacts } from "../src/compare.js";
+import { QUALIFIERS, compareFacts, countPersonWords, extractFacts, qualifiedNumbers, qualifierChanges } from "../src/compare.js";
 
 const cli = join(process.cwd(), "dist", "src", "cli.js");
 const bench = join(process.cwd(), "bench", "head-to-head");
@@ -581,7 +581,7 @@ test("slop --compare prints a person line and exits 1; a removed claim exits 0; 
   } finally {
     await rm(dir, { recursive: true, force: true });
   }
-  assert.match(run(["--help"]).out, /first-person words and claim words/);
+  assert.match(run(["--help"]).out, /first-person words, claim words and number qualifiers/);
 });
 
 test("the shipped word lists match what bench/compare-words.mjs keeps, and the table is current", () => {
@@ -590,4 +590,103 @@ test("the shipped word lists match what bench/compare-words.mjs keeps, and the t
   // Where the round 1 scores were left out (the cloud squash), only the partial check can run, and it says so.
   const evidence = existsSync(join(bench, "results", "round-1", "scores.json"));
   assert.match(r.stdout, evidence ? /^compare words up to date/ : /partial check passed.*evidence left out of the cloud squash/);
+});
+
+// --- qualifiers (round 3 plan item 9) ---------------------------------------------------------
+// A qualifier next to a number is part of the fact: "about 40%" is not "40%". The kept list is measured
+// by bench/compare-qualifiers.mjs on the goldens, the round 1 rewrites and test/fixtures/compare-qualifiers.json.
+
+const q = (before: string, after: string, language = "en") => {
+  const r = compareFacts(before, after, { language });
+  return { lost: r.lost.filter((f) => f.kind === "qualifier").map((f) => f.value), added: r.added.filter((f) => f.kind === "qualifier").map((f) => f.value) };
+};
+
+test("qualifier: a dropped bound is lost, an added one is added, and the number itself is kept", () => {
+  assert.deepEqual(compareFacts("It handles up to 3 retries.", "It handles 3 retries.", { language: "en" }), { lost: [{ kind: "qualifier", value: "up to 3" }], added: [], kept: 1 });
+  assert.deepEqual(q("The project has 300 contributors.", "The project has more than 300 contributors."), { lost: [], added: ["more than 300"] });
+  assert.deepEqual(q("Startup takes roughly 2 seconds.", "Startup takes at most 2 seconds."), { lost: ["roughly 2"], added: ["at most 2"] });
+});
+
+test("qualifier: a swap within a group is silent, a move between groups is not", () => {
+  assert.deepEqual(q("Startup takes roughly 2 seconds.", "Startup takes around 2 seconds."), { lost: [], added: [] });
+  assert.deepEqual(q("With over 300 contributors.", "It has more than 300 contributors."), { lost: [], added: [] });
+  assert.deepEqual(q("It runs in under 5 minutes.", "It runs in less than 5 minutes."), { lost: [], added: [] });
+  assert.deepEqual(q("Nearly 12 teams.", "At least 12 teams."), { lost: ["nearly 12"], added: ["at least 12"] });
+});
+
+test("qualifier: a changed number is a number fact only, not a qualifier fact too", () => {
+  const r = compareFacts("It handles up to 3 retries.", "It handles 4 retries.", { language: "en" });
+  assert.deepEqual(r.lost, [{ kind: "number", value: "3" }]);
+  assert.deepEqual(r.added, [{ kind: "number", value: "4" }]);
+});
+
+test("qualifier: counts matter when a number occurs twice", () => {
+  assert.deepEqual(q("Up to 3 workers, and up to 3 queues.", "Up to 3 workers, and 3 queues."), { lost: ["up to 3"], added: [] });
+  assert.deepEqual(q("Up to 3 workers, and 3 queues.", "3 workers, and up to 3 queues."), { lost: [], added: [] });
+});
+
+test("qualifier: French, German and Spanish forms, with the decimal comma, thousands and an apostrophe of either kind", () => {
+  assert.deepEqual(q("Le build est environ 40 % plus rapide.", "Le build est 40 % plus rapide.", "fr"), { lost: ["environ 40"], added: [] });
+  assert.deepEqual(q("L'offre couvre jusqu’à 30 requêtes.", "L'offre couvre jusqu'à 30 requêtes.", "fr"), { lost: [], added: [] });
+  assert.deepEqual(q("Der Tarif umfasst bis zu 1.000 Anfragen.", "Der Tarif umfasst 1.000 Anfragen.", "de"), { lost: ["bis zu 1.000"], added: [] });
+  assert.deepEqual(q("Der Build ist etwa 2,5 Sekunden schneller.", "Der Build ist rund 2,5 Sekunden schneller.", "de"), { lost: [], added: [] });
+  assert.deepEqual(q("Ca. 30 % weniger.", "30 % weniger.", "de"), { lost: ["ca 30"], added: [] });
+  assert.deepEqual(q("300 personas contribuyen.", "Más de 300 personas contribuyen.", "es"), { lost: [], added: ["más de 300"] });
+  assert.deepEqual(q("Up to $3,000 a month.", "$3000 a month."), { lost: ["up to 3000"], added: [] });
+});
+
+test("qualifier: other senses of a qualifier word are not read", () => {
+  assert.deepEqual(qualifiedNumbers("We talked about 3 options.", "en", ["about"]), []);
+  assert.deepEqual(qualifiedNumbers("Builds are about 3 times faster.", "en", ["about"]).length, 1, "about as an approximator is read when asked for");
+  assert.deepEqual(q("The rollout ran over 2 weeks.", "The rollout ran across 2 weeks."), { lost: [], added: [] });
+  assert.deepEqual(q("It has over 2 maintainers.", "It has 2 maintainers."), { lost: ["over 2"], added: [] });
+  assert.deepEqual(q("Die Umstellung lief über 2 Wochen.", "Die Umstellung lief in 2 Wochen.", "de"), { lost: [], added: [] });
+  assert.deepEqual(q("El soporte sigue hasta 2025.", "El soporte sigue hasta el año 2025.", "es"), { lost: [], added: [] });
+  assert.deepEqual(q("Cubre hasta 1000 solicitudes.", "Cubre 1000 solicitudes.", "es"), { lost: ["hasta 1000"], added: [] });
+  assert.deepEqual(qualifiedNumbers("takeover 3 and over40", "en", ["over"]), [], "inside a word or glued to the digits");
+});
+
+test("qualifier: code, urls and quotations are not read, and a language with no list has none", () => {
+  assert.deepEqual(q("Run `up to 3` now.", "Run `up to 3` now. Then 3."), { lost: [], added: [] });
+  assert.deepEqual(q('She said "up to 3 people came".', "She said 3."), { lost: [], added: [] });
+  assert.deepEqual(qualifiedNumbers("fino a 3 persone, up to 3", "it"), []);
+  assert.deepEqual(qualifierChanges("up to 3", "3", "tr"), { lost: [], added: [] });
+});
+
+test("qualifier: English about and approximately are measured but not shipped", () => {
+  assert.ok(!QUALIFIERS.en!.includes("about") && !QUALIFIERS.en!.includes("approximately"));
+  assert.deepEqual(q("Builds are about 40% faster.", "Builds are 40% faster."), { lost: [], added: [] });
+});
+
+test("qualifier: every hand-written honest pair is clean and every dishonest pair reports exactly its lines", () => {
+  const pairs = JSON.parse(readFileSync(join(process.cwd(), "test", "fixtures", "compare-qualifiers.json"), "utf8")) as {
+    honest: { lang: string; before: string; after: string }[];
+    dishonest: { lang: string; before: string; after: string; lost: string[]; added: string[] }[];
+  };
+  for (const p of pairs.honest) assert.deepEqual(q(p.before, p.after, p.lang), { lost: [], added: [] }, p.before);
+  // The one dishonest pair the shipped list misses is the dropped English `about`.
+  const missed = pairs.dishonest.filter((p) => JSON.stringify(q(p.before, p.after, p.lang)) !== JSON.stringify({ lost: p.lost, added: p.added }));
+  assert.deepEqual(missed.map((p) => p.before), ["Builds are about 40% faster."]);
+});
+
+test("slop --compare prints a qualifier line and exits 1; --help and --json name the kind", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "slop-qualifier-"));
+  try {
+    await writeFile(join(dir, "before.md"), "The free tier covers up to 1000 requests a day.\n");
+    await writeFile(join(dir, "after.md"), "The free tier covers 1000 requests a day.\n");
+    const r = run(["--language", "en", "--compare", "before.md", "after.md"], { cwd: dir });
+    assert.equal(r.code, 1, r.out);
+    assert.match(r.out, /^lost\s+qualifier\s+up to 1000$/m);
+    const json = JSON.parse(run(["--language", "en", "--json", "--compare", "before.md", "after.md"], { cwd: dir }).out) as { lost: { kind: string; value: string }[] };
+    assert.deepEqual(json.lost, [{ kind: "qualifier", value: "up to 1000" }]);
+  } finally {
+    await rm(dir, { recursive: true, force: true });
+  }
+  assert.match(run(["--help"]).out, /qualifier/);
+});
+
+test("the shipped qualifiers match what bench/compare-qualifiers.mjs keeps, and the table is current", () => {
+  const r = spawnSync("node", [join(process.cwd(), "bench", "compare-qualifiers.mjs"), "--check"], { encoding: "utf8" });
+  assert.equal(r.status, 0, r.stderr + r.stdout);
+  assert.match(r.stdout, existsSync(join(bench, "results", "round-1", "runs")) ? /^compare qualifiers up to date/ : /partial check passed/);
 });
