@@ -38,3 +38,8 @@ abre un nuevo capítulo
 excelente pregunta
 da sus frutos
 re:no solo .{1,60} sino también
+# Wikipedia (es), Café, propuestas 2025/03: facts only.
+re:\bclaro,? aquí tienes\b
+re:\blo siento, como modelo de lenguaje\b
+re:\bofrece a los visitantes una visión\b
+re:\bes una excelente opción\b

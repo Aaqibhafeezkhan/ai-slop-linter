@@ -69,6 +69,8 @@ Each of these is normal in human writing. Several in one paragraph, or one next 
 - Stacked qualifiers: `could potentially`, `may possibly`, `it could be argued that`. One hedge, and only where the source is unsure. Keep a hedge the source has: it is content.
 - Stacked transitions: `Moreover,`, `Furthermore,`, `Additionally,`, `Notably,` at the start of sentences in a row. Use `also` or `and`, or nothing.
 - Vague association: `associated with`, `linked to`, `in connection with` where the source names the relation. Use the relation.
+- A heading restated by the first sentence under it (`## Install` then `To install it, ...`): start with the content the heading promises.
+- Text that describes the document instead of its subject: `the table below compares`, `this section is organised by owner`. Say what the table or section shows, or let it stand without the sentence.
 - Bold spread over phrases for emphasis. Keep it for one thing per page at most.
 - Dashes, curly quotes and hyphenated compounds: the linter reports them; alone they say little.
 

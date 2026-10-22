@@ -38,3 +38,6 @@ une chose est sûre
 j['’]espère que cela vous aide
 excellente question
 porte ses fruits
+# Wikipédia (fr), Aide:Identifier l'usage d'une IA générative: facts only.
+re:\bvoici (?:une|un) (?:version|synthèse|résumé)(?![\p{L}\p{N}])
+re:\ble plus sûr reste (?:cependant )?de vérifier\b

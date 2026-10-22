@@ -43,3 +43,17 @@ re:\b(?:tool|software|system|ki|app|plattform|algorithmus|programm|werkzeug|assi
 re:\b(?:tool|software|system|ki|app|plattform|algorithmus|programm|werkzeug|assistent|router)\s+entscheidet,\s+(?:welche[rsmn]?|ob|wann|wie|was|wer)\b
 re:\b(?:tool|software|system|ki|app|plattform|algorithmus|programm|werkzeug|assistent)\s+weiß,?\s+was\b
 re:\b(?:regeln|einstellungen|konfiguration|tool|software|system|plattform)\s+(?:aktualisiert|aktualisieren|konfiguriert|konfigurieren|optimiert|optimieren|verbessert|verbessern)\s+sich\s+(?:selbst|von allein|automatisch)
+# Wikipedia (de), Anzeichen für KI-generierte Inhalte: facts only.
+re:\bobwohl (?:spezifische )?details? (?:begrenzt|rar|knapp)\b
+re:\bbasierend auf (?:den )?verfügbaren (?:informationen|quellen)\b
+re:\bes ist (?:wichtig|bemerkenswert),? zu (?:bemerken|bedenken)\b
+re:\b(?:beobachter haben zitiert|einige kritiker (?:argumentieren|meinen))\b
+re:\bich hoffe, diese nachricht erreicht sie wohlauf\b
+re:\bvielen dank für ihre überlegung\b
+re:(?<=^|\n[ \t]*)(?:natürlich|sicherlich)!
+re:\bdetailliertere aufschlüsselung\b
+re:\bunterstreicht (?:seine|ihre) bedeutung\b
+re:\b(?:bleibendes vermächtnis|reiche[sn]? (?:kulturelle[sn]? erbe|geschichte))\b
+re:\btrotz (?:seiner|ihrer|dieser)\b.{0,80}\bvor (?:mehreren|einigen) herausforderungen\b
+re:\bnicht (?:allgemein|umfassend) (?:dokumentiert|offengelegt)\b
+re:(?<=^|\n[ \t]*|[.!?][ \t]+)lassen sie mich wissen\b

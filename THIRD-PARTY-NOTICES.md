@@ -50,6 +50,7 @@ SOFTWARE.
 - Test material used verbatim, for measurement only, in the full-length task h16: all six paragraphs of the README Full example Before block (lines 175 to 185, commit 8c307f367c91bd974002f10f2be2965d642c13df), which are the before text of `bench/head-to-head/fixtures/h16/lisbon-trip.md`. The README After texts at lines 188, 190, 192 and 194 are used verbatim as a fairness check only in `bench/head-to-head/after/h16/lisbon-trip.md`; no arm sees them, and they are not goldens.
 - Probe transcript, as run evidence only: `bench/head-to-head/probes/blader-inv.jsonl` records one real run with the Humanizer plugin loaded. It holds the model's answer in the format Humanizer's `SKILL.md` prescribes, and no copy of the skill file. Nothing in it is adapted into a rule.
 
+- What was adapted (round 6): ideas from Humanizer 3.1.0's `SKILL.md` (commit 8c307f367c91bd974002f10f2be2965d642c13df): the statement that its structural patterns apply in every language (the cross-language paragraph in `skills/ai-slop-linter/SKILL.md`), the rule that a qualifier stays only where the source supports it (the hedge split in "Add no fact"), the permission to merge or split sentences when a finding sits in a chain of clauses ("How to work", step 4), and two second-tier entries in `references/en.md` (a heading restated by the first sentence under it, and text that describes the document instead of its subject). Written in our own words; no Before or After pair is copied.
 ```
 MIT License
 
@@ -138,6 +139,40 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+## avoid-ai-writing (conorbronsdon)
+
+- Source: https://github.com/conorbronsdon/avoid-ai-writing
+- What was adapted (round 6): the counted-list openers (`Key takeaways`, `Five things to know`, `Here are the top seven`) and the stacked modal hedge (`could potentially`), as English phrases in `skills/ai-slop-linter/references/en.tells.txt` and in the `hedge` check of `src/hedge.ts`. Written as regular expressions of our own; no text is copied.
+
+```
+MIT License
+
+Copyright (c) 2026 Conor Bronsdon
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+## Wikipedia, "Signs of AI writing" and its language versions
+
+- Sources, licence CC BY-SA 4.0: https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing, https://de.wikipedia.org/wiki/Wikipedia:Anzeichen_für_KI-generierte_Inhalte, https://fr.wikipedia.org/wiki/Aide:Identifier_l'usage_d'une_IA_générative, https://pt.wikipedia.org/wiki/Wikipédia:Sinais_de_texto_gerado_por_inteligência_artificial, and the Spanish editors' list at https://es.wikipedia.org/wiki/Wikipedia:Café/Portal/Archivo/Propuestas/2025/03.
+- What was used (round 6): facts about patterns only (that a phrase or construction is a sign of generated text), as short phrases and regular expressions of our own in `skills/ai-slop-linter/references/{en,de,fr,es,pt}.tells.txt`, in `references/pt.md` and in the `hedge` check of `src/hedge.ts`. No sentence of these pages is copied, so no part of this project is a derivative work of their text. Attribution: Wikipedia contributors, under CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/).
 
 ## ai-34-languages (Juzek 2026)
 

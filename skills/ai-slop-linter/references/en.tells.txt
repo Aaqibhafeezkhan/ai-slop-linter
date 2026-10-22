@@ -35,3 +35,20 @@ re:\bin this section we will\b
 # Hedge adverb: `hopefully` after a modal or opening a sentence.
 re:\b(?:should|will|can|could|would) hopefully\b
 re:(?<=^|\n[ \t]*|[.!?][ \t\n]+)hopefully,
+# Hedge about missing information and vague attribution (Wikipedia, Signs of AI writing: facts only).
+re:\b(?:while|although) (?:specific )?details (?:are|remain) (?:limited|scarce|sparse)\b
+re:\bbased on (?:the )?available (?:information|sources)\b
+re:\befforts are ongoing to\b
+re:\b(?:appears|seems) to have been (?:established|founded|created) sometime\b
+re:\b(?:experts argue|observers have cited|some critics argue)\b
+# Didactic disclaimer and announced lists.
+re:\bit(?:['’]s| is) (?:important|crucial) to note\b
+re:\bhere (?:are|is) (?:the )?(?:top )?(?:\d+|three|four|five|six|seven)\b
+re:\bkey (?:takeaways|highlights)\b
+re:\b(?:three|five|seven|\d+) (?:key )?things to know\b
+re:(?<=^|\n[ \t]*)(?:answer:[ \t]*)?here are (?:several|some|a few)\b[^\n]{0,80}:
+# Chatbot sign-offs.
+re:\bi hope this message finds you well\b
+re:\b(?:certainly|of course)!
+re:\byou['’]re absolutely right!
+re:\bwould you like me to\b

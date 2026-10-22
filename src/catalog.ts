@@ -50,7 +50,7 @@ export function loadCatalog(tag: string, dir: string = REFERENCES_DIR): RegExp[]
 const QUOTES = /(?<!\d)"[^"\n]*"|“[^”\n]*”|«[^«»\n]*»|„[^„“”\n]*[“”]|‹[^‹›\n]*›/g;
 
 /** The masked text with quoted spans and dialogue lines blanked (same length). */
-function exempt(doc: Doc): string {
+export function exempt(doc: Doc): string {
   const blank = (s: string) => s.replace(/[^\n]/g, " ");
   return doc.masked
     .split("\n")

@@ -202,10 +202,10 @@ test("the CI section covers the README, the CHANGELOG and a README that quotes a
 
 // The reference files the skill makes the agent read after the linter (round 2 plan item 3). The agent
 // reads one on every rewrite, so each stays small, names its source, and passes the linter it serves.
-const REFERENCES = ["en", "fr", "de", "es"].map((l) => `skills/ai-slop-linter/references/${l}.md`);
+const REFERENCES = ["en", "fr", "de", "es", "pt"].map((l) => `skills/ai-slop-linter/references/${l}.md`);
 
 test("SKILL.md names every reference file, says when to read it and that a failing compare blocks", () => {
-  for (const file of ["references/", "en.md", "fr.md", "de.md", "es.md"]) {
+  for (const file of ["references/", "en.md", "fr.md", "de.md", "es.md", "pt.md"]) {
     assert.ok(skill.includes(file), `SKILL.md does not name ${file}`);
   }
   assert.match(skill, /^## Read the reference file$/m);
@@ -282,7 +282,7 @@ for (const lang of ["en", "fr", "de", "es"]) {
 }
 
 test("the reference files quote every tell in backticks: the CLI with no --warn filter finds nothing in them", () => {
-  for (const lang of ["en", "fr", "de", "es"]) {
+  for (const lang of ["en", "fr", "de", "es", "pt"]) {
     const run = spawnSync(process.execPath, ["dist/src/cli.js", "--language", "en", `skills/ai-slop-linter/references/${lang}.md`], { encoding: "utf8" });
     assert.equal(run.status, 0, run.stdout + run.stderr);
   }

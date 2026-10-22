@@ -13,6 +13,7 @@ import { renderSarif } from "./sarif.js";
 import { commitRules, lintCommitMessage } from "./commits.js";
 import { compareFacts, type Fact } from "./compare.js";
 import { scanCatalog } from "./catalog.js";
+import { scanHedge } from "./hedge.js";
 import { prepare } from "./doc.js";
 import { structureProblems } from "./structure.js";
 import { alignment, alignmentLines, lengthProblem } from "./rewrite-guard.js";
@@ -24,7 +25,7 @@ const HELP = `usage: slop [options] [file|dir|glob|-]...
        slop --pr <number>       lint a pull request description (needs gh)
        slop --history           your own commit messages, read over time
        slop --compare <before> <after>  facts a rewrite lost or added, with first-person words, claim words and number qualifiers (also: slop diff)
-       slop --verify <before> <after>  the rewrite gate: lint errors, --compare, the tell catalog and a length bound; also lists sentences dropped without a reason (not blocking); exit 0 only if all are clean
+       slop --verify <before> <after>  the rewrite gate: lint errors, --compare, the tell catalog, the hedge check and a length bound; also lists sentences dropped without a reason (not blocking); exit 0 only if all are clean
        slop --rules             list the rules
        slop --explain <rule>    why one rule exists, with a before and after
        slop --init [action|hook] write .slop.json, and the workflow or the commit hook
@@ -336,10 +337,10 @@ function compareCommand(o: Options): boolean {
 }
 
 /**
- * `--verify <before> <after>`: the gate a rewrite has to pass. Four checks on the rewrite: the
+ * `--verify <before> <after>`: the gate a rewrite has to pass. Five checks on the rewrite: the
  * lint errors (what exit 1 means for a file), the fact comparison against the original, the
- * blocks it must keep (front matter, code blocks, table rows, headings) and the tell catalog of
- * the text's language. Returns the number of problems; 0 means ok.
+ * blocks it must keep (front matter, code blocks, table rows, headings), the tell catalog of
+ * the text's language and the hedge check. Returns the number of problems; 0 means ok.
  */
 function verifyCommand(o: Options): number {
   const { before, after, beforeArg, afterArg } = readPair(o, "--verify");
@@ -373,6 +374,10 @@ function verifyCommand(o: Options): number {
     lines.push(`${h.line}:${h.column} catalog ${h.phrase.replace(/\s+/g, " ")}`);
     problems++;
   }
+  for (const h of [...per.ignore, ...o.ignore].includes("hedge") ? [] : scanHedge(prepare(display, after), lint.language)) {
+    lines.push(`${h.line}:${h.column} hedge ${h.phrase.replace(/\s+/g, " ")}`);
+    problems++;
+  }
   const tooLong = lengthProblem(before, after);
   if (tooLong) {
     lines.push(tooLong);
@@ -380,7 +385,8 @@ function verifyCommand(o: Options): number {
   }
   {
     const source = lintText(display, before, { ignore: [...per.ignore, ...o.ignore], only: o.only.length ? o.only : per.only, languages, ...(language ? { language } : {}) });
-    const hits = scanCatalog(prepare(display, before), source.language);
+    const sourceDoc = prepare(display, before);
+    const hits = [...scanCatalog(sourceDoc, source.language), ...([...per.ignore, ...o.ignore].includes("hedge") ? [] : scanHedge(sourceDoc, source.language))];
     if (source.findings.length === 0 && hits.length === 0) lines.push("clean source: no edit is expected");
     const flagged = new Set([...source.findings.map((f) => f.line), ...hits.map((h) => h.line)]);
     if (before !== after) lines.push(...alignmentLines(alignment(before, after, flagged)));

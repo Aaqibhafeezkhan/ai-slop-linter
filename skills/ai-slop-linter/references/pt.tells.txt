@@ -1,0 +1,16 @@
+# Portuguese first-tier tells for `ai-slop-linter --verify`. One entry per line:
+# a case-insensitive phrase, or a regular expression written as `re:<pattern>`.
+# Mirrors the "Act on one sighting" tier of pt.md. Keep precision high: no bare common words.
+# Source: Wikipédia (pt), Sinais de texto gerado por inteligência artificial (CC BY-SA 4.0, facts only).
+# `tende a`, `talvez`, `pode variar` and the sentence-initial connectors are not here: that page
+# calls the first two more typical of human writing, and the rest are ordinary Portuguese.
+re:\b(?:especialistas apontam|alguns críticos argumentam|diversos veículos noticiaram)\b
+re:(?<![\p{L}\p{N}])é importante (?:notar|lembrar|ressaltar)\b
+re:\bvale (?:ressaltar|destacar|mencionar|notar)\b
+re:\bpapel (?:crucial|fundamental)\b
+re:\bmarco importante\b
+re:\b(?:reflete uma mudança mais ampla|teve impacto duradouro|consolidou (?:seu|o seu) legado)\b
+re:\bnão apenas .{1,60} mas também(?![\p{L}\p{N}])
+re:(?<=^|\n[ \t]*|[.!?][ \t]+)(?:em suma|em conclusão),
+re:\bapesar d[eo]s? .{1,60}enfrenta (?:vários|alguns|diversos) desafios\b
+re:\b(?:espero que (?:isso|isto) ajude|posso ajustar (?:o texto|algo))\b
