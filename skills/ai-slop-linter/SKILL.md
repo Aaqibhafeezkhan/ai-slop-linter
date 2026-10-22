@@ -48,7 +48,7 @@ npx ai-slop-linter --compare "$TMP/before.md" path/to/file.md
 
 The comparison lists each number, name, version, link, quote and code span that was lost or added, and exits 1 when there is one. It also lists `person` lines (a first-person word such as `our` or `we` that you added, or dropped) and `claim` lines (a word such as `always` or `guaranteed` that you added).
 
-A failing compare is blocking. Lines such as `added person our`, `added claim always` or `lost number 40%` mean the rewrite is not done: put the lost fact back, remove the added word, and run the compare again until it exits 0. Never add "we", "our", "I" or a claim the source does not make, and change no number or fact; an added "our" needs a source that says whose it is. The one line you may leave is a loss where the cut words were the tell itself (a lost `us` from `Let us dive in`); name it in your answer. Do not keep a lost or added fact because the new sentence reads better.
+A failing compare is blocking. Lines such as `added person our`, `added claim always` or `lost number 40%` mean the rewrite is not done: put the lost fact or word back, remove the added word, and run the compare again until it exits 0. Never add "we", "our", "I" or a claim the source does not make, and change no number or fact; an added "our" needs a source that says whose it is. The compare does not flag an added "I", "I'd" or German "uns": check those yourself. For a short or Turkish text, pass `--language` to the compare too. The one line you may leave is a loss where the cut words were the tell itself (a lost `us` from `Let us dive in`); name it in your answer. Do not keep a lost or added fact because the new sentence reads better.
 
 ## Read the reference file
 
