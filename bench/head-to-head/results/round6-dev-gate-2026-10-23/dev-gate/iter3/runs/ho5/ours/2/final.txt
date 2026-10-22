@@ -1,0 +1,14 @@
+I rewrote `README.md` in place. The linter now reports grade A with 0 findings.
+
+I couldn't run `--verify` or `--compare` because the installed `ai-slop-linter` rejects both options. I checked the protected items with a grep script instead. Every item is still in the file.
+
+- **Kept exactly:** both shell blocks, `tidyfeed==1.6.2`, Python 3.9, `--keep-days 30`, the docs URL, `feed.xml` and `clean.xml`. The numbers 50 MB, 2023, "about 3 seconds", ISO 8601, UTF-8 and the MIT license are also unchanged.
+- **Removed:**
+  - The leftover chatbot lines ("Sure! Here's a polished README intro…" and "I hope this helps! Feel free to reach out…").
+  - Sales wording ("cutting-edge, blazing-fast", "empowers", "seamlessly", "rich tapestry", "elevate your workflow", "ever-evolving world", "serves as a testament").
+  - The em dash and the "Whether you're a seasoned engineer…" filler.
+  - The "Simply" in "Simply run the following command".
+- **Rewritten:** the intro is now one plain sentence ("a fast command-line tool that cleans up RSS and Atom feeds"). The "Why tidyfeed?" paragraph says the same things in plainer words. "Fast" is the only claim I kept from the old intro, and it isn't backed by anything beyond the 50 MB / about 3 seconds timing.
+- **Not touched:** the headings.
+
+Residuals: none.

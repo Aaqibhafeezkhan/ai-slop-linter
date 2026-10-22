@@ -1,0 +1,19 @@
+I rewrote `pr.md` in place. The linter now scores it A with 0 findings, down from an F with 16.
+
+The installed CLI is too old to have `--verify` or `--compare`, so I checked the facts by hand. These are all still there unchanged:
+- every code span
+- v3.8.0
+- the URL
+- the YAML block
+- the quoted phrase
+- the numbers: 5 retries, 214 tests, 503, the 250 ms and 500 ms delays, and the third attempt
+
+What I changed:
+- **Chatbot text:** I removed "Great question", the "comprehensive overview" intro, "Let me know if…", "I hope this helps", and the closing recap paragraph.
+- **Filler and stock words:** I cut "seamlessly", "game-changer", "In today's fast-paced…", "it's important to note", "It's worth noting", "pivotal" and "robust". "Leverages" and "Delves into" became plain verbs.
+- **Hedge:** "could potentially cause" became "can cause".
+- **Dash:** the em dash in the Notes section is now a comma, outside the quote.
+
+I added `<!-- slop-ignore-next-line ai-vocabulary -->` above the Notes sentence. The quoted phrase contains "robust" and "seamless", which the linter flags, and I left the quote as it was. The comment is an HTML comment, so it won't show when the PR renders. Delete it if you don't want it in the published text.
+
+Residuals: "a robust, seamless delivery guarantee" stays on purpose because it is quoted and you asked for it to stay.

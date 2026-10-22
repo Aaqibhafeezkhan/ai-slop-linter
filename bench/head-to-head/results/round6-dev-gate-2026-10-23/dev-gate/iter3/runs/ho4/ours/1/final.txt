@@ -1,0 +1,7 @@
+Ik heb `status.md` gelinot en met de hand gecontroleerd. De geïnstalleerde CLI is versie 0.1.10 en kent `--verify` en `--compare` niet, dus die twee checks konden niet draaien.
+
+De linter vond 0 problemen (score A, 189 woorden). De taal is Nederlands, dus de dash-regel deed niet mee. De tekst bevat geen enkele tell uit de lijst: geen contrast tegen niemand, geen kicker of samenvattende slotzin, geen opgeblazen woorden, geen losse metaforen en geen hedges. Alle zinnen zijn concreet en bevatten namen, getallen of datums. Ik heb het bestand daarom niet aangepast.
+
+Een herschrijving zou hier alleen risico toevoegen, want namen, bedragen en de datum moeten exact blijven. De tekst is bovendien niet van "AI-ruis" te ontdoen als die er niet in zit. Als hij toch machinaal klinkt, komt dat door de vorm: korte, gelijkvormige zinnen onder vaste kopjes. Dat is gangbaar voor een statusupdate. Wil je dat ik de zinnen toch wat varieer, bijvoorbeeld door er een paar samen te voegen? Zeg het dan, dan doe ik dat met de hand en laat ik alle feiten staan.
+
+Residuals: none.

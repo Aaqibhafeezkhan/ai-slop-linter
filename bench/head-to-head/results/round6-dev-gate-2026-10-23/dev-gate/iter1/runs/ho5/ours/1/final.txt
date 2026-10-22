@@ -1,0 +1,13 @@
+I rewrote `README.md` in place. The linter now grades it A with 0 findings, and `--verify` exits 0.
+
+- **Removed:**
+  - The chatbot opener ("Sure! Here's a polished README intro…") and the closer ("I hope this helps! Feel free to reach out…").
+  - The sales vocabulary: "cutting-edge", "blazing-fast", "seamlessly", "rich tapestry", "elevate your workflow".
+  - "ever-evolving world of content syndication" and "serves as a testament".
+  - The em dash.
+  - "Simply run the following command", which is now "To clean a feed, run:".
+- **Unchanged:**
+  - Both shell blocks, `1.6.2`, `3.9`, `--keep-days 30`, `https://tidyfeed.example.com/docs`, and the file names `feed.xml` and `clean.xml`.
+  - The claims about duplicates, ISO 8601, UTF-8, the 2023 laptop and about 3 seconds for 50 MB, and the MIT license.
+- **Intro:** The intro sentence now says only that tidyfeed cleans RSS and Atom feeds. I dropped "empowers developers" and "seasoned engineer or just getting started", since they carried no facts.
+- **Residuals:** none.

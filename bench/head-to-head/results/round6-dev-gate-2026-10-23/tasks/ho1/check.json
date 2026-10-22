@@ -1,0 +1,6 @@
+{"output":"pr.md",
+"facts":["`src/dispatch/retry.ts`","up to 5 times","`WEBHOOK_MAX_RETRIES`","`5`","`WEBHOOK_BASE_DELAY_MS`","`250`","`dispatcher.ts`","`delivery_attempts`","v3.8.0","214 tests","https://hooks.example.com/ping","503","third attempt","250 ms","500 ms","webhook dispatcher","exponential backoff"],
+"tells":["great question","comprehensive overview","seamlessly","game-changer","in today's fast-paced","it's important to note","it's worth noting","potentially","leverages","delves","robust","in conclusion","pivotal","let me know if you'd like","i hope this helps",{"re":"—|–"},{"re":"\\bhey!"}],
+"protected":["\"a robust, seamless delivery guarantee\""],
+"forbidden_added":["we","our","us","my","we've","let's"],
+"language_absent":["der","die","das","und"]}

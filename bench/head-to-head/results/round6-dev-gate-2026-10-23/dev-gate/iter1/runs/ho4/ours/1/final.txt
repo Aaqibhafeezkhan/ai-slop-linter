@@ -1,0 +1,10 @@
+Ik heb `status.md` niet aangepast. De linter vond niets en las de tekst niet als AI-geschreven.
+
+- **Linter:** `npx ai-slop-linter --language nl status.md` gaf score A, 0 bevindingen, 189 woorden.
+- **Verify:** `--verify` gaf `clean source: no edit is expected` en `verify: ok (unchanged)`.
+- **Handmatige check:** Ik heb de tekst ook zelf nagelopen op de bekende patronen. Het zijn korte, concrete zinnen met namen, data en getallen. Er staan geen stapelhedges, geen "niet X maar Y", geen samenvattende slotzinnen en geen inflatiewoorden in.
+- **Beperking:** Voor Nederlands bestaat er geen referentiebestand, dus de check dekt alleen de patronen die in het Engels ook gelden.
+
+Als de tekst voor jou toch nog stijf klinkt, zeg dan welke zin. Dan pas ik die aan.
+
+Residuals: none.

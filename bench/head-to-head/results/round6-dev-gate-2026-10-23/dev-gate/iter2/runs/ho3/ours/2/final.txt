@@ -1,0 +1,10 @@
+I rewrote `incidente.md` in place, and `--verify` exits 0 (`verify: ok`).
+
+- **Cut:** the "Com certeza! Segue abaixo…" opener and the "Espero que este resumo ajude… Em suma…" closer. The linter lists the opener under "unrequested edit". I removed it deliberately because it is chatbot residue.
+- **Rewritten:**
+  - The summary no longer says the team guaranteed a "fluid experience". It now says the team acted quickly and that some customers may have been affected.
+  - "Vale destacar", "Em última análise" and "acabou sobrecarregando" are gone.
+  - The cause now reads "parece ser uma migração de índice…". That is one hedge that still shows the uncertainty.
+- **Unchanged:** the timeline table, the code spans (`pagamentos-api`, `transacoes`), versions 2.19.0 and 2.18.4, all times, the URL, and the numbers (80, 120, 1.340, 45 minutes, 0,2%).
+
+Residuals: none. The linter's English-only dash and title-case rules were skipped because the text is Portuguese.

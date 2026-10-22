@@ -1,0 +1,9 @@
+Ik heb `status.md` niet gewijzigd, want ik vond er geen taalpatronen in die een machine verraden.
+
+- **Linter:** `npx ai-slop-linter --language nl status.md` geeft score A met 0 bevindingen. De regels voor streepjes en hoofdletterkoppen draaien niet voor Nederlands.
+- **Handmatige check:** ik heb de tekst gelezen op de patronen uit de Engelse referentielijst die in elke taal voorkomen: gestaged contrast, kickers, slogans, opsommingen van drie, losse staartzinnen, stapelende voorbehouden, chatwrappers en vage bronnen. Niets daarvan staat erin. De zinnen noemen alleen concrete feiten: namen, getallen, data en de oorzaak van de vertraging in Zwolle.
+- **Verify:** `--verify` meldt `clean source: no edit is expected` en `verify: ok (unchanged)`. Namen, data, bedragen, `import_klanten.py` en de URL staan dus nog precies zoals ze waren.
+
+De ritme van de zinnen is wel vrij gelijkmatig. Dat is gewone statusupdate-stijl en geen aanwijzing voor AI-tekst. Als je die toch wilt opschudden, zeg het, dan herschrijf ik een paar zinnen met de hand. Dat is dan wel een stijlkeuze van jou, geen reparatie.
+
+Residuals: none.

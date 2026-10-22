@@ -1,0 +1,1 @@
+README.md is going to be published. It reads like an AI wrote it. Rewrite it in place so it reads like a person wrote it. The two shell blocks, the version numbers, the option name, the URL and the file names must stay exactly as they are.

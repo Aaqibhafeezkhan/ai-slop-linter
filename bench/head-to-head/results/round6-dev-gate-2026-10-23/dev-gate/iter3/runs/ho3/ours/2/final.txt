@@ -1,0 +1,20 @@
+Reescrevi o `incidente.md` no lugar. O `npx ai-slop-linter` instalado é uma versão antiga e não tem `--compare` nem `--verify`, então conferi os fatos à mão.
+
+O linter passa com nota A e 0 achados. Mas ele não tem regras de português, então o que valeu foi a lista de `pt.md`.
+
+Mudanças:
+- Tirei a abertura "Com certeza! Segue abaixo um resumo abrangente".
+- Tirei o fecho "Espero que este resumo ajude... Em suma, esse incidente é um valioso aprendizado".
+- No resumo, tirei "É importante ressaltar" e "garantindo uma experiência fluida". "Impactando potencialmente uma parcela" virou "pode ter afetado parte dos clientes".
+- Na causa raiz, tirei "Vale destacar" e "Em última análise". "Parece estar relacionada a uma migração" virou "parece ser uma migração", porque o texto já nomeia a causa. "Em um cenário de alto tráfego, acabou sobrecarregando" virou "com alto tráfego, sobrecarregou".
+
+Conferi à mão:
+- A tabela da linha do tempo está igual.
+- Os trechos em código (`pagamentos-api`, `transacoes`) estão iguais.
+- As versões 2.19.0 e 2.18.4 estão iguais.
+- Os horários e a URL estão iguais.
+- Os números (1.340, 45 minutos, limite de 80, 120 conexões, 0,2%) estão iguais.
+- A seção de impacto e os próximos passos não mudaram.
+- Não acrescentei fatos nem primeira pessoa.
+
+Residuals: o "parece ser" na causa raiz ficou de propósito, porque o texto original já era incerto sobre a causa e eu mantive esse grau. "Aproximadamente 1.340" também ficou, porque é uma estimativa declarada na fonte.

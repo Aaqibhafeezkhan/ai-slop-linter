@@ -1,0 +1,16 @@
+I rewrote `notas.md` in place. Lint is grade A with 0 findings, and `--verify` printed `verify: ok`.
+
+**What changed**
+- Removed the chatbot opener "¡Claro! Aquí tienes unas notas…".
+- Replaced the sales intro in Resumen ("revoluciona", "robusta y sin fisuras", "En el panorama actual") with a plain statement of what the release brings.
+- Cut the filler "Es importante destacar que" and "Cabe destacar que".
+- Cut the praise phrases "experiencia totalmente renovada" and "significativamente".
+- Changed "podría reducir los rechazos" to "puede reducir los rechazos".
+- Replaced the closer ("En definitiva… un antes y un después. ¡No dudes en contactarnos…!") with "Si tienes alguna pregunta, contáctanos."
+
+**What stayed the same**
+- The front matter, all headings, the customer quote with its attribution, the code spans, the endpoint, the URL and every number.
+
+The `--verify` run listed five "unrequested edit" lines. They are the removed opener and the three Novedades bullets I reworded, and all five come from the tell removals above.
+
+Residuals: none.

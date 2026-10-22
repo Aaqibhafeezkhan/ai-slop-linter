@@ -1,0 +1,16 @@
+I rewrote `incidente.md` in place. The installed `ai-slop-linter` is too old to have `--verify` or `--compare`, so I couldn't run the automated fact comparison. I checked the facts by eye against the original, which is saved at `/var/folders/0f/lb8m_j5s7nq7tkf97krdnj800000gn/T/tmp.QYSVanIehR/before.md`. The linter itself reports grade A with 0 findings.
+
+**Cut or changed:**
+- **Chatbot wrapper:** I removed the "Com certeza! Segue abaixo um resumo abrangente…" opener. I also removed the closing "Espero que este resumo ajude… Em suma… valioso aprendizado" paragraph.
+- **Filler and puffery:** I dropped "É importante ressaltar", "Vale destacar", "Em última análise", "significativa" and "garantindo uma experiência fluida". The `significativa` and `garantindo uma experiência fluida` wording was a claim with no support in the note.
+- **Em dash:** I replaced the one in the summary with a plain sentence break.
+- **Hedges:** "impactando potencialmente uma parcela" became "pode ter afetado parte dos clientes". "Parece estar relacionada a" became "parece ser". The original already says the migration overloaded the pool, so a plain "parece ser" keeps the same degree of doubt.
+
+**Left unchanged:**
+- The timeline table and the code spans `pagamentos-api` and `transacoes`.
+- The versions 2.19.0 and 2.18.4, and all times.
+- The numbers 80, 120, 1.340, 45 minutes, 0,2% and 502.
+- The name Rafael Souza and the URL.
+- The "Impacto" and "Próximos passos" sections, which had no tells.
+
+**Residuals:** none that I know of. "A equipe agiu rapidamente para mitigar o problema" stays because the original states it, but it's a mild claim you may want to check before publishing.

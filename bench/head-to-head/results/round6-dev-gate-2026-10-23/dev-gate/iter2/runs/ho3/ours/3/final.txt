@@ -1,0 +1,9 @@
+Reescrevi `incidente.md` no próprio arquivo.
+
+- **Removido:** a abertura e o fecho de chatbot ("Com certeza!", "Espero que este resumo ajude!") e a moral final ("valioso aprendizado").
+- **Cortado:** expressões de enchimento como "é importante ressaltar", "vale destacar", "em última análise" e "experiência fluida".
+- **Trocado:** a frase vaga "impactando potencialmente uma parcela dos clientes" por "parte dos pagamentos falhou". Não acrescentei nenhum fato novo.
+- **Simplificado:** as frases longas da causa raiz, agora em frases curtas e diretas. Mantive a incerteza do original ("provavelmente").
+- **Mantido sem alteração:** a tabela da linha do tempo, os nomes `pagamentos-api` e `transacoes`, as versões 2.19.0 e 2.18.4, os horários, os números (80, 120, 1.340, 45 minutos, 0,2%) e a URL.
+
+Não rodei o `ai-slop-linter` no arquivo.

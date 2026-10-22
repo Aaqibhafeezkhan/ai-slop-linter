@@ -1,0 +1,19 @@
+I rewrote `notas.md` in place. The linter scores it A with 0 findings, but I couldn't run the fact comparison. The installed `ai-slop-linter` rejects `--verify` and `--compare` as unknown options, so I checked the facts by hand.
+
+**What I changed**
+- **Chatbot opener:** I removed "¡Claro! Aquí tienes unas notas…".
+- **Summary:** I replaced the brochure intro ("revoluciona", "panorama actual", "robusta y sin fisuras") with a plain summary of what the release changes.
+- **Release items:** I dropped "experiencia totalmente renovada", "Es importante destacar que" and "mejorado significativamente".
+- **Hedge:** "podría reducir" is now "puede reducir".
+- **Other filler:** I removed "Cabe destacar que" in the timeout paragraph.
+- **Closing lines:** I removed "En definitiva… un antes y un después" and "¡No dudes en contactarnos…!".
+
+**What stayed exactly as it was**
+- The front matter and all headings.
+- The customer quote and its attribution.
+- The code spans, the `POST /v2/facturas/lote` endpoint and the URL.
+- Every number: 10.000, 2.500, 1,2, 4,8, 30, 60 and 4.2.0.
+
+I didn't add any fact, first-person word or claim that the source lacks.
+
+**Residuals:** none. The only dash left is the one before the quote attribution, which belongs to the quote and which I was asked to keep.

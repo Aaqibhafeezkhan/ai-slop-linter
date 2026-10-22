@@ -1,0 +1,6 @@
+{"output":"README.md",
+"facts":["tidyfeed","RSS and Atom","ISO 8601","UTF-8","1.6.2","50 MB","3 seconds","2023","Python 3.9","MIT","https://tidyfeed.example.com/docs","`--keep-days 30`","30 days","tidyfeed clean feed.xml -o clean.xml","pip install tidyfeed==1.6.2"],
+"tells":["sure! here's","polished","cutting-edge","blazing-fast","empowers","seamlessly","rich tapestry","elevate your workflow","in the ever-evolving world","serves as a testament","whether you're a seasoned","simply run","i hope this helps","feel free to reach out","let me know if you want",{"re":"—|–"}],
+"protected":["pip install tidyfeed==1.6.2","tidyfeed clean feed.xml -o clean.xml"],
+"forbidden_added":["we","our","us","my","we're","let's"],
+"language_absent":["der","die","und","el","para"]}

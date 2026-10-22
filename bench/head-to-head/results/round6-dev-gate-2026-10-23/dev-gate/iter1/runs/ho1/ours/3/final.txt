@@ -1,0 +1,10 @@
+I rewrote `pr.md` in place. The linter now grades it A with 0 findings, and `--verify` passes.
+
+- **Removed:** the chatbot wrapper ("Great question", "Let me know if…", "I hope this helps"), the "In conclusion" closer, filler such as "it's important to note" and "it's worth noting", and the sales words ("seamlessly", "game-changer", "robust", "pivotal", "leverages", "delves").
+- **Reworded:** the bullets now say what the change does, for example "Adds exponential backoff" and "Records each attempt… from the failure path".
+- **Kept exactly:** the code spans, v3.8.0, the URL, the YAML block, the quoted phrase, all numbers and the headings.
+- **Dash:** I replaced the em dash outside the quote with a comma.
+
+**Added comment:** I added `<!-- slop-ignore-next-line ai-vocabulary -->` above the Notes sentence. The required quote contains "robust" and "seamless", which the linter flags. The comment doesn't show when the page renders. Delete it if you don't want it in the published file, and the linter will flag those two words again.
+
+**Residuals:** "robust, seamless" in the quoted phrase stays because you required the quote unchanged.

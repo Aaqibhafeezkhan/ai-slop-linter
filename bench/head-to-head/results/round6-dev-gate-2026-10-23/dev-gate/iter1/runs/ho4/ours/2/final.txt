@@ -1,0 +1,7 @@
+No change needed. I left `status.md` untouched.
+
+The linter graded it A (0 findings) with `--language nl`. `--verify` printed "clean source: no edit is expected" and "verify: ok (unchanged)". The text is short and plain. It has no contrast framing, no closer, no inflated wording and no hedges on effects. It has no Dutch reference file, so I read `en.md` and found none of its tells here.
+
+Rewriting would only add risk to the names, numbers, dates, amounts, the code span `import_klanten.py` and the URL.
+
+Residuals: none.

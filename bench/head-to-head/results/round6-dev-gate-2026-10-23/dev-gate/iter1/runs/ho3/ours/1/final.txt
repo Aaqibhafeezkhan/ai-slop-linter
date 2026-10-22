@@ -1,0 +1,9 @@
+Reescrevi `incidente.md` no próprio arquivo, em português.
+
+- **Removido:** a abertura "Com certeza! Segue abaixo...", o fecho "Espero que este resumo ajude!" e o "Em suma...", além de expressões de enchimento como "É importante ressaltar" e "Vale destacar". Tirei também a frase "a equipe agiu rapidamente... experiência fluida", que não tinha fato por trás.
+- **Reescrito:** o resumo agora diz o que aconteceu e como foi resolvido. A causa raiz e o impacto ficaram em frases diretas e curtas.
+- **Resumo:** troquei "impactando potencialmente uma parcela dos clientes" por "parte dos pagamentos falhou". A seção de impacto já registra 1.340 falhas, então "potencialmente" não fazia sentido.
+- **Causa raiz:** mantive a incerteza do original ("parece" virou "tudo indica").
+- **Intactos:** a tabela da linha do tempo, os nomes em code span (`pagamentos-api`, `transacoes`), as versões 2.19.0 e 2.18.4, os horários, os números e a URL.
+
+O "cerca de 45 minutos" no resumo vem da seção de impacto do próprio texto. Pela tabela, o intervalo entre o alerta (14:02) e a normalização (14:47) também dá 45 minutos.

@@ -1,0 +1,11 @@
+I rewrote `README.md` in place. `npx ai-slop-linter` now reports grade A with 0 findings, down from F with 10.
+
+The installed linter doesn't support `--verify` or `--compare`, so I couldn't run those two checks. I diffed the new file against the original instead. The diff shows only prose changes, and every fact you listed is still in the file, character for character: the two shell blocks, 1.6.2, Python 3.9, ISO 8601, UTF-8, 50 MB, `--keep-days 30`, the URL and the file names.
+
+What changed:
+- **Removed chatbot text:** "Sure! Here's a polished README intro…" at the top, and "I hope this helps! Feel free to reach out… let me know if you want a different tone" in the license section.
+- **Intro:** replaced the sales copy ("cutting-edge, blazing-fast… empowers… seamlessly… rich tapestry… elevate your workflow") with one plain sentence: tidyfeed is a command-line tool that cleans up RSS and Atom feeds.
+- **"Why tidyfeed?":** dropped "ever-evolving world of content syndication" and the em dash. I also cut "serves as a testament to what a thoughtful tool can achieve", which had no content.
+- **Quick start:** "Simply run the following command" became "To clean a feed, run:".
+
+Residuals: none that I know of. I did not add any first-person wording or new claims. The heading "Why tidyfeed?" stays because headings must not change.

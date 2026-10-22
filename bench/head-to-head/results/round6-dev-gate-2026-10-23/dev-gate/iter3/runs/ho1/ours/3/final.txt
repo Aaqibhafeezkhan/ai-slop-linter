@@ -1,0 +1,13 @@
+I rewrote `pr.md` in place. The linter went from grade F (16 findings) to C (2 findings).
+
+The installed linter is an old version and doesn't support `--compare` or `--verify`, so I checked facts by hand. The code spans, v3.8.0, the URL, the YAML block, the numbers (5, 250, 214, 503, 250 ms and 500 ms) and the quoted phrase are all unchanged.
+
+What I changed:
+- **Chatbot residue:** I removed "Hey! Great question…", "Let me know if…" and "I hope this helps".
+- **Closing paragraph:** I removed "In conclusion… pivotal step…", since it only restated the summary.
+- **Filler and sales words:** I cut "seamlessly", "game-changer", "In today's fast-paced…", "it's important to note", "It's worth noting" and "Leverages". I also dropped "robust" from the bullet and replaced "Delves into" with plain wording.
+- **Dash:** I replaced the em dash in Notes with a comma.
+- **"could potentially cause":** I changed it to "could cause", which keeps the hedge but drops the double hedge.
+- **Phrasing:** I rewrote the third bullet as "Records each attempt… from the failure path in `dispatcher.ts`". The meaning is the same.
+
+Residuals: the two remaining findings are "robust" and "seamless" inside the quoted upstream docs phrase "a robust, seamless delivery guarantee". You told me to keep that quote exactly, so I left both.

@@ -1,0 +1,18 @@
+Rewrite of `pr.md` is finished. The linter now grades it A and `--verify` exits 0.
+
+**What I removed:**
+- The chat wrapper: "Hey! Great question…", "Let me know…" and "I hope this helps".
+- The closing "In conclusion…" paragraph.
+- The filler and stock words: "seamlessly", "game-changer", "fast-paced landscape", "it's important to note", "It's worth noting", "Leverages", "robust", "Delves into", "pivotal".
+- The em dash in the Notes section. It is now a comma.
+
+**What I kept unchanged:**
+- The code spans, v3.8.0, the URL, the YAML block and the quoted phrase.
+- The numbers, including "up to 5 times", the 214 tests and the 250 ms and 500 ms delays.
+- The headings, apart from the opening line above Summary.
+
+I also made two small wording changes. "Leverages a robust exponential backoff" became "Adds exponential backoff". "Delves into the failure path" became "Hooks into the failure path". "Could potentially cause" became "could cause".
+
+**One silenced finding:** the linter flags "robust" and "seamless" inside the quoted phrase. I left the quote as it was and added `<!-- slop-ignore-next-line ai-vocabulary -->` above that line. It is an HTML comment, so it doesn't render, but you can delete it before publishing if you prefer.
+
+Residuals: "robust, seamless" in the quoted upstream phrase, kept because it is a quotation you asked me to preserve.

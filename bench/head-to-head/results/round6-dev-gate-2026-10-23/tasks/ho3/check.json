@@ -1,0 +1,6 @@
+{"output":"incidente.md",
+"facts":["7 de maio de 2026","`pagamentos-api`","14:02","3 s","Rafael Souza","502","2.19.0","2.18.4","0,2%","`transacoes`","limite de 80","1.340 pagamentos","45 minutos","120 conexões","https://wiki.example.com/runbooks/pagamentos","14:47","Nenhum valor foi cobrado em duplicidade"],
+"tells":["com certeza!","resumo abrangente","significativa","potencialmente","é importante ressaltar","garantindo uma experiência fluida","vale destacar","parece estar relacionada","em um cenário de","em última análise","espero que este resumo ajude","fique à vontade","em suma","valioso aprendizado",{"re":"—|–"}],
+"protected":["| Horário (UTC-3) | Evento |\n|---|---|\n| 14:02 | Alerta de latência acima de 3 s no `pagamentos-api` |\n| 14:09 | Plantonista Rafael Souza confirma erro 502 |\n| 14:31 | Rollback da versão 2.19.0 para 2.18.4 |\n| 14:47 | Taxa de erro volta a 0,2% |"],
+"forbidden_added":["nós","nosso","nossa","nossos","nossas","eu","meu","minha","estamos","fizemos","acreditamos"],
+"language_absent":["the","and","with","this","please"]}

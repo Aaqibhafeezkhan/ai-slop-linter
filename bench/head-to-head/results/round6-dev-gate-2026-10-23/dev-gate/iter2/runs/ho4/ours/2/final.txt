@@ -1,0 +1,11 @@
+Ik heb `status.md` niet aangepast. De tekst bevat geen van de patronen waarop ik controleer, dus er viel niets te herschrijven.
+
+- **Linter:** `npx ai-slop-linter --language nl` geeft cijfer A met 0 bevindingen op 189 woorden. De regels `dash` en `title-case-heading` draaien niet bij niet-Engelse tekst.
+- **Verify:** `--verify` meldt `clean source: no edit is expected` en `verify: ok (unchanged)`, exit 0.
+- **Handmatige controle:** Er is geen Nederlands referentiebestand. Daarom heb ik de tekst zelf gelezen op modale hedges, vage verwijzingen, opsommingsopeners, opeenstapelde versterkers en assistent-taal. Ik vond niets. De zinnen zijn kort en concreet, met namen, aantallen en data, en ze lopen niet naar een samenvattende slotzin toe.
+
+Een herschrijving zou alleen de eigen zinnen van de schrijver vervangen en geen tell wegnemen. De namen, data, bedragen, `import_klanten.py` en de URL staan nog precies zoals ze waren.
+
+Als de tekst toch nog te vlak of te rapportachtig klinkt, kun je dat aangeven. Dat is dan een kwestie van stijl en niet van AI-patronen.
+
+Residuals: none.

@@ -1,0 +1,8 @@
+I rewrote `README.md` in place, and `ai-slop-linter` now grades it A with 0 findings. `--verify` against the original exits 0 (`verify: ok`). The `--verify` run also listed three "unrequested edit" lines. Those are sentences I removed on purpose: two chatbot lines ("Sure! Here's a polished README intro…") and "Simply run the following command…", which I shortened to "To clean a feed, run:".
+
+- **Chatbot text:** I removed the opening "Sure! Here's a polished README intro for your project." and the closing "I hope this helps! Feel free to reach out… let me know if you want a different tone."
+- **Hype words:** I dropped "cutting-edge, blazing-fast", "empowers developers to seamlessly", the "rich tapestry of features… elevate your workflow" line, the "seasoned engineer or just getting started" line, and "In the ever-evolving world of content syndication". The intro is now "a command-line tool that cleans up RSS and Atom feeds."
+- **Inflated phrasing:** "serves as a testament to what a thoughtful tool can achieve" is gone. I also replaced the em dash with a colon.
+- **Kept as they were:** both shell blocks, `1.6.2`, Python 3.9, `--keep-days 30`, the URL, the file names `feed.xml` and `clean.xml`, ISO 8601, UTF-8, "50 MB", "about 3 seconds", the 2023 laptop, and the MIT license line. The headings are unchanged.
+
+Residuals: none.

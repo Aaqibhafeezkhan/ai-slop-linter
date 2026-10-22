@@ -1,0 +1,9 @@
+Ik heb één wijziging in `status.md` gedaan. In "Stand van zaken" heb ik twee zinnen samengevoegd: "…staat nu in de nieuwe database, de drie overige vestigingen volgen op 16 oktober."
+
+De tekst had bijna geen kenmerken van AI-schrijfwerk. De linter vond 0 problemen (taal `nl`, score A). Ik heb de rest bewust niet herschreven. Het is een korte, concrete statusupdate zonder opgeklopte frasen, slogans of afsluiters. Meer herschrijven had alleen de eigen zinnen van de auteur weggehaald.
+
+- **Behouden:** alle namen, data, getallen, bedragen, `import_klanten.py` en de URL staan nog letterlijk in het bestand. `diff` laat alleen die ene regel zien.
+- **Controle:** de geïnstalleerde linter kent `--compare` en `--verify` niet. Ik kon dus alleen de gewone lint en de `diff` draaien. Het Nederlands heeft ook geen eigen referentiebestand, dus ik heb `en.md` gebruikt als richtlijn.
+- **Gecorrigeerd:** ik had eerst "We hebben het veld verbreed" geschreven. Dat voegde een "we" toe dat in de bron niet staat, dus ik heb het teruggezet naar de originele passieve zin.
+
+Residuals: geen.

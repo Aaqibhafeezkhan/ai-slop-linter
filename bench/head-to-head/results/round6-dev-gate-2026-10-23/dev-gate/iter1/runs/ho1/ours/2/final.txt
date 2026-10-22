@@ -1,0 +1,9 @@
+I rewrote `pr.md` in place. The linter grades it A, and `--verify` exits 0.
+
+- **Removed:** the "Great question" opener, the "In conclusion" paragraph, "Let me know if…", "I hope this helps", and the filler phrases ("it's important to note", "it's worth noting").
+- **Reworded:** "seamlessly", "game-changer", "fast-paced landscape", "Leverages", "robust" and "Delves into" are gone. "could potentially cause" became "can cause". The em dash in Notes became a comma.
+- **Kept exactly:** the code spans, `v3.8.0`, the URL, the YAML block, and the quoted phrase in Notes.
+
+I added one line, `<!-- slop-ignore-next-line ai-vocabulary -->`, above the Notes sentence. The quoted phrase contains "robust" and "seamless", which the linter flags, and I can't edit a quote. The comment doesn't show when the file is rendered. Delete it if you don't want it in the published text, but the linter will then report two warnings on that line.
+
+Residuals: "robust, seamless delivery guarantee" stays because it is a quotation from the upstream docs.

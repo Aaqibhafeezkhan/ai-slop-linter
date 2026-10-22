@@ -1,0 +1,16 @@
+I rewrote `notas.md` in place. The linter and `--verify` both pass (grade A, `verify: ok`). The `--verify` run printed four "unrequested edit" lines, listed below. They are the four sentences I removed or rewrote on purpose, and `verify: ok` was still the result.
+
+Changes:
+- **Chatbot opener:** I deleted "¡Claro! Aquí tienes unas notas…".
+- **Summary:** The marketing paragraph ("actualización clave que revoluciona…", "En el panorama actual…", "robusta y sin fisuras") is now two plain sentences. They say only what the release contains.
+- **Novedades:**
+  - I cut the filler "Una experiencia de exportación totalmente renovada:".
+  - I cut "Es importante destacar que".
+  - I cut "Se ha mejorado significativamente".
+  - I changed "podría reducir" to "puede reducir".
+- **Cambios que requieren atención:** I cut "Cabe destacar que".
+- **Closing:** I deleted "En definitiva… un antes y un después" and the "¡No dudes en contactarnos…!" line. The source gave no contact details to keep.
+
+Left exactly as they were: the front matter, the headings, the customer quote with its attribution, the code spans, the endpoint, the URL and all numbers.
+
+Residuals: none. In the summary, "valida el NIF del cliente" restates the existing `nif_cliente` bullet, so it adds no new fact.

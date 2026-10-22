@@ -1,0 +1,12 @@
+I rewrote `pr.md` in place. It's ready to publish, though I could only partly verify the rewrite with the linter.
+
+The installed `ai-slop-linter` has no `--compare` or `--verify` option, so I diffed the files by hand. The diff shows only the tells I meant to remove. I also checked that every code span, `v3.8.0`, the URL, the YAML block, the quoted phrase and the numbers (5, 250, 214, 503, 250 ms and 500 ms) are still there. The linter now reports only `robust` and `seamless`, and both are inside the quoted phrase you said to keep.
+
+What changed:
+- **Chat wrapper:** I removed "Hey! Great question…", "In conclusion…", "Let me know if…" and "I hope this helps".
+- **Summary:** I cut "seamlessly", "game-changer", "In today's fast-paced…" and "it's important to note". "Could potentially cause" became "can cause".
+- **Bullets:** "Leverages a robust" became "Adds", and "Delves into" became "Hooks into".
+- **Testing:** I dropped "It's worth noting that".
+- **Notes:** the em dash outside the quote became a comma.
+
+Residuals: `"a robust, seamless delivery guarantee"` stays because you asked for the quote to be kept as is.

@@ -1,0 +1,14 @@
+Reescrevi o `incidente.md` no próprio arquivo e ele passou na verificação. O `--verify` terminou com código 0 e o lint ficou em nota A.
+
+**O que mudou**
+- Saíram a abertura "Com certeza! Segue abaixo um resumo abrangente…" e o fecho "Espero que este resumo ajude… valioso aprendizado".
+- O resumo agora diz que o serviço `pagamentos-api` ficou instável, que uma parcela dos clientes pode ter sido afetada e que a equipe mitigou com um rollback. Saíram "É importante ressaltar", "agiu rapidamente" e "experiência fluida".
+- Na causa raiz, saíram "Vale destacar" e "Em última análise". A frase "parece estar relacionada a… acabou sobrecarregando" virou "parece ser uma migração de índice… que com alto tráfego sobrecarregou o pool". A dúvida sobre a causa continua, mas sem o termo vago "relacionada a".
+
+**O que ficou igual:** o título, a tabela da linha do tempo, os nomes em code spans (`pagamentos-api`, `transacoes`), as versões 2.19.0 e 2.18.4, os horários, os números, a URL e a seção "Próximos passos".
+
+**Pontos a conferir**
+- A frase "A equipe mitigou o problema com um rollback" é minha síntese. O rollback já constava na tabela, mas o texto original não o citava no resumo.
+- O linter listou como "unrequested edit" as duas frases do "Com certeza! Segue…". Eram a abertura de chatbot que eu queria cortar, então a lista confirma o corte.
+
+**Residuals:** none.

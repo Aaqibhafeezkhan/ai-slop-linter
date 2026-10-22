@@ -1,0 +1,10 @@
+Reescrevi `incidente.md` no próprio arquivo, e `--verify` terminou com `verify: ok`.
+
+O que mudou:
+- **Removi o chatbot e o fecho:** "Com certeza! Segue abaixo um resumo abrangente…" e "Espero que este resumo ajude… Em suma, esse incidente é um valioso aprendizado…". O `--verify` listou os dois como "unrequested edit". Foram cortes intencionais.
+- **Resumo:** tirei "É importante ressaltar", "instabilidade significativa" e "garantindo uma experiência fluida". "Agiu rapidamente" também saiu. O texto agora diz que a equipe reverteu a versão. "Potencialmente" virou "pode ter afetado".
+- **Causa raiz:** tirei "Vale destacar" e "Em última análise". "Parece estar relacionada a" virou "parece ser", porque o texto já afirma o efeito sobre o pool de conexões. A frase longa foi dividida em três.
+
+A tabela, os nomes em code span, as versões, os horários e a URL ficaram iguais, e as seções Impacto e Próximos passos não mudaram.
+
+Residuals: none.

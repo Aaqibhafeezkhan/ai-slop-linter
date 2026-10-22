@@ -1,0 +1,13 @@
+Reescribí `notas.md` en el mismo archivo. El linter da A con 0 hallazgos. Comprobé a mano que los datos se mantienen: la instalada del CLI no tiene `--compare` ni `--verify`, así que no pude correr esas dos comprobaciones.
+
+- **Intacto:** el front matter, la cita de Marta Olmedo con su atribución, los code spans (`nif_cliente`, `POST /v2/facturas/lote`, `FACTURALIA_TIMEOUT`, `npm install facturalia@4.2.0`), la URL y todos los números. Comparé a mano el front matter, la cita y la lista de code spans, URL y números del archivo original con la de la versión nueva, y coinciden.
+- **Quitado:**
+  - La línea de asistente "¡Claro! Aquí tienes…".
+  - El resumen promocional ("revoluciona…", "robusta y sin fisuras").
+  - El cierre "En definitiva… un antes y un después… ¡No dudes en contactarnos…!".
+  - Las muletillas "Es importante destacar que" y "Cabe destacar que".
+  - "totalmente renovada" y "mejorado significativamente".
+- **Resumen nuevo:** dice qué cambia en la versión (exportación, validación del NIF, rendimiento del listado y el endpoint por lotes). Todo sale de las viñetas que ya estaban.
+- **Cambio de matiz:** "podría reducir los rechazos" pasó a "puede reducir los rechazos". Mantiene la cautela, pero con menos grado de duda.
+
+Residuals: none.

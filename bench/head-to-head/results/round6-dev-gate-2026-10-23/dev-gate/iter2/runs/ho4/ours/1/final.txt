@@ -1,0 +1,12 @@
+Eerst een korte stand van zaken. De geïnstalleerde `ai-slop-linter` is versie 0.1.10 en kent `--verify` en `--compare` niet. Ik heb het bestand daarom met de gewone lint (`--language nl`) en met de handmatige controle uit de skill nagekeken.
+
+Ik heb `status.md` niet aangepast. Ik vond niets dat een herschrijving rechtvaardigt.
+
+- **Lint:** score A, 0 bevindingen. De dash-regel is uitgeschakeld omdat de tekst Nederlands is. Er staan geen gedachtestrepen in.
+- **Handmatige controle:** ik heb de bestaande tekst gelegd naast de lijst met verdachte patronen uit `references/en.md`. Er staan geen contrasten tegen niemand, geen gedramatiseerde afsluiters, geen opgeblazen woorden, geen stapeling van voorbehouden en geen chatomhulsel. Alle zinnen noemen een feit, een naam, een datum of een bedrag. Er zijn geen aanhalingen of dialoog.
+
+Het is ook een kort, droog statusverslag in korte zinnen. Als ik daar toch in ga schrijven, voeg ik alleen nieuwe patronen toe of haal ik feiten weg. Dat regelt de skill ook zo: bij een schone bron geen wijziging.
+
+Residuen: geen.
+
+Het bestand is dus ongewijzigd. Je kunt me een passage of zin noemen die voor jou nog te machinaal klinkt. Dan pas ik die zin aan en laat ik de namen, data, getallen, bedragen, `import_klanten.py` en de URL staan.

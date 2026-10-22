@@ -1,0 +1,21 @@
+Reescribí `notas.md` en el sitio y `--verify` terminó con `verify: ok`. El linter da A, con 0 hallazgos.
+
+Lo que cambié:
+- **Envoltorio de chatbot:** quité "¡Claro! Aquí tienes unas notas de la versión completas y bien estructuradas."
+- **Resumen:** quité "revoluciona", "En el panorama actual", "robusta y sin fisuras" y "una actualización clave". Ahora dice qué trae la versión.
+- **Novedades:** quité "Una experiencia de exportación totalmente renovada:" y "Se ha mejorado significativamente el rendimiento:". Quité también "Es importante destacar que".
+- **Hedge:** "podría reducir los rechazos" pasó a "puede reducir los rechazos".
+- **Cambios que requieren atención:** quité "Cabe destacar que".
+- **Cierre:** quité "En definitiva, esta versión marca un antes y un después." y "¡No dudes en contactarnos...!". Quedó "Si tienes alguna pregunta, contáctanos."
+
+Quedaron igual:
+- el front matter,
+- los encabezados,
+- la cita de Marta Olmedo con su atribución,
+- los code spans (`nif_cliente`, `FACTURALIA_TIMEOUT`, `POST /v2/facturas/lote`, `npm install facturalia@4.2.0`),
+- la URL,
+- todos los números.
+
+`--verify` marcó cuatro "unrequested edit". Son las frases del envoltorio y los dos arranques de viñeta que corté a propósito, porque eran el tell.
+
+Residuals: ninguno.

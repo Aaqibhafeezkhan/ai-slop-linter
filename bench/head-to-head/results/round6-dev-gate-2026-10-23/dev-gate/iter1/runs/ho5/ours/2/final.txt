@@ -1,0 +1,15 @@
+I rewrote `README.md` in place. The linter now grades it A with 0 findings, and `--verify` exits 0.
+
+**What changed**
+- **Intro:** I removed the chat opener ("Sure! Here's a polished README intro…"). I cut the sales wording ("cutting-edge, blazing-fast… empowers… seamlessly… rich tapestry… elevate your workflow"). The intro is now one plain sentence.
+- **"Why tidyfeed?":** I removed "In the ever-evolving world…" and "serves as a testament…". I replaced the em dash with a colon.
+- **Quick start:** "Simply run the following command to clean a feed:" became "To clean a feed, run:".
+- **License:** I removed "I hope this helps! Feel free to reach out… let me know if you want a different tone."
+
+**Left alone**
+- Both shell blocks, `1.6.2`, `3.9`, `--keep-days 30`, the URL, "2023 laptop", "50 MB", "3 seconds", the MIT license and the headings are unchanged. `--verify` found no lost or added facts.
+- `--verify` listed "Sure!", "Here's a polished README intro for your project." and "Simply run the following command to clean a feed:" as unrequested edits. I removed those on purpose, so that is expected.
+
+**Second pass:** The "duplicate entries… removes duplicate entries" repetition in the Why section was in the source, so I kept it.
+
+**Residuals:** none.

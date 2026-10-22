@@ -1,0 +1,9 @@
+I rewrote `README.md` in place. The linter now grades it A with 0 findings, and `--verify` exits 0 (`verify: ok`).
+
+- **Chatbot residue removed:** the "Sure! Here's a polished README intro…" line, and the closing "I hope this helps! Feel free to reach out…". `--verify` lists the first as an "unrequested edit", but I cut it on purpose.
+- **Intro:** the sales wording ("cutting-edge, blazing-fast", "empowers", "seamlessly", "rich tapestry", "elevate your workflow") is replaced with "a command-line tool that cleans up RSS and Atom feeds".
+- **Why section:** I dropped the "ever-evolving world" opener and the "serves as a testament" sentence, and the em dash went with them. The three problems and the three things tidyfeed does are unchanged.
+- **Quick start:** "Simply run the following command to clean a feed:" became "To clean a feed, run:".
+- **Kept as they were:** both shell blocks, `1.6.2`, Python 3.9, ISO 8601, UTF-8, 2023, 50 MB, about 3 seconds, `--keep-days 30`, the URL, `feed.xml`, `clean.xml`, MIT, and the headings.
+
+Residuals: none.

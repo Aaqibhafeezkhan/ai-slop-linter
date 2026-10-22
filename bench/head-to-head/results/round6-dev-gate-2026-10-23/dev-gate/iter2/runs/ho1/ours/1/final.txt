@@ -1,0 +1,19 @@
+I rewrote `pr.md` in place. The linter scores it A with 0 findings, and `--verify` against the original exits 0.
+
+**Removed:**
+- The chat wrapper: "Hey! Great question…", "Let me know if…", "I hope this helps".
+- The closing "In conclusion…" paragraph.
+- Filler phrases such as "it's important to note", "it's worth noting" and "In today's fast-paced…".
+- Buzzwords: "seamlessly", "game-changer", "leverages", "robust", "delves" and "pivotal".
+
+**Reworded:**
+- "could potentially cause" is now "can cause".
+- The em dash in the Notes section is now a comma.
+
+**Kept exactly as they were:**
+- Code spans, `v3.8.0`, the URL, the YAML block and the quoted phrase in Notes.
+- The numbers (5 retries, 214 tests, 250 ms and 500 ms).
+
+**One addition:** I put an HTML comment, `<!-- slop-ignore-next-line ai-vocabulary -->`, above the quoted phrase in Notes. The linter flags "robust" and "seamless" inside that quote, and the quote has to stay. The comment doesn't show in rendered Markdown. Delete it if you don't want it in the published source.
+
+Residuals: "a robust, seamless delivery guarantee" stays because it is a quotation.

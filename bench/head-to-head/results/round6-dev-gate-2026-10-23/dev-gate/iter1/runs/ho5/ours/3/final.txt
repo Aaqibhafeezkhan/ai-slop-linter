@@ -1,0 +1,25 @@
+I rewrote `README.md` in place. The linter grades it A with 0 findings, and `--verify` exits 0.
+
+- **Removed:**
+  - The "Sure! Here's a polished README intro" line.
+  - The "I hope this helps…" closing line.
+  - The sales wording in the intro ("cutting-edge, blazing-fast", "empowers", "seamlessly", "rich tapestry", "elevate your workflow").
+  - The "seasoned engineer or just getting started" aside.
+  - "In the ever-evolving world of content syndication".
+  - "serves as a testament to what a thoughtful tool can achieve".
+  - The em dash.
+- **Reworded:** the "Why tidyfeed?" opening now says what is wrong with feeds. "Simply run the following command" became "Run this command".
+- **Kept as they were:**
+  - Both shell blocks.
+  - `1.6.2` and Python 3.9.
+  - `--keep-days 30`.
+  - The URL.
+  - `feed.xml` and `clean.xml`.
+  - ISO 8601 and UTF-8.
+  - The 2023 laptop, 50 MB and 3 seconds figures.
+  - The MIT license line and "Contributions are welcome."
+  - All headings.
+
+The "unrequested edit" lines in the verify output are the three sentences I cut or reworded above.
+
+Residuals: none.

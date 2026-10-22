@@ -1,0 +1,8 @@
+I rewrote `README.md` in place. The linter now gives it grade A with 0 findings, and `--verify` against the original exits 0.
+
+- **Removed chatbot text:** the "Sure! Here's a polished README intro…" line, and the closing "I hope this helps! Feel free to reach out… let me know if you want a different tone."
+- **Removed sales words:** "cutting-edge, blazing-fast", "empowers developers to seamlessly", "rich tapestry of features… elevate your workflow", "ever-evolving world of content syndication" and "serves as a testament". The intro is now one plain sentence: "tidyfeed is a command-line tool for cleaning up RSS and Atom feeds."
+- **Other edits:** I replaced the em dash with a comma and dropped "Simply" from "Run the following command".
+- **Unchanged:** the two shell blocks, `tidyfeed==1.6.2`, Python 3.9, `--keep-days 30`, the URL, `feed.xml` and `clean.xml`, and the 2023 laptop, 50 MB and 3 second figures. The headings, ISO 8601, UTF-8 and the MIT license line are also unchanged, and "Contributions are welcome" is kept.
+
+Residuals: none.

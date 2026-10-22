@@ -1,0 +1,9 @@
+Ik heb `status.md` niet aangepast. De tekst is al gewone, concrete Nederlandse tekst.
+
+- **Linter:** `npx ai-slop-linter --language nl status.md` geeft 0 bevindingen, score A. De dash-regel is bij Nederlands niet uitgevoerd.
+- **`--verify` en `--compare`:** de geïnstalleerde CLI is te oud. `--verify` geeft `unknown option`, dus die controle heb ik niet kunnen draaien. Dat maakt hier niet uit, want ik heb niets gewijzigd.
+- **Handmatige controle:** ik heb de tekst gelezen met de lijst uit `references/en.md`, omdat er geen Nederlands referentiebestand is. Ik vond geen contrastzinnen, kickers, slotzinnen die de tekst samenvatten, rijtjes van drie, losse zinsdelen met vage betekenis, stapels van voorbehouden of leenwoorden uit chat-taal. Elke zin bevat een feit: een naam, getal, datum of oorzaak.
+- **Wat ik liet staan:** de vaste kopjes ("Wat is gedaan", "Wat niet goed ging") komen uit een gewoon statusformat. Ze lezen niet als machinetekst.
+- **Feiten:** namen, data, getallen, bedragen, `import_klanten.py` en de URL zijn dus ongewijzigd.
+
+Residuals: none.

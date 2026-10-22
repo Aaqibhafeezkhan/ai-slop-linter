@@ -1,0 +1,13 @@
+Reescrevi o `incidente.md` no próprio arquivo e o linter dá nota A, com 0 achados. A versão instalada do `ai-slop-linter` não tem `--verify` nem `--compare`, então conferi os fatos à mão.
+
+**O que mudei**
+- **Abertura e fecho:** tirei "Com certeza! Segue abaixo…" e o fecho "Espero que este resumo ajude… valioso aprendizado". Esse fecho era a única parte do texto com tom de resposta de chatbot.
+- **Resumo:** escrevi "ficou instável e parte dos clientes pode ter sido afetada. A equipe agiu rápido para mitigar o problema." Troquei o travessão e cortei "garantindo uma experiência fluida", que não tinha fato por trás. Mantive a incerteza do original sobre os clientes afetados.
+- **Causa raiz:** saíram "Vale destacar que" e "Em última análise". "Parece estar relacionada a" virou "parece ser", porque o texto já diz que a migração sobrecarregou o pool. Dividi o período longo em três frases curtas.
+
+**O que ficou igual**
+- A tabela da linha do tempo, os nomes em code spans, as versões `2.19.0` e `2.18.4`, os horários e a URL.
+- Os números do corpo do texto (80, 120, 1.340, 45 minutos, 0,2%, 3 s) e o nome Rafael Souza.
+- As seções Impacto e Próximos passos, que já estavam em tom natural.
+
+**Resíduos:** nenhum.

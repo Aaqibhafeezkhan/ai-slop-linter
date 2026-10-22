@@ -1,0 +1,9 @@
+Ik heb `status.md` niet aangepast, want ik vond niets dat als AI-tekst opvalt.
+
+- **Gedraaid:** `npx ai-slop-linter --language nl status.md` gaf A met 0 bevindingen. `--verify` gaf `ok (unchanged)` en meldde "clean source: no edit is expected". Ik heb ook de lijst met Engelse tells erbij gehouden. Daar kwam geen enkele zin in naar boven.
+- **Gecontroleerd:** Nederlandse referentiebestanden bestaan niet, dus ik heb de tekst zelf nagelopen op de klassen uit de skill. De tekst heeft geen opgeklopte hedges, vage verwijzingen, contrastzinnen, afsluitende samenvattingen, assistent-omkadering of lijstjes van drie. De zinnen zijn concreet en bevatten namen, data en aantallen.
+- **Wel meegelezen:** "Of dat binnen het budget past, moet Karin Vos nog bevestigen" is een echte onzekerheid uit de bron. Die blijft staan.
+
+Het aanpassen van een tekst die geen tells heeft, zou alleen feiten of ruwe randen kunnen kosten. Wilt u de toon toch anders hebben, bijvoorbeeld losser, dan hoor ik graag in welke richting.
+
+Residuals: none.

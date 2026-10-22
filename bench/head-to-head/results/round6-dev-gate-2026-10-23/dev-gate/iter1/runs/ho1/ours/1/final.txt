@@ -1,0 +1,14 @@
+I rewrote `pr.md` in place. The linter grades it A with no findings, and `--verify` exits 0.
+
+**What I removed or changed:**
+- Chatbot wrapper: "Hey! Great question…", "Let me know if…", "I hope this helps".
+- Stock phrases and the summing-up closer: "seamlessly", "game-changer", "In today's fast-paced…", "it's important to note", "It's worth noting", "In conclusion… pivotal step".
+- Bullet verbs: "Leverages a robust" is now "Adds", and "Delves into" is now "Records … from the failure path in".
+- "could potentially cause" is now "could cause".
+- The em dash in the Notes sentence is now a comma.
+
+**What I kept exactly:** the code spans, v3.8.0, the URL, the YAML block, and the quoted phrase "a robust, seamless delivery guarantee". The test counts and delays (214 tests, 250 ms and 500 ms) are also unchanged.
+
+**One addition:** I put `<!-- slop-ignore-next-line ai-vocabulary -->` above the Notes line. The linter flags "robust" and "seamless" inside the required quote, and I couldn't edit them. GitHub doesn't render the comment, but delete it before publishing if you don't want it there.
+
+Residuals: "a robust, seamless delivery guarantee" stays because you required the quote unchanged.

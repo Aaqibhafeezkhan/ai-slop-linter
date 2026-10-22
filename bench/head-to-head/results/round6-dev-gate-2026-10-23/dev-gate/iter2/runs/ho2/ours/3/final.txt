@@ -1,0 +1,15 @@
+I rewrote `notas.md` in place. The linter reports grade A with 0 findings, and `--verify` passes. It ran with `--language es`.
+
+What I changed:
+- **Chatbot opener:** removed "¡Claro! Aquí tienes unas notas…".
+- **Summary:** replaced the sales paragraph ("revoluciona", "panorama actual", "robusta y sin fisuras") with two plain sentences.
+- **Release note bullets:**
+  - Dropped "experiencia totalmente renovada" and "mejorado significativamente".
+  - Dropped "Es importante destacar que".
+  - Changed "podría reducir" to "puede reducir", which keeps the hedge but lowers its degree.
+- **Breaking-change line:** dropped "Cabe destacar que".
+- **Closing:** removed "En definitiva… un antes y un después" and "¡No dudes en contactarnos!". It now ends with "Si tienes alguna pregunta, contáctanos."
+
+The front matter, the customer quote with its attribution, the code spans, the `POST /v2/facturas/lote` endpoint, the URL and all numbers are unchanged. The `--verify` run listed four "unrequested edit" lines. They are the opener sentences and the two bullet lead-ins I cut on purpose.
+
+Residuals: none.
