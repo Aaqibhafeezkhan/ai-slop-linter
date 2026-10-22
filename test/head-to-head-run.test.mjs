@@ -98,7 +98,7 @@ function caseScores(arms) {
   return byTaskArm;
 }
 
-// Rival sums per task (blader natural): seven tasks at 12 and six at 11, total 150 of 195 (mean 50).
+// Rival sums per task (blader natural): seven tasks at 12 and the other five at 11, total 139 of 180 (mean 46.33 of 60).
 const RIVAL = Object.fromEntries(IDS.map((t, i) => [t, i < 7 ? 12 : 11]));
 const ONLY_ZERO = { unslop: 0, "unslop-inv": 0, everwrite: 0, "everwrite-inv": 0, base: 0, "blader-inv": 0 };
 const PASSING = { ours: 15, blader: RIVAL, ...ONLY_ZERO };
@@ -162,13 +162,105 @@ test("win rule fails when ours ties the rival on one task, even with a high tota
   assert.match(out, /Failing tasks: h3$/m);
 });
 
-test("win rule fails when the total is below 20 percent above the rival, passes at exactly 20 percent", () => {
-  // Rival total is 150 (of 195). 20 percent above is 180; 178 is below it.
-  const ours178 = Object.fromEntries(IDS.map((t, i) => [t, i < 9 ? 14 : 13]));
-  const fail = summarize(scoresFor(caseScores({ ...PASSING, ours: ours178 })));
-  assert.match(fail, /Win rule: FAIL/);
-  assert.match(fail, /Failing tasks: none$/m);
-  assert.match(summarize(scoresFor(caseScores(PASSING))), /Win rule: PASS/);
+// ---- the win rule as restated by the owner on 2026-10-22 --------------------------------------------------------
+// Rule A: ours' lost points (maximum total minus ours' total) at most 0.8 times the best other arm's lost points.
+// Rule B with the ceiling rule: strictly above every other arm on every task; a rival at the task maximum needs
+// ours at the maximum too. Sums below are per cell of three runs (15 = mean 5.00, the task maximum).
+const ALL_15 = Object.fromEntries(IDS.map((t) => [t, 15]));
+const ALL_0 = Object.fromEntries(IDS.map((t) => [t, 0]));
+const OTHERS_0 = { "blader-inv": 0, unslop: 0, "unslop-inv": 0, everwrite: 0, "everwrite-inv": 0, base: 0 };
+const restated = (ours, blader) => summarize(scoresFor(caseScores({ ours: { ...ALL_15, ...ours }, blader: { ...ALL_0, ...blader }, ...OTHERS_0 })));
+
+test("the active task set has twelve tasks of five outcome points each, so the maximum total is 60", () => {
+  assert.equal(IDS.length, 12);
+  assert.match(restated({}, {}), /^Total \(OUTCOME, of 60\): ours 60\.00 vs strongest other arm blader 0\.00$/m);
+});
+
+test("ceiling rule: a tie at the task maximum passes", () => {
+  const out = restated({}, { h1: 15 });
+  assert.match(out, /Rule B \(.*\): PASS \(12 of 12 tasks pass\)/);
+  assert.match(out, /Win rule: PASS/);
+  assert.match(out, /Failing tasks: none$/m);
+});
+
+test("ceiling rule: a rival at the maximum where ours is not fails the task, with the reason", () => {
+  const out = restated({ h1: 14 }, { h1: 15 });
+  assert.match(out, /Rule A \(.*\): PASS/, "rule A alone would pass");
+  assert.match(out, /Rule B \(.*\): FAIL \(11 of 12 tasks pass\)/);
+  assert.match(out, /Win rule: FAIL/);
+  assert.match(out, /Failing tasks: h1$/m);
+  assert.match(out, /^- h1: rival at max, we are not: blader at the maximum 5\.00, ours 4\.67$/m);
+});
+
+test("rule B: strictly above every other arm below the maximum passes", () => {
+  const out = restated({ h1: 13 }, { h1: 12 });
+  assert.match(out, /Rule B \(.*\): PASS/);
+  assert.match(out, /Win rule: PASS/);
+});
+
+test("rule B: equal to the best rival below the maximum fails, and so does below", () => {
+  const equal = restated({ h1: 12 }, { h1: 12 });
+  assert.match(equal, /Win rule: FAIL/);
+  assert.match(equal, /Failing tasks: h1$/m);
+  assert.match(equal, /^- h1: not above rival blader \(ours 4\.00 vs 4\.00, maximum 5\.00\)$/m);
+  const below = restated({ h1: 11 }, { h1: 12 });
+  assert.match(below, /^- h1: below rival blader \(ours 3\.67 vs 4\.00, maximum 5\.00\)$/m);
+});
+
+test("rule A: ours losing exactly 0.8 times the best other arm's lost points passes", () => {
+  // blader is at the maximum on eleven tasks (ours too) and at 10 of 15 on h1: it loses 5/3 = 1.67 points.
+  // Ours scores 11 of 15 on h1 (above blader): it loses 4/3 = 1.33 points, exactly 0.8 x 1.67.
+  const out = restated({ h1: 11 }, { ...ALL_15, h1: 10 });
+  assert.match(out, /^Lost points: ours 1\.33, strongest other arm 1\.67; limit 0\.8 x 1\.67 = 1\.33$/m);
+  assert.match(out, /Rule A \(.*\): PASS \(ours lost 1\.33, limit 1\.33\)/);
+  assert.match(out, /Rule B \(.*\): PASS/);
+  assert.match(out, /Win rule: PASS/);
+});
+
+test("rule A: ours losing slightly more than 0.8 times the best other arm's lost points fails", () => {
+  // blader loses 6/3 = 2.00 points on h1 (limit 1.60); ours loses 5/3 = 1.67 and is still above blader on h1.
+  const out = restated({ h1: 10 }, { ...ALL_15, h1: 9 });
+  assert.match(out, /Rule A \(.*\): FAIL \(ours lost 1\.67, limit 1\.60\)/);
+  assert.match(out, /Rule B \(.*\): PASS/, "rule B alone would pass");
+  assert.match(out, /Win rule: FAIL/);
+  assert.match(out, /Failing tasks: none$/m);
+});
+
+test("rule A: when the best other arm lost 0 points, ours must lose 0", () => {
+  const tie = restated({}, ALL_15);
+  assert.match(tie, /Rule A \(.*\): PASS \(ours lost 0\.00, limit 0\.00; the strongest other arm lost 0, so ours must lose 0\)/);
+  assert.match(tie, /Win rule: PASS/);
+  const short = restated({ h1: 14 }, ALL_15);
+  assert.match(short, /Rule A \(.*\): FAIL \(ours lost 0\.33, limit 0\.00; the strongest other arm lost 0, so ours must lose 0\)/);
+  assert.match(short, /Win rule: FAIL/);
+});
+
+test("rule A: the best other arm is the rival with the highest total, the baseline included", () => {
+  const out = summarize(scoresFor(caseScores({ ours: { ...ALL_15, h1: 13 }, blader: { ...ALL_0, h1: 12 }, ...OTHERS_0, base: { ...ALL_15, h1: 12 } })));
+  assert.match(out, /^Total \(OUTCOME, of 60\): ours 59\.33 vs strongest other arm base 59\.00$/m);
+  // base lost 1.00 (limit 0.80); ours lost 0.67.
+  assert.match(out, /Rule A \(.*\): PASS \(ours lost 0\.67, limit 0\.80\)/);
+});
+
+test("round 1 under the restated rules: lost 5.67 against a limit of 2.93, six tasks fail", () => {
+  // The per-run OUTCOME scores of round 1, copied from docs/HEAD-TO-HEAD.md ("Results, round 1", per run).
+  const doc = readFileSync(join(ROOT, "docs", "HEAD-TO-HEAD.md"), "utf8");
+  const section = doc.slice(doc.indexOf("Per run (the three scores of each cell"), doc.indexOf("Process column, not part of the gate"));
+  const header = section.split("\n").find((l) => l.startsWith("| Task |")).split("|").slice(2, -1).map((c) => c.trim());
+  const byTaskArm = {};
+  for (const line of section.split("\n").filter((l) => /^\| h\d+ \|/.test(l))) {
+    const [task, ...cells] = line.split("|").slice(1, -1).map((c) => c.trim());
+    byTaskArm[task] = Object.fromEntries(header.map((arm, i) => [arm, cells[i].split(",").map(Number)]));
+  }
+  assert.deepEqual(Object.keys(byTaskArm), IDS);
+  const out = summarize(scoresFor(byTaskArm));
+  assert.match(out, /^Total \(OUTCOME, of 60\): ours 54\.33 vs strongest other arm blader-inv 56\.33$/m);
+  assert.match(out, /^Lost points: ours 5\.67, strongest other arm 3\.67; limit 0\.8 x 3\.67 = 2\.93$/m);
+  assert.match(out, /Rule A \(.*\): FAIL \(ours lost 5\.67, limit 2\.93\)/);
+  assert.match(out, /Rule B \(.*\): FAIL \(6 of 12 tasks pass\)/);
+  assert.match(out, /^Failing tasks: h1, h2, h9, h10, h17, h18$/m);
+  assert.match(out, /^- h9: below rival base \(ours 4\.00 vs 4\.67, maximum 5\.00\)$/m);
+  assert.match(out, /^- h1: rival at max, we are not: blader-inv, everwrite at the maximum 5\.00, ours 4\.33$/m);
 });
 
 test("a missing blind verdict prints INCOMPLETE instead of PASS or FAIL", () => {
@@ -219,12 +311,13 @@ test("OUTCOME counts only outcome-labelled criteria; a failing process criterion
 });
 
 test("a process criterion cannot rescue a failing outcome: only outcome points decide the gate", () => {
-  const labels = labelsFile({ "h1.C5": "process" });
-  // Ours ties the rival on the four outcome criteria of h1 and wins the process criterion.
+  const labels = labelsFile({ "h1.C1": "process" });
+  // Ours ties the rival on three of the four outcome criteria of h1 (below the maximum) and wins the process
+  // criterion C1.
   const arms = caseScores({ ...PASSING });
-  arms.h1.ours = [5, 5, 5]; // four outcome points plus the process point
-  arms.h1.blader = [4, 4, 4];
+  arms.h1.ours = [4, 4, 4]; // the process point C1 plus outcome C2 to C4
   const scores = scoresFor(arms);
+  for (let i = 1; i <= 3; i++) scores[`h1-blader-${i}`] = { C1: false, C2: true, C3: true, C4: true, C5: false };
   const out = summarize(scores, { labels });
   assert.match(out, /Win rule: FAIL/);
   assert.match(out, /Failing tasks: h1$/m);
@@ -250,8 +343,9 @@ test("better arm: the invoked arm counts when it has the higher OUTCOME total, a
   const natural = summarize(scoresFor(inv));
   assert.match(natural, /Better arm per competitor .*blader=blader,/);
 
-  // Invoked arm higher in total than natural, and it ties ours (15) on h2: the gate fails on h2.
-  const arms = caseScores({ ...PASSING, blader: 6, "blader-inv": { ...Object.fromEntries(IDS.map((t) => [t, 10])), h2: 15 } });
+  // Invoked arm higher in total than natural, and it is at the maximum on h2 where ours (14) is not: the gate
+  // fails on h2 (the ceiling rule).
+  const arms = caseScores({ ...PASSING, ours: { ...Object.fromEntries(IDS.map((t) => [t, 15])), h2: 14 }, blader: 6, "blader-inv": { ...Object.fromEntries(IDS.map((t) => [t, 10])), h2: 15 } });
   const out = summarize(scoresFor(arms));
   assert.match(out, /Better arm per competitor .*blader=blader-inv/);
   assert.match(out, /Win rule: FAIL/);
@@ -278,29 +372,33 @@ test("rule B compares ours with the per-task maximum over ALL rival arms: an inv
 test("rule B includes the base arm and the natural arm of every competitor", () => {
   const zero = Object.fromEntries(IDS.map((t) => [t, 0]));
   for (const arm of ["base", "unslop", "everwrite-inv"]) {
-    const arms = caseScores({ ...PASSING, ...ONLY_ZERO, blader: zero, [arm]: { ...zero, h14: 15 }, ours: { ...Object.fromEntries(IDS.map((t) => [t, 15])), h14: 15 } });
+    // The rival ties ours below the maximum on h14.
+    const arms = caseScores({ ...PASSING, ...ONLY_ZERO, blader: zero, [arm]: { ...zero, h14: 14 }, ours: { ...Object.fromEntries(IDS.map((t) => [t, 15])), h14: 14 } });
     const out = summarize(scoresFor(arms));
     assert.match(out, /Win rule: FAIL/, arm);
     assert.match(out, /Failing tasks: h14$/m, arm);
   }
 });
 
-test("rule A uses the highest total of any single arm, not the sum of the per-task maxima", () => {
-  // Blader natural scores 12 on the first six tasks, blader-inv 12 on the other six: each arm totals 24,
-  // the per-task maxima total 48. Ours is 14 everywhere (56): above every arm on every task and 2.33 times
-  // the strongest single arm, so the round passes.
+test("rule A uses the lost points of the best single arm, not of the sum of the per-task maxima", () => {
+  // Blader natural scores 12 (mean 4) on the first six tasks, blader-inv 6 (mean 2) on the other six: the best
+  // single arm totals 24 and loses 36 (limit 28.80); the per-task maxima total 36 and lose 24 (limit 19.20).
+  // Ours scores 13 and 7 (above every arm on every task), totals 40 and loses 20: it passes against the best
+  // single arm, and would fail against the per-task maxima.
   const zero = Object.fromEntries(IDS.map((t) => [t, 0]));
   const first = Object.fromEntries(IDS.map((t, i) => [t, i < 6 ? 12 : 0]));
-  const second = Object.fromEntries(IDS.map((t, i) => [t, i < 6 ? 0 : 12]));
-  const out = summarize(scoresFor(caseScores({ ours: 14, blader: first, "blader-inv": second, unslop: zero, "unslop-inv": zero, everwrite: zero, "everwrite-inv": zero, base: zero })));
+  const second = Object.fromEntries(IDS.map((t, i) => [t, i < 6 ? 0 : 6]));
+  const ours = Object.fromEntries(IDS.map((t, i) => [t, i < 6 ? 13 : 7]));
+  const out = summarize(scoresFor(caseScores({ ours, blader: first, "blader-inv": second, unslop: zero, "unslop-inv": zero, everwrite: zero, "everwrite-inv": zero, base: zero })));
+  assert.match(out, /^Lost points: ours 20\.00, strongest other arm 36\.00; limit 0\.8 x 36\.00 = 28\.80$/m);
   assert.match(out, /Win rule: PASS/);
-  assert.match(out, /ratio 2\.\d+/);
 });
 
-test("rule A fails when ours is under 1.2 times the highest total of any other single arm, even if that arm is an invoked one", () => {
-  // blader-inv totals 150 (see RIVAL); ours 178 is under 1.2 x 150 = 180.
-  const ours178 = Object.fromEntries(IDS.map((t, i) => [t, i < 9 ? 14 : 13]));
-  const out = summarize(scoresFor(caseScores({ ...PASSING, blader: 0, "blader-inv": RIVAL, ours: ours178 })));
+test("rule A fails when the best other arm is an invoked one and ours loses more than 0.8 times its lost points", () => {
+  // blader-inv loses 2.00 points on h1 (limit 1.60); ours loses 1.67 there and is still above it on every task.
+  const out = summarize(scoresFor(caseScores({ ...ONLY_ZERO, blader: 0, "blader-inv": { ...Object.fromEntries(IDS.map((t) => [t, 15])), h1: 9 }, ours: { ...Object.fromEntries(IDS.map((t) => [t, 15])), h1: 10 } })));
+  assert.match(out, /vs strongest other arm blader-inv 58\.00$/m);
+  assert.match(out, /Rule A \(.*\): FAIL \(ours lost 1\.67, limit 1\.60\)/);
   assert.match(out, /Win rule: FAIL/);
   assert.match(out, /Failing tasks: none$/m);
 });

@@ -9,12 +9,17 @@
 //
 // Arms: ours, base, and for each competitor a natural arm and an invoked arm (-inv).
 //
-// Win rule (OUTCOME scores only; the rivals are every other counted arm: all competitor arms, natural and
-// invoked, and the base arm). Rule B: on every task ours has a mean strictly above the per-task maximum
-// mean over all rivals. Rule A: ours' total is at least 1.2 times the highest total of any other single
-// arm. There is no "better arm" selection and no separate strict view. The better arm of each competitor
-// is still printed, for information only. A competitor listed as not runnable in competitors-status.json
-// is printed as "not run, <reason>" and never counted.
+// Win rule, as restated by the owner on 2026-10-22 (OUTCOME scores only; the rivals are every other counted
+// arm: all competitor arms, natural and invoked, and the base arm; comparing with the better of a competitor's
+// two forms is the same as comparing with both).
+// Rule B (per task, with the ceiling rule): on every task ours has a mean strictly above the highest mean of
+// any rival. When a rival reaches the task maximum, ours passes that task only by reaching the maximum too
+// (a tie at the maximum passes).
+// Rule A (lost points): ours' lost points (the maximum total minus ours' total) are at most 0.8 times the lost
+// points of the best other arm (the rival with the highest total). If that arm lost 0, ours must lose 0.
+// Both verdicts are printed with their numbers, and every failing task with its reason. There is no separate
+// strict view. The better arm of each competitor is still printed, for information only. A competitor listed
+// as not runnable in competitors-status.json is printed as "not run, <reason>" and never counted.
 //
 // Leaks: a scores.json row with leak: true (a tool call that mentioned the answer key, see score.mjs) is
 // printed as a LEAK line and counted in the verdict line. The verdict is INCOMPLETE until each flagged run
@@ -41,7 +46,8 @@ if (!existsSync(scoresPath)) {
   process.exit(0);
 }
 
-const RATIO = 1.2;
+// Rule A: ours may lose at most this share of the points that the best other arm lost.
+const LOST_SHARE = 0.8;
 const EPS = 1e-9;
 const readJson = (name, fallback) => {
   const p = join(h2hOut, name);
@@ -225,20 +231,40 @@ const maxOver = (task, arms) => {
   const ms = arms.map((a) => mean(task, a, "outcome")).filter((m) => m !== null);
   return ms.length ? Math.max(...ms) : null;
 };
-// Rule B: the tasks where ours is not strictly above the per-task maximum over every rival arm.
+// Rule B with the ceiling rule: per failing task, the reason. Ours passes a task when its mean is strictly
+// above the highest rival mean, or when a rival is at the task maximum and ours is at the maximum too.
 function failingTasks(arms) {
-  return ACTIVE_IDS.filter((task) => {
+  const out = [];
+  for (const task of ACTIVE_IDS) {
     const ours = mean(task, "ours", "outcome");
     const rival = maxOver(task, arms);
-    return ours === null || rival === null || !(ours > rival + EPS);
-  });
+    if (ours === null || rival === null) {
+      out.push({ task, reason: ours === null ? "ours has no runs" : "no rival has runs" });
+      continue;
+    }
+    const taskMax = outcomeIds[task].length;
+    const top = arms.filter((a) => {
+      const m = mean(task, a, "outcome");
+      return m !== null && Math.abs(m - rival) < EPS;
+    });
+    const atMax = rival >= taskMax - EPS;
+    if (atMax) {
+      if (ours >= taskMax - EPS) continue; // a tie at the maximum passes
+      out.push({ task, reason: `rival at max, we are not: ${top.join(", ")} at the maximum ${fmt(taskMax)}, ours ${fmt(ours)}` });
+    } else if (!(ours > rival + EPS)) {
+      out.push({ task, reason: `${ours < rival - EPS ? "below" : "not above"} rival ${top.join(", ")} (ours ${fmt(ours)} vs ${fmt(rival)}, maximum ${fmt(taskMax)})` });
+    }
+  }
+  return out;
 }
 const oursTotal = total("ours", "outcome");
-// Rule A: the highest total of any single other arm.
-const strongest = Math.max(0, ...rivalArms.map((a) => total(a, "outcome")));
-const totalOk = (rivalTotal) => complete("ours") && oursTotal >= RATIO * rivalTotal - EPS;
-const ratioText = (r) => (Number.isFinite(r) ? r.toFixed(3) : "inf");
-const ratioOf = (rivalTotal) => (rivalTotal > 0 ? oursTotal / rivalTotal : Infinity);
+// Rule A: lost points. The best other arm is the rival with the highest total (first in arm order on a tie).
+const bestArm = rivalArms.reduce((best, a) => (best === null || total(a, "outcome") > total(best, "outcome") + EPS ? a : best), null);
+const strongest = bestArm === null ? 0 : total(bestArm, "outcome");
+const oursLost = maxOutcome - oursTotal;
+const bestLost = maxOutcome - strongest;
+const lostLimit = LOST_SHARE * bestLost;
+const ruleAOk = complete("ours") && oursLost <= lostLimit + EPS;
 
 for (const key of leakKeys) {
   console.log(key in leakReview
@@ -246,7 +272,8 @@ for (const key of leakKeys) {
     : `LEAK: ${key} has tool calls that mention the answer key (bench/head-to-head, golden, checker-data, tasks.json, home/h, labels.json or .superpowers); review the transcript`);
 }
 console.log(`Leak-flagged runs: ${leakKeys.length} (${unreviewedLeaks.length} not reviewed, ${confirmedLeaks.length} confirmed)`);
-console.log(`Total (OUTCOME): ours ${oursTotal.toFixed(2)} vs strongest other arm ${strongest.toFixed(2)} (ratio ${ratioText(ratioOf(strongest))}, needs ${RATIO.toFixed(2)})`);
+console.log(`Total (OUTCOME, of ${maxOutcome}): ours ${oursTotal.toFixed(2)} vs strongest other arm ${bestArm ?? "none"} ${strongest.toFixed(2)}`);
+console.log(`Lost points: ours ${oursLost.toFixed(2)}, strongest other arm ${bestLost.toFixed(2)}; limit ${LOST_SHARE} x ${bestLost.toFixed(2)} = ${lostLimit.toFixed(2)}`);
 if (problems.length > 0 || missing > 0 || unreviewedLeaks.length > 0 || confirmedLeaks.length > 0) {
   const why = [
     ...problems,
@@ -257,8 +284,15 @@ if (problems.length > 0 || missing > 0 || unreviewedLeaks.length > 0 || confirme
   console.log(`Win rule: INCOMPLETE (${why})`);
 } else {
   const failing = failingTasks(rivalArms);
-  console.log(`Win rule: ${failing.length === 0 && totalOk(strongest) ? "PASS" : "FAIL"}`);
-  console.log(`Failing tasks: ${failing.length ? failing.join(", ") : "none"}`);
+  const ruleBOk = failing.length === 0;
+  console.log(
+    `Rule A (lost points at most ${LOST_SHARE} x the strongest other arm's): ${ruleAOk ? "PASS" : "FAIL"} ` +
+      `(ours lost ${oursLost.toFixed(2)}, limit ${lostLimit.toFixed(2)}${bestLost < EPS ? "; the strongest other arm lost 0, so ours must lose 0" : ""})`,
+  );
+  console.log(`Rule B (every task strictly above every other arm; a rival at the maximum needs ours at the maximum): ${ruleBOk ? "PASS" : "FAIL"} (${ACTIVE_IDS.length - failing.length} of ${ACTIVE_IDS.length} tasks pass)`);
+  console.log(`Win rule: ${ruleBOk && ruleAOk ? "PASS" : "FAIL"}`);
+  console.log(`Failing tasks: ${failing.length ? failing.map((f) => f.task).join(", ") : "none"}`);
+  for (const f of failing) console.log(`- ${f.task}: ${f.reason}`);
   if (!complete("ours")) console.log("Note: ours has no runs for at least one task.");
 }
 
