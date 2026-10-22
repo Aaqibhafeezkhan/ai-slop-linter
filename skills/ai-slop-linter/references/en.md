@@ -31,9 +31,9 @@ Every fix follows three rules. Add no fact. Change no number. Add no owner: no `
 - Shallow rider: a clause tacked on with `, highlighting`, `, ensuring`, `, reflecting` that adds meaning without a fact. Cut it, or make it a real effect the source states.
 - Borrowed authority: `experts believe`, `studies show`, `industry observers note`, a row of outlet names. Name who said what, from the source, or cut the claim. Never invent the source.
 - Sales register: `nestled in`, `boasts`, `stunning`, `breathtaking`, `a must-see`. Say what it is and where.
-- False agency: `the data tells a story`, `the numbers speak for themselves`, `the decision emerged`. Name who acted, or state the number.
+- False agency: `the data tells a story`, `the numbers speak for themselves`, `the decision emerged`. Name who acted or state the number, from the source.
 - Vague association: `associated with`, `linked to`, `in connection with` where the source names the relation. Use the relation.
-- Template balance: `While X shows promise, Y remains a challenge`, or `on one hand ... on the other` with no verdict. Say which side the facts support, or state both facts plainly.
+- Template balance: `While X shows promise, Y remains a challenge`, or `on one hand ... on the other` with no verdict. Give the verdict only if the source gives it; otherwise state both facts plainly.
 
 ## Rhythm by rule
 

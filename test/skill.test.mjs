@@ -199,6 +199,9 @@ test("SKILL.md names every reference file, says when to read it and that a faili
   assert.match(skill, /A failing compare is blocking/);
   assert.match(skill, /`added person our`/);
   assert.match(skill, /until it exits 0/);
+  // npm still serves 0.1.x, which rejects --compare: the skill must say what to do then, or a blocking
+  // compare that can never pass would hold the agent.
+  assert.match(skill, /before 0\.2\.0 that answers `--compare` with `unknown option`/);
   assert.match(skill, /UserPromptSubmit/);
 });
 
@@ -209,6 +212,8 @@ for (const file of REFERENCES) {
     assert.ok(text.split("\n").length < 250, `${file} is too long`);
     assert.match(text.split("\n")[2], /^Source: /, "the third line is not the source note");
     assert.match(text, /Add no fact\. Change no number\./);
+    // A fix direction that names a detail ("say what changes", "name who decided") ties it to the source.
+    assert.match(text, /from the source/);
     const run = spawnSync(process.execPath, ["dist/src/cli.js", "--warn", file], { encoding: "utf8" });
     assert.match(run.stdout, /, 0 findings\)/, run.stdout + run.stderr);
   });

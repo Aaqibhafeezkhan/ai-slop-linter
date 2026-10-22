@@ -76,7 +76,7 @@ The closing test: every fact in the new version must come from the source. Cutti
 
 ## If the CLI is not available
 
-Only when `npx ai-slop-linter` cannot run (no Node 20, no network), check the text by hand against the rules, and compare the facts of the rewrite against the original yourself. Fix each one you find.
+Only when `npx ai-slop-linter` cannot run (no Node 20, no network, or a version before 0.2.0 that answers `--compare` with `unknown option`), check the text by hand against the rules, and compare the facts of the rewrite against the original yourself. Fix each one you find.
 
 **Errors** (never ship these)
 - Em dashes and en dashes as dashes. Use a comma, a full stop, or a colon. Not in a non-English text where the dash is correct.

@@ -4,12 +4,12 @@ Source: written for this project from general knowledge of Spanish usage; the fa
 
 The linter ships no Spanish rule (see `docs/LANGUAGES.md`), so for Spanish text this short list and the families in `en.md` are the check. Remove what you find by judgement; judge the sentence, not the word.
 
-Every fix follows three rules. Add no fact. Change no number. Add no owner: no `nosotros`, `nuestro`, `yo` or `mi` the source does not use. Keep `tú` or `usted` as the source has it.
+Every fix follows three rules. Add no fact. Change no number. Add no owner: no `nosotros`, `nuestro`, `yo` or `mi` the source does not use. When a fix needs a detail the source lacks, cut or write the plain version, then run `--compare` again. Keep `tú` or `usted` as the source has it.
 
 ## Words used as filler
 
-- `robusto`, `fluido`, `sin fisuras`, `integral`, `crucial`, `fundamental`, `clave` (`un aspecto clave`): give the reason or the measure, or cut.
-- `potenciar`, `impulsar`, `fomentar`, `aprovechar al máximo`, `desbloquear` (unlock): say what changes.
+- `robusto`, `fluido`, `sin fisuras`, `integral`, `crucial`, `fundamental`, `clave` (`un aspecto clave`): give the reason or the measure from the source, or cut.
+- `potenciar`, `impulsar`, `fomentar`, `aprovechar al máximo`, `desbloquear` (unlock): say what changes, from the source.
 - `revolucionario`, `innovador`, `de vanguardia`, `un antes y un después`, `un verdadero testimonio de`: say what is new, or state the fact.
 - `en el corazón de`, `vibrante` (a calque), `sinergia`, `ecosistema`, `panorama`: say what is there, or name the field.
 

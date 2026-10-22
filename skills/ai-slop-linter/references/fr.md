@@ -8,7 +8,7 @@ Every fix follows three rules. Add no fact. Change no number. Add no owner: no `
 
 ## Words: replace when they are filler
 
-Each stands in for a claim. Say what happens, or cut it.
+Each stands in for a claim. Say what happens, or cut it. Every detail you name (the step saved, the reason, the field, the benefit) must come from the source.
 
 - `robuste`, `fiable` as bare praise: say what it survives or how often it fails, if the source says so.
 - `fluide`, `sans faille`, `sans couture`, `transparent` (in the English sense), `en toute simplicité`: name the step that is saved.

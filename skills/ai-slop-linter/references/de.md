@@ -8,7 +8,7 @@ Every fix follows three rules. Add no fact. Change no number. Add no owner: no `
 
 ## Words: replace on sight when used as filler
 
-Each one stands in for a claim. Say what actually happens, or cut it.
+Each one stands in for a claim. Say what actually happens, or cut it. Every detail you name (what changes, since when, for whom, which challenge) must come from the source.
 
 - `eintauchen in`, `tauchen wir ein`, `werfen wir einen Blick auf`: announce instead of start. Start with the content.
 - `beleuchten` (a topic): use `erklären`, `zeigen`, `untersuchen`.
@@ -34,7 +34,7 @@ Each one stands in for a claim. Say what actually happens, or cut it.
 - Reader steering: `Das ist wichtiger, als es klingt`, `Entscheidend dabei:`, `Wichtig zu verstehen:`, `Und genau das ist der Punkt`, `Anders gesagt` after a clear sentence. Cut the aside.
 - Faux insight: `Was die meisten übersehen`, `Was dir niemand sagt`, `Die unbequeme Wahrheit ist`. Make the claim on its own.
 - Staged emphasis: `Lies das nochmal.`, `Lass das mal sacken.`, a word in capitals for weight, `Und das Beste daran?`, `Der Clou:`, `Spoiler:`. Write the plain sentence.
-- False agency: `Die Zahlen sprechen für sich`, `Die Daten erzählen eine Geschichte`, `zeichnet ein klares Bild`. Give the number, name who decided.
+- False agency: `Die Zahlen sprechen für sich`, `Die Daten erzählen eine Geschichte`, `zeichnet ein klares Bild`. Give the number or name who decided, from the source.
 - Slogans and templates: `Weniger X. Mehr Y.`, `Drei zentrale Erkenntnisse`, `Obwohl X vielversprechend ist, bleibt Y eine Herausforderung`, `Einerseits ... andererseits` with no verdict, `In diesem Beitrag schauen wir uns ... an`.
 - Closers: `Zusammenfassend lässt sich sagen`, `Unterm Strich`, `Am Ende des Tages`, `Es bleibt abzuwarten`, `Die Zukunft bleibt spannend`, `Eines steht fest:`, `Sind Sie bereit für ...?`, `Lust auf mehr?`. End on the last fact.
 - Chat residue: `Gerne erstelle ich Ihnen`, `Ich hoffe, das hilft!`, `Lassen Sie es mich wissen, falls`, `Selbstverständlich!`, `Das ist eine gute Frage`, `Soll ich weitermachen?`, `Gehen wir das Schritt für Schritt durch`. Delete the wrapper, keep the content.
