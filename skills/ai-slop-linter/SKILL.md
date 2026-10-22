@@ -52,7 +52,7 @@ A failing compare is blocking. Lines such as `added person our`, `added claim al
 
 ## Read the reference file
 
-After the linter, read the file for the text's language in `references/` next to this file: `en.md` (English), `fr.md` (French), `de.md` (German), `es.md` (Spanish). Do it for every rewrite, English included. Each lists tells a regular expression cannot catch, with the fix direction; remove the ones you find by judgement, and add no fact, change no number. The linter ships almost no French, Spanish or German rules, so for those languages a clean lint proves little and the reference file is the check. For another language, read `en.md` and apply the families that carry over.
+After the linter, read the file for the text's language in `references/` next to this file: `en.md` (English), `fr.md` (French), `de.md` (German), `es.md` (Spanish). Do it for every rewrite, English included. Each lists tells a regular expression cannot catch, with the fix direction, in two tiers: "Act on one sighting" and "Act only when several appear" (in one paragraph). Remove the ones you find by judgement, and add no fact, change no number. The linter ships almost no French, Spanish or German rules, so for those languages a clean lint proves little and the reference file is the check. For another language, read `en.md` and apply the families that carry over.
 
 ## Add no fact
 

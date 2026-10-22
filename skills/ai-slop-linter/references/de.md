@@ -1,12 +1,16 @@
 # German tells the linter cannot see
 
-Source: adapted and rewritten from the German word lists and pattern catalog of unslop (https://github.com/jlwin/unslop_ai, commit d65241e66f2b0e0d0b305cb55dadbffac0f9ef52, MIT); see `THIRD-PARTY-NOTICES.md`.
+Source: adapted and rewritten from the German word lists and pattern catalog of unslop (https://github.com/jlwin/unslop_ai, commit d65241e66f2b0e0d0b305cb55dadbffac0f9ef52, MIT), including its load-bearing metaphor and participle tail entries; the second-tier word list adds words that Juzek (2026, https://github.com/tjuzek/ai-34-languages, commit 0cf18ff2458007fe51a14059a73d9e7468ed4da9, data CC0 1.0) measured as overused by a language model in German news text; see `THIRD-PARTY-NOTICES.md`.
 
 The linter ships no German rule (see `docs/LANGUAGES.md`), so for German text this list is the check. Read it after the linter has run and remove what you find by judgement. A word here is a tell when it is stock filler, not when it carries a technical meaning (`robust` in engineering, `Testament` in law). Judge the sentence.
 
 Every fix follows three rules. Add no fact. Change no number. Add no owner: no `wir`, `unser`, `ich` or `mein` the source does not use. When a fix needs a detail the source lacks, cut or write the plain version, then run `--compare` again. Keep `du` or `Sie` as the source has it.
 
-## Words: replace on sight when used as filler
+The entries come in two tiers. The first tier is a tell on one sighting when it is used as filler. The second tier is normal German one at a time: act only when several appear in one paragraph, or next to a first-tier entry. A sentence that holds no entry stays as it is.
+
+## Act on one sighting
+
+### Words used as filler
 
 Each one stands in for a claim. Say what actually happens, or cut it. Every detail you name (what changes, since when, for whom, which challenge) must come from the source.
 
@@ -18,15 +22,21 @@ Each one stands in for a claim. Say what actually happens, or cut it. Every deta
 - `zukunftsweisend`, `wegweisend`, `richtungsweisend`, `Meilenstein` (for a routine event): state the event plainly.
 - `die Weichen stellen`, `den Grundstein legen`, `Brücken schlagen`, `Synergien nutzen`, `Mehrwert bieten`: name the decision, the link or the benefit.
 - `zeugt von`, `unterstreicht`, `spiegelt wider`, `steht sinnbildlich für`: these add weight, not facts. Use `zeigt`, or state the fact directly.
-- `vielfältig`, `facettenreich`, `unverzichtbar`, `essenziell`, `spannend` as all-purpose praise: list the facets, give the reason, or cut.
-- `im Herzen von`, `eingebettet in`, `pulsierend`, `lebendig` for places: `liegt in`; say what is there.
+- `im Herzen von`, `eingebettet in`, `pulsierend` for places: `liegt in`; say what is there.
 - `Herausforderungen meistern`: which ones, and how.
 
-## Words: act when two or more cluster in a paragraph
+### Load-bearing metaphors
 
-`optimieren`, `effizient` (with no measure), `innovativ`, `nachhaltig` as a general adjective, `zentral`, `entscheidend`, `maßgeblich`, `umfassend`, `gezielt`, `individuell`, `flexibel`, `transparent`, `agil` as self-praise, `smart`, `digitale Lösungen`, `zeitnah`, `proaktiv`, `niederschwellig`, `praxisnah`, `zielführend`, `auf Augenhöhe`, `360-Grad`, `End-to-End` outside a real process chain. One is normal German. A cluster is a brochure. Keep the one that carries a fact.
+- A verb of weight in place of a result: `das trägt`, `das Konzept trägt`, `trägt Früchte`, `zahlt sich aus`, `greift` (`die Maßnahme greift`), `hält` (`das Argument hält`), `steht und fällt mit`. It sounds decisive and names no measure. Write the plain verb with the criterion from the source (`die Fehlerquote sank von 4 auf 2 %`), or cut the sentence. Do not reach for another image.
+- The same weight as a noun, when it names no function: `das Rückgrat`, `das Fundament`, `das Herzstück`, `die tragende Säule`. Say what the part does.
+- Literal uses stay: `die Wand trägt das Dach`, `die Datei trägt den Namen`, `das Gesetz greift ab 1. Januar` with a date.
 
-## Stock phrases
+### Participle tails
+
+- A trailing clause that grades the sentence before it: `..., was die Bedeutung von X unterstreicht`, `..., was das Engagement des Teams zeigt`, `..., womit X einen wichtigen Beitrag leistet`, `..., und setzt damit ein Zeichen`. Cut it, or give it its own sentence with a fact from the source.
+- A trailing clause that states a fact stays: `..., was die Kosten um 12 % senkte`.
+
+### Stock phrases
 
 - Openers: `In der heutigen digitalen Welt`, `In unserer schnelllebigen Zeit`, `Im Zeitalter von`, `Immer mehr Unternehmen`, `Wir alle wissen`, `Kennen Sie das?`, `Stellen Sie sich vor` in place of the argument. Start with the first fact.
 - Transitions: `Es ist wichtig zu beachten, dass`, `Dabei gilt es zu berücksichtigen`, `Hierbei spielt ... eine entscheidende Rolle`, `Doch was bedeutet das konkret?`, `Die Antwort lautet:`, `Hier kommt X ins Spiel`, `Interessanterweise`. State the point.
@@ -39,15 +49,25 @@ Each one stands in for a claim. Say what actually happens, or cut it. Every deta
 - Closers: `Zusammenfassend lässt sich sagen`, `Unterm Strich`, `Am Ende des Tages`, `Es bleibt abzuwarten`, `Die Zukunft bleibt spannend`, `Eines steht fest:`, `Sind Sie bereit für ...?`, `Lust auf mehr?`. End on the last fact.
 - Chat residue: `Gerne erstelle ich Ihnen`, `Ich hoffe, das hilft!`, `Lassen Sie es mich wissen, falls`, `Selbstverständlich!`, `Das ist eine gute Frage`, `Soll ich weitermachen?`, `Gehen wir das Schritt für Schritt durch`. Delete the wrapper, keep the content.
 
-## German special cases
+### German special cases
 
 - The `Fazit` ritual: a closing heading `Fazit` that repeats what was said. Keep a closing section only if it adds a consequence, a decision or a next step from the source; otherwise stop earlier.
 - Calques from English: `Ich hoffe, diese E-Mail erreicht Sie wohlbehalten`, over-polite openers (`Selbstverständlich unterstütze ich Sie gerne bei`). German business mail opens with the matter.
 - Register switch: `du` in one paragraph and `Sie` in the next reads as spliced text. Use the form the source uses most.
 - Sham breadth: `Von der Buchhaltung bis zur Cloud`, `Ob Handwerksbetrieb oder Konzern`. The span stands in for a claim. Name the real audience or topics from the source; a real range stays.
-- Noun chains: `die Realisierung der Optimierung der Prozesse`. Use a verb: `die Prozesse verbessern`.
 - Rhetorical question as scaffolding: `Doch wie funktioniert das?` followed by the answer. Give the answer.
 - Realization coda: `Und da wurde mir klar: ...` after a story. End on the event.
+
+## Act only when several appear
+
+One of these is normal German. A cluster is a brochure. Keep the one that carries a fact, and cut or plainly restate the rest.
+
+- Praise and process words: `optimieren`, `effizient` (with no measure), `innovativ`, `nachhaltig` as a general adjective, `zentral`, `entscheidend`, `maßgeblich`, `umfassend`, `gezielt`, `individuell`, `flexibel`, `transparent`, `agil` as self-praise, `smart`, `digitale Lösungen`, `zeitnah`, `proaktiv`, `niederschwellig`, `praxisnah`, `zielführend`, `auf Augenhöhe`, `360-Grad`, `End-to-End` outside a real process chain.
+- All-purpose praise: `vielfältig`, `facettenreich`, `unverzichtbar`, `essenziell`, `spannend`, `lebendig`.
+- Words a model overuses in German news text (Juzek 2026, CC0): `betonen`, `hervorheben`, `insbesondere`, `zudem`, `beeindruckend`, `vielversprechend`, `präzise`, `sorgfältig`, `tiefgründig`, `kontinuierlich`, `ausgewogen`, `harmonisch`, `kunstvoll`, `eingängig`, `unerlässlich`, `Herausforderung`, `Transparenz`, `Gemeinschaftsgefühl`, `Vielseitigkeit`. Several in one paragraph point to generated text; one says nothing.
+- Noun chains: `die Realisierung der Optimierung der Prozesse`. Use a verb: `die Prozesse verbessern`.
+- Parataxis chains: `Kurzer Satz. Noch einer. Und noch einer.` Join them with a conjunction where the source gives the link.
+- Stacked hedges: `könnte möglicherweise`, `unter Umständen eventuell`. One hedge, where the source is unsure.
 
 ## Leave these alone
 

@@ -260,3 +260,30 @@ test("How to work asks for the minimal edit, an outline for long texts and a sec
     assert.match(block, /How to work/, `${name} does not credit the How to work steps`);
   }
 });
+
+// Round 3 plan items 5 to 8 and 14: two tiers per reference file, the load-bearing metaphor family in
+// all four, participle and gerund tails in fr/de/es, and the CC0 words (Juzek 2026) in the second tier.
+for (const lang of ["en", "fr", "de", "es"]) {
+  const file = `skills/ai-slop-linter/references/${lang}.md`;
+  test(`${file} has the two tiers, in order, and the load-bearing metaphor family with literal uses kept`, () => {
+    const text = readFileSync(file, "utf8");
+    const one = text.indexOf("\n## Act on one sighting\n");
+    const several = text.indexOf("\n## Act only when several appear\n");
+    assert.ok(one > 0 && several > one, "the two tier headings are missing or out of order");
+    assert.match(text.slice(one, several), /Load-bearing metaphor/);
+    assert.match(text, /Literal uses stay/);
+    if (lang !== "en") {
+      assert.match(text.slice(one, several), /### (Participle|Gerund)/, "no participle or gerund tail entry in the first tier");
+      const tier2 = text.slice(several);
+      assert.match(tier2, /Juzek 2026, CC0/, "the CC0 words are not in the second tier");
+      assert.ok(readFileSync("THIRD-PARTY-NOTICES.md", "utf8").includes(file), `the notices do not name ${file}`);
+    }
+  });
+}
+
+test("the reference files quote every tell in backticks: the CLI with no --warn filter finds nothing in them", () => {
+  for (const lang of ["en", "fr", "de", "es"]) {
+    const run = spawnSync(process.execPath, ["dist/src/cli.js", "--language", "en", `skills/ai-slop-linter/references/${lang}.md`], { encoding: "utf8" });
+    assert.equal(run.status, 0, run.stdout + run.stderr);
+  }
+});
