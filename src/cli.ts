@@ -14,6 +14,7 @@ import { commitRules, lintCommitMessage } from "./commits.js";
 import { compareFacts, type Fact } from "./compare.js";
 import { scanCatalog } from "./catalog.js";
 import { prepare } from "./doc.js";
+import { structureProblems } from "./structure.js";
 import { maybeStarHint, realFs, type StarHintArgs } from "./star-hint.js";
 
 const HELP = `usage: slop [options] [file|dir|glob|-]...
@@ -303,7 +304,7 @@ const factLine = (tag: string, f: Fact) => `${tag.padEnd(6)} ${f.kind.padEnd(8)}
  * `--compare` and `slop diff`. Returns true when a fact was lost or added. Usage problems throw,
  * and main reports them with exit 2.
  */
-function readPair(o: Options, command: string): { before: string; after: string; afterArg: string } {
+function readPair(o: Options, command: string): { before: string; after: string; beforeArg: string; afterArg: string } {
   if (o.targets.length !== 2) throw new Error(`${command} takes two files: slop ${command} <before> <after> (one side may be - for stdin)`);
   const [beforeArg, afterArg] = o.targets as [string, string];
   if (beforeArg === "-" && afterArg === "-") throw new Error("only one side can be stdin (-)");
@@ -315,7 +316,7 @@ function readPair(o: Options, command: string): { before: string; after: string;
       throw new Error(`cannot read ${target}: ${(err as NodeJS.ErrnoException).code ?? "error"}`);
     }
   };
-  return { before: read(beforeArg), after: read(afterArg), afterArg };
+  return { before: read(beforeArg), after: read(afterArg), beforeArg, afterArg };
 }
 
 function compareCommand(o: Options): boolean {
@@ -334,12 +335,13 @@ function compareCommand(o: Options): boolean {
 }
 
 /**
- * `--verify <before> <after>`: the gate a rewrite has to pass. Three checks on the rewrite: the
- * lint errors (what exit 1 means for a file), the fact comparison against the original, and the
- * tell catalog of the text's language. Returns the number of problems; 0 means ok.
+ * `--verify <before> <after>`: the gate a rewrite has to pass. Four checks on the rewrite: the
+ * lint errors (what exit 1 means for a file), the fact comparison against the original, the
+ * blocks it must keep (front matter, code blocks, table rows, headings) and the tell catalog of
+ * the text's language. Returns the number of problems; 0 means ok.
  */
 function verifyCommand(o: Options): number {
-  const { before, after, afterArg } = readPair(o, "--verify");
+  const { before, after, beforeArg, afterArg } = readPair(o, "--verify");
   const config = loadConfig(o.cwd);
   const display = afterArg === "-" ? "stdin" : relative(o.cwd, resolve(o.cwd, afterArg)).split(sep).join("/");
   const per = settingsFor(config, display);
@@ -361,6 +363,11 @@ function verifyCommand(o: Options): number {
   for (const f of lost) lines.push(factLine("lost", f));
   for (const f of added) lines.push(factLine("added", f));
   problems += lost.length + added.length;
+  const markdown = (arg: string) => arg === "-" || /\.(?:md|markdown|mdx)$/i.test(arg);
+  for (const s of markdown(beforeArg) && markdown(afterArg) ? structureProblems(before, after) : []) {
+    lines.push(`${s.line}:1 structure ${s.message}`);
+    problems++;
+  }
   for (const h of scanCatalog(prepare(display, after), lint.language)) {
     lines.push(`${h.line}:${h.column} catalog ${h.phrase.replace(/\s+/g, " ")}`);
     problems++;

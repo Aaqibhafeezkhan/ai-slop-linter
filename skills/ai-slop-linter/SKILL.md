@@ -83,6 +83,12 @@ Removing tells must never add content.
 6. Check the draft: lint it, run `--verify` against the original, and fix each defect until the compare exits 0 and `--verify` exits 0.
 7. Write the final version to the file, lint it once more and run `--verify` once more.
 
+A match is a candidate. Check it against its context and against legitimate use before you edit it: a technical `may`, a quoted phrase and a term of art stay. Detection alone does not authorise a rewrite.
+
+Do not inject new tells while you remove old ones: no splitting of a long sentence into short fragments, no dramatic dashes or colons for effect, no contrarian opener (`Most people think X`) the source does not have. Keep headings, code blocks, table rows and front matter exactly as they are; `--verify` fails when one changes.
+
+End your answer with a "residuals" line: every tell you left on purpose, quoted, with the reason, or "none".
+
 The closing test: every fact in the new version must come from the source, and every sentence without a tell is the source's own sentence. Cutting and sharpening are allowed. Adding and losing are not.
 
 ## If the CLI is not available

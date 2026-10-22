@@ -46,7 +46,8 @@ export function loadCatalog(tag: string, dir: string = REFERENCES_DIR): RegExp[]
   return out;
 }
 
-const QUOTES = /"[^"\n]*"|“[^”\n]*”|«[^«»\n]*»|„[^„“”\n]*[“”]|‹[^‹›\n]*›/g;
+// A straight quote right after a digit is an inch mark (5"), never an opener.
+const QUOTES = /(?<!\d)"[^"\n]*"|“[^”\n]*”|«[^«»\n]*»|„[^„“”\n]*[“”]|‹[^‹›\n]*›/g;
 
 /** The masked text with quoted spans and dialogue lines blanked (same length). */
 function exempt(doc: Doc): string {

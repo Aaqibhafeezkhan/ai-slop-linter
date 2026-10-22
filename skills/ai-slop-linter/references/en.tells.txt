@@ -1,9 +1,13 @@
 # English first-tier tells for `ai-slop-linter --verify`. One entry per line:
 # a case-insensitive phrase, or a regular expression written as `re:<pattern>`.
 # Mirrors the "Act on one sighting" tier of en.md. Keep precision high: no bare common words.
-let us know
-let me know
-not publicly available
+re:\blet (?:me|us) know\b
+# Hedge about missing information: the text reports that a fact is not out there instead of stating one.
+re:\bnot (?:publicly|widely|readily) (?:available|documented|disclosed|accessible)\b
+re:\bremains? (?:undisclosed|undocumented|unpublished)\b
+# False agency: a tool, system or AI that decides or knows by itself.
+re:(?<![\w-])(?:tool|software|platform|ai|assistant)\s+(?:decides|chooses)(?:\s+\w+){0,4}\s+(?:for itself|on its own|by itself)\b
+re:(?<![\w-])(?:tool|software|platform|ai|assistant)\s+(?:knows|understands)\s+(?:exactly\s+)?what you\s+(?:need|want|mean)\b
 re:\bstreamlin(?:e|es|ed|ing)\b
 the uncomfortable truth is
 what most teams get wrong
