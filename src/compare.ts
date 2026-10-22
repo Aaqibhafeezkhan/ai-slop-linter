@@ -10,13 +10,18 @@
  * - `person` facts are first-person words (`our`, `we`, `ich`, `nous`), compared by count: a word
  *   that occurs more often in the rewrite is added (`In benchmarks` becoming `In our benchmarks`
  *   adds `our`, an owner the source never named), a word that occurs less often is lost. Code,
- *   urls and quoted text (straight, curly, guillemet and low quotes) are not read, so quoted
- *   speech does not count. Limits: the word lists cover English, French, Spanish, German and
- *   Turkish, chosen by the declared, front matter or detected language (English when it cannot
- *   be told); Turkish suffixes (`-im`) are not read; a word in an all-capitals token (`US`, `ME`)
- *   is never read; a capital `I` is skipped as a Roman numeral or list marker (`I.`, `Part I`),
- *   in `I/O` and in abbreviations (`I.T.`); a quotation that runs over several lines is read;
- *   a stray quotation mark can hide a stretch of text.
+ *   urls, link targets, e-mail addresses and text in double quotation marks (straight, curly,
+ *   guillemet and low quotes) are not read, so quoted speech does not count; neither is a word
+ *   joined to a letter or digit by `-`, `_`, `/`, `.` or `@` (`us-east-1`, `my-app`), except a
+ *   French hyphen (`contactez-nous`, `nous-mêmes`). Limits: the word lists cover English,
+ *   French, Spanish, German and Turkish, chosen by the declared, front matter or detected
+ *   language (English when it cannot be told, none for another detected language such as Italian; Turkish and texts under about
+ *   25 words are not detected, so declare them); Turkish suffixes (`-im`) are not read; a word in
+ *   an all-capitals token (`US`, `ME`) is never read; a lowercase `i` is never read; a capital
+ *   `I` is skipped as a Roman numeral or list marker (`I.`, `Part I`), in `I/O` and in
+ *   abbreviations (`I.T.`); single quotation marks, Markdown block quotes and indented code
+ *   blocks are read; a quotation that runs over several lines is read; a stray quotation mark
+ *   can hide a stretch of text.
  * - `claim` facts are claim words (`always`, `guaranteed`, `because`) and are reported only when
  *   the rewrite has more of them than the source. Removing a claim word is never reported. The
  *   list is short on purpose: `bench/COMPARE-WORDS.md` records each candidate word with its
@@ -181,8 +186,9 @@ export function extractFacts(text: string, options: { names?: boolean; multiWord
 
 /**
  * Every first-person word the reader recognises, by language tag. Lowercase; a trailing apostrophe
- * is an elision (French `j'`). Languages not listed here are read with the English list. Which
- * of these words may raise a flag is decided below, from the measurement in bench/COMPARE-WORDS.md.
+ * is an elision (French `j'`). A language not listed here has no person facts; text whose language
+ * cannot be told is read with the English list. Which of these words may raise a flag is decided
+ * below, from the measurement in bench/COMPARE-WORDS.md.
  */
 export const PERSON_CANDIDATES: Readonly<Record<string, readonly string[]>> = {
   en: ["i", "i'm", "i've", "i'll", "i'd", "me", "my", "mine", "myself", "we", "we're", "we've", "we'll", "we'd", "us", "our", "ours", "ourselves"],
@@ -192,10 +198,14 @@ export const PERSON_CANDIDATES: Readonly<Record<string, readonly string[]>> = {
   tr: ["ben", "biz", "bizim", "benim"],
 };
 
-/** Claim words and phrases measured for the precision rule, by language tag. */
+/**
+ * Claim words and phrases measured for the precision rule, by language tag. `leading` alone is not
+ * a candidate: technical text adds it honestly (`the leading slash`, `leading zeros`), and the
+ * corpus has no case of it either way; `industry-leading` is the claim.
+ */
 export const CLAIM_CANDIDATES: Readonly<Record<string, readonly string[]>> = {
   en: [
-    "best", "fastest", "leading", "world-class", "unmatched", "unparalleled", "only", "always", "never", "every", "everyone",
+    "best", "fastest", "world-class", "unmatched", "unparalleled", "only", "always", "never", "every", "everyone",
     "nobody", "guaranteed", "guarantees", "proven", "revolutionary", "industry-leading", "because", "therefore", "thus",
     "ensuring", "ensures", "enabling", "enables", "so that", "which means", "as a result",
   ],
@@ -222,18 +232,21 @@ export const PERSON_LOST: Readonly<Record<string, readonly string[]>> = {
 
 /** Claim words reported when the rewrite has more of them than the source (removals are never reported). */
 export const CLAIM_WORDS: Readonly<Record<string, readonly string[]>> = {
-  en: ["fastest", "leading", "world-class", "unmatched", "unparalleled", "always", "never", "every", "guaranteed", "guarantees", "proven", "revolutionary", "industry-leading", "because", "therefore", "thus", "ensuring", "ensures", "enabling", "enables", "so that", "which means", "as a result"],
+  en: ["fastest", "world-class", "unmatched", "unparalleled", "always", "never", "every", "guaranteed", "guarantees", "proven", "revolutionary", "industry-leading", "because", "therefore", "thus", "ensuring", "ensures", "enabling", "enables", "so that", "which means", "as a result"],
   fr: ["par conséquent", "donc", "car", "garantit", "toujours", "jamais"],
   es: ["por lo tanto", "siempre", "nunca", "garantiza"],
   de: ["daher", "deshalb", "immer", "nie", "garantiert"],
 };
 
-/** Text with code, urls and quoted text blanked, so none of it is read as the author's own words. */
+/** Text with code, urls, link targets and quoted text blanked, so none of it is read as the author's own words. */
 export function proseOnly(text: string): string {
   let rest = text;
-  rest = rest.replace(/^[ \t]*(`{3,}|~{3,})[^\n]*\n([\s\S]*?)^[ \t]*\1[ \t]*$/gm, blank);
+  // A fence that is never closed runs to the end of the text, as in CommonMark.
+  rest = rest.replace(/^[ \t]*(`{3,}|~{3,})[^\n]*\n([\s\S]*?)(?:^[ \t]*\1[ \t]*$|(?![\s\S]))/gm, blank);
   rest = rest.replace(/`[^`\n]+`/g, blank);
   rest = rest.replace(/https?:\/\/[^\s)>\]]+/g, blank);
+  // The target of a Markdown link or image (`[contact](#us)`); its text stays.
+  rest = rest.replace(/\]\([^)\n]*\)/g, (m) => `]${blank(m.slice(1))}`);
   rest = rest.replace(/"[^"\n]*"|“[^”\n]*”|„[^“”\n]*[“”"]|«[^»\n]*»/gu, blank);
   return rest;
 }
@@ -260,6 +273,13 @@ export function countPersonWords(text: string, tag?: string | null): Map<string,
     }
     if (!words.has(norm)) continue;
     const at = m.index!;
+    // A word joined to a letter or digit by a hyphen, underscore, slash, dot or @ is part of a
+    // name, not a pronoun: `us-east-1`, `my-app`, `my_var`, `docs/our`, `our.example`. In French
+    // a hyphen joins real pronouns (`contactez-nous`, `dites-moi`, `nous-mêmes`), so there it does not count.
+    const joiner = lang === "fr" ? /[_/.@]/u : /[-_/.@]/u;
+    const joined = (pair: string, letterFirst: boolean) =>
+      pair.length === 2 && joiner.test(pair[letterFirst ? 1 : 0]!) && /[\p{L}\d]/u.test(pair[letterFirst ? 0 : 1]!);
+    if (joined(prose.slice(Math.max(0, at - 2), at), true) || joined(prose.slice(at + raw.length, at + raw.length + 2), false)) continue;
     if (lang === "en" && /^i('|$)/.test(norm)) {
       if (raw[0] !== "I") continue;
       const next = prose[at + raw.length] ?? "";

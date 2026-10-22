@@ -95,7 +95,6 @@ Kept when lost: en: `i'd`, `us`; fr: `notre`; de: `uns`.
 |---|---|---:|---:|---:|---:|---:|---:|---|---|
 | en | `best` | 1 | 2 | 0 | 6 | 9 | 170 | dropped: flags a golden | not flagged |
 | en | `fastest` | 0 | 0 | 0 | 0 | 0 | 170 | kept | not flagged |
-| en | `leading` | 0 | 0 | 0 | 0 | 0 | 170 | kept | not flagged |
 | en | `world-class` | 0 | 0 | 0 | 0 | 0 | 170 | kept | not flagged |
 | en | `unmatched` | 0 | 0 | 0 | 0 | 0 | 170 | kept | not flagged |
 | en | `unparalleled` | 0 | 1 | 0 | 20 | 21 | 170 | kept | not flagged |
@@ -136,7 +135,7 @@ Kept when lost: en: `i'd`, `us`; fr: `notre`; de: `uns`.
 | de | `nie` | 0 | 0 | 0 | 0 | 0 | 29 | kept | not flagged |
 | de | `garantiert` | 0 | 0 | 0 | 0 | 0 | 29 | kept | not flagged |
 
-Kept: en: `fastest`, `leading`, `world-class`, `unmatched`, `unparalleled`, `always`, `never`, `every`, `guaranteed`, `guarantees`, `proven`, `revolutionary`, `industry-leading`, `because`, `therefore`, `thus`, `ensuring`, `ensures`, `enabling`, `enables`, `so that`, `which means`, `as a result`; fr: `par conséquent`, `donc`, `car`, `garantit`, `toujours`, `jamais`; es: `por lo tanto`, `siempre`, `nunca`, `garantiza`; de: `daher`, `deshalb`, `immer`, `nie`, `garantiert`.
+Kept: en: `fastest`, `world-class`, `unmatched`, `unparalleled`, `always`, `never`, `every`, `guaranteed`, `guarantees`, `proven`, `revolutionary`, `industry-leading`, `because`, `therefore`, `thus`, `ensuring`, `ensures`, `enabling`, `enables`, `so that`, `which means`, `as a result`; fr: `par conséquent`, `donc`, `car`, `garantit`, `toujours`, `jamais`; es: `por lo tanto`, `siempre`, `nunca`, `garantiza`; de: `daher`, `deshalb`, `immer`, `nie`, `garantiert`.
 
 ## This tool's own rewrites, for information
 

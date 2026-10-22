@@ -180,6 +180,15 @@ test("compare_facts reports an added first-person word and an added claim word",
   assert.deepEqual(same.result.structuredContent.lost, []);
 });
 
+test("compare_facts takes the language, which picks the word lists of a text too short to detect", () => {
+  const args = { before: "Ölçümler iki hata gösteriyor.", after: "Bizim ölçümler iki hata gösteriyor." };
+  assert.deepEqual(callTool("compare_facts", args).result.structuredContent.added, []);
+  assert.deepEqual(callTool("compare_facts", { ...args, language: "tr" }).result.structuredContent.added, [{ kind: "person", value: "bizim" }]);
+  const bad = callTool("compare_facts", { ...args, language: 3 });
+  assert.equal(bad.result.isError, true);
+  assert.match(bad.result.content[0].text, /language must be a string/);
+});
+
 test("compare_facts reports the facts a rewrite lost and added, and refuses a missing side", () => {
   const r = callTool("compare_facts", { before: "Fastq 2.3 is 40% faster.", after: "Fastq 2.3 is 45% faster." });
   assert.equal(r.result.isError, false);

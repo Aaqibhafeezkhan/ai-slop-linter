@@ -102,7 +102,7 @@ facts: 11 kept, 0 lost, 0 added
 OK: no fact lost or added
 ```
 
-It also reads first-person words and claim words, which a rewrite can add without touching a number or a name. A rewrite that turns "In benchmarks" into "In our benchmarks" prints `added  person   our` and exits 1, because the source never said whose benchmarks. Only words that passed a measurement on the head-to-head rewrites are flagged, and [`bench/COMPARE-WORDS.md`](bench/COMPARE-WORDS.md) lists every candidate word with its verdict. Quoted text and code are not read.
+It also reads first-person words and claim words, which a rewrite can add without touching a number or a name. A rewrite that turns "In benchmarks" into "In our benchmarks" prints `added  person   our` and exits 1, because the source never said whose benchmarks. Only words that passed a measurement on the head-to-head rewrites are flagged, and [`bench/COMPARE-WORDS.md`](bench/COMPARE-WORDS.md) lists every candidate word with its verdict. Text in double quotation marks, code, urls and link targets are not read.
 
 ## How it compares
 

@@ -61,10 +61,14 @@ export const TOOLS = [
   },
   {
     name: "compare_facts",
-    description: "Compare a text with its rewrite: the numbers, versions, dates, urls, issue ids, quotations, code and names that the rewrite lost or added, plus kind person (a first-person word such as our that the rewrite added, or lost) and kind claim (a claim word such as always that the rewrite added). Read-only and deterministic.",
+    description: "Compare a text with its rewrite: the numbers, versions, dates, urls, issue ids, quotations, code and names that the rewrite lost or added, plus kind person (a first-person word such as our that the rewrite added, or lost; set language for a short or Turkish text) and kind claim (a claim word such as always that the rewrite added). Read-only and deterministic.",
     inputSchema: {
       type: "object",
-      properties: { before: { type: "string", description: "The original text." }, after: { type: "string", description: "The rewritten text." } },
+      properties: {
+        before: { type: "string", description: "The original text." },
+        after: { type: "string", description: "The rewritten text." },
+        language: { type: "string", description: "BCP 47 tag of the language of both texts; it picks the first-person and claim word lists. Default auto: worked out from the front matter and the text, English if nothing is clear." },
+      },
       required: ["before", "after"],
     },
   },
@@ -123,7 +127,8 @@ function options(args: Record<string, unknown>): LintOptions {
 function run(name: string, args: Record<string, unknown>): unknown {
   if (name === "compare_facts") {
     if (typeof args.before !== "string" || typeof args.after !== "string") throw new ToolError("before and after must be strings");
-    return compareFacts(args.before, args.after);
+    if (args.language !== undefined && typeof args.language !== "string") throw new ToolError("language must be a string");
+    return compareFacts(args.before, args.after, { language: args.language });
   }
   if (name === "explain_rule") {
     const rule = allRules().find((r) => r.id === args.rule);

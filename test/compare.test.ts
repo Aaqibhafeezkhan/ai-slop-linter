@@ -461,6 +461,54 @@ test("US the country is not the pronoun us, and an all-capitals token is never r
   assert.equal(countPersonWords("Contact ME for MA and MI.", "en").size, 0);
 });
 
+test("a word joined by a hyphen, underscore, slash, dot or @ is part of a name; link targets and addresses are not read", () => {
+  assert.deepEqual(kinds("Deploy it to the default region.", "Deploy it to us-east-1, the default region.").added, []);
+  assert.deepEqual(kinds("The bucket lives in us-east-1 and serves the API.", "The bucket serves the API.").lost, []);
+  assert.deepEqual(kinds("See the guide.", "See the guide at my-org/my-app, or set my_var.").added, []);
+  assert.deepEqual(kinds("Read the [guide](docs/guide.md).", "Read the [guide](docs/our-guide.md).").added, []);
+  assert.deepEqual(kinds("Write to [the team](#team).", "Write to [the team](#us).").added, []);
+  assert.deepEqual(kinds("Visit the site.", "Visit www.our-site.com or write to our@example.org or <mailto:us@example.org>.").added, []);
+  // The link text is still read, and a spaced dash does not join.
+  assert.deepEqual(kinds("Read the [guide](docs/guide.md).", "Read [our guide](docs/guide.md).").added, ["person our"]);
+  assert.deepEqual(kinds("It works.", "It works -- we tested it.").added, ["person we"]);
+  // In French a hyphen joins real pronouns.
+  assert.deepEqual(kinds("Écrivez à l'équipe.", "Contactez-nous.", "fr").added, ["person nous"]);
+  assert.equal(countPersonWords("Nous-mêmes l'avons mesuré.", "fr").get("nous"), 1);
+});
+
+test("a fence that is never closed hides the rest of the text, as in CommonMark", () => {
+  assert.deepEqual(kinds("Run it.", "Run it.\n\n```sh\necho our we\n").added, []);
+});
+
+test("curly apostrophes and French elision are read; a lowercase i is never read", () => {
+  assert.equal(countPersonWords("We’re ready and I’m sure.", "en").get("we're"), 1);
+  assert.equal(countPersonWords("We’re ready and I’m sure.", "en").get("i'm"), 1);
+  assert.equal(countPersonWords("J’ai mesuré, puis j'ai corrigé.", "fr").get("j'"), 2);
+  assert.equal(countPersonWords("i'm sure i is the loop index.", "en").size, 0);
+});
+
+test("person words that failed the measurement are counted but never flagged when added", () => {
+  // `i`, `i'd` and German `uns` flagged too many honest rewrites when added.
+  assert.deepEqual(kinds("It helps.", "I think it helps, and I'd keep it.").added, []);
+  assert.equal(countPersonWords("I think it helps, and I'd keep it.", "en").get("i"), 1);
+  assert.deepEqual(kinds("Das hilft.", "Das hilft uns.", "de").added, []);
+});
+
+test("the person lists follow the language: none for a language without a list, front matter turns one on", () => {
+  assert.deepEqual(kinds("Il parser è veloce.", "Il nostro parser è veloce, we said.", "it").added, []);
+  assert.equal(countPersonWords("Il nostro parser è veloce, we said.", "it").size, 0);
+  const de = (body: string) => `---\nlang: de\n---\n\n${body}`;
+  assert.deepEqual(kinds(de("Die Messung zeigt zwei Fehler."), de("Unsere Messung zeigt zwei Fehler."), "auto").added, ["person unsere"]);
+  // Without the front matter, a short German text is not detected and is read as English.
+  assert.deepEqual(kinds("Die Messung zeigt zwei Fehler.", "Unsere Messung zeigt zwei Fehler.", "auto").added, []);
+});
+
+test("a claim word inside a hyphenated word is not that claim word, and leading alone is no claim", () => {
+  assert.deepEqual(kinds("A task.", "A never-ending, always-on task.").added, []);
+  assert.deepEqual(kinds("Strip the slash from the path.", "Strip the leading slash from the path.").added, []);
+  assert.deepEqual(kinds("A tool.", "An industry-leading tool.").added, ["claim industry-leading"]);
+});
+
 test("a claim word added is flagged; removing one is not", () => {
   assert.deepEqual(kinds("The parser is fast.", "The parser is always fast.").added, ["claim always"]);
   assert.deepEqual(kinds("The parser is always fast, guaranteed.", "The parser is fast.").added, []);
