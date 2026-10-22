@@ -75,3 +75,10 @@ the foreword was discarded.
 - Several nineteenth-century transcriptions type the em dash as two hyphens. The generated
   table measures that effect explicitly rather than leaving it in the numbers; see "What the
   transcription hides" in [`../TYPOGRAPHY.md`](../TYPOGRAPHY.md).
+
+## Language pack corpora
+
+The French, Spanish and German files under `bench/packs/human/` and the machine corpus under
+`bench/packs/machine/` are documented in [`../packs/MANIFEST.md`](../packs/MANIFEST.md). They
+extend this corpus for the language packs in `bench/PACKS.md`. The Wikipedia articles there are
+CC BY-SA 4.0, not MIT, and carry their own revision ids.

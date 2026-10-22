@@ -111,12 +111,12 @@ every document in those scripts scored 60 and graded F whatever its length or co
 
 | script | characters | words | score | grade |
 |---|---:|---:|---:|:--:|
-| `ar` | 831 | 146 | 20.5 | D |
+| `ar` | 831 | 146 | 0 | A |
 | `en` | 1027 | 193 | 15.5 | D |
-| `he` | 766 | 143 | 21 | D |
+| `he` | 766 | 143 | 0 | A |
 | `ja` | 465 | 240 | 12.5 | C |
-| `ko` | 506 | 129 | 23.3 | D |
-| `tr` | 1011 | 142 | 21.1 | D |
+| `ko` | 506 | 129 | 0 | A |
+| `tr` | 1011 | 142 | 0 | A |
 | `zh` | 331 | 176 | 17 | D |
 
 Words in Chinese, Japanese, Thai and the other scripts that do not separate words come from

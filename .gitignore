@@ -3,3 +3,8 @@ dist/
 _site/
 *.log
 .DS_Store
+*.vsix
+.vscode-test/
+_upstream/
+bench/head-to-head/competitors/
+bench/head-to-head/results/round-*/config-guard*.json

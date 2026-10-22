@@ -175,6 +175,14 @@ Read the right-hand column as the rate a writer of that language would meet toda
 nobody types a dash as two hyphens in a README. Read the left-hand column as a warning
 about corpora: a rule can look harmless on a language because of how the file was typed.
 
+## Sources
+
+See [\`typography/MANIFEST.md\`](typography/MANIFEST.md) for the origin and licence of every
+file, and [\`../docs/typography-across-languages.md\`](../docs/typography-across-languages.md)
+for what these numbers mean and what should be done about them.
+
+<!-- slop-ignore dash -->
+
 ## What fires, and on what
 
 One example per rule per language, so the table above can be checked against the text
@@ -194,12 +202,6 @@ ${
     })
     .join("\n") || "| | | none |"
 }
-
-## Sources
-
-See [\`typography/MANIFEST.md\`](typography/MANIFEST.md) for the origin and licence of every
-file, and [\`../docs/typography-across-languages.md\`](../docs/typography-across-languages.md)
-for what these numbers mean and what should be done about them.
 `;
 
 if (process.argv.includes("--check")) {

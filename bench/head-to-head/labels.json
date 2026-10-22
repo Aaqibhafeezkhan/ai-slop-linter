@@ -1,0 +1,403 @@
+{
+  "version": 1,
+  "labelled": "2026-10-21; 2026-10-22 (h13 to h18)",
+  "auditor": "fresh Sonnet agent, no access to the tool's code (second pass for h13 to h18: fresh Sonnet agent, no access to the tool code)",
+  "labels": {
+    "h1": {
+      "C1": {
+        "label": "outcome",
+        "reason": "Checked on the final note.md: dialogue format and quoted line."
+      },
+      "C2": {
+        "label": "outcome",
+        "reason": "Checked on the final file: listed facts present."
+      },
+      "C3": {
+        "label": "outcome",
+        "reason": "Checked on the final file: banned phrases absent."
+      },
+      "C4": {
+        "label": "outcome",
+        "reason": "Checked on the final file: word counts decide it."
+      },
+      "C5": {
+        "label": "outcome",
+        "reason": "Decided by reading the final text for meaning, added claims and naturalness."
+      }
+    },
+    "h2": {
+      "C1": {
+        "label": "outcome",
+        "reason": "Fact tokens are looked up in the final README."
+      },
+      "C2": {
+        "label": "outcome",
+        "reason": "Banned words and dashes are searched in the final README."
+      },
+      "C3": {
+        "label": "outcome",
+        "reason": "Byte comparison of preserved lines in the final file."
+      },
+      "C4": {
+        "label": "outcome",
+        "reason": "Numbers and words in the final file are compared with the fixture."
+      },
+      "C5": {
+        "label": "outcome",
+        "reason": "Judged from the final text: fabrication and human tone."
+      }
+    },
+    "h3": {
+      "C1": {
+        "label": "outcome",
+        "reason": "Listed tokens are searched in the final pr.md."
+      },
+      "C2": {
+        "label": "outcome",
+        "reason": "Byte comparison of the shell block in the final file."
+      },
+      "C3": {
+        "label": "outcome",
+        "reason": "Emoji, bullets, dashes and a phrase are checked in the final file."
+      },
+      "C4": {
+        "label": "outcome",
+        "reason": "Numbers in the final file are compared with the fixture."
+      },
+      "C5": {
+        "label": "outcome",
+        "reason": "Meaning is judged from the final text against the fixture."
+      }
+    },
+    "h4": {
+      "C1": {
+        "label": "outcome",
+        "reason": "Fact tokens are checked verbatim in the final file."
+      },
+      "C2": {
+        "label": "outcome",
+        "reason": "Numbers, URLs, code spans and capitalised words in the final file are compared with the fixture."
+      },
+      "C3": {
+        "label": "outcome",
+        "reason": "Banned phrases and dashes are searched in the final file."
+      },
+      "C4": {
+        "label": "outcome",
+        "reason": "Headings are checked in the final file."
+      },
+      "C5": {
+        "label": "outcome",
+        "reason": "Added claims are judged from the final text."
+      }
+    },
+    "h5": {
+      "C1": {
+        "label": "outcome",
+        "reason": "Byte comparison of the Spanish lines in the final file."
+      },
+      "C2": {
+        "label": "outcome",
+        "reason": "Byte comparison of the German line in the final file."
+      },
+      "C3": {
+        "label": "outcome",
+        "reason": "Byte comparison of the French line in the final file."
+      },
+      "C4": {
+        "label": "outcome",
+        "reason": "Banned phrases and dashes are searched in the final file."
+      },
+      "C5": {
+        "label": "outcome",
+        "reason": "Number tokens are checked in the final file."
+      }
+    },
+    "h6": {
+      "C1": {
+        "label": "outcome",
+        "reason": "Decided by running the delivered npm command and reading its exit code."
+      },
+      "C2": {
+        "label": "outcome",
+        "reason": "Decided by running the delivered npm command and reading its exit code."
+      },
+      "C3": {
+        "label": "outcome",
+        "reason": "Decided by running the delivered npm command and reading its exit code."
+      },
+      "C4": {
+        "label": "outcome",
+        "reason": "Decided from the delivered workflow, package.json and ci.yml files."
+      },
+      "C5": {
+        "label": "outcome",
+        "reason": "Decided by timing the delivered command and parsing the delivered package.json."
+      }
+    },
+    "h7": {
+      "C1": {
+        "label": "outcome",
+        "reason": "Required facts are matched against the final file."
+      },
+      "C2": {
+        "label": "outcome",
+        "reason": "Banned tells from the published catalog are matched against the final file."
+      },
+      "C3": {
+        "label": "outcome",
+        "reason": "Numbers, capitalised words and pronouns in the final file are compared with the before text."
+      },
+      "C4": {
+        "label": "outcome",
+        "reason": "Dashes are searched in the final file."
+      },
+      "C5": {
+        "label": "outcome",
+        "reason": "Word count and content-word overlap are computed from the final file."
+      }
+    },
+    "h8": {
+      "C1": {
+        "label": "outcome",
+        "reason": "Required facts are matched against the final file."
+      },
+      "C2": {
+        "label": "outcome",
+        "reason": "Banned tells from the published catalog are matched against the final file."
+      },
+      "C3": {
+        "label": "outcome",
+        "reason": "Numbers, capitalised words and pronouns in the final file are compared with the before text."
+      },
+      "C4": {
+        "label": "outcome",
+        "reason": "Dashes are searched in the final file."
+      },
+      "C5": {
+        "label": "outcome",
+        "reason": "Word count and content-word overlap are computed from the final file."
+      }
+    },
+    "h9": {
+      "C1": {
+        "label": "outcome",
+        "reason": "Required facts are matched against the final file."
+      },
+      "C2": {
+        "label": "outcome",
+        "reason": "Banned tells from the published catalog are matched against the final file."
+      },
+      "C3": {
+        "label": "outcome",
+        "reason": "Numbers, capitalised words and pronouns in the final file are compared with the before text."
+      },
+      "C4": {
+        "label": "outcome",
+        "reason": "Dashes are searched in the final file."
+      },
+      "C5": {
+        "label": "outcome",
+        "reason": "Word count and content-word overlap are computed from the final file."
+      }
+    },
+    "h10": {
+      "C1": {
+        "label": "outcome",
+        "reason": "Required facts are matched against the final file."
+      },
+      "C2": {
+        "label": "outcome",
+        "reason": "Banned tells from the published catalog are matched against the final file."
+      },
+      "C3": {
+        "label": "outcome",
+        "reason": "Numbers, capitalised words and pronouns in the final file are compared with the before text."
+      },
+      "C4": {
+        "label": "outcome",
+        "reason": "Dashes are searched in the final file."
+      },
+      "C5": {
+        "label": "outcome",
+        "reason": "Word count and content-word overlap are computed from the final file."
+      }
+    },
+    "h11": {
+      "C1": {
+        "label": "outcome",
+        "reason": "Required facts are matched against the final file."
+      },
+      "C2": {
+        "label": "outcome",
+        "reason": "Banned tells from the published catalog are matched against the final file."
+      },
+      "C3": {
+        "label": "outcome",
+        "reason": "Numbers, capitalised words and pronouns in the final file are compared with the before text."
+      },
+      "C4": {
+        "label": "outcome",
+        "reason": "Dashes are searched in the final file."
+      },
+      "C5": {
+        "label": "outcome",
+        "reason": "Word count and content-word overlap are computed from the final file."
+      }
+    },
+    "h12": {
+      "C1": {
+        "label": "outcome",
+        "reason": "Required facts are matched against the final file."
+      },
+      "C2": {
+        "label": "outcome",
+        "reason": "Banned tells from the published catalog are matched against the final file."
+      },
+      "C3": {
+        "label": "outcome",
+        "reason": "Numbers, capitalised words and pronouns in the final file are compared with the before text."
+      },
+      "C4": {
+        "label": "outcome",
+        "reason": "Dashes are searched in the final file."
+      },
+      "C5": {
+        "label": "outcome",
+        "reason": "Word count and content-word overlap are computed from the final file."
+      }
+    },
+    "h13": {
+      "C1": {
+        "label": "outcome",
+        "reason": "Checks facts present in the final file."
+      },
+      "C2": {
+        "label": "outcome",
+        "reason": "Checks nothing invented in the final file."
+      },
+      "C3": {
+        "label": "outcome",
+        "reason": "Checks the final text for banned patterns."
+      },
+      "C4": {
+        "label": "outcome",
+        "reason": "Checks headings, table and list shape in the final file."
+      },
+      "C5": {
+        "label": "outcome",
+        "reason": "Checks the final table rows and list items for tell patterns."
+      }
+    },
+    "h14": {
+      "C1": {
+        "label": "outcome",
+        "reason": "Byte comparison of preserved lines in the final file."
+      },
+      "C2": {
+        "label": "outcome",
+        "reason": "Byte comparison of the German line in the final file."
+      },
+      "C3": {
+        "label": "outcome",
+        "reason": "Byte comparison of the French line and code block in the final file."
+      },
+      "C4": {
+        "label": "outcome",
+        "reason": "Checks the final text for tell patterns and dashes outside protected parts."
+      },
+      "C5": {
+        "label": "outcome",
+        "reason": "Checks facts and front matter in the final file."
+      }
+    },
+    "h15": {
+      "C1": {
+        "label": "outcome",
+        "reason": "Decided by running the delivered npm command on a clean copy and reading its exit code."
+      },
+      "C2": {
+        "label": "outcome",
+        "reason": "Decided by running the delivered command on a bad file and reading its exit code."
+      },
+      "C3": {
+        "label": "outcome",
+        "reason": "Decided by running the delivered command on a bad README and reading its exit code."
+      },
+      "C4": {
+        "label": "outcome",
+        "reason": "Decided from the delivered workflow and package files alone."
+      },
+      "C5": {
+        "label": "outcome",
+        "reason": "Decided by running the delivered command: timing, valid JSON and exit codes on invented file names."
+      }
+    },
+    "h16": {
+      "C1": {
+        "label": "outcome",
+        "reason": "Checks facts present in the final text."
+      },
+      "C2": {
+        "label": "outcome",
+        "reason": "Checks the final text against tell patterns."
+      },
+      "C3": {
+        "label": "outcome",
+        "reason": "Checks nothing invented in the final text."
+      },
+      "C4": {
+        "label": "outcome",
+        "reason": "Checks the final text for dash characters."
+      },
+      "C5": {
+        "label": "outcome",
+        "reason": "Checks word count and content word share of the final text."
+      }
+    },
+    "h17": {
+      "C1": {
+        "label": "outcome",
+        "reason": "Checks facts present in the final text."
+      },
+      "C2": {
+        "label": "outcome",
+        "reason": "Checks the final text against tell patterns."
+      },
+      "C3": {
+        "label": "outcome",
+        "reason": "Checks nothing invented in the final text."
+      },
+      "C4": {
+        "label": "outcome",
+        "reason": "Checks the final text for dash characters."
+      },
+      "C5": {
+        "label": "outcome",
+        "reason": "Checks word count and content word share of the final text."
+      }
+    },
+    "h18": {
+      "C1": {
+        "label": "outcome",
+        "reason": "Checks facts present in the final text."
+      },
+      "C2": {
+        "label": "outcome",
+        "reason": "Checks the final text against tell patterns."
+      },
+      "C3": {
+        "label": "outcome",
+        "reason": "Checks nothing invented in the final text."
+      },
+      "C4": {
+        "label": "outcome",
+        "reason": "Checks the final text for dash characters."
+      },
+      "C5": {
+        "label": "outcome",
+        "reason": "Checks word count and content word share of the final text."
+      }
+    }
+  }
+}

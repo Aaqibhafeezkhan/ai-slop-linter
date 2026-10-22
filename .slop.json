@@ -1,4 +1,4 @@
 {
-  "include": ["*.md", ".github/**/*.md", "skills/**/*.md"],
+  "include": ["*.md", ".github/**/*.md", "skills/**/*.md", "docs/FAQ.md", "docs/PAIN.md", "docs/GEO-PROMPTS.md", "docs/LISTINGS.md", "docs/SCORING.md", "docs/LANGUAGES.md", "docs/MEASUREMENT.md", "docs/OWN-WRITING.md", "docs/SARIF.md", "docs/CITE.md", "docs/mcp.md"],
   "maxScore": 3
 }

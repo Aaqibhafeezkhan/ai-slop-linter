@@ -1,0 +1,65 @@
+{
+  "lang": "en",
+  "facts": [
+    "Harbor",
+    "1989",
+    "Gallery 825",
+    "four rooms|4 rooms",
+    "41 seconds",
+    "Redis",
+    "1789",
+    "institute",
+    "river",
+    "valley",
+    "sessions"
+  ],
+  "tells": [
+    "\\b(?:is|was|are)(?:n'?t| not)\\s+[^.!?,;\\n]{1,60}[,;]\\s+(?:it|this|that|they)(?:'s|'re| is| was| are)\\b",
+    "\\b(?:does|do|did)(?:n'?t| not) mean\\b[^.!?]{1,80}\\.\\s+(?:it|this|that|they) means?\\b",
+    "\\b(?:the|one) (?:best|key|real|crazy|wild|surprising) (?:part|thing|takeaway|detail)(?: is)?:",
+    "\\ba tempting approach would be\\b",
+    "(?:^|[.!?]\\s+)(?:not|no) [^.!?]{1,30}\\.\\s+(?:not|no) [^.!?]{1,30}\\.",
+    "\\bmark(?:s|ed|ing)? an? (?:pivotal|significant|major|key|new) (?:moment|shift|milestone|turning point|era)\\b",
+    "\\bdespite (?:these|its|their) challenges\\b|\\bcontinues? to thrive\\b",
+    ",\\s+(?:highlighting|underscoring|emphasizing|showcasing|reflecting|ensuring|fostering)\\b",
+    "\\bplay(?:s|ed|ing)? an? (?:vital|pivotal|crucial|key|significant|central|critical) role\\b",
+    "\\bnestled\\b|\\bin the heart of\\b|\\bnatural beauty\\b",
+    "\\b(?:great|excellent|good) question\\b|\\bi hope (?:this|that) helps\\b",
+    "\\bnot (?:widely|publicly|readily) (?:available|documented|disclosed)\\b",
+    "^\\s*[-*+]\\s+\\*\\*",
+    "\\b(?:vibrant|pivotal|crucial)\\b[^\\n]*\\b(?:vibrant|pivotal|crucial)\\b"
+  ],
+  "preserve": [],
+  "tellSources": [
+    "everwrite tells.py: contrast (strong), the isn't X, it's Y form; patterns.md not-X-but-Y",
+    "everwrite tells.py: contrast (strong), the doesn't mean X, it means Y form; patterns.md split form",
+    "everwrite tells.py: setup (strong), the best part colon form; patterns.md colon reveal",
+    "everwrite tells.py: setup (strong), a tempting approach would be; patterns.md arguing with no one",
+    "everwrite tells.py: contrast (strong), negative listing; patterns.md closers and fragments",
+    "everwrite tells.py: inflation (strong), marking a pivotal moment; patterns.md inflated significance",
+    "everwrite tells.py: inflation (strong) and patterns.md: stock section",
+    "everwrite tells.py: rider (strong); patterns.md shallow -ing riders",
+    "everwrite tells.py: inflation (strong), plays a crucial role",
+    "everwrite tells.py: inflation, sales language (strong)",
+    "everwrite tells.py: residue (strong)",
+    "everwrite tells.py: residue (strong), knowledge-limit wording",
+    "everwrite tells.py: bold-label (strong); patterns.md bold labels on every bullet",
+    "everwrite tells.py: STOCK_WORDS, two or more in one paragraph (strong)"
+  ],
+  "notes": [
+    "\\bexperts (?:argue|say|agree|believe|note|suggest)\\b",
+    "\\b(?:serves|stands|functions|acts|operates) as (?:a|an|the)\\b|\\bboasts\\b",
+    "\\b(?:could|might|may) (?:potentially|possibly)\\b|\\bit could be argued\\b",
+    "(?:^|[.!?]\\s+)why\\?\\s+because\\b|(?:^|[.!?]\\s+)you mentioned (?:that )?",
+    "\\bspeed is the language of trust\\b",
+    "[\\u2014\\u2013]"
+  ],
+  "noteSources": [
+    "everwrite tells.py: authority (weak)",
+    "everwrite tells.py: copula (weak)",
+    "everwrite tells.py: qualifier (weak)",
+    "everwrite tells.py: setup (weak)",
+    "everwrite patterns.md closers and fragments (kicker); not a tells.py rule",
+    "everwrite tells.py: dash (strong); covered by C4"
+  ]
+}

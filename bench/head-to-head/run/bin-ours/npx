@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# Shim: "npx [npm flags] ai-slop-linter[@version] ..." and "npx [npm flags] slop ..." run the build in the
+# git-archive copy of the commit under test (H2H_CODE_DIR; never the working tree).
+# Flags before the package name are skipped; --yes and -y are dropped there, and no
+# other flag is changed. The first non-flag argument is the package. Arguments after the package name
+# are passed to the CLI unchanged. A call with -p/--package, and any other package, goes to the real
+# npx found later on PATH, with the original arguments.
+# usage: put bin-ours first on PATH, then run npx as usual.
+HERE="$(cd "$(dirname "$0")" && pwd)"
+
+real_npx() {
+  local IFS=:
+  for dir in $PATH; do
+    [ -z "$dir" ] && continue
+    [ "$dir" -ef "$HERE" ] && continue
+    if [ -f "$dir/npx" ] && [ -x "$dir/npx" ]; then
+      echo "$dir/npx"
+      return 0
+    fi
+  done
+  return 1
+}
+
+ARGS=("$@")
+N=${#ARGS[@]}
+i=0
+raw_package=0
+while [ "$i" -lt "$N" ]; do
+  a="${ARGS[$i]}"
+  case "$a" in
+    --) i=$((i + 1)); break ;;
+    -p|--package|--package=*) raw_package=1; break ;;
+    -y|--yes) i=$((i + 1)) ;;
+    --loglevel|--cache|--registry|--prefix|--userconfig) i=$((i + 2)) ;;
+    -*) i=$((i + 1)) ;;
+    *) break ;;
+  esac
+done
+
+if [ "$raw_package" -eq 0 ] && [ "$i" -lt "$N" ]; then
+  case "${ARGS[$i]}" in
+    ai-slop-linter|ai-slop-linter@*|slop)
+      REST=("${ARGS[@]:$((i + 1))}")
+      [ -n "${H2H_CODE_DIR:-}" ] || { echo "npx shim: H2H_CODE_DIR is not set (it names the git-archive copy of the code under test)" >&2; exit 2; }
+      exec node "$H2H_CODE_DIR/dist/src/cli.js" "${REST[@]}"
+      ;;
+  esac
+fi
+
+NPX="$(real_npx)" || { echo "npx: no real npx found on PATH" >&2; exit 127; }
+exec "$NPX" "$@"

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Shim: "slop" on PATH runs the build in the git-archive copy of the commit under test (H2H_CODE_DIR),
+# never the working tree.
+[ -n "${H2H_CODE_DIR:-}" ] || { echo "slop shim: H2H_CODE_DIR is not set (it names the git-archive copy of the code under test)" >&2; exit 2; }
+exec node "$H2H_CODE_DIR/dist/src/cli.js" "$@"

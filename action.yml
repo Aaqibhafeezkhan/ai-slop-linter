@@ -1,5 +1,5 @@
 name: ai-slop-linter
-description: Lints the pull request text and changed Markdown for AI-writing tells, with line annotations and one sticky review comment.
+description: Flags AI-sounding phrases and em dashes in pull request text and changed Markdown, with line annotations and one comment.
 author: Efe Genc
 branding:
   icon: edit-3

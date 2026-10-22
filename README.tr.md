@@ -1,33 +1,125 @@
-<p align="center"><img src="assets/wordmark.svg" width="640" alt="ai-slop-linter"></p>
+Kodlama ajanım, kurallar dosyam yasaklamasına rağmen commit mesajlarına, pull request açıklamalarına ve README'lere sürekli uzun tire ve kalıp ifadeler koyuyor ve metin yayına çıkmadan önce hiçbir şey kontrol etmiyor.
+
+ai-slop-linter, commit mesajlarında, pull request açıklamalarında ve Markdown belgelerinde yapay zekâ kokan ifadeleri ve uzun tireleri işaretleyen, CI'da çalışan bir linter'dır. Her bulguyu satır, sütun ve gerekçesiyle listeler; bir kuralın kaynağını `--explain <kural>` gösterir. Makinenizde çalışır, hiçbir model çağırmaz.
+
+```
+npx ai-slop-linter README.md
+```
+
+![ai-slop-linter, model yazımı bir pull request açıklamasında ve ardından --explain bold-label](docs/demo.gif)
+
+Kayıt, bu depodaki derlemenin düzenlenmemiş çıktısıdır. Lint edilen dosya `bench/corpus` içindeki model yazımı bir örnektir, gerçek bir pull request değildir. Komut, bir dosyada error düzeyinde bulgu varsa veya skor `--max-score` değerini (varsayılan 10) aşıyorsa 1 koduyla çıkar. Bu README üzerinde aynı komut A notu verir.
 
 <p align="center"><a href="README.md">English</a> | Türkçe</p>
 
-<p align="center"><em>Kimin yazdığını tahmin etmez. İzleri gösterir.</em></p>
+`dash` kuralı bugün error düzeyinde, yani tek bir uzun tire çalıştırmayı düşürür. `--ignore dash` ile kapatılır. Varsayılan olarak error kalıp kalmayacağına henüz karar verilmedi; ölçüm [bench/DASH-DEFAULT.md](bench/DASH-DEFAULT.md) içinde.
 
-Okurlar makine yazısının izlerini öğrendi: uzun tire, "sadece X değil Y de", "umarım
-yardımcı olur", "bunun kanıtıdır", her maddenin başındaki kalın etiket. Birini gördükleri
-anda okumayı bırakıyorlar. ai-slop-linter bu izler için bir linter. Bir commit mesajına,
-bir pull request açıklamasına, bir README'ye veya bir makaleye çevirirsiniz; her izi satır
-numarasıyla, gerekçesiyle ve anlamı değiştirmeyecekse düzeltmesiyle listeler.
+İlk cümle, kullanıcıların herkese açık issue'larda yazdıklarının bir yorumudur. Kaynaklar [docs/PAIN.md](docs/PAIN.md) içinde, İngilizce.
 
-Bir linter, dedektör değil. Metni bir modelin yazdığına dair olasılık üretmez. Her kural
-kaynağını söyler; temiz geçmek tek bir anlama gelir: listedeki izlerden hiçbiri yok.
+Bazı okurlar makine yazısının izlerini tanımayı öğrendi: uzun tire, "sadece X değil Y de", "umarım yardımcı olur", "bunun kanıtıdır", her maddenin başındaki kalın etiket.
 
-## 30 saniye
+Bir linter, dedektör değil. Metni bir modelin yazdığına dair olasılık üretmez. Her kural kaynağını söyler; temiz geçmek tek bir anlama gelir: listedeki izlerden hiçbiri yok.
+
+Gerçeklerin korunup korunmadığı varsayılmaz, denetlenir: `slop --compare` bir yeniden yazımın kaybettiği ya da eklediği sayıları, adları, sürümleri, bağlantıları, alıntıları ve kod parçalarını listeler. Hiçbir model çağırmaz ve sıfır bağımlılığı vardır.
+
+Kuralların çoğu Wikipedia'nın [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) sayfasından alınmıştır; bu sayfa, makine yazımı düzenlemeleri inceleyen editörlerin sürekli karşılaştığı kalıpları kaydeder. Aşağıdaki kural tablosu her kuralın kaynağını gösterir.
+
+## Kurulum
+
+Üç yol, tek kural seti.
+
+- Komut satırı: `npx ai-slop-linter README.md`, npm'den. npm'deki sürüm 0.1.10'dur. Bu sürüm `--language` alır, ama bir dosyanın dilini kendisi algılamaz, diyaloğu muaf tutmaz ve `--compare` içermez; bunlar yayımlanmamış 0.2.0 sürümündedir. <!-- release-status -->
+- Ajan becerisi: `npx skills add Bubblegunn/ai-slop-linter`. Beceri, bir ajanın yazdığı metni kendisinin denetlemesini ve her yeniden yazımdan sonra gerçekleri karşılaştırmasını sağlar.
+- Claude Code eklentisi: `/plugin marketplace add Bubblegunn/ai-slop-linter`, ardından `/plugin install ai-slop-linter@ai-slop-linter`.
+
+## Önce ve sonra
+
+Girdi [`bench/head-to-head/fixtures/h2/README.md`](bench/head-to-head/fixtures/h2/README.md) dosyasıdır. Aşağıdaki çıktı bu sürümün ona verdiği çıktıdır; çıktı İngilizce olduğu için aynen bırakıldı.
+
+````markdown
+# Fastq
+
+Fastq 2.3 is not just a queue — it's a game-changer for modern backends. Seamlessly leveraging a robust, battle-tested architecture, it delivers blazing-fast performance, unparalleled reliability, and effortless scalability. In benchmarks, Fastq 2.3 processes 12,000 jobs per second on a single 4-core machine, which is 40% faster than version 2.2. Maintainers at Acme Corp reported a 35% drop in p99 latency on their staging cluster. It requires Node 20 or later and is released under the MIT license. Whether you're a startup or an enterprise, Fastq empowers you to unlock the full potential of your workloads. The future of job processing is here.
+
+## Install
+
+```sh
+npm install fastq@2.3
+```
+
+See the [changelog](CHANGELOG.md) for details.
+````
 
 ```
-npx ai-slop-linter README.md          # tek dosya (hata varsa çıkış kodu 1)
+$ npx ai-slop-linter bench/head-to-head/fixtures/h2/README.md
+bench/head-to-head/fixtures/h2/README.md  F (score 85.5, 117 words, 8 findings)
+     3:14  warning not-x-but-y          "not just X but Y": say the thing itself
+     3:30  error   dash                 em dash
+     3:40  warning ai-vocabulary        "game-changer": a word models reach for; use the plain one
+     3:74  warning ai-vocabulary        "Seamlessly": a word models reach for; use the plain one
+     3:85  warning ai-vocabulary        "leveraging": a word models reach for; use the plain one
+     3:98  warning ai-vocabulary        "robust": a word models reach for; use the plain one
+     3:172 warning sales                "unparalleled": sounds like an advertisement; give the fact instead
+     3:569 warning ai-vocabulary        "unlock the": a word models reach for; use the plain one
+
+Why any of these is a tell, and what to write instead: slop --explain not-x-but-y
+```
+
+Yeniden yazım, [`bench/head-to-head/golden/h2/README.md`](bench/head-to-head/golden/h2/README.md), aynı paragrafın elle yazılmış hâlidir:
+
+````markdown
+# Fastq
+
+Fastq 2.3 is a queue for job processing. In benchmarks, Fastq 2.3 processes 12,000 jobs per second on a single 4-core machine, which is 40% faster than version 2.2. Maintainers at Acme Corp reported a 35% drop in p99 latency on their staging cluster. It requires Node 20 or later and is released under the MIT license.
+
+## Install
+
+```sh
+npm install fastq@2.3
+```
+
+See the [changelog](CHANGELOG.md) for details.
+````
+
+A notu alır ve tek bulgu yoktur:
+
+```
+$ npx ai-slop-linter bench/head-to-head/golden/h2/README.md
+bench/head-to-head/golden/h2/README.md  A (score 0, 69 words, 0 findings)
+```
+
+`--compare` yeniden yazımı özgün metinle karşılaştırır:
+
+```
+$ npx ai-slop-linter --compare bench/head-to-head/fixtures/h2/README.md bench/head-to-head/golden/h2/README.md
+facts: 11 kept, 0 lost, 0 added
+OK: no fact lost or added
+```
+
+## Karşılaştırma
+
+Humanizer, unslop ve everwrite ile on iki düzenleme görevinde, betik denetimleri ve kör değerlendirmeyle yapılan bir karşılaştırma. Bu görevlerdeki bir sonuçtur, genel bir sıralama değildir.
+
+<!-- h2h:start -->
+Birinci turun sonuçları, kazanma kuralının karşılanmadığı da dahil, docs/HEAD-TO-HEAD.md dosyasındadır; görevler, ölçütler ve harness bench/head-to-head/ içinde herkese açıktır.
+<!-- h2h:end -->
+
+## Diğer komutlar
+
+```
 npx ai-slop-linter                    # bulunduğunuz dizindeki her .md dosyası
 npx ai-slop-linter --commit           # son commit mesajı
 npx ai-slop-linter README.md --fix    # güvenli düzeltmeleri yerinde uygula
 ```
 
-`slop` aynı ikili dosyanın kısa adı.
+Etkileşimli bir terminalde, temiz bir çalıştırmadan sonra makine başına bir kez bir yıldız ipucu görünür; `--quiet` veya `AI_SLOP_LINTER_NO_STAR_HINT=1` ile kapatılır.
+
+`slop` aynı ikili dosyanın kısa adı. Kuralları kendi metninizde kurmadan önce tarayıcıda denemek için: [bubblegunn.github.io/ai-slop-linter](https://bubblegunn.github.io/ai-slop-linter/).
 
 ## Kurallar
 
-Yirmi kural. Çoğu, binlerce makine yazımı düzenlemeyi inceleyen editörlerin yazdığı
-Wikipedia yönergesinden geliyor: [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing).
+Yirmi bir kural. Çoğu, binlerce makine yazımı düzenlemeyi inceleyen editörlerin yazdığı
+Wikipedia sayfasından geliyor: [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing).
 "house" işaretli ikisi bizim. Tam liste ve kaynaklar için `npx ai-slop-linter --rules`
 veya İngilizce README'deki tablo.
 
@@ -46,8 +138,8 @@ kurallardan önce maskelenir; kod örneğindeki bir tire asla bulgu olmaz.
 Yanlış bulduğunuz bir uyarıyı susturmak için:
 
 ```markdown
-<!-- slop-ignore-next-line dash -->
-<!-- slop-ignore vague-source, triad -->    (buradan dosya sonuna kadar)
+<!-- slop-ignore-next-line KURAL -->
+<!-- slop-ignore KURAL-A, KURAL-B -->    (buradan dosya sonuna kadar)
 ```
 
 ## Depoda
@@ -99,50 +191,9 @@ atlayacak araç içindir.
 
 ## İngilizce yazmıyorsanız
 
-Buradaki her kural İngilizce metne bakılarak yazıldı ve İngilizce metin üzerinde ölçüldü. Bu
-yüzden yayına çıkmadan önce kurallar, on üç dilde doğru dizilmiş yayımlanmış metinlere karşı
-çalıştırıldı: Lehçe Conan Doyle, Macarca Jókai, Rusça Çehov, Fransızca Dumas ve dokuz metin
-daha; her biri kendi dilinin gerektirdiği gibi noktalanmış. Tablo
-[`bench/TYPOGRAPHY.md`](bench/TYPOGRAPHY.md), derlem ve lisansları `bench/typography` içinde,
-gerekçe ise [`docs/typography-across-languages.md`](docs/typography-across-languages.md)
-dosyasında.
+Kelime kuralları İngilizce kelime listeleridir; başka bir dilde hiçbir şey bulmazlar. Buradaki belirleyici kural `dash`tır, çünkü doğru yazılmış Fransızca, Lehçe veya Rusça noktalama İngilizce bir tire değildir. Araç her dosyanın dilini şöyle bulur: `.slop.json` içindeki `"language"`, `--language`, ön maddedeki `lang:` anahtarı, ya da metnin kendisi (Fransızca, İspanyolca, Almanca, İtalyanca, Portekizce ve Hollandaca için). İngilizce olmayan metinde `dash` ve `title-case-heading` çalışmaz ve çıktı dilin ne olduğunu yazar. Diyalog tireleri ve `« »`, `‹ ›`, `„ “` alıntıları içindeki tireler muaftır. İngilizce bir paragrafın içinde 12 belirteçten kısa bir alıntı muaf değildir.
 
-Bir kural sınıfta kaldı. `dash` bu araçtaki en yüksek şiddete sahip ve doğru yazılmış metinde
-1.000 kelime başına şu oranlarda konuşuyor:
-
-| Lehçe | Macarca | Rusça | Fransızca | Almanca | İngilizce insan temeli |
-|---:|---:|---:|---:|---:|---:|
-| 73,5 | 52,1 | 24,0 | 22,0 | 6,7 | 1,0 |
-
-Lehçe, Macarca, Rusça ve Almanca sayıları, dosyaların olduğu gibi ölçülen hâli. Fransızca sayısı
-tek bir kayıt istiyor ve okurun kendi bulmasına bırakmıyoruz: o dosya bize uzun tireleri, ardından
-gelen kelimeye bitişik iki tire olarak yazılmış hâlde ulaşıyor, kural bunu eşleştirmiyor, yani
-olduğu gibi 0, basılı baskının kullandığı tireler geri konduğunda 22,0 çıkıyor. `bench/TYPOGRAPHY.md`
-iki sütunu da basıyor. Bugün bir Fransızca yazarın karşılaşacağı sayı geri konmuş olan, çünkü kimse
-BENİOKU dosyasına tireyi iki tire diye yazmıyor.
-
-Lehçe, Macarca ve Rusça dosyalar kendi dillerini doğru noktaladıkları için F alıyor. Uzun tire
-Fransızcada olağandır, İspanyolcada diyaloğu açar, Rusçada ise "olmak" fiilinin yerinde durur;
-yani orada süs değil dilbilgisidir.
-
-Bu yüzden araca ne yazdığınızı söyleyin:
-
-```json
-{ "language": "tr" }
-```
-
-ya da tek çalıştırma için `--language tr`. Varsayılan İngilizcedir, yani ayarı yapmayan bir
-depo için hiçbir şey değişmez. Dil İngilizce değilken `dash` çalışmaz ve çıktı bunu yazar,
-sessizce temiz görünmez. Başka hiçbir kural devre dışı kalmaz, çünkü başka hiçbiri için
-ölçülmüş bir gerekçe yok.
-
-İki şeyi iddia edemez. Kuralların on beşi İngilizce kelimelerden kuruludur; İngilizce dışında
-haksız değil, işlevsizdirler: tamamen bir model tarafından yazılmış Fransızca bir README
-hepsini geçer, çünkü `in order to` Fransızca bir kalıp değildir. Ve bir yoğunluk eşiği `dash`
-kuralını kurtarmıyor: doğru Almanca metin 1.000 kelimede 6,7 bulguda,
-[`bench/PRECISION.md`](bench/PRECISION.md) içindeki makine derlemi ise 5,7'de duruyor; iki
-dağılım örtüşüyor ve hiçbir genel sayı Alman bir yazarı bir modelden ayırmıyor. Bu, vazgeçmeden
-önce ölçüldü.
+Fransızca paketinde tek kural vardır, `fr/closer`, ve geçicidir. İspanyolca ve Almanca paketlerinde kural yoktur. Ölçülen oranlar ve sınırlar [docs/LANGUAGES.md](docs/LANGUAGES.md) içinde; ölçülen adayların sayıları ve gerekçeleri [bench/packs/CANDIDATES.md](bench/packs/CANDIDATES.md) içinde.
 
 ## Ölçüm
 
@@ -167,20 +218,19 @@ sınırı verilebilir.
 
 ## Kendi yazılarımızda
 
-5 Eylül 2026'da yazarın dört README'si ve sitesindeki on bir denemede çalıştırıldı:
-ilk koşuda üç README A, product-engineer README C (kural listesi tam olarak `bold-label`
+5 Eylül 2026'da yazarın beş README'si ve sitesindeki on bir denemede çalıştırıldı:
+ilk koşuda dört README A, product-engineer README C (kural listesi tam olarak `bold-label`
 kuralının yakaladığı kalıpta yazılmıştı), on bir denemenin tümü A. Aynı gün o README
 aracı önce gösterip sonra anlatacak biçimde yeniden yazıldı ve kural listesi düz cümleye
 döndü; linter için düzenlenmedi, yeni koşuda A (0). Bulgular ve ilk skorlar İngilizce
-README'deki tabloda.
+[docs/OWN-WRITING.md](docs/OWN-WRITING.md) içinde.
 
 ## Gösteremedikleri
 
 - Yazarlık. `Delve` yazan bir insan da modelle aynı bulguyu alır.
 - Anlam. Listedeki her ifadeden kaçınan boş bir paragrafı iyisinden ayıramaz.
 - Listenin dışındaki üslup. Farklı bir izi olan yazar geçer; bulunca kural ekleyin.
-- Diğer diller. Kelime kuralları İngilizce; yapısal olanlar her dilde çalışır.
-  İkinci dil kural setleri [yol haritasında](ROADMAP.md).
+- Diğer diller. Kelime kuralları İngilizce; yapısal olanlar her dilde çalışır. `dash` ve `title-case-heading` İngilizce dışında durur. Fransızca için geçici bir kural var; İspanyolca ve Almanca için kural yok, çünkü hiçbir aday kabul sınırını geçmedi, bu yüzden bu dillerde model metnini tespit ettiğimizi iddia etmiyoruz. İkinci dil kural setleri [yol haritasında](ROADMAP.md).
 
 ## Atıf
 

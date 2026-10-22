@@ -1,0 +1,36 @@
+{
+  "lang": "en",
+  "facts": [
+    "five|5",
+    "Lisbon",
+    "October",
+    "Alfama",
+    "Tram 28",
+    "forty|40",
+    "Pastéis de Belém",
+    "Graça",
+    "São Jorge Castle",
+    "spring"
+  ],
+  "tells": [
+    "\\b(?:isn'?t|is not|not) (?:just|only|merely)\\b",
+    "\\b(?:breathtaking|stunning|must-see|must-visit)\\b",
+    "\\bwhat (?:truly|really) (?:makes|matters)\\b",
+    "\\blet me tell you\\b|\\band the food\\?",
+    "\\bsimply divine\\b|\\bhidden gem\\b|\\bbeloved national treasure\\b"
+  ],
+  "preserve": [],
+  "tellSources": [
+    "Humanizer 1: not X but Y (paragraphs 4 and 6 of the Before text)",
+    "Humanizer 16: sales language (breathtaking, stunning, must-visit are listed; must-see taken from the Before text)",
+    "Humanizer 3: sayings that sound deep (what really matters)",
+    "Humanizer 4: staged run-up; phrases taken from the Before text",
+    "Humanizer 16: sales language; phrases taken from the Before text"
+  ],
+  "notes": [
+    "[\\u2014\\u2013]"
+  ],
+  "noteSources": [
+    "Humanizer 8: dashes (marked weak alone); covered by C4"
+  ]
+}

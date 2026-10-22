@@ -1,0 +1,39 @@
+{
+  "lang": "en",
+  "facts": [
+    "workplace learning",
+    "data pipeline",
+    "regional clusters"
+  ],
+  "tells": [
+    "\\bdelve",
+    "\\b(?:rapidly |ever-)?evolving landscape\\b",
+    "\\btestament\\b",
+    "\\bseamless",
+    "\\bempower|\\bunlock\\b",
+    "\\bnot just\\b",
+    "\\bstudies show\\b",
+    "\\bunderpins?\\b|\\bbackbone of\\b|\\bpays off\\b",
+    "\\bstreamlin"
+  ],
+  "preserve": [],
+  "tellSources": [
+    "unslop word-lists English Tier 1: delve",
+    "unslop word-lists English Tier 1: landscape; opener ever-evolving landscape",
+    "unslop word-lists English Tier 1: testament to; inflation phrase serves as a testament",
+    "unslop word-lists English Tier 1: seamless",
+    "unslop word-lists English Tier 1: unlock / empower",
+    "unslop word-lists English transitions and pattern-catalog 2: negative parallelism (P1 in cases.md case 2)",
+    "unslop pattern-catalog 5: vague attribution (P0 in cases.md case 2)",
+    "unslop cases.md case 19 (P1) and SKILL.md: load-bearing metaphors used as claims",
+    "unslop cases.md case 19: P1 Tier-1 stock-phrase hit (\"streamlining operations\"); the German section of word-lists.md lists \"streamline your X\" too"
+  ],
+  "notes": [
+    "\\bserves? as\\b",
+    "[\\u2014\\u2013]"
+  ],
+  "noteSources": [
+    "unslop cases.md case 2 and 19: copula avoidance is P2",
+    "unslop case 2: em-dash frequency (corroborating only); covered by C4"
+  ]
+}

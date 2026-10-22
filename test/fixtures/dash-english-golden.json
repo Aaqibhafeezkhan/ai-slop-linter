@@ -1,0 +1,604 @@
+{
+ ".github/PULL_REQUEST_TEMPLATE.md": {
+  "sha1": "50f154147d560e1b779a549381c1b2c3307a84ff",
+  "dash": []
+ },
+ "CHANGELOG.md": {
+  "sha1": "6ca97b671de0b1e0198df31522ea36ca4b2ca32e",
+  "dash": []
+ },
+ "CODE_OF_CONDUCT.md": {
+  "sha1": "de88a728c8f98f934989a9c8a14a48c6442a72be",
+  "dash": []
+ },
+ "CONTRIBUTING.md": {
+  "sha1": "120a5fc453bfb2c1813127bd7b0b5990b101281a",
+  "dash": []
+ },
+ "README.md": {
+  "sha1": "da1696e840c6949fbac9f13eeb07c98a4511f672",
+  "dash": []
+ },
+ "README.tr.md": {
+  "sha1": "530b726ee7dca1543ffef05f06293f81203be024",
+  "dash": []
+ },
+ "RESEARCH.md": {
+  "sha1": "416590db07ffc2f07ca4a191b10f68789f275d3e",
+  "dash": []
+ },
+ "ROADMAP.md": {
+  "sha1": "7c0b8931a7b4beaaf6af3fd3f16515321f40e18a",
+  "dash": []
+ },
+ "SECURITY.md": {
+  "sha1": "7034e09e53ac358b49101ba1e372366ffbaa4f07",
+  "dash": []
+ },
+ "THIRD-PARTY-NOTICES.md": {
+  "sha1": "62c843b1333a88fb25f002a6853afb1c6c4acbf1",
+  "dash": []
+ },
+ "bench/COMMIT-RULES.md": {
+  "sha1": "74ab78f202404fb2461d94ebba8e01030361ed65",
+  "dash": []
+ },
+ "bench/DASH-DEFAULT.md": {
+  "sha1": "25c2d5ca9b2e48754380ae35ed837b77f633fc2d",
+  "dash": []
+ },
+ "bench/PACKS.md": {
+  "sha1": "6369198e41743a004e8205f5b32afa92a2b6ded7",
+  "dash": []
+ },
+ "bench/PRECISION.md": {
+  "sha1": "565293c0904734f3239d84d444dfab9924ffed83",
+  "dash": []
+ },
+ "bench/TYPOGRAPHY.md": {
+  "sha1": "62505f62883f9428b04bd4d925b36b01611273b2",
+  "dash": []
+ },
+ "bench/corpus/MANIFEST.md": {
+  "sha1": "fd9e831c006133257b5c4e2451a643963c236f68",
+  "dash": []
+ },
+ "bench/corpus/human/austen-pride-and-prejudice.md": {
+  "sha1": "d21a31d11033c8b48b4351d79ba6645fac8cb3a3",
+  "dash": []
+ },
+ "bench/corpus/human/darwin-origin-of-species.md": {
+  "sha1": "49b326b27c07d9a16b760b7f8afec9a55d6c2583",
+  "dash": [
+   "5:523",
+   "9:1301"
+  ]
+ },
+ "bench/corpus/human/douglass-narrative.md": {
+  "sha1": "b8b7f27e9cc067bb476f92d0decc169c27be0ab5",
+  "dash": [
+   "5:313",
+   "7:519"
+  ]
+ },
+ "bench/corpus/human/pep-257-docstrings.md": {
+  "sha1": "68d6ca37ba25316a15cc34b5d8a003fa52d46f83",
+  "dash": [
+   "41:88"
+  ]
+ },
+ "bench/corpus/human/pep-8-style-guide.md": {
+  "sha1": "ad778b5033a2a33feb41fb6177bc49f657420a3d",
+  "dash": [
+   "15:38"
+  ]
+ },
+ "bench/corpus/machine/article-intro.md": {
+  "sha1": "8b49ec9632dc30d151a5a9f970c10afd8d9bb31a",
+  "dash": [
+   "3:266"
+  ]
+ },
+ "bench/corpus/machine/commit-messages.md": {
+  "sha1": "900334ad77e9ca065e862afe277340c3e08df0d7",
+  "dash": [
+   "29:66"
+  ]
+ },
+ "bench/corpus/machine/docs-page.md": {
+  "sha1": "91de6b28e0cd3c6b0926856ff8355e8b05e471a7",
+  "dash": [
+   "27:37"
+  ]
+ },
+ "bench/corpus/machine/pull-request.md": {
+  "sha1": "d9dc669cd57ee9b95875dbc07f66e1ca4c32d25a",
+  "dash": []
+ },
+ "bench/corpus/machine/readme-section.md": {
+  "sha1": "db88af26bb08fac14808e528c53e38794e593f3b",
+  "dash": [
+   "3:215",
+   "13:45",
+   "25:87"
+  ]
+ },
+ "bench/head-to-head/after/h12/town.md": {
+  "sha1": "55c00b47c23d6979aaa1b4cace00626e065717b2",
+  "dash": []
+ },
+ "bench/head-to-head/after/h7/announcement.md": {
+  "sha1": "e82346a2c0cc4f9c0e008dbcaef28a1ffa3c8b87",
+  "dash": []
+ },
+ "bench/head-to-head/after/h8/lisbon.md": {
+  "sha1": "2d38744615e8dc537a2a4708a5223bdd58a06cd4",
+  "dash": []
+ },
+ "bench/head-to-head/bad/h11/release.md": {
+  "sha1": "22e33b199fba61b2121f862ee3ffb651ed70c7cf",
+  "dash": [
+   "3:70"
+  ]
+ },
+ "bench/head-to-head/bad/h12/town.md": {
+  "sha1": "fba136c26283efb031373eb03c463c9e0c2b9648",
+  "dash": []
+ },
+ "bench/head-to-head/bad/h2/README.md": {
+  "sha1": "da83ffb516d14ca2f15248b2c6cb284ef70c5f7c",
+  "dash": [
+   "3:30"
+  ]
+ },
+ "bench/head-to-head/bad/h3/pr.md": {
+  "sha1": "85071106672a9e83f9535273e3056123b0d26be8",
+  "dash": [
+   "7:52"
+  ]
+ },
+ "bench/head-to-head/bad/h4/RELEASE-NOTES.md": {
+  "sha1": "572cf5a6d9563d5eeba5c460f6fed6e6759c09d2",
+  "dash": [
+   "3:109"
+  ]
+ },
+ "bench/head-to-head/bad/h5/guide.md": {
+  "sha1": "c6d4c969c1adefccd4654ad63f7153e5a6c2a02f",
+  "dash": [
+   "3:206"
+  ]
+ },
+ "bench/head-to-head/bad/h6/docs/fr/notes.md": {
+  "sha1": "71ad094e9b3b2fe49a92ee903b229a77b6afdcde",
+  "dash": []
+ },
+ "bench/head-to-head/bad/h6/docs/guide.md": {
+  "sha1": "c4a607083ce00a6c3ef434d5e3788ebef77465f8",
+  "dash": [
+   "3:83"
+  ]
+ },
+ "bench/head-to-head/bad/h7/announcement.md": {
+  "sha1": "129095781284b4d213afd45b4b1dd6a87ef074c5",
+  "dash": [
+   "1:132"
+  ]
+ },
+ "bench/head-to-head/bad/h8/lisbon.md": {
+  "sha1": "e89dd0de0f51d4f6d2b7dcfb1dd37ba2d932e909",
+  "dash": [
+   "1:85",
+   "3:38",
+   "3:127",
+   "7:58"
+  ]
+ },
+ "bench/head-to-head/bad/h9/blog.md": {
+  "sha1": "904b0f1cedd276f53e5e52d7762bc1543eff4eac",
+  "dash": [
+   "1:132"
+  ]
+ },
+ "bench/head-to-head/checker-data/h6-clean-guide.md": {
+  "sha1": "540818a655ebce0af85883526fe3ad2b712c841b",
+  "dash": []
+ },
+ "bench/head-to-head/golden/h11/release.md": {
+  "sha1": "9950d4131719ffcda8af499c6b8b86fa09131533",
+  "dash": []
+ },
+ "bench/head-to-head/golden/h12/town.md": {
+  "sha1": "5f9c65244d8d78dcf8699fad32ef7b538f7acb11",
+  "dash": []
+ },
+ "bench/head-to-head/golden/h2/README.md": {
+  "sha1": "4feb31c19607ed1be73ba3e52728cc3194931b07",
+  "dash": []
+ },
+ "bench/head-to-head/golden/h3/pr.md": {
+  "sha1": "023402b51f2fae64092020c8a51c2a51ff5d2ef2",
+  "dash": []
+ },
+ "bench/head-to-head/golden/h4/RELEASE-NOTES.md": {
+  "sha1": "3eecc523168b07755fc1702516588b496bff132d",
+  "dash": []
+ },
+ "bench/head-to-head/golden/h5/guide.md": {
+  "sha1": "0b6db5ea580bef4c5c9090c61b91eefc388d9d9b",
+  "dash": []
+ },
+ "bench/head-to-head/golden/h6/docs/fr/notes.md": {
+  "sha1": "71ad094e9b3b2fe49a92ee903b229a77b6afdcde",
+  "dash": []
+ },
+ "bench/head-to-head/golden/h6/docs/guide.md": {
+  "sha1": "540818a655ebce0af85883526fe3ad2b712c841b",
+  "dash": []
+ },
+ "bench/head-to-head/golden/h7/announcement.md": {
+  "sha1": "ae9bc71a05695faea5f28a99b9c7958785795864",
+  "dash": []
+ },
+ "bench/head-to-head/golden/h8/lisbon.md": {
+  "sha1": "75f4c25c4de399e17c91f595fb88487453bdabad",
+  "dash": []
+ },
+ "bench/head-to-head/golden/h9/blog.md": {
+  "sha1": "c57f976ca2b615af28ac61e25474c146dcc042f4",
+  "dash": []
+ },
+ "bench/head-to-head/probes/README.md": {
+  "sha1": "dd1fe2e6bb7731fea03a9f355f826f9425ac3ca6",
+  "dash": []
+ },
+ "bench/head-to-head/results/README.md": {
+  "sha1": "289b55c822cf997b6fe37dbb0b309143c7d92218",
+  "dash": []
+ },
+ "bench/packs/CANDIDATES.md": {
+  "sha1": "c975ce867c4925d8b21b6ece1e028b80f426ddf0",
+  "dash": []
+ },
+ "bench/packs/MANIFEST.md": {
+  "sha1": "88414f97e31d1e0c4676bdccc5f8968c60850ee5",
+  "dash": []
+ },
+ "bench/packs/human/es/dona-perfecta-galdos.md": {
+  "sha1": "ff5f7376d28cfbe670e727967eca39d38b5b3bc3",
+  "dash": []
+ },
+ "bench/packs/human/es/git-wikipedia.md": {
+  "sha1": "68faa9086995d38dca0b359e3ab2f460cd245231",
+  "dash": [
+   "5:120"
+  ]
+ },
+ "bench/packs/human/es/marianela-galdos.md": {
+  "sha1": "3101aac03cd351491e1510ed5a0758199dd134aa",
+  "dash": []
+ },
+ "bench/packs/human/fr/notre-dame-de-paris-hugo.md": {
+  "sha1": "04c9d2de17450ddd7e0bd9c52bc2b8e2ac595ed1",
+  "dash": [
+   "15:97"
+  ]
+ },
+ "bench/packs/human/fr/py-docs-pathlib.md": {
+  "sha1": "4f7ed41e7d4f3456d9eed9074c6b2f38608928e9",
+  "dash": []
+ },
+ "bench/packs/machine/es/article-intro.md": {
+  "sha1": "0b955a711947becee9f3aced32ad4cf37e35c33b",
+  "dash": []
+ },
+ "bench/packs/machine/es/aviso-familias-sierra.md": {
+  "sha1": "e8400a2eadb4df84bc2d1eaaa63b544a5f0d4c35",
+  "dash": []
+ },
+ "bench/packs/machine/es/chat-explicar-api.md": {
+  "sha1": "072c5d1b59e6b24ad06b8ba61c08cda3e2741805",
+  "dash": []
+ },
+ "bench/packs/machine/es/chat-explicar-error.md": {
+  "sha1": "a2fdcfc91cf0e6f32d35ce285361dea875c7f418",
+  "dash": []
+ },
+ "bench/packs/machine/es/chat-reescribir-parrafo.md": {
+  "sha1": "0f1f733143c2bbec101424a462082cbc983d1690",
+  "dash": []
+ },
+ "bench/packs/machine/es/chat-resumir-reunion.md": {
+  "sha1": "743d078fb8611f48d370b75017650a6e5158e67c",
+  "dash": []
+ },
+ "bench/packs/machine/es/correo-bienvenida-restaura.md": {
+  "sha1": "912f4922c86ccfa766d3c72a6480384abab248cd",
+  "dash": []
+ },
+ "bench/packs/machine/es/docs-comando-pajarita.md": {
+  "sha1": "9f318a28e19ba9afbb20cbaef83f4000e6b816db",
+  "dash": []
+ },
+ "bench/packs/machine/es/docs-page.md": {
+  "sha1": "5f28c64da2db12aec7c6d4fc0dceb14dea6ab90e",
+  "dash": []
+ },
+ "bench/packs/machine/es/oferta-empleo-brisa-labs.md": {
+  "sha1": "3b6839c51aa3df8c6768aacc9dd37fc114abab11",
+  "dash": []
+ },
+ "bench/packs/machine/es/post-linkedin-verbo.md": {
+  "sha1": "da04a119b369a65bc02ff5f28d932e35f43d3d96",
+  "dash": []
+ },
+ "bench/packs/machine/es/pull-request.md": {
+  "sha1": "26973be32acf555507db490cae70203eb98c7eea",
+  "dash": []
+ },
+ "bench/packs/machine/es/readme-section.md": {
+  "sha1": "b7863ef967ec9b11367cf0027cef6cbb3ed128ee",
+  "dash": []
+ },
+ "bench/packs/machine/es/respuesta-soporte-nimbo.md": {
+  "sha1": "9eb426aac5705cba8bc840498a4aa70dd013fa5d",
+  "dash": []
+ },
+ "bench/scripts/ar.md": {
+  "sha1": "bb3f3f38c06e5a4b7b2cf8a2d3f22814be0bb556",
+  "dash": [
+   "3:36"
+  ]
+ },
+ "bench/scripts/en.md": {
+  "sha1": "cafe111e6292f9ff16d43b5b29c81ae4107e0b1a",
+  "dash": [
+   "3:42"
+  ]
+ },
+ "bench/scripts/he.md": {
+  "sha1": "6262a520e263e684ee85b4f06c6f6a4f1b63a759",
+  "dash": [
+   "3:33"
+  ]
+ },
+ "bench/scripts/ja.md": {
+  "sha1": "6453986b99d53ad7374ec457bebf1600bf4f1e8f",
+  "dash": [
+   "3:25"
+  ]
+ },
+ "bench/scripts/ko.md": {
+  "sha1": "ff63c31de49560215d42f82ec5331af207f4c9ad",
+  "dash": [
+   "3:22"
+  ]
+ },
+ "bench/scripts/tr.md": {
+  "sha1": "fb101a63c650c8652b838a047c1b29cd845e288b",
+  "dash": [
+   "3:44"
+  ]
+ },
+ "bench/scripts/zh.md": {
+  "sha1": "7c96064739f07b9eb85b02558d72c1e5cf96b37b",
+  "dash": [
+   "3:13"
+  ]
+ },
+ "bench/typography/MANIFEST.md": {
+  "sha1": "c7481c8c31896442329a8a7625a611d06c638eef",
+  "dash": []
+ },
+ "bench/typography/fi-haanpaa-karavaani.md": {
+  "sha1": "64d237443354c8014a2982d9be2d786fc89ea9fb",
+  "dash": []
+ },
+ "bench/typography/hu-jokai-uj-foldesur.md": {
+  "sha1": "7500cc709b7612df2219a53798f838ee4e4349a1",
+  "dash": [
+   "33:320",
+   "57:2"
+  ]
+ },
+ "bench/typography/ja-akutagawa-rashomon.md": {
+  "sha1": "c3a6a898511d04ef784a00667338db5d0bf6f803",
+  "dash": []
+ },
+ "bench/typography/pl-doyle-baskerville.md": {
+  "sha1": "5db9593ffa393211f0a3afb56d5391341954fc38",
+  "dash": [
+   "13:301",
+   "15:1",
+   "17:1",
+   "19:1",
+   "23:1",
+   "29:1",
+   "29:27",
+   "31:1",
+   "33:1",
+   "35:1",
+   "37:1",
+   "39:1",
+   "41:1",
+   "43:1",
+   "45:1",
+   "47:1",
+   "49:1",
+   "51:1",
+   "53:1",
+   "55:1",
+   "57:1",
+   "59:1",
+   "61:1",
+   "63:1",
+   "65:1",
+   "67:1",
+   "69:1",
+   "71:1",
+   "73:1",
+   "75:1",
+   "77:1",
+   "79:1",
+   "81:1",
+   "81:58",
+   "81:86",
+   "83:1",
+   "85:1",
+   "87:1",
+   "89:1",
+   "91:1",
+   "93:1",
+   "95:1",
+   "97:1",
+   "99:1",
+   "101:1",
+   "103:1",
+   "105:1",
+   "107:1",
+   "109:1",
+   "111:1",
+   "113:1",
+   "115:1",
+   "117:1",
+   "119:1",
+   "123:1",
+   "123:28",
+   "123:40",
+   "125:1",
+   "127:1",
+   "129:1",
+   "131:1",
+   "133:1",
+   "135:1",
+   "137:1",
+   "139:1",
+   "141:1",
+   "141:207",
+   "143:1",
+   "143:49",
+   "145:1",
+   "147:1",
+   "149:1",
+   "151:1",
+   "153:1",
+   "153:92",
+   "153:131",
+   "153:156"
+  ]
+ },
+ "bench/typography/ru-chekhov-dama-s-sobachkoy.md": {
+  "sha1": "98a076c7f603da87d10710cb67e5a860269cc6ab",
+  "dash": [
+   "23:92",
+   "23:808",
+   "25:304",
+   "27:37",
+   "47:318",
+   "47:345",
+   "49:281"
+  ]
+ },
+ "bench/typography/tr-omer-seyfettin-kasagi.md": {
+  "sha1": "a27a9e0802f2d4736e2fa08fbb9c84759fc2059f",
+  "dash": []
+ },
+ "bench/typography/zh-song-ling-li-ji-guang.md": {
+  "sha1": "d0020db08cb0b052b3e9273bb560680612ce97d2",
+  "dash": []
+ },
+ "docs/CITE.md": {
+  "sha1": "1f4e060691022c11ab682c11451c75522874cdd0",
+  "dash": []
+ },
+ "docs/FAQ.md": {
+  "sha1": "bb1ed9297089bf44ae2c3419edbbc65b077e243f",
+  "dash": []
+ },
+ "docs/GEO-PROMPTS.md": {
+  "sha1": "7a26e6b5416ba613b94329248bb0600cdd6bff46",
+  "dash": []
+ },
+ "docs/HEAD-TO-HEAD.md": {
+  "sha1": "feb06f9a287bfc6b6347000a58cfac33b337f4bf",
+  "dash": []
+ },
+ "docs/LANGUAGES.md": {
+  "sha1": "f303dcd9d873909bfdb26fa47a0feb09eec96da1",
+  "dash": []
+ },
+ "docs/LISTINGS.md": {
+  "sha1": "98c653f2ad7eea70a4b7d2b8f9d7f48174f8b66f",
+  "dash": []
+ },
+ "docs/MEASUREMENT.md": {
+  "sha1": "0e7def269dd20eafa8b7957e402a1fa227510003",
+  "dash": []
+ },
+ "docs/OWN-WRITING.md": {
+  "sha1": "d13247e434a2eb6c8580d7ce501e5b9271d6a9e6",
+  "dash": []
+ },
+ "docs/PAIN.md": {
+  "sha1": "b50d54150d75ecdf1e9a0cef0eadb3395c9e6322",
+  "dash": []
+ },
+ "docs/SARIF.md": {
+  "sha1": "711281aecaa50f9bb8849d37697aa237620b0e2e",
+  "dash": []
+ },
+ "docs/SCORING.md": {
+  "sha1": "0e1c4f3d00969c2a9bad2c07dc208da7e756a6b4",
+  "dash": []
+ },
+ "docs/hindi-rules-negative-result.md": {
+  "sha1": "76e71f392f7737670c4eb31b5602cb082958ffa8",
+  "dash": []
+ },
+ "docs/mcp.md": {
+  "sha1": "0331e8267734b3b4e6e1296f2fc7225beb5e9273",
+  "dash": []
+ },
+ "docs/superpowers/specs/2026-09-05-ai-slop-linter-citability-design.md": {
+  "sha1": "bc47b3ca8c2d78bda68a78e3228c2b8454ee8c6f",
+  "dash": []
+ },
+ "docs/typography-across-languages.md": {
+  "sha1": "33546499e006bb51dad056ce346a53c9bd2cbae6",
+  "dash": []
+ },
+ "skills/ai-slop-linter/SKILL.md": {
+  "sha1": "d7151090c8e49627e6eb96b5f0193d354660ca28",
+  "dash": []
+ },
+ "test/fixtures/clean.md": {
+  "sha1": "3653cc40fd31d058ba690206cc53c56964a49637",
+  "dash": []
+ },
+ "test/fixtures/quoted-code.md": {
+  "sha1": "6bf54e405deb5591eb7b9ce5a8008a421f74d1e2",
+  "dash": [
+   "35:39"
+  ]
+ },
+ "test/fixtures/short.md": {
+  "sha1": "a35dab72a9a1f95be6ea567b696b85a6198e35ad",
+  "dash": [
+   "1:14"
+  ]
+ },
+ "test/fixtures/sloppy.md": {
+  "sha1": "1911049d237a27e9abc7048c7a06ddd9993683dc",
+  "dash": [
+   "7:26"
+  ]
+ },
+ "textlint-rule-ai-slop/README.md": {
+  "sha1": "6c1cf31fee424230a8a4002c01e3e183a2468164",
+  "dash": []
+ },
+ "vscode/README.md": {
+  "sha1": "f62ca510e0ac43303e7a89d6410726db7cf05f51",
+  "dash": []
+ }
+}

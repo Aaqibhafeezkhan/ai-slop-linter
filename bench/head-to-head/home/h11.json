@@ -1,0 +1,52 @@
+{
+  "lang": "en",
+  "allowFirstPerson": [
+    "we"
+  ],
+  "facts": [
+    "Harbor 2\\.4",
+    "3 March 2026|March 3, 2026",
+    "41 seconds",
+    "\\b95\\b",
+    "Redis",
+    "Windows ARM64",
+    "`harbor push --legacy`"
+  ],
+  "tells": [
+    "\\bgreat question\\b|\\bi hope (?:this|that) helps\\b|\\blet me know if\\b",
+    "\\bhere'?s (?:a |an )?(?:quick |brief |detailed |short )?(?:breakdown|overview|summary|rundown)\\b",
+    "\\b(?:isn'?t|is not|not) (?:just|only|merely|simply)\\b",
+    "\\bno setup\\. no config\\. just results\\b",
+    "\\b(?:testament|commitment to|seamless|robust|pivotal|delve\\w*|empower\\w*|streamline\\w*)\\b[^\\n]*\\b(?:testament|commitment to|seamless|robust|pivotal|delve\\w*|empower\\w*|streamline\\w*)\\b",
+    ",\\s+(?:ensuring|marking|highlighting|showcasing)\\b",
+    "^\\s*[-*+]\\s+\\*\\*",
+    "[\\u{1F300}-\\u{1FAFF}\\u{2600}-\\u{27BF}]",
+    "\\bit'?s important to note\\b|\\bin conclusion\\b|\\bthe future looks bright\\b"
+  ],
+  "preserve": [
+    "`harbor push --legacy`"
+  ],
+  "minRatio": 0.2,
+  "minRatioNote": "Length floor for C5 repaired from 0.4 to 0.2 on 2026-10-22: 179 words of mostly residue leave about 47 words (26 percent) in a minimal faithful rewrite, and 20 of 24 scored runs (including every run with the everwrite skill loaded) fell below the old 40 percent floor, the lowest at 26 percent, while keeping 32 to 48 percent of the content words.",
+  "tellSources": [
+    "everwrite tells.py: residue (strong)",
+    "everwrite tells.py: residue, overview opener (strong)",
+    "everwrite tells.py: contrast (strong)",
+    "everwrite tells.py: negative listing (strong); patterns.md closers and fragments",
+    "everwrite tells.py: STOCK_WORDS, two or more in one paragraph (strong)",
+    "everwrite tells.py: rider (strong)",
+    "everwrite tells.py: bold-label (strong)",
+    "everwrite tells.py: emoji (strong)",
+    "everwrite tells.py: residue and inflation (strong)"
+  ],
+  "notes": [
+    "\\bexperts (?:argue|say|agree|believe|note|suggest)\\b",
+    "\\bpotentially\\b|\\barguably\\b",
+    "[\\u2014\\u2013]"
+  ],
+  "noteSources": [
+    "everwrite tells.py: authority (weak)",
+    "everwrite tells.py: qualifier (weak)",
+    "everwrite tells.py: dash (strong); covered by C4"
+  ]
+}

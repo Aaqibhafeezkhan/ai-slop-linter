@@ -4,6 +4,8 @@
  * (same length, so offsets line up), line starts for offset to line/column,
  * and the inline ignore directives.
  */
+import { findFrontMatter } from "./frontmatter.js";
+
 export interface Doc {
   path: string;
   text: string;
@@ -231,9 +233,9 @@ export function prepare(path: string, text: string): Doc {
   const allLines = text.split("\n");
   const starts = [0];
   for (let i = 0; i < text.length; i++) if (text[i] === "\n") starts.push(i + 1);
-  // Front matter at the very top, YAML (---) or TOML (+++).
-  const fm = /^(---|\+\+\+)\r?\n[\s\S]*?\r?\n\1\r?\n/.exec(text);
-  if (fm) masked = mask(masked, 0, fm[0].length);
+  // Front matter at the very top, YAML (---) or TOML (+++), found by the shared detector.
+  const fm = findFrontMatter(text);
+  if (fm) masked = mask(masked, 0, fm.end);
   // Fenced code blocks, including a fence inside a blockquote.
   for (const [s, e] of fencedSpans(allLines, starts)) masked = mask(masked, s, e);
   // Code quoted by indentation, which is how a README shows a diff.

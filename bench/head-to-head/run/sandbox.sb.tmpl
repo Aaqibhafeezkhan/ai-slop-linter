@@ -1,0 +1,40 @@
+(version 1)
+(allow default)
+(deny file-write*
+  (subpath "@HOME@/.claude/plugins")
+  (subpath "@HOME@/.claude/skills")
+  (subpath "@HOME@/.claude/commands")
+  (subpath "@HOME@/.claude/agents")
+  (subpath "@HOME@/.claude/hooks")
+  (subpath "@HOME@/.claude/scripts")
+  (literal "@HOME@/.claude/settings.json")
+  (literal "@HOME@/.claude/settings.local.json")
+  (literal "@HOME@/.claude/CLAUDE.md")
+  (subpath "@HOME@/.agents")
+  (subpath "@HOME@/.config")
+  (literal "@HOME@/.npmrc")
+  (subpath "@REPO@")
+  (subpath "@CODE@")@EXTRA_DENY@)
+; Later rules win. Under the output directory only the run's own directory is writable (the other runs'
+; directories, the plugin exports and the tarball are not). Reads of sibling run directories stay allowed.
+(deny file-write* (subpath "@OUT@"))
+(allow file-write* (subpath "@RUN@"))
+(deny file-write*
+  (regex #"^@OUT_RE@/plugin-")
+  (subpath "@OUT@/ours-tarball"))
+; The answer key lives in the repository and in the git-archive copy of the code under test (@CODE@, which is
+; the repository itself when no copy is named): the scored fixtures, goldens, checks and tests must not be
+; readable from inside an arm. dist/ of the copy stays readable (the CLI shims run from it).
+(deny file-read*
+  (subpath "@REPO@/bench")
+  (subpath "@REPO@/.superpowers")
+  (subpath "@REPO@/test")
+  (subpath "@REPO@/.git")
+  (subpath "@CODE@/bench")
+  (subpath "@CODE@/.superpowers")
+  (subpath "@CODE@/test")
+  (subpath "@CODE@/.git")@GIT_DENY@)
+; Only the PATH shims of the ours arm are let back in (those of the copy, and of the repository when no
+; copy is named), so `npx ai-slop-linter` and `npm install` still work.
+(allow file-read* (subpath "@REPO@/bench/head-to-head/run/bin-ours"))
+(allow file-read* (subpath "@CODE@/bench/head-to-head/run/bin-ours"))

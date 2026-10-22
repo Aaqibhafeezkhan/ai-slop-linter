@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { Worker } from "node:worker_threads";
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
-import { rules } from "../src/index.js";
+import { lintText, rules } from "../src/index.js";
 
 // Every rule is a regular expression over the whole document, and rules now arrive from outside
 // contributors. A pattern with nested quantifiers, or a leading `[ \t]*` that is retried from
@@ -100,4 +100,34 @@ test("the adversarial inputs are the sizes they claim", () => {
   assert.ok(!inputs["100,000-character line with no newline"]!.includes("\n"));
   assert.ok(!inputs["unclosed fence"]!.slice(3).includes("```"), "the fence must stay open");
   for (const [name, text] of Object.entries(inputs)) assert.ok(text.length >= N * 0.99, `${name} is ${text.length} characters`);
+});
+
+// Matching a finding to the paragraph it sits in was a scan of every paragraph, so a file with
+// thousands of paragraphs and a dash in each did quadratic work. It is a binary search now. The
+// French paragraphs between the English ones are what the search runs over: with none, the
+// list of foreign paragraphs is empty and a linear scan costs nothing either.
+const english = "The release went out on Tuesday with the new parser \u2014 and the team fixed what users reported.";
+const french = "La directrice a déclaré que les résultats sont dans le rapport, et nous pensons que le service est très bon pour les clients.";
+const manyParagraphs = (pairs: number): { findings: number; ms: number } => {
+  const text = Array.from({ length: pairs }, () => `${english}\n\n${french}`).join("\n\n");
+  // CPU time, not wall-clock time: this file runs beside the others, and a loaded machine
+  // stretched the wall-clock figure to twice its size without the code doing more work.
+  const started = process.cpuUsage();
+  const result = lintText("many.md", text, { only: ["dash"] });
+  const used = process.cpuUsage(started);
+  return { findings: result.findings.length, ms: (used.user + used.system) / 1000 };
+};
+
+test("16,000 paragraphs with a dash in each lint in well under 2 seconds", () => {
+  const run = manyParagraphs(16_000);
+  assert.equal(run.findings, 16_000);
+  assert.ok(run.ms < 2000, `took ${Math.round(run.ms)} ms`);
+});
+
+test("linting time grows roughly linearly with the number of paragraphs", () => {
+  manyParagraphs(1000);
+  const small = manyParagraphs(8_000);
+  const large = manyParagraphs(64_000);
+  // Eight times the paragraphs: linear work gives a ratio near 8, a per-finding scan near 64.
+  assert.ok(large.ms < small.ms * 20, `8,000 pairs took ${Math.round(small.ms)} ms and 64,000 took ${Math.round(large.ms)} ms`);
 });

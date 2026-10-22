@@ -1,0 +1,7 @@
+{
+  "note": "Commit messages written before 2021. They are read from shallow clones in _upstream/ and never copied into this repository: the report holds counts and phrases from our own lists only. The first `tuning` messages (newest first) decide which phrases are left out; the next `holdout` messages are not looked at until after that, and show whether the decision held on text it was not made on.",
+  "sources": [
+    { "id": "django", "repo": "https://github.com/django/django", "tag": "3.1.4", "commit": "fa206fe72220f85799e65fd0842885f42ff81bd5", "licence": "BSD-3-Clause", "tuning": 1000, "holdout": 1000 },
+    { "id": "flask", "repo": "https://github.com/pallets/flask", "tag": "1.1.2", "commit": "93dd1709d05a1cf0e886df6223377bdab3b077fb", "licence": "BSD-3-Clause", "tuning": 1000, "holdout": 1000 }
+  ]
+}

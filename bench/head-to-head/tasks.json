@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "frozen": "2026-10-21",
+  "tasks": [
+    {
+      "id": "h1",
+      "status": "active",
+      "title": "French launch note: natural French, meaning kept",
+      "fixture": "h1",
+      "prompt": "Cette note de lancement dans note.md sonne trop automatique. Réécris-la en français plus naturel, directement dans le fichier, sans changer le sens.",
+      "criteria": [
+        { "id": "C1", "kind": "script", "text": "At least four dialogue lines start with a dash and a space, and the quoted director line is kept exactly." },
+        { "id": "C2", "kind": "script", "text": "The date (3 mars), the product name (Atelier 2.0), the price (29 euros), and both durations (quatorze or 14 minutes, quarante or 40 minutes) are kept." },
+        { "id": "C3", "kind": "script", "text": "None of these stock phrases remain: pas seulement, révolution, plongeons, robuste, n'hésitez pas, sans faille, en conclusion, l'avenir s'annonce (case-insensitive, apostrophes normalised)." },
+        { "id": "C4", "kind": "script", "text": "The text is still French (at least five of le, la, les, nous, des, est, une, pour as whole words) and has none of the English words the, and, we." },
+        { "id": "C5", "kind": "blind", "text": "The meaning is kept, no claim is added, and the text reads as natural French." }
+      ]
+    },
+    {
+      "id": "h2",
+      "status": "active",
+      "title": "Marketing-style README intro: facts kept, no invented claims",
+      "fixture": "h2",
+      "prompt": "The intro paragraph in README.md reads like marketing copy. Rewrite it so a developer would trust it, and edit the file in place. Keep the rest of the file as it is.",
+      "criteria": [
+        { "id": "C1", "kind": "script", "text": "Every fact survives: 2.3, 12,000, 4-core, 40%, 2.2, 35%, p99, Acme Corp, Node 20, MIT." },
+        { "id": "C2", "kind": "script", "text": "No em dash, no en dash, and none of the stock words seamless, robust, battle-tested, game-changer, blazing, unparalleled, effortless, empower, unlock, not just, future of job processing (case-insensitive)." },
+        { "id": "C3", "kind": "script", "text": "The heading line, the whole fenced install block and the changelog line are byte-identical to the fixture." },
+        { "id": "C4", "kind": "script", "text": "Added-claim check: every number in the output appears in the fixture, the words our, we, we've, us and my appear only if the fixture has them, and no capitalised word is new unless it starts a sentence." },
+        { "id": "C5", "kind": "blind", "text": "Nothing is fabricated (no invented benchmark conditions, owners or causes) and the text reads like a person wrote it." }
+      ]
+    },
+    {
+      "id": "h3",
+      "status": "active",
+      "title": "Pull request description: ready to open, meaning kept",
+      "fixture": "h3",
+      "prompt": "Edit pr.md in place so it's ready to open as a pull request. It reads too much like a chatbot wrote it. Keep what it says.",
+      "criteria": [
+        { "id": "C1", "kind": "script", "text": "Keeps #311, legacy_auth, 12, 24, 38, and the line npm run migrate -- --to 0042." },
+        { "id": "C2", "kind": "script", "text": "The fenced shell block is byte-identical to the fixture." },
+        { "id": "C3", "kind": "script", "text": "No emoji, no bullet line that starts with a bold label, no em or en dash, and no let me know." },
+        { "id": "C4", "kind": "script", "text": "No number in the output is absent from the fixture, except 1 and 2." },
+        { "id": "C5", "kind": "blind", "text": "The meaning is kept." }
+      ]
+    },
+    {
+      "id": "h4",
+      "status": "retired",
+      "retired": {
+        "date": "2026-10-22",
+        "reason": "Saturated: every arm, the no-plugin baseline included, reached full or near full marks on the scripted criteria.",
+        "evidence": "aborted round (24 runs, mean scripted points of 4 per arm): lowest 4.00, highest 4.00, spread 0.00; 8 of 8 arms at full marks; final partial round (8 runs, mean scripted points of 4 per arm): lowest 3.00, highest 4.00, spread 1.00; 7 of 8 arms at full marks.",
+        "replacedBy": "h13"
+      },
+      "title": "Release notes: every number, version, date, name and link survives",
+      "fixture": "h4",
+      "prompt": "RELEASE-NOTES.md is going to be published. It reads like an AI wrote it. Rewrite it in place so it reads like a person on the team wrote it. Every number, version, date, name, link and command in it has to stay exactly as it is.",
+      "criteria": [
+        { "id": "C1", "kind": "script", "text": "Every listed fact token is present verbatim: versions, dates, counts, percentages, issue numbers, the three code commands and the endpoint, the URL, the two names and the quoted sentence. The check reports any that are missing." },
+        { "id": "C2", "kind": "script", "text": "Nothing is added: every number, date and percentage in the output exists in the fixture, every URL exists in the fixture, every code span is one of the fixture's code spans, and every capitalised word that does not start a sentence appears in the fixture." },
+        { "id": "C3", "kind": "script", "text": "None of testament, delves, seamless, robust, fast-paced, not just, foundation for everything, I hope this helps, commitment to, and no em or en dash (case-insensitive)." },
+        { "id": "C4", "kind": "script", "text": "The title line and the three headings Highlights, Credits and Upgrade are still there." },
+        { "id": "C5", "kind": "blind", "text": "No claim is added: no new cause, comparison, superlative or promise that the source lacks." }
+      ]
+    },
+    {
+      "id": "h5",
+      "status": "retired",
+      "retired": {
+        "date": "2026-10-22",
+        "reason": "Saturated: every arm, the no-plugin baseline included, reached full or near full marks on the scripted criteria.",
+        "evidence": "aborted round (16 runs, mean scripted points of 5 per arm): lowest 4.50, highest 5.00, spread 0.50; 7 of 8 arms at full marks; final partial round (8 runs, mean scripted points of 5 per arm): lowest 4.00, highest 5.00, spread 1.00; 7 of 8 arms at full marks.",
+        "replacedBy": "h14"
+      },
+      "title": "Mixed-language help guide: quoted non-English lines kept, English tells removed",
+      "fixture": "h5",
+      "prompt": "guide.md is about to go on our docs site and it reads like a chatbot wrote it. Fix that, directly in the file.",
+      "criteria": [
+        { "id": "C1", "kind": "script", "text": "The two Spanish dialogue lines are byte-identical to the fixture." },
+        { "id": "C2", "kind": "script", "text": "The German quoted line is byte-identical to the fixture." },
+        { "id": "C3", "kind": "script", "text": "The French quoted line is byte-identical to the fixture." },
+        { "id": "C4", "kind": "script", "text": "None of testament, delves, pivotal, seamless, robust, leverage, fast-paced, game-changer, not just, isn't just, let me know, future of localization looks bright, commitment to (case-insensitive), and no em dash in an English line apart from the quoted non-English lines." },
+        { "id": "C5", "kind": "script", "text": "The digits of the facts stay: 6, 22%, 30 and 3 are present as number tokens." }
+      ]
+    },
+    {
+      "id": "h6",
+      "status": "retired",
+      "retired": {
+        "date": "2026-10-22",
+        "reason": "Saturated: every arm, the no-plugin baseline included, reached full or near full marks on the scripted criteria.",
+        "evidence": "aborted round (15 runs, mean scripted points of 5 per arm): lowest 4.50, highest 5.00, spread 0.50; 7 of 8 arms at full marks; final partial round (8 runs, mean scripted points of 5 per arm): lowest 5.00, highest 5.00, spread 0.00; 8 of 8 arms at full marks.",
+        "replacedBy": "h15"
+      },
+      "title": "Prose check wired into CI and a local npm command",
+      "fixture": "h6",
+      "prompt": "Our docs keep getting text that reads like an AI wrote it. Set this repo up so a pull request fails when the docs contain such text, and make \"npm run lint:prose\" the command that does the check locally. Keep the existing test job working.",
+      "criteria": [
+        { "id": "C1", "kind": "script", "text": "npm run lint:prose exits non-zero on the fixture guide (the check restores the original guide in a temporary copy first)." },
+        { "id": "C2", "kind": "script", "text": "With a clean guide in a temporary copy, npm run lint:prose exits zero while docs/fr/notes.md is still present." },
+        { "id": "C3", "kind": "script", "text": "With a clean guide plus a docs file containing an AI tell in a temporary copy, npm run lint:prose exits non-zero." },
+        { "id": "C4", "kind": "script", "text": "A workflow under .github/workflows triggers on pull_request and runs the prose check, package.json keeps its original test script, and the ci.yml job named test still runs npm test." },
+        { "id": "C5", "kind": "script", "text": "Each npm run lint:prose finishes within 120 seconds, and the temporary copy's package.json is valid JSON." }
+      ]
+    },
+    {
+      "id": "h7",
+      "status": "retired",
+      "retired": {
+        "date": "2026-10-22",
+        "reason": "Saturated: every arm, the no-plugin baseline included, reached full or near full marks on the scripted criteria.",
+        "evidence": "aborted round (16 runs, mean scripted points of 5 per arm): lowest 4.50, highest 5.00, spread 0.50; 7 of 8 arms at full marks; final partial round (8 runs, mean scripted points of 5 per arm): lowest 5.00, highest 5.00, spread 0.00; 8 of 8 arms at full marks.",
+        "replacedBy": "h16"
+      },
+      "title": "Humanizer home ground 1: product announcement with a hype opener and an emoji",
+      "fixture": "h7",
+      "kind": "home",
+      "prompt": "announcement.md reads like an AI wrote it. Rewrite it in place so it sounds like a person wrote it. Keep what it says.",
+      "source": {
+        "tool": "Humanizer (blader)",
+        "repo": "https://github.com/blader/humanizer",
+        "commit": "8c307f367c91bd974002f10f2be2965d642c13df",
+        "license": "MIT",
+        "file": "README.md",
+        "lines": "11",
+        "note": "The README's own Before block for its blind-test example, used whole."
+      },
+      "criteria": [
+        { "id": "C1", "kind": "script", "text": "Facts kept: each of \"drafts\", \"final_v7\\.docx\", \"two people|2 people\", \"same doc\", \"every plan\", \"free\" is present, compared case-insensitively (6 entries in home/h7.json; an entry may be a regular expression with alternatives, such as five or 5)." },
+        { "id": "C2", "kind": "script", "text": "Tells removed: none of the 4 case-insensitive patterns in home/h7.json matches the output. They are written from the strong (P0, P1, tier 1 or named-pattern) entries of Humanizer (blader)'s own published catalog, never from this repository's rules. Weaker tells are listed under notes in the same file and are not scored." },
+        { "id": "C3", "kind": "script", "text": "Nothing added: every number in the output appears in the before text (a digit is fine when the before text spells the number out, and list numbers do not count), no capitalised word that does not start a sentence is new (a possessive or a contraction counts as its base word), and the first-person words our, we, I and my appear only if the before text has them." },
+        { "id": "C4", "kind": "script", "text": "No dash as style: no em dash and no en dash in the output (the preserve list holds no line with a dash)." },
+        { "id": "C5", "kind": "script", "text": "Shape kept: the output has between 40 percent and 130 percent of the before text's word count, and it keeps at least 30 percent of the before text's content words (words of five or more letters, matched on their first five letters, leaving out stopwords and the words inside the tells)." }
+      ]
+    },
+    {
+      "id": "h8",
+      "status": "retired",
+      "retired": {
+        "date": "2026-10-22",
+        "ground": "duplicate",
+        "reason": "Duplicated by h16: the h16 before text is the whole Humanizer Full example (six paragraphs), and the h8 before text is its first five paragraphs, so h8 counted one competitor example twice.",
+        "evidence": "fixtures/h8/lisbon.md (218 words) is paragraphs 1 to 5 of fixtures/h16/lisbon-trip.md (251 words), word for word; h16 adds the sixth paragraph. Both come from the same Humanizer README Full example at commit 8c307f367c91bd974002f10f2be2965d642c13df. Retired as a duplicate, not as saturated: h8 was not at the ceiling in the partial rounds.",
+        "replacedBy": "h16"
+      },
+      "title": "Humanizer home ground 2: travel blog post with dashes and sales language",
+      "fixture": "h8",
+      "kind": "home",
+      "prompt": "lisbon.md reads like an AI wrote it. Rewrite it in place so it sounds like a person wrote it. Keep what it says.",
+      "source": {
+        "tool": "Humanizer (blader)",
+        "repo": "https://github.com/blader/humanizer",
+        "commit": "8c307f367c91bd974002f10f2be2965d642c13df",
+        "license": "MIT",
+        "file": "README.md",
+        "lines": "175,177,179,181,183",
+        "note": "The first five paragraphs of the README's Full example Before block (218 words). The sixth paragraph (line 185) is left out so the text stays within 250 words."
+      },
+      "criteria": [
+        { "id": "C1", "kind": "script", "text": "Facts kept: each of \"five|5\", \"Lisbon\", \"October\", \"Alfama\", \"Tram 28\", \"forty|40\", \"Pastéis de Belém\", \"Graça\", \"São Jorge Castle\" is present, compared case-insensitively (9 entries in home/h8.json; an entry may be a regular expression with alternatives, such as five or 5)." },
+        { "id": "C2", "kind": "script", "text": "Tells removed: none of the 5 case-insensitive patterns in home/h8.json matches the output. They are written from the strong (P0, P1, tier 1 or named-pattern) entries of Humanizer (blader)'s own published catalog, never from this repository's rules. Weaker tells are listed under notes in the same file and are not scored." },
+        { "id": "C3", "kind": "script", "text": "Nothing added: every number in the output appears in the before text (a digit is fine when the before text spells the number out, and list numbers do not count), no capitalised word that does not start a sentence is new (a possessive or a contraction counts as its base word), and the first-person words our, we, I and my appear only if the before text has them." },
+        { "id": "C4", "kind": "script", "text": "No dash as style: no em dash and no en dash in the output (the preserve list holds no line with a dash)." },
+        { "id": "C5", "kind": "script", "text": "Shape kept: the output has between 40 percent and 130 percent of the before text's word count, and it keeps at least 30 percent of the before text's content words (words of five or more letters, matched on their first five letters, leaving out stopwords and the words inside the tells)." }
+      ]
+    },
+    {
+      "id": "h9",
+      "status": "active",
+      "title": "unslop home ground 1: English blog passages with stock phrases and load-bearing metaphors",
+      "fixture": "h9",
+      "kind": "home",
+      "prompt": "blog.md reads like an AI wrote it. Rewrite it in place so it sounds like a person wrote it. Keep what it says.",
+      "source": {
+        "tool": "unslop",
+        "repo": "https://github.com/jlwin/unslop_ai",
+        "commit": "d65241e66f2b0e0d0b305cb55dadbffac0f9ef52",
+        "license": "MIT",
+        "file": "skills/unslop/evals/cases.md",
+        "lines": "25,223",
+        "note": "Case 2 (line 25) and case 19 (line 223) as two paragraphs. No single English case in the repository reaches 60 words, so the two English blog-profile inputs are joined, each verbatim. The combined text is 66 words and carries almost no numeric facts."
+      },
+      "criteria": [
+        { "id": "C1", "kind": "script", "text": "Facts kept: each of \"workplace learning\", \"data pipeline\", \"regional clusters\" is present, compared case-insensitively (3 entries in home/h9.json; an entry may be a regular expression with alternatives, such as five or 5)." },
+        { "id": "C2", "kind": "script", "text": "Tells removed: none of the 9 case-insensitive patterns in home/h9.json matches the output. They are written from the strong (P0, P1, tier 1 or named-pattern) entries of unslop's own published catalog, never from this repository's rules. Weaker tells are listed under notes in the same file and are not scored." },
+        { "id": "C3", "kind": "script", "text": "Nothing added: every number in the output appears in the before text (a digit is fine when the before text spells the number out, and list numbers do not count), no capitalised word that does not start a sentence is new (a possessive or a contraction counts as its base word), and the first-person words our, we, I and my appear only if the before text has them." },
+        { "id": "C4", "kind": "script", "text": "No dash as style: no em dash and no en dash in the output (the preserve list holds no line with a dash)." },
+        { "id": "C5", "kind": "script", "text": "Shape kept: the output has between 40 percent and 130 percent of the before text's word count, and it keeps at least 30 percent of the before text's content words (words of five or more letters, matched on their first five letters, leaving out stopwords and the words inside the tells)." }
+      ]
+    },
+    {
+      "id": "h10",
+      "status": "active",
+      "title": "unslop home ground 2: German story post with a front-loaded backstory and a realization coda",
+      "fixture": "h10",
+      "kind": "home",
+      "prompt": "post.md klingt, als hätte eine KI es geschrieben. Schreib es direkt in der Datei so um, dass es von einem Menschen stammt. Der Inhalt bleibt gleich.",
+      "source": {
+        "tool": "unslop",
+        "repo": "https://github.com/jlwin/unslop_ai",
+        "commit": "d65241e66f2b0e0d0b305cb55dadbffac0f9ef52",
+        "license": "MIT",
+        "file": "skills/unslop/evals/cases.md",
+        "lines": "112",
+        "note": "Case 9 (LinkedIn story post, profile social, narrative), used whole."
+      },
+      "criteria": [
+        { "id": "C1", "kind": "script", "text": "Facts kept: each of \"2023\", \"\\b40 Mittelst\\p{L}+\", \"IT-Ressourcen\", \"Herr Krause\", \"\\b20 Jahr\\p{L}*\", \"Familienbetrieb\\p{L}*\", \"unterschrieb(?:en)?\" is present, compared case-insensitively (7 entries in home/h10.json; an entry may be a regular expression with alternatives, such as five or 5)." },
+        { "id": "C2", "kind": "script", "text": "Tells removed: none of the 4 case-insensitive patterns in home/h10.json matches the output. They are written from the strong (P0, P1, tier 1 or named-pattern) entries of unslop's own published catalog, never from this repository's rules. Weaker tells are listed under notes in the same file and are not scored." },
+        { "id": "C3", "kind": "script", "text": "Nothing added: every number in the output appears in the before text (a digit is fine when the before text spells the number out, and list numbers do not count), and the first-person words wir, unser and ich appear only if the before text has them. The capitalised-word check is not applied to German, which capitalises every noun." },
+        { "id": "C4", "kind": "script", "text": "No dash as style: no em dash and no en dash in the output (the preserve list holds no line with a dash)." },
+        { "id": "C5", "kind": "script", "text": "Shape kept: the output has between 40 percent and 130 percent of the before text's word count, and it keeps at least 30 percent of the before text's content words (words of five or more letters, matched on their first five letters, leaving out stopwords and the words inside the tells)." }
+      ]
+    },
+    {
+      "id": "h11",
+      "status": "active",
+      "title": "everwrite home ground 1: release notes with residue, bold labels and an emoji",
+      "fixture": "h11",
+      "kind": "home",
+      "prompt": "release.md reads like an AI wrote it. Rewrite it in place so it sounds like a person wrote it. Keep what it says.",
+      "source": {
+        "tool": "everwrite",
+        "repo": "https://github.com/m4bwav/everwrite",
+        "commit": "38912ce43453129c63eef958bf65faef4833c18e",
+        "license": "MIT",
+        "file": "skills/everwrite/evals/fixtures/sloppy.md",
+        "lines": "1-15",
+        "note": "The evals fixture used by action-1 and outcome-1, used whole and renamed release.md. The same seven facts that outcome-1 lists are required here."
+      },
+      "criteria": [
+        { "id": "C1", "kind": "script", "text": "Facts kept: each of \"Harbor 2\\.4\", \"3 March 2026|March 3, 2026\", \"41 seconds\", \"\\b95\\b\", \"Redis\", \"Windows ARM64\", \"`harbor push --legacy`\" is present, compared case-insensitively (7 entries in home/h11.json; an entry may be a regular expression with alternatives, such as five or 5)." },
+        { "id": "C2", "kind": "script", "text": "Tells removed: none of the 9 case-insensitive patterns in home/h11.json matches the output. They are written from the strong (P0, P1, tier 1 or named-pattern) entries of everwrite's own published catalog, never from this repository's rules. Weaker tells are listed under notes in the same file and are not scored." },
+        { "id": "C3", "kind": "script", "text": "Nothing added: every number in the output appears in the before text (a digit is fine when the before text spells the number out, and list numbers do not count), no capitalised word that does not start a sentence is new (a possessive or a contraction counts as its base word), and the first-person words our, we, I and my appear only if the before text has them, except that we is always allowed in these release notes." },
+        { "id": "C4", "kind": "script", "text": "No dash as style: no em dash and no en dash in the output (the preserve list holds no line with a dash)." },
+        { "id": "C5", "kind": "script", "text": "Shape kept: \"`harbor push --legacy`\" is present verbatim, the output has between 20 percent and 130 percent of the before text's word count, and it keeps at least 30 percent of the before text's content words (words of five or more letters, matched on their first five letters, leaving out stopwords and the words inside the tells)." }
+      ]
+    },
+    {
+      "id": "h12",
+      "status": "retired",
+      "retired": {
+        "date": "2026-10-22",
+        "reason": "Saturated: every arm, the no-plugin baseline included, reached full or near full marks on the scripted criteria.",
+        "evidence": "aborted round (16 runs, mean scripted points of 5 per arm): lowest 4.50, highest 5.00, spread 0.50; 4 of 8 arms at full marks; final partial round (8 runs, mean scripted points of 5 per arm): lowest 5.00, highest 5.00, spread 0.00; 8 of 8 arms at full marks.",
+        "replacedBy": "h18"
+      },
+      "title": "everwrite home ground 2: town and venue page built from the pattern file's own Before lines",
+      "fixture": "h12",
+      "kind": "home",
+      "prompt": "town.md reads like an AI wrote it. Rewrite it in place so it sounds like a person wrote it. Keep what it says.",
+      "source": {
+        "tool": "everwrite",
+        "repo": "https://github.com/m4bwav/everwrite",
+        "commit": "38912ce43453129c63eef958bf65faef4833c18e",
+        "license": "MIT",
+        "file": "skills/everwrite/references/patterns.md",
+        "lines": "48,35,37,44,54,58",
+        "note": "Six Before sentences copied verbatim from the pattern file (sales language, inflated significance, stock section, borrowed authority, forced triad, avoiding is and has) and joined in that order into one paragraph. everwrite publishes no longer concrete passage besides the Harbor fixture used for h11, so this text is a composite and its sentences were not written to belong together."
+      },
+      "criteria": [
+        { "id": "C1", "kind": "script", "text": "Facts kept: each of \"the valley|valley\", \"1989\", \"institute\", \"river\", \"Gallery 825\", \"four rooms|4 rooms\" is present, compared case-insensitively (6 entries in home/h12.json; an entry may be a regular expression with alternatives, such as five or 5)." },
+        { "id": "C2", "kind": "script", "text": "Tells removed: none of the 5 case-insensitive patterns in home/h12.json matches the output. They are written from the strong (P0, P1, tier 1 or named-pattern) entries of everwrite's own published catalog, never from this repository's rules. Weaker tells are listed under notes in the same file and are not scored." },
+        { "id": "C3", "kind": "script", "text": "Nothing added: every number in the output appears in the before text (a digit is fine when the before text spells the number out, and list numbers do not count), no capitalised word that does not start a sentence is new (a possessive or a contraction counts as its base word), and the first-person words our, we, I and my appear only if the before text has them." },
+        { "id": "C4", "kind": "script", "text": "No dash as style: no em dash and no en dash in the output (the preserve list holds no line with a dash)." },
+        { "id": "C5", "kind": "script", "text": "Shape kept: the output has between 40 percent and 130 percent of the before text's word count, and it keeps at least 30 percent of the before text's content words (words of five or more letters, matched on their first five letters, leaving out stopwords and the words inside the tells)." }
+      ]
+    },
+    {
+      "id": "h13",
+      "status": "active",
+      "added": "2026-10-22",
+      "title": "Long release notes: 62 facts survive, tells removed inside bullets and a table",
+      "fixture": "h13",
+      "prompt": "RELEASE-NOTES.md is going to be published. It reads like an AI wrote it. Rewrite it in place so it reads like a person on the team wrote it. Every number, version, date, name, link and command in it has to stay exactly as it is.",
+      "criteria": [
+        { "id": "C1", "kind": "script", "text": "Every one of the 62 listed facts is present verbatim: versions, ISO dates, counts with thousands separators, percentages, durations, units, issue and pull request numbers, three names with accents, two URLs, six code spans and the quoted sentence (the list is in checker-data/h13.json). The check reports any that are missing." },
+        { "id": "C2", "kind": "script", "text": "Nothing is added: every number, version, date and percentage in the output exists in the fixture, every URL exists in the fixture, every code span is one of the fixture's code spans, and every capitalised word that does not start a sentence or a table cell appears in the fixture." },
+        { "id": "C3", "kind": "script", "text": "None of the 24 case-insensitive tell patterns in checker-data/h13.json (stock words, stock phrases, chatbot closers and the dash characters) matches anywhere in the text." },
+        { "id": "C4", "kind": "script", "text": "Structure kept: every heading line of the fixture is still there unchanged, the table has the same number of rows and the same number of columns in every row, and the number of list items is within 2 of the fixture's." },
+        { "id": "C5", "kind": "script", "text": "No tell is left inside a table row or a list item: none of the 6 patterns of the second list in checker-data/h13.json (a bold label that opens a bullet, a wider word list, an -ing rider, not just, emoji, dashes) matches any table row or list item line." }
+      ]
+    },
+    {
+      "id": "h14",
+      "status": "active",
+      "added": "2026-10-22",
+      "title": "Mixed-language guide with three foreign blocks, a code block and front matter",
+      "fixture": "h14",
+      "prompt": "guide.md is about to go on our docs site and it reads like a chatbot wrote it. Fix that, directly in the file.",
+      "criteria": [
+        { "id": "C1", "kind": "script", "text": "The two Spanish dialogue lines and the Turkish sentence with its en dash quotation are byte-identical to the fixture." },
+        { "id": "C2", "kind": "script", "text": "The German quotation line, with its low-9 quotation marks and spaced en dash, is byte-identical to the fixture." },
+        { "id": "C3", "kind": "script", "text": "The French guillemet line with its em dashes and the whole fenced code block, comments included, are byte-identical to the fixture." },
+        { "id": "C4", "kind": "script", "text": "None of the 26 case-insensitive English tell patterns in checker-data/h14.json matches any line outside the foreign lines and the code block (list items and table cells included), and no English prose line has an em dash." },
+        { "id": "C5", "kind": "script", "text": "The 14 listed numbers and facts are present as written (checker-data/h14.json), and the YAML front matter (title, lang: en, updated) is unchanged." }
+      ]
+    },
+    {
+      "id": "h15",
+      "status": "active",
+      "added": "2026-10-22",
+      "title": "Prose check wired into CI on a repository with legitimate dashes, quotes and other languages",
+      "fixture": "h15",
+      "prompt": "Our docs keep getting text that reads like an AI wrote it. Set this repo up so a pull request fails when the docs or the README contain such text, and make \"npm run lint:prose\" the command that does the check locally. It must pass on the files that are fine today and fail on a new bad one. Keep the existing test job working.",
+      "criteria": [
+        { "id": "C1", "kind": "script", "text": "With the protected files restored in a temporary copy (README.md, CHANGELOG.md, docs/fr/notes.md, docs/de/anleitung.md, docs/guides/setup.md) and docs/guide.md replaced by a clean guide, npm run lint:prose exits 0." },
+        { "id": "C2", "kind": "script", "text": "With a new docs/guides/new.md that holds a short English text with an em dash and three stock tells in that temporary copy, npm run lint:prose exits 1 exactly (not 2, not a crash signal)." },
+        { "id": "C3", "kind": "script", "text": "With the same sentence appended to the restored README.md as a new paragraph, npm run lint:prose exits 1 exactly." },
+        { "id": "C4", "kind": "script", "text": "A workflow under .github/workflows triggers on pull_request and runs the prose check, package.json keeps its original test script, and the ci.yml job named test still runs npm test." },
+        { "id": "C5", "kind": "script", "text": "Each npm run lint:prose finishes within 120 seconds, the temporary copy's package.json is valid JSON, and the command also exits 1 exactly on a file under a directory and with a name that the checker invents for each check, so a hard-coded fixture file name gains nothing." }
+      ]
+    },
+    {
+      "id": "h16",
+      "status": "active",
+      "added": "2026-10-22",
+      "title": "Humanizer home ground, full length: the whole six-paragraph Lisbon travel post",
+      "fixture": "h16",
+      "kind": "home",
+      "prompt": "lisbon-trip.md reads like an AI wrote it. Rewrite it in place so it sounds like a person wrote it. Keep what it says.",
+      "source": {
+        "tool": "Humanizer (blader)",
+        "repo": "https://github.com/blader/humanizer",
+        "commit": "8c307f367c91bd974002f10f2be2965d642c13df",
+        "license": "MIT",
+        "file": "README.md",
+        "lines": "175,177,179,181,183,185",
+        "note": "The README's Full example Before block, all six paragraphs (251 words counted by whitespace). Task h8 uses the first five of these paragraphs. Humanizer's own After text for this example is in after/h16/."
+      },
+      "criteria": [
+        { "id": "C1", "kind": "script", "text": "Facts kept: each of \"five|5\", \"Lisbon\", \"October\", \"Alfama\", \"Tram 28\", \"forty|40\", \"Pastéis de Belém\", \"Graça\", \"São Jorge Castle\", \"spring\" is present, compared case-insensitively (10 entries in home/h16.json; an entry may be a regular expression with alternatives, such as five or 5)." },
+        { "id": "C2", "kind": "script", "text": "Tells removed: none of the 5 case-insensitive patterns in home/h16.json matches the output. They are written from the strong (P0, P1, tier 1 or named-pattern) entries of Humanizer (blader)'s own published catalog, never from this repository's rules. Weaker tells are listed under notes in the same file and are not scored." },
+        { "id": "C3", "kind": "script", "text": "Nothing added: every number in the output appears in the before text (a digit is fine when the before text spells the number out, and list numbers do not count), no capitalised word that does not start a sentence is new (a possessive or a contraction counts as its base word), and the first-person words our, we, I and my appear only if the before text has them." },
+        { "id": "C4", "kind": "script", "text": "No dash as style: no em dash and no en dash in the output (the preserve list holds no line with a dash)." },
+        { "id": "C5", "kind": "script", "text": "Shape kept: the output has between 40 percent and 130 percent of the before text's word count, and it keeps at least 30 percent of the before text's content words (words of five or more letters, matched on their first five letters, leaving out stopwords and the words inside the tells)." }
+      ]
+    },
+    {
+      "id": "h17",
+      "status": "active",
+      "added": "2026-10-22",
+      "title": "unslop home ground, full length: nine German inputs from its own regression cases, joined",
+      "fixture": "h17",
+      "kind": "home",
+      "prompt": "sammlung.md klingt, als hätte eine KI es geschrieben. Schreib es direkt in der Datei so um, dass es von einem Menschen stammt. Der Inhalt bleibt gleich.",
+      "source": {
+        "tool": "unslop",
+        "repo": "https://github.com/jlwin/unslop_ai",
+        "commit": "d65241e66f2b0e0d0b305cb55dadbffac0f9ef52",
+        "license": "MIT",
+        "file": "skills/unslop/evals/cases.md",
+        "lines": "11,69,125,140,162-166,203,250,262,272",
+        "note": "No single unslop example reaches 250 words (the longest, case 9, has 77), so this is a composite: the INPUT blocks of cases 1, 5, 10, 11, 13, 17, 22, 23 and 24, which are the German cases that are expected to be flagged, in file order, each verbatim, joined by blank lines (331 words). Case 9 is left out because h10 uses it; cases 8 (mixed languages) and the must-stay-clean cases are left out."
+      },
+      "criteria": [
+        { "id": "C1", "kind": "script", "text": "Facts kept: each of \"Petra\", \"Lars\", \"Variante B\", \"Frau Kehl\", \"KW 42\", \"11:00 bis 11:30\", \"Tabelle 2\", \"Freitag\", \"Juli\", \"drei Varianten|3 Varianten\", \"halbier\\\\p{L}*\", \"Pausenstaffel\", \"Prüfbericht\", \"Wartung\" is present, compared case-insensitively (14 entries in home/h17.json; an entry may be a regular expression with alternatives, such as five or 5)." },
+        { "id": "C2", "kind": "script", "text": "Tells removed: none of the 15 case-insensitive patterns in home/h17.json matches the output. They are written from the strong (P0, P1, tier 1 or named-pattern) entries of unslop's own published catalog, never from this repository's rules. Weaker tells are listed under notes in the same file and are not scored." },
+        { "id": "C3", "kind": "script", "text": "Nothing added: every number in the output appears in the before text (a digit is fine when the before text spells the number out, and list numbers do not count), and the first-person words wir, unser and ich appear only if the before text has them. The capitalised-word check is not applied to German, which capitalises every noun." },
+        { "id": "C4", "kind": "script", "text": "No dash as style: no em dash and no en dash in the output (the preserve list holds no line with a dash)." },
+        { "id": "C5", "kind": "script", "text": "Shape kept: the output has between 40 percent and 130 percent of the before text's word count, and it keeps at least 30 percent of the before text's content words (words of five or more letters, matched on their first five letters, leaving out stopwords and the words inside the tells)." }
+      ]
+    },
+    {
+      "id": "h18",
+      "status": "active",
+      "added": "2026-10-22",
+      "title": "everwrite home ground, full length: every Before line of its pattern file, joined",
+      "fixture": "h18",
+      "kind": "home",
+      "prompt": "drafts.md reads like an AI wrote it. Rewrite it in place so it sounds like a person wrote it. Keep what it says.",
+      "source": {
+        "tool": "everwrite",
+        "repo": "https://github.com/m4bwav/everwrite",
+        "commit": "38912ce43453129c63eef958bf65faef4833c18e",
+        "license": "MIT",
+        "file": "skills/everwrite/references/patterns.md",
+        "lines": "9,11,15,17,18,19,22,26,28,29,35,37,40,44,48,54,58,62,66,70,74,80,90,94,98,101",
+        "note": "No single everwrite example reaches 250 words (the longest, the evals fixture used by h11, has 179), so this is a composite: every quoted Before string of the pattern file, in file order, each verbatim (the two \\n escapes become line breaks), grouped into paragraphs by section (329 words). Its sentences were not written to belong together."
+      },
+      "criteria": [
+        { "id": "C1", "kind": "script", "text": "Facts kept: each of \"Harbor\", \"1989\", \"Gallery 825\", \"four rooms|4 rooms\", \"41 seconds\", \"Redis\", \"1789\", \"institute\", \"river\", \"valley\", \"sessions\" is present, compared case-insensitively (11 entries in home/h18.json; an entry may be a regular expression with alternatives, such as five or 5)." },
+        { "id": "C2", "kind": "script", "text": "Tells removed: none of the 14 case-insensitive patterns in home/h18.json matches the output. They are written from the strong (P0, P1, tier 1 or named-pattern) entries of everwrite's own published catalog, never from this repository's rules. Weaker tells are listed under notes in the same file and are not scored." },
+        { "id": "C3", "kind": "script", "text": "Nothing added: every number in the output appears in the before text (a digit is fine when the before text spells the number out, and list numbers do not count), no capitalised word that does not start a sentence is new (a possessive or a contraction counts as its base word), and the first-person words our, we, I and my appear only if the before text has them." },
+        { "id": "C4", "kind": "script", "text": "No dash as style: no em dash and no en dash in the output (the preserve list holds no line with a dash)." },
+        { "id": "C5", "kind": "script", "text": "Shape kept: the output has between 40 percent and 130 percent of the before text's word count, and it keeps at least 30 percent of the before text's content words (words of five or more letters, matched on their first five letters, leaving out stopwords and the words inside the tells)." }
+      ]
+    }
+  ]
+}

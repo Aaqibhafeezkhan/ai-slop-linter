@@ -42,16 +42,27 @@ English word lists. The structural rules (`dash`, `curly-quotes`, `bold-label`, 
    `checkLanguagePack("<lang>", pack)` and assert it returns no problems.
 4. Add a fixture, `test/fixtures/sloppy.<lang>.md`, with one sentence per rule, and a test that
    the rules fire there and that the file is clean when the language is not switched on.
-5. Add a document to `bench/scripts/` in that language and one to `bench/corpus/human/` written
-   before 2021, then run `npm run bench`. If a rule fires on the older text, that is a finding
-   to publish in the table, not to tune away. Detectors are known to misjudge writing by people
-   who are not writing in their first language ([Liang et al.,
-   2023](https://www.cell.com/patterns/fulltext/S2666-3899(23)00130-7)), which is why a pack
-   without a clean older text is not ready.
+5. Measure the pack before it ships. The human corpus for the language is every
+   `bench/typography/<lang>-*.md` file and every file under `bench/packs/human/<lang>/`, with
+   its source recorded in `bench/packs/MANIFEST.md`. The machine corpus is the files under
+   `bench/packs/machine/<lang>/`, unedited model output with the prompt recorded beside them.
+   Run `node bench/packs.mjs` to write `bench/PACKS.md`. A rule ships only if it produces zero
+   findings on every human file of its language and at least one on the machine corpus, and each
+   corpus holds at least 500 words (human) or 300 words (machine), so a rate is never read off a
+   handful of sentences. Detectors
+   are known to misjudge writing by people who are not writing in their first language ([Liang et
+   al., 2023](https://www.cell.com/patterns/fulltext/S2666-3899(23)00130-7)), which is why the
+   human side of that limit is the one that cannot be relaxed.
+   The shipping limit is enforced by `test/packs.test.mjs` for every registered pack. The French
+   pack ships one provisional rule; Spanish and German ship none. The patterns measured for those
+   three languages, with their counts and verdicts, are in [bench/packs/CANDIDATES.md](bench/packs/CANDIDATES.md),
+   which also says how to measure a new one.
 6. Add the rows to the rule table in `README.md`, with sources.
 
-Nothing loads a pack unless it is asked for, with `--languages <tag>` or `"languages"` in
-`.slop.json`, so an English-only repository can never see a finding from another language's list.
+A pack switches on from the language of the file: a file declared, or detected from its front
+matter or prose, in that language runs the pack on the whole text, and an English file runs it on
+any paragraph detected as that language. `--languages <tag>` or `"languages"` in `.slop.json` still
+runs a pack on every file. An English-only file never sees a finding from another language's list.
 
 ## Severity
 
@@ -101,7 +112,7 @@ saying thank you, and both are owed.
 
 Maintainers only. One command; the workflow does the rest.
 
-1. In one commit, write the `## X.Y.Z (unreleased)` entry in `CHANGELOG.md` and set the version to `X.Y.Z` in `package.json`, `package-lock.json`, `CITATION.cff`, the `version` input default in `action.yml` and `.claude-plugin/plugin.json`. Merge that commit and let CI finish. The gate described below compares each of those files against the CHANGELOG heading on every push, so a commit that moves the heading by itself turns CI red and blocks the release it was meant to start. `npm run release` then finds those files already carrying the target version, which is expected and not an error.
+1. In one commit, write the `## X.Y.Z (unreleased)` entry in `CHANGELOG.md` and set the version to `X.Y.Z` in `package.json`, `package-lock.json`, `CITATION.cff`, the `version` input default in `action.yml`, `.claude-plugin/plugin.json`, `textlint-rule-ai-slop/package.json` (its own version, and its `ai-slop-linter` dependency written as `^X.Y.Z`) and `vscode/package.json`. Merge that commit and let CI finish. The gate described below compares each of those files against the CHANGELOG heading on every push, so a commit that moves the heading by itself turns CI red and blocks the release it was meant to start. `npm run release` then finds those files already carrying the target version, which is expected and not an error.
 2. On a clean, green `main`: `npm run release -- X.Y.Z` (or `patch`, `minor`, `major`; add `--dry-run` to see the plan). It dates the entry, sets the version in `package.json`, `CITATION.cff`, the `version` input default in `action.yml` and `.claude-plugin/plugin.json`, runs the tests, commits, tags `vX.Y.Z`, pushes, and then moves the major tag (`v0` today) to the release and force-pushes it, so `uses: Bubblegunn/ai-slop-linter@v0` follows the newest release in that major. The major tag moves from this command and not from the workflow because release tags are admin-only by ruleset; a workflow token could not move it.
 3. Watch the `release` workflow: it publishes to npm with provenance, creates the GitHub release from the CHANGELOG entry, and installs the published version from the registry on three operating systems.
 

@@ -33,12 +33,16 @@ const read = (rel) => readFileSync(join(root, rel), "utf8");
 const ENGINE = [
   "index.js",
   "doc.js",
+  "compare.js",
+  "frontmatter.js",
+  "lang.js",
   "rules/dashes.js",
   "rules/constructions.js",
   "rules/vocabulary.js",
   "rules/residue.js",
   "rules/reference-markup.js",
   "rules/formatting.js",
+  "rules/fr.js",
 ];
 
 /**
@@ -160,6 +164,21 @@ writeFileSync(
 );
 
 for (const f of readdirSync(join(root, "playground"))) cpSync(join(root, "playground", f), join(out, f));
+
+// Files for search engines and language models. The site is one page, so the sitemap lists one
+// URL. A project site cannot serve /robots.txt (crawlers read it at the host root), so none is
+// written. llms.txt and llms-full.txt are the repository's own files; their relative links would
+// 404 on Pages, so each is pointed at the file on GitHub.
+const SITE = "https://bubblegunn.github.io/ai-slop-linter/";
+const BLOB = "https://github.com/Bubblegunn/ai-slop-linter/blob/main/";
+writeFileSync(
+  join(out, "sitemap.xml"),
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${SITE}</loc></url>\n</urlset>\n`,
+);
+for (const f of ["llms.txt", "llms-full.txt"]) {
+  if (!existsSync(join(root, f))) continue;
+  writeFileSync(join(out, f), read(f).replace(/\]\((?!https?:|mailto:|#)([^)\s]+)\)/g, (_, p) => `](${BLOB}${p})`));
+}
 
 const rel = relative(process.cwd(), out) || ".";
 console.log(`playground-build: ok, ${ENGINE.length} engine files, ${SAMPLES.length} samples, version ${pkg.version} into ${rel}`);

@@ -1,0 +1,1 @@
+Shared drafts are out today. For months our own team passed around files named final_v7.docx, and we wanted something better. Now two people can edit the same doc at once, and each of them sees the other's changes live. Comments stay attached to the exact sentence they reference, even when the text around them changes. It is available on every plan, and it is free.

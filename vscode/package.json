@@ -1,0 +1,114 @@
+{
+  "name": "ai-slop-linter-vscode",
+  "displayName": "AI Slop Linter",
+  "description": "Flags AI-sounding phrases and em dashes in Markdown, plain text and commit messages while you type, with safe quick fixes.",
+  "version": "0.1.10",
+  "publisher": "bubblegunn",
+  "license": "MIT",
+  "author": "Efe Genc",
+  "homepage": "https://github.com/Bubblegunn/ai-slop-linter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bubblegunn/ai-slop-linter.git",
+    "directory": "vscode"
+  },
+  "bugs": {
+    "url": "https://github.com/Bubblegunn/ai-slop-linter/issues"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Linters"
+  ],
+  "keywords": [
+    "ai-slop",
+    "ai-writing",
+    "em-dash",
+    "linter",
+    "markdown",
+    "prose",
+    "commit-messages"
+  ],
+  "activationEvents": [
+    "onLanguage:markdown",
+    "onLanguage:plaintext",
+    "onLanguage:git-commit"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "AI Slop Linter",
+      "properties": {
+        "aiSlopLinter.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show AI-writing tells in Markdown, plain text and commit messages."
+        },
+        "aiSlopLinter.ignore": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Rule ids to skip, for example [\"filler\"]."
+        },
+        "aiSlopLinter.only": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Run only these rule ids."
+        },
+        "aiSlopLinter.language": {
+          "type": "string",
+          "default": "",
+          "description": "BCP 47 tag of the language your prose is written in. Rules whose evidence is English stand down for any other language. Empty means English."
+        }
+      }
+    },
+    "problemMatchers": [
+      {
+        "name": "ai-slop-linter",
+        "owner": "ai-slop-linter",
+        "source": "ai-slop-linter",
+        "fileLocation": [
+          "relative",
+          "${workspaceFolder}"
+        ],
+        "pattern": [
+          {
+            "regexp": "^(\\S.*?)  (?:[A-F] \\(score |not graded \\().*$",
+            "file": 1
+          },
+          {
+            "regexp": "^\\s+(\\d+):(\\d+)\\s+(error|warning|info)\\s+(\\S+)\\s+(.*)$",
+            "line": 1,
+            "column": 2,
+            "severity": 3,
+            "code": 4,
+            "message": 5,
+            "loop": true
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "build": "esbuild src/extension.ts --bundle --platform=node --format=cjs --external:vscode --outfile=dist/extension.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test test/diagnostics.test.ts test/manifest.test.ts",
+    "package": "npm run build && vsce package --no-dependencies --out ai-slop-linter.vsix",
+    "test:host": "node test/host/run.mjs ai-slop-linter.vsix"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "@types/vscode": "1.90.0",
+    "@vscode/test-electron": "3.1.0",
+    "@vscode/vsce": "4.0.0",
+    "ai-slop-linter": "file:..",
+    "esbuild": "0.28.2",
+    "typescript": "7.0.2"
+  }
+}

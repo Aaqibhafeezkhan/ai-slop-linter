@@ -1,73 +1,144 @@
-<p align="center"><img src="assets/wordmark.svg" width="640" alt="ai-slop-linter"></p>
+My coding agent keeps putting em dashes and stock phrases into commit messages, pull requests and READMEs even though my rules file bans them, and nothing checks the text before it ships.
+
+ai-slop-linter is a linter that flags AI-sounding phrases and em dashes in commit messages, pull request descriptions and Markdown docs, and runs in CI. It lists each tell with a line, a column and a reason, and `--explain <rule>` gives the source for that rule. It runs on your machine and calls no model.
+
+```
+npx ai-slop-linter README.md
+```
+
+![ai-slop-linter on a model-written pull request description, then --explain bold-label](docs/demo.gif)
+
+The recording is the unedited output of the build in this repository. The file it lints is a model-written sample from `bench/corpus`, not a real pull request. The command exits 1 when a file has an error-severity finding or a score above `--max-score` (default 10). Run on this README, the same command prints grade A.
 
 <p align="center">English | <a href="README.tr.md">Türkçe</a></p>
 
-<p align="center"><em>It does not guess who wrote it. It shows the tells.</em></p>
-
 <p align="center">
-  <img src="https://img.shields.io/npm/v/ai-slop-linter?style=flat-square&color=111111&label=npm" alt="npm">
-  <img src="https://img.shields.io/npm/dm/ai-slop-linter?style=flat-square&color=111111" alt="npm downloads">
-  <img src="https://img.shields.io/github/actions/workflow/status/Bubblegunn/ai-slop-linter/ci.yml?style=flat-square&color=111111&label=ci" alt="ci">
-  <img src="https://img.shields.io/github/stars/Bubblegunn/ai-slop-linter?style=flat-square&color=111111" alt="stars">
+  <a href="https://www.npmjs.com/package/ai-slop-linter"><img src="https://img.shields.io/npm/v/ai-slop-linter?style=flat-square&color=111111&label=npm" alt="npm version"></a>
+  <a href="https://www.npmjs.com/package/ai-slop-linter"><img src="https://img.shields.io/npm/dm/ai-slop-linter?style=flat-square&color=111111" alt="npm downloads per month"></a>
+  <a href="https://github.com/Bubblegunn/ai-slop-linter/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/Bubblegunn/ai-slop-linter/ci.yml?style=flat-square&color=111111&label=ci" alt="ci"></a>
   <img src="https://img.shields.io/badge/dependencies-0-111111?style=flat-square" alt="zero dependencies">
-  <img src="https://img.shields.io/badge/license-MIT-111111?style=flat-square" alt="MIT">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-111111?style=flat-square" alt="MIT licence"></a>
   <a href="https://doi.org/10.5281/zenodo.22396875"><img src="https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22396875-111111?style=flat-square" alt="DOI"></a>
   <a href="https://github.com/marketplace/actions/ai-slop-linter"><img src="https://img.shields.io/badge/GitHub_Marketplace-ai--slop--linter-111111?style=flat-square&logo=github" alt="GitHub Marketplace"></a>
 </p>
 
-**Catch formulaic prose before it reaches your pull request.** Point ai-slop-linter at a
-commit message, a pull request description, a README or an article, and it lists every
-pattern that reads as machine-made with a line, a column, a reason and the source that
-reason comes from. It runs on your machine and calls no model.
+The `dash` rule is an error today, so one em dash fails a run. Turn it off with `--ignore dash`. Whether it should stay an error by default has not been decided; the measurement is in [bench/DASH-DEFAULT.md](bench/DASH-DEFAULT.md).
 
-Readers have learned these tells: the em dash, `not just X but Y`, `I hope this helps`,
-`a testament to`, the bold label on every bullet. Once a reader sees one, they stop
-reading.
+The first line paraphrases what users wrote in public issues. The sources are in [docs/PAIN.md](docs/PAIN.md).
 
-**It is not an authorship detector.** It never prints a probability that a model wrote
-the text, and it cannot tell you who typed it: someone who writes `delve` gets the same
-finding a model does. A clean pass means one thing, that none of the listed tells are
-present. Every rule names its source and says when you should switch it off rather than
-obey it. [What it cannot show](#what-it-cannot-show) is the full list of limits.
+`slop --compare` shows which numbers, names, versions, links, quotes or code spans a rewrite lost or added, so keeping the facts is checked rather than assumed. The tool calls no model and has zero dependencies.
 
-## 30 seconds
+Most of the rules are built from the Wikipedia page [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), which records the patterns that editors who review machine-written edits keep finding. The rule table below names the source of each rule.
+
+## Install
+
+Three routes, one set of rules.
+
+- Command line: `npx ai-slop-linter README.md`, from npm. The npm version is 0.1.10. It takes `--language` but does not detect the language of a file, does not exempt dialogue, and has no `--compare`; those are in the unreleased 0.2.0. <!-- release-status -->
+- Agent skill: `npx skills add Bubblegunn/ai-slop-linter`. The skill makes an agent lint what it writes and compare the facts after each rewrite. Its `--compare`, per-file language detection and French rule need ai-slop-linter 0.2.0 or later, so until 0.2.0 is on npm the skill's `npx` commands run the older version. <!-- release-status -->
+- Claude Code plugin: `/plugin marketplace add Bubblegunn/ai-slop-linter`, then `/plugin install ai-slop-linter@ai-slop-linter`.
+
+## Before and after
+
+The input is [`bench/head-to-head/fixtures/h2/README.md`](bench/head-to-head/fixtures/h2/README.md). The output below is what this build prints for it.
+
+````markdown
+# Fastq
+
+Fastq 2.3 is not just a queue — it's a game-changer for modern backends. Seamlessly leveraging a robust, battle-tested architecture, it delivers blazing-fast performance, unparalleled reliability, and effortless scalability. In benchmarks, Fastq 2.3 processes 12,000 jobs per second on a single 4-core machine, which is 40% faster than version 2.2. Maintainers at Acme Corp reported a 35% drop in p99 latency on their staging cluster. It requires Node 20 or later and is released under the MIT license. Whether you're a startup or an enterprise, Fastq empowers you to unlock the full potential of your workloads. The future of job processing is here.
+
+## Install
+
+```sh
+npm install fastq@2.3
+```
+
+See the [changelog](CHANGELOG.md) for details.
+````
 
 ```
-npx ai-slop-linter README.md          # lint one file (exit 1 if it has errors)
+$ npx ai-slop-linter bench/head-to-head/fixtures/h2/README.md
+bench/head-to-head/fixtures/h2/README.md  F (score 85.5, 117 words, 8 findings)
+     3:14  warning not-x-but-y          "not just X but Y": say the thing itself
+     3:30  error   dash                 em dash
+     3:40  warning ai-vocabulary        "game-changer": a word models reach for; use the plain one
+     3:74  warning ai-vocabulary        "Seamlessly": a word models reach for; use the plain one
+     3:85  warning ai-vocabulary        "leveraging": a word models reach for; use the plain one
+     3:98  warning ai-vocabulary        "robust": a word models reach for; use the plain one
+     3:172 warning sales                "unparalleled": sounds like an advertisement; give the fact instead
+     3:569 warning ai-vocabulary        "unlock the": a word models reach for; use the plain one
+
+Why any of these is a tell, and what to write instead: slop --explain not-x-but-y
+```
+
+The rewrite, [`bench/head-to-head/golden/h2/README.md`](bench/head-to-head/golden/h2/README.md), is a hand-written version of the same paragraph:
+
+````markdown
+# Fastq
+
+Fastq 2.3 is a queue for job processing. In benchmarks, Fastq 2.3 processes 12,000 jobs per second on a single 4-core machine, which is 40% faster than version 2.2. Maintainers at Acme Corp reported a 35% drop in p99 latency on their staging cluster. It requires Node 20 or later and is released under the MIT license.
+
+## Install
+
+```sh
+npm install fastq@2.3
+```
+
+See the [changelog](CHANGELOG.md) for details.
+````
+
+It grades A with no finding:
+
+```
+$ npx ai-slop-linter bench/head-to-head/golden/h2/README.md
+bench/head-to-head/golden/h2/README.md  A (score 0, 69 words, 0 findings)
+```
+
+`--compare` checks the rewrite against the original:
+
+```
+$ npx ai-slop-linter --compare bench/head-to-head/fixtures/h2/README.md bench/head-to-head/golden/h2/README.md
+facts: 11 kept, 0 lost, 0 added
+OK: no fact lost or added
+```
+
+It also reads first-person words and claim words, which a rewrite can add without touching a number or a name. A rewrite that turns "In benchmarks" into "In our benchmarks" prints `added  person   our` and exits 1, because the source never said whose benchmarks. Only words that passed a measurement on the head-to-head rewrites are flagged, and [`bench/COMPARE-WORDS.md`](bench/COMPARE-WORDS.md) lists every candidate word with its verdict. Quoted text and code are not read.
+
+## How it compares
+
+A head-to-head benchmark against Humanizer, unslop and everwrite, on twelve editing tasks scored by scripted checks and blind grading. It is a result on those tasks, not a general ranking.
+
+<!-- h2h:start -->
+The round-1 results, including that the win rule was not met, are in docs/HEAD-TO-HEAD.md; the tasks, criteria and harness are public in bench/head-to-head/.
+<!-- h2h:end -->
+
+## Use it
+
+```
 npx ai-slop-linter                    # every .md file under the current directory
 npx ai-slop-linter --commit           # the last commit message
 npx ai-slop-linter README.md --fix    # apply the safe fixes in place
 ```
 
-`slop` is the same binary, for people who type it a lot. There is also a GitHub Action
-for pull requests, a `commit-msg` hook, a commitlint rule and an agent skill, and
-[In a repository](#in-a-repository) sets up each of them.
+`slop` is the same binary, for people who type it a lot. To read the rules against your own text in a browser before installing anything, open **[bubblegunn.github.io/ai-slop-linter](https://bubblegunn.github.io/ai-slop-linter/)**. The page runs the same engine this README documents, in your own browser. No request in it can carry your text anywhere, and it loads nothing from a third party. Two tests check that, and the deploy builds the page from this repository. `npm run playground` builds the same page locally.
 
-To read the rules against your own text in a browser before installing anything:
+Some readers have learned these tells: the em dash, `not just X but Y`, `I hope this helps`, `a testament to`, the bold label on every bullet.
 
-**[bubblegunn.github.io/ai-slop-linter](https://bubblegunn.github.io/ai-slop-linter/)**
+**It is not an authorship detector.** It never prints a probability that a model wrote the text, and it cannot tell you who typed it: someone who writes `delve` gets the same finding a model does. A clean pass means one thing, that none of the listed tells are present. Every rule names its source and says when you should switch it off rather than obey it. [What it cannot show](#what-it-cannot-show) is the full list of limits.
 
-The page runs the same engine this README documents, in your own browser: there is no request in
-it that could carry your text anywhere, and it loads nothing from a third party. Two tests check
-that, and the deploy builds it from this repository rather than from anything uploaded by hand.
-`npm run playground` builds the same page locally if you would rather read it offline.
+## Where it runs
 
-### One finding that was taken, and why
-
-The linter runs on the five READMEs its author maintains. On one of them it reported
-seven `bold-label` warnings and a grade of C, because that README listed its rules as
-bold labels with a colon:
-
-```
-before   - **Name:** the rule, explained in a sentence.
-after    - The rule, explained in a sentence.
-```
-
-That one was accepted because the seven bullets had become a form rather than prose, and
-the rule pointed at the exact shape doing it. Three findings on other pages were left
-alone in the same pass, because a sentence is worth more than a clean score. Both
-outcomes, with the scores and the dates, are in
-[Run on our own writing](#run-on-our-own-writing).
+| where | how | status |
+|---|---|---|
+| Command line | `npx ai-slop-linter` | published on npm |
+| GitHub Action | `uses: Bubblegunn/ai-slop-linter@v0`, see [In a repository](#in-a-repository) | listed on GitHub Marketplace |
+| commit-msg hook, pre-commit, commitlint | [In a repository](#in-a-repository) | available from this repository |
+| Agent skill | `npx skills add Bubblegunn/ai-slop-linter`, see [For agents](#for-agents) | available from this repository |
+| Claude Code plugin | `/plugin marketplace add Bubblegunn/ai-slop-linter` | available from this repository |
+| MCP server | `npx --yes ai-slop-linter --mcp`, see [docs/mcp.md](docs/mcp.md) | in the unreleased 0.2.0 <!-- release-status --> |
+| textlint rule | package `textlint-rule-ai-slop`, see [its README](textlint-rule-ai-slop/README.md) | in this repository, not yet on npm <!-- release-status --> |
+| VS Code extension | a `.vsix` built from `vscode/`, see [its README](vscode/README.md) | not yet on the Marketplace <!-- release-status --> |
+| Browser | [the playground](https://bubblegunn.github.io/ai-slop-linter/) | live |
 
 ## What it looks like
 
@@ -92,79 +163,14 @@ test/fixtures/sloppy.md  F (score 196.7, 271 words, 51 findings)
 Each file gets a score, weighted findings per 1,000 words (error 3, warning 1,
 info 0.3), and a grade: A under 3, B under 8, C under 15, D under 30, F above. The run
 exits 1 when any file has an error-severity finding or a score above `--max-score`
-(default 10), so it can sit in CI without a cleanup commit first.
+(default 10), so it can run in CI without a cleanup commit first.
 
-Scoring by density rather than by severity is the one design choice here with empirical
-support behind it, and it is worth saying where that support stops. Charoenwet,
-Thongtanunam, Pham and Treude compared ways of ordering static-analysis warnings
-([ISSTA 2024](https://arxiv.org/html/2407.12241v1)) and found warning density, warnings per
-line of code, gave the largest improvement, up to 5.6% on recall and 13.3% on initial false
-alarms, while warning severity, the ordering developers reach for first, gave the lowest
-improvement on every metric they measured. That study ranks warnings in changed functions
-during security code review; this tool ranks findings per thousand words of prose. The shape
-of the choice is the same and the evidence is from a different domain, so treat it as
-support for the shape and not as proof about this tool.
-
-The rest of the arithmetic has nothing behind it and should be read that way. The weights of
-three, one and three tenths are a convention. So are the grade boundaries. The fifty-word
-floor below which nothing is graded is arithmetic rather than a finding, and the reason for
-it is in the next section.
-
-### How words are counted
-
-Scripts that put spaces between words are tokenised: a word keeps its accents, so
-`değişiklik` and `naïve` are one word each rather than three and two.
-
-Chinese, Japanese, Thai, Khmer, Lao, Burmese and Tibetan do not separate words with
-spaces, so a run of them is handed to the platform's Unicode word segmenter, the same
-`Intl.Segmenter` the browser and Node ship, which applies UAX #29 with ICU's dictionaries.
-The alternative was a characters-per-word constant, and there is no number to put there
-that anybody measured. Counts in those scripts therefore come from ICU and can move a
-little between Node versions; the table in `bench/PRECISION.md` is regenerated in CI, so
-a shift shows up as a failure rather than as a quietly different number. Where a build
-has no `Intl.Segmenter`, two characters count as one word and the count is an estimate,
-which counts fewer words and so grades a little harder, never easier.
-
-A document under 50 words is not graded at all. Below that the denominator is small
-enough that a single finding decides the letter, so the grade says more about the length
-than about the writing: a twelve-word fragment with one em dash used to print an F. The
-findings still stand, and an error-severity finding still fails the run; only the letter
-is withheld. Commit messages and pull request descriptions are short by nature, so those
-paths keep their score, because there the question is whether the text carries a tell and
-not how dense the tells are.
-
-Where the platform has `Intl.Segmenter` but ICU carries no word dictionary for the script,
-which is what a build with small ICU gives you, the segmenter returns the whole run as one
-segment. That is the same bug as before with no symptom, so the result is checked per run
-rather than trusted: a run of twelve characters or more that comes back as a single word
-falls to the estimate instead. The check is per run, so a build that has the dictionary for
-one of these scripts and not another gets the right treatment for each.
-
-One thing this measure cannot do is compare languages against each other. Turkish builds
-long words out of suffixes, so the same text carries fewer of them than English does, and
-one tell in a Turkish document scores higher than the same tell in its English
-translation. The score is a comparison against other documents in the same language, not
-across them.
-
-### Where a finding points
-
-Every finding carries a line and a column, and the column is a 1-based offset in UTF-16 code
-units, counted from the start of the line in logical order. That is the same number your
-editor's status bar shows, the same one GitHub uses for a workflow annotation, and the same
-one a language server would report, so a tool that consumes the JSON can jump to the finding
-without knowing anything about the script.
-
-For a reader of Arabic or Hebrew this is worth saying plainly, because logical order is not
-what the eye sees: the character at column 12 of a right-to-left line is the twelfth character
-from the start of the text, which is drawn near the right edge, not the twelfth position from
-the left of the screen. Counting columns the way the text is drawn would break every editor
-that consumes them and would still be ambiguous in a line that mixes scripts. So the column
-stays logical, and the finding carries an `excerpt` of the text it matched: for reading, the
-excerpt is the reliable part, and the column is for the tool that jumps to it.
+How the score is built, why density and not severity, how words are counted and what a finding's
+column means: [docs/SCORING.md](docs/SCORING.md).
 
 ## The rules
 
-Twenty-one rules. Most come from the Wikipedia guideline
+Twenty-one rules. Most come from the Wikipedia page
 [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing),
 written by editors who review thousands of machine-written edits; the two marked "house"
 are ours. Run `npx ai-slop-linter --rules` for the same list from the binary, and
@@ -228,56 +234,27 @@ masked before any rule runs, so a dash in a code sample is never a finding.
 To silence a finding you have judged wrong:
 
 ```markdown
-<!-- slop-ignore-next-line dash -->
-<!-- slop-ignore vague-source, triad -->    (from here to the end of the file)
+<!-- slop-ignore-next-line RULE -->
+<!-- slop-ignore RULE-A, RULE-B -->    (from here to the end of the file)
 ```
+
+## Commit message rules
+
+`--commit`, `--commit-msg` and `--pr` also run these rules, which only a commit message or a pull request description gets. The phrase lists are adapted from [tbhb/vale-ai-tells](https://github.com/tbhb/vale-ai-tells) by Tony Burns (MIT). `bench/COMMIT-RULES.md` shows how each was measured on commits written before 2021.
+
+| rule | what it flags |
+|---|---|
+| `commit-hedging` | a hedge about a change already made, such as "this should fix" |
+| `commit-overexplanation` | a frame that adds nothing, such as "as part of this change" |
+| `commit-marketing` | claims such as "production ready" or "enterprise grade" |
+| `commit-trailing-justification` | a trailing clause that claims a benefit the diff has to show |
+| `commit-unquantified` | a speed claim with no number |
 
 ## If you do not write in English
 
-Every rule here was written against English prose and measured on English prose, so before
-this went out the rules were run against correct published typography in thirteen languages:
-Conan Doyle in Polish, Jókai in Hungarian, Chekhov in Russian, Dumas in French, and nine more,
-each punctuated exactly as its language requires. The table is
-[`bench/TYPOGRAPHY.md`](bench/TYPOGRAPHY.md), the corpus and its licences are in
-`bench/typography`, and the argument is in
-[`docs/typography-across-languages.md`](docs/typography-across-languages.md).
+The vocabulary rules are English word lists, so they find nothing in another language. The `dash` rule is the one that matters here, because correct French, Polish or Russian punctuation is not an English dash. The tool works out the language of each file from `"language"` in `.slop.json`, from `--language`, from a `lang:` key in the front matter, or from the prose, which is detected for French, Spanish, German, Italian, Portuguese and Dutch. For text that is not English, `dash` does not run, and the output names the language it used. Dialogue dashes and dashes inside `« »`, `‹ ›` and `„ “` quotations are exempt. A quoted line of fewer than 12 tokens inside an English paragraph is not.
 
-One rule failed, and it failed badly. `dash` carries the highest severity this tool has, and
-it fires at these rates per 1,000 words on correct native prose:
-
-| Polish | Hungarian | Russian | French | German | English, human baseline |
-|---:|---:|---:|---:|---:|---:|
-| 73.5 | 52.1 | 24.0 | 22.0 | 6.7 | 1.0 |
-
-Polish, Hungarian, Russian and German are what the committed files measure as they stand. The
-French figure needs one caveat, stated here rather than left for a reader to find: that file
-reaches us with its em dashes typed as two hyphens attached to the following word, which the
-rule does not match, so it scores 0 as transcribed and 22.0 once the dashes the printed edition
-set are restored. `bench/TYPOGRAPHY.md` prints both columns. The restored figure is the one a
-French writer would meet today, because nobody types a dash as two hyphens in a README.
-
-The Polish, Hungarian and Russian files grade F for punctuating their own language correctly.
-The em dash is ordinary in French, opens dialogue in Spanish, and in Russian stands where the
-verb "to be" would go, so it is grammar there rather than decoration.
-
-So tell the tool what you write in:
-
-```json
-{ "language": "fr" }
-```
-
-or `--language fr` for one run. English is the default, so nothing changes for a repository
-that does not set it. When the language is not English, `dash` does not run, and the output
-says so rather than going quietly clean. Nothing else stands down, because nothing else was
-measured to need it.
-
-Two things this cannot claim. Fifteen of the rules are built from English words, so outside
-English they are not unfair, they are inert: a French README written entirely by a model
-passes all of them, because `in order to` is not a French phrase. And a density threshold
-does not rescue `dash`: correct German prose sits at 6.7 findings per 1,000 words and the
-machine corpus in [`bench/PRECISION.md`](bench/PRECISION.md) sits at 5.7, so the two
-distributions overlap and no global number separates a German writer from a model. That was
-measured before it was given up on.
+The French pack has one rule, `fr/closer`, and it is provisional. Spanish and German have no rule. The measured rates and the limits are in [docs/LANGUAGES.md](docs/LANGUAGES.md), and the candidate patterns with their counts are in [bench/packs/CANDIDATES.md](bench/packs/CANDIDATES.md).
 
 ## Configuration
 
@@ -307,8 +284,10 @@ On the command line, `--only dash,chatbot` runs those rules and nothing else, `-
 (also spelled `--skip`) drops rules, and both reject a rule id that does not exist rather than
 silently doing nothing. `--languages <tag>`, or `"languages"` in `.slop.json`, switches on a
 rule pack for a language other than English; asking for one that does not exist is an error
-rather than a quiet clean run. Inside a file, `<!-- slop-ignore-next-line dash -->` covers one line
-and `<!-- slop-ignore dash, emoji -->` covers the rest of the file.
+rather than a quiet clean run. Inside a file, `<!-- slop-ignore-next-line RULE -->` covers one line
+and `<!-- slop-ignore RULE-A, RULE-B -->` covers the rest of the file (`RULE` stands for a rule id).
+
+A star hint appears once per machine in an interactive terminal; turn it off with `--quiet` or `AI_SLOP_LINTER_NO_STAR_HINT=1`.
 
 ## What the rules never see
 
@@ -334,13 +313,12 @@ already the subject of a benchmark: Zhang, Liu, Di and Qian's
 [CodeFuse-CommitEval](https://arxiv.org/abs/2511.19875) asks six models to spot commit
 messages that contradict their diff, and reports average recall of 85.95% and precision of
 80.28% against specificity of 63.8%, so on consistent commits the models raised a false
-alarm about a third of the time. That number is the argument for staying rule-based here. A
+alarm about a third of the time. That number is the reason this tool is rule-based. A
 rule that fires on a phrase it can point at is wrong in ways a reader can check.
 
 Whether the tells this linter looks for survive into that register is an open question, and
 [RESEARCH.md](RESEARCH.md) is the harness for answering it, along with the two runs done so
 far and what they do not yet support.
-
 
 **Pull requests.** The Action lints the pull request title, its description and every
 changed Markdown file, annotates the lines on the files tab, and keeps one comment on the
@@ -455,25 +433,21 @@ what it shows you first is your own writing.
 npx ai-slop-linter --history
 ```
 
-A real run, on the repository behind my own site:
+A real run, on this repository, for the author's public GitHub address (run on 2026-10-21 at commit abdace4):
 
 ```
-efegenc95@gmail.com · 133 messages · 17,502 words · by month
+50203466+Bubblegunn@users.noreply.github.com · 124 messages · 22,234 words · by month
 
-period   messages  words  per 1,000  most common tell
--------------------------------------------------------
-2026-07        52  9,884       26.6  dash (86), hyphen-density (15)
-                                   ██████████████████████
-2026-08        63  5,316       29.3  dash (51), hyphen-density (9)
-                                   ████████████████████████
-2026-09        18  2,302        1.8  hyphen-density (4), dash (1)
-                                   █
+period   messages   words  per 1,000  most common tell
+--------------------------------------------------------
+2026-09        81  15,693        1.6  dash (7), hyphen-density (4)
+                                    ████████████████████████
+2026-10        43   6,541        0.1  hyphen-density (3)
+                                    ██
 ```
 
-September is when I started running this on my own commit messages. That is the whole
-argument for the tool, and it is also the only claim this table can support: something
-changed in how those messages were written. It cannot tell you what changed it, and it
-cannot tell you who wrote anything.
+The table shows the tells per 1,000 words in one author's commit messages, month by month. It cannot tell you
+what changed the number, and it cannot tell you who wrote anything.
 
 `--author a@b.c,d@e.f` reads other addresses, which you need if your own commits are split
 across several. `--by quarter` and `--by year` widen the period, `--since` narrows the
@@ -494,7 +468,7 @@ before it hands it over, and carries the rules in plain language for an agent wi
 shell:
 
 ```
-npx skills add Bubblegunn/ai-slop-linter        # 56 agent directories
+npx skills add Bubblegunn/ai-slop-linter
 ```
 
 Or as a Claude Code plugin:
@@ -520,57 +494,16 @@ f.applied;            // number of fixes
 
 ## Measured on a fixed corpus
 
-A linter that cries wolf gets uninstalled, so the cost of a false alarm is measured and
-committed rather than asserted. `bench/corpus` holds ten texts: five written before any
-language model existed, three of them literary and scientific prose from the 1840s to 1860s
-and two Python Enhancement Proposals from 2001, and five pieces of unedited model output in
-the shapes this tool is pointed at. `npm run bench` runs every rule over both and writes
-[`bench/PRECISION.md`](bench/PRECISION.md), which lists the rate per rule, per 1,000 words, in
-each corpus. CI fails when the committed table no longer matches a fresh run.
-
-| corpus | words | grades |
-|---|---:|---|
-| human, all pre-2021 | 5,924 | A, A, B, B, B |
-| unedited model output | 1,045 | F, F, F, F, F |
-
-The first run found a rule that was wrong. `curly-quotes` flagged 92 lines of *Pride and
-Prejudice*, which is all of Austen's dialogue, and nothing at all in the model corpus. Curly
-marks are typography. What carries information is a file that mixes them with straight ones,
-which is what pasting out of a chat interface leaves behind. The rule now stays quiet unless a
-file mixes both, and Austen grades A.
-
-Eight findings remain on the human corpus and the table names every one. Six are real dashes
-in Darwin and Douglass and `--` in a 2001 style guide. One is `not just X but Y`, written by
-Frederick Douglass in 1845. One is `it's worth noting`, written by Guido van Rossum in PEP 8.
-None of them is a bug. They are the listed tells appearing in writing nobody would call slop,
-which is the standing cost of leaving those rules switched on, and it is the reason the output
-is a line number and a reason rather than a verdict about a person.
+`npm run bench` runs every rule over five texts written before 2021 and five pieces of unedited model
+output, and writes [bench/PRECISION.md](bench/PRECISION.md). CI fails when the committed table is stale.
+The method, the rule the first run found wrong, and every finding on the human texts are in
+[docs/MEASUREMENT.md](docs/MEASUREMENT.md).
 
 ## Run on our own writing
 
-The tool on the five READMEs its author maintains and on the eleven essays on the author's
-site, re-run at version 0.1.4 on 5 September 2026 (`npx ai-slop-linter <file> --warn`). The
-word counts move as the documents grow, so the version and the date are part of the claim:
-
-| text | words | grade | findings |
-|---|---|---|---|
-| [proactive-gate](https://github.com/Bubblegunn/proactive-gate) README | 4,871 | A (0) | none |
-| [workproof](https://github.com/Bubblegunn/workproof) README | 4,121 | A (0) | none |
-| this README | 3,744 | A (0) | none |
-| [surviving-lines](https://github.com/Bubblegunn/surviving-lines) README | 2,002 | A (0) | none; the first run found 2 bold labels in a list, fixed the same day |
-| [product-engineer](https://github.com/Bubblegunn/product-engineer) README | 1,755 | A (0) | none; the first run scored C (8.7) for 7 bold labels in the rule list |
-| 8 of 11 portfolio essays | 854 to 1,849 each | A (0) | none |
-| the other 3 essays | 866 to 1,601 | A (0.4 to 1.2) | `state-of-the-art` once, `elevated` once, `in order to` twice |
-
-The C was real: the first product-engineer README listed its seven rules as
-`**Name:** text` bullets, exactly the pattern the rule flags. Later the same day that
-README was rewritten to show the tool before explaining it, and the rule list became
-plain sentences on the way; it was not edited to please the linter, and the row keeps
-the earlier score so the table stays a record of runs, not a scoreboard. The three essays
-still carry their findings, because a sentence is worth more than a clean score. The linter
-runs on this repository's own Markdown in CI with `maxScore` 3, and it has caught two of its
-own rules that way: the curly quotes that flagged Jane Austen, and a `filler` match on
-"applied in order to any file", which is not the padded infinitive the rule is looking for.
+The tool is run on the READMEs of the author's five repositories. The dated results are in
+[docs/OWN-WRITING.md](docs/OWN-WRITING.md). This repository's own Markdown is linted in CI with
+`maxScore` 3 (see `.slop.json`).
 
 ## What it cannot show
 
@@ -586,14 +519,7 @@ own rules that way: the curly quotes that flagged Jane Austen, and a `filler` ma
   avoids every listed phrase. Text that passes can still be empty.
 - Style outside the list. Twenty-one rules cover the patterns editors flag most; a
   writer with a different tell passes. Add a rule when you find one.
-- Other languages. The vocabulary rules are English; the structural ones (dashes,
-  quotes, bold labels, emoji, headings) work anywhere. The machinery for a second rule
-  set is in place and switched off: `--languages` and `checkLanguagePack` are there, and
-  no pack ships yet. What holds one up is a source, not code, and there is no equivalent
-  of Wikipedia's Signs of AI writing in Turkish, Japanese, Korean, Hindi or Arabic.
-  Hindi has since been tested against a corpus rather than assumed, and produced no rule
-  worth shipping: see [the Hindi negative result](docs/hindi-rules-negative-result.md).
-  See [CONTRIBUTING.md](CONTRIBUTING.md) and issue #1.
+- Other languages. The vocabulary rules are English, and the structural ones work anywhere. Outside English the `dash` and `title-case-heading` rules stand down. There is one provisional French rule and no Spanish or German rule, because no candidate passed the shipping limit, so the tool does not claim to detect model text in those languages. Hindi has since been tested against a corpus rather than assumed, and produced no rule worth shipping: see [the Hindi negative result](docs/hindi-rules-negative-result.md). See [CONTRIBUTING.md](CONTRIBUTING.md) and issue #1.
 
 ## Research
 
@@ -611,57 +537,13 @@ answers are written down whether or not they flattered the tool.
 
 ## Cite this
 
-Every release is archived on Zenodo with a DOI, so a paper or a report can point at the exact
-rule set it ran. That matters here more than in most tools: the rules change, so a finding rate
-quoted without a version is not reproducible.
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22396875.svg)](https://doi.org/10.5281/zenodo.22396875)
-
-That is the **concept** DOI: it always resolves to the newest version. To cite the exact version
-you ran, open that page, pick the version in the sidebar, and use the DOI shown there.
-`CITATION.cff` in this repository carries the same identifier, so GitHub's "Cite this repository"
-button produces correct BibTeX and APA without any copying by hand.
-
+Every release is archived on Zenodo with a DOI, and `CITATION.cff` carries the same identifier, so GitHub's
+"Cite this repository" button gives correct BibTeX and APA. Details: [docs/CITE.md](docs/CITE.md).
 
 ## GitHub code scanning (SARIF)
 
-Use `--format sarif` to emit SARIF 2.1.0 for GitHub code scanning. SARIF output was written by [@Aaqibhafeezkhan](https://github.com/Aaqibhafeezkhan) ([#41](https://github.com/Bubblegunn/ai-slop-linter/pull/41)), who also made file paths with spaces and non-ASCII names valid URIs ([#63](https://github.com/Bubblegunn/ai-slop-linter/pull/63)). Every rule is included in the run metadata with its description and source citation. Severities map directly: `error` to `error`, `warning` to `warning`, and `info` to `note`.
-
-The run declares `utf16CodeUnits` for SARIF columns, matching the tool's documented 1-based UTF-16 column convention. Do not convert these columns to Unicode scalar values.
-
-Example workflow:
-
-```yaml
-name: ai-slop-linter code scanning
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-
-permissions:
-  contents: read
-  security-events: write
-
-jobs:
-  slop:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
-        with:
-          node-version: "24"
-      - run: npm ci
-      - run: npm run build
-      - run: node dist/src/cli.js --format sarif --warn "**/*.md" > results.sarif
-      - uses: github/codeql-action/upload-sarif@v4
-        with:
-          sarif_file: results.sarif
-```
-
-One limit worth knowing before you point this at something unusual: the `artifactLocation.uri` in the output is the path you gave on the command line, so running from outside the repository root can produce `../` segments that code scanning will not accept. The workflow above runs at the root, where that cannot happen.
-
-An earlier version of this example ran `sarif-multitool validate` before the upload. It is gone because it could not fail: it exited 0 on every broken file it was given ([#43](https://github.com/Bubblegunn/ai-slop-linter/issues/43)). This repository checks its own SARIF against the vendored 2.1.0 schema in `test/sarif-schema.test.ts` instead. The upload requires `security-events: write`; no broader write permission is needed. `--max-score` remains a separate repository policy and is not encoded as SARIF severity.
+`--format sarif` writes SARIF 2.1.0 for GitHub code scanning. The workflow, the column convention and the
+limits are in [docs/SARIF.md](docs/SARIF.md).
 
 ## Contributing
 

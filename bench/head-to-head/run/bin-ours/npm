@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+# Shim for the `ours` arm run and for the check of every arm (score.mjs puts this directory first on
+# PATH for all arms): "npm install|i|add|exec|x ... ai-slop-linter[@spec]" installs the local tarball named by
+# H2H_OURS_TARBALL (built once per round with `npm pack`), as the published package would be installed
+# after a release. Every other npm command goes unchanged to the real npm found later on PATH.
+# The first non-flag argument is the npm subcommand. Flags before it are skipped (--loglevel, --cache,
+# --registry, --prefix and --userconfig take a value). Only arguments after the subcommand that are
+# exactly ai-slop-linter or ai-slop-linter@<spec> are replaced; other packages are left alone.
+# The tarball is made from the git-archive copy of the commit under test (H2H_CODE_DIR), never the working
+# tree: H2H_OURS_TARBALL names it, and when only H2H_CODE_DIR is set the shim looks for the tarball that
+# run-all.sh packed beside the copy (<out>/ours-tarball/*.tgz). Without a tarball the call goes to the real npm unchanged and a warning is printed.
+HERE="$(cd "$(dirname "$0")" && pwd)"
+
+real_npm() {
+  local IFS=:
+  for dir in $PATH; do
+    [ -z "$dir" ] && continue
+    [ "$dir" -ef "$HERE" ] && continue
+    if [ -f "$dir/npm" ] && [ -x "$dir/npm" ]; then
+      echo "$dir/npm"
+      return 0
+    fi
+  done
+  return 1
+}
+
+ARGS=("$@")
+N=${#ARGS[@]}
+i=0
+while [ "$i" -lt "$N" ]; do
+  case "${ARGS[$i]}" in
+    --) i=$((i + 1)); break ;;
+    --loglevel|--cache|--registry|--prefix|--userconfig) i=$((i + 2)) ;;
+    -*) i=$((i + 1)) ;;
+    *) break ;;
+  esac
+done
+
+if [ -z "${H2H_OURS_TARBALL:-}" ] && [ -n "${H2H_CODE_DIR:-}" ]; then
+  for f in "$(dirname "$H2H_CODE_DIR")"/ours-tarball/*.tgz; do
+    [ -f "$f" ] && { H2H_OURS_TARBALL="$f"; break; }
+  done
+fi
+
+NPM="$(real_npm)" || { echo "npm: no real npm found on PATH" >&2; exit 127; }
+
+if [ "$i" -lt "$N" ]; then
+  case "${ARGS[$i]}" in
+    install|i|add|exec|x)
+      for ((j = i + 1; j < N; j++)); do
+        case "${ARGS[$j]}" in
+          --package=ai-slop-linter|--package=ai-slop-linter@*)
+            if [ -n "${H2H_OURS_TARBALL:-}" ]; then
+              ARGS[$j]="--package=$H2H_OURS_TARBALL"
+            else
+              echo "npm shim: H2H_OURS_TARBALL is not set, using ${ARGS[$j]} from the registry" >&2
+            fi
+            ;;
+          ai-slop-linter|ai-slop-linter@*)
+            if [ -n "${H2H_OURS_TARBALL:-}" ]; then
+              ARGS[$j]="$H2H_OURS_TARBALL"
+            else
+              echo "npm shim: H2H_OURS_TARBALL is not set, installing ${ARGS[$j]} from the registry" >&2
+            fi
+            ;;
+        esac
+      done
+      ;;
+  esac
+fi
+exec "$NPM" "${ARGS[@]+"${ARGS[@]}"}"

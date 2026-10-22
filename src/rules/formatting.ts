@@ -36,6 +36,10 @@ export const titleCase: Rule = {
   },
   ignoreWhen:
     "The project's style guide asks for title case; switch the rule off once in .slop.json.",
+  // Title case is an English convention. German capitalises every noun, so "Ein Login. Alle
+  // Quellen." reads as Title Case there and is ordinary sentence case (found by the Task 20
+  // probe of the h17 German fixture, which no heading-bearing corpus had covered before).
+  englishOnly: true,
   check(doc) {
     const out: Finding[] = [];
     for (const m of doc.masked.matchAll(/^#{1,6}[ \t]+([^\n]+)$/gm)) {
@@ -100,9 +104,18 @@ export const curlyQuotes: Rule = {
     const findings: Finding[] = [];
     if (/"/.test(doc.masked)) findings.push(...scan(doc, curlyQuotes, /[\u201C\u201D]/g, () => "curly quote among straight ones; the file mixes both", () => '"'));
     if (/'/.test(doc.masked)) findings.push(...scan(doc, curlyQuotes, /[\u2018\u2019]/g, () => "curly apostrophe among straight ones; the file mixes both", () => "'"));
-    return findings.sort((a, b) => a.line - b.line || a.column - b.column);
+    // The closing mark of a German low quotation („Wir melden uns bald“) is a curly mark by
+    // design, so it is neither a pasted mark nor safe to turn into a straight one. A span stays
+    // inside one paragraph, so an unclosed „ never reaches the next one.
+    const low: Array<[number, number]> = [];
+    for (const m of doc.masked.matchAll(LOW_QUOTE)) low.push([m.index!, m.index! + m[0].length]);
+    const inLowQuote = (f: Finding) => f.fix !== undefined && low.some(([from, to]) => f.fix!.start >= from && f.fix!.start < to);
+    return findings.filter((f) => !inLowQuote(f)).sort((a, b) => a.line - b.line || a.column - b.column);
   },
 };
+
+/** A German low quotation: „ up to its closing “ or ”, without crossing a blank line. */
+const LOW_QUOTE = /\u201E[^\u201E\u201C\u201D\n]*(?:\n(?![ \t]*\r?\n)[^\u201E\u201C\u201D\n]*)*[\u201C\u201D]/g;
 
 /** Too many hyphenated word pairs per hundred words. */
 export const hyphenDensity: Rule = {

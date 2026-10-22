@@ -1,0 +1,5 @@
+Wer in alten Ansichtskarten stöbert, hält mehr in der Hand als ein Stück bedrucktes Papier. Ein Gruß aus dem Seebad, ein Panorama der Altstadt, eine Bahnhofshalle, die es längst nicht mehr gibt: Postkarten sind kleine Zeitkapseln. Sie zeigen, wie Orte einmal aussahen, wie Menschen sie sahen und was sie ihren Liebsten darüber schrieben. Dennoch lagern unzählige dieser Karten in Schuhkartons, auf Dachböden und in Archiven, kaum erschlossen und schwer zu finden.
+
+Genau hier setzt Mirabel an. Die Datenbank versammelt historische Ansichtskarten an einem Ort und macht sie durchsuchbar: nach Motiv, Ort, Verlag, Epoche oder Poststempel. Was früher stundenlanges Blättern auf Flohmärkten erforderte, gelingt nun in wenigen Klicks. Heimatforscher finden Vergleichsbilder für ihre Ortschroniken, Sammlerinnen ergänzen ihre Bestände, und Neugierige entdecken zufällig die Straße wieder, in der sie aufgewachsen sind.
+
+In diesem Artikel werfe ich einen genaueren Blick auf Mirabel: Wie ist die Sammlung aufgebaut? Welche Möglichkeiten bietet die Suche? Und warum ist es wichtig, dieses unscheinbare Alltagsmedium für die Zukunft zu bewahren? Eine kleine Entdeckungsreise beginnt.

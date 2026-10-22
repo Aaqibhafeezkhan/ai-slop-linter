@@ -1,0 +1,1 @@
+The town is in the valley. The institute was founded in 1989. The town has recurring water shortages. Researchers study the river. The talks cover the new API and the migration plan. Gallery 825 is the exhibition space. It has four rooms.

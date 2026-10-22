@@ -1,0 +1,30 @@
+{
+  "lang": "en",
+  "facts": [
+    "drafts",
+    "final_v7\\.docx",
+    "two people|2 people",
+    "same doc",
+    "every plan",
+    "free"
+  ],
+  "tells": [
+    "\\b(?:isn'?t|is not|not) (?:just|only|merely)\\b",
+    "\\blet that sink in\\b",
+    "\\bthe best part\\?",
+    "[\\u{1F300}-\\u{1FAFF}\\u{2600}-\\u{27BF}]"
+  ],
+  "preserve": [],
+  "tellSources": [
+    "Humanizer 1: not X but Y (first-five pattern)",
+    "Humanizer 2: one-line closers; phrase also in the README five strongest tells",
+    "Humanizer 4: staged run-up before the point; phrase taken from the Before text",
+    "Humanizer 20: emojis as decoration"
+  ],
+  "notes": [
+    "[\\u2014\\u2013]"
+  ],
+  "noteSources": [
+    "Humanizer 8: dashes as the universal connector (marked weak alone); covered by C4"
+  ]
+}

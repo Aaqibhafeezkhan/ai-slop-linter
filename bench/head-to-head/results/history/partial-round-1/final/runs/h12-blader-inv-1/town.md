@@ -1,0 +1,1 @@
+The town sits in the valley, surrounded by scenery. The institute was founded in 1989 and is part of the history of regional statistics. The town is still going. The river is important to the local ecosystem. People attending can expect new ideas and some inspiration. Gallery 825 is the exhibition space and has four rooms.

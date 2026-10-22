@@ -1,0 +1,34 @@
+{
+  "lang": "en",
+  "facts": [
+    "the valley|valley",
+    "1989",
+    "institute",
+    "river",
+    "Gallery 825",
+    "four rooms|4 rooms"
+  ],
+  "tells": [
+    "\\bnestled\\b|\\bin the heart of\\b|\\bnatural beauty\\b",
+    "\\bmark(?:s|ed|ing)? an? (?:pivotal|significant|major|key|new) (?:moment|shift|milestone|turning point|era)\\b",
+    "\\bdespite (?:these|its|their) challenges\\b|\\bcontinues? to thrive\\b",
+    "\\binnovation, inspiration,? and insights\\b",
+    "\\b(?:vibrant|pivotal|crucial)\\b[^\\n]*\\b(?:vibrant|pivotal|crucial)\\b"
+  ],
+  "preserve": [],
+  "tellSources": [
+    "everwrite tells.py: inflation, sales language (strong)",
+    "everwrite tells.py: inflation (strong)",
+    "everwrite tells.py (strong) and patterns.md: stock section",
+    "everwrite patterns.md: forced triads",
+    "everwrite tells.py: STOCK_WORDS, two or more in one paragraph (strong)"
+  ],
+  "notes": [
+    "\\bexperts (?:argue|say|agree|believe|note|suggest)\\b",
+    "\\b(?:serves|stands|functions|acts|operates) as (?:a|an|the)\\b|\\bboasts\\b"
+  ],
+  "noteSources": [
+    "everwrite tells.py: authority (weak)",
+    "everwrite tells.py: copula (weak)"
+  ]
+}

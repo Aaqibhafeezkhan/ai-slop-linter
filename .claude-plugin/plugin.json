@@ -1,7 +1,7 @@
 {
   "name": "ai-slop-linter",
   "version": "0.1.10",
-  "description": "Lint prose for AI-writing tells. It does not guess who wrote it. It shows the tells.",
+  "description": "Lints prose for AI-sounding phrases and em dashes. Makes the agent check its commit messages, pull request descriptions and docs before it ships them.",
   "author": {
     "name": "Efe Genc",
     "url": "https://efe-genc-portfolio.vercel.app"
@@ -14,7 +14,9 @@
     "humanizer",
     "writing",
     "linter",
-    "skills"
+    "skills",
+    "em-dash",
+    "commit-messages"
   ],
   "skills": "./skills"
 }

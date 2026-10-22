@@ -4,12 +4,12 @@
     "name": "Efe Genc",
     "url": "https://efe-genc-portfolio.vercel.app"
   },
-  "description": "A linter for AI-writing tells in commit messages, PR descriptions and docs, packaged as a Claude Code skill.",
+  "description": "Linter for AI-sounding phrases and em dashes in commit messages, pull request descriptions and Markdown docs, packaged as a Claude Code skill.",
   "plugins": [
     {
       "name": "ai-slop-linter",
       "source": "./",
-      "description": "Makes the agent lint its own prose for AI-writing tells (em dashes, not-X-but-Y, chatbot residue, sales words) before it ships a commit message, PR description or doc.",
+      "description": "Lints prose for AI-sounding phrases and em dashes. Makes the agent check its commit messages, pull request descriptions and docs before it ships them.",
       "category": "writing",
       "keywords": ["ai-slop", "humanizer", "writing", "commits", "pull-requests", "em-dash"]
     }

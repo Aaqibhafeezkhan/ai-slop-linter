@@ -1,0 +1,1 @@
+The town is in the valley. The institute was founded in 1989, and its field is regional statistics. The river is important to the ecosystem. Attendees can expect innovation and insights. Gallery 825 is the exhibition space. It has four rooms.

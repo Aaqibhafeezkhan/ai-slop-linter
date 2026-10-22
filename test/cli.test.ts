@@ -321,3 +321,29 @@ test("SARIF output parses and preserves rule metadata, source, severity and colu
   assert.equal(finding.locations[0].physicalLocation.region.startLine, 1);
   assert.equal(finding.locations[0].physicalLocation.region.startColumn, 4);
 });
+
+test("commit rules run on commit messages, never on a file, and --ignore takes their ids", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "slop-commit-"));
+  try {
+    await writeFile(join(dir, "msg.txt"), "feat: add retry\n\nAs part of this change, add a retry. Make it production-ready.\n# a git comment line\n");
+    const msg = run(["--commit-msg", "msg.txt"], { cwd: dir });
+    assert.equal(msg.code, 1);
+    assert.match(msg.out, /commit-overexplanation/);
+    assert.match(msg.out, /commit-marketing/);
+    const ignored = run(["--commit-msg", "msg.txt", "--ignore", "commit-overexplanation,commit-marketing"], { cwd: dir });
+    assert.equal(ignored.code, 0, ignored.out);
+    await writeFile(join(dir, "notes.md"), `${"word ".repeat(60)}\n\nAs part of this change, add a retry. Make it production-ready.\n`);
+    const file = run(["notes.md"], { cwd: dir });
+    assert.doesNotMatch(file.out, /commit-/);
+    assert.equal(run(["--ignore", "commit-nope", "notes.md"], { cwd: dir }).code, 2);
+  } finally {
+    await rm(dir, { recursive: true, force: true });
+  }
+});
+
+test("--rules lists the commit rules and --explain explains one", () => {
+  assert.match(run(["--rules"]).out, /commit-hedging/);
+  const e = run(["--explain", "commit-hedging"]);
+  assert.equal(e.code, 0);
+  assert.match(e.out, /^commit-hedging {2}warning/);
+});

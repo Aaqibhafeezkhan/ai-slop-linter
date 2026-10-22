@@ -25,19 +25,19 @@ author, its date, its source and its licence.
 
 | language | files | words | findings | per 1,000 words |
 |---|---:|---:|---:|---:|
-| German | 1 | 1338 | 9 | 6.7 |
+| German | 1 | 1338 | 0 | 0 |
 | English | 5 | 5924 | 8 | 1.4 |
 | Spanish | 1 | 1119 | 0 | 0 |
-| Finnish | 1 | 1094 | 9 | 8.2 |
+| Finnish | 1 | 1094 | 0 | 0 |
 | French | 1 | 1136 | 0 | 0 |
-| Hungarian | 1 | 1056 | 55 | 52.1 |
+| Hungarian | 1 | 1056 | 2 | 1.9 |
 | Italian | 1 | 1105 | 0 | 0 |
 | Japanese | 1 | 1572 | 0 | 0 |
 | Dutch | 1 | 1181 | 0 | 0 |
 | Polish | 1 | 1048 | 77 | 73.5 |
 | Portuguese | 1 | 1216 | 0 | 0 |
-| Russian | 1 | 1084 | 26 | 24 |
-| Turkish | 1 | 561 | 5 | 8.9 |
+| Russian | 1 | 1084 | 7 | 6.5 |
+| Turkish | 1 | 561 | 0 | 0 |
 | Chinese | 1 | 1564 | 0 | 0 |
 
 ## Per rule, per language
@@ -47,7 +47,7 @@ Findings per 1,000 words. Only the rules that fire somewhere have a column here;
 
 | rule | severity | German | English | Spanish | Finnish | French | Hungarian | Italian | Japanese | Dutch | Polish | Portuguese | Russian | Turkish | Chinese |
 |---|---|---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---:|
-| `dash` | error | 6.7 | 1 | 0 | 8.2 | 0 | 52.1 | 0 | 0 | 0 | 73.5 | 0 | 24 | 8.9 | 0 |
+| `dash` | error | 0 | 1 | 0 | 0 | 0 | 1.9 | 0 | 0 | 0 | 73.5 | 0 | 6.5 | 0 | 0 |
 | `not-x-but-y` | warning | 0 | 0.2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `ai-vocabulary` | warning | 0 | 0.2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
@@ -65,18 +65,18 @@ label, a list marker or an emoji have nothing to match, whatever language they a
 | `corpus/human/douglass-narrative.md` | 1202 | B | 5.8 | 3 |
 | `corpus/human/pep-257-docstrings.md` | 1174 | A | 2.6 | 1 |
 | `corpus/human/pep-8-style-guide.md` | 1230 | B | 3.3 | 2 |
-| `typography/de-eichendorff-taugenichts.md` | 1338 | D | 20.2 | 9 |
+| `typography/de-eichendorff-taugenichts.md` | 1338 | A | 0 | 0 |
 | `typography/es-pardo-bazan-insolacion.md` | 1119 | A | 0 | 0 |
-| `typography/fi-haanpaa-karavaani.md` | 1094 | D | 24.7 | 9 |
+| `typography/fi-haanpaa-karavaani.md` | 1094 | A | 0 | 0 |
 | `typography/fr-dumas-monte-cristo.md` | 1136 | A | 0 | 0 |
-| `typography/hu-jokai-uj-foldesur.md` | 1056 | F | 156.3 | 55 |
+| `typography/hu-jokai-uj-foldesur.md` | 1056 | B | 5.7 | 2 |
 | `typography/it-manzoni-promessi-sposi.md` | 1105 | A | 0 | 0 |
 | `typography/ja-akutagawa-rashomon.md` | 1572 | A | 0 | 0 |
 | `typography/nl-multatuli-max-havelaar.md` | 1181 | A | 0 | 0 |
 | `typography/pl-doyle-baskerville.md` | 1048 | F | 220.4 | 77 |
 | `typography/pt-eca-de-queiros-ramires.md` | 1216 | A | 0 | 0 |
-| `typography/ru-chekhov-dama-s-sobachkoy.md` | 1084 | F | 72 | 26 |
-| `typography/tr-omer-seyfettin-kasagi.md` | 561 | D | 26.7 | 5 |
+| `typography/ru-chekhov-dama-s-sobachkoy.md` | 1084 | D | 19.4 | 7 |
+| `typography/tr-omer-seyfettin-kasagi.md` | 561 | A | 0 | 0 |
 | `typography/zh-song-ling-li-ji-guang.md` | 1564 | A | 0 | 0 |
 
 ## What the transcription hides
@@ -91,13 +91,13 @@ corpus is untouched.
 
 | language | `--` in the file | `dash` /1k as transcribed | `dash` /1k as typeset |
 |---|---:|---:|---:|
-| German | 9 | 6.7 | 6.7 |
+| German | 9 | 0 | 0 |
 | English | 5 | 1 | 1 |
-| Spanish | 15 | 0 | 13.4 |
-| French | 25 | 0 | 22 |
-| Dutch | 18 | 0 | 15.2 |
-| Polish | 77 | 73.5 | 73.5 |
-| Portuguese | 15 | 0 | 12.3 |
+| Spanish | 15 | 0 | 0 |
+| French | 25 | 0 | 0 |
+| Dutch | 18 | 0 | 0 |
+| Polish | 77 | 73.5 | 1 |
+| Portuguese | 15 | 0 | 0 |
 
 English is listed for comparison but is never restored: two of its five files are Python
 style guides in which a double hyphen is a command-line flag rather than a dash, so its
@@ -107,6 +107,14 @@ Read the right-hand column as the rate a writer of that language would meet toda
 nobody types a dash as two hyphens in a README. Read the left-hand column as a warning
 about corpora: a rule can look harmless on a language because of how the file was typed.
 
+## Sources
+
+See [`typography/MANIFEST.md`](typography/MANIFEST.md) for the origin and licence of every
+file, and [`../docs/typography-across-languages.md`](../docs/typography-across-languages.md)
+for what these numbers mean and what should be done about them.
+
+<!-- slop-ignore dash -->
+
 ## What fires, and on what
 
 One example per rule per language, so the table above can be checked against the text
@@ -114,18 +122,9 @@ that produced it.
 
 | language | rule | excerpt |
 |---|---|---|
-| German | `dash` | …und wußte nicht, wie mir geschehen war. -- Und hatte ich vorher lustig die Geige ge… |
 | English | `dash` | …n or cultivation, and vary very slightly—perhaps hardly more than in a state of n… |
 | English | `not-x-but-y` | …o so; for, unless he does this, he must not only whip them himself, but must stand by and see one white son tie… |
 | English | `ai-vocabulary` | …at it be written across multiple lines, it's worth noting that the combination of a two character… |
-| Finnish | `dash` | — Tämä on firman miehiä. Ja sillä on lujat… |
-| Hungarian | `dash` | – Igen természetesen; azon oknál fogva, ho… |
+| Hungarian | `dash` | …csátani nagy felelősséggel járó helyzet; – a mely észrevételt Garanvölgyi ur igen h… |
 | Polish | `dash` | …. Nie spostrzegł ich, ale ja dostrzegłem -- zupełnie świeże, w pobliżu. |
-| Russian | `dash` | — Он не кусается, — сказала она и покраснела. |
-| Turkish | `dash` | — Ben de yapacağım! diye tuttururdum. |
-
-## Sources
-
-See [`typography/MANIFEST.md`](typography/MANIFEST.md) for the origin and licence of every
-file, and [`../docs/typography-across-languages.md`](../docs/typography-across-languages.md)
-for what these numbers mean and what should be done about them.
+| Russian | `dash` | …к незнакомые; но после обеда пошли рядом — и начался шутливый, легкий разговор люде… |

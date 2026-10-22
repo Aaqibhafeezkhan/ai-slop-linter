@@ -5,7 +5,7 @@ name: pages
 on:
   push:
     branches: [main]
-    paths: ["playground/**", "src/**", "scripts/playground-build.mjs", ".github/workflows/pages.yml"]
+    paths: ["playground/**", "src/**", "scripts/playground-build.mjs", "llms.txt", "llms-full.txt", ".github/workflows/pages.yml"]
   workflow_dispatch:
 permissions:
   contents: read

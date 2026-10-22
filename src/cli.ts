@@ -5,20 +5,25 @@ import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "no
 import { dirname, resolve, relative, sep } from "node:path";
 import { pathToFileURL } from "node:url";
 import { createRequire } from "node:module";
-import { GRADE_FLOOR, lintText, fixText, rules, rulesFor } from "./index.js";
+import { GRADE_FLOOR, allRules, lintText, fixText, rules, languageRules } from "./index.js";
 import type { LintResult, Finding, Rule } from "./index.js";
 import { expand, globToRegExp, skippedByDefault } from "./glob.js";
 import { applyBaseline, createBaseline, parseBaseline } from "./baseline.js";
 import { renderSarif } from "./sarif.js";
+import { commitRules, lintCommitMessage } from "./commits.js";
+import { compareFacts, type Fact } from "./compare.js";
+import { maybeStarHint, realFs, type StarHintArgs } from "./star-hint.js";
 
 const HELP = `usage: slop [options] [file|dir|glob|-]...
        slop --commit            lint the last commit message
        slop --commit-msg <file> lint the message being written (what a commit-msg hook receives)
        slop --pr <number>       lint a pull request description (needs gh)
        slop --history           your own commit messages, read over time
+       slop --compare <before> <after>  facts a rewrite lost or added, with first-person words and claim words (also: slop diff)
        slop --rules             list the rules
        slop --explain <rule>    why one rule exists, with a before and after
        slop --init [action|hook] write .slop.json, and the workflow or the commit hook
+       slop --mcp               serve the linter to an AI agent over MCP (JSON-RPC on stdio)
 
 Lints text for the patterns that mark writing as machine-made. It does not guess who
 wrote it; it shows the tells, with line numbers, and fixes the safe ones.
@@ -27,8 +32,9 @@ wrote it; it shows the tells, with line numbers, and fixes the safe ones.
   --format <f>          text (default), json, github (workflow annotations), markdown (a table to paste) or sarif
   --ignore <rule,...>   skip rules by id (--skip is the same flag)
   --only <rule,...>     run only these rules
-  --language <tag>      the language this repository's prose is written in (default en);
-                        rules whose evidence is English stand down when it is not
+  --language <tag>      the language the prose is written in; rules whose evidence is English
+                        stand down when it is not. Unset or "auto": worked out per file
+                        from its front matter, then its text (English if nothing is clear)
   --languages <tag,...> rule packs to switch on besides English
   --max-score <n>       fail when a file's score is above n (default from .slop.json, else 10)
   --warn                never exit 1; report only
@@ -38,6 +44,8 @@ wrote it; it shows the tells, with line numbers, and fixes the safe ones.
   --author <email,...>  --history: whose messages (default: this repository's user.email)
   --by <period>         --history: month (default), quarter or year
   --since <when>        --history: anything git log --since accepts
+  --json                a comparison as JSON: {lost, added, kept}; the kinds include person and claim
+  --quiet, -q           no star hint after a clean interactive run (changes nothing else)
   --cwd <dir>           working directory (default: current)
   -h, --help            this text
   --version             print the version
@@ -47,7 +55,7 @@ A directory means the Markdown inside it. With no targets, lints the globs in .s
 Exit 1 on any error-severity finding or a score above --max-score, 2 on usage errors.
 Inline: <!-- slop-ignore-next-line [rule] --> and <!-- slop-ignore rule-a, rule-b --> (rest of file).`;
 
-interface Options {
+export interface Options {
   targets: string[];
   commit: boolean;
   commitMsg?: string;
@@ -66,15 +74,24 @@ interface Options {
   cwd: string;
   listRules: boolean;
   explain?: string;
+  mcp: boolean;
   init?: string;
   historyMode: boolean;
   authors: string[];
   bucket?: Bucket;
   since?: string;
+  /** --compare, or the `diff` subcommand: the facts a rewrite added or lost. */
+  compare: boolean;
+  json: boolean;
+  /** Suppresses the one-time star hint and nothing else. */
+  quiet: boolean;
 }
 
-export function parse(argv: string[]): Options {
-  const o: Options = { targets: [], commit: false, fix: false, format: "text", ignore: [], only: [], languages: [], maxScore: undefined, warn: false, baseline: false, baselineWrite: false, cwd: process.cwd(), listRules: false, historyMode: false, authors: [] };
+export function parse(input: string[]): Options {
+  // `slop diff <before> <after>` is the same command as `slop --compare`; only a first argument counts.
+  const diff = input[0] === "diff";
+  const argv = diff ? input.slice(1) : input;
+  const o: Options = { targets: [], commit: false, fix: false, format: "text", ignore: [], only: [], languages: [], maxScore: undefined, warn: false, baseline: false, baselineWrite: false, cwd: process.cwd(), listRules: false, mcp: false, historyMode: false, authors: [], compare: diff, json: false, quiet: false };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i]!;
     const next = () => {
@@ -108,6 +125,10 @@ export function parse(argv: string[]): Options {
       o.bucket = b;
     } else if (a === "--since") o.since = next();
     else if (a === "--rules") o.listRules = true;
+    else if (a === "--mcp") o.mcp = true;
+    else if (a === "--compare") o.compare = true;
+    else if (a === "--json") o.json = true;
+    else if (a === "--quiet" || a === "-q") o.quiet = true;
     else if (a === "--explain") o.explain = next();
     else if (a === "--init") {
       const what = argv[i + 1];
@@ -122,6 +143,23 @@ export function parse(argv: string[]): Options {
       process.exit(0);
     } else if (a.startsWith("--")) throw new Error(`unknown option ${a} (see --help)`);
     else o.targets.push(a);
+  }
+  if (o.json && !o.compare) throw new Error("--json applies to a comparison: slop --compare <before> <after> --json");
+  if (o.compare) {
+    // A comparison reads two files and prints a report; any mode that lints, writes or reads history is another command.
+    const others: [string, boolean][] = [
+      ["--fix", o.fix],
+      ["--commit", o.commit],
+      ["--commit-msg", o.commitMsg !== undefined],
+      ["--pr", o.pr !== undefined],
+      ["--init", o.init !== undefined],
+      ["--history", o.historyMode],
+      ["--explain", o.explain !== undefined],
+      ["--mcp", o.mcp],
+      ["--rules", o.listRules],
+    ];
+    const clash = others.find(([, on]) => on);
+    if (clash) throw new Error(`--compare (and slop diff) cannot be combined with ${clash[0]}`);
   }
   return o;
 }
@@ -142,9 +180,9 @@ interface Config extends Rules {
   /** Language rule packs to switch on besides English. */
   languages?: string[];
   /**
-   * The language this repository's prose is written in, a BCP 47 tag, default "en". Not the
-   * same as `languages`, which switches extra rule packs on: this one says what the text is,
-   * and rules whose evidence is English stand down when it is not English.
+   * The language this repository's prose is written in, a BCP 47 tag, or "auto" (the default,
+   * worked out per file). Not the same as `languages`, which switches extra rule packs on: this
+   * one says what the text is, and rules whose evidence is English stand down when it is not English.
    */
   language?: string;
   baseline?: string;
@@ -220,6 +258,9 @@ function collect(o: Options, config: Config): { name: string; file: string | nul
   return inputs;
 }
 
+/** Every rule that can fire anywhere: the prose rules and the commit-only rules. */
+const everyRule: Rule[] = [...rules, ...commitRules, ...Object.values(languageRules).flat()];
+
 const stripCommentLines = (msg: string) => msg.split("\n").filter((l) => !l.startsWith("#")).join("\n");
 
 function renderText(results: (LintResult & { baselined?: number })[], fixed: Map<string, number>): string {
@@ -237,9 +278,48 @@ function renderText(results: (LintResult & { baselined?: number })[], fixed: Map
     for (const f of r.findings) out.push(`  ${String(f.line).padStart(4)}:${String(f.column).padEnd(3)} ${f.severity.padEnd(7)} ${f.rule.padEnd(20)} ${f.message}`);
   }
   // A rule that did not run is said out loud, so a quiet result is never read as a clean one.
-  const stoodDown = [...new Set(results.flatMap((r) => r.stoodDown))].sort();
-  if (stoodDown.length) out.push(`${stoodDown.join(", ")} did not run: the declared language is not English.`);
+  // A declared language keeps the one-line footer it always had. A language worked out from the
+  // file is named per file, because the author did not say it and may not know it was guessed.
+  const declared = [...new Set(results.filter((r) => r.languageSource === "declared").flatMap((r) => r.stoodDown))].sort();
+  if (declared.length) out.push(`${declared.join(", ")} did not run: the declared language is not English.`);
+  const inferred = results.filter((r) => r.stoodDown.length && (r.languageSource === "detected" || r.languageSource === "front-matter"));
+  for (const r of inferred.slice(0, 5)) out.push(`${r.stoodDown.join(", ")} did not run for ${r.path}: language ${r.language} (${r.languageSource})`);
+  if (inferred.length > 5) out.push(`and ${inferred.length - 5} more`);
   return out.join("\n");
+}
+
+/** One line of the comparison: `lost   number   40%`. Line breaks in a code fact are shown escaped. */
+const factLine = (tag: string, f: Fact) => `${tag.padEnd(6)} ${f.kind.padEnd(8)} ${f.value.replace(/\n/g, "\\n")}`;
+
+/**
+ * `--compare` and `slop diff`. Returns true when a fact was lost or added. Usage problems throw,
+ * and main reports them with exit 2.
+ */
+function compareCommand(o: Options): boolean {
+  if (o.targets.length !== 2) throw new Error("--compare takes two files: slop --compare <before> <after> (one side may be - for stdin)");
+  const [beforeArg, afterArg] = o.targets as [string, string];
+  if (beforeArg === "-" && afterArg === "-") throw new Error("only one side can be stdin (-)");
+  const read = (target: string) => {
+    if (target === "-") return readFileSync(0, "utf8");
+    try {
+      return readFileSync(resolve(o.cwd, target), "utf8");
+    } catch (err) {
+      throw new Error(`cannot read ${target}: ${(err as NodeJS.ErrnoException).code ?? "error"}`);
+    }
+  };
+  const before = read(beforeArg);
+  const after = read(afterArg);
+  const { lost, added, kept } = compareFacts(before, after, { language: o.language });
+  if (o.json) {
+    console.log(JSON.stringify({ lost, added, kept }, null, 2));
+  } else {
+    const lines = [`facts: ${kept} kept, ${lost.length} lost, ${added.length} added`];
+    for (const f of lost) lines.push(factLine("lost", f));
+    for (const f of added) lines.push(factLine("added", f));
+    if (lost.length === 0 && added.length === 0) lines.push("OK: no fact lost or added");
+    console.log(lines.join("\n"));
+  }
+  return lost.length > 0 || added.length > 0;
 }
 
 /** One rule, in full, for someone who has just been told their text has it. */
@@ -367,6 +447,22 @@ export function init(cwd: string, what: "config" | "action" | "hook"): string[] 
   return written;
 }
 
+/** What the star hint needs to know about a finished run: the parsed options and what the run reported. */
+export function starHintArgs(o: Options, results: { findings: unknown[] }[], exitCode: number): StarHintArgs {
+  return {
+    format: o.format,
+    quiet: o.quiet,
+    fix: o.fix,
+    commit: o.commit || o.commitMsg !== undefined,
+    pr: o.pr !== undefined,
+    explain: o.explain !== undefined,
+    history: o.historyMode,
+    stdin: o.targets.includes("-"),
+    exitCode,
+    findings: results.reduce((n, r) => n + r.findings.length, 0),
+  };
+}
+
 async function main() {
   let o: Options;
   try {
@@ -374,6 +470,23 @@ async function main() {
   } catch (err) {
     console.error(err instanceof Error ? err.message : String(err));
     process.exit(2);
+  }
+  if (o.mcp) {
+    // Loaded only here, so every other command starts without it.
+    const { serve } = await import("./mcp.js");
+    await serve(process.stdin, process.stdout);
+    return;
+  }
+  if (o.compare) {
+    let differs: boolean;
+    try {
+      differs = compareCommand(o);
+    } catch (err) {
+      console.error(err instanceof Error ? err.message : String(err));
+      process.exit(2);
+    }
+    if (differs) process.exit(1);
+    return;
   }
   if (o.init !== undefined) {
     let written: string[];
@@ -389,9 +502,9 @@ async function main() {
     return;
   }
   if (o.explain !== undefined) {
-    const rule = rules.find((r) => r.id === o.explain);
+    const rule = everyRule.find((r) => r.id === o.explain);
     if (!rule) {
-      console.error(`unknown rule "${o.explain}"\nrules: ${rules.map((r) => r.id).join(", ")}`);
+      console.error(`unknown rule "${o.explain}"\nrules: ${everyRule.map((r) => r.id).join(", ")}`);
       process.exit(2);
     }
     console.log(explain(rule));
@@ -416,14 +529,18 @@ async function main() {
     return;
   }
   if (o.listRules) {
-    for (const r of rules) console.log(`${r.id.padEnd(22)} ${r.severity.padEnd(8)} ${r.title}  (${r.source})`);
+    for (const r of rules) console.log(`${r.id.padEnd(30)} ${r.severity.padEnd(8)} ${r.title}  (${r.source})`);
+    console.log("\nCommit messages and pull request descriptions only (--commit, --commit-msg, --pr):");
+    for (const r of commitRules) console.log(`${r.id.padEnd(30)} ${r.severity.padEnd(8)} ${r.title}  (${r.source})`);
+    console.log("\nLanguage packs (run on text written in that language, or with --languages):");
+    for (const r of Object.values(languageRules).flat()) console.log(`${r.id.padEnd(30)} ${r.severity.padEnd(8)} ${r.title}  (${r.source})`);
     return;
   }
   const config = loadConfig(o.cwd);
-  const known = new Set(rules.map((r) => r.id));
+  const known = new Set(everyRule.map((r) => r.id));
   for (const id of [...o.only, ...o.ignore]) {
     if (!known.has(id)) {
-      console.error(`unknown rule "${id}"\nrules: ${rules.map((r) => r.id).join(", ")}`);
+      console.error(`unknown rule "${id}"\nrules: ${everyRule.map((r) => r.id).join(", ")}`);
       process.exit(2);
     }
   }
@@ -455,7 +572,7 @@ async function main() {
       }
       results.push(r.result);
     } else {
-      results.push(lintText(display, input.text, opts));
+      results.push(short ? lintCommitMessage(display, input.text, opts) : lintText(display, input.text, opts));
     }
   }
   const limitFor = (path: string) => limits.get(path) ?? o.maxScore ?? config.maxScore ?? 10;
@@ -474,7 +591,7 @@ async function main() {
   if (o.format === "json") console.log(JSON.stringify(results.map((r) => ({ ...r, findings: r.findings.map(withoutFix) })), null, 2));
   else if (o.format === "github") console.log(renderGithub(results, maxScore));
   else if (o.format === "markdown") console.log(renderMarkdown(results, maxScore));
-  else if (o.format === "sarif") console.log(renderSarif(results, rulesFor(o.languages), createRequire(import.meta.url)("../../package.json").version as string));
+  else if (o.format === "sarif") console.log(renderSarif(results, [...allRules(), ...commitRules], createRequire(import.meta.url)("../../package.json").version as string));
   else {
     console.log(renderText(results, fixed));
     // Guidance for a person, kept off stdout so the text format stays parseable
@@ -483,7 +600,9 @@ async function main() {
     if (first) console.error(`\nWhy any of these is a tell, and what to write instead: slop --explain ${first.rule}`);
   }
   const failing = results.filter((r) => r.errors > 0 || (r.score !== null && r.score > limitFor(r.path)));
-  if (failing.length && !o.warn) process.exit(1);
+  const exitCode = failing.length && !o.warn ? 1 : 0;
+  maybeStarHint(process.env, process.stdout, starHintArgs(o, results, exitCode), realFs);
+  if (exitCode !== 0) process.exit(1);
 }
 
 const withoutFix = (f: Finding) => ({ rule: f.rule, severity: f.severity, line: f.line, column: f.column, excerpt: f.excerpt, message: f.message, fixable: !!f.fix });

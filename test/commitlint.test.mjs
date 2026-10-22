@@ -29,3 +29,11 @@ test("the plugin and the shareable config have the shapes commitlint loads", () 
   assert.deepEqual(config.plugins, [plugin]);
   assert.deepEqual(config.rules["ai-slop-linter/tells"], [2, "always", { maxScore: 10 }]);
 });
+
+test("the commitlint rule also applies the rules only commit messages get", () => {
+  const [valid, message] = tells({ raw: "feat: add retry\n\nAs part of this change, add a retry." });
+  assert.equal(valid, false);
+  assert.match(message, /commit-overexplanation/);
+  const [ignored] = tells({ raw: "feat: add retry\n\nAs part of this change, add a retry." }, "always", { ignore: ["commit-overexplanation"] });
+  assert.equal(ignored, true);
+});

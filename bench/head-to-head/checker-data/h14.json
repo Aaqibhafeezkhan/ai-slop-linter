@@ -1,0 +1,60 @@
+{
+  "spanish": [
+    "— ¿Cuánto tarda el envío? —pregunta Lucía.",
+    "— Unos cuatro días —responde Mateo—, pero depende del puerto."
+  ],
+  "turkish": [
+    "Müdür toplantıda şunu söyledi: \"Çeviri bitmeden yayına çıkmayız – söz veriyorum.\""
+  ],
+  "german": [
+    "Der Support schrieb: „Wir melden uns innerhalb von 24 Stunden – versprochen“."
+  ],
+  "french": [
+    "La directrice a déclaré : « Je viens — enfin presque — demain présenter la version finale »."
+  ],
+  "code": "```sh\n# Export every string — one file per language\nkestrel i18n export --lang all\n# Send the files to the translators — keep the placeholders intact\nkestrel i18n send --team translators\n```",
+  "facts": [
+    "14 languages",
+    "38%",
+    "30 days",
+    "9 translators",
+    "1,200",
+    "48 hours",
+    "40 terms",
+    "$4,500",
+    "2026-09-01",
+    "v2.3",
+    "3 legal terms",
+    "3 target languages",
+    "4 regions",
+    "`strings/en.json`"
+  ],
+  "tells": [
+    "testament",
+    "\\bdelves?\\b",
+    "\\bpivotal\\b",
+    "\\bseamless",
+    "\\brobust\\b",
+    "\\bleverag",
+    "\\bfast-paced\\b",
+    "\\bgame[- ]chang",
+    "\\b(?:isn'?t|is not|not) just\\b",
+    "\\blet (?:me|us) know\\b",
+    "\\bfuture of localization looks bright\\b",
+    "\\bcommit(?:ment|ted) to\\b",
+    "\\bin conclusion\\b",
+    "\\bi hope this helps\\b",
+    "\\btapestry\\b",
+    "\\bvibrant\\b",
+    "\\bholistic\\b",
+    "\\bunlock",
+    "\\bever-evolving\\b",
+    "\\blandscape\\b",
+    "\\belevate\\b",
+    "\\bempower",
+    "\\bshowcas",
+    "\\bforward-thinking\\b",
+    "\\bit is important to note\\b",
+    "\\bin today's\\b"
+  ]
+}

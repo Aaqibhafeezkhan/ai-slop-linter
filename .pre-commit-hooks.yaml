@@ -2,6 +2,7 @@
   name: ai-slop-linter (Markdown)
   description: Lint Markdown files for AI-writing tells.
   entry: ai-slop-linter
+  args: [--quiet]
   language: node
   types: [markdown]
 

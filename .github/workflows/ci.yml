@@ -89,6 +89,9 @@ jobs:
       - run: npm run build
       - run: node bench/precision.mjs --check
       - run: node bench/typography.mjs --check
+      - run: node bench/dash.mjs --check
+      - run: node bench/packs.mjs --check
+      - run: node bench/compare-words.mjs --check
       - run: node scripts/readme-demo.mjs --check
   action:
     # The composite Action itself, run with `uses: ./` against the package built from this
@@ -192,6 +195,45 @@ jobs:
           SPACED: ${{ steps.spaced.outputs.findings }}
           SPACED_OUTCOME: ${{ steps.spaced.outcome }}
           SPACED_ONE_LINE_OUTCOME: ${{ steps.spaced-one-line.outcome }}
+  textlint:
+    # The textlint rule against textlint itself: the packed tarballs and a pinned textlint are
+    # installed into an empty directory and textlint, with and without --fix, is run on two files.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run build
+      - run: node scripts/textlint-smoke.mjs
+  vscode:
+    # The extension as a user gets it: built, packed to a .vsix, installed into a real VS Code
+    # (1.90.0, the oldest the manifest allows) under a virtual display, and exercised.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run build
+      - run: npm ci --ignore-scripts
+        working-directory: vscode
+      - run: npm run typecheck
+        working-directory: vscode
+      - run: npm test
+        working-directory: vscode
+      - run: npm run package
+        working-directory: vscode
+      - run: xvfb-run -a npm run test:host
+        working-directory: vscode
   coverage:
     # Node's built-in coverage over the shipped dist/src, on one leg. scripts/coverage.mjs holds
     # the thresholds and checks them itself, because Node reads its own threshold flags as whole
@@ -210,9 +252,9 @@ jobs:
   ci-ok:
     # The one check the branch ruleset requires; it fails if any job above failed or was cancelled.
     if: always()
-    needs: [test, package, release-gate, bench, coverage, action]
+    needs: [test, package, release-gate, bench, coverage, action, textlint, vscode]
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "test: ${{ needs.test.result }}  package: ${{ needs.package.result }}  release-gate: ${{ needs.release-gate.result }}  bench: ${{ needs.bench.result }}  coverage: ${{ needs.coverage.result }}  action: ${{ needs.action.result }}"
-          test "${{ needs.test.result }}" = success && test "${{ needs.package.result }}" = success && test "${{ needs.release-gate.result }}" = success && test "${{ needs.bench.result }}" = success && test "${{ needs.coverage.result }}" = success && test "${{ needs.action.result }}" = success
+          echo "test: ${{ needs.test.result }}  package: ${{ needs.package.result }}  release-gate: ${{ needs.release-gate.result }}  bench: ${{ needs.bench.result }}  coverage: ${{ needs.coverage.result }}  action: ${{ needs.action.result }}  textlint: ${{ needs.textlint.result }}  vscode: ${{ needs.vscode.result }}"
+          test "${{ needs.test.result }}" = success && test "${{ needs.package.result }}" = success && test "${{ needs.release-gate.result }}" = success && test "${{ needs.bench.result }}" = success && test "${{ needs.coverage.result }}" = success && test "${{ needs.action.result }}" = success && test "${{ needs.textlint.result }}" = success && test "${{ needs.vscode.result }}" = success

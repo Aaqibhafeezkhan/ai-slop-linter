@@ -89,7 +89,7 @@ convention. That is a real limit on what this tool can claim, and it is the oppo
 problem `dash` has: the word rules are blind rather than biased.
 
 Three rules are built from document structure rather than language: `bold-label`, `emoji` and
-the heading half of `title-case-heading`. A bold label followed by a colon reads the same in any
+the heading half of `title-case-heading`, which was the claim until a German heading fixture showed that capitalised nouns trigger it (it is now English-only). A bold label followed by a colon reads the same in any
 language, and these should carry across unchanged. This corpus cannot confirm that, because it
 is continuous prose and contains no headings, no lists and no emoji at all.
 
@@ -140,8 +140,8 @@ Spanish, Portuguese, Turkish, Finnish and German at once without naming any of t
 it does not silently change what any existing repository sees, and it puts the claim where it
 can be defended: this rule is a house rule for English text in a repository, and it says so.
 `"language": "fr"` in `.slop.json`, or `--language fr`, and the rule stands down; the run says
-`dash did not run: the declared language is not English`, so a quiet result is never read as a
-clean one. In the source it is one field, `englishOnly`, carried by `dash` alone.
+`dash, title-case-heading did not run: the declared language is not English`, so a quiet result is never read as a
+clean one. In the source it is one field, `englishOnly`, carried by `dash` and, since the 0.2.0 readiness check of the German heading fixture, by `title-case-heading`: German capitalises every noun, so a German heading of nouns read as Title Case.
 
 The honest cost is that a machine-written French README would no longer be flagged for its
 dashes. That is the right trade. The alternative charges a French writer an error-severity

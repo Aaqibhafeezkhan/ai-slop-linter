@@ -1,0 +1,33 @@
+{
+  "lang": "de",
+  "facts": [
+    "2023",
+    "\\b40 Mittelst\\p{L}+",
+    "IT-Ressourcen",
+    "Herr Krause",
+    "\\b20 Jahr\\p{L}*",
+    "Familienbetrieb\\p{L}*",
+    "unterschrieb(?:en)?"
+  ],
+  "tells": [
+    "\\bzur einordnung\\b",
+    "\\bund da wurde mir klar\\b",
+    "\\bam ende zählt (?:eben )?nicht\\b",
+    "\\bnicht\\s+[^.,;!?]{1,40},\\s+sondern\\b"
+  ],
+  "preserve": [],
+  "tellSources": [
+    "unslop cases.md case 9 (P1): fully front-loaded backstory",
+    "unslop cases.md case 9 (P1): realization coda",
+    "unslop cases.md case 9 and 10 (P1): aphoristic kicker; phrase taken from the Before text",
+    "unslop pattern-catalog 2 (P1): negative parallelism"
+  ],
+  "notes": [
+    "\\bein erfahrener kaufmann\\b",
+    "\\balle offenen fragen sind geklärt\\b|\\bheute läuft alles stabil\\b"
+  ],
+  "noteSources": [
+    "unslop cases.md case 9 (P2): person introduced via description block",
+    "unslop cases.md case 9 (P2): everything resolved"
+  ]
+}
