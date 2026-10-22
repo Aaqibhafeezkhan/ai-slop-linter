@@ -32,3 +32,6 @@ re:\bindustry observers note\b
 re:\bnestled in\b
 re:\ba must-see\b
 re:\bin this section we will\b
+# Hedge adverb: `hopefully` after a modal or opening a sentence.
+re:\b(?:should|will|can|could|would) hopefully\b
+re:(?<=^|\n[ \t]*|[.!?][ \t\n]+)hopefully,

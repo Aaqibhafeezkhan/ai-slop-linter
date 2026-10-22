@@ -27,7 +27,7 @@ const CLEAN = "The cache serves 80% of reads. The build takes 4 minutes.\n";
 test("verify: a clean rewrite exits 0 and says ok", () => {
   const r = verify(CLEAN, CLEAN);
   assert.equal(r.status, 0, r.out);
-  assert.match(r.out, /^verify: ok$/m);
+  assert.match(r.out, /^verify: ok \(unchanged\)$/m);
 });
 
 test("verify: English catalog phrases are hits", () => {
@@ -68,7 +68,7 @@ test("verify: a phrase in a quoted span, a dialogue line or code is not a hit", 
   ].join("\n");
   const r = verify(text, text);
   assert.equal(r.status, 0, r.out);
-  assert.match(r.out, /^verify: ok$/m);
+  assert.match(r.out, /^verify: ok \(unchanged\)$/m);
 });
 
 test("catalog scan skips a dialogue line that opens with a dash", () => {

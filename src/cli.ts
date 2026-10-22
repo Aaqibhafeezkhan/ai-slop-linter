@@ -15,6 +15,7 @@ import { compareFacts, type Fact } from "./compare.js";
 import { scanCatalog } from "./catalog.js";
 import { prepare } from "./doc.js";
 import { structureProblems } from "./structure.js";
+import { alignment, alignmentLines, lengthProblem } from "./rewrite-guard.js";
 import { maybeStarHint, realFs, type StarHintArgs } from "./star-hint.js";
 
 const HELP = `usage: slop [options] [file|dir|glob|-]...
@@ -23,7 +24,7 @@ const HELP = `usage: slop [options] [file|dir|glob|-]...
        slop --pr <number>       lint a pull request description (needs gh)
        slop --history           your own commit messages, read over time
        slop --compare <before> <after>  facts a rewrite lost or added, with first-person words, claim words and number qualifiers (also: slop diff)
-       slop --verify <before> <after>  the rewrite gate: lint errors, --compare and the tell catalog on <after>; exit 0 only if all are clean
+       slop --verify <before> <after>  the rewrite gate: lint errors, --compare, the tell catalog and a length bound; also lists sentences dropped without a reason (not blocking); exit 0 only if all are clean
        slop --rules             list the rules
        slop --explain <rule>    why one rule exists, with a before and after
        slop --init [action|hook] write .slop.json, and the workflow or the commit hook
@@ -372,7 +373,19 @@ function verifyCommand(o: Options): number {
     lines.push(`${h.line}:${h.column} catalog ${h.phrase.replace(/\s+/g, " ")}`);
     problems++;
   }
-  lines.push(problems === 0 ? "verify: ok" : `verify: ${problems} problem(s)`);
+  const tooLong = lengthProblem(before, after);
+  if (tooLong) {
+    lines.push(tooLong);
+    problems++;
+  }
+  {
+    const source = lintText(display, before, { ignore: [...per.ignore, ...o.ignore], only: o.only.length ? o.only : per.only, languages, ...(language ? { language } : {}) });
+    const hits = scanCatalog(prepare(display, before), source.language);
+    if (source.findings.length === 0 && hits.length === 0) lines.push("clean source: no edit is expected");
+    const flagged = new Set([...source.findings.map((f) => f.line), ...hits.map((h) => h.line)]);
+    if (before !== after) lines.push(...alignmentLines(alignment(before, after, flagged)));
+  }
+  lines.push(problems > 0 ? `verify: ${problems} problem(s)` : before === after ? "verify: ok (unchanged)" : "verify: ok");
   console.log(lines.join("\n"));
   return problems;
 }
