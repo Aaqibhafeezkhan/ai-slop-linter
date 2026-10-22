@@ -735,6 +735,35 @@ Scope: the same 12 tasks, model `claude-sonnet-5-5`, 3 runs per cell, 2026-10-22
 - Disclosure: the reference catalogs read by ours are adapted from everwrite's and unslop's public catalogs, the same sources the h9, h10, h11, h17 and h18 checks were written from. A win on those home-ground tasks must be read with that in mind.
 - Verdict: the win rule is not met. F6, F9 and the held-out tasks are still not done; nothing here may be quoted as a leadership claim.
 
+## Round 3 measurement protocol (frozen 2026-10-22, owner decision)
+
+Written and committed before any round-3 run, and before any round-3 result was seen. It is not changed after results exist.
+
+Rule. On a task that did not change, the scores of the rival arms and of the baseline come unchanged from the last published round (round 2, `results/round-2/summary.md`, the "OUTCOME per run" table); only the ours arm is run again, 3 times, and graded with the same grader. On a changed or new task, every arm is run 3 times. The final gate (held-out tasks, F9, F6) is exempt: there every arm runs in full.
+
+Which tasks count as unchanged. Source round: round 2, code under test `8cfeb5ccf4b3e30eaa57ae017fe7b17484b49970`. `git diff 8cfeb5c HEAD -- bench/head-to-head` shows one added file, `results/round-2/summary.md`; so `tasks.json` (prompts), fixtures, goldens, `checks/`, `labels.json`, the blind-grader prompts and loop (`grade-prep.mjs`, `grade-run.sh`), `score.mjs`, `competitors.lock` (blader `8c307f3`, unslop `d65241e`, everwrite `38912ce`), `invocations.json` and the model (`claude-sonnet-5-5`) are byte-identical to round 2. All 12 active tasks (h1, h2, h3, h9, h10, h11, h13, h14, h15, h16, h17, h18) are therefore unchanged. No task is new and no variant is added. Product code under test is the only thing that differs (round-3 commits after `8cfeb5c`, listed in "Resume").
+
+Reused values (mean OUTCOME points over 3 runs, from round 2; the per-run values are in the round-2 summary):
+
+| Task | blader | blader-inv | unslop | unslop-inv | everwrite | everwrite-inv | base |
+|---|---|---|---|---|---|---|---|
+| h1 | 3.00 | 5.00 | 4.00 | 4.00 | 5.00 | 3.33 | 3.00 |
+| h2 | 4.33 | 5.00 | 5.00 | 5.00 | 4.33 | 4.33 | 3.00 |
+| h3 | 5.00 | 5.00 | 4.00 | 4.00 | 5.00 | 5.00 | 3.67 |
+| h9 | 4.00 | 4.00 | 4.00 | 4.00 | 4.33 | 4.00 | 4.00 |
+| h10 | 4.00 | 4.67 | 5.00 | 5.00 | 4.00 | 4.67 | 2.33 |
+| h11 | 5.00 | 5.00 | 4.00 | 4.00 | 5.00 | 5.00 | 4.00 |
+| h13 | 4.33 | 4.33 | 3.33 | 4.00 | 4.33 | 4.67 | 3.00 |
+| h14 | 5.00 | 4.33 | 4.67 | 4.00 | 5.00 | 5.00 | 4.33 |
+| h15 | 5.00 | 5.00 | 5.00 | 5.00 | 4.00 | 4.00 | 5.00 |
+| h16 | 5.00 | 5.00 | 5.00 | 4.67 | 5.00 | 5.00 | 5.00 |
+| h17 | 3.67 | 4.00 | 4.33 | 4.00 | 4.00 | 4.00 | 3.67 |
+| h18 | 4.00 | 4.67 | 4.00 | 4.00 | 4.33 | 4.33 | 3.00 |
+
+Totals of the reused arms (of 60): blader 52.33, blader-inv 56.00, unslop 52.33, unslop-inv 51.67, everwrite 54.33, everwrite-inv 53.33, base 44.00. Strongest other arm: blader-inv, lost 4.00, so the rule A limit stays 0.8 x 4.00 = 3.20 (ours may lose at most 3.20 of 60). Rule B and the ceiling rule use the same reused per-task means. This repository has no cost rule. Reused cells are marked "r2 reused" in the round-3 result table. If a reused value cannot be found in the round-2 summary, that task runs for all arms instead.
+
+Ours cells: 12 tasks x 3 runs = 36 runs, from a `git archive` copy of the commit under test, parallelism 2, a failed cell (rate limit) is re-run and never graded, the config guard runs around every cell, then the blind grader on the ours cells only.
+
 ## How to re-run
 
 One command repeats a round: it pins and clones the competitors, runs all eight arms on every task, scores the runs, and prepares the blind grading.
