@@ -23,8 +23,8 @@ export const ACTIVE_IDS = ACTIVE_TASKS.map((t) => t.id);
 export const TASK_LIST = INCLUDE_RETIRED ? ALL_TASKS : ACTIVE_TASKS;
 export const TASK_IDS = TASK_LIST.map((t) => t.id);
 // Competitors, each with a natural arm and an invoked arm (-inv). Our arm and the baseline have one form.
-export const COMPETITORS = ["blader", "unslop", "everwrite"];
-export const ARMS = ["ours", "blader", "blader-inv", "unslop", "unslop-inv", "everwrite", "everwrite-inv", "base"];
+export const COMPETITORS = ["blader", "unslop", "everwrite", "avoid-ai-writing", "slopless", "slop-cop"];
+export const ARMS = ["ours", "blader", "blader-inv", "unslop", "unslop-inv", "everwrite", "everwrite-inv", "avoid-ai-writing", "avoid-ai-writing-inv", "slopless", "slopless-inv", "slop-cop", "slop-cop-inv", "base"];
 export const CRITERIA = ["C1", "C2", "C3", "C4", "C5"];
 export const DEFAULT_MODEL = "claude-sonnet-5-5";
 // Tasks with at least one criterion of kind "blind" (h1..h4 C5). Every other criterion is scripted.

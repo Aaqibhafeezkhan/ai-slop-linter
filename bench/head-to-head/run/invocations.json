@@ -1,5 +1,8 @@
 {
   "blader-inv": "/humanizer:humanizer",
   "unslop-inv": "Use the unslop skill.",
-  "everwrite-inv": "Use the everwrite skill."
+  "everwrite-inv": "Use the everwrite skill.",
+  "avoid-ai-writing-inv": "/avoid-ai-writing:avoid-ai-writing",
+  "slopless-inv": "Use the Slopless skill.",
+  "slop-cop-inv": "Use the slop-cop-prose skill."
 }

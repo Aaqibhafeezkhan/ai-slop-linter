@@ -168,9 +168,15 @@ guard() {
 # reachable from any plugin directory. run-one.sh then uses the copies (H2H_PLUGINS_EXPORTED=1).
 # shellcheck source=export-plugins.sh
 . "$HERE/export-plugins.sh"
-for pair in ours:H2H_DIR_OURS blader:H2H_DIR_BLADER unslop:H2H_DIR_UNSLOP everwrite:H2H_DIR_EVERWRITE base:H2H_DIR_BASE; do
+for pair in ours:H2H_DIR_OURS blader:H2H_DIR_BLADER unslop:H2H_DIR_UNSLOP everwrite:H2H_DIR_EVERWRITE avoid-ai-writing:H2H_DIR_AVOID_AI_WRITING slopless:H2H_DIR_SLOPLESS slop-cop:H2H_DIR_SLOP_COP base:H2H_DIR_BASE; do
   src_var="${pair#*:}"
   [ "${pair%%:*}" = "ours" ] && [ "$HAS_OURS" -eq 0 ] && continue
+  # The round-4 arms (and only they) may be left out: skipped unless an arm of that plugin is in --arms.
+  case "${pair%%:*}" in
+    avoid-ai-writing|slopless|slop-cop)
+      case ",$ARMS_ARG," in *",${pair%%:*},"*|*",${pair%%:*}-inv,"*) ;; *) continue ;; esac
+      [ -d "${!src_var:-}" ] || { echo "run-all: $src_var does not name a directory (run setup-round4.sh)" >&2; exit 2; } ;;
+  esac
   export_plugin "${pair%%:*}" "${!src_var}" > /dev/null || exit 3
 done
 export H2H_PLUGINS_EXPORTED=1

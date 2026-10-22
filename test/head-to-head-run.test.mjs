@@ -810,9 +810,10 @@ test("run-one.sh: an invoked arm uses the natural arm's plugin dir and prefixes 
   const work = tmp("inv");
   const env = runEnv(work);
   const invocations = JSON.parse(readFileSync(join(RUN, "invocations.json"), "utf8"));
-  assert.deepEqual(Object.keys(invocations).sort(), ["blader-inv", "everwrite-inv", "unslop-inv"]);
+  assert.deepEqual(Object.keys(invocations).sort(), ["avoid-ai-writing-inv", "blader-inv", "everwrite-inv", "slop-cop-inv", "slopless-inv", "unslop-inv"]);
   const prompt = tasks().find((t) => t.id === "h1").prompt;
   for (const [arm, invocation] of Object.entries(invocations)) {
+    if (!["blader", "unslop", "everwrite"].includes(arm.replace(/-inv$/, ""))) continue; // the round-4 arms need their assembled dirs (setup-round4.sh)
     const r = spawnSync("bash", [join(RUN, "run-one.sh"), "h1", arm, "1"], { encoding: "utf8", env });
     assert.equal(r.status, 0, r.stderr);
     const argv = argvOf(join(work, "out", `h1-${arm}-1.jsonl`));
@@ -1289,8 +1290,8 @@ $2"; fi\nexit 1\n`);
 
 test("competitors.lock holds a name, url and 40-hex hash for blader, unslop and everwrite; the folder is git-ignored", () => {
   const lines = readFileSync(join(RUN, "competitors.lock"), "utf8").split("\n").filter(Boolean);
-  assert.deepEqual(lines.map((l) => l.split(" ")[0]), ["blader", "unslop", "everwrite"]);
-  for (const line of lines) assert.match(line, /^[a-z]+ https:\/\/github\.com\/\S+ [0-9a-f]{40}$/);
+  assert.deepEqual(lines.map((l) => l.split(" ")[0]), ["blader", "unslop", "everwrite", "avoid-ai-writing", "slopless", "slop-cop"]);
+  for (const line of lines) assert.match(line, /^[a-z-]+ https:\/\/github\.com\/\S+ [0-9a-f]{40}$/);
   assert.match(readFileSync(join(ROOT, ".gitignore"), "utf8"), /^bench\/head-to-head\/competitors\/$/m);
 });
 

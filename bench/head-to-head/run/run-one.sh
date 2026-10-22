@@ -46,6 +46,9 @@ case "$NATURAL" in
   blader) ARM_DIR="${H2H_DIR_BLADER:-}" ;;
   unslop) ARM_DIR="${H2H_DIR_UNSLOP:-}" ;;
   everwrite) ARM_DIR="${H2H_DIR_EVERWRITE:-}" ;;
+  avoid-ai-writing) ARM_DIR="${H2H_DIR_AVOID_AI_WRITING:-}" ;;
+  slopless) ARM_DIR="${H2H_DIR_SLOPLESS:-}" ;;
+  slop-cop) ARM_DIR="${H2H_DIR_SLOP_COP:-}" ;;
   base) ARM_DIR="${H2H_DIR_BASE:-}" ;;
   *) echo "unknown arm: $ARM" >&2; exit 2 ;;
 esac
@@ -57,7 +60,7 @@ if [ -z "$ARM_DIR" ]; then
   if [ "$NATURAL" = "ours" ]; then
     echo "H2H_CODE_DIR is not set: the ours arm runs from the git-archive copy made by prepare-code.sh, never from the working tree" >&2
   else
-    echo "H2H_DIR_$(echo "$NATURAL" | tr '[:lower:]' '[:upper:]') is not set" >&2
+    echo "H2H_DIR_$(echo "$NATURAL" | tr '[:lower:]-' '[:upper:]_') is not set" >&2
   fi
   exit 2
 fi
@@ -122,6 +125,8 @@ else
   # Only the ours arm may install the local build; no other arm sees the tarball or the copy.
   unset H2H_OURS_TARBALL H2H_CODE_DIR
 fi
+# A plugin export may carry h2h-bin/ (shims for its local tools, e.g. slopless); it goes first on PATH for that arm only.
+[ -d "$ARM_DIR/h2h-bin" ] && export PATH="$ARM_DIR/h2h-bin:$PATH"
 
 SETTINGS_VAR="H2H_SETTINGS_$(echo "$ARM" | tr '[:lower:]-' '[:upper:]_')"
 SETTINGS_FILE="${!SETTINGS_VAR:-}"

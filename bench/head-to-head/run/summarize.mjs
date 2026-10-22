@@ -29,7 +29,7 @@
 //
 // Exit 2 when labels.json is missing or does not label every criterion of tasks.json. Otherwise exit 0.
 // If an outcome criterion is still null after the merge, the verdict is INCOMPLETE.
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { ACTIVE_IDS, ARMS, COMPETITORS, DEFAULT_MODEL, INCLUDE_RETIRED, RETIRED_TASKS, TASK_IDS, TASK_LIST, competitorOf, loadLabels, usageExit } from "./lib.mjs";
 
@@ -92,6 +92,11 @@ const confirmedLeaks = leakKeys.filter((key) => leakReview[key]?.verdict === "co
 const unreviewedLeaks = leakKeys.filter((key) => !(key in leakReview));
 
 const notRun = new Map(status.filter((s) => s.runnable === false).map((s) => [s.name, s.reason ?? "no reason recorded"]));
+// The round-4 competitors are optional: one with no run directory in this round is left out, not counted as missing.
+for (const comp of ["avoid-ai-writing", "slopless", "slop-cop"]) {
+  const present = existsSync(h2hOut) && readdirSync(h2hOut).some((n) => new RegExp(`^h\\d+-${comp}(-inv)?-\\d+$`).test(n));
+  if (!present && !notRun.has(comp)) notRun.set(comp, "not part of this round");
+}
 const countedArms = ARMS.filter((arm) => !notRun.has(competitorOf(arm)));
 
 const KEY_RE = new RegExp(`^(${TASK_IDS.join("|")})-(${ARMS.join("|")})-(\\d+)$`);
