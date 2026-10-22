@@ -74,6 +74,16 @@ test("escaped quotes and newlines inside the prompt are handled", () => {
   assert.equal(run('Explain the "prompt": key\nin the hook input').stdout, "");
 });
 
+test("the grep patterns hold no backslash escape: an escape such as \\t is undefined in a POSIX ERE", () => {
+  // Inside the double-quoted pattern assignments a backslash may only end a line (a line continuation).
+  const text = readFileSync(script, "utf8");
+  const start = text.indexOf("\nstrong=");
+  const end = text.indexOf("\nhit=no");
+  assert.ok(start > 0 && end > start, "pattern block not found");
+  const stray = text.slice(start, end).split("\n").filter((l) => !l.trimStart().startsWith("#")).filter((l) => /\\./.test(l.replace(/\\$/, "")));
+  assert.deepEqual(stray, []);
+});
+
 test("hooks.json registers the script through CLAUDE_PLUGIN_ROOT for UserPromptSubmit", () => {
   const cfg = JSON.parse(readFileSync(join(root, "hooks", "hooks.json"), "utf8"));
   const entries = cfg.hooks.UserPromptSubmit;

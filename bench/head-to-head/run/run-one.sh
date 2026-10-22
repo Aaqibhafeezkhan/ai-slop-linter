@@ -20,8 +20,9 @@
 # config locations and the repository), with the environment scrubbed to what PATH, the login and the network
 # need (scrub_env in sandbox.sh). Without the sandbox tool the script exits 3 unless
 # H2H_ALLOW_UNSANDBOXED=1. run-all.sh adds the config guard around every cell. Hooks reach claude only
-# through --settings <json file>: set H2H_SETTINGS_<ARM> (arm name upper-cased, "-" as "_") to such a
-# file. Nothing here runs a competitor's installer or init command.
+# through the arm's plugin (its hooks/hooks.json, loaded by --plugin-dir, such as ours' UserPromptSubmit
+# hook) and through --settings <json file>: set H2H_SETTINGS_<ARM> (arm name upper-cased, "-" as "_") to
+# such a file. Nothing here runs a competitor's installer or init command.
 # The model is H2H_MODEL (default claude-sonnet-5-5).
 set -u
 
