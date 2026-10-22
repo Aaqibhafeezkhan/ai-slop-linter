@@ -13,4 +13,6 @@ Committed for each round, so that anyone can audit the numbers without re-runnin
 
 Transcripts lose their private fields (session ids, uuids, memory paths, rate-limit numbers). Every text file is scrubbed of `/Users/<name>`, `-Users-<name>-`, the output directory, the scratchpad path and the temporary directory. Not copied: the plugin exports, the tarball, the rendered sandbox profiles and the config guard state. They stay in the output directory.
 
+Cloud copy of `plugin-leadership` (2026-10-22): the squash that moved the branch to the cloud kept only `summary.md`, `runs/` and the Markdown files here, and left out every JSON file and transcript (`round-1/scores.json`, `blind.json`, the other round-1 JSON files, transcripts and grading files, and under `history/partial-round-1/` the `aborted/` and `final/` score and record files, the 112 transcripts and `rescored-kept-tasks/`); the tests that read them are skipped with the file named, and `bench/compare-words.mjs --check` runs a partial check, until the files are back.
+
 `history/` holds results that are not rounds of the current task set. `history/partial-round-1/` holds the two partial runs behind the saturation ruling of 2026-10-22: the scores of both, the saturation table, the full transcripts of the 112-run partial round, and the kept-task scores after the criteria repairs (see its `README.md`).

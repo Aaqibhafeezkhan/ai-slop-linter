@@ -4,7 +4,7 @@ This branch (`plugin-leadership`) carries work in progress that has not been rel
 Claude Code cloud session. The same branch exists in all five repositories: Bubblegunn/proactive-gate,
 Bubblegunn/workproof, Bubblegunn/surviving-lines, Bubblegunn/ai-slop-linter, Bubblegunn/product-engineer.
 Each was pushed as one squashed commit on top of `main`. Raw benchmark transcripts were left out on purpose.
-Only the Markdown summaries under `bench/head-to-head/results/` are included.
+Only the Markdown summaries under `bench/head-to-head/results/` are included. In ai-slop-linter that means the JSON evidence (`results/round-1/scores.json`, `blind.json`, the `history/partial-round-1/` score files) and the transcripts are absent here; the scored run directories are present (see `bench/head-to-head/results/README.md`).
 
 ## Goal
 

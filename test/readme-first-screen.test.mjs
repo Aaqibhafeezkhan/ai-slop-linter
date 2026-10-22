@@ -33,10 +33,14 @@ test("the version pins that scripts/release.mjs rewrites are still in the README
   assert.match(readme, /uses: Bubblegunn\/ai-slop-linter@v0\n/);
 });
 
+// Not personal: a GitHub noreply address, and the noreply address that commit trailers name
+// (`Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`). Every other address fails.
+const NOT_PERSONAL = [/@users\.noreply\.github\.com$/i, /^noreply@anthropic\.com$/i];
+
 test("no personal e-mail address in the documents readers see", () => {
   const files = ["README.md", "README.tr.md", ...readdirSync("docs").filter((f) => /^[A-Z-]+\.md$/.test(f)).map((f) => `docs/${f}`)];
   for (const f of files) {
-    const bad = [...readFileSync(f, "utf8").matchAll(/[\w.+-]+@(?:[\w-]+\.)+[a-z]{2,}/gi)].map((m) => m[0]).filter((a) => !/@users\.noreply\.github\.com$/.test(a));
+    const bad = [...readFileSync(f, "utf8").matchAll(/[\w.+-]+@(?:[\w-]+\.)+[a-z]{2,}/gi)].map((m) => m[0]).filter((a) => !NOT_PERSONAL.some((re) => re.test(a)));
     assert.deepEqual(bad, [], `${f} shows ${bad.join(", ")}`);
   }
 });

@@ -539,4 +539,7 @@ test("slop --compare prints a person line and exits 1; a removed claim exits 0; 
 test("the shipped word lists match what bench/compare-words.mjs keeps, and the table is current", () => {
   const r = spawnSync("node", [join(process.cwd(), "bench", "compare-words.mjs"), "--check"], { encoding: "utf8" });
   assert.equal(r.status, 0, r.stderr + r.stdout);
+  // Where the round 1 scores were left out (the cloud squash), only the partial check can run, and it says so.
+  const evidence = existsSync(join(bench, "results", "round-1", "scores.json"));
+  assert.match(r.stdout, evidence ? /^compare words up to date/ : /partial check passed.*evidence left out of the cloud squash/);
 });

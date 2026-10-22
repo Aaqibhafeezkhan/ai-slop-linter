@@ -50,7 +50,74 @@ for (const h of readdirSync(join(hh, "fixtures")).sort()) {
   }
 }
 
-const scores = JSON.parse(read(join(hh, "results", "round-1", "scores.json")));
+// The honest rewrites are chosen by the round 1 scores. The cloud copy of the branch was squashed without
+// that file (see bench/head-to-head/results/README.md). Without it the table cannot be regenerated, so
+// --check verifies everything that does not depend on it, and the full check runs where the file exists.
+const scoresPath = join(hh, "results", "round-1", "scores.json");
+if (!existsSync(scoresPath)) {
+  if (!process.argv.includes("--check")) {
+    console.error(`cannot regenerate bench/COMPARE-WORDS.md: ${scoresPath.slice(root.length)} is absent (evidence left out of the cloud squash)`);
+    process.exit(1);
+  }
+  partialCheck();
+  process.exit(0);
+}
+
+/**
+ * The check without the round 1 scores: the committed table must list every candidate word once, its
+ * golden columns and golden file counts must match a fresh count, its verdicts must agree with those
+ * golden counts, and its "Kept" lines (and the verdict columns) must equal the lists in src/compare.ts.
+ */
+function partialCheck() {
+  const fail = (why) => {
+    console.error(`bench/COMPARE-WORDS.md: ${why}`);
+    process.exit(1);
+  };
+  const doc = existsSync(output) ? read(output) : fail("missing");
+  const langs = [...new Set([...Object.keys(PERSON_CANDIDATES), ...Object.keys(CLAIM_CANDIDATES)])];
+  const goldenCounts = langs.map((l) => `${l}: ${golden.filter((p) => p.lang === l).length} golden, `);
+  const filesLine = doc.split("\n").find((l) => l.startsWith("Files per language, golden and honest: ")) ?? fail("no files-per-language line");
+  for (const piece of goldenCounts) if (!filesLine.includes(piece)) fail(`golden file count "${piece.trim()}" does not match a fresh count`);
+  const section = (title) => doc.slice(doc.indexOf(title), doc.indexOf("\n## ", doc.indexOf(title) + 1));
+  const kept = { person: { added: {}, lost: {} }, claim: { added: {} } };
+  for (const [kind, title, candidates] of [["person", "## Person words", PERSON_CANDIDATES], ["claim", "## Claim words", CLAIM_CANDIDATES]]) {
+    const rows = section(title).split("\n").filter((l) => /^\| [a-z]+ \| `/.test(l)).map((l) => l.split("|").slice(1, -1).map((c) => c.trim()));
+    const want = langs.flatMap((l) => (candidates[l] ?? []).map((w) => `${l} ${w}`));
+    const have = rows.map(([l, w]) => `${l} ${w.replace(/`/g, "")}`);
+    if (JSON.stringify(have) !== JSON.stringify(want)) fail(`the ${kind} table does not list the candidate words of src/compare.ts in order`);
+    for (const l of langs) {
+      const words = candidates[l] ?? [];
+      if (!words.length) continue;
+      const g = tally(golden, l, kind, words);
+      for (const r of rows.filter(([rl]) => rl === l)) {
+        const w = r[1].replace(/`/g, "");
+        const [ga, gl] = [Number(r[2]), Number(r[3])];
+        if (ga !== g.get(w).added || gl !== g.get(w).lost) fail(`${l} ${w}: golden columns ${ga}, ${gl} differ from a fresh count ${g.get(w).added}, ${g.get(w).lost}`);
+        const [va, vl] = [r[8], r[9]];
+        if ((ga > 0) !== (va === "dropped: flags a golden")) fail(`${l} ${w}: verdict "${va}" disagrees with golden added ${ga}`);
+        if (kind === "person" && vl !== "not flagged: never seen in the corpus" && (gl > 0) !== (vl === "dropped: flags a golden")) fail(`${l} ${w}: verdict "${vl}" disagrees with golden lost ${gl}`);
+        if (va === "kept") (kept[kind].added[l] ??= []).push(w);
+        if (kind === "person" && vl === "kept") (kept.person.lost[l] ??= []).push(w);
+      }
+    }
+  }
+  const keptLineOf = (prefix) => doc.split("\n").find((l) => l.startsWith(prefix)) ?? fail(`no "${prefix}" line`);
+  const asLine = (o) => Object.entries(o).map(([l, w]) => `${l}: ${w.map((x) => `\`${x}\``).join(", ")}`).join("; ") || "none";
+  for (const [prefix, fromTable, shipped, name] of [
+    ["Kept when added: ", kept.person.added, PERSON_ADDED, "PERSON_ADDED"],
+    ["Kept when lost: ", kept.person.lost, PERSON_LOST, "PERSON_LOST"],
+    ["Kept: ", kept.claim.added, CLAIM_WORDS, "CLAIM_WORDS"],
+  ]) {
+    if (keptLineOf(prefix) !== `${prefix}${asLine(fromTable)}.`) fail(`the "${prefix.trim()}" line does not match the verdict column`);
+    if (!sameLists(fromTable, shipped)) fail(`${name} in src/compare.ts differs from the kept words`);
+  }
+  console.log(
+    `compare words: partial check passed (golden columns, verdicts against goldens, kept lists = src/compare.ts); ` +
+      `the honest-rewrite columns were not recomputed: bench/head-to-head/results/round-1/scores.json is absent (evidence left out of the cloud squash)`,
+  );
+}
+
+const scores = JSON.parse(read(scoresPath));
 const runsDir = join(hh, "results", "round-1", "runs");
 const honest = [];
 const ours = [];
@@ -115,10 +182,10 @@ for (const language of languages) {
   }
 }
 
-const sameLists = (a, b) => {
+function sameLists(a, b) {
   const norm = (o) => JSON.stringify(Object.fromEntries(Object.entries(o).filter(([, v]) => v.length).sort()));
   return norm(a) === norm(b);
-};
+}
 const problems = [];
 if (!sameLists(kept.person.added, PERSON_ADDED)) problems.push("PERSON_ADDED in src/compare.ts differs from the kept words");
 if (!sameLists(kept.person.lost, PERSON_LOST)) problems.push("PERSON_LOST in src/compare.ts differs from the kept words");

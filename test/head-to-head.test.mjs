@@ -1067,6 +1067,15 @@ test("h15 C1 judges the clean state only: the arm's own docs/guide.md is replace
 // ---- the saturation ruling and the history of the partial rounds (2026-10-22) ---------------------------------------
 const HISTORY = join(BENCH, "results", "history", "partial-round-1");
 const historyScores = (round) => JSON.parse(readFileSync(join(HISTORY, round, "scores.json"), "utf8"));
+// The cloud copy of the branch was squashed without the raw evidence (see bench/head-to-head/results/README.md).
+// A test that reads such a file is skipped, with the file named, only when the file is absent; where the
+// evidence exists (the owner's machine) it runs in full.
+const evidenceSkip = (...files) => {
+  const gone = files.filter((f) => !existsSync(join(HISTORY, f)));
+  return gone.length ? { skip: `evidence left out of the cloud squash: ${gone.map((f) => relative(ROOT, join(HISTORY, f))).join(", ")}` } : {};
+};
+const SCORES = ["aborted/scores.json", "final/scores.json"];
+const RESCORED = ["rescored-kept-tasks/aborted-scores.json", "rescored-kept-tasks/final-scores.json"];
 const ARM_ORDER = ["ours", "blader", "blader-inv", "unslop", "unslop-inv", "everwrite", "everwrite-inv", "base"];
 const BLIND_IDS = ["h1", "h2", "h3", "h4"];
 const scriptedCriteria = (task) => (BLIND_IDS.includes(task) ? ["C1", "C2", "C3", "C4"] : CRITERIA);
@@ -1084,7 +1093,7 @@ function saturation(scores, task) {
 }
 const docText = () => readFileSync(join(ROOT, "docs", "HEAD-TO-HEAD.md"), "utf8");
 
-test("the saturation table in the document is the table computed from the two published score files", () => {
+test("the saturation table in the document is the table computed from the two published score files", evidenceSkip(...SCORES), () => {
   const doc = docText();
   const section = doc.slice(doc.indexOf("## Saturation ruling"), doc.indexOf("## Replacement tasks"));
   const rows = section.split("\n").filter((l) => /^\| h\d+ \| (active|retired) \| (aborted|final) \|/.test(l));
@@ -1105,7 +1114,7 @@ test("the saturation table in the document is the table computed from the two pu
   assert.equal(readFileSync(join(HISTORY, "saturation-table.md"), "utf8").trimEnd().split("\n").filter((l) => /^\| h\d+ \|/.test(l)).length, expected);
 });
 
-test("every retired task meets the saturation test in both partial rounds, and its stored evidence repeats the computed numbers", () => {
+test("every retired task meets the saturation test in both partial rounds, and its stored evidence repeats the computed numbers", evidenceSkip(...SCORES), () => {
   for (const task of load().tasks.filter((x) => RETIRED.includes(x.id) && x.retired.ground !== "duplicate")) {
     for (const [round, label] of [["aborted", "aborted round"], ["final", "final partial round"]]) {
       const s = saturation(historyScores(round), task.id);
@@ -1125,7 +1134,7 @@ test("every retired task meets the saturation test in both partial rounds, and i
   }
 });
 
-test("the history of the partial rounds: scores of both, transcripts of the 112-run round under 8 MB, scrubbed, rescored kept tasks", () => {
+test("the history of the partial rounds: scores of both, transcripts of the 112-run round under 8 MB, scrubbed, rescored kept tasks", evidenceSkip(...SCORES, ...RESCORED), () => {
   const files = listFiles(HISTORY);
   const size = files.reduce((n, f) => n + statSync(f).size, 0);
   assert.ok(size < 8 * 1024 * 1024, `${size} bytes`);
@@ -1158,7 +1167,7 @@ test("the history of the partial rounds: scores of both, transcripts of the 112-
   }
 });
 
-test("the criteria repairs table logs h8 C3 and h11 C5 with counts that match the published scores, and the inspected criteria carry theirs", () => {
+test("the criteria repairs table logs h8 C3 and h11 C5 with counts that match the published scores, and the inspected criteria carry theirs", evidenceSkip(...SCORES, ...RESCORED), () => {
   const doc = docText();
   assert.ok(doc.includes("| Date | Task | Criterion | Evidence | Reason |\n|---|---|---|---|---|\n"));
   const count = (scores, task, crit) => {
