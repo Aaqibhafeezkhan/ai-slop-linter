@@ -72,12 +72,12 @@ if (backend !== "bwrap") process.exit(0);
 // The same policy for bubblewrap. bwrap applies mounts in order and a later mount over the same place wins,
 // so the list goes from wide to narrow:
 //   1. the whole file system read-only, a fresh /dev and /proc; the network is not unshared;
-//   2. writable: /tmp, /var/tmp and TMPDIR (temporary files, as sandbox-exec allows them), and the cgroup
-//      directories the process runs in;
+//   2. writable: /tmp, /var/tmp and TMPDIR (temporary files, as sandbox-exec allows them), minus the
+//      directories in H2H_SANDBOX_HIDE (an empty tmpfs each), and the cgroup directories the process runs in;
 //   3. HOME read-only again (it may live under a writable place), then writable only where claude keeps its
-//      own state: ~/.claude/{projects,sessions,shell-snapshots,todos,statsig} (made when missing) and
-//      ~/.claude/{session-env,debug,file-history,plans,backups,telemetry} when present, ~/.claude.json and
-//      the caches ~/.npm and ~/.cache;
+//      own state: ~/.claude/{projects,sessions,shell-snapshots,todos,statsig} and
+//      ~/.claude/{session-env,debug,file-history,plans,backups,telemetry} when present, each as a fresh empty
+//      tmpfs (so the transcripts of other sessions cannot be read), ~/.claude.json and the caches ~/.npm and ~/.cache;
 //   4. read-only: the config locations of the template, H2H_SANDBOX_EXTRA_DENY, the repository, the code
 //      copy and the output directory (so other runs, plugin-* and ours-tarball);
 //   5. writable: the run directory; then plugin-* and ours-tarball read-only again (the run directory may be
@@ -99,6 +99,10 @@ const bind = (flag, p) => {
 const tmpDirs = ["/tmp", "/var/tmp"];
 if (process.env.TMPDIR && process.env.TMPDIR.startsWith("/")) tmpDirs.push(process.env.TMPDIR);
 for (const p of new Set(tmpDirs.map(real))) bind("--bind", p);
+// H2H_SANDBOX_HIDE: colon separated absolute directories hidden from the run behind an empty tmpfs, for
+// places that other processes on the machine write and an arm must not read, such as an agent session
+// scratch directory under /tmp.
+for (const p of (process.env.H2H_SANDBOX_HIDE ?? "").split(":").filter((p) => p.startsWith("/"))) if (isDir(p)) args.push("--tmpfs", real(p));
 // The cgroup directories this process already runs in stay writable: claude starts its Bash tool with
 // clone3(CLONE_INTO_CGROUP) into its own cgroup, which fails with EROFS on a read-only /sys (a cloud container
 // runs every command in a memory cgroup). Nothing else under /sys is writable.
@@ -116,9 +120,12 @@ const state = ["projects", "sessions", "shell-snapshots", "todos", "statsig"];
 for (const s of state) {
   const p = path.join(home, ".claude", s);
   if (!exists(p) && isDir(path.join(home, ".claude"))) { try { fs.mkdirSync(p); } catch {} }
-  bind("--bind", p);
+  if (isDir(p)) args.push("--tmpfs", p);
 }
-for (const s of ["session-env", "debug", "file-history", "plans", "backups", "telemetry"]) bind("--bind", path.join(home, ".claude", s));
+for (const s of ["session-env", "debug", "file-history", "plans", "backups", "telemetry"]) {
+  const p = path.join(home, ".claude", s);
+  if (isDir(p)) args.push("--tmpfs", p);
+}
 for (const p of [".claude.json", ".npm", ".cache"]) bind("--bind", path.join(home, p));
 const config = ["plugins", "skills", "commands", "agents", "hooks", "scripts", "settings.json", "settings.local.json", "CLAUDE.md"].map((s) => path.join(home, ".claude", s))
   .concat([".agents", ".config", ".npmrc"].map((s) => path.join(home, s)));

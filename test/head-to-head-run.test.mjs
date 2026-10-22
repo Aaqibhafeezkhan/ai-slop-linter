@@ -943,7 +943,8 @@ test("bwrap backend: the mounts go from wide to narrow, so the run directory is 
   writeFileSync(join(fakeHome, ".claude.json"), "{}");
   const out = join(work, "out");
   for (const d of ["run-a", "run-b", "plugin-ours", "ours-tarball"]) mkdirSync(join(out, d), { recursive: true });
-  const env = { ...process.env, HOME: fakeHome, H2H_SANDBOX_BACKEND: "bwrap", PATH: `${fakeSandboxExec(work)}${delimiter}${process.env.PATH}` };
+  mkdirSync(join(work, "scratch"));
+  const env = { ...process.env, HOME: fakeHome, H2H_SANDBOX_BACKEND: "bwrap", H2H_SANDBOX_HIDE: `${join(work, "scratch")}:relative/ignored`, PATH: `${fakeSandboxExec(work)}${delimiter}${process.env.PATH}` };
   delete env.H2H_CODE_DIR;
   const r = spawnSync("bash", ["-c", `. "${RUN}/sandbox.sh"; render_sandbox "${out}" probe "${out}/run-a"; printf '%s\\n' "\${SANDBOX_CMD[0]}"`], { encoding: "utf8", env });
   assert.equal(r.status, 0, r.stderr);
@@ -958,7 +959,8 @@ test("bwrap backend: the mounts go from wide to narrow, so the run directory is 
     root: at("--ro-bind", "/", "/"),
     tmp: at("--bind", "/tmp", "/tmp"),
     home: at("--ro-bind", fakeHome, fakeHome),
-    projects: at("--bind", join(fakeHome, ".claude", "projects"), join(fakeHome, ".claude", "projects")),
+    projects: at("--tmpfs", join(fakeHome, ".claude", "projects")),
+    hidden: at("--tmpfs", join(work, "scratch")),
     claudeJson: at("--bind", join(fakeHome, ".claude.json"), join(fakeHome, ".claude.json")),
     skills: at("--ro-bind", join(fakeHome, ".claude", "skills"), join(fakeHome, ".claude", "skills")),
     settings: at("--ro-bind", join(fakeHome, ".claude", "settings.json"), join(fakeHome, ".claude", "settings.json")),
@@ -976,6 +978,7 @@ test("bwrap backend: the mounts go from wide to narrow, so the run directory is 
   const before = (a, b) => assert.ok(pairs[a] < pairs[b], `${a} comes before ${b}`);
   before("root", "tmp");
   before("tmp", "home");
+  before("tmp", "hidden");
   before("home", "projects");
   before("projects", "skills");
   before("claudeJson", "settings");
