@@ -774,6 +774,30 @@ Scope: protocol "Round 3 measurement protocol" above (frozen in commit `d844833`
 - Reading: the round-3 product changes (`f417fa7`, `4e3b226`, `d0d8cf3`, `3cd64d9`, `995a5c7`) did not raise the total; the h9, h17 and h18 C2 losses are unchanged in size. h1 and h2 moved down by one run each, which is within the spread seen between rounds. Win rule: FAIL; nothing here may be quoted as a leadership claim.
 - Not done: no product change was made in this session, because passing rule B on all 12 tasks needs every run of h1, h2, h14 to be perfect and the three C2 tasks to be clean, and a further round was judged unlikely to flip the gate for its cost. F6, F9 and the held-out tasks are not started.
 
+## Round 4 measurement protocol (frozen 2026-10-22, owner decision)
+
+Written and committed before any round-4 run, and before any round-4 result was seen. It is not changed after results exist. Owner request of 2026-10-22: at launch we must be able to show that we are objectively first against the strongest alternatives on this benchmark.
+
+Code under test. The product changed after round 3 (`--verify`, the `*.tells.txt` catalogs, the new first-tier entries `streamline` in `references/en.md` and the false-agency class for tools that "decide on their own" in `references/de.md`, the skill gate that requires `--verify` to exit 0). The commit is recorded in `code-commit.txt` of the round directory. The ours arm therefore runs on all 12 tasks, 3 runs each.
+
+New arms (competitors added from the 2026-10-22 scan, each with a natural arm and an invoked arm, all 12 tasks, 3 runs each, same model `claude-sonnet-5-5`, same sandbox, scrubbed environment and config guard as every other arm):
+
+| Arm | Pinned source | Set up as |
+|---|---|---|
+| avoid-ai-writing, avoid-ai-writing-inv | conorbronsdon/avoid-ai-writing `209815cdeb4af942616daec89a5e0a706c804e3a` (3.38.0, MIT) | `plugins/avoid-ai-writing` of the pinned clone as the plugin directory; the detector and validator sit inside its skill folder; invoked form `/avoid-ai-writing:avoid-ai-writing` |
+| slopless, slopless-inv | berelevant-ai/slopless `628d89bd63f60e3718bfba0012b90b9629c8842d`, npm 0.2.41 (MIT), tarball sha256 `86d81cd90f132c1dc5f6291dbdfad51b50b374571470cffa8ff79f637b638e4a` | skill file of the npm package in a plugin directory; the CLI installed from the tarball into the plugin export, `npx slopless` resolved to it by a shim (no network at run time); `install-skill` is not run; invoked form `Use the Slopless skill.` |
+| slop-cop, slop-cop-inv | yasyf/slop-cop `c9fc5a6796ef01978f8a1c1bff47361ead13bd7a` (0.1.73, MIT) | plugin directory of the pinned clone; the binary is built from that source; `bin/slop-cop` is a wrapper that sets `SLOP_COP_LLM=off` and refuses `rewrite`, `plainify` and every `--llm*` flag, so only `check` runs and no model or network call is made (the binrun download is never run); invoked form `Use the slop-cop-prose skill.` |
+
+`bench/head-to-head/run/setup-round4.sh` builds these directories. Licence: all three are MIT; no code of them is copied into this repository. Vaara is never run. Each invoked form was probed once with Haiku and reached the skill.
+
+Reused arms. On the 12 unchanged tasks, the means of blader, blader-inv, unslop, unslop-inv, everwrite, everwrite-inv and base come unchanged from round 2 (the table in "Round 3 measurement protocol"). Their raw answers are not in this repository, so they cannot be put in the same blind grading round; the blind grader (C5, tasks h1 to h3) sees the answers of ours and of the new arms together, in one shuffled order, with anonymous ids. The C5 values of the reused arms come from the round-2 grading. This is a disclosed difference in grading round.
+
+Budget and order. Owner limit 15 US dollars, no new run starts above 12.0. The estimate for one arm of 36 runs is 3 to 5 dollars, so six new arms plus ours do not fit. Order (fixed now): ours, avoid-ai-writing, avoid-ai-writing-inv, slop-cop, slopless, slop-cop-inv, slopless-inv. Each arm runs all 12 tasks x 3 runs before the next arm starts. A new arm starts only if the running total plus 3.6 dollars stays at or below 9.8, which leaves about 2.2 dollars for the blind grading. An arm that does not start is reported as not run (budget); an arm that is cut off is reported as partial and is not counted. A rule A/B verdict is computed against the arms that finished, and is called a full verdict only when all six new arms finished; otherwise it is called partial, and no leadership claim is made from it.
+
+Rules. Rule A, rule B and the ceiling rule are those of "Win rule", with the strongest other arm taken over the reused arms and the finished new arms (the better of natural and invoked per competitor). Only outcome criteria count. A failed cell (rate limit) is re-run and never graded. Criteria, check scripts, tasks and labels are not changed after results exist. Final gate (held-out tasks, F9, F6) only if the full verdict passes and the budget allows; otherwise it goes to the report.
+
+Home-ground disclosure. The new catalog entries (`streamline`, the German false-agency class) were taken from the unslop catalog, the same source the h9 and h17 checks were written from, after round 3 showed that those tells were the cause of the C2 losses. A win on h9, h17 and h18 is home-ground and must be read that way. The `--verify` catalog scan also lists `let us know` and French stock phrases that the h14 and h1 checks penalise; they come from the existing reference lists and chatbot-residue lists, not from the check files.
+
 ## How to re-run
 
 One command repeats a round: it pins and clones the competitors, runs all eight arms on every task, scores the runs, and prepares the blind grading.
