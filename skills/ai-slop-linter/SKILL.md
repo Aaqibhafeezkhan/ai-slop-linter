@@ -66,13 +66,15 @@ Removing tells must never add content.
 
 ## How to work
 
-1. Save the original, lint the text and read every finding. Mark the tells, strongest first. Look at the paragraph shape too: the same closer after each section is one tell at a larger scale.
-2. Read the reference file for the language and mark the tells it lists that the linter missed.
-3. Draft the rewrite. State each point directly rather than patching one flagged phrase at a time. Vary sentence length by building sentences differently, not by chopping them into fragments.
-4. Check the draft: lint it, run `--compare` against the original, and fix each defect until the compare exits 0.
-5. Write the final version to the file, lint it once more and compare once more.
+1. Save the original, lint it and read every finding. Mark the tells, strongest first. Look at the paragraph shape too: the same closer after each section is one tell at a larger scale.
+2. Read the reference file for the language and mark the tells it lists that the linter missed. An entry in its first tier is a tell on one sighting; an entry in its second tier counts only when several appear in one paragraph.
+3. For a text over about 300 words, outline it before you edit: one line per paragraph with its point, where the main point is made and how often it comes back, and any closer or section template that repeats. Fix that structure first (a point made three times, a recap, the same ending under each section), then sentences, then words. The outline is a working note; it never goes in the file.
+4. Draft with the smallest edit that removes each tell. Rewrite a sentence only when it holds a tell, or the paragraph built around one; copy every other sentence word for word, punctuation and typos included. A word on a reference list is a reason to look at the sentence, not a licence to rewrite it. Where you do rewrite, state the point directly rather than patching one phrase, and vary sentence length by building sentences differently, not by chopping them into fragments.
+5. Make a second pass over the draft, because a rewrite brings in tells of its own. Reread it with the reference file open and list every tell that is still there, quoting the line: a first-tier entry, or a family that often survives a rewrite (a contrast, a closing line that sums up, a triad, a participle tail, a bold label, a dash in English). Fix each one, or name in a few words why it stays (a quotation, a technical term, a hedge the source makes). Give the list in your reply, never in the file.
+6. Check the draft: lint it, run `--compare` against the original, and fix each defect until the compare exits 0.
+7. Write the final version to the file, lint it once more and compare once more.
 
-The closing test: every fact in the new version must come from the source. Cutting and sharpening are allowed. Adding and losing are not.
+The closing test: every fact in the new version must come from the source, and every sentence without a tell is the source's own sentence. Cutting and sharpening are allowed. Adding and losing are not.
 
 ## If the CLI is not available
 
@@ -108,40 +110,11 @@ Look for these by reading the text; the CLI does not enforce them. The full list
 - Spanish: `sumérgete en`, `no solo ... sino`, `no dudes en`.
 - German: `tauchen wir ein`, `nicht nur ... sondern auch`, `zögern Sie nicht`.
 
-The lists come from the h1 fixture and from the stock-phrase word lists of unslop and anti-ai-writing; `references/de.md` adapts unslop's German lists and `references/en.md` adapts everwrite's catalog (all MIT, see `THIRD-PARTY-NOTICES.md`).
+The lists come from the h1 fixture and from the stock-phrase word lists of unslop and anti-ai-writing; `references/de.md` adapts unslop's German lists and `references/en.md` adapts everwrite's catalog. The minimal edit, the outline and the second pass in "How to work" follow unslop, Humanizer and everwrite (all MIT, see `THIRD-PARTY-NOTICES.md`).
 
 ## Set up a prose check in CI
 
-Lint a glob that covers the whole repository, never a list of files: a list misses the page someone adds next month. After `npm install --save-dev ai-slop-linter@latest`, put the command in the `lint:prose` script (`--compare`, per-file language detection and the French rule need ai-slop-linter 0.2.0 or later):
-
-```json
-"scripts": { "lint:prose": "ai-slop-linter \"**/*.md\"" }
-```
-
-The quotes stop the shell from expanding the glob, so the CLI expands it, subdirectories included, and skips CHANGELOG files and dependency folders. `**/*.md` reaches the README, the other top-level files and any folder added later. A narrower glob such as `"docs/**/*.md"` leaves the README and every folder outside `docs/` unchecked, and a bad sentence there passes with exit 0. A directory works too (`ai-slop-linter docs/`) but has the same blind spot for everything outside it. In `.slop.json`, `maxScore` sets the limit a file's score may not exceed, and `overrides` change rules for matching paths. There is no exclude option, so narrow the glob instead.
-
-Two files need a decision, because a legitimate sentence in them fails the check:
-
-- A CHANGELOG is skipped unless you name it (`ai-slop-linter "**/*.md" CHANGELOG.md`). Its entries quote commit titles that may hold a dash, and en dashes in version ranges are fine. If you name it, mark each quoted line with `<!-- slop-ignore-next-line dash -->`.
-- A README or guide that quotes a stock phrase on purpose (a blockquote showing what to delete) fails with that rule's id. If the file must not change, silence only that rule for that path in `.slop.json`; every other rule still runs on the file, and a new dash or tell in it still exits 1. An override's `ignore` replaces the top-level `ignore` for that path, it does not add to it, so copy the repository's top-level ignores into the list. Take the rule id from the output:
-
-```json
-{ "overrides": [{ "files": ["README.md"], "ignore": ["chatbot"] }] }
-```
-
-Do not pass `--language` unless every file in the repository is written in one language. The CLI works out the language of each file.
-
-Exit 0 means clean, 1 means an error-severity finding or a score above the limit, 2 means a usage error, including a glob that matches no file.
-
-For pull requests, the Action annotates the changed lines (`comment: "false"` turns off the comment):
-
-```yaml
-- uses: Bubblegunn/ai-slop-linter@v0
-  with:
-    files: "docs/**/*.md"
-```
-
-To test the setup, add a file with an em dash (U+2014) and run `npm run lint:prose`: expect exit 1. Delete the file and run it again: expect exit 0.
+For a request to check prose or docs in CI, read `references/ci.md` next to this file and follow it. It gives a `lint:prose` script that lints a glob (`"**/*.md"`), not a file list, the `.slop.json` settings, and what to do with a CHANGELOG or a README that quotes a stock phrase on purpose.
 
 ## What this skill does not do
 

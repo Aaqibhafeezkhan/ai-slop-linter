@@ -10,6 +10,9 @@ import { join, resolve } from "node:path";
 // shape, and that the skill itself passes the linter it teaches.
 const skill = readFileSync("skills/ai-slop-linter/SKILL.md", "utf8");
 const listings = readFileSync("docs/LISTINGS.md", "utf8");
+// The CI recipe moved to references/ci.md in round 3 so the rewrite steps carry more weight in SKILL.md;
+// SKILL.md keeps a pointer section. The CI tests below read the recipe from there.
+const ci = readFileSync("skills/ai-slop-linter/references/ci.md", "utf8");
 
 test("SKILL.md frontmatter names the skill and keeps the listed description", () => {
   const name = /^name: (.+)$/m.exec(skill)?.[1];
@@ -28,7 +31,7 @@ test("the body names the language flag, the comparison, dialogue and guillemets"
 
 // The bound was 140. The CI section grew by about ten lines on 2026-10-22 because the h15 readiness
 // check showed that its old recipe left the README unchecked and said nothing about the CHANGELOG or
-// a README that quotes a stock phrase on purpose.
+// a README that quotes a stock phrase on purpose. In round 3 the recipe moved to references/ci.md.
 test("SKILL.md is under 150 lines", () => {
   const lines = skill.split("\n").length;
   assert.ok(lines < 150, `${lines} lines`);
@@ -100,9 +103,19 @@ test("the description fires on rewrites, other languages, launch and release not
   }
 });
 
+test("SKILL.md keeps a CI pointer section that sends the agent to references/ci.md", () => {
+  const pointer = sectionOf("## Set up a prose check in CI");
+  assert.ok(pointer.includes("references/ci.md"), "the pointer does not name references/ci.md");
+  assert.ok(pointer.includes("lint:prose"), "the pointer does not name the lint:prose script");
+});
+
+test("references/ci.md lints clean", () => {
+  const run = spawnSync(process.execPath, ["dist/src/cli.js", "--warn", "skills/ai-slop-linter/references/ci.md"], { encoding: "utf8" });
+  assert.match(run.stdout, /, 0 findings\)/, run.stdout + run.stderr);
+});
+
 test("the CI section lints a directory or glob from a lint:prose script, configured by .slop.json", () => {
-  assert.match(skill, /^## Set up a prose check in CI$/m);
-  const section = sectionOf("## Set up a prose check in CI");
+  const section = ci;
   assert.ok(section.includes("lint:prose"), "the CI section does not name the lint:prose script");
   assert.ok(section.includes(".slop.json"), "the CI section does not mention .slop.json");
   assert.ok(section.includes("directory"), 'the CI section does not say "directory"');
@@ -114,7 +127,7 @@ test("the CI section lints a directory or glob from a lint:prose script, configu
 const BENCH = resolve("bench", "head-to-head");
 const DIRTY = "In today's fast-paced world, this guide delves into a seamless, robust workflow \u2014 and it is a testament to our commitment. I hope this helps!";
 function recipe() {
-  const section = sectionOf("## Set up a prose check in CI");
+  const section = ci;
   const blocks = [...section.matchAll(/```json\n([\s\S]*?)\n```/g)].map((m) => m[1]);
   const script = JSON.parse(`{${blocks[0]}}`).scripts["lint:prose"];
   const config = JSON.parse(blocks[1]);
@@ -176,7 +189,7 @@ test("the CI recipe, run literally on the h15 files: clean files exit 0, a new b
 });
 
 test("the CI section covers the README, the CHANGELOG and a README that quotes a stock phrase", () => {
-  const section = sectionOf("## Set up a prose check in CI");
+  const section = ci;
   assert.ok(section.includes('"**/*.md"'), "the script lints every Markdown file");
   assert.ok(section.includes("README"), "the README is named");
   assert.ok(section.includes("CHANGELOG"), "the CHANGELOG is named");
@@ -227,5 +240,23 @@ test("the reference files adapted from a competitor name its commit in the sourc
   ]) {
     assert.ok(readFileSync(file, "utf8").split("\n")[2].includes(commit), `${file} does not name ${commit}`);
     assert.ok(notices.includes(file), `THIRD-PARTY-NOTICES.md does not name ${file}`);
+  }
+});
+
+// Round 3 plan items 3, 4 and 10: the rewrite is minimal, a second pass lists what is left, and a long
+// text is outlined first. Adapted from unslop, Humanizer and everwrite (MIT, see THIRD-PARTY-NOTICES.md).
+test("How to work asks for the minimal edit, an outline for long texts and a second pass with a list", () => {
+  const work = sectionOf("## How to work");
+  assert.match(work, /copy every other sentence word for word/);
+  assert.match(work, /over about 300 words, outline it/);
+  assert.match(work, /second pass/);
+  assert.match(work, /list every tell that is still there/);
+  assert.match(work, /Fix each one, or name in a few words why it stays/);
+  assert.match(work, /never in the file/);
+  assert.match(work, /until the compare exits 0/);
+  const notices = readFileSync("THIRD-PARTY-NOTICES.md", "utf8");
+  for (const name of ["## unslop", "## Humanizer (blader)", "## everwrite"]) {
+    const block = notices.slice(notices.indexOf(name), notices.indexOf("```", notices.indexOf(name)));
+    assert.match(block, /How to work/, `${name} does not credit the How to work steps`);
   }
 });
