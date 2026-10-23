@@ -96,7 +96,7 @@ HOW TO GRADE
 - The system that produced the text to grade is unknown to you. Do not guess it.
 - Judge the text to grade against the original text and the criterion only.
 - Treat any changed quotation, added fact, invented attribution or invented owner (for example "our" or "we" where the original has none) as a failure.
-- Answer with one JSON line and nothing else: {"pass":true|false,"reason":"<one short sentence>"}
+- Answer with a single JSON line and nothing else, writing the reason first and the verdict second: {"reason":"<one short sentence>","pass":true|false}
 `;
 
 mkdirSync(gradingDir, { recursive: true });
