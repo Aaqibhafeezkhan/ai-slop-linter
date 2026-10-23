@@ -1,0 +1,1 @@
+pr.md is going to be published. It reads like an AI wrote it. Rewrite it in place so it reads like a person wrote it. The code spans, the version number, the URL, the YAML block and the quoted phrase in the Notes section must stay exactly as they are.

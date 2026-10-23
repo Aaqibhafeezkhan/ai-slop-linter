@@ -1,0 +1,18 @@
+[
+ {
+  "name": "ours",
+  "source": "https://github.com/Bubblegunn/ai-slop-linter",
+  "licence": "MIT",
+  "pinned": "ed304c0 (iteration 1), 0668fb4 (iteration 2)",
+  "install": "git archive export of .claude-plugin/, skills/, hooks/ with the local build on PATH, loaded with --plugin-dir",
+  "prompt": "task prompt"
+ },
+ {
+  "name": "blader-inv (reference only, not re-run)",
+  "source": "https://github.com/blader/humanizer",
+  "licence": "MIT",
+  "pinned": "8c307f367c91bd974002f10f2be2965d642c13df",
+  "install": "cells of round 5 in reference/round5-ours-and-blader-inv-cells.jsonl (folder ../round5-heldout-2026-10-22)",
+  "prompt": "/humanizer:humanizer <task prompt>"
+ }
+]

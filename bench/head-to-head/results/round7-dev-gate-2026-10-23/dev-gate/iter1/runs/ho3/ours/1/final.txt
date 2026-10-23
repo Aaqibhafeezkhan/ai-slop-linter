@@ -1,0 +1,12 @@
+Reescrevi `incidente.md` no próprio arquivo. O linter dá nota A e o `--verify` saiu com código 0.
+
+Mudanças:
+- **Abertura e fecho do chatbot:** removi "Com certeza! Segue abaixo um resumo abrangente…" e "Espero que este resumo ajude… Em suma, esse incidente é um valioso aprendizado…".
+- **Resumo:** troquei "enfrentou uma instabilidade significativa — impactando potencialmente…" e "É importante ressaltar… experiência fluida" por duas frases diretas. Tirei "agiu rapidamente" e "experiência fluida", porque o texto original não sustentava essas afirmações.
+- **Causa raiz:** cortei "Vale destacar" e "Em última análise" e dividi a frase longa em três. Mantive a incerteza ("parece ser").
+
+Não mudei a tabela da linha do tempo, os nomes em code spans, as versões, os horários nem a URL.
+
+Residuals:
+- O `--verify` listou "Com certeza!" e "Segue abaixo um resumo abrangente do incidente." como edições não pedidas. Esse texto era o próprio defeito que eu removi.
+- O `--verify` também mostrou `rebuild` na frase da causa raiz. Isso é só informação, e a frase já está dividida.

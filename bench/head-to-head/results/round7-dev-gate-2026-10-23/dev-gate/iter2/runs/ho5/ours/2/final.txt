@@ -1,0 +1,24 @@
+I rewrote `README.md` in place. The linter now grades it A with 0 findings, and `--verify` exits 0.
+
+**Removed**
+- The chatbot lines: "Sure! Here's a polished README intro for your project." at the top, and "I hope this helps! Feel free to reach out…" at the end.
+- The marketing words: "cutting-edge, blazing-fast", "empowers", "seamlessly", "rich tapestry", "elevate your workflow", "ever-evolving world of content syndication" and "serves as a testament".
+- The em dash, which is now a colon.
+- The "seasoned engineer or just getting started" aside.
+
+**Kept unchanged**
+- Both shell blocks.
+- The version numbers: 1.6.2, Python 3.9, ISO 8601 and UTF-8.
+- `--keep-days 30`.
+- The URL.
+- The 2023 laptop, 50 MB and "about 3 seconds" figures.
+- The MIT license and "Contributions are welcome".
+
+**Reworded**
+- "Simply run the following command to clean a feed:" is now "To clean a feed, run:".
+
+The verify output lists three "unrequested edits": the two chat lines and the "Simply run…" sentence. All three are intentional.
+
+I dropped one claim: "offers a rich tapestry of features" had no content. I kept "for developers" in the intro.
+
+Residuals: none.

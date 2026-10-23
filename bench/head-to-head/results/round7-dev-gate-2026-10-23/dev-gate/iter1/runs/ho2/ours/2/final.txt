@@ -1,0 +1,14 @@
+I rewrote `notas.md` in place. The linter now grades it A with no findings, and `--verify` exits 0.
+
+**Edits**
+- Removed the chatbot opener "¡Claro! Aquí tienes unas notas de la versión completas y bien estructuradas."
+- Cut the "Resumen" sales copy ("Nos complace anunciar…", "revoluciona", "En el panorama actual", "robusta y sin fisuras"). It now reads "Ya está disponible la versión 4.2.0 de Facturalia."
+- Dropped the filler openers: "Una experiencia de exportación totalmente renovada:", "Es importante destacar que", "Se ha mejorado significativamente el rendimiento:" and "Cabe destacar que".
+- Changed "podría reducir" to "puede reducir". The source gives no reason for the hedge, so I kept its degree and removed the conditional.
+- Cut the closing "En definitiva… un antes y un después. ¡No dudes en contactarnos…!". The text now ends on the URL.
+
+**Kept as they were:** the front matter, the headings, the customer quote with its attribution, all code spans, the endpoint, the URL and all numbers.
+
+**Verify output:** the "unrequested edit" lines it printed are the sentences I removed on purpose, listed above. It added no facts and no first-person words.
+
+Residuals: none.

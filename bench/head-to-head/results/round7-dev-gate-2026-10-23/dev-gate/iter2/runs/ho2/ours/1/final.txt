@@ -1,0 +1,18 @@
+I rewrote `notas.md` in place. The final `--verify` run exited 0 (`verify: ok`) and the lint score is A with 0 findings. Both runs used `--language es`.
+
+**What I removed or changed**
+- I deleted the chatbot opener "¡Claro! Aquí tienes unas notas…".
+- I rewrote the Resumen, which had "Nos complace anunciar", "revoluciona", "En el panorama actual" and "robusta y sin fisuras". It now says what changed in 4.2.0, using only facts already in the file.
+- I cut the stock phrases "Es importante destacar que", "Cabe destacar que", "totalmente renovada" and "significativamente".
+- I cut the closing "En definitiva… un antes y un después" and "¡No dudes en contactarnos…!".
+- I changed "podría reducir los rechazos" to "puede reducir los rechazos". The source gives no reason for the "podría", and the plain form keeps the same degree of certainty.
+
+**What stayed exactly as it was**
+- The front matter, the customer quote with its attribution, and all code spans.
+- The endpoint, the URL, every number, and all headings.
+
+**Unrequested edits** `--verify` listed four, all intended: the opener, its second sentence, and the two bullets I reduced to their facts. It did not fail on any of them.
+
+**Second pass** I found no new tells. The "Quienes la fijen manualmente…" sentence is the source's own wording, apart from the dropped "Cabe destacar que".
+
+**Residuals:** none.

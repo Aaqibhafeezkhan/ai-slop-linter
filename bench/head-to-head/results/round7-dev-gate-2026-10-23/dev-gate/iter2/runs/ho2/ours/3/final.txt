@@ -1,0 +1,15 @@
+Reescribí `notas.md` en su sitio. `--verify` termina con `verify: ok` y el linter da A con 0 hallazgos.
+
+Cambios:
+- **Respuesta de chatbot:** quité "¡Claro! Aquí tienes unas notas de la versión completas y bien estructuradas."
+- **Resumen:** sustituí el párrafo de marketing ("revoluciona", "panorama actual", "robusta y sin fisuras") por dos frases que dicen qué cambia en 4.2.0.
+- **Novedades:** quité "experiencia de exportación totalmente renovada", "Es importante destacar que" y "mejorado significativamente".
+- **Hedge:** cambié "podría reducir los rechazos" por "puede reducir los rechazos". La fuente no da ninguna razón para dudar.
+- **Cambios que requieren atención:** quité "Cabe destacar que".
+- **Cierre:** quité "En definitiva, esta versión marca un antes y un después. ¡No dudes en contactarnos...!".
+
+No toqué el front matter, los encabezados, la cita de Marta Olmedo con su atribución, los code spans, el endpoint, la URL ni las cifras.
+
+Las cuatro líneas que `--verify` marcó como `unrequested edit` son las que eliminé a propósito por contener estos giros.
+
+Residuals: none.

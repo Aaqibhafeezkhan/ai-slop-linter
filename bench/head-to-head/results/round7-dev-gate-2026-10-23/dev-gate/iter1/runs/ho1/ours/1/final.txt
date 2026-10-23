@@ -1,0 +1,7 @@
+I rewrote `pr.md` in place. `npx ai-slop-linter` now grades it A with 0 findings, and `--verify` against the original copy exits 0.
+
+- **Removed:** the chatbot opener ("Hey! Great question…") and the closer ("In conclusion…", "Let me know…", "I hope this helps"). I also cut the filler phrases "it's important to note that" and "It's worth noting that" and the hype words "seamlessly", "game-changer", "In today's fast-paced", "Leverages", "Delves" and "pivotal".
+- **Rewritten:** the Summary is now two plain sentences. The first "What changed" bullet now starts "Adds exponential backoff…", and the third now starts "Records each attempt…". In Notes, the em dash is now a comma.
+- **Unchanged:** the code spans, `v3.8.0`, the URL, the YAML block, the quoted phrase in Notes, and every number (5, 250, 500, 214).
+
+Residuals: I put one hidden comment, `<!-- slop-ignore-next-line ai-vocabulary -->`, above the Notes sentence. The linter flags "robust" and "seamless" inside the quoted phrase, which had to stay as written. The comment doesn't show when the PR renders. Delete it if you'd rather not publish it. The linter will then flag those two words again.

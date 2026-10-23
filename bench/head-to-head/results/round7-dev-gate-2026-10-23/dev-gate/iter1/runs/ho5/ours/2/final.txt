@@ -1,0 +1,11 @@
+I rewrote `README.md` in place. The linter now grades it A with no findings, and `--verify` exits 0. The two shell blocks, `1.6.2`, `3.9`, `ISO 8601`, `--keep-days 30`, the URL and the file names are unchanged.
+
+What I cut or changed:
+- **Chat residue:** I removed the "Sure! Here's a polished README intro…" line at the top. I also removed "I hope this helps! Feel free to reach out… let me know if you want a different tone." at the end.
+- **Intro:** I replaced the "cutting-edge, blazing-fast… seamlessly… rich tapestry… elevate your workflow" sentence with "a command-line tool that cleans up RSS and Atom feeds."
+- **Why section:** I dropped "ever-evolving world of content syndication" and "serves as a testament…". I removed the em dash, so the messy-feed problems are now listed directly. The three behaviours and the benchmark ("2023 laptop, 50 MB, about 3 seconds") are kept as written.
+- **Quick start:** "Simply run the following command" became "To clean a feed, run:".
+
+`--verify` listed three "unrequested edits". Each is a tell I removed on purpose: "Sure!", the "Here's a polished README intro…" line, and "Simply run the following command…".
+
+Residuals: none.

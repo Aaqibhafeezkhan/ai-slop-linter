@@ -1,0 +1,13 @@
+Reescrevi `incidente.md` no próprio arquivo e `--verify` terminou com código 0.
+
+Mantive sem mudança o título, a tabela da linha do tempo, os trechos em código (`pagamentos-api`, `transacoes`), as versões 2.19.0 e 2.18.4, os horários e a URL.
+
+O que mudou:
+- **Abertura do assistente:** removi "Com certeza! Segue abaixo um resumo abrangente do incidente." (O `--verify` lista essas duas frases como "unrequested edit"; a remoção foi intencional.)
+- **Resumo:** cortei "É importante ressaltar" e "garantindo uma experiência fluida". "Impactando potencialmente uma parcela" virou "pode ter afetado parte dos clientes". Troquei o travessão por um ponto.
+- **Causa raiz:** cortei "Vale destacar que" e "Em última análise". "Parece estar relacionada a" virou "parece ser". Mantive esse "parece" porque o texto original não confirma a causa.
+- **Fecho:** removi "Espero que este resumo ajude! Fique à vontade para pedir ajustes. Em suma, esse incidente é um valioso aprendizado para toda a equipe."
+
+O `--verify` ainda imprime um aviso `rebuild` na linha 20, que é só informativo e não é um problema. Ele aparece por causa da frase longa da causa raiz, que mantive porque já não tem nenhuma marca de texto de IA.
+
+Residuais: nenhum.

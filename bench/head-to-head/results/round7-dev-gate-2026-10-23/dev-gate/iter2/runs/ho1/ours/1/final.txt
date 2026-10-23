@@ -1,0 +1,14 @@
+I rewrote `pr.md` in place. The linter now grades it A, and `--verify` exits 0.
+
+What changed:
+- **Removed:** the "Hey! Great question" opener, the "In conclusion" paragraph, and the "Let me know" and "I hope this helps" lines.
+- **Cut words and phrases:** "seamlessly", "game-changer", "In today's fast-paced integration landscape", "it's important to note that" and "It's worth noting that".
+- **Rephrased:** "Leverages a robust exponential backoff" is now "Adds exponential backoff", and "Delves into" is now "Hooks into".
+- **Dropped the hedge:** "could potentially cause" is now "can cause". The source gave no reason for the hedge, so I kept the softer form instead of stating it as certain.
+- **Em dash:** the one in the Notes section is now a comma.
+
+The code spans, v3.8.0, the URL, the YAML block and the quoted phrase are unchanged.
+
+The quoted phrase contains "robust" and "seamless", which the linter flags. I added `<!-- slop-ignore-next-line ai-vocabulary -->` above that line. It doesn't show when the file is rendered, but you can delete it if you'd rather not publish it. Deleting it drops the lint grade to C, but only because of the quote.
+
+Residuals: `"a robust, seamless delivery guarantee"`, because it is a quotation you required unchanged.

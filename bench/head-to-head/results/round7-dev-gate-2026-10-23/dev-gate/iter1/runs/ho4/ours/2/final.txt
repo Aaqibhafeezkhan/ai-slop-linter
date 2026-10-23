@@ -1,0 +1,9 @@
+Ik heb `status.md` niet aangepast. De tekst bevat geen patronen die op AI-tekst wijzen, dus een herschrijving zou alleen feiten of formuleringen veranderen zonder dat dat nodig is.
+
+- **Linter:** `npx ai-slop-linter --language nl` geeft 0 bevindingen, klasse A. De regels voor streepjes en hoofdletterkoppen draaien niet bij Nederlandse tekst.
+- **Verify:** `--verify` op een ongewijzigde kopie geeft `verify: ok (unchanged)` en meldt `clean source: no edit is expected`.
+- **Handmatige check:** Nederlands heeft geen eigen referentiebestand. Ik heb daarom `references/en.md` gelezen en de tekst daartegen gelegd. De tekst bestaat uit korte, concrete zinnen met namen, datums en bedragen. Ik zag geen contrastzinnen, slotzinnen die alles samenvatten, opsommingen van drie, vage bronnen of voorzichtige formuleringen zonder reden.
+
+Namen, datums, getallen, bedragen, `import_klanten.py` en de URL staan nog precies zoals ze waren.
+
+Residuals: none

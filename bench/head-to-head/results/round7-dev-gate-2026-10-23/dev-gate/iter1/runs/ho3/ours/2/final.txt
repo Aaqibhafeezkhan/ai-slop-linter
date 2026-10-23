@@ -1,0 +1,12 @@
+Reescrevi `incidente.md` no próprio arquivo. O linter dá nota A com 0 achados, e `--verify` termina com `verify: ok`. A tabela da linha do tempo, os nomes em code spans (`pagamentos-api`, `transacoes`), as versões, os horários e a URL ficaram idênticos ao original.
+
+O que mudou:
+- **Abertura e fechamento:** removi "Com certeza! Segue abaixo um resumo abrangente…", "Espero que este resumo ajude! Fique à vontade…" e "Em suma, esse incidente é um valioso aprendizado…". Eram resíduo de chatbot e não tinham fato nenhum.
+- **Resumo:** "enfrentou uma instabilidade significativa — impactando potencialmente…" virou "ficou instável e pode ter afetado parte dos clientes". Cortei "É importante ressaltar que" e o trecho "garantindo uma experiência fluida", que era elogio sem base. Mantive a incerteza do original ("pode ter afetado"), embora a seção Impacto fale em 1.340 pagamentos que falharam.
+- **Causa raiz:** tirei "Vale destacar que" e "Em última análise,". "parece estar relacionada a" virou "parece ser", que mantém o grau de incerteza. "Acabou sobrecarregando" virou "sobrecarregou".
+
+Os avisos do verify:
+- **`rebuild`:** a frase da causa raiz foi reconstruída, e o verify só informa isso. Ele a listou junto com a expressão "Vale destacar", que já não existe no texto final.
+- **`unrequested edit`:** as duas frases de abertura apareceram assim. Eu as removi de propósito.
+
+Residuals: nenhum.

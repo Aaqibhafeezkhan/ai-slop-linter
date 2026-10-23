@@ -1,0 +1,9 @@
+I rewrote `pr.md` in place. The linter now grades it A with 0 findings, and `--verify` exits 0.
+
+- **Cut the chat wrapper:** the "Great question" opener, "Let me know if…", "I hope this helps" and the "In conclusion…" closer are gone.
+- **Cut the filler and stock vocabulary:** "seamlessly", "game-changer", "In today's fast-paced…", "it's important to note", "It's worth noting", "Leverages", "robust" and "Delves" are gone or rewritten as plain verbs.
+- **Fixed the dash:** the em dash in Notes is now a comma.
+- **Reworded one clause:** the failure-path bullet is now "Records each attempt in the `delivery_attempts` table from the failure path in `dispatcher.ts`".
+- **Left unchanged:** the code spans, v3.8.0, the URL, the YAML block, the quoted phrase, and all numbers and the first-person "I" in Testing.
+
+Residuals: the quoted phrase "a robust, seamless delivery guarantee" still trips the vocabulary rule. I left it as written, as you asked, and put `<!-- slop-ignore-next-line ai-vocabulary -->` above that line. The comment doesn't show when the PR is rendered. Delete it if you'd rather not publish it. The linter will then flag the quote again (grade C).

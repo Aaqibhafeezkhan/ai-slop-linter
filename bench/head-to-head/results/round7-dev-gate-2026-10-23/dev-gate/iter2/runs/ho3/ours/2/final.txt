@@ -1,0 +1,10 @@
+`incidente.md` está reescrito no lugar. `--verify` saiu com 0, e o lint dá nota A com 0 achados.
+
+O que mudou:
+- **Abertura e fecho:** apaguei "Com certeza! Segue abaixo um resumo abrangente…", o "Espero que este resumo ajude…" e o "Em suma, esse incidente é um valioso aprendizado…".
+- **Resumo:** troquei "enfrentou uma instabilidade significativa — impactando potencialmente uma parcela dos clientes" por "ficou instável e uma parte dos clientes pode ter sido afetada". Cortei "É importante ressaltar" e "garantindo uma experiência fluida". Mantive "agiu rápido".
+- **Causa raiz:** cortei "Vale destacar" e "Em última análise". "Parece estar relacionada a" virou "parece ser", que mantém a incerteza do original. "Acabou sobrecarregando" virou "sobrecarregou".
+
+Tabela, nomes de serviço e tabela em code spans, versões, horários e URL ficaram idênticos. Também não acrescentei nenhum fato nem pessoa.
+
+**Residuals:** nenhum tell deixado de propósito. O `--verify` imprimiu `rebuild 32 words, contains catalog Vale destacar` na linha 20. Isso é só informação, e a frase já foi reescrita sem "Vale destacar".

@@ -1,0 +1,7 @@
+Ik heb `status.md` niet aangepast. De linter vond niets (score A, 0 bevindingen, taal `nl`), en `--verify` meldt "clean source: no edit is expected". De tekst is Nederlands en bevat geen van de bekende patronen: geen streepjes als gedachtestreep, geen "niet X maar Y", geen opsmuktermen en geen afsluitende samenvattingszin. De zinnen zijn kort en concreet, met namen, aantallen en data.
+
+Er is geen Nederlands referentiebestand, dus ik heb de Nederlandse tekst zelf gelezen. Ook daar zag ik geen patroon dat de moeite van herschrijven waard was. Als ik toch zinnen zou omgooien om "menselijker" te klinken, zou ik alleen nieuwe patronen toevoegen en risico lopen op wijzigingen in de namen, data, bedragen, de codespan `import_klanten.py` en de URL.
+
+Als je een bepaalde passage toch stroef vindt, noem die dan, dan pas ik die gericht aan.
+
+Residuen: geen.

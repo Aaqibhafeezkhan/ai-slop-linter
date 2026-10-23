@@ -1,0 +1,1 @@
+status.md is going to be published. It reads like an AI wrote it. Rewrite it in place so it reads like a person wrote it. The names, dates, numbers, amounts, the code span and the URL must stay exactly as they are.

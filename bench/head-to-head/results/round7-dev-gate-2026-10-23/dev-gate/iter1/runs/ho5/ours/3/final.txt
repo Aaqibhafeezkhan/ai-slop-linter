@@ -1,0 +1,14 @@
+I rewrote `README.md` in place. The linter now gives it grade A with 0 findings, and `--verify` against the original exits 0.
+
+- **Removed:**
+  - The chatbot wrapper at the top ("Sure! Here's a polished README intro…") and the closer ("I hope this helps!… let me know if you want a different tone").
+  - The sales wording: "cutting-edge", "blazing-fast", "empowers", "seamlessly", "rich tapestry", "elevate your workflow", "ever-evolving world", "testament".
+  - The em dash.
+- **Rewritten:**
+  - The intro is now one plain sentence: "tidyfeed is a command-line tool that cleans up RSS and Atom feeds."
+  - "Simply run the following command to clean a feed:" is now "To clean a feed, run:".
+- **Unchanged:** both shell blocks, `1.6.2`, Python `3.9`, ISO 8601, UTF-8, `--keep-days 30`, the URL, `feed.xml` and `clean.xml`, the headings, and the "2023 laptop / 50 MB / about 3 seconds" claim. "Contributions are welcome" stays.
+
+The three "unrequested edit" lines in the verify output are the sentences I removed on purpose. Each one is a chatbot wrapper or filler.
+
+Residuals: none.

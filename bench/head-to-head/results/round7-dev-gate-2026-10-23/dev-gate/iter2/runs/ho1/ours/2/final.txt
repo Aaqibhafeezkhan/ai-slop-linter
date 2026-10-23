@@ -1,0 +1,15 @@
+I rewrote `pr.md` in place. The linter now grades it A with 0 findings, and `--verify` passes.
+
+**What I removed**
+- **Chat wrapper:** the "Hey! Great question" opener, and the "In conclusion" closing paragraph with "Let me know if…" and "I hope this helps".
+- **Stock words:** "seamlessly", "game-changer", "In today's fast-paced…", "it's important to note", "It's worth noting", "Leverages", "robust", "Delves" and "pivotal".
+- **Hedge:** "could potentially cause" is now "could cause". The source gives no reason for the hedge, so I kept only one.
+- **Dash:** the em dash in the Notes section is now a comma.
+- **Wording:** "Delves into the failure path" is now "Changes the failure path". "Leverages a robust exponential backoff" is now "Adds exponential backoff".
+
+**What I kept exactly**
+- **Code spans:** all of them, unchanged.
+- **Other fixed items:** `v3.8.0`, the URL, the YAML block and the quoted phrase.
+- **Facts:** the 214 tests, the 503 test, the third attempt and the 250 ms and 500 ms delays are unchanged.
+
+**Residual:** The quoted phrase "a robust, seamless delivery guarantee" still contains two words the linter flags. You told me to keep it, so I left it and added `<!-- slop-ignore-next-line ai-vocabulary -->` above that line. The comment is invisible when rendered, but it is in the raw file. Delete it if you don't want it in the published text.

@@ -1093,3 +1093,33 @@ Decisions:
 ### Development gate for round 7 (same rule as round 6, frozen here)
 
 The seen set ho1 to ho5 is the development set. Gate run: `ours` ×3 on ho1 to ho5 with `heldout/score.mjs` unchanged, same sandbox and Agent SDK shim path, on the candidate commit. Reference: round 5 blader-inv means (5.00, 5.00, 5.00, 4.33, 5.00); blader-inv is not re-run. Pass: on every task ours is strictly above it, or both are at 5.00 (ho4 needs 4.67 or more, the other four 5.00). On failure: inspect the lost criteria, make a general fix, test and review, rerun; at most 3 iterations in round 7, each recorded with commit, scores and cost. If iteration 3 fails the round stops, set g is not measured, and the report says so. Gate results never enter a score table.
+
+## Results, round 7 development gate (seen set ho1 to ho5, 2026-10-23)
+
+Not a benchmark result and not a leadership claim. Evidence: `bench/head-to-head/results/round7-dev-gate-2026-10-23/` (`SUMMARY.md` equals `score.py` output byte for byte; 147 files in `SHA256SUMS`). Rule: ours strictly above the recorded round 5 blader-inv means on every task, or both at 5.00.
+
+| | ho1 | ho2 | ho3 | ho4 | ho5 | total of 25 |
+|---|---|---|---|---|---|---|
+| blader-inv (round 5) | 5.00 | 5.00 | 5.00 | 4.33 | 5.00 | 24.33 |
+| ours round 5 (7cba348) | 5.00 | 4.00 | 4.33 | 5.00 | 5.00 | 23.33 |
+| ours iteration 1 (ed304c0) | 5.00 | 4.67 | 5.00 | 5.00 | 5.00 | 24.67 |
+| ours iteration 2 (0668fb4) | 5.00 | 5.00 | 5.00 | 5.00 | 5.00 | 25.00 |
+
+Iteration 1 lost one point: ho2 run 3 restated `4,8 segundos` as `4,8`, so the fact `4,8 segundos` was gone while `--compare` saw the bare number. The general fix (`0668fb4`): `--compare` reports a number that lost its unit as `lost unit`; units are the measure words of the hedge check. False-positive check on 165 honest rewrites of the round 5 run (all arms): 9 flags, all the same genuine loss; 156 had none. Iteration 2 passed on all five tasks (15 of 15 cells at 5). The gate is passed. The cost of the two iterations is 1.26 and 1.26 US dollars.
+
+What this does and does not show: the 95% bootstrap interval of ours minus blader-inv (total of 25) is [+0.00, +2.00] for iteration 2 and includes zero; the blader-inv side is the recorded round 5 run, not a new measurement. Iteration 1 and iteration 2 differ by one lost point in 15 cells: this is within model variance of a 3-run mean. The gate decides only whether the held-out set g may be measured.
+
+Not done in round 7 (reason: the controller budget of 9 US dollars is spent; see the report): the measurement of set g (11 arms x 3 runs, about 198 cells), the public set (12 tasks x 11 arms x 3), F9 and F6. Set g remains unread and unmeasured on the local branch `heldout-2026-10-g` (commit 562a732, not pushed). The product is frozen at `0668fb4` for that measurement.
+
+## Round 7 measurement protocol for held-out g and the public set (frozen 2026-10-23, no scored run yet)
+
+Written before any scored run of round 7, and before set g is read. It applies when the next session measures set g.
+
+- Product: commit `0668fb4` or a later commit made before set g is read; after the first set g cell the product does not change.
+- Arms (11): ours, blader, blader-inv, everwrite, everwrite-inv, unslop, unslop-inv, avoid-ai-writing, slopless, slop-cop, base. Three runs per cell. All arms run in this round through the Agent SDK shim (`claude_agent_sdk.query()` with the same installed CLI 2.1.308), same sandbox, same prompt template. No cell from an earlier round is reused in the final gate. Set g: 6 tasks (at least one clean text, at least three languages other than English) on branch `heldout-2026-10-g`.
+- Grading: the script scorer `heldout/score.mjs` (C1 facts, C2 tells, C3 protected, C4 nothing added, C5 structure) is unchanged and is the grade. If an LLM grader is used for any additional check, all arms are shown together in shuffled order and graded by 3 votes.
+- Win rules, reported side by side in `SUMMARY.md`: Rule A (our lost points at most 80 percent of the best other arm's), Rule B (every task: ours strictly above every other arm, or at the ceiling when another arm is), and Rule B-prime: in each set, ours strictly higher than every other arm on every task or at the ceiling together with the best arm, except on at most one task, where our deficit to the best other arm is at most 0.34 points. If the gate passes only under Rule B-prime the launch sentence says so.
+- Public set: the public rule of the round 6 design applies (12 tasks, all 11 arms x 3, SDK path, no reuse).
+- If held-out and public both pass (Rule A and Rule B-prime): F9 (Haiku and Opus, one run per task: ours, the best rival of the task, base; public and held-out) and F6 (10 percent of cells re-run and re-graded by an agent that has not seen the code; agreement rate reported).
+- Known differences between the SDK path and the old CLI path: the desktop app's Artifact tool and the artifact-diagramming skill are absent on the SDK path; the old CLI cells also saw the user skills on the machine (for example caveman, impeccable; the proactive-gate round 5 diagnosis counted 44 against 18 skills). So CLI-era cost and behaviour numbers are not comparable one to one with SDK numbers. A competitor cell reused from an older round comes from the CLI path and must be marked in the table; the final gate reuses none.
+- A run that returns 429 or an authentication error stops the round and is written in the report. Evidence folder: the 11 items of `EVIDENCE-SPEC.md`, the development gate as a separate section.

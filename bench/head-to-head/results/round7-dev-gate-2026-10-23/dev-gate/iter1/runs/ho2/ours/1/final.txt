@@ -1,0 +1,13 @@
+I rewrote `notas.md` in place. The final `npx ai-slop-linter --language es` check scores A with 0 findings, and `--verify` against the original exits `ok`.
+
+Front matter, headings, the customer quote with its attribution, the code spans, the `POST /v2/facturas/lote` endpoint, the URL and all numbers are unchanged. I removed:
+- **Chatbot wrapper:** the line "¡Claro! Aquí tienes unas notas…".
+- **Summary:** the brochure-style opening ("Nos complace anunciar…", "revoluciona", "panorama actual", "robusta y sin fisuras") is now one factual sentence. It uses only facts already in the notes.
+- **Filler openers:** "Es importante destacar que" and "Cabe destacar que" are gone.
+- **Praise words:** "totalmente renovada" and "significativamente" are gone.
+- **Closing:** "marca un antes y un después" is gone, and "¡No dudes en contactarnos…!" is now "Si tienes alguna pregunta, contáctanos."
+- **Hedge:** "podría reducir los rechazos" is now "puede reducir los rechazos". The source gives no reason for the uncertainty, so I softened it to the plain form and did not make it a certain claim.
+
+`--verify` listed four "unrequested edit" lines. Each is a sentence I changed on purpose: the two wrapper sentences and the two reworded bullets. They are not blocking.
+
+Residuals: none.

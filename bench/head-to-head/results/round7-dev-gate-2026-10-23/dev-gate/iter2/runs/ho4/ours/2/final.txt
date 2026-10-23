@@ -1,0 +1,9 @@
+Ik heb `status.md` niet aangepast. De tekst bevat geen herkenbare AI-patronen, en het bestand is nog byte-voor-byte hetzelfde.
+
+- **Linter:** `npx ai-slop-linter --language nl status.md` geeft cijfer A, 0 bevindingen. De regels voor streepjes en hoofdletters in kopjes draaien niet, omdat de tekst Nederlands is.
+- **Verify:** `--verify` tegen de kopie van het origineel geeft `clean source: no edit is expected` en `verify: ok (unchanged)`.
+- **Handmatige check:** ik heb de Engelse referentielijst gebruikt, want er is geen Nederlandse. Ik zag geen contrastzinnen, kicker, driedeling, bijzin met lege duiding, stapel van voorbehouden, opsomming met vette labels of afsluitende samenvatting. De zinnen zijn concreet, met namen, aantallen en data. Zinnen als "Dat kostte een halve dag" lezen als gewone statusupdates.
+
+Namen, data, bedragen, aantallen, `import_klanten.py` en de URL staan er dus nog precies zo in.
+
+Residuals: geen.

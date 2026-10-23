@@ -1,0 +1,8 @@
+I rewrote `README.md` in place. The final lint shows 0 findings (grade A), and `--verify` against the original exits 0.
+
+- **Removed:** the chatbot lines ("Sure! Here's a polished README intro…", "I hope this helps! Feel free to reach out…"), the em dash, and the filler words ("cutting-edge", "seamlessly", "tapestry", "elevate", "ever-evolving", "testament").
+- **Shortened:** the intro is now one plain sentence, and "Simply run the following command to clean a feed:" became "To clean a feed, run:".
+- **Unchanged:** both shell blocks, `1.6.2`, Python 3.9, ISO 8601, UTF-8, `--keep-days 30`, the URL, the file names, "50 MB in about 3 seconds", and the MIT license line. "Contributions are welcome." stays.
+- **Dropped, not rewritten:** "Whether you're a seasoned engineer or just getting started…" and "tidyfeed serves as a testament to what a thoughtful tool can achieve." They only praised the tool and gave no facts.
+
+**Residuals:** none. `--verify` listed three "unrequested edit" lines. They are the removed "Sure!" and "Here's a polished README intro" lines and the "Simply run the following command" sentence I reworded, so each one is a tell I cut on purpose.

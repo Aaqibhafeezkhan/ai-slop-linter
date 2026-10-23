@@ -1,0 +1,1 @@
+notas.md is going to be published. It reads like an AI wrote it. Rewrite it in place so it reads like a person wrote it. The front matter, the customer quote with its attribution, the code spans, the endpoint, the URL and all numbers must stay exactly as they are.

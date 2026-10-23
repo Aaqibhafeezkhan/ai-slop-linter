@@ -1,0 +1,12 @@
+I left `status.md` unchanged. It doesn't read like AI-written text, so a rewrite would only make it worse.
+
+- **Linter:** `npx ai-slop-linter --language nl status.md` gave grade A with 0 findings. The Dutch rules for dashes and title-case headings don't run, and the text has none of those anyway.
+- **Verify:** I ran `--verify` against a copy of the original. It reported "clean source: no edit is expected" and `verify: ok (unchanged)`.
+- **Manual read:** I didn't open the reference file, because none exists for Dutch. I read the text for the usual tells: stacked hedges, announcing phrases, closing lines that sum up, triads, participle tails, and inflated or sales wording. I found none. The sentences are short and concrete, and they carry names, dates, amounts, the code span and the URL.
+- **Remaining sentences:** Some sentences are plain and a little stiff, for example "Dat kostte een halve dag." A person writing a status update would write the same.
+
+The names, dates, numbers, amounts, the code span `import_klanten.py` and the URL are all unchanged.
+
+If you tell me which lines sound machine-made, I'll edit those.
+
+Residuals: none.

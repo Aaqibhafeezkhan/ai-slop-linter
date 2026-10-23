@@ -1,0 +1,18 @@
+Reescrevi `incidente.md` no próprio arquivo. O lint deu nota A e o `--verify` terminou com `verify: ok`. A tabela da linha do tempo, os nomes em code spans, as versões, os horários e a URL ficaram idênticos.
+
+**O que mudou**
+- Tirei a abertura de chatbot ("Com certeza! Segue abaixo um resumo abrangente...") e o fecho ("Espero que este resumo ajude!... Em suma... valioso aprendizado").
+- Cortei "É importante ressaltar", "Vale destacar", "Em última análise", "uma instabilidade significativa" e "garantindo uma experiência fluida".
+- Troquei "impactando potencialmente uma parcela dos clientes" por "parte dos clientes foi afetada".
+- Troquei "parece estar relacionada a" por "parece ser". Mantive a dúvida, porque o texto não dá motivo para tirá-la.
+- Dividi a frase longa da causa raiz em três frases curtas.
+- Na frase final do resumo, passei a dizer que a equipe fez o rollback e a taxa de erro voltou ao normal. Ela substitui o elogio sobre agir rápido. Os dois fatos já estavam na linha do tempo (14:31 e 14:47).
+
+**Avisos do `--verify`**
+- Ele listou como edições sem pedido as duas frases da abertura que removi de propósito. São o próprio vício que eu queria tirar.
+- Ele mostrou um aviso `rebuild` na frase da causa raiz. É só informação e não bloqueia. Revisei a frase depois da reescrita.
+- Não rodei `--compare` separado. A comparação de fatos veio só dentro do `--verify`.
+
+**Pendente:** cortei "agiu rapidamente", e a frase nova não faz juízo sobre a velocidade da equipe. Se quiser manter essa avaliação, ela precisa de um dado do incidente que apoie.
+
+**Residuals:** nenhum.

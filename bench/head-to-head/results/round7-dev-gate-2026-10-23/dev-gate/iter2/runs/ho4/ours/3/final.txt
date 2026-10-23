@@ -1,0 +1,12 @@
+Ik heb `status.md` niet aangepast. De linter vond niets in de tekst, dus er viel niets weg te halen.
+
+- **Lint:** `npx ai-slop-linter --language nl status.md` gaf score A, 0 bevindingen, 189 woorden.
+- **Verify:** `--verify` op een ongewijzigde kopie gaf `clean source: no edit is expected` en `verify: ok (unchanged)`.
+- **Handmatig:** voor Nederlands is er geen referentiebestand. Ik heb de tekst gelezen met de patronen uit `en.md` die ook in het Nederlands voorkomen. Ik zag geen tegenstellingen van het type "niet X maar Y", geen opsommingen van drie, geen slotzin die samenvat en geen vaag bronverwijzend taalgebruik. De zinnen zijn kort en concreet en bevatten namen, getallen en data.
+- **Controle:** de namen, data, bedragen, getallen, `import_klanten.py` en de URL zijn dezelfde als voorheen, omdat het bestand byte voor byte gelijk is gebleven.
+
+De koppen ("Wat is gedaan", "Wat niet goed ging") en de vaste opbouw zijn een gewoon statusformat. Ik heb ze laten staan.
+
+Als de tekst voor jou toch nog machinaal leest, zeg welke zinnen en waarom. Dan pas ik die aan.
+
+Residuals: none.

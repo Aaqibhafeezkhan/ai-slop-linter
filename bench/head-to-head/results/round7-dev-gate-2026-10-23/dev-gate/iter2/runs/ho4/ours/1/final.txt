@@ -1,0 +1,8 @@
+Ik heb `status.md` niet aangepast. De linter vond niets (score A, 0 bevindingen), en de tekst leest al als door een mens geschreven.
+
+- **Wat ik gedraaid heb:** `npx ai-slop-linter --language nl status.md` en daarna `--verify` tegen een kopie van het origineel. `--verify` gaf `clean source: no edit is expected` en `verify: ok (unchanged)`.
+- **Wat ik niet heb gedaan:** er is geen referentiebestand voor Nederlands, dus ik heb `en.md` niet gelezen. Ik heb de tekst zelf op de bekende patronen nagelopen en geen aanleiding gevonden om te herschrijven.
+- **Waarom ik niets wijzig:** de zinnen zijn concreet en bevatten namen, getallen en data. Er staan geen stopzinnen, geen opsommingen van drie en geen afsluiter die alles samenvat. Als ik toch iets herschrijf, voeg ik waarschijnlijk zelf patronen toe.
+- **Linter-beperking:** de regels `dash` en `title-case-heading` draaien alleen voor Engels, dus die zijn niet gecontroleerd. In de tekst staan geen gedachtestreepjes.
+
+Residuals: none.

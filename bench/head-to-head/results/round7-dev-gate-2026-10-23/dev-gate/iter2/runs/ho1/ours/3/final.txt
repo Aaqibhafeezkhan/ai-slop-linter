@@ -1,0 +1,7 @@
+I rewrote `pr.md` in place. I did not run `ai-slop-linter` on it, so that check is still open.
+
+- **Removed:** the chatbot opener and closer, and the filler words ("seamlessly", "game-changer", "leverages", "delves into").
+- **Kept as they were:** the code spans, v3.8.0, the URL, the YAML block and the quoted phrase.
+- **Rewording:**
+  - The Notes sentence now reads "so I kept that wording".
+  - I replaced the em dash in the last Notes sentence with a comma.

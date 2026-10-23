@@ -1,0 +1,12 @@
+Reescrevi `incidente.md` no próprio arquivo. O linter dá nota A com 0 achados, e o `--verify` termina com `verify: ok`.
+
+Mudanças:
+- Tirei a abertura "Com certeza! Segue abaixo um resumo abrangente…" e o fecho "Espero que este resumo ajude… Em suma, … valioso aprendizado".
+- No resumo, cortei "impactando potencialmente", "É importante ressaltar" e "garantindo uma experiência fluida". A frase nova diz que o serviço ficou instável e que parte dos clientes foi afetada.
+- Na causa raiz, tirei "Vale destacar", "acabou" e "Em última análise".
+- A tabela da linha do tempo, os nomes em code spans, as versões, os horários e a URL ficaram idênticos.
+
+Resíduos:
+- "A equipe mitigou o problema com um rollback" é uma frase nova no resumo. Ela vem da linha das 14:31 da tabela e não acrescenta fato.
+- Mantive "parece ser" na causa raiz. O original já era incerto, e a cautela é conteúdo.
+- O `--verify` listou "Com certeza!" e "Segue abaixo um resumo abrangente do incidente." como edições não pedidas. Eram o próprio tique de assistente e saíram de propósito.

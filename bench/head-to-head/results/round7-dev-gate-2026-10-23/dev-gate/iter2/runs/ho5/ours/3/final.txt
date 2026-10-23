@@ -1,0 +1,17 @@
+I rewrote `README.md` in place. The linter now scores it A with 0 findings, and `--verify` exits 0.
+
+- **Removed:**
+  - The chat-style opener ("Sure! Here's a polished README intro…").
+  - The closing "I hope this helps! Feel free to reach out…".
+  - The sales and filler wording: "cutting-edge", "blazing-fast", "empowers", "seamlessly", "rich tapestry", "elevate your workflow", "ever-evolving world of content syndication", "serves as a testament", and "Simply".
+  - The em dash (replaced with a colon).
+- **Kept exactly:**
+  - Both shell blocks.
+  - `1.6.2`, Python 3.9, ISO 8601, UTF-8, 50 MB and about 3 seconds.
+  - `--keep-days 30`.
+  - The URL and the `feed.xml` and `clean.xml` file names.
+  - The MIT license line and the "Contributions are welcome" sentence.
+
+`--verify` lists three "unrequested edit" lines: "Sure!", the "polished README intro" sentence, and "Simply run…". Each was an assistant wrapper or filler, so I removed them on purpose.
+
+Residuals: none.

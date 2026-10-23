@@ -1,0 +1,12 @@
+I rewrote `pr.md` in place. The ai-slop-linter now flags only the two words inside the quoted phrase, "robust" and "seamless", which the brief says to keep.
+
+- **Removed:** the chatbot opener and closer, the filler phrases ("game-changer", "it's worth noting"), and the inflated verbs ("leverages", "delves into"). I also cut the em dash from the Notes sentence.
+- **Kept exactly:**
+  - the code spans
+  - v3.8.0
+  - the URL
+  - the YAML block
+  - the quoted phrase "a robust, seamless delivery guarantee"
+- **Reworded:** the sentence introducing the quote now says the docs "call" this that, where it said "describe this as". The quoted text itself is unchanged.
+
+The 5 retries, the defaults, the 214 tests and the 250 ms and 500 ms delays are all the same as before.

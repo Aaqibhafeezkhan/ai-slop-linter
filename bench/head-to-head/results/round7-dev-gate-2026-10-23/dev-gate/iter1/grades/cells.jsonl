@@ -1,0 +1,15 @@
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-ours-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-ours-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-ours-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho2-ours-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho2-ours-2"}
+{"C1": false, "C2": true, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["missing fact: 4,8 segundos"], "cell": "ho2-ours-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-ours-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-ours-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-ours-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho4-ours-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho4-ours-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho4-ours-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-ours-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-ours-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-ours-3"}
