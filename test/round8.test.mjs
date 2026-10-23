@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { compareFacts, extractFacts } from "../dist/src/compare.js";
+import { guessCompareLanguage } from "../dist/src/lang.js";
 
 // Every sentence below was written for this file. None comes from a benchmark task.
 const cmp = (before, after, language = "en") => {
@@ -179,4 +180,100 @@ test("dates: en and fr keep their dates, and a case change alone reports nothing
     lost: ["date:3 mars 2026"],
     added: ["date:3 avril 2026"],
   });
+});
+
+// spelled numbers (G5): number words are read by value, so `three` is the fact `3`. English is always
+// read; the declared or guessed language is read in addition. Ambiguous words are never read.
+test("spelled numbers: an English number word lost from a rewrite is a lost number fact", () => {
+  assert.deepEqual(cmp("We opened three branches", "We opened branches"), { lost: ["number:3"], added: [] });
+  assert.deepEqual(cmp("Plan for three rounds.", "Plan for 3 rounds."), { lost: [], added: [] });
+  assert.deepEqual(facts("three"), facts("3"));
+});
+
+test("spelled numbers: a Spanish number word is read with language es", () => {
+  assert.deepEqual(cmp("Abrimos tres sucursales", "Abrimos sucursales", "es"), { lost: ["number:3"], added: [] });
+});
+
+test("spelled numbers: a Polish number word is read with language pl (dwie is not in the table as dwunastu)", () => {
+  assert.deepEqual(cmp("Otworzyliśmy dwie filie", "Otworzyliśmy filie", "pl"), { lost: ["number:2"], added: [] });
+});
+
+test("spelled numbers: an Indonesian number word is read with language id", () => {
+  assert.deepEqual(cmp("Kami membuka dua cabang", "Kami membuka cabang", "id"), { lost: ["number:2"], added: [] });
+});
+
+test("spelled numbers: a Turkish number word is read with language tr", () => {
+  assert.deepEqual(cmp("Üç şube açtık", "şube açtık", "tr"), { lost: ["number:3"], added: [] });
+});
+
+test("spelled numbers: a Dutch number word is read with language nl", () => {
+  assert.deepEqual(cmp("We openden drie filialen", "We openden filialen", "nl"), { lost: ["number:3"], added: [] });
+});
+
+test("spelled numbers: a German number word is read with language de", () => {
+  assert.deepEqual(cmp("Wir eröffneten drei Filialen", "Wir eröffneten Filialen", "de"), { lost: ["number:3"], added: [] });
+});
+
+test("spelled numbers: a Portuguese number word is read with language pt", () => {
+  assert.deepEqual(cmp("Abrimos três filiais", "Abrimos filiais", "pt"), { lost: ["number:3"], added: [] });
+});
+
+test("spelled numbers: a French number word is read with language fr", () => {
+  assert.deepEqual(cmp("Nous avons ouvert trois agences", "Nous avons ouvert agences", "fr"), { lost: ["number:3"], added: [] });
+});
+
+test("spelled numbers: an Italian number word is read with language it", () => {
+  assert.deepEqual(cmp("Abbiamo aperto tre filiali", "Abbiamo aperto filiali", "it"), { lost: ["number:3"], added: [] });
+});
+
+test("spelled numbers: ambiguous words are never read (once, one, and the articles and pronouns for one)", () => {
+  assert.deepEqual(cmp("We ship once a day.", "We ship a day."), { lost: [], added: [] });
+  assert.deepEqual(cmp("We ship one box.", "We ship a box."), { lost: [], added: [] });
+  assert.deepEqual(cmp("Hay una sucursal.", "Hay sucursal.", "es"), { lost: [], added: [] });
+  assert.deepEqual(cmp("Tenho uma filial.", "Tenho filial.", "pt"), { lost: [], added: [] });
+  assert.deepEqual(cmp("We openden een filiaal.", "We openden filiaal.", "nl"), { lost: [], added: [] });
+  assert.deepEqual(cmp("Kami membuka satu cabang.", "Kami membuka cabang.", "id"), { lost: [], added: [] });
+  assert.deepEqual(cmp("Mam jeden pomysł.", "Mam pomysł.", "pl"), { lost: [], added: [] });
+});
+
+test("spelled numbers: a hyphenated or underscored word and a word after # are not read", () => {
+  assert.deepEqual(cmp("A five-star hotel", "A hotel"), { lost: [], added: [] });
+  assert.deepEqual(facts("a three_way split").filter((f) => f.startsWith("number:")), []);
+  assert.deepEqual(facts("issue #three").filter((f) => f.startsWith("number:")), []);
+});
+
+test("spelled numbers: a number word inside a code span is not read", () => {
+  assert.deepEqual(cmp("Use `three` here.", "Use here."), { lost: ["code:three"], added: [] });
+  assert.deepEqual(facts("Use `three` here.").filter((f) => f.startsWith("number:")), []);
+});
+
+test("spelled numbers: guessCompareLanguage reads a fresh Polish paragraph as pl", () => {
+  const pl =
+    "Zespół przygotował raport o wynikach sprzedaży, ale nie jest jeszcze pewne, czy to jest dobry wynik. " +
+    "Dane z ostatniego kwartału pokazują, że klienci są bardziej zadowoleni, a także że wiele firm wybiera nasze usługi. " +
+    "Jak co roku, tylko część z nich może być opisana w tym dokumencie, ponieważ reszta jest tajna i nie została jeszcze zatwierdzona przez zarząd.";
+  assert.equal(guessCompareLanguage(pl), "pl");
+});
+
+test("spelled numbers: guessCompareLanguage reads a fresh Indonesian paragraph as id", () => {
+  const id =
+    "Tim kami telah menyusun laporan tentang hasil penjualan di kota ini. Data dari kuartal terakhir menunjukkan bahwa " +
+    "pelanggan merasa puas dengan layanan yang diberikan, dan sebagian besar dari mereka akan kembali untuk membeli lagi. " +
+    "Namun, ada beberapa hal yang perlu diperbaiki dalam proses pengiriman barang agar lebih cepat dan tidak ada keluhan dari pembeli.";
+  assert.equal(guessCompareLanguage(id), "id");
+});
+
+test("spelled numbers: guessCompareLanguage reads a fresh Turkish paragraph as tr", () => {
+  const tr =
+    "Ekibimiz satış sonuçları hakkında bir rapor hazırladı. Son çeyrekteki veriler, müşterilerin hizmetten memnun olduğunu ve birçok kişinin tekrar geleceğini gösteriyor. " +
+    "Ancak teslimat sürecinde bazı sorunlar var ve bunların çözülmesi gerekiyor çünkü bu durum müşteri güvenini azaltıyor. " +
+    "Bu nedenle yeni bir plan çok daha önemli, ama henüz onaylanmadı.";
+  assert.equal(guessCompareLanguage(tr), "tr");
+});
+
+test("spelled numbers: guessCompareLanguage gives null for English and for text under 25 words", () => {
+  const en =
+    "We spent the first months building the tool and testing it on real projects. The results were clear: teams that used it found fewer problems in their documents, and they spent less time on review. This is not a claim about every project, but it is a pattern that we saw again and again in the data we collected from the users of the tool.";
+  assert.equal(guessCompareLanguage(en), null);
+  assert.equal(guessCompareLanguage("Dwie kawy, proszę."), null);
 });

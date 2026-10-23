@@ -4,7 +4,10 @@
  * deterministic and reads the raw text: it does not judge whether a change is good.
  *
  * Known limits, on purpose:
- * - Spelled-out numbers are not extracted (`forty percent`).
+ * - Spelled-out numbers are read by value (`three` is the number fact `3`) for English and for the
+ *   declared, front matter or guessed language. The tables cover numbers two to ninety, not the one
+ *   words (`one`, `un`, `een`), `once`, nor hundred, thousand or million. A word joined to another by
+ *   `-` or `_` (`five-star`), and a word after `#`, is not read.
  * - Dotted thousands read as versions (`1.000.000` is a version fact, not a number).
  * - Ordinals read as numbers: `3rd` gives number `3`.
  * - `person` facts are first-person words (`our`, `we`, `ich`, `nous`), compared by count: a word
@@ -44,7 +47,7 @@
  *   as a whole word, so a name that moves between sentence-initial and mid-sentence is kept.
  */
 
-import { detectLanguage, frontMatterLanguage } from "./lang.js";
+import { detectLanguage, frontMatterLanguage, guessCompareLanguage } from "./lang.js";
 import { UNIT_WORDS } from "./hedge.js";
 
 export type FactKind = "unit" | "number" | "version" | "date" | "url" | "reference" | "quote" | "code" | "name" | "person" | "claim" | "qualifier";
@@ -139,6 +142,73 @@ function canonicalNumber(value: string): string {
 
 const normaliseNumber = (value: string) => canonicalNumber(value);
 
+/**
+ * Spelled-out numbers by language tag, read as number facts by value, so `three` and `3` are the same
+ * fact. English is always read; the language of the texts is read in addition. Excluded as ambiguous:
+ * every word for one, `once`, `sei` (it), `neuf` (fr), `on` (tr), `altı` and `yedi` (tr), `dos` outside es.
+ */
+const NUMBER_WORDS: Readonly<Record<string, Readonly<Record<string, number>>>> = {
+  en: {
+    two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, eleven: 11, twelve: 12,
+    thirteen: 13, fourteen: 14, fifteen: 15, sixteen: 16, seventeen: 17, eighteen: 18, nineteen: 19, twenty: 20,
+    thirty: 30, forty: 40, fifty: 50, sixty: 60, seventy: 70, eighty: 80, ninety: 90,
+  },
+  es: {
+    dos: 2, tres: 3, cuatro: 4, cinco: 5, seis: 6, siete: 7, ocho: 8, nueve: 9, diez: 10, doce: 12, trece: 13,
+    catorce: 14, quince: 15, veinte: 20, treinta: 30, cuarenta: 40, cincuenta: 50, sesenta: 60, setenta: 70,
+    ochenta: 80, noventa: 90,
+  },
+  pt: {
+    dois: 2, duas: 2, três: 3, quatro: 4, cinco: 5, seis: 6, sete: 7, oito: 8, nove: 9, dez: 10, onze: 11, doze: 12,
+    treze: 13, catorze: 14, quatorze: 14, quinze: 15, vinte: 20, trinta: 30, quarenta: 40, cinquenta: 50,
+    sessenta: 60, setenta: 70, oitenta: 80, noventa: 90,
+  },
+  de: {
+    zwei: 2, drei: 3, vier: 4, fünf: 5, sechs: 6, sieben: 7, acht: 8, neun: 9, zehn: 10, elf: 11, zwölf: 12,
+    dreizehn: 13, vierzehn: 14, fünfzehn: 15, sechzehn: 16, siebzehn: 17, achtzehn: 18, neunzehn: 19, zwanzig: 20,
+    dreißig: 30, vierzig: 40, fünfzig: 50, sechzig: 60, siebzig: 70, achtzig: 80, neunzig: 90,
+  },
+  fr: {
+    deux: 2, trois: 3, quatre: 4, cinq: 5, six: 6, sept: 7, huit: 8, dix: 10, onze: 11, douze: 12, treize: 13,
+    quatorze: 14, quinze: 15, seize: 16, vingt: 20, trente: 30, quarante: 40, cinquante: 50, soixante: 60,
+  },
+  nl: {
+    twee: 2, drie: 3, vier: 4, vijf: 5, zes: 6, zeven: 7, acht: 8, negen: 9, tien: 10, elf: 11, twaalf: 12,
+    dertien: 13, veertien: 14, vijftien: 15, zestien: 16, zeventien: 17, achttien: 18, negentien: 19, twintig: 20,
+    dertig: 30, veertig: 40, vijftig: 50, zestig: 60, zeventig: 70, tachtig: 80, negentig: 90,
+  },
+  it: {
+    due: 2, tre: 3, quattro: 4, cinque: 5, sette: 7, otto: 8, nove: 9, dieci: 10, undici: 11, dodici: 12, tredici: 13,
+    quattordici: 14, quindici: 15, sedici: 16, venti: 20, trenta: 30, quaranta: 40, cinquanta: 50, sessanta: 60,
+    settanta: 70, ottanta: 80, novanta: 90,
+  },
+  pl: {
+    dwa: 2, dwie: 2, dwóch: 2, trzy: 3, trzech: 3, cztery: 4, czterech: 4, pięć: 5, pięciu: 5, sześć: 6, sześciu: 6,
+    siedem: 7, siedmiu: 7, osiem: 8, ośmiu: 8, dziewięć: 9, dziewięciu: 9, dziesięć: 10, dziesięciu: 10,
+    jedenaście: 11, dwanaście: 12, trzynaście: 13, czternaście: 14, piętnaście: 15, dwadzieścia: 20,
+    trzydzieści: 30, czterdzieści: 40, pięćdziesiąt: 50, sześćdziesiąt: 60, siedemdziesiąt: 70, osiemdziesiąt: 80,
+    dziewięćdziesiąt: 90,
+  },
+  id: {
+    dua: 2, tiga: 3, empat: 4, lima: 5, enam: 6, tujuh: 7, delapan: 8, sembilan: 9, sepuluh: 10, sebelas: 11,
+  },
+  tr: {
+    iki: 2, üç: 3, dört: 4, beş: 5, sekiz: 8, dokuz: 9, yirmi: 20, otuz: 30, kırk: 40, elli: 50, altmış: 60,
+    yetmiş: 70, seksen: 80, doksan: 90,
+  },
+};
+
+const NO_NUMBER_WORDS: Readonly<Record<string, number>> = {};
+
+/** The number words read for a text: English always, plus the language when the table has one. */
+function numberWordsFor(language: string | null | undefined): ReadonlyMap<string, number> {
+  const base = language ? language.split(/[-_]/)[0]!.toLowerCase() : "en";
+  return new Map<string, number>([
+    ...Object.entries(NUMBER_WORDS["en"] ?? NO_NUMBER_WORDS),
+    ...Object.entries(NUMBER_WORDS[base] ?? NO_NUMBER_WORDS),
+  ]);
+}
+
 /** A currency code or sign directly before digits: not part of the number. */
 const CURRENCY_BEFORE_DIGITS = /(?<![\p{L}\d])(?:Rp|USD|EUR|CHF|PLN|IDR|TRY|TL|SEK|NOK|DKK|US\$|R\$|\$|€|£)(?=\d)/gu;
 
@@ -155,7 +225,7 @@ function namesAreNoise(before: string, after: string, language?: string): boolea
   return tag !== null && tag !== undefined && CAPITALISED_NOUNS.has(tag.split(/[-_]/)[0]!.toLowerCase());
 }
 
-export function extractFacts(text: string, options: { names?: boolean; multiWordNamesOnly?: boolean } = {}): Fact[] {
+export function extractFacts(text: string, options: { names?: boolean; multiWordNamesOnly?: boolean; language?: string | null } = {}): Fact[] {
   const found: Fact[] = [];
   const add = (kind: FactKind, value: string) => {
     if (value) found.push({ kind, value });
@@ -248,6 +318,24 @@ export function extractFacts(text: string, options: { names?: boolean; multiWord
   // A group is a space, no-break space, thin space, apostrophe, `.` or `,` followed by exactly three digits.
   rest = rest.replace(NUMBER_TOKEN, (m) => {
     add("number", normaliseNumber(m));
+    return blank(m);
+  });
+
+  // Spelled-out numbers: a whole word of the table, case-insensitive, is its value. A word joined to a letter
+  // or digit by `-` or `_` (`five-star`, `three_way`) and a word after `#` are not read.
+  const spelled = numberWordsFor(options.language);
+  rest = rest.replace(/[\p{L}\p{M}]+/gu, (m, offset: number) => {
+    const value = spelled.get(m.toLowerCase());
+    if (value === undefined) return m;
+    const wordChar = (c: string) => /[\p{L}\p{M}\p{N}]/u.test(c);
+    const before1 = rest[offset - 1] ?? "";
+    const before2 = rest[offset - 2] ?? "";
+    const after1 = rest[offset + m.length] ?? "";
+    const after2 = rest[offset + m.length + 1] ?? "";
+    if (before1 === "#" || wordChar(before1)) return m;
+    if ((before1 === "-" || before1 === "_") && wordChar(before2)) return m;
+    if ((after1 === "-" || after1 === "_") && wordChar(after2)) return m;
+    add("number", String(value));
     return blank(m);
   });
 
@@ -575,7 +663,16 @@ export function countTerms(text: string, terms: readonly string[]): Map<string, 
 /** The language tag compareFacts reads both texts with. */
 export function languageOf(before: string, after: string, language?: string): string | null {
   const declared = language !== undefined && language !== "" && language.toLowerCase() !== "auto" ? language : undefined;
-  return declared ?? frontMatterLanguage(before) ?? frontMatterLanguage(after) ?? detectLanguage(before).tag ?? detectLanguage(after).tag ?? null;
+  return (
+    declared ??
+    frontMatterLanguage(before) ??
+    frontMatterLanguage(after) ??
+    detectLanguage(before).tag ??
+    detectLanguage(after).tag ??
+    guessCompareLanguage(before) ??
+    guessCompareLanguage(after) ??
+    null
+  );
 }
 
 // A date is compared case-insensitively: `3 November 2026` and `3 november 2026` are the same date.
@@ -589,8 +686,10 @@ const order = (a: Fact, b: Fact) => (a.kind < b.kind ? -1 : a.kind > b.kind ? 1 
  */
 export function compareFacts(before: string, after: string, options: CompareOptions = {}): { lost: Fact[]; added: Fact[]; kept: number } {
   const multiWordNamesOnly = namesAreNoise(before, after, options.language);
-  const b = extractFacts(before, { multiWordNamesOnly });
-  const a = extractFacts(after, { multiWordNamesOnly });
+  // The language of both texts, read once: it picks the spelled-number words and the other word lists.
+  const tag = languageOf(before, after, options.language);
+  const b = extractFacts(before, { multiWordNamesOnly, language: tag });
+  const a = extractFacts(after, { multiWordNamesOnly, language: tag });
   const inB = new Set(b.map(keyOf));
   const inA = new Set(a.map(keyOf));
   // A name is still there when it appears as a whole word anywhere in the other text, including
@@ -602,7 +701,6 @@ export function compareFacts(before: string, after: string, options: CompareOpti
   const kept = b.length - lost.length;
 
   // First-person words: any change of count is a fact. Claim words: only more of them is a fact.
-  const tag = languageOf(before, after, options.language);
   // An unknown language is read as English.
   const base = tag ? tag.split(/[-_]/)[0]!.toLowerCase() : "en";
   const pb = countPersonWords(before, tag);

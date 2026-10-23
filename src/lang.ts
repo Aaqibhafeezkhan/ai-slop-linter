@@ -199,6 +199,71 @@ export function functionWordShare(text: string, tag: string): number {
   return words === 0 ? 0 : hits / words;
 }
 
+/**
+ * Function words for the languages compare reads beyond detectLanguage's list: Polish, Indonesian,
+ * Turkish. A word that any detectLanguage list also holds is dropped, as buildIndex does.
+ */
+const COMPARE_LISTS: Readonly<Record<string, readonly string[]>> = {
+  pl: [
+    "i", "w", "nie", "na", "się", "że", "to", "z", "do", "jest", "jak", "co", "ale", "po", "za", "od", "przez", "dla", "tak", "już",
+    "czy", "tylko", "jego", "jej", "ich", "też", "być", "przy", "lub", "oraz", "który", "która", "które", "tym", "ten", "ta", "te",
+    "bardzo", "może", "są", "był", "była", "było",
+  ],
+  id: [
+    "yang", "dan", "di", "dengan", "untuk", "dari", "ini", "itu", "tidak", "akan", "pada", "adalah", "ke", "juga", "dalam", "oleh",
+    "sebagai", "atau", "ada", "saya", "kami", "kita", "mereka", "sudah", "telah", "bisa", "dapat", "karena", "lebih",
+  ],
+  tr: [
+    "ve", "bir", "bu", "için", "ile", "de", "da", "çok", "daha", "ama", "gibi", "olarak", "olan", "en", "ne", "mi", "kadar", "sonra",
+    "her", "ise", "değil", "var", "çünkü", "ancak", "veya", "bazı",
+  ],
+};
+
+/** Each compare-only word with the one language list it belongs to (none when a detectLanguage list also has it). */
+const COMPARE_INDEX: ReadonlyMap<string, string> = (() => {
+  const known = new Set(Object.values(LISTS).flat());
+  const owners = new Map<string, string[]>();
+  for (const [lang, words] of Object.entries(COMPARE_LISTS)) {
+    for (const w of new Set(words)) {
+      if (known.has(w)) continue;
+      owners.set(w, [...(owners.get(w) ?? []), lang]);
+    }
+  }
+  const index = new Map<string, string>();
+  for (const [w, langs] of owners) {
+    if (langs.length === 1 && langs[0] !== undefined) index.set(w, langs[0]);
+  }
+  return index;
+})();
+
+/**
+ * The language of `text` for compare only: Polish, Indonesian or Turkish, by the same rule as
+ * detectLanguage (at least 25 words, function words at least 12 percent of them, at least 1.5 times
+ * the second of the three). Null for every other language or when none is clear. detectLanguage
+ * itself is unchanged, so the linter's dash rule does not move.
+ */
+export function guessCompareLanguage(text: string): string | null {
+  const hits = new Map<string, number>();
+  let words = 0;
+  for (const match of text.matchAll(TOKEN)) {
+    const token = match[0].replace(/’/g, "'").replace(/^'+|'+$/g, "").toLowerCase();
+    if (token === "") continue;
+    words++;
+    const lang = COMPARE_INDEX.get(token);
+    if (lang !== undefined) hits.set(lang, (hits.get(lang) ?? 0) + 1);
+  }
+  if (words < MIN_TOKENS) return null;
+  const ranked = Object.keys(COMPARE_LISTS)
+    .map((lang) => ({ lang, count: hits.get(lang) ?? 0 }))
+    .sort((a, b) => b.count - a.count || (a.lang < b.lang ? -1 : 1));
+  const best = ranked[0];
+  const second = ranked[1];
+  if (best === undefined || best.count === 0) return null;
+  if (best.count / words < MIN_SHARE) return null;
+  if (best.count < MIN_RATIO * (second?.count ?? 0)) return null;
+  return best.lang;
+}
+
 const LANG_KEY = /^(?:lang|language)[ \t]*:[ \t]*["']?([A-Za-z]{2,3}(?:[-_][A-Za-z0-9-]+)?)["']?[ \t]*(?:#.*)?$/;
 /** The TOML form of the same key: `lang = "fr"`. */
 const LANG_KEY_TOML = /^(?:lang|language)[ \t]*=[ \t]*["']?([A-Za-z]{2,3}(?:[-_][A-Za-z0-9-]+)?)["']?[ \t]*(?:#.*)?$/;

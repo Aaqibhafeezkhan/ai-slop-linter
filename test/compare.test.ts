@@ -55,8 +55,9 @@ test("thousands commas do not change a number's identity, and percentages keep t
   assert.deepEqual(compareFacts("12,000 jobs", "12000 jobs"), { lost: [], added: [], kept: 1 });
 });
 
-test("spelled-out numbers are not extracted, a documented limit", () => {
-  assert.deepEqual(keys("forty percent faster"), []);
+test("spelled-out numbers are read by value since round 8, and equal their digits", () => {
+  assert.deepEqual(keys("forty percent faster"), ["number 40"]);
+  assert.deepEqual(compareFacts("forty users", "40 users"), { lost: [], added: [], kept: 1 });
 });
 
 test("a capitalised run that does not start a sentence is a name; sentence-initial words are not", () => {
