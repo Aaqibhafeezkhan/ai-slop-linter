@@ -1,0 +1,41 @@
+{
+  "output": "pr-description.md",
+  "facts": [
+    "KND-205",
+    "17 Eylül 2026",
+    "1.200 işlik",
+    "yaklaşık yüzde 30",
+    "v0.9.4",
+    "işçi sınırı 64",
+    "8,5 MB",
+    "Elif Aksoy"
+  ],
+  "tells": [
+    "çığır açan",
+    "Uzmanlara göre",
+    "potansiyel olarak",
+    "gibi görünmektedir",
+    "Umarım bu değişiklik",
+    "Özetle, bu PR",
+    "harika bir gelişmedir"
+  ],
+  "protected": [
+    "`fetchBatch()`",
+    "```ts\nconst jobs = await queue.fetchBatch({ size: 50 });\n```",
+    "“Kuyruk boşken işçiler uyku moduna geçer.”"
+  ],
+  "forbidden_added": [
+    "biz",
+    "bizim",
+    "bizler",
+    "bizce"
+  ],
+  "language_absent": [
+    "the",
+    "and",
+    "with",
+    "which",
+    "however",
+    "this"
+  ]
+}

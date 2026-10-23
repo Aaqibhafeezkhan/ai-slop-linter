@@ -1,0 +1,40 @@
+{
+  "output": "RELEASE_NOTES.md",
+  "facts": [
+    "versie 3.2.0",
+    "12 november 2026",
+    "1.250 foto's",
+    "ongeveer 25 procent",
+    "Sanne de Wit",
+    "KZ-77",
+    "limiet van 200",
+    "€ 4,99"
+  ],
+  "tells": [
+    "We zijn verheugd te kunnen aankondigen",
+    "naadloze ervaring",
+    "Het is belangrijk om te vermelden dat",
+    "Uit onderzoek blijkt",
+    "zou mogelijk kunnen",
+    "Of je nu een hobbyfotograaf bent of een professional",
+    "Kortom, deze release is een grote stap vooruit"
+  ],
+  "protected": [
+    "`kiezel --workers 4`",
+    "“Miniaturen worden nu op de achtergrond gegenereerd.”"
+  ],
+  "forbidden_added": [
+    "wij",
+    "ons",
+    "onze",
+    "onszelf"
+  ],
+  "language_absent": [
+    "the",
+    "and",
+    "with",
+    "which",
+    "however",
+    "this"
+  ]
+}

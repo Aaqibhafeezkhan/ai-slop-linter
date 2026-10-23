@@ -1,0 +1,1 @@
+Rewrite incident-note.md so it doesn't read like an AI wrote it. Spanish stays Spanish and every number, name and ticket stays exactly the same.

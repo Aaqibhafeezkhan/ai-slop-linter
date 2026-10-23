@@ -1,0 +1,1 @@
+Polish RELEASE_NOTES.md so it reads like a developer wrote it, not a chatbot. All versions, dates and figures stay as they are.

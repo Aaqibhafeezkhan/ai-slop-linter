@@ -1,0 +1,42 @@
+{
+  "output": "incident-note.md",
+  "facts": [
+    "INC-4471",
+    "14 de octubre de 2026",
+    "02:15",
+    "2.340 pedidos",
+    "8.900,50 €",
+    "aproximadamente el 18 por ciento",
+    "límite de 150",
+    "Lucía Barrios"
+  ],
+  "tells": [
+    "A continuación, se presenta un resumen detallado",
+    "Es importante destacar que",
+    "un papel fundamental",
+    "Según expertos del sector",
+    "podría potencialmente llegar a afectar",
+    "no solo bloqueó los cobros, sino también",
+    "Espero que esta información le resulte útil"
+  ],
+  "protected": [
+    "`cert-monitor`",
+    "«El reintento automático queda desactivado hasta nuevo aviso.»"
+  ],
+  "forbidden_added": [
+    "nosotros",
+    "nuestro",
+    "nuestra",
+    "nuestros",
+    "nuestras",
+    "hemos"
+  ],
+  "language_absent": [
+    "the",
+    "and",
+    "with",
+    "which",
+    "however",
+    "this"
+  ]
+}

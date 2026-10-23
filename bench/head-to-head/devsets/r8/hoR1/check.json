@@ -1,0 +1,47 @@
+{
+  "output": "README.md",
+  "facts": [
+    "2,5 GB",
+    "10 000 wierszy",
+    "Windows-1250",
+    "około 40 procent",
+    "2.4.0",
+    "14 marca 2026 roku",
+    "Marcin Wojtasik",
+    "SZ-318",
+    "Limit połączeń wynosi 8"
+  ],
+  "tells": [
+    "W dzisiejszym dynamicznie zmieniającym się świecie",
+    "kompleksowe i innowacyjne rozwiązanie",
+    "Oferuje trzy kluczowe korzyści",
+    "nie tylko przyspiesza cały proces, ale również",
+    "Według ekspertów",
+    "może to potencjalnie",
+    "Mam nadzieję, że Szufla spełni Twoje oczekiwania"
+  ],
+  "protected": [
+    "`.szufla-state`",
+    "```bash\nszufla import dane.csv --batch 10000\n```",
+    "„Importer nigdy nie nadpisuje istniejących tabel bez flagi --force.”"
+  ],
+  "forbidden_added": [
+    "my",
+    "nasz",
+    "nasza",
+    "nasze",
+    "naszego",
+    "naszym",
+    "mamy",
+    "jesteśmy",
+    "nasi"
+  ],
+  "language_absent": [
+    "the",
+    "and",
+    "with",
+    "which",
+    "however",
+    "this"
+  ]
+}

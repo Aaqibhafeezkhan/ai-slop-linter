@@ -1,0 +1,1 @@
+pr-description.md sounds like it was written by an AI. Humanize it in Turkish, keeping every fact, ticket id and number.

@@ -1,0 +1,39 @@
+{
+  "output": "status-update.md",
+  "facts": [
+    "PostgreSQL 16",
+    "sekitar 35 persen",
+    "3 Oktober 2026",
+    "99,95 persen",
+    "versi 1.8.2",
+    "PEL-142",
+    "Rp 12.500.000",
+    "batas 500",
+    "Wulan Prasetyo"
+  ],
+  "tells": [
+    "Berikut adalah ringkasan komprehensif",
+    "sangat luar biasa",
+    "mungkin dapat berpotensi",
+    "perlu dicatat bahwa",
+    "Menurut sejumlah pihak",
+    "tonggak penting yang membuka babak baru",
+    "menuju masa depan yang cerah"
+  ],
+  "protected": [
+    "`pelita migrate --dry-run`",
+    "\"Jangan hapus tabel lama sebelum 31 Oktober.\""
+  ],
+  "forbidden_added": [
+    "kami",
+    "kita"
+  ],
+  "language_absent": [
+    "the",
+    "and",
+    "with",
+    "which",
+    "however",
+    "this"
+  ]
+}

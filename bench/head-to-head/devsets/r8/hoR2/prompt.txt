@@ -1,0 +1,1 @@
+Please clean up status-update.md. It sounds machine-generated; make it natural Indonesian but don't change any numbers, dates or names.

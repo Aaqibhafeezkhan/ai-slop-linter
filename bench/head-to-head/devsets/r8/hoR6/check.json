@@ -1,0 +1,44 @@
+{
+  "output": "team-update.md",
+  "facts": [
+    "1,8 segundo",
+    "PAG-912",
+    "versão 4.6.1",
+    "8 de outubro",
+    "R$ 3.200,00",
+    "cerca de 12 por cento",
+    "O limite de alertas continua em 90",
+    "Rafael Tavares"
+  ],
+  "tells": [],
+  "protected": [
+    "Atualização do time – semana de 5 de outubro",
+    "Fechamos a migração do painel de relatórios na quinta-feira.",
+    "A página principal agora carrega em 1,8 segundo, antes eram 3,1.",
+    "Faltou migrar só o relatório de estoque, e isso fica para a próxima semana.",
+    "O Rafael Tavares resolveu o bug do carrinho (PAG-912), que duplicava pedidos quando o cliente clicava duas vezes no botão.",
+    "A correção saiu na versão 4.6.1 e está em produção desde 8 de outubro.",
+    "Ele testou com 40 pedidos seguidos e nenhum duplicou.",
+    "Sobre custos: a conta da nuvem fechou setembro em R$ 3.200,00, cerca de 12 por cento abaixo de agosto.",
+    "O limite de alertas continua em 90.",
+    "Para esta semana:",
+    "Migrar o relatório de estoque",
+    "Rodar `make smoke` antes de cada deploy",
+    "Marcar a conversa com o fornecedor",
+    "A Beatriz Lemos lembrou na reunião: \"Ninguém mexe no banco de produção sexta à tarde.\"",
+    "Se alguém precisar de ajuda com o deploy, me chame no chat."
+  ],
+  "forbidden_added": [
+    "outrossim",
+    "gostaríamos",
+    "pretendemos"
+  ],
+  "language_absent": [
+    "the",
+    "and",
+    "with",
+    "which",
+    "however",
+    "this"
+  ]
+}
