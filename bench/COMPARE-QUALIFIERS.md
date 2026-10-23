@@ -25,7 +25,7 @@ table and the reason in its verdict. "Seen" counts files or pairs that hold the
 qualifier at all. A qualifier kept with few sightings has not been shown to over-flag; it has not been shown to
 be safe either. This tool's own round 1 rewrites are listed for information and are not in the rule.
 
-Pairs per language: golden en 20, fr 1, de 3, es 0; round 1 honest en 273, fr 21, de 63, es 0; hand-written honest en 16, fr 8, de 8, es 8; this tool's own en 39, fr 3, de 9, es 0.
+Pairs per language: golden en 20, fr 1, de 3, es 0, pt 0, nl 0, it 0, pl 0, id 0, tr 0; round 1 honest en 273, fr 21, de 63, es 0, pt 0, nl 0, it 0, pl 0, id 0, tr 0; hand-written honest en 16, fr 8, de 8, es 8, pt 0, nl 0, it 0, pl 0, id 0, tr 0; this tool's own en 39, fr 3, de 9, es 0, pt 0, nl 0, it 0, pl 0, id 0, tr 0.
 
 | language | qualifier | group | golden flags | round 1 honest flags | hand-written honest flags | seen | own rewrites flagged | verdict |
 |---|---|---|---:|---:|---:|---:|---:|---|
@@ -78,7 +78,64 @@ Pairs per language: golden en 20, fr 1, de 3, es 0; round 1 honest en 273, fr 21
 | es | `más de` | min | 0 | 0 | 0 | 1 | 0 | kept |
 | es | `al menos` | min | 0 | 0 | 0 | 1 | 0 | kept |
 | es | `como mínimo` | min | 0 | 0 | 0 | 0 | 0 | kept |
+| pt | `aproximadamente` | approx | 0 | 0 | 0 | 0 | 0 | kept |
+| pt | `cerca de` | approx | 0 | 0 | 0 | 0 | 0 | kept |
+| pt | `quase` | approx | 0 | 0 | 0 | 0 | 0 | kept |
+| pt | `uns` | approx | 0 | 0 | 0 | 0 | 0 | kept |
+| pt | `umas` | approx | 0 | 0 | 0 | 0 | 0 | kept |
+| pt | `até` | max | 0 | 0 | 0 | 0 | 0 | kept |
+| pt | `menos de` | max | 0 | 0 | 0 | 0 | 0 | kept |
+| pt | `no máximo` | max | 0 | 0 | 0 | 0 | 0 | kept |
+| pt | `mais de` | min | 0 | 0 | 0 | 0 | 0 | kept |
+| pt | `pelo menos` | min | 0 | 0 | 0 | 0 | 0 | kept |
+| pt | `no mínimo` | min | 0 | 0 | 0 | 0 | 0 | kept |
+| nl | `ongeveer` | approx | 0 | 0 | 0 | 0 | 0 | kept |
+| nl | `circa` | approx | 0 | 0 | 0 | 0 | 0 | kept |
+| nl | `bijna` | approx | 0 | 0 | 0 | 0 | 0 | kept |
+| nl | `tot` | max | 0 | 0 | 0 | 0 | 0 | kept |
+| nl | `minder dan` | max | 0 | 0 | 0 | 0 | 0 | kept |
+| nl | `hooguit` | max | 0 | 0 | 0 | 0 | 0 | kept |
+| nl | `maximaal` | max | 0 | 0 | 0 | 0 | 0 | kept |
+| nl | `meer dan` | min | 0 | 0 | 0 | 0 | 0 | kept |
+| nl | `minstens` | min | 0 | 0 | 0 | 0 | 0 | kept |
+| nl | `minimaal` | min | 0 | 0 | 0 | 0 | 0 | kept |
+| nl | `ten minste` | min | 0 | 0 | 0 | 0 | 0 | kept |
+| it | `circa` | approx | 0 | 0 | 0 | 0 | 0 | kept |
+| it | `intorno a` | approx | 0 | 0 | 0 | 0 | 0 | kept |
+| it | `quasi` | approx | 0 | 0 | 0 | 0 | 0 | kept |
+| it | `fino a` | max | 0 | 0 | 0 | 0 | 0 | kept |
+| it | `meno di` | max | 0 | 0 | 0 | 0 | 0 | kept |
+| it | `al massimo` | max | 0 | 0 | 0 | 0 | 0 | kept |
+| it | `più di` | min | 0 | 0 | 0 | 0 | 0 | kept |
+| it | `almeno` | min | 0 | 0 | 0 | 0 | 0 | kept |
+| it | `oltre` | min | 0 | 0 | 0 | 0 | 0 | kept |
+| pl | `około` | approx | 0 | 0 | 0 | 0 | 0 | kept |
+| pl | `prawie` | approx | 0 | 0 | 0 | 0 | 0 | kept |
+| pl | `niemal` | approx | 0 | 0 | 0 | 0 | 0 | kept |
+| pl | `maksymalnie` | max | 0 | 0 | 0 | 0 | 0 | kept |
+| pl | `mniej niż` | max | 0 | 0 | 0 | 0 | 0 | kept |
+| pl | `co najwyżej` | max | 0 | 0 | 0 | 0 | 0 | kept |
+| pl | `więcej niż` | min | 0 | 0 | 0 | 0 | 0 | kept |
+| pl | `ponad` | min | 0 | 0 | 0 | 0 | 0 | kept |
+| pl | `co najmniej` | min | 0 | 0 | 0 | 0 | 0 | kept |
+| pl | `przynajmniej` | min | 0 | 0 | 0 | 0 | 0 | kept |
+| id | `sekitar` | approx | 0 | 0 | 0 | 0 | 0 | kept |
+| id | `kira-kira` | approx | 0 | 0 | 0 | 0 | 0 | kept |
+| id | `hampir` | approx | 0 | 0 | 0 | 0 | 0 | kept |
+| id | `hingga` | max | 0 | 0 | 0 | 0 | 0 | kept |
+| id | `kurang dari` | max | 0 | 0 | 0 | 0 | 0 | kept |
+| id | `maksimal` | max | 0 | 0 | 0 | 0 | 0 | kept |
+| id | `paling banyak` | max | 0 | 0 | 0 | 0 | 0 | kept |
+| id | `lebih dari` | min | 0 | 0 | 0 | 0 | 0 | kept |
+| id | `minimal` | min | 0 | 0 | 0 | 0 | 0 | kept |
+| id | `setidaknya` | min | 0 | 0 | 0 | 0 | 0 | kept |
+| id | `paling sedikit` | min | 0 | 0 | 0 | 0 | 0 | kept |
+| tr | `yaklaşık` | approx | 0 | 0 | 0 | 0 | 0 | kept |
+| tr | `neredeyse` | approx | 0 | 0 | 0 | 0 | 0 | kept |
+| tr | `en fazla` | max | 0 | 0 | 0 | 0 | 0 | kept |
+| tr | `en çok` | max | 0 | 0 | 0 | 0 | 0 | kept |
+| tr | `en az` | min | 0 | 0 | 0 | 0 | 0 | kept |
 
-Kept: en: `around`, `roughly`, `nearly`, `almost`, `close to`, `up to`, `at most`, `under`, `less than`, `fewer than`, `at least`, `over`, `more than`; fr: `environ`, `près de`, `presque`, `quasiment`, `jusqu'à`, `moins de`, `au plus`, `plus de`, `au moins`; de: `etwa`, `rund`, `ca`, `circa`, `fast`, `knapp`, `ungefähr`, `bis zu`, `weniger als`, `höchstens`, `mehr als`, `mindestens`, `über`; es: `unos`, `unas`, `alrededor de`, `casi`, `aproximadamente`, `cerca de`, `hasta`, `menos de`, `como máximo`, `más de`, `al menos`, `como mínimo`.
+Kept: en: `around`, `roughly`, `nearly`, `almost`, `close to`, `up to`, `at most`, `under`, `less than`, `fewer than`, `at least`, `over`, `more than`; fr: `environ`, `près de`, `presque`, `quasiment`, `jusqu'à`, `moins de`, `au plus`, `plus de`, `au moins`; de: `etwa`, `rund`, `ca`, `circa`, `fast`, `knapp`, `ungefähr`, `bis zu`, `weniger als`, `höchstens`, `mehr als`, `mindestens`, `über`; es: `unos`, `unas`, `alrededor de`, `casi`, `aproximadamente`, `cerca de`, `hasta`, `menos de`, `como máximo`, `más de`, `al menos`, `como mínimo`; pt: `aproximadamente`, `cerca de`, `quase`, `uns`, `umas`, `até`, `menos de`, `no máximo`, `mais de`, `pelo menos`, `no mínimo`; nl: `ongeveer`, `circa`, `bijna`, `tot`, `minder dan`, `hooguit`, `maximaal`, `meer dan`, `minstens`, `minimaal`, `ten minste`; it: `circa`, `intorno a`, `quasi`, `fino a`, `meno di`, `al massimo`, `più di`, `almeno`, `oltre`; pl: `około`, `prawie`, `niemal`, `maksymalnie`, `mniej niż`, `co najwyżej`, `więcej niż`, `ponad`, `co najmniej`, `przynajmniej`; id: `sekitar`, `kira-kira`, `hampir`, `hingga`, `kurang dari`, `maksimal`, `paling banyak`, `lebih dari`, `minimal`, `setidaknya`, `paling sedikit`; tr: `yaklaşık`, `neredeyse`, `en fazla`, `en çok`, `en az`.
 
 Recall on the 14 hand-written dishonest pairs (every expected line reported, nothing else): 14 with every candidate, 13 with the kept list.

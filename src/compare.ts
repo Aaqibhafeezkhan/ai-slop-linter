@@ -203,9 +203,12 @@ const NO_NUMBER_WORDS: Readonly<Record<string, number>> = {};
 /** The number words read for a text: English always, plus the language when the table has one. */
 function numberWordsFor(language: string | null | undefined): ReadonlyMap<string, number> {
   const base = language ? language.split(/[-_]/)[0]!.toLowerCase() : "en";
+  // English words are read only in English text or in a language without a table: `ten` is "this" in Polish
+  // and `ten minste` is "at least" in Dutch.
+  const own = NUMBER_WORDS[base];
   return new Map<string, number>([
-    ...Object.entries(NUMBER_WORDS["en"] ?? NO_NUMBER_WORDS),
-    ...Object.entries(NUMBER_WORDS[base] ?? NO_NUMBER_WORDS),
+    ...(own === undefined || base === "en" ? Object.entries(NUMBER_WORDS["en"] ?? NO_NUMBER_WORDS) : []),
+    ...Object.entries(own ?? NO_NUMBER_WORDS),
   ]);
 }
 
@@ -335,6 +338,11 @@ export function extractFacts(text: string, options: { names?: boolean; multiWord
     if (before1 === "#" || wordChar(before1)) return m;
     if ((before1 === "-" || before1 === "_") && wordChar(before2)) return m;
     if ((after1 === "-" || after1 === "_") && wordChar(after2)) return m;
+    // A capitalised word in the middle of a sentence is a noun or a name (German `Acht geben`, the city `Lima`).
+    if (/^\p{Lu}/u.test(m)) {
+      const prev = rest.slice(0, offset).replace(/[\s*_~]+$/u, "").slice(-1);
+      if (/[\p{Ll}\d,;]/u.test(prev)) return m;
+    }
     add("number", String(value));
     return blank(m);
   });
@@ -384,7 +392,21 @@ export const PERSON_CANDIDATES: Readonly<Record<string, readonly string[]>> = {
   es: ["yo", "nosotros", "nosotras", "nuestro", "nuestra", "nuestros", "nuestras", "mi", "mis"],
   de: ["ich", "wir", "unser", "unsere", "unseren", "unserem", "unserer", "mein", "meine", "meinen", "meinem", "meiner", "mich", "uns"],
   tr: ["ben", "biz", "bizim", "benim"],
+  nl: ["wij", "we", "ons", "onze", "ik", "mijn"],
+  pt: ["nós", "nosso", "nossa", "nossos", "nossas", "eu", "meu", "minha", "meus", "minhas"],
+  it: ["noi", "nostro", "nostra", "nostri", "nostre", "io", "mio", "mia"],
+  pl: ["my", "nasz", "nasza", "nasze", "naszych", "ja", "mój", "moja", "moje"],
+  id: ["kami", "kita", "saya", "aku"],
 };
+
+/**
+ * A Polish first-person plural past verb (`zrobiliśmy`, `byłyśmy`): the ending -liśmy or -łyśmy on a word
+ * of at least eight letters. The closed form is the guard; the same structure as the Portuguese check.
+ */
+const PL_PLURAL_PAST_VERB = /^\p{L}+(?:liśmy|łyśmy)$/u;
+export function isPolishPersonVerb(word: string): boolean {
+  return PL_PLURAL_PAST_VERB.test(word);
+}
 
 /**
  * A Portuguese first-person plural verb (`fizemos`, `testamos`): the ending -amos or -emos on a word
@@ -414,6 +436,12 @@ export const CLAIM_CANDIDATES: Readonly<Record<string, readonly string[]>> = {
   fr: ["par conséquent", "donc", "car", "garantit", "toujours", "jamais"],
   es: ["por lo tanto", "siempre", "nunca", "garantiza"],
   de: ["daher", "deshalb", "immer", "nie", "garantiert"],
+  pt: ["sempre", "nunca", "garante"],
+  nl: ["altijd", "nooit", "garandeert"],
+  it: ["sempre", "mai", "garantisce"],
+  pl: ["zawsze", "nigdy", "gwarantuje"],
+  id: ["selalu", "tidak pernah", "menjamin"],
+  tr: ["her zaman", "asla"],
 };
 
 /** Person words reported when the rewrite has more of them than the source. */
@@ -423,6 +451,11 @@ export const PERSON_ADDED: Readonly<Record<string, readonly string[]>> = {
   es: ["yo", "nosotros", "nosotras", "nuestro", "nuestra", "nuestros", "nuestras", "mi", "mis"],
   de: ["ich", "wir", "unser", "unsere", "unseren", "unserem", "unserer", "mein", "meine", "meinen", "meinem", "meiner", "mich"],
   tr: ["ben", "biz", "bizim", "benim"],
+  nl: ["wij", "we", "ons", "onze", "ik", "mijn"],
+  pt: ["nós", "nosso", "nossa", "nossos", "nossas", "eu", "meu", "minha", "meus", "minhas"],
+  it: ["noi", "nostro", "nostra", "nostri", "nostre", "io", "mio", "mia"],
+  pl: ["my", "nasz", "nasza", "nasze", "naszych", "ja", "mój", "moja", "moje"],
+  id: ["kami", "kita", "saya", "aku"],
 };
 
 /** Person words reported when the rewrite has fewer of them than the source. */
@@ -438,6 +471,12 @@ export const CLAIM_WORDS: Readonly<Record<string, readonly string[]>> = {
   fr: ["par conséquent", "donc", "car", "garantit", "toujours", "jamais"],
   es: ["por lo tanto", "siempre", "nunca", "garantiza"],
   de: ["daher", "deshalb", "immer", "nie", "garantiert"],
+  pt: ["sempre", "nunca", "garante"],
+  nl: ["altijd", "nooit", "garandeert"],
+  it: ["sempre", "mai", "garantisce"],
+  pl: ["zawsze", "nigdy", "gwarantuje"],
+  id: ["selalu", "tidak pernah", "menjamin"],
+  tr: ["her zaman", "asla"],
 };
 
 /**
@@ -467,6 +506,36 @@ export const QUALIFIER_CANDIDATES: Readonly<Record<string, Readonly<Record<strin
     hasta: "max", "menos de": "max", "como máximo": "max",
     "más de": "min", "al menos": "min", "como mínimo": "min",
   },
+  pt: {
+    aproximadamente: "approx", "cerca de": "approx", quase: "approx", uns: "approx", umas: "approx",
+    "até": "max", "menos de": "max", "no máximo": "max",
+    "mais de": "min", "pelo menos": "min", "no mínimo": "min",
+  },
+  nl: {
+    ongeveer: "approx", circa: "approx", bijna: "approx",
+    tot: "max", "minder dan": "max", hooguit: "max", maximaal: "max",
+    "meer dan": "min", minstens: "min", minimaal: "min", "ten minste": "min",
+  },
+  it: {
+    circa: "approx", "intorno a": "approx", quasi: "approx",
+    "fino a": "max", "meno di": "max", "al massimo": "max",
+    "più di": "min", almeno: "min", oltre: "min",
+  },
+  pl: {
+    "około": "approx", prawie: "approx", niemal: "approx",
+    maksymalnie: "max", "mniej niż": "max", "co najwyżej": "max",
+    "więcej niż": "min", ponad: "min", "co najmniej": "min", przynajmniej: "min",
+  },
+  id: {
+    sekitar: "approx", "kira-kira": "approx", hampir: "approx",
+    hingga: "max", "kurang dari": "max", maksimal: "max", "paling banyak": "max",
+    "lebih dari": "min", minimal: "min", setidaknya: "min", "paling sedikit": "min",
+  },
+  tr: {
+    "yaklaşık": "approx", neredeyse: "approx",
+    "en fazla": "max", "en çok": "max",
+    "en az": "min",
+  },
 };
 
 /**
@@ -479,6 +548,12 @@ export const QUALIFIERS: Readonly<Record<string, readonly string[]>> = {
   fr: ["environ", "près de", "presque", "quasiment", "jusqu'à", "moins de", "au plus", "plus de", "au moins"],
   de: ["etwa", "rund", "ca", "circa", "fast", "knapp", "ungefähr", "bis zu", "weniger als", "höchstens", "mehr als", "mindestens", "über"],
   es: ["unos", "unas", "alrededor de", "casi", "aproximadamente", "cerca de", "hasta", "menos de", "como máximo", "más de", "al menos", "como mínimo"],
+  pt: ["aproximadamente", "cerca de", "quase", "uns", "umas", "até", "menos de", "no máximo", "mais de", "pelo menos", "no mínimo"],
+  nl: ["ongeveer", "circa", "bijna", "tot", "minder dan", "hooguit", "maximaal", "meer dan", "minstens", "minimaal", "ten minste"],
+  it: ["circa", "intorno a", "quasi", "fino a", "meno di", "al massimo", "più di", "almeno", "oltre"],
+  pl: ["około", "prawie", "niemal", "maksymalnie", "mniej niż", "co najwyżej", "więcej niż", "ponad", "co najmniej", "przynajmniej"],
+  id: ["sekitar", "kira-kira", "hampir", "hingga", "kurang dari", "maksimal", "paling banyak", "lebih dari", "minimal", "setidaknya", "paling sedikit"],
+  tr: ["yaklaşık", "neredeyse", "en fazla", "en çok", "en az"],
 };
 
 /** One qualifier before a number: the words as written, its group, and the number it qualifies. */
@@ -493,6 +568,9 @@ const ABOUT_TOPIC = /(?:^|[^\p{L}])(?:talk|talks|talked|talking|think|thinks|tho
 /** Units of time after which `over` and `über` mean "across" (`over 2 weeks`), not "more than". */
 const SPAN_UNIT = /^\s*(?:minutes?|hours?|days?|nights?|weeks?|months?|years?|decades?|quarters?|sprints?|releases?|versions?|Minuten|Stunden|Tagen?|Wochen|Monaten?|Jahren?|Jahrzehnten?|Quartalen?|Sprints?|Releases?|Versionen)(?![\p{L}])/iu;
 
+/** Qualifiers that are also a date bound (`until 2025`), by language tag. */
+const YEAR_BOUND: Readonly<Record<string, readonly string[]>> = { es: ["hasta"], pt: ["até"], nl: ["tot"], it: ["fino a"], id: ["hingga"] };
+
 /**
  * Whether a qualifier word is used in another sense here: English `about` after a verb of talking or
  * thinking, `over` or `über` before a span of time, Spanish `hasta` before a year (until 2025).
@@ -500,7 +578,9 @@ const SPAN_UNIT = /^\s*(?:minutes?|hours?|days?|nights?|weeks?|months?|years?|de
 function otherSense(lang: string, key: string, before: string, after: string, number: string): boolean {
   if (lang === "en" && key === "about") return ABOUT_TOPIC.test(before);
   if ((lang === "en" && key === "over") || (lang === "de" && key === "über")) return SPAN_UNIT.test(after);
-  if (lang === "es" && key === "hasta") return /^(?:1[89]|20)\d\d$/.test(number) && !/^\s*%/.test(after);
+  // `hasta 2025`, `até 2025`, `tot 2025`, `fino a 2025`, `hingga 2025`: a bound on a date, unless a % follows.
+  // A range written with the same word (`9 tot 17`, `das 9 até 17`) is not a bound: a number comes right before it.
+  if (YEAR_BOUND[lang]?.includes(key)) return /\d\s*$/.test(before) || (/^(?:1[89]|20)\d\d$/.test(number) && !/^\s*%/.test(after));
   return false;
 }
 
@@ -711,12 +791,13 @@ export function compareFacts(before: string, after: string, options: CompareOpti
     if (delta > 0 && PERSON_ADDED[personBase]?.includes(word)) added.push({ kind: "person", value: word });
     else if (delta < 0 && PERSON_LOST[personBase]?.includes(word)) lost.push({ kind: "person", value: word });
   }
-  if (base === "pt") {
+  const verbCheck = base === "pt" ? isPortuguesePersonVerb : base === "pl" ? isPolishPersonVerb : null;
+  if (verbCheck) {
     const verbs = (text: string) => {
       const n = new Map<string, number>();
       for (const m of proseOnly(text.normalize("NFC")).matchAll(/\p{L}+/gu)) {
         const w = m[0].toLowerCase();
-        if (isPortuguesePersonVerb(w)) n.set(w, (n.get(w) ?? 0) + 1);
+        if (verbCheck(w)) n.set(w, (n.get(w) ?? 0) + 1);
       }
       return n;
     };

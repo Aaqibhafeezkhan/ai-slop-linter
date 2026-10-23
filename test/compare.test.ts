@@ -496,8 +496,8 @@ test("person words that failed the measurement are counted but never flagged whe
 });
 
 test("the person lists follow the language: none for a language without a list, front matter turns one on", () => {
-  assert.deepEqual(kinds("Il parser è veloce.", "Il nostro parser è veloce, we said.", "it").added, []);
-  assert.equal(countPersonWords("Il nostro parser è veloce, we said.", "it").size, 0);
+  assert.deepEqual(kinds("Il parser è veloce.", "Il nostro parser è veloce, we said.", "sv").added, []);
+  assert.equal(countPersonWords("Il nostro parser è veloce, we said.", "sv").size, 0);
   const de = (body: string) => `---\nlang: de\n---\n\n${body}`;
   assert.deepEqual(kinds(de("Die Messung zeigt zwei Fehler."), de("Unsere Messung zeigt zwei Fehler."), "auto").added, ["person unsere"]);
   // Without the front matter, a short German text is not detected and is read as English.
@@ -650,7 +650,7 @@ test("qualifier: other senses of a qualifier word are not read", () => {
 test("qualifier: code, urls and quotations are not read, and a language with no list has none", () => {
   assert.deepEqual(q("Run `up to 3` now.", "Run `up to 3` now. Then 3."), { lost: [], added: [] });
   assert.deepEqual(q('She said "up to 3 people came".', "She said 3."), { lost: [], added: [] });
-  assert.deepEqual(qualifiedNumbers("fino a 3 persone, up to 3", "it"), []);
+  assert.deepEqual(qualifiedNumbers("fino a 3 persone, up to 3", "sv"), []);
   assert.deepEqual(qualifierChanges("up to 3", "3", "tr"), { lost: [], added: [] });
 });
 

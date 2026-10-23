@@ -143,7 +143,7 @@ const GRAMMAR: Readonly<Record<string, Grammar>> = {
 };
 
 /** A number with a unit (a measured range or limit) is a stated reason, in any language. */
-export const UNIT_WORDS = `%|‰|×|x|s|sec|secs|seconds?|secondes?|sekunden?|segundos?|saniye|ms|µs|μs|ns|min|mins|minutes?|minuten|minutos?|dakika|h|hrs?|hours?|heures?|stunden?|horas?|uur|uren|days?|jours?|tage[ns]?|dias?|días?|dagen|gün|percent|prozent|procent|por ?cento|por ?ciento|pour ?cent|yüzde|kb|mb|gb|tb|kib|mib|gib|bytes?|hz|khz|mhz|ghz|px|fps|rps|qps`;
+export const UNIT_WORDS = `%|‰|×|x|s|sec|secs|seconds?|secondes?|sekunden?|segundos?|saniye|ms|µs|μs|ns|min|mins|minutes?|minuten|minutos?|dakika|h|hrs?|hours?|heures?|stunden?|horas?|uur|uren|days?|jours?|tage[ns]?|dias?|días?|dagen|gün|percent|prozent|procent|por ?cento|por ?ciento|pour ?cent|yüzde|kb|mb|gb|tb|kib|mib|gib|bytes?|hz|khz|mhz|ghz|px|fps|rps|qps|sekund(?:y|a|ę)?|minut(?:y|a|ę)?|godzin(?:y|a|ę)?|dni|dzień|procent(?:ów|y)?|detik|menit|jam|hari|persen|second[oi]|minut[oi]|ore|ora|giorn[oi]|percento|seconden|minuut|dagen|dag`;
 const MEASURED = new RegExp(
   `(?<![${WORD}\\d])\\d(?:[.,\\d]*\\d)?\\s?(?:${UNIT_WORDS})(?![${WORD}\\d])`,
   "iu",

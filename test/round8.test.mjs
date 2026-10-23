@@ -277,3 +277,165 @@ test("spelled numbers: guessCompareLanguage gives null for English and for text 
   assert.equal(guessCompareLanguage(en), null);
   assert.equal(guessCompareLanguage("Dwie kawy, proszę."), null);
 });
+
+// persons (T4, G7): first-person words for nl, pt, it, pl and id; only an increase is reported.
+test("persons: a Dutch first-person plural added in the rewrite is reported", () => {
+  assert.deepEqual(cmp("De release verkort de tijd.", "Onze release verkort de tijd.", "nl"), { lost: [], added: ["person:onze"] });
+  assert.deepEqual(cmp("De ploeg las de cijfers.", "Wij lazen de cijfers.", "nl"), { lost: [], added: ["person:wij"] });
+});
+
+test("persons: a Dutch first-person word present in both texts is not reported", () => {
+  assert.deepEqual(cmp("Onze release verkort de tijd.", "Onze release verkort de wachttijd.", "nl"), { lost: [], added: [] });
+  // `ons` and `we` are read only when the language is Dutch: the same English sentence reports nothing.
+  assert.deepEqual(cmp("The release shortens the time.", "Our release shortens the time.", "en"), { lost: [], added: ["person:our"] });
+  assert.deepEqual(cmp("The release shortens the time.", "Ons release shortens the time.", "en"), { lost: [], added: [] });
+});
+
+test("persons: a Portuguese first-person plural added in the rewrite is reported", () => {
+  assert.deepEqual(cmp("A release reduz o tempo de build.", "Nosso release reduz o tempo de build.", "pt"), { lost: [], added: ["person:nosso"] });
+  assert.deepEqual(cmp("A equipe revisou o texto.", "Eu revisei o texto.", "pt"), { lost: [], added: ["person:eu"] });
+});
+
+test("persons: a Portuguese first-person word present in both texts is not reported", () => {
+  assert.deepEqual(cmp("Nosso release reduz o tempo.", "Nosso release reduz o tempo de build.", "pt"), { lost: [], added: [] });
+  assert.deepEqual(cmp("Nosso time testou o build.", "Nossos times testaram o build.", "pt"), { lost: [], added: ["person:nossos"] });
+});
+
+test("persons: an Italian first-person word added in the rewrite is reported", () => {
+  assert.deepEqual(cmp("La release riduce il tempo.", "La nostra release riduce il tempo.", "it"), { lost: [], added: ["person:nostra"] });
+  assert.deepEqual(cmp("Il team ha testato il build.", "Io ho testato il build.", "it"), { lost: [], added: ["person:io"] });
+});
+
+test("persons: an Italian first-person word present in both texts is not reported", () => {
+  assert.deepEqual(cmp("La nostra release riduce il tempo.", "La nostra release riduce il tempo di build.", "it"), { lost: [], added: [] });
+  assert.deepEqual(cmp("Io ho testato il build.", "Io ho testato il build, poi io ho scritto.", "it"), { lost: [], added: ["person:io"] });
+});
+
+test("persons: a Polish first-person plural past verb added in the rewrite is reported", () => {
+  assert.deepEqual(cmp("Zrobili to", "Zrobiliśmy to", "pl"), { lost: [], added: ["person:zrobiliśmy"] });
+  assert.deepEqual(cmp("Zespół oddał raport.", "Oddaliśmy raport.", "pl"), { lost: [], added: ["person:oddaliśmy"] });
+});
+
+test("persons: a Polish verb of the same form in both texts is not reported, a third-person form is not a person", () => {
+  assert.deepEqual(cmp("Zrobili to", "Zrobili to", "pl"), { lost: [], added: [] });
+  assert.deepEqual(cmp("Były kwiaty.", "Były w domu.", "pl"), { lost: [], added: [] });
+});
+
+test("persons: a Polish pronoun added in the rewrite is reported", () => {
+  assert.deepEqual(cmp("Zespół oddał raport.", "Ja oddałem raport.", "pl"), { lost: [], added: ["person:ja"] });
+  assert.deepEqual(cmp("Nasz zespół oddał raport.", "Nasz zespół oddał raport w terminie.", "pl"), { lost: [], added: [] });
+});
+
+test("persons: an Indonesian first-person word added in the rewrite is reported", () => {
+  assert.deepEqual(cmp("Rilis ini mempercepat build.", "Kami mempercepat build dengan rilis ini.", "id"), { lost: [], added: ["person:kami"] });
+  assert.deepEqual(cmp("Tim merilis fitur ini.", "Aku merilis fitur ini.", "id"), { lost: [], added: ["person:aku"] });
+});
+
+test("persons: an Indonesian first-person word present in both texts, a joined one and a capitals one are not reported", () => {
+  assert.deepEqual(cmp("Kami mempercepat build.", "Kami mempercepat build dengan rilis ini.", "id"), { lost: [], added: [] });
+  // A hyphen joins the word to a name (`kami-api`), and all capitals is an acronym: neither is the pronoun.
+  assert.deepEqual(cmp("Rilis ini.", "Layanan kami-api membaik.", "id"), { lost: [], added: [] });
+  assert.deepEqual(cmp("Rilis ini.", "KAMI merilis ini.", "id"), { lost: [], added: [] });
+});
+
+// claims (T4, G7): claim words for pt, nl, it, pl, id and tr; only an increase is reported.
+test("claims: an Indonesian absolute word added in the rewrite is reported", () => {
+  assert.deepEqual(cmp("Rilis ini mempercepat build.", "Rilis ini selalu mempercepat build.", "id"), { lost: [], added: ["claim:selalu"] });
+  assert.deepEqual(cmp("Build ini gagal.", "Build ini tidak pernah gagal.", "id"), { lost: [], added: ["claim:tidak pernah"] });
+  assert.deepEqual(cmp("Rilis ini membantu build.", "Rilis ini menjamin build.", "id"), { lost: [], added: ["claim:menjamin"] });
+});
+
+test("claims: an Indonesian absolute word present in both texts is not reported", () => {
+  assert.deepEqual(cmp("Rilis ini selalu mempercepat build.", "Rilis ini selalu mempercepat build cepat.", "id"), { lost: [], added: [] });
+  assert.deepEqual(cmp("Build ini tidak pernah gagal.", "Build ini tidak pernah gagal lagi.", "id"), { lost: [], added: [] });
+});
+
+test("claims: Portuguese, Dutch and Italian claim words added in the rewrite are reported", () => {
+  assert.deepEqual(cmp("A release reduz o tempo.", "A release sempre reduz o tempo.", "pt"), { lost: [], added: ["claim:sempre"] });
+  assert.deepEqual(cmp("A release reduz o tempo.", "A release garante menos tempo.", "pt"), { lost: [], added: ["claim:garante"] });
+  assert.deepEqual(cmp("De release werkt.", "De release werkt altijd.", "nl"), { lost: [], added: ["claim:altijd"] });
+  assert.deepEqual(cmp("De release helpt.", "De release garandeert de tijd.", "nl"), { lost: [], added: ["claim:garandeert"] });
+  assert.deepEqual(cmp("La release funziona.", "La release funziona sempre.", "it"), { lost: [], added: ["claim:sempre"] });
+  assert.deepEqual(cmp("Il build fallisce.", "Il build non fallisce mai.", "it"), { lost: [], added: ["claim:mai"] });
+});
+
+test("claims: Polish and Turkish claim words added in the rewrite are reported, and a word present in both is not", () => {
+  assert.deepEqual(cmp("Wydanie działa.", "Wydanie zawsze działa.", "pl"), { lost: [], added: ["claim:zawsze"] });
+  assert.deepEqual(cmp("Wydanie pomaga.", "Wydanie gwarantuje wynik.", "pl"), { lost: [], added: ["claim:gwarantuje"] });
+  assert.deepEqual(cmp("Wydanie zawsze działa.", "Wydanie zawsze działa dobrze.", "pl"), { lost: [], added: [] });
+  assert.deepEqual(cmp("Sürüm çalışıyor.", "Sürüm her zaman çalışıyor.", "tr"), { lost: [], added: ["claim:her zaman"] });
+  assert.deepEqual(cmp("Sürüm çöker.", "Sürüm asla çökmez.", "tr"), { lost: [], added: ["claim:asla"] });
+});
+
+// qualifiers (T4, G8): an approximator or bound before a number, for pt, nl, it, pl, id and tr.
+test("qualifiers: an Indonesian approximator dropped next to a number is reported as lost", () => {
+  assert.deepEqual(cmp("Sekitar 40 persen pengguna.", "40 persen pengguna.", "id"), { lost: ["qualifier:sekitar 40"], added: [] });
+  assert.deepEqual(cmp("Kira-kira 40 persen pengguna.", "40 persen pengguna.", "id"), { lost: ["qualifier:kira-kira 40"], added: [] });
+});
+
+test("qualifiers: a Polish, Dutch and Portuguese approximator dropped next to a number is reported as lost", () => {
+  assert.deepEqual(cmp("Około 40 procent użytkowników.", "40 procent użytkowników.", "pl"), { lost: ["qualifier:około 40"], added: [] });
+  assert.deepEqual(cmp("Ongeveer 40 procent van de gebruikers.", "40 procent van de gebruikers.", "nl"), { lost: ["qualifier:ongeveer 40"], added: [] });
+  assert.deepEqual(cmp("Cerca de 40 por cento dos usuários.", "40 por cento dos usuários.", "pt"), { lost: ["qualifier:cerca de 40"], added: [] });
+});
+
+test("qualifiers: a Turkish and an Italian approximator dropped next to a number is reported as lost", () => {
+  assert.deepEqual(cmp("Yaklaşık 40 kullanıcı var.", "40 kullanıcı var.", "tr"), { lost: ["qualifier:yaklaşık 40"], added: [] });
+  assert.deepEqual(cmp("Circa 40 utenti.", "40 utenti.", "it"), { lost: ["qualifier:circa 40"], added: [] });
+});
+
+test("qualifiers: a bound added next to a number is reported as added, and the same qualifier in both is not", () => {
+  assert.deepEqual(cmp("Ada 40 pengguna.", "Hingga 40 pengguna.", "id"), { lost: [], added: ["qualifier:hingga 40"] });
+  assert.deepEqual(cmp("Circa 40 utenti.", "Circa 40 utenti, forse.", "it"), { lost: [], added: [] });
+});
+
+test("qualifiers: a year after a bound word is a date, not a qualifier, in every language that has one", () => {
+  assert.deepEqual(cmp("Het is tot 2025 geldig.", "Het is 2025 geldig.", "nl"), { lost: [], added: [] });
+  assert.deepEqual(cmp("La scadenza è fino a 2025.", "La scadenza è 2025.", "it"), { lost: [], added: [] });
+  assert.deepEqual(cmp("O prazo é até 2025.", "O prazo é 2025.", "pt"), { lost: [], added: [] });
+  assert.deepEqual(cmp("Berlaku hingga 2025.", "Berlaku 2025.", "id"), { lost: [], added: [] });
+  // A percent after the number keeps it a qualifier: `até 40%` is a bound, not a year.
+  assert.deepEqual(cmp("A meta é até 40%.", "A meta é 40%.", "pt"), { lost: ["qualifier:até 40"], added: [] });
+});
+
+// units (T4, G6): the unit of a number is kept, for id, pl, it and nl.
+test("units: an Indonesian time or percent unit dropped from a number is reported", () => {
+  assert.deepEqual(cmp("Waktu muat 4,8 detik.", "Waktu muat 4,8.", "id"), { lost: ["unit:4,8 detik"], added: [] });
+  assert.deepEqual(cmp("Rata-rata 40 persen.", "Rata-rata 40.", "id"), { lost: ["unit:40 persen"], added: [] });
+});
+
+test("units: a Polish, Italian and Dutch time unit dropped from a number is reported", () => {
+  assert.deepEqual(cmp("Czas ładowania 4,8 sekundy.", "Czas ładowania 4,8.", "pl"), { lost: ["unit:4,8 sekundy"], added: [] });
+  assert.deepEqual(cmp("Tempo di caricamento 4,8 secondi.", "Tempo di caricamento 4,8.", "it"), { lost: ["unit:4,8 secondi"], added: [] });
+  assert.deepEqual(cmp("Laadtijd 4,8 seconden.", "Laadtijd 4,8.", "nl"), { lost: ["unit:4,8 seconden"], added: [] });
+});
+
+test("units: a number that keeps its unit in both texts is not reported", () => {
+  assert.deepEqual(cmp("Waktu muat 4,8 detik.", "Waktu muat 4,8 detik, cepat.", "id"), { lost: [], added: [] });
+  assert.deepEqual(cmp("Trwa 3 dni.", "Trwa 3 dni dłużej.", "pl"), { lost: [], added: [] });
+  assert.deepEqual(cmp("Build 5 menit.", "Build 5 menit lebih cepat.", "id"), { lost: [], added: [] });
+});
+
+// Reviewer findings of T2 to T4 (round 8).
+test("review: English number words are not read in a language with its own table", () => {
+  assert.deepEqual(cmp("Ten człowiek zrobił to.", "Ta osoba zrobiła to.", "pl"), { lost: [], added: [] });
+  assert.deepEqual(cmp("Ten minste 5 mensen.", "Minstens 5 mensen.", "nl"), { lost: [], added: [] });
+  assert.deepEqual(cmp("Ten cuidado con eso.", "Cuidado con eso.", "es"), { lost: [], added: [] });
+  assert.deepEqual(cmp("We opened ten branches.", "We opened branches.", "en").lost, ["number:10"]);
+});
+
+test("review: a capitalised number word in the middle of a sentence is a noun or a name", () => {
+  assert.deepEqual(cmp("Wir müssen Acht geben.", "Wir müssen aufpassen.", "de"), { lost: [], added: [] });
+  assert.ok(!cmp("Pergi ke Lima besok.", "Pergi ke Peru besok.", "id").lost.includes("number:5"));
+  assert.deepEqual(cmp("Drei Filialen öffnen.", "Filialen öffnen.", "de").lost, ["number:3"]);
+});
+
+test("review: a range written with tot, até, fino a or hingga is not an at-most bound", () => {
+  assert.deepEqual(cmp("Open van 9 tot 17 uur.", "Open tussen 9 en 17 uur.", "nl"), { lost: [], added: [] });
+  assert.deepEqual(cmp("Das 9 até 17 horas.", "Das 9 às 17 horas.", "pt"), { lost: [], added: [] });
+  assert.deepEqual(cmp("Fino a 40 persone.", "40 persone.", "it").lost, ["qualifier:fino a 40"]);
+});
+
+test("review: Polish first person plural past verbs of seven letters count", () => {
+  assert.deepEqual(cmp("Zrobiłem to.", "Byliśmy tam.", "pl").added, ["person:byliśmy"]);
+});

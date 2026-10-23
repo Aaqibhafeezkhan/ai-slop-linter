@@ -24,7 +24,7 @@ been shown to over-flag on this corpus, not that it has been shown to catch a re
 A removal ("when lost") is reported only for a word that the corpus shows in at least one file,
 because a removal that was never tried cannot be called safe. The honest rewrites of French, Spanish and German are few, so their rates move on a single file.
 
-Files per language, golden and honest: en: 20 golden, 170 honest; fr: 1 golden, 8 honest; es: 0 golden, 0 honest; de: 3 golden, 29 honest; tr: 0 golden, 0 honest.
+Files per language, golden and honest: en: 20 golden, 170 honest; fr: 1 golden, 8 honest; es: 0 golden, 0 honest; de: 3 golden, 29 honest; tr: 0 golden, 0 honest; nl: 0 golden, 0 honest; pt: 0 golden, 0 honest; it: 0 golden, 0 honest; pl: 0 golden, 0 honest; id: 0 golden, 0 honest.
 
 ## Person words
 
@@ -84,8 +84,45 @@ Files per language, golden and honest: en: 20 golden, 170 honest; fr: 1 golden, 
 | tr | `biz` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
 | tr | `bizim` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
 | tr | `benim` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| nl | `wij` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| nl | `we` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| nl | `ons` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| nl | `onze` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| nl | `ik` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| nl | `mijn` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| pt | `nós` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| pt | `nosso` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| pt | `nossa` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| pt | `nossos` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| pt | `nossas` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| pt | `eu` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| pt | `meu` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| pt | `minha` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| pt | `meus` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| pt | `minhas` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| it | `noi` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| it | `nostro` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| it | `nostra` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| it | `nostri` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| it | `nostre` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| it | `io` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| it | `mio` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| it | `mia` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| pl | `my` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| pl | `nasz` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| pl | `nasza` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| pl | `nasze` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| pl | `naszych` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| pl | `ja` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| pl | `mój` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| pl | `moja` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| pl | `moje` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| id | `kami` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| id | `kita` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| id | `saya` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
+| id | `aku` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged: never seen in the corpus |
 
-Kept when added: en: `i'm`, `i've`, `i'll`, `me`, `my`, `mine`, `myself`, `we`, `we're`, `we've`, `we'll`, `we'd`, `us`, `our`, `ours`, `ourselves`; fr: `je`, `j'`, `nous`, `notre`, `nos`, `mon`, `ma`, `mes`, `moi`; es: `yo`, `nosotros`, `nosotras`, `nuestro`, `nuestra`, `nuestros`, `nuestras`, `mi`, `mis`; de: `ich`, `wir`, `unser`, `unsere`, `unseren`, `unserem`, `unserer`, `mein`, `meine`, `meinen`, `meinem`, `meiner`, `mich`; tr: `ben`, `biz`, `bizim`, `benim`.
+Kept when added: en: `i'm`, `i've`, `i'll`, `me`, `my`, `mine`, `myself`, `we`, `we're`, `we've`, `we'll`, `we'd`, `us`, `our`, `ours`, `ourselves`; fr: `je`, `j'`, `nous`, `notre`, `nos`, `mon`, `ma`, `mes`, `moi`; es: `yo`, `nosotros`, `nosotras`, `nuestro`, `nuestra`, `nuestros`, `nuestras`, `mi`, `mis`; de: `ich`, `wir`, `unser`, `unsere`, `unseren`, `unserem`, `unserer`, `mein`, `meine`, `meinen`, `meinem`, `meiner`, `mich`; tr: `ben`, `biz`, `bizim`, `benim`; nl: `wij`, `we`, `ons`, `onze`, `ik`, `mijn`; pt: `nós`, `nosso`, `nossa`, `nossos`, `nossas`, `eu`, `meu`, `minha`, `meus`, `minhas`; it: `noi`, `nostro`, `nostra`, `nostri`, `nostre`, `io`, `mio`, `mia`; pl: `my`, `nasz`, `nasza`, `nasze`, `naszych`, `ja`, `mój`, `moja`, `moje`; id: `kami`, `kita`, `saya`, `aku`.
 
 Kept when lost: en: `i'd`, `us`; fr: `notre`; de: `uns`.
 
@@ -134,8 +171,25 @@ Kept when lost: en: `i'd`, `us`; fr: `notre`; de: `uns`.
 | de | `immer` | 0 | 0 | 0 | 0 | 0 | 29 | kept | not flagged |
 | de | `nie` | 0 | 0 | 0 | 0 | 0 | 29 | kept | not flagged |
 | de | `garantiert` | 0 | 0 | 0 | 0 | 0 | 29 | kept | not flagged |
+| tr | `her zaman` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged |
+| tr | `asla` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged |
+| nl | `altijd` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged |
+| nl | `nooit` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged |
+| nl | `garandeert` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged |
+| pt | `sempre` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged |
+| pt | `nunca` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged |
+| pt | `garante` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged |
+| it | `sempre` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged |
+| it | `mai` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged |
+| it | `garantisce` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged |
+| pl | `zawsze` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged |
+| pl | `nigdy` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged |
+| pl | `gwarantuje` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged |
+| id | `selalu` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged |
+| id | `tidak pernah` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged |
+| id | `menjamin` | 0 | 0 | 0 | 0 | 0 | 0 | kept | not flagged |
 
-Kept: en: `fastest`, `world-class`, `unmatched`, `unparalleled`, `always`, `never`, `every`, `guaranteed`, `guarantees`, `proven`, `revolutionary`, `industry-leading`, `because`, `therefore`, `thus`, `ensuring`, `ensures`, `enabling`, `enables`, `so that`, `which means`, `as a result`; fr: `par conséquent`, `donc`, `car`, `garantit`, `toujours`, `jamais`; es: `por lo tanto`, `siempre`, `nunca`, `garantiza`; de: `daher`, `deshalb`, `immer`, `nie`, `garantiert`.
+Kept: en: `fastest`, `world-class`, `unmatched`, `unparalleled`, `always`, `never`, `every`, `guaranteed`, `guarantees`, `proven`, `revolutionary`, `industry-leading`, `because`, `therefore`, `thus`, `ensuring`, `ensures`, `enabling`, `enables`, `so that`, `which means`, `as a result`; fr: `par conséquent`, `donc`, `car`, `garantit`, `toujours`, `jamais`; es: `por lo tanto`, `siempre`, `nunca`, `garantiza`; de: `daher`, `deshalb`, `immer`, `nie`, `garantiert`; tr: `her zaman`, `asla`; nl: `altijd`, `nooit`, `garandeert`; pt: `sempre`, `nunca`, `garante`; it: `sempre`, `mai`, `garantisce`; pl: `zawsze`, `nigdy`, `gwarantuje`; id: `selalu`, `tidak pernah`, `menjamin`.
 
 ## This tool's own rewrites, for information
 
