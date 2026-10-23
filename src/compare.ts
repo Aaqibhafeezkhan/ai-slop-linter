@@ -45,8 +45,9 @@
  */
 
 import { detectLanguage, frontMatterLanguage } from "./lang.js";
+import { UNIT_WORDS } from "./hedge.js";
 
-export type FactKind = "number" | "version" | "date" | "url" | "reference" | "quote" | "code" | "name" | "person" | "claim" | "qualifier";
+export type FactKind = "unit" | "number" | "version" | "date" | "url" | "reference" | "quote" | "code" | "name" | "person" | "claim" | "qualifier";
 
 export interface CompareOptions {
   /** The language of the texts, when the caller knows it. Unset or "auto": front matter, then detection. */
@@ -385,6 +386,27 @@ export function qualifierChanges(before: string, after: string, tag?: string | n
   return { lost, added };
 }
 
+/**
+ * Numbers that lost their unit: `4,8 segundos` in the original, and the rewrite still has 4,8 but not
+ * followed by the same unit (`1,2 segundos en lugar de 4,8`). A number that is gone is reported as a
+ * number already. Units are the measure words of the hedge check (seconds, %, ms, MB, ...).
+ */
+export function unitChanges(before: string, after: string): Fact[] {
+  const pair = new RegExp(`(?<![\\p{L}\\d.,])(\\d+(?:[.,]\\d+)*)\\s?(${UNIT_WORDS})(?![\\p{L}\\d])`, "giu");
+  const pairs = (text: string) => [...proseOnly(text).matchAll(pair)].map((m) => ({ number: normaliseNumber(m[1]!), unit: m[2]!.toLowerCase() }));
+  const kept = new Set(pairs(after).map((p) => `${p.number}\u0000${p.unit}`));
+  const numbers = proseNumbers(after);
+  const out: Fact[] = [];
+  const seen = new Set<string>();
+  for (const p of pairs(before)) {
+    const key = `${p.number}\u0000${p.unit}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    if (!kept.has(key) && numbers.has(p.number)) out.push({ kind: "unit", value: `${p.number} ${p.unit}` });
+  }
+  return out;
+}
+
 /** Text with code, urls, link targets and quoted text blanked, so none of it is read as the author's own words. */
 export function proseOnly(text: string): string {
   let rest = text;
@@ -522,5 +544,6 @@ export function compareFacts(before: string, after: string, options: CompareOpti
   const q = qualifierChanges(before, after, tag);
   lost.push(...q.lost);
   added.push(...q.added);
+  lost.push(...unitChanges(before, after));
   return { lost: lost.sort(order), added: added.sort(order), kept };
 }

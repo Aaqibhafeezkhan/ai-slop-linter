@@ -202,3 +202,19 @@ test("class 3 reaches an effect verb late in a German or Dutch clause", () => {
   assert.equal(hits("de", "Das könnte den Arbeitsablauf der gesamten Mannschaft deutlich vereinfachen."), 1);
   assert.equal(hits("nl", "Deze wijziging zou het werk van het hele team kunnen vergemakkelijken."), 1);
 });
+
+// A number keeps its unit when the rewrite restates it (round 7, gate iteration 1 diagnosis, general rule).
+import { compareFacts } from "../dist/src/compare.js";
+const unitLost = (before, after) => compareFacts(before, after).lost.filter((f) => f.kind === "unit").map((f) => f.value);
+test("compare: a number that lost its unit is reported, in several languages", () => {
+  assert.deepEqual(unitLost("The page loads in 1.2 seconds instead of 4.8 seconds.", "The page loads in 1.2 seconds instead of 4.8."), ["4.8 seconds"]);
+  assert.deepEqual(unitLost("Ladezeit: 3 Sekunden statt 9 Sekunden.", "Ladezeit: 3 Sekunden statt 9."), ["9 sekunden"]);
+  assert.deepEqual(unitLost("O limite é 80 MB por arquivo.", "O limite é 80 por arquivo."), ["80 mb"]);
+  assert.deepEqual(unitLost("Taux d'erreur de 2 % en mars.", "Taux d'erreur de 2 en mars."), ["2 %"]);
+});
+test("compare: a kept unit, a changed number and an unrelated word are not unit changes", () => {
+  assert.deepEqual(unitLost("It takes 5 minutes.", "It takes 5 minutes to finish."), []);
+  assert.deepEqual(unitLost("It takes 5 minutes.", "It takes 6 minutes."), []);
+  assert.deepEqual(unitLost("Es dauert 5 Minuten.", "Es dauert 5 Minuten."), []);
+  assert.deepEqual(unitLost("We fixed 12 bugs.", "We fixed 12 defects."), []);
+});
