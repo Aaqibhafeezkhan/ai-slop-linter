@@ -80,7 +80,54 @@ const STOPWORDS = new Set(
 /** A word that starts with a capital and has a lowercase letter: an acronym such as NASA is not one. */
 const WORD = "\\p{Lu}\\p{L}*\\p{Ll}\\p{L}*";
 
-const normaliseNumber = (value: string) => value.replace(/(\d),(?=\d{3}(?!\d))/g, "$1");
+/** A number's group marks: a space, no-break or narrow no-break space, thin space, apostrophe, `.` or `,`. */
+const GROUP_MARK = "[\\u00a0\\u202f\\u2009'’.,]";
+/**
+ * Digits in groups, one kind of group mark throughout (a mixed run is two numbers): the first group has one
+ * to three digits, every later one exactly three, then an optional decimal part whose mark is not the group mark.
+ * A plain space is not a group mark: `Chapter 3 200 pages` is two numbers, and only a no-break, narrow or
+ * thin space (what French and Polish typography uses) joins digits. Uses the named group `gm` once per regex.
+ */
+const GROUPED = `\\d{1,3}(?<gm>${GROUP_MARK})\\d{3}(?:\\k<gm>\\d{3})*(?!\\d)(?:(?!\\k<gm>)[.,]\\d+)?`;
+
+/** Digit groups as written: the first one to three digits, every later one exactly three. */
+const groupedDigits = (parts: string[]) => parts[0]!.length >= 1 && parts[0]!.length <= 3 && parts.slice(1).every((p) => p.length === 3);
+
+/**
+ * The canonical value of a number token (digits, group marks, an optional decimal mark, an optional
+ * `%`). Without a group mark it is the text as written, with the comma thousands of `1,250` removed.
+ * With one, the last of `.` and `,` is the decimal mark when both occur; the other marks, and every
+ * space or apostrophe, are group marks and are dropped. No float arithmetic.
+ */
+function canonicalNumber(value: string): string {
+  const pct = value.endsWith("%") ? "%" : "";
+  const token = pct ? value.slice(0, -1) : value;
+  const literal = () => token.replace(/(\d),(?=\d{3}(?!\d))/g, "$1") + pct;
+  const seps = [...token.matchAll(/[^\d]/gu)].map((m) => m[0]);
+  if (!seps.length) return value;
+  const parts = token.split(/[^\d]/u);
+  const last = seps[seps.length - 1]!;
+  // Both `.` and `,` present: the last one is the decimal mark, the earlier ones are group marks.
+  if (seps.length >= 2 && (last === "," || last === ".") && seps[0] !== last && seps.slice(0, -1).every((c) => c === seps[0])) {
+    const whole = parts.slice(0, -1);
+    return groupedDigits(whole) ? `${whole.join("")}.${parts[parts.length - 1]!}${pct}` : literal();
+  }
+  // Only one kind of mark: a group mark when it repeats or is a space or apostrophe; a lone `.` or `,`
+  // (`1.250`, `1,250`, `0,53`) is ambiguous and keeps its text.
+  if (seps.every((c) => c === seps[0])) {
+    const spaceLike = seps[0] !== "." && seps[0] !== ",";
+    if ((seps.length >= 2 || spaceLike) && groupedDigits(parts)) return `${parts.join("")}${pct}`;
+  }
+  return literal();
+}
+
+const normaliseNumber = (value: string) => canonicalNumber(value);
+
+/** A currency code or sign directly before digits: not part of the number. */
+const CURRENCY_BEFORE_DIGITS = /(?<![\p{L}\d])(?:Rp|USD|EUR|CHF|PLN|IDR|TRY|TL|SEK|NOK|DKK|US\$|R\$|\$|€|£)(?=\d)/gu;
+
+/** A number token as written: grouped (`1 000`, `1.250.000`) or plain (`1.250,50`, `40%`). */
+const NUMBER_TOKEN = new RegExp(`(?<![\\p{L}\\d.,])(?:${GROUPED}|\\d+(?:[.,]\\d+)*)%?`, "gu");
 
 /** Languages that capitalise every noun: a capital in the middle of a sentence says nothing about a name. */
 const CAPITALISED_NOUNS = new Set(["de", "lb"]);
@@ -133,8 +180,23 @@ export function extractFacts(text: string, options: { names?: boolean; multiWord
     return blank(m);
   });
 
-  // A dotted number is a version, unless a letter or a percent sign follows it (3.2x, 40.5%).
-  rest = rest.replace(/(?<![\p{L}\d.,])v?\d+(?:\.\d+)+(?![\p{L}\d%]|[.,]\d)/gu, (m) => {
+  // A currency code or sign directly before the digits is not part of the number: `Rp1.500.000` is the
+  // number 1.500.000. Only a code that is not glued to a letter or digit counts (`BUSD500` is no currency).
+  rest = rest.replace(CURRENCY_BEFORE_DIGITS, blank);
+
+  // Four dotted groups of one to three digits are an address (`192.168.100.200`), a version fact, never `192168100200`.
+  // `1.000.000.000` is a number: an address starts with a group of three digits and every group is at most 255.
+  rest = rest.replace(/(?<![\p{L}\d.,])\d{1,3}(?:\.\d{1,3}){3}(?![\p{L}\d%]|[.,]\d)/gu, (m) => {
+    const groups = m.split(".");
+    if (groups[0]!.length !== 3 || groups.some((g) => Number(g) > 255)) return m;
+    add("version", m);
+    return blank(m);
+  });
+
+  // A dotted number is a version, unless a letter or a percent sign follows it (3.2x, 40.5%). A leading
+  // `v`, or a run that is not exactly one to three digits then three-digit groups (`2.3.456`), is a version.
+  // `1.250.000` is a number: the first group is one to three digits and at least two later ones are three.
+  rest = rest.replace(/(?<![\p{L}\d.,])(?:v\d+(?:\.\d+)+|(?!\d{1,3}(?:\.\d{3}){2,}(?!\d|[.,]\d))\d+(?:\.\d+)+)(?![\p{L}\d%]|[.,]\d)/gu, (m) => {
     add("version", m);
     return blank(m);
   });
@@ -155,7 +217,9 @@ export function extractFacts(text: string, options: { names?: boolean; multiWord
   // An ordered-list marker (`1.` at the start of a line) is layout, not a fact.
   rest = rest.replace(/^[ \t]*\d+[.)](?=[ \t])/gm, blank);
 
-  rest = rest.replace(/(?<![\p{L}\d.,])\d+(?:[.,]\d+)*%?/gu, (m) => {
+  // A number is digits in plain runs (`1.250,50`, `40%`) or in groups (`1 000`, `1'250`, `1.250.000`).
+  // A group is a space, no-break space, thin space, apostrophe, `.` or `,` followed by exactly three digits.
+  rest = rest.replace(NUMBER_TOKEN, (m) => {
     add("number", normaliseNumber(m));
     return blank(m);
   });
@@ -337,7 +401,7 @@ export function qualifiedNumbers(text: string, tag?: string | null, words?: read
     .join("|");
   // `ca.` keeps its dot; a currency sign may sit between the qualifier and the digits (`about $40`). A
   // qualifier glued to its number (`over40`) is not read.
-  const re = new RegExp(`(?<![\\p{L}\\d'’-])(${alternation})(?:\\.?\\s+(?:[$€£¥]\\s?)?|\\s*[$€£¥]\\s?)(\\d+(?:[.,]\\d+)*)(?![.,]?\\d)`, "giu");
+  const re = new RegExp(`(?<![\\p{L}\\d'’-])(${alternation})(?:\\.?\\s+(?:(?:Rp|USD|EUR|CHF|PLN|IDR|TRY|TL|SEK|NOK|DKK|US\\$|R\\$|[$€£¥])\\s?)?|\\s*(?:Rp|USD|EUR|CHF|PLN|IDR|TRY|TL|SEK|NOK|DKK|US\\$|R\\$|[$€£¥])\\s?)(${GROUPED}|\\d+(?:[.,]\\d+)*)(?![.,]?\\d)`, "giu");
   const found: QualifiedNumber[] = [];
   const prose = proseOnly(text);
   for (const m of prose.matchAll(re)) {
@@ -353,7 +417,8 @@ export function qualifiedNumbers(text: string, tag?: string | null, words?: read
 
 /** The plain numbers of a text's prose, normalised as number facts are. */
 function proseNumbers(text: string): Set<string> {
-  return new Set([...proseOnly(text).matchAll(/(?<![\p{L}\d.,])\d+(?:[.,]\d+)*/gu)].map((m) => normaliseNumber(m[0])));
+  const prose = proseOnly(text).replace(CURRENCY_BEFORE_DIGITS, blank);
+  return new Set([...prose.matchAll(NUMBER_TOKEN)].map((m) => normaliseNumber(m[0]).replace(/%$/, "")));
 }
 
 /**
@@ -392,8 +457,8 @@ export function qualifierChanges(before: string, after: string, tag?: string | n
  * number already. Units are the measure words of the hedge check (seconds, %, ms, MB, ...).
  */
 export function unitChanges(before: string, after: string): Fact[] {
-  const pair = new RegExp(`(?<![\\p{L}\\d.,])(\\d+(?:[.,]\\d+)*)\\s?(${UNIT_WORDS})(?![\\p{L}\\d])`, "giu");
-  const pairs = (text: string) => [...proseOnly(text).matchAll(pair)].map((m) => ({ number: normaliseNumber(m[1]!), unit: m[2]!.toLowerCase() }));
+  const pair = new RegExp(`(?<![\\p{L}\\d.,])(${GROUPED}|\\d+(?:[.,]\\d+)*)\\s?(${UNIT_WORDS})(?![\\p{L}\\d])`, "giu");
+  const pairs = (text: string) => [...proseOnly(text).matchAll(pair)].map((m) => ({ number: normaliseNumber(m[1]!), unit: m[3]!.toLowerCase() }));
   const kept = new Set(pairs(after).map((p) => `${p.number}\u0000${p.unit}`));
   const numbers = proseNumbers(after);
   const out: Fact[] = [];
