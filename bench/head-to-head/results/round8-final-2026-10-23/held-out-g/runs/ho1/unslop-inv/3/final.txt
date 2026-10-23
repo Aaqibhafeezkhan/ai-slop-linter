@@ -1,0 +1,14 @@
+I rewrote `release-notes.md` in place. The front matter, the code block, the tester quote, the version numbers, #1482 and the URL are unchanged. I didn't re-read the file after the edits.
+
+- **Chat residue:** I removed "Certainly! Here is a comprehensive overview… I hope this helps…".
+- **Intro:** I replaced the "thrilled / game-changing / seamlessly transforms / fast-paced world" paragraph with one sentence saying what the release does.
+- **Bullets:**
+  - Faster uploads: dropped "robust". The chunking strategy is now tied to the chunk-size change it actually describes.
+  - Conflict handling: dropped "It's worth noting", "intelligently" and "plays a crucial role". The label is now "Conflict handling" instead of "Smarter conflict handling".
+  - Bug fix: removed the stacked hedge "potential issue… could possibly stall".
+- **Config and closing:**
+  - "To get started, simply add…" is now "Add this to `lantern.toml`:".
+  - The "significant step forward / look forward to your feedback" wrap-up and "happy syncing!" are gone.
+  - The docs sentence stays.
+
+I kept the upload speed-up (up to 40%, over 1 GiB, 8 → 16 MiB), the `keep-both` default, the macOS 12 requirement and the Windows/Linux note as written. I didn't add any facts. The tester's "game-changer" quote stays because it's quoted, not the release notes' own voice. The "Fixed a bug" bullet still doesn't say what the stall looked like, because the source doesn't either.

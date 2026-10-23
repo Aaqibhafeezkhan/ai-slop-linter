@@ -1,0 +1,5 @@
+I rewrote `commitberichten.md` in place. The checker found no hits, but it is built for English, so on this Dutch text that result says little.
+
+I cut the chat intro and sign-off, the filler like "robuuste oplossing" and "belangrijke stap vooruit", and the unsupported claim about smoother date handling. The commit subjects, the quote, `ANNULERING_UUR`, `berekenTarief()`, the version numbers, the amounts, the URL and the dates are unchanged.
+
+I added one claim to commit 1: that customers can now cancel within a 48-hour window. I inferred that from the subject line, so check it matches what the commit does.

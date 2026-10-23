@@ -1,0 +1,10 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"---\\ntitle: Lantern Sync 3.8.0 release notes\\ndate: 2026-09-14\\n---\\n\\n# Lantern Sync 3.8.0\\n\\n## What changed\\n\\nLantern Sync 3.8.0 speeds up large uploads and changes how conflicts between devices are handled.\\n\\nUploads of files over 1 GiB are now up to 40% faster, thanks to a new chunking strategy. The default chunk size grows from 8 MiB to 16 MiB.\\n\\nWhen tw"
+ }
+]

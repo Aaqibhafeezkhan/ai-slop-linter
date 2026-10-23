@@ -1,0 +1,3 @@
+Reescribí `pr-sms-reintentos.md` en el mismo archivo. Quité el saludo del chatbot, el relleno sobre "el mundo digital actual", el cierre grandilocuente y la raya, y acorté la prosa. La tabla, los nombres de código, las cifras, la fecha y el issue #377 quedan como estaban. El verificador pasó de 1 hallazgo fuerte a 0, aunque lo ejecuté antes del último cambio de una frase.
+
+Ese último cambio fue en la frase de resultados. Puse una versión impersonal porque mi borrador decía "Lo probé", y eso atribuía la prueba a quien escribe la PR, algo que el texto original no decía.

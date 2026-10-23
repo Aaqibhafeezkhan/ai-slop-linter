@@ -1,0 +1,3 @@
+Reescribí `pr-sms-reintentos.md` en su sitio. Quité el saludo del chatbot, el relleno publicitario, el guion largo y el cierre de "antes y después". La tabla, los nombres de código, las cifras, la fecha y el #377 siguen igual. El verificador pasó de 1 hallazgo fuerte a 0.
+
+Añadí una frase que no estaba antes: "A cambio, la latencia p95 sube 0,3 s". Sale de la diferencia entre 4,1 s y 4,4 s de la tabla. Bórrala si prefieres no comentar ese dato.

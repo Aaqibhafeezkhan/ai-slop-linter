@@ -1,0 +1,12 @@
+{
+  "name": "acme-handbook",
+  "version": "1.3.0",
+  "private": true,
+  "scripts": {
+    "test": "node -e \"console.log('tests ok')\"",
+    "lint:prose": "slopless README.md \"docs/*.md\" \"docs/guides/**/*.md\" --quiet"
+  },
+  "devDependencies": {
+    "slopless": "^0.2.42"
+  }
+}

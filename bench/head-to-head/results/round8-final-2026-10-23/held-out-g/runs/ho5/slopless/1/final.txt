@@ -1,0 +1,5 @@
+Reescrevi o `guia-integracao.md` no próprio arquivo, em tom mais direto e de conversa.
+
+Mantive exatamente como estavam os comandos, a URL, a versão 4.1.3, os nomes (Renata Souza, Bruno Teixeira, Serraria Digital), o ramal 5120, o 0800 000 1234 e o e-mail. Os horários, prazos e a data de revisão também não mudaram.
+
+Não rodei o Slopless, porque ele só analisa texto em inglês e o guia está em português. Também não conferi o resultado com nenhuma ferramenta, só reli o texto.

@@ -1,0 +1,20 @@
+Saya sudah menulis ulang `status-mingguan.md` di tempat. Saya tidak membuka ulang file setelah menyimpannya.
+
+**Perubahan**
+- **Pembuka chatbot:** "Tentu saja! Berikut adalah ringkasan komprehensif… Semoga bermanfaat!" saya hapus.
+- **Paragraf ringkasan:** "Di era digital yang serba cepat ini… dengan bangga mengumumkan kemajuan luar biasa… tonggak penting yang benar-benar mengubah cara pedagang mengelola stok" saya ganti dengan satu kalimat yang berisi faktanya: 18 dari 21 tiket, 16 Oktober 2026, Warung Kita 2.6.0. Klaim bahwa rilis ini mengubah cara pedagang mengelola stok tidak ada dasarnya di teks, jadi saya buang.
+- **Daftar "Yang selesai":**
+  - Saya hapus "jauh lebih cepat, yaitu" dan "Perlu dicatat bahwa".
+  - "sepertinya sudah mungkin teratasi" punya dua hedge, jadi tinggal "sepertinya sudah teratasi".
+- **Langkah berikutnya:** "berkomitmen untuk memberikan solusi terbaik", "fondasi yang kokoh bagi pertumbuhan jangka panjang", dan penutup terima kasih saya hapus. Yang tersisa hanya kontak Dewi Anggraini.
+
+**Tidak diubah**
+- Kutipan pedagang.
+- ID tiket WK-904, WK-911, WK-915, dan WK-920.
+- Versi 2.6.0.
+- Semua tanggal: 16, 23, dan 30 Oktober 2026.
+- Format `.xlsx` dan path `/laporan`.
+- Alamat <EMAIL>.
+- Bagian "Yang belum selesai", karena sudah terbaca wajar.
+
+**Yang perlu Anda cek:** teks sumber tidak menyebut apa yang perlu ditanyakan ke Dewi atau apa yang akan dikerjakan berikutnya. Karena itu bagian "Langkah berikutnya" sekarang hanya berisi kontak. Kalau ada langkah konkret, misalnya menunggu vendor pembayaran sebelum rilis 30 Oktober, tambahkan sendiri. Saya tidak mengarang isinya.

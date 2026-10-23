@@ -1,0 +1,9 @@
+Przepisałem `notatka-incydent.md` na miejscu. Front matter, blok z logiem, wersje (5.2.0, 5.1.4), godziny (07:12, 07:59), liczby (47 minut, 312 zamówień, 40/20, 80%), nazwy plików i URL zostały bez zmian.
+
+Slopless działa tylko dla angielskiego, a notatka jest po polsku, więc go nie uruchamiałem. Przepisałem tekst ręcznie.
+
+Zmiany w tekście:
+- **Usunięte:** "Oczywiście! Poniżej znajdziesz…", wstęp o "dzisiejszym dynamicznym świecie", "z dumą przedstawia solidną analizę", "cenna lekcja", "wspólnie stawimy czoła wyzwaniom" i "Nie wahaj się".
+- **Przyczyna:** zamiast "Prawdopodobnie mogło to być spowodowane…" jest "Wszystko wskazuje na wdrożenie 5.2.0…".
+- **Wnioski:** zdanie "Limit zmienił się przy okazji wdrożenia i nikt tego nie zauważył" dodałem sam. Nie ma go w oryginale, więc sprawdź, czy zgadza się ze stanem faktycznym, albo je usuń.
+- **Marta Wójcik:** nadal jest wskazana jako osoba do pytań.

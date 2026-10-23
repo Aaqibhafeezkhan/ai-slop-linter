@@ -1,0 +1,7 @@
+I rewrote `status-mingguan.md` in place. The merchant quote, WK-904/911/915/920, version 2.6.0, the dates (16, 23 and 30 Oktober 2026), `.xlsx`, `/laporan` and <EMAIL> are all unchanged.
+
+- **Chat wrapper and filler:** I removed "Tentu saja! Berikut adalah…", "Semoga bermanfaat!", and the opener "Di era digital yang serba cepat ini… dengan bangga mengumumkan… luar biasa… tonggak penting".
+- **Closing:** I cut the sales-style send-off ("komitmen… solusi terbaik", "fondasi yang kokoh", "dukungan Anda yang luar biasa"). The last section now just gives Dewi Anggraini's contact.
+- **Stock phrases:** I dropped "Perlu dicatat bahwa", "Ke depannya" and "Dengan demikian", and turned "Penyebabnya adalah keterlambatan dari vendor pembayaran, sehingga…" into plain sentences.
+- **Stacked hedge:** "sepertinya sudah mungkin teratasi" is now "sepertinya sudah teratasi", with one hedge left because the original wasn't sure.
+- **Claims I couldn't back up:** I removed "benar-benar mengubah cara pedagang mengelola stok" and replaced it with a plainer line saying the release matters most to merchants managing stock. Check that this still says what you mean.

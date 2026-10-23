@@ -1,0 +1,9 @@
+Reescribí `pr-sms-reintentos.md` en el mismo archivo. Quité el saludo de chatbot, las frases de relleno ("en el mundo digital actual", "realmente impresionantes", "un antes y un después") y el cierre grandilocuente. Ahora está en un tono directo y en primera persona.
+
+Dejé tal cual la tabla, los nombres de código (`enviar_con_reintentos()`, `SMS_MAX_REINTENTOS`, `avisos-api`, las rutas), los números, la fecha del 8 de octubre de 2026 y el issue #377.
+
+Añadí dos cosas que no estaban en el original:
+- **Resumen:** una frase que dice que antes había un solo reintento a los 3 s.
+- **Resultados:** una nota de que la latencia p95 sube 0,3 s. Esa cifra sale de restar 4,4 s − 4,1 s.
+
+Si no quieres esas frases, se pueden borrar sin tocar nada más.

@@ -1,0 +1,8 @@
+I rewrote `notatka-incydent.md` in place. The front matter, the error log block, the version numbers (5.2.0, 5.1.4), the times (07:12, 07:59), the counts (47 minutes, 312 orders, 40→20 connections, 80%), the file names and the URL are unchanged.
+
+- **Chatbot wrapper:** I removed "Oczywiście! … Mam nadzieję, że będzie pomocne."
+- **Filler and inflation:** I cut the "dzisiejszy dynamiczny świat" opener, the "z dumą przedstawia solidną analizę" line, "Warto zauważyć" and "Warto podkreślić". The closing lines about a "cenna lekcja", "współpraca" and "stawimy czoła każdemu wyzwaniu" are gone too.
+- **Hedging:** "Prawdopodobnie mogło to być spowodowane" became "Najpewniej zawiniło". That keeps the uncertainty without the stacked qualifiers.
+- **Dashes and tone:** I removed the em dash and made the contact line a plain statement: "Pytania proszę kierować do Marty Wójcik."
+
+I added no new facts.

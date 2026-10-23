@@ -1,0 +1,7 @@
+I rewrote `commitberichten.md` in place. I didn't run the Slopless skill on it.
+
+- **Cut:** the chatbot opener ("Natuurlijk! Hier is…") and the closing offer, plus the filler phrases ("robuuste oplossing", "cruciale rol", "Het is belangrijk om op te merken").
+- **Replaced:** vague claims with what each commit does. For example, commit 1 now says customers can cancel up to 48 hours ahead, and commit 3 says date calculations work better.
+- **Kept as they were:** the four subject lines in backticks, the customer quote, `ANNULERING_UUR`, `berekenTarief()`, `src/prijzen.ts`, the version numbers, the amounts, the test count, the URL and the date.
+
+In commit 1, "tot 48 uur van tevoren annuleren" is my reading of "annuleringstermijn van 48 uur". In commit 2, "waardoor we omzet misliepen" is firmer than the original "Mogelijk zou dit kunnen leiden tot een verlies van omzet". Check both against what the code does.

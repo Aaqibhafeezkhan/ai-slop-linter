@@ -1,0 +1,7 @@
+I rewrote `commitberichten.md` in place.
+
+- **Removed:** the assistant-style opening ("Natuurlijk! … Ik hoop dat dit nuttig is"), the closing summary and offer to adjust, and the filler phrases ("robuuste oplossing", "naadloos", "cruciale rol", "Het is belangrijk om op te merken").
+- **Replaced:** the vague claims with plain statements of what each commit does.
+- **Left exactly as they were:** the four subject lines in backticks, the customer quote, `ANNULERING_UUR`, `berekenTarief()`, `src/prijzen.ts`, the version numbers, the amounts (€ 12,50 and € 12,00), the URL, the date and the test count of 37.
+
+I added one detail to the first commit: the sentence now says customers can cancel up to 48 hours ahead. That follows from the subject line, but the original text didn't say it.

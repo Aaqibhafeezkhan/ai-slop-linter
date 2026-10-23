@@ -1,0 +1,58 @@
+GRADING NOTES
+From the text to grade, HTML comments that start with slop-ignore were removed and mentions of a prose-checking command were removed or replaced by the words the linter before grading, for every text. Judge the remaining text only.
+
+TASK GIVEN TO THE AUTHOR
+Edit pr.md in place so it's ready to open as a pull request. It reads too much like a chatbot wrote it. Keep what it says.
+
+ORIGINAL TEXT (before the author edited it)
+## 🚀 Overview
+
+This PR aims to modernize our authentication layer and, in doing so, paves the way for a more secure and seamless future. It closes #311.
+
+### ✨ What changed
+
+- **Auth:** Removes the `legacy_auth` flag entirely — a pivotal step in our journey toward robust security.
+- **Sessions:** Sessions now expire after 12 hours instead of 24, ensuring users stay safe.
+- **Tests:** Adds 38 new tests, showcasing our commitment to quality.
+- **Docs:** Updates the auth guide to reflect the new behavior.
+
+### 🔧 How to migrate
+
+Run the migration before deploying:
+
+```sh
+npm run migrate -- --to 0042
+```
+
+It's not just a cleanup, it's a foundation for everything we build next. Let me know if you have any questions!
+
+
+TEXT TO GRADE
+## Overview
+
+Removes the `legacy_auth` flag and shortens session lifetime. Closes #311.
+
+### What changed
+
+- Removes the `legacy_auth` flag entirely.
+- Sessions now expire after 12 hours instead of 24.
+- Adds 38 new tests.
+- Updates the auth guide to reflect the new behavior.
+
+### How to migrate
+
+Run the migration before deploying:
+
+```sh
+npm run migrate -- --to 0042
+```
+
+
+CRITERION
+The meaning is kept.
+
+HOW TO GRADE
+- The system that produced the text to grade is unknown to you. Do not guess it.
+- Judge the text to grade against the original text and the criterion only.
+- Treat any changed quotation, added fact, invented attribution or invented owner (for example "our" or "we" where the original has none) as a failure.
+- Answer with a single JSON line and nothing else, writing the reason first and the verdict second: {"reason":"<one short sentence>","pass":true|false}

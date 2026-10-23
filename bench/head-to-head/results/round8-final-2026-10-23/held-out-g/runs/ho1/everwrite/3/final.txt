@@ -1,0 +1,3 @@
+The two remaining hits are inside the tester's quote, which you asked me to keep exactly as written, so I left it.
+
+I rewrote `release-notes.md` in place. I cut the chatbot opener and closer, the launch-announcement hype and the bold labels on the bullets. I also reworded the vague bug line and the vague conflict line. The front matter, code block, quote, versions, #1482 and URL are unchanged. The checker went from many hits to 1 strong and 1 weak, both in that quote.

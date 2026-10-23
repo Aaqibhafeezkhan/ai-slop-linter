@@ -1,0 +1,11 @@
+I rewrote `release-notes.md` in place. I haven't re-read the file after the edits. The front matter, code block, tester quote, version numbers, #1482 and the URL are untouched.
+
+- **Chat artifact:** I deleted the "Certainly! Here is a comprehensive overview… I hope this helps" paragraph.
+- **Opening:** The "thrilled / game-changing / seamlessly transforms / fast-paced world" intro is now one sentence saying what the release does: faster large uploads, a conflict setting and a watcher fix.
+- **Bullets:**
+  - **Uploads:** I dropped "robust new chunking strategy" and kept the 40% and the 8→16 MiB change.
+  - **Conflicts:** The label "Smarter conflict handling" is now "Conflict policy". I cut "worth noting", "intelligently" and "plays a crucial role"; the bullet now says what the setting does and its `keep-both` default.
+  - **Watcher:** The "potential issue… could possibly" double hedge is now "a case where the watcher could stall".
+- **Config and upgrade notes:** I removed "To get started, simply", the "significant step forward" summary and "happy syncing!". I also dropped the em dash. The macOS 12 requirement and "Windows and Linux builds are unchanged" stay.
+
+One gap: the "up to 40% faster" figure has no benchmark or source in the notes. I left the number alone, but if you have the test setup, adding it would help.

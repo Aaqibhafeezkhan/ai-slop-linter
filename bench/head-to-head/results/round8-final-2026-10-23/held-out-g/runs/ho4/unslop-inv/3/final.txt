@@ -1,0 +1,21 @@
+I rewrote `status-mingguan.md` in place. I did not re-read it afterwards, since each edit succeeded.
+
+**What changed**
+- **Chat opener:** I cut "Tentu saja! Berikut adalah ringkasan komprehensif… Semoga bermanfaat!".
+- **Summary:** I removed the wide-angle opener ("Di era digital yang serba cepat ini"), "dengan bangga mengumumkan kemajuan luar biasa", and the "tonggak penting yang benar-benar mengubah cara pedagang mengelola stok" claim. The source gave no evidence for that claim. The paragraph now opens with the fact: 18 of 21 tickets done in the week ending 16 Oktober 2026, for Warung Kita versi 2.6.0.
+- **Yang selesai:** I dropped "Perlu dicatat bahwa". I also changed "sepertinya sudah mungkin teratasi" to "sepertinya sudah teratasi", because the double hedge said the same thing twice.
+- **Langkah berikutnya:** I cut the commitment line, the "fondasi yang kokoh" closer and the thank-you. What's left is "Kalau ada pertanyaan, hubungi Dewi Anggraini di <EMAIL>."
+
+**Left as they were**
+- The merchant quote
+- WK-904, WK-911, WK-915 and WK-920
+- Version 2.6.0
+- All dates
+- `.xlsx` and `/laporan`
+- The email address
+- The 1,2 detik vs 3,5 detik figures
+- The "Yang belum selesai" paragraph, which was already plain
+
+**Gaps**
+- The "Langkah berikutnya" section now holds only the contact line. The source gave no actual next steps, so I didn't invent any. Add them if you have them, for example what happens before the 30 Oktober 2026 release.
+- I didn't change "Pembaruan Status Mingguan" or the other section headings.

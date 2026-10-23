@@ -1,0 +1,6 @@
+I rewrote `notatka-incydent.md` in place. I didn't run Slopless or any other checker on it.
+
+- **Cut:** I removed the chatbot opener ("Oczywiście! Poniżej znajdziesz…"), the "w dzisiejszym dynamicznym świecie" line, the "z dumą przedstawia" phrasing and the closing about facing challenges together.
+- **Cause:** I dropped the "Warto zauważyć" hedging in the Przyczyna section. It now states the pool exhaustion directly. It still says "najpewniej" for the 5.2.0 link, because the original only said it was probable.
+- **Conclusions:** The Wnioski section is now two plain sentences: the alert at 80% pool usage, and who to ask (Marta Wójcik). I added a clause saying the alert is meant to catch this before customers do. That reason is my wording, not something from the original.
+- **Kept as they were:** the front matter, the error log block, versions 5.2.0 and 5.1.4, the times 07:12 and 07:59, 47 minutes, 312 orders, 40 → 20, `zakwas-orders`, `pg-main`, `config/pool.yml` and the URL.

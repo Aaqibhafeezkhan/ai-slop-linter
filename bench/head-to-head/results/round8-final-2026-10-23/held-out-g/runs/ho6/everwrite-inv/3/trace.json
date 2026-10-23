@@ -1,0 +1,30 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"everwrite:everwrite\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py <TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Commitberichten voor release 1.9.0\\n\\nDit zijn de commitberichten voor release 1.9.0 van de fietsplanner.\\n\\n## Commit 1\\n\\n`feat(boekingen): annuleringstermijn van 48 uur toegevoegd`\\n\\nKlanten kunnen een boeking nu tot 48 uur van tevoren annuleren. Die termijn pas je aan met `ANNULERING_UUR`. Een klant schreef ons eerder:\\n\\n> \\\"Cancelling a booking should no"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py <TMP>\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Klanten kunnen een boeking nu tot 48 uur van tevoren annuleren. Die termijn\", \"new_string\": \"Boekingen hebben nu een annuleringstermijn van 48 uur. Die termijn\"}"
+ }
+]

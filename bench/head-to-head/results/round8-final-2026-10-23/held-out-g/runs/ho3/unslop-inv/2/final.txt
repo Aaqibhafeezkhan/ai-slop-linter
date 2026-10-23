@@ -1,0 +1,9 @@
+Przepisałem `notatka-incydent.md` w miejscu. Front matter, blok z logiem błędu, wersje (5.2.0, 5.1.4), godziny (07:12, 07:59), liczby (47 minut, 312 zamówień, 40/20, 80%), nazwy plików i URL są bez zmian. Nie czytałem pliku po zapisie.
+
+Co zmieniłem:
+- **Chat artifacts:** usunąłem „Oczywiście! Poniżej znajdziesz…” oraz „Mam nadzieję, że będzie pomocne.”
+- **Opener:** usunąłem „W dzisiejszym dynamicznym świecie… z dumą przedstawia solidną analizę”. Podsumowanie zaczyna się teraz od samego faktu awarii.
+- **Przyczyna:** zamiast „Warto zauważyć… Prawdopodobnie mogło to być spowodowane” jest „Skończyła się pula połączeń… Najpewniej zawiniło wdrożenie 5.2.0”. Zostawiłem jedno zastrzeżenie, bo źródło też nie jest pewne co do przyczyny.
+- **Wnioski:** wyciąłem „cenną lekcję”, „jak ważna jest współpraca” i „stawimy czoła każdemu wyzwaniu”. Zostały alert przy 80% i kontakt do Marty Wójcik, ale bez „Nie wahaj się zgłaszać pytań”.
+
+Sekcję „Co zrobiliśmy” zostawiłem bez zmian, bo już brzmiała normalnie. Niczego nie dopisywałem, więc notatka nie mówi nic o tym, dlaczego limit zmieniono na 20. Jeśli chcesz, żeby to było w tekście, musisz podać powód.

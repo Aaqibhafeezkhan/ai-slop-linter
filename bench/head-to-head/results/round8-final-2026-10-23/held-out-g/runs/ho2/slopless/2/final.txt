@@ -1,0 +1,7 @@
+Reescribí `pr-sms-reintentos.md` en el mismo archivo. No ejecuté Slopless: solo analiza inglés y el texto está en español, así que lo edité a mano.
+
+- **Quité el relleno de IA:** el "¡Claro! Aquí tienes…", el "En el mundo digital actual", "solución robusta y escalable", "realmente impresionantes", "marca un antes y un después" y el cierre con "En definitiva…".
+- **Resumen:** ahora dice qué pasaba antes (un solo reintento a los 3 s) y qué cambia.
+- **Frases más directas:** "Cabe destacar que… potencialmente podría" pasó a "que podía provocar mensajes duplicados".
+- **Tabla, nombres de código, cifras, fecha e issue:** los dejé tal cual. Son `enviar_con_reintentos()`, `avisos/sms.py`, `SMS_MAX_REINTENTOS`, `tests/test_sms.py`, los 5 reintentos con 2, 4, 8, 16 y 32 s, las 14 pruebas, el 8 de octubre de 2026 y el #377.
+- **Una frase nueva:** debajo de la tabla añadí "Los mensajes perdidos bajan mucho. A cambio, la latencia p95 sube 0,3 s." Es la lectura de las cifras que ya estaban en la tabla. Bórrala si no la quieres.

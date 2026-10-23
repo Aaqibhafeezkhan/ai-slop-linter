@@ -1,0 +1,5 @@
+I rewrote `status-mingguan.md` in place. I kept the merchant quote, WK-904, WK-911, WK-915, WK-920, version 2.6.0, the dates, `.xlsx`, `/laporan` and <EMAIL> exactly as they were.
+
+- **Removed:** the chatbot opener ("Tentu saja! Berikut adalah…"), the "era digital" intro, the self-congratulation ("dengan bangga", "luar biasa"), and the generic closing lines about commitment and long-term foundations.
+- **Rewritten:** I shortened the sentences and used plainer wording ("Perlu dicatat bahwa" and "Penyebabnya adalah" are gone). The closing now just tells readers who to contact.
+- **One addition from me:** the WK-904 line originally said "sepertinya sudah mungkin teratasi", which is muddled. It now reads "sepertinya sudah teratasi, tapi kami masih memantaunya." The "kami masih memantaunya" part is my guess at what the hedge meant. Please check it's true, or cut it.

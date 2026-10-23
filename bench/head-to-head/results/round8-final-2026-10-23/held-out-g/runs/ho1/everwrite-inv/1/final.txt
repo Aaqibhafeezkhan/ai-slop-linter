@@ -1,0 +1,3 @@
+The only hits left are inside the quoted tester review, which you asked me to keep verbatim.
+
+I rewrote `release-notes.md` in place. I cut the chat wrapper, the hype, the bold labels and the dashes. I kept the front matter, code block, quote, versions, #1482 and the URL. The checker went from 13 strong hits to 1, and that one is the quote.

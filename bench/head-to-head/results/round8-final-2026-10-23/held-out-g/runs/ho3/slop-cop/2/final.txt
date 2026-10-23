@@ -1,0 +1,5 @@
+I rewrote `notatka-incydent.md` in place, and I didn't run it through slop-cop or re-read the saved file.
+
+- **Cut:** I removed the chatbot opener ("Oczywiście! Poniżej znajdziesz…"), the "w dzisiejszym dynamicznym świecie" intro and the closing pep talk. I also dropped the filler phrases ("Warto zauważyć", "Warto podkreślić").
+- **Cause section:** "Prawdopodobnie mogło to być spowodowane" became "Najpewniej zawiniło". The old wording hedged twice.
+- **Kept as it was:** The front matter, the error log block, the version numbers (5.2.0, 5.1.4), the times (07:12, 07:59), the counts (47 minutes, 312 orders, 40→20, 80%), the file names, the URL and the name Marta Wójcik.

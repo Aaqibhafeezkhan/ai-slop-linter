@@ -1,0 +1,16 @@
+I rewrote `status-mingguan.md` in place. The merchant quote, the ticket IDs (WK-904, WK-911, WK-915, WK-920), version 2.6.0, the dates, `.xlsx`, `/laporan` and <EMAIL> are unchanged.
+
+**What I cut:**
+- The "Tentu saja! … Semoga bermanfaat!" opener now reads "Ringkasan status proyek minggu ini."
+- "Di era digital yang serba cepat ini", "dengan bangga", "kemajuan luar biasa" and "tonggak penting yang benar-benar" are gone. The summary now starts with the 18 of 21 tickets and says what 2.6.0 changed.
+- "Perlu dicatat bahwa" is removed.
+- "sepertinya sudah mungkin teratasi" is now "sepertinya sudah teratasi". The source gave no reason for the doubled hedge, so I kept only one.
+- The closing paragraph ("terus berkomitmen…", "fondasi yang kokoh…", "Terima kasih…") is replaced by "Jika ada pertanyaan, hubungi Dewi Anggraini di <EMAIL>."
+
+**Checks:**
+- The linter found nothing in the original, so the edits come from the Indonesian reference list of tells.
+- `--verify` exits 1 on one item: the compare reports a lost `Anda`. That word was only in the thank-you line I cut, so I'm leaving it.
+- It also lists "unrequested edits" for the sentences I changed. They match the tells above.
+- There is no Indonesian phrase catalog for `--verify`, so I did the read-back by class myself.
+
+Residuals: none.

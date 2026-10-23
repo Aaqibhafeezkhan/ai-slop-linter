@@ -1,0 +1,3278 @@
+{
+  "summary": {
+    "cells": 99,
+    "errCells": 0,
+    "unanimousCells": 92,
+    "unanimousShare": 0.9292929292929293,
+    "invalidVotes": 0
+  },
+  "runs": {
+    "h3-blader-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All facts (flag removal, 12 vs 24 hours, 38 tests, auth guide, issue #311, migration command) are preserved with no additions; only the fluff was removed."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All facts (flag removal, 12h vs 24h, 38 tests, auth guide, migration command, #311) are preserved with only fluff removed, and 'shortens session lifetime' is a faithful summary."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All facts (flag removal, 12h vs 24h, 38 tests, auth guide, #311, migration command) are preserved with no invented content, only fluff removed and a brief summary line added."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All facts (flag removal, 12h vs 24h sessions, 38 tests, auth guide, #311, migration command) are preserved with no additions; only fluff removed, and 'shortens session lifetime' is an accurate summary."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All facts (flag removal, 12h vs 24h, 38 tests, auth guide, issue #311, migration command) are preserved with no added claims; 'shortens session lifetime' is an accurate summary."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-everwrite-inv-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The edit keeps all the original facts (closes #311, flag removal, 12 vs 24 hour sessions, 38 tests, docs update, migration command) and adds nothing new, only dropping fluff."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All substantive facts (closes #311, flag removal, 24h to 12h sessions, 38 tests, auth guide update, migration command) are preserved with no added facts, only fluff removed."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All facts (closes #311, flag removal, 24h to 12h, 38 tests, auth guide update, migration command) are preserved with no additions; only fluff was removed."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All original facts are preserved (closes #311, flag removed, sessions 24h to 12h, 38 tests, docs updated, migration command) with only fluff removed and no added claims."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All facts (closes #311, flag removal, 24h to 12h sessions, 38 tests, auth guide update, migration command) are preserved, with only the fluff removed and no invented content."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-everwrite-inv-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All facts (12,000 jobs/s, 40% vs 2.2, Acme 35% p99 drop on staging, Node 20, MIT) match the original, with no invented conditions or owners, and the plain prose reads human; 'job queue for Node' is a mild but reasonable inference."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The text keeps every original fact, number and attribution unchanged and adds only the plain 'job queue for Node' description, which is a mild inference but not an invented benchmark condition, owner or cause; it also reads plainly."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The text keeps every fact and number from the original and adds nothing; 'a job queue for Node' is a mild inference but plausible, and the prose reads plainly."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The text keeps every original fact (figures, Acme Corp attribution, Node 20, MIT) without invention, though 'a job queue for Node' is a mild inference from the original, which never says what Fastq is."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The text keeps every original fact and figure (12,000 jobs/s, 4-core, 40%, Acme Corp 35% p99, Node 20, MIT) with no invented conditions or owners, and it reads plainly; the only addition is 'a job queue for Node', which is a mild inference but plausible."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-slopless-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning and quotation are preserved with natural French and no added facts, though 'Notre directrice' is retained from the original and 'Écrivez-nous' is a mild rephrase of the contact invitation."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning preserved with natural phrasing, quotation unchanged, and no added claims; 'Une question ? Écrivez-nous.' and 'belles perspectives' are faithful softenings of the original closing."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning is preserved with natural French, but \"Notre directrice l'a dit ainsi\" is fine; the quote is unchanged, and no facts are added; however 'Écrivez-nous' and 'belles perspectives' are faithful paraphrases of the closing."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning, quotation and dialogue are preserved with natural French and no added facts or invented owners; \"Une question ? Écrivez-nous.\" is a faithful rewording of the contact invitation."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning and quotation are preserved with natural French and no added facts, though 'Notre directrice' is kept from the original and 'Écrivez-nous' is a faithful rewrite of 'contactez-nous'."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-avoid-ai-writing-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The edit keeps all facts but adds no new ones, though it drops 'robust security' and 'seamless' flourishes and keeps 'our' from the original, so meaning is preserved."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Edit removes hype and keeps all facts, but the last line changes 'It's not just a cleanup, it's a foundation' to 'This is a foundation', and 'our authentication layer' remains as in the original; meaning is essentially preserved."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning is retained, but 'our authentication layer' and 'everything we build next' keep the original's 'our'/'we', and nothing new is invented; the removed flourishes don't change facts."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning is kept: all facts and migration step preserved, and no new facts or owners were invented, though the original's 'our authentication layer' and 'everything we build next' wording is retained, not added."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning is preserved, but the closing line was changed from 'it's not just a cleanup, it's a foundation' to 'This is a foundation', dropping the cleanup claim and the 'Let me know' line, and 'to keep users safe' is retained; the 'our' wording was already in the original, so mostly faithful."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-ours-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All factual content (closes #311, flag removal, 12h vs 24h, 38 tests, docs update, migration command) is preserved; only promotional filler removed."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All factual content is preserved with no additions; only promotional filler and the closing remark were removed, and 'modernizes the authentication layer' and the facts are unchanged."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All facts are preserved (flag removal, 12h vs 24h sessions, 38 tests, docs update, migration command, closes #311); only fluff and the closing remarks were removed, with no additions."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The edited text drops only promotional filler and the chatbot closing, keeping all facts, the issue number, the migration command and the content of each bullet."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All factual content is preserved; only promotional filler was removed, with no added facts or changed claims."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-slop-cop-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning and quotation are preserved, but the text drops the original's 'sans engagement' nuance? No, kept; however it removes the claims of 'robuste/révolution' naturally and adds no facts, while 'écrivez-nous' replaces 'contactez-nous' faithfully and the French reads naturally."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning is preserved with no added claims and natural French, though the opening and closing are slightly generic and 'vraiment' is mild."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning and quotation are preserved with no added facts, and the French is natural, though 'Cette version change vraiment le quotidien' mildly echoes the original claim and 'écrivez-nous' replaces 'contactez-nous' acceptably."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning preserved with natural French, but 'écrivez-nous' adds an invitation to ask questions and 'ouvre de belles perspectives' is a mild new claim; the quote and dialogue are intact, though 'Cette version change vraiment le quotidien' keeps the hype close to the original."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning is preserved with no added claims and natural French, though the intro's 'c'est une révolution' is softened to 'change vraiment le quotidien' and the closing 'écrivez-nous' is a fair rewording of 'contactez-nous'."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-slopless-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The text keeps the original's facts, benchmark claims and attribution unchanged, adds only the neutral 'job queue for Node' description, and reads plainly."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The text keeps the original's facts and wording without invented claims, but \"Fastq is a job queue for Node\" is a mild addition, and it drops the original's \"it\" subject sensibly; it reads plainly and human."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The text keeps all facts from the original and adds only 'a job queue for Node', which is a mild inference not in the original (original says 'queue' and 'Node 20'), and the prose reads plainly."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The text keeps only facts from the original, adds no invented conditions or owners, and reads plainly, though 'a job queue for Node' is a mild inference the original didn't state."
+        },
+        {
+          "vote": 5,
+          "pass": false,
+          "reason": "Text keeps only original facts, but 'job queue for Node' is a new claim not in the original (inferred from Node requirement), and 'In benchmarks, version 2.3...' is faithful; the added description is mild and plausible, though technically an added fact."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": false
+    },
+    "h2-avoid-ai-writing-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The rewrite keeps the original's facts and numbers without adding anything, but the 'benchmarks' claim stays as in the original and the prose reads plainly human."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original (benchmark figures, Acme report, Node 20, MIT) and adds nothing invented, and it reads plainly like a person wrote it."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All retained claims match the original with no added facts, owners, or conditions, and the plain text reads naturally, though 'job queue for Node.js backends' is a mild inference from 'queue' and 'modern backends'."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original (job queue, benchmark numbers, Acme report, Node 20, MIT), though 'for Node.js backends' is a mild inference from 'modern backends' and Node requirement, and the text reads plainly."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original, with no invented conditions, owners or causes, and reads plainly, though 'for Node.js backends' is a mild inference."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-slop-cop-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The rewrite keeps the original's figures, attributions and conditions unchanged, and adds only 'job queue for Node.js', which is a mild inference from the Node requirement and the name. It reads plainly, though the benchmark sentences are a bit list-like."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The rewrite keeps the original's figures and facts without adding benchmark conditions, owners or causes, and it reads as plain, human-written prose."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The rewrite keeps the original's figures, attributions, and license/Node requirement, and adds only the plain 'job queue for Node.js' description, which is not an invented benchmark condition, owner, or cause, and it reads plainly."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The text keeps every figure and claim from the original, adds only the neutral 'job queue for Node.js' description, and invents no conditions, owners or causes; it reads plainly."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The text keeps the original's figures, attribution, and requirements unchanged, adds only a plain 'job queue for Node.js' description, and reads in a flat human voice with no invented conditions or owners."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-everwrite-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All factual content (flag removal, 12 vs 24 hours, 38 tests, auth guide update, #311, migration command) is preserved with no added facts; only fluff was removed."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All substantive facts (flag removal, 12 vs 24 hour expiry, 38 tests, auth guide update, #311, migration command) are preserved with nothing added; only fluff removed."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All substantive facts (flag removal, 12 vs 24 hour expiry, 38 tests, auth guide update, #311, migration command) are preserved with no added claims; only fluff was removed."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The edited text keeps every fact (flag removal, 12h vs 24h sessions, 38 tests, docs update, #311, migration command) and adds nothing invented, only dropping fluff."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All facts are kept (flag removal, 12 vs 24 hours, 38 tests, auth guide update, migration command, #311) with no invented content, though the 'ensuring users stay safe' rationale was dropped as fluff."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-unslop-inv-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All facts, the issue number, the flag removal, session times, test count, docs and migration command are preserved, with only the chatbot filler removed and nothing added."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All factual content is preserved; only the chatbot filler was removed, with no added facts, though 'ensuring users stay safe' and the closing remarks were dropped as fluff."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All facts are preserved (flag removal, 12h vs 24h sessions, 38 tests, docs update, migration command, closes #311); only chatbot fluff was removed and nothing was added."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All substantive claims are preserved; only the chatbot fluff was removed and 'Modernizes the authentication layer' keeps the original meaning without adding facts."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The edit keeps all facts (flag removal, 12h vs 24h sessions, 38 tests, docs update, migration command, closes #311) and only drops fluff, though 'Modernizes the authentication layer' is a faithful trimmed version."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-unslop-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The text keeps the original figures and claims without additions, but the 'Maintainers at Acme Corp reported' sentence is stiff, and it dropped nothing fabricated; it reads plainly like a person wrote it."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Text keeps only original facts without invention, but 'Fastq is a job queue' is a plain restatement and the prose is terse yet natural; no fabricated conditions or owners."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The rewrite keeps all original facts and numbers unchanged, adds nothing invented, and reads plainly, though \"Fastq is a job queue\" is a mild paraphrase of the original's \"not just a queue\"."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All facts match the original, nothing invented, and the text is plain and human-sounding, though 'Fastq is a job queue' is a mild addition consistent with the original's 'not just a queue'."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The text keeps only original facts, but 'Fastq is a job queue' is a mild addition, and the terse sentences read plainly human without fabricated conditions, owners or causes."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-slop-cop-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The edit keeps all factual content (flag removal, 12h vs 24h, 38 tests, docs update, #311, migration command) and drops only filler, adding no new facts."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The edit keeps all factual content (flag removal, 12h vs 24h sessions, 38 tests, docs update, migration command, closes #311) and only drops fluff, though 'shortens the session lifetime' is a faithful summary."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The edit keeps all factual content (flag removal, 12h vs 24h sessions, 38 tests, docs update, closes #311, migration command) and only drops promotional fluff and the closing remarks."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The edit keeps all four changes, the issue number and the migration command, and adds no new facts, though it drops the closing remarks and the 'more secure' framing, which are filler."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The edit keeps all facts (flag removal, 12h vs 24h, 38 tests, docs update, migration command, closes #311) and only drops fluff; 'shortens the session lifetime' is an accurate summary."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-avoid-ai-writing-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning and quotation are preserved, no facts added, and the French reads naturally, though the opening \"Au programme\" and the terse \"Contactez-nous.\" are fine."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning and quotation are preserved with no added claims, but the closing 'Contactez-nous.' is abrupt and the text still reads somewhat clipped, though natural enough overall."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning and quotes preserved, no added claims, and the French reads naturally, though the closing 'Contactez-nous.' is a bit curt and 'quarante à quatorze' drops 'minutes' harmlessly."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning and quotes are preserved and no claims are added, but the text drops the original's flourishes and reads natural; however 'Contactez-nous.' is fine, and the 'Au programme' phrasing is natural."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning and quotes are kept and nothing is invented, but the rewrite drops the original's 'Plongeons dans les nouveautés' intro and closing line only partially, and 'Contactez-nous.' is curt; overall still natural and faithful."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-avoid-ai-writing-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning is preserved, quote and dialogue are unchanged, no facts added, and the French reads naturally, though 'Contactez-nous' closing and dropped 'conclusion' are fine."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning and quotes are preserved, no facts added, and the French reads naturally; the closing and the promotional phrasing are simplified without adding claims."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning preserved, no added claims, quote and dialogue unchanged, and the French reads naturally; the closing is shortened but adds nothing."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning is preserved, quotation and dialogue unchanged, no added claims; the phrasing is natural French, with only a minor change from 'Plongeons dans les nouveautés' to 'Au programme' and a shortened closing."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning and quotes are preserved, no claims added, and the French reads naturally, with only minor trimming of hype and the closing line."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-unslop-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All original facts (flag removal, 12h vs 24h, 38 tests, docs update, migration command, #311) are preserved, with only promotional filler and the closing remark removed."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All original facts (flag removal, 12h vs 24h, 38 tests, docs update, migration command, closes #311) are preserved; only promotional fluff and the closing remarks were removed."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All original facts (flag removal, 12h vs 24h sessions, 38 tests, docs update, migration command, closes #311) are preserved; only promotional fluff and the closing remark were removed."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All original facts are preserved (flag removal, 12h vs 24h, 38 tests, docs update, migration command, closes #311); only promotional fluff was removed, with no added claims."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All original facts (flag removal, 12 vs 24 hour sessions, 38 tests, docs update, migration command, #311) are preserved; only promotional filler and the closing remark were removed."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-everwrite-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The text keeps only facts from the original (benchmark figures, Acme report, Node 20, MIT) with no invented conditions or owners, and it reads plainly, though 'a job queue for Node' is a mild inference from the original."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The text keeps only facts from the original (benchmark figures, Acme report, Node 20, MIT) with no invented conditions or owners, though it drops the 'staging cluster' claim's context only minimally and reads plainly."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All facts (benchmark figures, Acme Corp p99 claim, Node 20, MIT) are carried over unchanged from the original, and the added 'job queue for Node' is a reasonable inference, so nothing is invented; the prose is plain and human-sounding."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The text keeps only the original's stated facts (12,000 jobs/s, 4-core, 40% faster, Acme 35% p99 drop, Node 20, MIT) with no invention, but 'a job queue for Node' is a mild added claim inferred from context and the prose reads plainly human."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The text keeps every number, attribution and license/Node requirement from the original, adds no invented conditions or owners, and reads plainly, though 'for Node' is a mild inference."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-unslop-inv-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning and quotations are preserved, hype removed, figures kept, no invented claims; the French reads naturally."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The meaning is preserved and nothing is added; the rewrite is natural and concise, and the quote and dialogue stay unchanged, though 'nouveautés' list is folded smoothly."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning and quotes are preserved with no added claims, but the rewrite only trimmed the intro and closing while keeping the dialogue and quote untouched; the result reads as natural French and adds nothing new."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning and quotes are preserved, hype removed, no added claims; 'quarante à quatorze' still implies minutes, and the closing 'Pour toute question, contactez-nous' is a mild natural paraphrase of the original call to contact."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning is preserved, hype removed, quote and dialogue unchanged, no added claims or invented owners; the French reads naturally."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-avoid-ai-writing-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All facts (benchmark, Acme latency, Node 20, MIT) are kept verbatim from the original with no additions, and the plain 'job queue for Node.js backends' line is a mild but reasonable inference; the text reads naturally."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The rewrite keeps the original's benchmark figures, Acme Corp attribution, Node and license facts unchanged and adds only the neutral description 'job queue for Node.js backends', which is inferred from the original and not invented."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All retained facts (benchmark, 40% vs 2.2, Acme 35% p99 drop, Node 20, MIT) match the original, and the one added claim, 'a job queue for Node.js backends', is a plain description of the product, but the text is clean and reads naturally."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Text keeps the original facts without additions, though 'for Node.js backends' is a mild unstated inference and 'job queue' is reasonable; it reads plainly human-written."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Every figure and claim (12,000 jobs/s, 40% faster, 35% p99 drop at Acme staging, Node 20, MIT) matches the original, and the added 'job queue for Node.js backends' is a mild inference that fits the original's 'queue' and 'backends' without inventing conditions, owners or causes."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-blader-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All factual content (flag removal, 12h vs 24h sessions, 38 tests, docs update, migration command, #311) is preserved, with only fluff removed and no added facts."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All factual content is preserved (flag removal, 12h vs 24h, 38 tests, docs update, #311, migration command) with only fluff removed and no added facts."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All factual content is preserved (flag removal, 12h vs 24h sessions, 38 tests, docs update, #311, migration command) with only fluff removed and no added facts."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All factual content (flag removal, 12h vs 24h sessions, 38 tests, docs update, migration command, #311) is preserved; only fluff was dropped, with no added facts."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All factual content (flag removal, 12 vs 24 hour sessions, 38 tests, docs update, migration command, #311) is preserved, with only fluff removed and nothing invented."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-unslop-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All factual content is preserved; only promotional filler and emoji were removed, with no added facts or invented ownership."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All factual content is retained; only decorative and promotional phrasing and the closing chatter were removed, with no added facts or invented owners."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The edited text drops only the filler phrases and keeps every fact: closes #311, the flag removal, 12h vs 24h sessions, 38 tests, the docs update and the migration command."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All factual content is preserved; only promotional filler and emoji were removed, and no facts or attributions were added or changed."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All facts (closes #311, flag removal, 12 vs 24 hours, 38 tests, docs update, migration command) are preserved; only promotional fluff and the closing remarks were removed, and 'modernizes the authentication layer' is kept."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-blader-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The edited text drops the filler and keeps every fact (flag removal, 12h vs 24h, 38 tests, docs, migration command, #311), with no invented facts, though 'shortens session lifetime' is a faithful summary."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The edited text drops only the chatbot filler and keeps every fact: the flag removal, the 12h vs 24h session expiry, 38 tests, the docs update, #311, and the migration command."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The edited text drops only the filler and keeps every fact, though 'shortens session lifetime' is a small addition that the original's 12-vs-24 hours supports."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The edited text drops only rhetorical filler and keeps all facts, adding just the accurate implication that session lifetime is shortened, with no invented claims."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The edited text drops the original's rhetorical framing and keeps all facts (flag removal, 12h vs 24h, 38 tests, docs update, #311, migration command); the added 'shortens session lifetime' is a faithful summary."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-blader-inv-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning is preserved with no added claims, the quote and dialogue are unchanged, and the French is natural, with the hype removed and a short neutral closing."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning and quotation are preserved, tone is more natural, and no facts are added; the closing 'écrivez-nous' is a mild rewording of 'contactez-nous' without new claims."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning and quoted dialogue are preserved without added claims, and the French reads naturally, though the closing 'écrivez-nous' is a mild change from 'n'hésitez pas à nous contacter'."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning and quotation are preserved, no claims added, and the French is natural, though 'la collaboration se passe mieux' slightly softens 'sans faille' and 'Pour toute question, écrivez-nous' replaces the closing without adding a claim."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning is preserved with no added claims, the quote and dialogue are intact, and the French reads naturally; the closing 'écrivez-nous' is a faithful, plain version of the contact invitation."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-slopless-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All facts (closes #311, flag removal, 12h vs 24h, 38 tests, docs update, migration command) are preserved; only fluff and chatbot closers removed, no additions."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All facts (closes #311, legacy_auth removal, 12 vs 24 hours, 38 tests, docs update, migration command) are preserved; only fluff was removed, and nothing was added."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All original facts are retained (legacy_auth removal, 12h vs 24h, 38 tests, docs update, migration command, closes #311); only fluff was removed with no added facts."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All facts, the issue number, the flag removal, 12 vs 24 hours, 38 tests, docs update, and migration command are preserved; only fluff and the closing remarks were removed."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All original facts are kept (auth flag removal, 12h vs 24h sessions, 38 tests, docs update, migration command, closes #311); only fluff removed and no new facts or owners added."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-unslop-inv-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All original facts are preserved (closes #311, legacy_auth removal, 12h vs 24h sessions, 38 tests, docs, migration command); only fluff was removed, nothing added or altered."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All original facts are kept (closes #311, flag removal, 12h vs 24h, 38 tests, docs update, migration command); only promotional filler was cut, and 'modernizes' is retained from the original, with no added facts or invented attributions."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All original facts are preserved (closes #311, flag removal, 12 vs 24 hours, 38 tests, docs, migration command); only chatbot filler was removed, with no added claims."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All original facts (closes #311, flag removal, 12 vs 24 hours, 38 tests, docs, migration command) are preserved, with only promotional filler removed and no additions."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All original facts are kept (closes #311, flag removal, 12 vs 24 hours, 38 tests, docs update, migration command); only promotional filler was removed and nothing was added."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-everwrite-inv-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All original facts (closes #311, flag removal, 12h vs 24h, 38 tests, doc update, migration command) are preserved with nothing added; only fluff was removed."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All facts (closes #311, flag removal, 12h vs 24h, 38 tests, auth guide, migration command) are preserved with no added claims; only fluff was removed."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All facts (closes #311, flag removal, 12 vs 24 hours, 38 tests, docs update, migration command) are preserved with no additions; only fluff removed."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All facts (closes #311, legacy_auth removal, 12h vs 24h, 38 tests, auth guide update, migration command) are preserved with no additions; only fluff removed."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All original facts are preserved (closes #311, flag removal, 12h vs 24h sessions, 38 tests, docs update, migration command); only fluff removed, nothing invented."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-blader-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": false,
+          "reason": "Text keeps original facts but changes 'Maintainers... benchmarks' to 'In our benchmarks', inventing an owner ('our') not in the original."
+        },
+        {
+          "vote": 2,
+          "pass": false,
+          "reason": "The text keeps the original facts but changes 'benchmarks' to 'our benchmarks', inventing an owner/attribution the original lacks, which the grading rules treat as a failure."
+        },
+        {
+          "vote": 3,
+          "pass": false,
+          "reason": "The text adds \"In our benchmarks\", which introduces an invented \"our\" owner that the original does not have, and the instructions say to fail on that."
+        },
+        {
+          "vote": 4,
+          "pass": false,
+          "reason": "Text keeps original facts but changes 'Maintainers... reported' fine; however it adds 'In our benchmarks' and 'a job queue for Node', introducing an invented owner ('our') not in the original."
+        },
+        {
+          "vote": 5,
+          "pass": false,
+          "reason": "Text adds invented 'our' ('In our benchmarks') where the original has none, an invented owner/attribution, and drops 'Maintainers' framing inconsistency."
+        }
+      ],
+      "valid": 5,
+      "verdict": false,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-unslop-inv-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original with no additions, but 'Fastq is a job queue' is a plain restatement and the text reads like a person wrote it."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The edit keeps only facts from the original (benchmarks, Acme report, Node 20, MIT), drops marketing fluff, and adds only the neutral 'a job queue' description without invented conditions or owners."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original, adds nothing invented, and reads plainly, though 'Fastq is a job queue' is a mild inference from the original's 'not just a queue'."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The rewrite keeps every original fact and figure without adding invented conditions, owners or causes, and it reads plainly like a person wrote it."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original (benchmark figures, Acme report, Node 20, MIT) without inventing anything, and reads plainly, though 'Fastq is a job queue' is a mild restatement of 'not just a queue'."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-ours-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning and quotes are preserved and French is natural, but it drops the original's 'véritable révolution' hype and the reduced load time claim stays; no facts added, though 'Elle touche l'interface...' is faithful and the closing is simplified."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning and quotes preserved with no added claims, but the closing line 'Contactez-nous pour en savoir plus' slightly changes 'N'hésitez pas à nous contacter' by adding 'pour en savoir plus' (minor), and the text reads natural."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning and facts are preserved, quote and dialogue intact, hype removed without adding claims, and the French reads naturally."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning and quotes are preserved and the French is natural, but the rewrite drops the original's 'n'hésitez pas à nous contacter' for 'Contactez-nous pour en savoir plus', adding a mild 'pour en savoir plus' purpose; otherwise no added claims."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning and facts are preserved, quote and dialogue are unchanged, and the French reads naturally; the hype is trimmed with no added claims."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-blader-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning and quotation are preserved, no facts added, and the French reads naturally, with only minor rephrasing like the closing line."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning, quote and dialogue are preserved with no added claims, but 'Si vous avez des questions, écrivez-nous' and 'ouvre de belles perspectives' are mild rewordings; overall natural French."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning, quotation and dialogue preserved with no added claims, and the French reads naturally, though the \"Notre directrice l'a dit ainsi\" phrasing is slightly stiff."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning and quote are preserved with no added claims, but the closing line 'écrivez-nous' adds a slightly new invitation while remaining faithful; dialogue unchanged; 'Atelier 2.0 ouvre de belles perspectives' is a fair paraphrase and the French reads naturally."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning and quotation preserved with natural French, but 'Notre directrice' is original; however the rewrite adds nothing new, though 'Si vous avez des questions, écrivez-nous' slightly changes 'N'hésitez pas à nous contacter' while keeping meaning."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-blader-inv-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Every figure and the license/Node requirement come from the original unchanged, and the added 'job queue for Node' is a reasonable inference, with no invented conditions or owners, and it reads plainly."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The text keeps every fact from the original (benchmark figure, Acme Corp latency report, Node 20, MIT) with no added claims, and the only addition, 'a job queue for Node', is a mild inference from the Node requirement and the 'queue' wording, and it reads plainly."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The edit keeps only facts from the original, adds nothing invented, and reads plainly, though 'for Node' is a small inference from the Node 20 requirement."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The text keeps every original fact and number unchanged, adds nothing invented, and reads plainly without marketing language."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The text keeps every fact from the original (12,000 jobs/s, 40% faster, 35% p99 drop, Node 20, MIT) without adding invented conditions or owners, and it reads plainly, though 'a job queue for Node' is a mild addition that the original's context supports."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-base-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The edited text keeps every factual claim (flag removal, 12h vs 24h sessions, 38 tests, docs update, migration command, closes #311) and only drops filler, adding nothing new."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All facts (flag removal, 12h vs 24h sessions, 38 tests, docs, migration command, #311) are preserved; only fluff was removed."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All factual content is preserved (flag removal, 12h vs 24h, 38 tests, docs, migration command, closes #311); only fluff and emojis removed, with no added facts."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All facts (flag removal, 12h vs 24h, 38 tests, docs update, migration command, #311) are preserved; only fluff was removed and no new claims were added."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All factual content is preserved; only emojis and fluffy marketing phrases were removed, and the added summary 'shortens session lifetime' accurately restates the original."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-unslop-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All facts and figures are retained from the original with no additions or altered quotes; the 'job queue for backend services' is a mild but reasonable paraphrase of 'queue for modern backends', and the prose is plain and human-sounding."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All facts and figures are kept from the original with no added claims, and the marketing fluff is removed, giving a plain, human-sounding intro."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The text only retains original facts without adding any invented conditions, owners or causes, and it reads plainly like a person wrote it, though 'Fastq 2.3 is a job queue for backend services' is a mild inference from 'queue for modern backends'."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The text keeps only facts from the original (benchmark figures, Acme report, Node 20, MIT) with no added claims or invented conditions, and it reads plainly, though the benchmark figures are stated without conditions, which matches the original."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The text keeps only facts from the original with no changes or invented conditions, though the Acme Corp sentence is slightly stiff but plausible human writing."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-avoid-ai-writing-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Facts are preserved and no new facts or attributions were added; only the puffery was removed, and 'our authentication layer' and 'what we build next' were already in the original."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Facts preserved; only chatbot fluff removed, though 'what we build next' retains original 'we' and 'It is also' slightly shifts 'not just a cleanup' meaning."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Facts are preserved; removed fluff only, and the closing line keeps the foundation idea without adding owners or facts, though 'It is also' slightly alters 'not just a cleanup'."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Facts are preserved; only hype removed, though 'It is also a foundation for what we build next' keeps a vague claim and introduces 'we' where the original had 'our' already, so no invented owner."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Facts are preserved and no new claims added; the closing line 'what we build next' introduces 'we' not in the original's wording, though the original had 'we build next' too."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-ours-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The edited text preserves all factual content (closes #311, flag removal, 12 vs 24 hours, 38 tests, docs update, migration command) and only removes promotional filler, adding nothing new."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All factual content (flag removal, 12h vs 24h sessions, 38 tests, docs update, migration command, #311) is preserved; only fluff and chatbot closing removed."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The edited text drops only the chatbot filler and keeps every fact (flag removal, 12h vs 24h sessions, 38 tests, docs update, migration command, #311) without adding anything new."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The edited text drops only the chatbot filler and adds no facts, so every factual claim and the migration command stay as in the original, including 'modernizes our authentication layer', which is kept."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All factual content is preserved; only hype phrasing was removed and no facts, owners or attributions were added."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-unslop-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The meaning is preserved and the quote and dialogue are unchanged, but the rewrite drops the original's marketing claims (the 'revolution' and 'radiant future' lines) without adding anything. It reads as natural French, though 'une version pensée pour les équipes de design' is a mild addition and the closing line differs slightly."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning and quotes are preserved and the French is natural; the removed hype and closing slogan add no claims, and 'écrivez-nous' is a mild rephrase of the contact invitation."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning is preserved, quote and dialogue are unchanged, and the French reads naturally with no added claims, though the closing 'écrivez-nous' is a mild reformulation of the original contact invitation."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning and quote preserved, no added claims; hype removed and the closing is natural, though the original's 'contact us' becomes 'écrivez-nous' which is a fair equivalent."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The rewrite keeps the meaning and quote intact, but it drops the original's closing remark about a bright future, which is only a small loss, and it adds nothing new; the French reads naturally."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-everwrite-inv-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning and quotes are preserved, no facts added, and the French reads naturally, though the closing 'Écrivez-nous' is a slight rephrasing of the original call to contact."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning preserved, quotation and dialogue unchanged, no added claims; the closing line 'Écrivez-nous' is a natural rewrite, and the French reads naturally."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning, quote, dialogue and figures are preserved with no added claims, and the French reads naturally, though 'Écrivez-nous' replaces 'contactez-nous' with the same sense."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning, quote, dialogue and figures are preserved with no added claims, and the French reads naturally, though 'Écrivez-nous' replaces the original 'contactez-nous' closing and the dropped 'avenir radieux' is fine."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning, quote, dialogue and figures are preserved with natural French and no added claims; 'Écrivez-nous' is a faithful shortening of the contact invitation."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-base-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All original facts are preserved (flag removal, 12 vs 24 hours, 38 tests, docs, migration command, closes #311), with only promotional fluff removed and no added facts or ownership."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The edited text drops only rhetorical filler and adds no facts, but the Overview's 'shortens session lifetime' and 'legacy auth path' are fair compressions of the original, so meaning is preserved."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The edit keeps all facts (flag removal, 12h vs 24h, 38 tests, docs, migration command, #311) and adds no new claims, though 'shortens session lifetime' and 'legacy auth path' are faithful paraphrases."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All original facts are preserved (flag removal, 12h vs 24h, 38 tests, docs, migration command, #311); the only change is dropping fluff, and 'shortens session lifetime' is a faithful summary."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The edit preserves all facts (flag removal, 12h vs 24h, 38 tests, docs update, migration command, #311) and adds only a mild summary line consistent with the original's content."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-blader-inv-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All facts are preserved; only the promotional framing was removed, and no facts were added or altered."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All original facts are preserved (flag removal, 12h vs 24h sessions, 38 tests, doc update, migration command, closes #311); only fluff removed, with 'shortens session lifetime' a faithful summary and no invented content."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All original facts are preserved (flag removal, 12h vs 24h, 38 tests, docs update, migration command, closes #311); only fluff removed, with 'shortens session lifetime' a faithful summary."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All original facts are preserved (flag removal, 12h vs 24h, 38 tests, docs update, migration command, closes #311); only fluff removed, and 'shortens session lifetime' is an accurate summary."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All original facts are preserved (flag removal, 12h vs 24h expiry, 38 tests, doc update, migration command, #311), with only fluff removed and no added facts or invented owners."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-everwrite-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All retained claims match the original with no additions; marketing fluff removed, though 'job queue for Node' is a mild inference and the text is a bit choppy but human-sounding."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All retained claims (12,000 jobs/s on 4-core, 40% faster than 2.2, Acme 35% p99 drop on staging, Node 20, MIT) match the original without invented conditions or attributions, and the prose is plain."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The edit keeps only the original's specific claims (benchmark figure, Acme Corp latency report, Node 20, MIT) without adding or altering facts, and the plain 'job queue for Node' line is mild but not fabricated."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The text keeps all original facts and numbers, adds nothing invented, and reads plainly, though 'a job queue for Node' is a mild inference from the original."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Every claim in the edited text (benchmark figures, Acme Corp staging latency report, Node 20 requirement, MIT license) comes from the original, with no invented conditions or owners, and the prose is plain."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-unslop-inv-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The rewrite keeps the meaning, quotation and dialogue intact, but the closing line 'contactez-nous' is slightly changed and the marketing tone is toned down without adding claims; however it drops 'véritable révolution' and the conclusion, which is acceptable for naturalness, and nothing is invented."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning is preserved, quotes and dialogue unchanged, and the French reads naturally, but the dropped promotional fluff is fine; no facts added."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning and quotes are preserved, hype is toned down without adding claims, and the French reads naturally, though 'Pour toute question… contactez-nous' replaces the closing slightly."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning and quotes are preserved, hype is removed without adding claims, and the French reads naturally, though 'contactez-nous' replaces the original's 'N'hésitez pas à nous contacter' and the closing 'avenir radieux' is dropped (harmless)."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning and quotes preserved, hype removed without adding claims, though 'passe de quarante à quatorze minutes' is natural and the closing is plain; no added facts or owners."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-slopless-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All facts (flag removal, 12 vs 24 hours, 38 tests, docs update, migration command, #311) are preserved; only promotional filler and the closing remarks were removed, and no new claims were added."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All original facts are preserved (flag removal, 12h vs 24h, 38 tests, docs, #311, migration command); only chatbot fluff and emojis were removed, and 'shortens session lifetime' is an accurate summary."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All original facts are preserved (flag removal, 12h vs 24h, 38 tests, docs update, migration command, closes #311); only chatbot fluff and emojis were removed."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All factual content is preserved; only the fluff, emojis, and closing remarks were removed, and the overview was condensed accurately without adding facts."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All facts (flag removal, 12h vs 24h sessions, 38 tests, docs update, migration command, #311) are preserved; only fluff and emojis were removed, with no additions."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-slopless-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The edited text drops only filler and promotional language, and keeps all facts (flag removal, 12h vs 24h, 38 tests, docs update, migration command, #311) without adding anything new."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The edited text drops only the chatbot filler and keeps every fact, including the issue number, 12 vs 24 hours, the 38 tests, the docs update and the migration command. The only gap is that the original 'modernize authentication layer' framing is condensed to 'legacy auth path', which is a fair paraphrase."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The edited text drops only filler and adds no facts; it condenses the overview to 'legacy auth path' and 'shortens session lifetime', which fits the original's removed flag and 12-hour sessions."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The edited text drops only filler and keeps all facts (flag removal, 12h vs 24h, 38 tests, docs, migration, #311), though the overview's 'legacy auth path' wording is a slight paraphrase of the original."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All facts (flag removal, 12 vs 24 hours, 38 tests, docs update, migration command, #311) are preserved; only filler and sales language were dropped, and the added 'legacy auth path' wording is a fair paraphrase of removing the flag."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-unslop-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All facts (12,000 jobs/s, 40% faster, 35% p99 drop at Acme staging, Node 20, MIT) are preserved unchanged, with no invented conditions or owners, and the plain prose reads naturally, though 'job queue for Node.js backends' is a mild inference from the original's 'queue for modern backends'."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All retained facts match the original, nothing is invented, and the plain wording reads naturally, though 'job queue for Node.js backends' is a mild inference from 'queue' and 'modern backends'."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All facts (12,000 jobs/s, 40% faster, 35% p99 drop, Node 20, MIT) match the original, but 'a job queue for Node.js backends' is a mild inference, and the text is plain and human-sounding."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All retained claims match the original (benchmarks, Acme Corp report, Node 20, MIT) with no invented conditions or owners, and the prose is plain, though 'job queue for Node.js backends' is a mild inference from 'queue' and 'modern backends'."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All retained facts match the original, with no additions; only marketing fluff was cut, and the text reads plainly, though 'a job queue for Node.js backends' is a mild inference from the original 'queue' and 'backends'."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-everwrite-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All facts (closes #311, flag removal, 12h vs 24h sessions, 38 tests, auth guide update, migration command) are preserved with no additions; only fluff removed."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All factual content (closes #311, flag removal, 12h vs 24h sessions, 38 tests, auth guide update, migration command) is preserved without added facts; only fluff removed."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All facts (closes #311, flag removal, 12h vs 24h sessions, 38 tests, auth guide update, migration command) are preserved with no additions or invented attributions."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All original facts (closes #311, flag removal, 12 vs 24 hour sessions, 38 tests, auth guide update, migration command) are preserved with no additions, only fluff removed."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All substantive facts (flag removal, 12 vs 24 hours, 38 tests, auth guide update, migration command, closes #311) are preserved with no additions, only fluff removed."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-everwrite-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning preserved, hype removed, quote and dialogue unchanged, no added claims; the closing line is a natural neutral rewrite."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning and quote are preserved, dialogue unchanged, and the French reads naturally, though 'plus simple' for collaboration and 'Pour toute question, écrivez-nous' are mild additions/changes of the original's claims."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning and quote preserved, figures and dialogue intact, French reads naturally, no added claims, though the closing 'écrivez-nous' is a mild contact line paralleling the original's 'contactez-nous'."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning is preserved, the quotation and dialogue are unchanged, no facts or owners were added, and the French reads naturally."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning and quotation preserved, no added claims, natural French; the closing 'écrivez-nous' is a mild equivalent of the original contact invitation."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-base-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All remaining facts (benchmark, Acme Corp p99 report, Node 20, MIT) match the original without additions, and the plain prose reads naturally, though 'job queue for Node.js backends' is a mild inference from the original."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original (benchmark, Acme Corp latency report, Node 20, MIT) and adds nothing invented, but it changes 'processes' to 'processed' and 'job queue for Node.js backends' is a mild inference; it reads plainly and human."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All retained facts (benchmark, Acme Corp latency, Node 20, MIT) match the original without additions, and the plain wording reads human, though 'job queue for Node.js backends' is a mild inference from 'queue' and 'modern backends'."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All remaining facts (12,000 jobs/s, 4-core, 40% faster, Acme Corp 35% p99 drop on staging, Node 20, MIT) match the original, the marketing fluff is cut, and the only addition, 'job queue for Node.js backends', is a reasonable inference from the original's 'queue' and 'backends' and the Node requirement."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All facts (12,000 jobs/s, 40%, 35% p99, Node 20, MIT) match the original with no invented conditions, and the added 'for Node.js backends' is a mild inference but the text reads plainly human."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-blader-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The rewrite keeps the original's figures and attributions unchanged and adds no invented conditions or owners, and it reads plainly, though 'for Node.js backends' is a mild inference from 'modern backends' and Node 20."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All retained facts match the original, nothing is invented, and the marketing fluff is removed; the opening 'job queue for Node.js backends' is a mild inference but consistent with the original ('queue', 'backends', Node requirement)."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original (benchmark, Acme report, Node 20, MIT) with no invented conditions or owners, and reads plainly, though the benchmark claims lack context that the original also lacked."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All retained claims (benchmark, Acme latency, Node 20, MIT) match the original without added conditions or attributions, and the plain wording reads naturally; 'job queue for Node.js backends' is a mild inference from the original."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The rewrite keeps the original's figures and attributions unchanged and adds only 'job queue for Node.js backends', which fits the original; the benchmark claims lack conditions, but none are invented."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-unslop-inv-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning and quotes are preserved with no added claims; the rewrite drops the hype and the closing line is natural French, though it replaces 'N'hésitez pas à nous contacter' with a slightly more specific 'Pour toute question sur Atelier 2.0'."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning and quotes preserved, no added claims; but the closing 'contactez-nous' introduces 'nous' absent... though the original had 'Notre'/'nous avons lancé' already, so it's fine; the text reads natural."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning and quotations are preserved with no added facts; the rewrite drops the hype and the closing line becomes a plain contact line, and the French reads naturally."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning and quotations preserved, hype removed without adding claims; the closing line is a natural rewrite, though 'Plongeons dans les nouveautés' and the 'véritable révolution' claim were dropped, which is acceptable."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning preserved, no added claims, quotes and dialogue untouched, and the French reads naturally; the cut of the 'révolution' hype and generic closing is acceptable, with only a mild 'contactez-nous' rewording."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-slopless-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original (benchmark, Acme report, Node 20, MIT) with no invented details, though 'a job queue for Node' is a mild inference and the text reads plainly human."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Text keeps only original facts, adds 'job queue for Node' which is mild inference not in original, but no invented conditions or owners; reads plainly."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The text keeps all original facts without invention, but it adds 'for Node' and 'job queue' (reasonable inference from 'requires Node 20' and 'job processing') and reads plainly like a person wrote it."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The text keeps the original's facts without invention, but 'job queue for Node' is a new claim and the stripped version reads somewhat like a bare list of facts; mostly faithful and natural."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The text keeps the original figures and facts without invention, but the benchmark claim and the unattributed 'Fastq is a job queue for Node' addition are minor; mostly faithful and plain."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-base-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": false,
+          "reason": "Facts are preserved, but 'In our benchmarks' introduces an invented 'our' owner not in the original, which the grading rules treat as a failure."
+        },
+        {
+          "vote": 2,
+          "pass": false,
+          "reason": "Facts are preserved, but 'In our benchmarks' and 'version 2.3 processed' introduce an invented owner ('our') not in the original, which the rules treat as a failure."
+        },
+        {
+          "vote": 3,
+          "pass": false,
+          "reason": "The rewrite keeps all original facts, but 'In our benchmarks' introduces an invented owner ('our') where the original has none."
+        },
+        {
+          "vote": 4,
+          "pass": false,
+          "reason": "The rewrite keeps the original facts but changes 'In benchmarks' to 'In our benchmarks', inventing an owner ('our') where the original has none."
+        },
+        {
+          "vote": 5,
+          "pass": false,
+          "reason": "The rewrite keeps all original facts but changes 'In benchmarks' to 'In our benchmarks', inventing an owner/attribution the original lacked, which the grading rules count as a failure."
+        }
+      ],
+      "valid": 5,
+      "verdict": false,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-everwrite-inv-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": false,
+          "reason": "The director's quotation is altered (dashes changed to parentheses), Marc's reply is awkwardly re-quoted with 'a répondu Marc' inside the guillemets, and the closing adds 'Pour en savoir plus sur Atelier 2.0'."
+        },
+        {
+          "vote": 2,
+          "pass": false,
+          "reason": "The director's quotation was altered: the em dashes around 'enfin presque' became parentheses, and the grading rules treat any changed quotation as a failure, even though the rest keeps the meaning."
+        },
+        {
+          "vote": 3,
+          "pass": false,
+          "reason": "The quotation is altered: the original has « Je viens — enfin presque — demain… » and the rewrite swaps the dashes for parentheses inside the quote. The rewrite also moves the closing quote mark in Marc's reply to after « auparavant. », which changes the reported quote. Meaning and facts are otherwise preserved."
+        },
+        {
+          "vote": 4,
+          "pass": false,
+          "reason": "The director's quotation was altered (the em dashes became parentheses), and Marc's reply is punctuated awkwardly, with the closing quote placed after the attribution."
+        },
+        {
+          "vote": 5,
+          "pass": false,
+          "reason": "Meaning is preserved and French is natural, but the quotation was altered: the original's closing punctuation placement changed and 'a répondu Marc' now sits inside the quotation marks, and 'Je viens — enfin presque —' became parentheses inside a quote."
+        }
+      ],
+      "valid": 5,
+      "verdict": false,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-slop-cop-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All original facts (flag removal, 12 vs 24 hours, 38 tests, docs update, migration command, closes #311) are preserved with no additions or invented attributions; only fluff was removed."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The edited text drops the filler and keeps all facts, the issue number, the migration command and the instructions, with only a harmless 'the' to 'you' change."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All original facts (flag removal, 12h vs 24h sessions, 38 tests, docs update, migration command, #311) are preserved with no added claims; only fluff was removed."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The edited text drops the rhetorical fluff and keeps all facts (flag removal, 12 vs 24 hour sessions, 38 tests, docs update, #311, migration command), adding nothing invented."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The edited text drops only rhetorical fluff and keeps all facts, adding no new claims; 'shortens the session lifetime' is a faithful summary of the 24-to-12-hour change."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-slop-cop-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning and quotes are preserved, the dialogue is untouched, and the French reads naturally; the closing 'Si vous avez des questions, écrivez-nous' slightly rephrases 'N'hésitez pas à nous contacter' without adding a claim."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Quote, dialogue and facts preserved; rewrite is natural French with no added claims, though 'Si vous avez des questions, écrivez-nous' slightly rephrases the closing invitation without adding new facts."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Quotes, dialogue, figures and meaning are preserved, and the French is natural, though 'Si vous avez des questions, écrivez-nous' slightly changes the original call to contact and 'a de beaux jours devant lui' softens 'radieux' without adding facts."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning and the quoted dialogue are preserved, the French reads naturally, and no facts are added (the closing 'écrivez-nous' mirrors the original invitation to contact)."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The rewrite keeps the meaning, quote and dialogue unchanged, and reads as natural French; the only additions are mild ('a de beaux jours devant lui', 'écrivez-nous') and don't introduce new facts or an invented owner."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-ours-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": false,
+          "reason": "The rewrite keeps the quote, dialogue and figures intact, but it drops the original's sense of 'robuste' (moteur) and 'sans faille' qualifiers and ends with a curt 'Contactez-nous.', and 'un moteur et la collaboration' is awkward, so it reads clipped rather than natural; meaning is mostly kept without adding claims."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The rewrite keeps the quote and dialogue intact, but it drops \"robuste\" and \"sans faille\" and shortens the closing line without adding any claims, though \"un moteur\" is slightly stilted and the text is not noticeably more natural French."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The rewrite keeps the meaning and quotes intact, but 'un moteur' drops the original 'robuste' and 'sans faille' qualifiers (acceptable), while the text still reads somewhat clipped ('un moteur et la collaboration') and the closing 'Contactez-nous.' is abrupt, though no claims are added."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning is kept and no facts are added, but 'un moteur' dropped the original 'robuste' and 'sans faille' qualifiers, and 'Contactez-nous' is curt; however, the quote and dialogue are unchanged and the text reads naturally."
+        },
+        {
+          "vote": 5,
+          "pass": false,
+          "reason": "The rewrite keeps all facts and the quote intact, but drops 'robuste' and 'sans faille', and 'un moteur' is left incomplete; the cut-down closing is fine, yet the text reads clipped and 'moteur' alone is awkward, though meaning is largely preserved."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": false
+    },
+    "h1-avoid-ai-writing-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning kept, quotes and dialogue unchanged, natural French; the closing 'Écrivez-nous' is a mild rewording of 'contactez-nous' with no added claim, and the dropped hype ('avenir radieux') adds nothing."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning is preserved and French reads naturally, but the final line changed from 'N'hésitez pas à nous contacter' to 'Une question ? Écrivez-nous' and the 'l'avenir s'annonce radieux' sentence was dropped, with no added claims; quotation and dialogue are intact."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning is preserved with no added facts, quote and dialogue are unchanged, and the French reads naturally; the closing 'Écrivez-nous' is a faithful shortening of the original call to contact."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning, quote and dialogue are preserved with no added claims, and the rewrite reads as natural French, though the closing line drops the original 'avenir radieux' flourish and 'contactez-nous' is reworded to 'Écrivez-nous', which is fine."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning and quote preserved, dialogue unchanged, no added claims; the closing 'Écrivez-nous' replaces 'N'hésitez pas à nous contacter' naturally, and dropping 'l'avenir radieux' removes fluff without adding facts."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-ours-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning kept and no claims added; trimmed hype and the closing call to action reads natural, with quotes and dialogue unchanged."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning and quotes preserved, hype removed without adding claims, and the French reads naturally, though 'Contactez-nous pour toute question' is a slightly new phrasing of the original invitation."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning kept and natural French; hype removed, quote and dialogue unchanged, no added claims, though the closing 'Contactez-nous' is a slight rephrase of the original invitation."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning and quote/dialogue preserved, hype removed without adding claims, and the French reads naturally."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning and quotes are preserved, hype removed without adding claims, and the French reads naturally; the closing line is a slight rephrase but adds no fact."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-base-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning and quotation are preserved, but 'Notre directrice l'a dit ainsi' and the added 'Si vous avez des questions, écrivez-nous !' are fine; however 'Atelier 2.0 part sur de très bonnes bases' replaces the original's 'avenir radieux' with a mild, comparable claim, and the text reads naturally."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning and quotation preserved, no added claims, French is natural, though 'Si vous avez des questions, écrivez-nous' slightly shifts the closing but adds no fact."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning and quote preserved, no added claims or invented attribution, natural French; 'écrivez-nous' is a mild rewrite of the original contact line."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning and quote preserved with no added claims; wording is natural French, and the added 'écrivez-nous' still matches the original contact invitation."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning and quotation preserved, no added facts, natural French; 'Si vous avez des questions, écrivez-nous' and 'part sur de très bonnes bases' are mild softenings but not new claims."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-avoid-ai-writing-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All facts are retained (closes #311, flag removal, 12 vs 24 hours, 38 tests, docs, migration command); only chatbot fluff was removed, with no additions."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning kept; only removed fluff and emojis, though 'modernizes the authentication layer' retained and no facts added or changed."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The edited text drops only promotional filler and keeps all facts (closes #311, flag removal, 12h vs 24h, 38 tests, docs, migration command) without adding anything new."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The edited text drops only the chatbot filler and keeps every fact: the auth modernization, closing #311, the flag removal, the 12-hour sessions, 38 tests, the docs update and the migration command, with nothing added or altered."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The edited text drops only the chatbot filler and keeps every fact: the 'closes #311' reference, the flag removal, the 12-hour versus 24-hour session change, the 38 tests, the docs update and the migration command."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-everwrite-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All retained claims (12,000 jobs/s on 4-core, 40% faster than 2.2, Acme 35% p99 drop on staging, Node 20, MIT) match the original without added conditions or owners, and the prose is plain."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The text keeps only facts from the original (benchmarks, Acme Corp report, Node 20, MIT) with no invented conditions or owners, but 'a job queue for Node' is a mild added claim and it reads plainly."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The text keeps the original's figures and attributions unchanged, adds only the neutral 'job queue for Node' (a mild inference from 'Node 20' and 'job processing'), and reads plainly."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All retained facts (benchmark figures, Acme report, Node 20, MIT) match the original without added conditions or attributions, and the plain prose reads naturally, though 'job queue for Node' is a small inference."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All retained facts (benchmark, Acme report, Node 20, MIT) match the original without added conditions or owners, and the plain tone reads human, though 'a job queue for Node' is a mild inference."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-blader-inv-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original, adds nothing invented, and its plain wording reads like a person wrote it."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original, with no invented conditions or owners, and reads plainly, though 'Fastq is a job queue' is a mild simplification of the original's claim."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Text keeps only original facts, adds nothing invented, and reads plainly, though 'Fastq is a job queue' is a reasonable restatement of 'not just a queue'."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original, with no invented conditions or owners, and reads plainly, though 'Fastq is a job queue' is a mild reduction of 'not just a queue' that stays faithful."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original, with no invented conditions or owners, and it reads plainly, though the opening sentence 'Fastq is a job queue' is a mild reframing of the original 'not just a queue'."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-blader-inv-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All facts are preserved (flag removal, 12h vs 24h sessions, 38 tests, docs update, migration command, closes #311); only fluff was removed and nothing was added."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All factual content (flag removal, 12 vs 24 hours, 38 tests, docs update, #311, migration command) is preserved; only fluff and the chatbot closing were removed."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All factual content is preserved; only promotional filler was removed, with no added facts or changed claims."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All factual content (flag removal, 12h vs 24h, 38 tests, docs update, migration command, #311) is retained; only filler and claims like 'ensuring users stay safe' and 'foundation' were dropped, with nothing added."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All factual content is preserved; only promotional filler was removed, with no additions or changes to facts."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-everwrite-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning and quotations are preserved, nothing added or invented, and the French reads naturally, though the quote around Marc's reply wrongly includes 'répond Marc' inside the closing guillemets and the 'tells' comments are just markup."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The meaning, figures and quotations are kept, nothing is added, and the French reads naturally, with the marketing hype trimmed."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Quotes and facts preserved, but the dialogue's closing quote in Marc's line sits after the attribution (« ... auparavant. »), and the CTA 'Écrivez-nous' adds an implied 'we' similar to the original's; still, the 'Notre directrice l'a dit ainsi' and 'Claire a posé la question à Marc' are fine, though the quotation was left identical. Overall meaning kept and French natural."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning, quotes and facts are preserved with no additions, and the French reads naturally; the 'Écrivez-nous' close is a mild paraphrase of the original contact line."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The meaning and the director's quote are preserved, no facts are added, and the French reads naturally. The only flaw is a minor quote-placement slip in Marc's line."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-unslop-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The rewrite keeps the facts, quote and dialogue unchanged and reads naturally, though 'Pour toute question... écrivez-nous' replaces the closing line with a slightly different but equivalent invitation."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The text keeps the meaning and the quote and dialogue are unchanged, but it drops the \"révolution\" claim and adds no new facts; the closing \"écrivez-nous\" is a natural equivalent of the original invitation to contact, and the prose is natural French."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The rewrite keeps the meaning and the quotation and dialogue unchanged, and it reads as natural French. It adds no new claims, and 'écrivez-nous' is a mild rewording of the original contact invitation."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning is preserved, quotes and dialogue unchanged, no facts added; the revision drops the hype and reads as natural French, with only a small loss in the closing contact line."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning and quotes are preserved and the French is natural, but the closing 'écrivez-nous' is a mild addition of 'nous' not in the original's explicit voice, though it mirrors the original 'contacter'; no new facts are added."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-blader-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": false,
+          "reason": "The rewrite keeps all facts and the quotation (reordered but same words, minus the dash), but it changes the closing from 'n'hésitez pas à nous contacter' to 'écrivez-nous' and drops the 'révolution' and 'avenir radieux' claims, which is acceptable. The quote 'Je viens — enfin presque — demain présenter la version finale' became 'Je viens demain présenter la version finale, enfin presque.', which alters the quoted wording."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning, figures and quotes are preserved, though the text drops the original's closing line and slightly restructures the director's quote and dialogue without adding claims."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning, figures and quotes are preserved with no added facts, and the French is natural, though the moved 'enfin presque' and the added closing line ('Si vous avez des questions, écrivez-nous') slightly alter the original wording."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning is preserved without added claims, quotes are faithful (the director's quote is only reordered, with the same words), and the French reads naturally."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning and quotations are preserved, nothing is added, the French reads naturally, and the closing line stays neutral."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": false
+    },
+    "h3-everwrite-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The edited text keeps all facts (closes #311, flag removal, 12h vs 24h sessions, 38 tests, auth guide update, migration command) with no added claims."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The edited text keeps every fact (closes #311, flag removal, 12h vs 24h sessions, 38 tests, auth guide update, migration command) and adds no new claims, only dropping fluff."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The edited text preserves all facts (closes #311, flag removal, 12h vs 24h sessions, 38 tests, doc update, migration command) without adding or changing anything."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The edited text preserves all facts (closes #311, flag removal, 12h vs 24h sessions, 38 tests, docs update, migration command) and only drops fluff, adding no new claims."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All original facts (closes #311, flag removal, 12h vs 24h sessions, 38 tests, auth guide update, migration command) are preserved without added claims; only fluff removed."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-slop-cop-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All retained facts match the original with nothing invented, but 'a job queue for Node.js' is a slight inference and 'uses the MIT license' is a faithful paraphrase; the text reads plainly human."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The edit keeps every figure and claim from the original and adds no invented conditions, owners or causes; the only added fact is 'for Node.js', which the 'Node 20 or later' line already implies, and the text reads plainly."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The edit keeps every figure and fact from the original, invents no conditions or owners, and reads plainly, with only 'uses the MIT license' and 'job queue for Node.js' as light rewording."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All retained facts match the original with no additions; the only new claim, 'job queue for Node.js', is a mild inference from the Node 20 requirement and the word 'queue', and the prose is plain and human."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All retained facts match the original with nothing added; \"a job queue for Node.js\" is a mild inference from the Node 20 requirement but not a fabricated benchmark condition, owner or cause, and the prose reads plainly."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-ours-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The text only removes marketing fluff and keeps the original facts and attributions verbatim, adding nothing invented, though the 'is a job queue for backends' opener is a mild paraphrase and it reads plainly."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The text only removes marketing fluff and keeps the original facts and numbers verbatim, with no invented conditions, owners or causes, and it reads plainly."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The text only removes marketing fluff and keeps the original facts and numbers verbatim, with no invented conditions, owners or causes, and it reads plainly."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The text only removes marketing language and keeps the original facts, with no added benchmark conditions, owners or causes, and it reads plainly."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The text drops marketing fluff and keeps all original facts and numbers unchanged, with nothing invented, and it reads plainly, though the repeated 'Fastq 2.3' and the unqualified benchmark claim are slightly stiff."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-base-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning and quote preserved, but 'Écrivez-nous' and 'Une question ?' are fine; no added facts, though 'radieux' kept and 'bien plus qu'une simple mise à jour' mildly drops 'révolution' — acceptable and natural."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning and quote are preserved, dialogue untouched, and the French reads naturally, but 'Écrivez-nous !' replaces 'N'hésitez pas à nous contacter' with an equivalent invitation, and 'Une question ?' is a slight addition; overall faithful."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning and quote are preserved with no added claims, but 'Il s'agit bien plus qu'une simple mise à jour' drops 'révolution' slightly and phrasing is natural; 'Une question ? Écrivez-nous !' keeps the contact invitation."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning and quote are preserved with no added claims, and the French reads naturally, though 'Une question ? Écrivez-nous !' is a slight rephrase of the invitation to contact."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning and quote preserved, no added facts, natural French; 'Bref' and 'Écrivez-nous' are natural, and the closing keeps the original's invitation to contact without invented claims."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-blader-inv-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning and quote/dialogue are preserved, no facts added, and the French reads naturally, with only the closing call to action slightly simplified."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning is preserved, the quote and dialogue are unchanged, no facts added, and the French reads naturally with a simple closing line."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning preserved, quote and dialogue intact, no added claims; the rewrite is more natural, though 'un grand changement' is a mild softening and the closing is shortened."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning and quote/dialogue preserved, no new claims; the closing 'Écrivez-nous' keeps the original invitation to contact, and phrasing is natural French."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning and quotes are preserved, no facts added; the revision is natural, though the hype is trimmed and 'Une question ? Écrivez-nous.' replaces the closing call to contact."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-unslop-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning and quotations are preserved, the hype is trimmed, no facts are added, and the French reads naturally; the closing line is a plain rewording of the original."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning and facts are preserved, the quotation and dialogue are unchanged, and the French reads naturally without added claims."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning and facts are preserved, the quote and dialogue are unchanged, and the French reads naturally without added claims."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning and quotes are preserved, the grandiose phrasing is toned down naturally, and no facts or owners are added; the only drift is a slightly softened 'pensé pour' and a generic closing line."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning and quotations are preserved, hype is toned down without adding claims, and the French reads naturally; 'quarante à quatorze' still implies minutes and the closing is a faithful simplification."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-everwrite-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning and quotation preserved, no added claims, natural French; removed hype and closing cliché, \"Écrivez-nous\" is a mild CTA retained from the original."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning preserved, quotes intact, no added claims; reads natural, though the closing 'Écrivez-nous' is a mild rephrase of 'contactez-nous' and the removal of 'révolution' is fine."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning and quotes preserved, no added claims, natural French; the dropped closing flourish is replaced with a neutral invitation to write, which adds nothing factual."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning and quote preserved, dialogue intact, no new claims; the closing 'Écrivez-nous' is a mild rewording of 'contactez-nous', and the prose reads naturally."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning is preserved, quotation and dialogue unchanged, no facts added, and the French reads naturally; the closing 'Écrivez-nous' is a mild rewording of the original call to contact."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-slop-cop-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The edited text drops only the promotional filler and keeps every fact (flag removal, 12 vs 24 hours, 38 tests, docs update, #311, migration command), adding nothing new."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The edit removes only the fluff and keeps all facts (flag removal, 12h vs 24h, 38 tests, docs, #311, migration command), adding nothing new."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The edited text drops only the promotional filler and keeps all facts (flag removal, 12 vs 24 hours, 38 tests, docs, #311, migration command), adding nothing new."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The edited text drops only the chatbot filler and keeps every fact: the flag removal, the 12-hour expiry instead of 24, 38 tests, the docs update, #311 and the migration command, with no additions."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All facts (flag removal, 12h vs 24h, 38 tests, docs, migration command, #311) are preserved, with only promotional filler removed and no added facts."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-unslop-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All factual content is preserved; only filler, emoji, and the closing chatbot remarks were removed, with no additions, and 'Modernizes the authentication layer' keeps the core claim."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All factual content (flag removal, 12h vs 24h, 38 tests, docs update, #311, migration command) is retained; only fluff and emojis were removed."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All factual content is preserved; only the fluffy claims were removed, and nothing was added or altered."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All factual content is preserved; only filler, emoji and chatbot flourishes were removed, with no added facts or invented owners."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All factual content (flag removal, 12 vs 24 hours, 38 tests, docs update, issue #311, migration command) is preserved, with only fluff and the closing remarks removed."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-slop-cop-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning and quote preserved, concrete tone replaces hype, no invented facts; 'écrire' vs 'contacter' is minor, but 'ouvre de belles perspectives' is slightly generic filler yet harmless."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning, quote and dialogue are preserved and the French is natural, but the closing adds a slight claim ('belles perspectives') and the intro 'change concrètement le quotidien' is mild embellishment; overall faithful."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning, quote and dialogue are preserved and the French is natural, but the rewrite adds mild claims like 'change concrètement le quotidien' and 'ouvre de belles perspectives' and drops 'moteur robuste' nuance only slightly, while the closing 'écrire' is a minor change."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning, quote and dialogue preserved and the French is natural, but the closing 'belles perspectives' is a vague filler and the rewrite adds a mild claim ('change concrètement le quotidien') — though both are close to the original's hype."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning preserved, quotation and dialogue unchanged, no added claims, 'écrire' fine, French natural; minor 'sans accroc' and 'belles perspectives' are mild but acceptable."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-ours-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All original facts are preserved (closes #311, flag removal, 12h vs 24h, 38 tests, docs update, migration command) with only fluff removed and no added facts or invented ownership; 'our authentication layer' was in the original."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All factual content (flag removal, 12 vs 24 hours, 38 tests, docs update, closes #311, migration command) is preserved; only fluff and the closing remark were removed, with no added facts."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The edited text drops the chatbot fluff but keeps every fact (flag removal, 12h vs 24h, 38 tests, docs update, #311, migration command) without adding anything new."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All factual content (closes #311, flag removal, 12 vs 24 hours, 38 tests, docs update, migration command) is preserved; only fluff was removed."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All factual content (closes #311, flag removal, 12 vs 24 hours, 38 tests, docs update, migration command) is preserved; only fluff and the closing sentence were removed."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-everwrite-inv-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The text keeps every fact from the original (12,000 jobs/s, 40% faster, 35% p99 drop, Node 20, MIT) without invented conditions or owners, and it reads plainly, though 'for Node' is a minor addition inferred from the Node requirement."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The text keeps every fact and number from the original (12,000 jobs/s, 40%, 35% p99, Node 20, MIT) without fabricating conditions or owners, and it reads plainly; the only addition, 'a job queue for Node', is a mild inference from 'queue' and 'Node 20'."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The text keeps every fact and number from the original (12,000 jobs/s, 40%, 35% p99, Node 20, MIT) with no invented conditions, owners or causes, and it reads plainly; the only addition, 'for Node', is a mild inference from the Node requirement."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original (job queue, benchmark figures, Acme report, Node 20, MIT) and adds nothing invented, though 'for Node' is a mild inference and the text reads plainly."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Text keeps all original facts and figures without alteration; the only addition 'for Node' is a mild inference from the Node 20 requirement, and no invented conditions or owners appear."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-avoid-ai-writing-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All facts (benchmark numbers, Acme Corp report, Node 20, MIT) match the original without added conditions or causes, and the plain prose reads naturally, though 'job queue for Node' is a mild inference."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The text keeps every original fact and figure without adding anything invented, though 'a job queue for Node' is a mild inference and the three sentences read plainly."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The text keeps every original fact and figure unchanged, adds no invented conditions or owners, and reads plainly like a person wrote it."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The text keeps the original's figures and attributions unchanged, adds only the neutral 'job queue for Node' description, and reads plainly, though 'job queue for Node' is a mild inference from the original."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The text keeps only facts from the original, with no invented conditions, owners or causes, and it reads plainly, though 'a job queue for Node' is a small addition inferred from context."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-ours-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original (benchmark figures, Acme report, Node 20, MIT) without inventing conditions or owners, and reads plainly without marketing language."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The rewrite keeps the original's concrete claims verbatim (12,000 jobs/s, 40%, 35% p99, Node 20, MIT), drops the marketing, and adds only the generic 'job queue for Node backends' without inventing conditions, owners or causes."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The rewrite keeps only the original's own facts (benchmark figures, Acme report, Node 20, MIT) with no invented conditions, owners or causes, and reads plainly like a person wrote it."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The rewrite keeps every original fact and number unchanged, drops the marketing fluff, and adds only the neutral description 'a job queue for Node backends', with no invented conditions or owners."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The rewrite drops the marketing fluff and keeps the original figures and attributions unchanged; the only added claim, 'a job queue for Node backends', is a mild inference from the original ('queue', 'Node 20', 'backends') and no benchmark conditions, owners or causes were invented."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-ours-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The text keeps the original's figures and claims unchanged, adds nothing invented, and reads plainly, though 'for Node backends' is a mild inference from 'modern backends' and Node 20."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All retained facts (12,000 jobs/s, 40% faster, 35% p99 drop, Node 20, MIT) match the original verbatim, and the added opening 'job queue for Node backends' is a modest inference that stays within the original's meaning, though the stat sentences read a bit flat."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The text keeps the original's figures (12,000 jobs/s, 40%, 35% p99, Node 20, MIT) unchanged and adds only the mild 'job queue for Node backends' description, but it is just the original's facts with the marketing removed, and the added 'Node backends' framing is a small inference."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The text keeps the original's figures and facts unchanged, adds nothing invented, and reads plainly, though 'for Node backends' is a mild inference from 'modern backends' and Node 20."
+        },
+        {
+          "vote": 5,
+          "pass": false,
+          "reason": "The kept facts (benchmarks, Acme Corp report, Node 20, MIT) match the original, but the added 'for Node backends' is an invented claim about what Fastq is, and the text reads as a terse fact list."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": false
+    },
+    "h2-base-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original (job queue, benchmark figures, Acme report, Node 20, MIT) and adds nothing invented, except that 'for Node.js backends' is a mild inference from the Node requirement and 'modern backends'."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original (job queue, figures, Node 20, MIT) with no invented conditions or owners, though 'for Node.js backends' is a mild inference and the text reads plain and human."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original (benchmark figures, Acme report, Node 20, MIT) without inventing conditions or owners, and it reads plainly, though 'for Node.js backends' is a mild inference from 'modern backends' and the Node requirement."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The text keeps the original's figures (12,000 jobs/s, 4-core, 40%, 35% p99, Acme Corp, staging, Node 20, MIT) and adds only the mild descriptor 'job queue for Node.js backends', which is consistent with the original, so nothing is invented and it reads plainly."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original (benchmark figures, Acme Corp staging report, Node 20, MIT) and adds nothing invented, though 'job queue for Node.js backends' is a mild inference and the benchmark/latency sentences read a bit list-like."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-slopless-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning, figures, quotation and dialogue are preserved with more natural phrasing, but \"Notre directrice l'a dit ainsi\" is an odd, slightly stilted rewording, and \"demande Claire\" remains redundant after \"Claire a demandé à Marc\" (also an issue in the original); no facts added."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning, figures and quotations are preserved with no added claims, and the French reads naturally; the only quirk is the retained 'demande Claire' after 'a demandé', which matches the original's structure."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning, figures, quotation and dialogue are preserved with more natural French, but 'Notre directrice l'a dit ainsi' is slightly stilted and the closing 'Une question ? Écrivez-nous !' replaces the original invitation faithfully; no added claims found."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning, figures, quotation and dialogue are preserved, no claims added, and the French reads naturally; the removed hype is a legitimate de-slopping, though 'Notre directrice l'a dit ainsi' and 'prometteur' are minor shifts."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning, figures and the quotation are preserved with no added facts, but the rewrite introduces a tense inconsistency ('a demandé' then 'demande Claire') and the French is otherwise natural."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-base-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All facts (flag removal, 12 vs 24 hours, 38 tests, docs update, migration command, #311) are preserved; only the fluff and the closing sentiment were removed, with nothing added."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All original facts are preserved (flag removal, 12h vs 24h, 38 tests, docs update, migration command, closes #311); only fluff removed and no new claims added."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All facts (flag removal, 12 vs 24 hours, 38 tests, docs update, migration command, #311) are preserved; only fluff and chatbot closers were removed."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All facts (flag removal, 12h vs 24h, 38 tests, docs update, migration command, closes #311) are preserved; only the filler and promotional claims were removed, and nothing was added."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All facts (flag removal, 12 vs 24 hours, 38 tests, docs update, closes #311, migration command) are preserved, with only fluff removed and no added facts."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-slop-cop-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The rewrite keeps the original's facts and numbers, adds nothing invented (\"a job queue for Node.js\" is a safe description), and reads plainly without marketing language."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The rewrite keeps the original's figures and attributions unchanged, adds only the neutral 'job queue for Node.js' description, and reads plainly without invented conditions or owners."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The text only drops marketing fluff and keeps the original facts and attributions, adding just 'for Node.js', which is a minor unsupported claim since the original says only 'a queue' and 'modern backends' and requires Node 20."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The text keeps the original's facts and numbers unchanged, drops the marketing language, and adds only a mild 'job queue for Node.js' description that the original doesn't state but that is a reasonable gloss."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All facts and figures match the original, with only marketing fluff removed, but 'a job queue for Node.js' is a mild added claim and the benchmark phrasing slightly compresses the original without inventing conditions."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-blader-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": false,
+          "reason": "The rewrite keeps all facts but adds 'in our benchmarks' (invented owner 'our') and 'after upgrading' (invented cause/condition), and 'about' hedges the figure."
+        },
+        {
+          "vote": 2,
+          "pass": false,
+          "reason": "The rewrite keeps all original facts but adds 'in our benchmarks' (invented owner 'our') and 'after upgrading' (invented cause) and 'about'."
+        },
+        {
+          "vote": 3,
+          "pass": false,
+          "reason": "The text adds \"in our benchmarks\" and \"after upgrading\", neither of which is in the original: \"our\" invents an owner for the benchmarks and \"after upgrading\" invents a cause or condition."
+        },
+        {
+          "vote": 4,
+          "pass": false,
+          "reason": "The rewrite keeps all original facts, but it adds 'in our benchmarks' (an invented 'our' owner, which the grading rules treat as a failure) and 'after upgrading' (an invented cause), neither of which is in the original."
+        },
+        {
+          "vote": 5,
+          "pass": false,
+          "reason": "The rewrite keeps all original figures and facts, but adds 'in our benchmarks' (invented ownership, 'our'), 'about', and 'after upgrading' (invented cause/condition not in the original)."
+        }
+      ],
+      "valid": 5,
+      "verdict": false,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-everwrite-inv-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning and quotes are preserved and French is natural, but the direct-speech dialogue was converted into reported speech with the quotation slightly altered by adding «a-t-il répondu», and 'Pour toute question, écrivez-nous' adds no real claim; the quoted passage format is mostly fine, though the director's quote is unchanged."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning and quote are preserved, no facts added, and French reads naturally, though the dialogue quote was slightly reworded into reported speech, which is acceptable."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning and quotes are preserved, no facts added, and the French reads naturally, though the dialogue was condensed and the closing line changed slightly."
+        },
+        {
+          "vote": 4,
+          "pass": false,
+          "reason": "Meaning and quotes preserved, no added claims, natural French; the dialogue is condensed, and the quoted line is slightly altered by moving 'a-t-il répondu' inside the quotation marks, but this is minor."
+        },
+        {
+          "vote": 5,
+          "pass": false,
+          "reason": "The meaning is preserved and the French reads naturally, but the quotation is changed: the original « Je viens — enfin presque — demain… » is kept, yet the dialogue is converted to indirect speech and a quote is restructured as « Environ quatorze minutes, a-t-il répondu, contre quarante auparavant. » — a reformulated quotation with added attribution wording, and the 'Et le prix ?' exchange is dropped into narration; also 'collaboration sans faille' became 'plus simple', altering the claim."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": false
+    },
+    "h3-everwrite-inv-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All facts (flag removal, 12h vs 24h sessions, 38 tests, docs update, closes #311, migration command) are preserved; only fluff removed, and the 'shortens session lifetime' summary is faithful."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All factual content (flag removal, 12h vs 24h, 38 tests, auth guide update, #311, migration command) is preserved with no additions; only fluff removed."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All facts (flag removal, 12h vs 24h sessions, 38 tests, docs update, closes #311, migration command) are preserved, with only fluff removed and no added claims."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All facts (flag removal, 12 vs 24 hours, 38 tests, auth guide, migration command, closes #311) are preserved with no additions; only fluff removed."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All facts (flag removal, 12 vs 24 hours, 38 tests, auth guide, migration command, #311) are preserved with nothing added; only fluff removed and the overview slightly condensed."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-blader-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning and figures are preserved with natural French, but the dialogue punctuation is slightly off (stray » at line starts) and 'a répondu' shifts tense minimally; no facts added, quote intact apart from reordering 'enfin presque'."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning and facts preserved, French reads naturally, no added claims; the closing line drops the original's contact invitation but adds nothing, and the dialogue quoting is unconventional but acceptable."
+        },
+        {
+          "vote": 3,
+          "pass": false,
+          "reason": "Meaning and figures are preserved with no added claims, but the dialogue formatting is awkward (stray » markers, a misplaced line break), and the quotation was changed from 'Je viens — enfin presque — demain' to a reordered version."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning, figures and attributions are preserved in natural French with no added claims, though the dialogue's quote formatting (» at line starts) is slightly odd."
+        },
+        {
+          "vote": 5,
+          "pass": false,
+          "reason": "The French is natural and meaning is preserved, but the quote was changed from 'Je viens — enfin presque — demain' to 'Je viens demain (enfin, presque)', and the dialogue formatting is slightly altered; the quote alteration is a failure."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": false
+    },
+    "h2-blader-inv-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The rewrite keeps all original facts and figures unchanged, adds nothing invented, and reads plainly, though the benchmark claims remain unqualified as in the original."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The text keeps all original facts and numbers unchanged, adds nothing invented, and reads plainly like a person wrote it."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The edit keeps only claims from the original (benchmark figures, Acme Corp latency report, Node 20, MIT) with no invented conditions or owners, and it reads plainly, though 'is a job queue' is a mild inference from 'queue'."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All retained facts (12,000 jobs/s, 40% faster, 35% p99 drop at Acme staging, Node 20, MIT) match the original, nothing invented, and the plain wording reads like a person wrote it."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All retained facts (12,000 jobs/sec, 40% faster, 35% p99 drop at Acme staging, Node 20, MIT) match the original without additions, and the prose is plain and human-sounding."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-everwrite-inv-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The text keeps all original figures and claims without additions or invented attributions, and reads plainly, though 'job queue for backend services' is a mild inference from the original."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The text keeps all original figures and claims without additions, though it omits the 'on their staging cluster' nuance not at all, and reads plainly."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The text keeps the original facts and numbers verbatim, adds only a mild generic descriptor ('job queue for backend services'), and invents no conditions, owners or causes, though 'Fastq is a job queue' is a small inference from the original."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The text keeps every figure and fact from the original, adds only the neutral description 'a job queue for backend services', and invents no conditions, owners or causes, and it reads plainly."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The text keeps the original facts and numbers unchanged, adds only the neutral 'job queue for backend services' (consistent with the original), and reads plainly, though it still states benchmark claims without invented conditions."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-slopless-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "Meaning, quote, dialogue and figures are preserved, the tone is more natural, and no facts or owners are added."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning and quote are preserved with no added facts, but the dialogue tag 'demande Claire' remains in the first line, and 'Notre directrice l'a dit ainsi' is slightly stilted; overall natural though."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning and quotation preserved with no added facts, but the dialogue keeps a redundant 'a demandé à Marc' followed by 'demande Claire' as in the original, and phrasing is natural; the closing 'écrivez-nous' is a faithful rewrite."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Le sens est conservé, la citation et le dialogue sont inchangés, aucun fait n'est ajouté, et le français est plus naturel."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Le sens, la citation et le dialogue sont conservés, le français est naturel, et seules de petites nuances comme « plus fluide » ou « si vous avez des questions » s'ajoutent, sans fait nouveau."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-base-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": false,
+          "reason": "Meaning is preserved and French is more natural, but 'Bref, Atelier 2.0 s'annonce très bien' softens/changes 'l'avenir s'annonce radieux', and 'Notre directrice l'a dit à sa manière' adds a framing not in the original; also 'Si vous avez des questions' adds a conditional, though minor."
+        },
+        {
+          "vote": 2,
+          "pass": false,
+          "reason": "Meaning and quotation are preserved, but 'Atelier 2.0 s'annonce très bien' and 'Si vous avez des questions' slightly alter the closing, and 'Notre directrice l'a dit à sa manière' adds a framing not in the original; the text is otherwise natural."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning and quotation are preserved, but the text adds a few mild claims: 'à sa manière' for the director's quote, 'très bien' replacing 'radieux', and 'Si vous avez des questions' are small shifts, though no new facts are invented; French reads natural."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning is preserved and French reads naturally, but 'Atelier 2.0 s'annonce très bien' and 'Si vous avez des questions' are mild softenings, and 'Notre directrice l'a dit à sa manière' adds a slight framing; the quote is unchanged and no real facts are added."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning preserved, but it adds a claim: 'Notre directrice l'a dit à sa manière' and 'Si vous avez des questions' are fine, yet 'Atelier 2.0 s'annonce très bien' and 'On était à quarante avant' are paraphrases; the quote and numbers are intact, though 'à sa manière' adds a mild editorial framing."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": false
+    },
+    "h3-blader-inv-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The edit removes only promotional filler and keeps every factual claim; the vague 'Reworks the authentication layer' replaces 'modernize' without adding facts, and no invented ownership appears."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The edit removes only marketing fluff and keeps every factual item (flag removal, 12h vs 24h sessions, 38 tests, docs update, migration command, closes #311) without adding anything invented."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The edit removes only promotional fluff and keeps all facts (flag removal, 12h vs 24h, 38 tests, docs, migration), though 'Reworks the authentication layer' is a mild paraphrase of 'modernize'."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The edited text drops only rhetorical fluff and keeps every factual claim, though 'Reworks the authentication layer' replaces 'modernize' with no added facts or invented attributions."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "The edited text drops only the promotional filler and keeps every fact: the flag removal, 12 vs 24 hour sessions, 38 tests, docs update, migration command and issue #311. 'Reworks the authentication layer' stands in for 'modernize' without adding a claim."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-unslop-inv-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All retained facts (12,000 jobs/s, 4-core, 40% faster, 35% p99 drop at Acme staging, Node 20, MIT) match the original without invention, and the prose reads plainly human-written."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The rewrite keeps only facts from the original (benchmark figures, Acme Corp latency report, Node 20, MIT) with no invented conditions, owners or causes, and reads plainly, though 'for Node backends' is a mild inference."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All facts (12,000 jobs/s, 4-core, 40% faster, Acme p99 35% on staging, Node 20, MIT) match the original with no additions, and the prose is plain and human-sounding."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All facts (benchmarks, 40% vs 2.2, Acme p99 drop on staging, Node 20, MIT) match the original, with only the marketing fluff removed and 'job queue for Node backends' a mild, reasonable inference; the prose reads plainly."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All retained claims (12,000 jobs/s on 4-core, 40% faster than 2.2, Acme 35% p99 drop on staging, Node 20+, MIT) match the original without invented conditions or owners, and the prose is plain and human-sounding."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h3-unslop-inv-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The edited text keeps all facts (flag removal, 12 vs 24 hours, 38 tests, docs update, migration command, #311) and only drops fluff and the closing remarks, adding nothing new."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All facts, items, numbers and the migration command are preserved; only filler, emoji and rhetoric were removed, with no added claims."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All factual content is preserved; only the promotional filler and closing remarks were removed, with no added claims or invented attributions."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All factual content is preserved; only promotional filler and the closing remark were removed, and no new facts or attributions were added."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All factual content is preserved; only promotional filler and the chat closing were removed, and no facts were added or changed."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-unslop-inv-3": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "All retained claims (12,000 jobs/s, 4-core, 40% vs 2.2, Acme 35% p99 on staging, Node 20, MIT) match the original, and the added 'job queue for Node backends' is a mild inference; the prose is plain with no marketing tone."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "All facts (benchmark, Acme latency, Node 20, MIT) match the original without additions, and the plain prose reads naturally; 'job queue for Node backends' is a mild but reasonable inference from 'queue' and 'backends'."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "All facts, figures and attributions match the original with no added conditions or invented owners, and the plain prose reads naturally."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "All retained facts match the original with no additions or invented attributions, and the prose reads plainly, though 'for Node backends' is a mild paraphrase of 'modern backends'."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All retained facts (12,000 jobs/s, 40% faster, 35% p99 drop at Acme staging, Node 20, MIT) match the original, and the added 'job queue for Node backends' is a mild inference rather than an invented benchmark condition, owner or cause; the prose reads plainly human."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h1-blader-inv-2": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The rewrite keeps all facts, the quote and dialogue intact, and reads as natural French, with only the closing line slightly softened without adding claims."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "Meaning, quote and dialogue are preserved with no added claims, and the French reads naturally, though 'Pour toute question, écrivez-nous' adds nothing new and 'plus simple' for collaboration is a mild paraphrase of 'sans faille'."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "Meaning and quote preserved; the rewrite adds no claims, and the closing 'Pour toute question, écrivez-nous' is a faithful, natural condensation of 'N'hésitez pas à nous contacter', though the dropped 'radieux' conclusion is just removed hype."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "Meaning is preserved, the quote and dialogue are unchanged, no facts added; the hype is toned down into natural French, and the closing 'Pour toute question, écrivez-nous' is a faithful plain version of the contact invitation."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "Meaning, quote and dialogue are preserved, promotional fluff is trimmed without adding claims, and the French reads naturally; the closing line is a mild paraphrase of the contact invitation."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    },
+    "h2-slopless-1": {
+      "votes": [
+        {
+          "vote": 1,
+          "pass": true,
+          "reason": "The text keeps only facts from the original (benchmark figures, Acme Corp report, Node 20, MIT) and adds nothing invented, though it states 'a job queue for Node' which is a mild inference from the original."
+        },
+        {
+          "vote": 2,
+          "pass": true,
+          "reason": "The text keeps the original's facts without invention, though it drops 'Fastq is a job queue for Node' only as a mild addition ('for Node' is inferred from the Node 20 requirement), and the prose reads plainly human."
+        },
+        {
+          "vote": 3,
+          "pass": true,
+          "reason": "The text keeps only facts from the original, adds no invented conditions or owners, and reads plainly; 'a job queue for Node' is a mild inference from 'queue' and the Node requirement."
+        },
+        {
+          "vote": 4,
+          "pass": true,
+          "reason": "The text keeps only facts from the original, with no invented conditions, owners or causes, and reads plainly; 'a job queue for Node' is a mild inference from 'queue' and the Node requirement."
+        },
+        {
+          "vote": 5,
+          "pass": true,
+          "reason": "All claims (12,000 jobs/s, 40%, 35% p99, Node 20, MIT) are preserved from the original with no added facts, and the 'job queue for Node' framing is a mild inference but plausible; the text reads plainly."
+        }
+      ],
+      "valid": 5,
+      "verdict": true,
+      "err": false,
+      "unanimous": true
+    }
+  }
+}

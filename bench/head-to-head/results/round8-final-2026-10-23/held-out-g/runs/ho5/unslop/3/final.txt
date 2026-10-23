@@ -1,0 +1,9 @@
+Mexi pouco em `guia-integracao.md`, porque o texto já soava como pessoa: frases diretas, fatos concretos, nenhum fecho genérico, nenhuma abertura de efeito, nenhuma tríade nem paralelismo negativo.
+
+Fiz duas edições:
+- **Linha 3:** "Ele foi revisado pela última vez em 12 de outubro de 2026." virou "Última revisão: 12 de outubro de 2026."
+- **Linha 7:** "Sem esse acesso você não consegue assumir nenhum chamado." virou "Sem ele você não assume nenhum chamado."
+
+Comandos, URL, versão 4.1.3, nomes, ramal, telefone do plantão e e-mail continuam exatamente como estavam.
+
+Se o guia ainda lhe parece artificial, o motivo provavelmente está no conteúdo e não na forma. Faltam detalhes que só quem trabalha aí saberia, por exemplo o que fazer quando o painel cai ou como a Renata costuma conduzir a segunda-feira. Esses detalhes teriam que vir de você; eu não inventei nenhum.

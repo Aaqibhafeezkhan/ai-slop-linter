@@ -1,0 +1,9 @@
+Saya sudah menulis ulang `status-mingguan.md` di tempat. Kutipan pedagang, ID tiket (WK-904, WK-911, WK-915, WK-920), versi 2.6.0, tanggal, format `.xlsx`, path `/laporan` dan alamat email tidak saya ubah. Saya tidak membaca ulang file setelah menulisnya.
+
+Yang saya ubah:
+- **Pembuka dan penutup:** saya hapus "Tentu saja! Berikut adalah ringkasan komprehensif…", "Semoga bermanfaat!", "Di era digital yang serba cepat ini", "dengan bangga mengumumkan kemajuan luar biasa", "tonggak penting yang benar-benar mengubah…", dan penutup tentang "fondasi yang kokoh" dan "dukungan Anda yang luar biasa". Ringkasan sekarang langsung memuat faktanya: 18 dari 21 tiket selesai.
+- **Langkah berikutnya:** isinya tinggal satu kalimat berisi kontak Dewi Anggraini. Kalimat "berkomitmen memberikan solusi terbaik" tidak berisi fakta, jadi saya buang.
+- **Kalimat pengisi:** "Perlu dicatat bahwa" dan "jauh lebih cepat, yaitu" saya pangkas. "Sepertinya sudah mungkin teratasi" jadi "sepertinya sudah teratasi", karena dua kata ragu dalam satu klaim berlebihan.
+- **Tiket yang belum selesai:** kalimat sebabnya saya pecah menjadi kalimat yang lebih langsung. Isinya sama: vendor pembayaran terlambat, jadi rilis mundur dari 23 ke 30 Oktober 2026.
+
+Satu hal untuk Anda cek: klaim "mengubah cara pedagang mengelola stok" ikut terhapus karena tidak ada angka atau sumbernya. Kalau ada data pendukung, Anda bisa menambahkannya kembali.

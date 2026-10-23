@@ -1,0 +1,10 @@
+I rewrote `status-mingguan.md` in place. The merchant quote, WK-904/911/915/920, version 2.6.0, the dates (16, 23 and 30 Oktober 2026), `.xlsx`, `/laporan` and <EMAIL> are all unchanged.
+
+- **Chat wrapper:** I removed the "Tentu saja! Berikut adalah ringkasan komprehensif… Semoga bermanfaat!" opener.
+- **Inflated intro:** I replaced "Di era digital yang serba cepat… bangga mengumumkan kemajuan luar biasa… tonggak penting yang benar-benar mengubah" with the plain facts: 18 of 21 tickets done for 2.6.0.
+- **Filler:** I cut "Perlu dicatat bahwa" and "yaitu".
+- **Stacked hedge:** "sepertinya sudah mungkin teratasi" became "kemungkinan sudah teratasi".
+- **Delay explanation:** The two sentences became a colon list of the tickets followed by a short "jadi" clause.
+- **Closing:** I removed the "terus berkomitmen… fondasi yang kokoh… dukungan Anda yang luar biasa" paragraph. Only the contact line is left.
+
+I didn't add any facts.

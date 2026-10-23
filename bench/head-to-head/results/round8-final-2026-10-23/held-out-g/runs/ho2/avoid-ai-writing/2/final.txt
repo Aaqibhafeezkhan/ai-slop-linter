@@ -1,0 +1,15 @@
+He reescrito `pr-sms-reintentos.md` en el sitio.
+
+**Cambios**
+- **Apertura de chatbot:** quité «¡Claro! Aquí tienes una descripción detallada… Espero que te sea de utilidad.».
+- **Resumen:** sustituí «solución robusta y escalable que transforma por completo…», «En el mundo digital actual…» y «juega un papel fundamental» por una frase con lo que hace la PR: `avisos-api` reintenta el envío con espera exponencial cuando falla el proveedor.
+- **Cambios:** quité «Cabe destacar que». Cambié «potencialmente podría causar» por «podría causar», que mantiene la incertidumbre sin acumular dos cautelas.
+- **Resultados:** quité «los resultados son realmente impresionantes». La línea previa a la tabla queda como «Medido en el entorno de preparación el 8 de octubre de 2026:».
+- **Cómo probarlo:** quité «Para empezar, simplemente», «No dudes en comentar» y el cierre «En definitiva… marca un antes y un después». Quedó «Ejecuta `pytest tests/test_sms.py`. Las dudas, en el issue #377.».
+
+**Verificación**
+- **Sin cambios:** la tabla, `enviar_con_reintentos()`, `avisos/sms.py`, `SMS_MAX_REINTENTOS`, `tests/test_sms.py`, `pytest tests/test_sms.py`, las cifras (5, 2/4/8/16/32 s, 3 s, 14, 2,3 % → 0,1 %, 4,1 s → 4,4 s), la fecha y el #377. Los títulos y su orden también se mantienen.
+- **Pasadas de edición:** 2 de un máximo de 2. La segunda fue solo para ajustar la línea previa a la tabla.
+- **Controles:** el detector, el normalizador de comillas y el validador de preservación no se ejecutaron, así que la auditoría es solo del modelo. El texto no tiene comillas ni apóstrofos que normalizar. Releí el archivo tras la primera pasada, pero no después de la segunda, que fue una sola línea.
+- **Idioma:** el catálogo de patrones está calibrado para inglés. Apliqué sus equivalentes en español con criterio propio.
+- **Residuos:** la latencia p95 empeora de 4,1 s a 4,4 s. Es un dato de la tabla y lo dejé como está. Si quieres, puedes añadir una frase que explique ese coste.

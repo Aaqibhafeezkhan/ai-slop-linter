@@ -1,0 +1,12 @@
+{
+  "name": "acme-handbook",
+  "version": "1.3.0",
+  "private": true,
+  "scripts": {
+    "test": "node -e \"console.log('tests ok')\"",
+    "lint:prose": "ai-slop-linter \"**/*.md\""
+  },
+  "devDependencies": {
+    "ai-slop-linter": "0.1.10"
+  }
+}

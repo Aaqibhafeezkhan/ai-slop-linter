@@ -1,0 +1,19 @@
+I rewrote `release-notes.md` in place. I didn't re-read the file after the edits, so the result is unchecked.
+
+**What I cut or changed**
+- **Chatbot opener:** I deleted "Certainly! Here is a comprehensive overview… I hope this helps…".
+- **Intro paragraph:** The "thrilled to announce… game-changing… seamlessly transforms… in today's fast-paced world" paragraph is now one plain sentence saying what the release does.
+- **Bullets:**
+  - I removed "robust", "intelligently", "crucial role" and "It's worth noting".
+  - The conflict bullet now says what `conflict_policy` does and what it defaults to.
+  - "Smarter conflict handling" became "Conflict handling".
+  - The bug-fix bullet no longer says "potential issue… possibly".
+- **Configuration:** "To get started, simply add the following" is now "Add this to `lantern.toml`:".
+- **Closing:** I removed "significant step forward… look forward to your feedback" and "happy syncing!". The docs link now sits in a short sentence.
+
+**Left as written**
+- The front matter, the TOML block and the tester quote.
+- The version numbers, 40%, 1 GiB, 8 MiB to 16 MiB, #1482 and the URL.
+- The macOS 12 and Windows/Linux sentences.
+
+The tester quote, "It's not just a sync tool, it's a game-changer.", is itself a stock AI-sounding line. I kept it because you asked me to, but it will still read that way to a careful reader.

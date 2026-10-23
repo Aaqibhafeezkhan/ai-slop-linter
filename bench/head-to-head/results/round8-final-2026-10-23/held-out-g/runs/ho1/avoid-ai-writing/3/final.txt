@@ -1,0 +1,18 @@
+I rewrote `release-notes.md` in place. I did not re-read the file afterward. The front matter, code block, tester quote, version numbers, #1482 and the URL are untouched.
+
+**Edits made**
+- **Opening chatbot paragraph removed.** It read "Certainly! Here is a comprehensive overview… I hope this helps…".
+- **Intro rewritten.** "We are thrilled to announce… game-changing… seamlessly transforms… In today's fast-paced world…" now reads: "Lantern Sync 3.8.0 makes large uploads faster and adds a setting for how sync conflicts are handled." It only restates the bullets below it.
+- **Faster uploads.** I cut "robust" from "a robust new chunking strategy".
+- **Conflict handling.** I removed "It's worth noting that", "resolved intelligently" and "plays a crucial role in deciding". The setting now "decides what happens when two devices edit the same file", and the default is stated as its own sentence.
+- **Bug fix.** "a potential issue where the watcher could possibly stall" became "an issue where the watcher could stall". I dropped the stacked hedges and kept "could".
+- **Configuration.** "To get started, simply add" became "Add".
+- **Upgrade notes.** I cut "Overall, this update represents a significant step forward, and we look forward to your feedback" and "happy syncing!". The em dash went with them. The docs line now reads "See [the 3.8 docs](…) for the full documentation."
+
+**Verification**
+- **Editing passes:** 1 of a possible 2.
+- **Checks:** All checks were model-only. I did not run the detector, the quote normalizer or the preservation validator. The file has only straight quotes, so there was nothing for the normalizer to change.
+- **Residuals:**
+  - The quoted tester review, "It's not just a sync tool, it's a game-changer.", still has the "not X, it's Y" frame and "game-changer". I left it because it is protected quoted material.
+  - The bold lead terms on the three bullets stay, since they are list labels.
+- **Stop reason:** No further justified edit remains in the editable prose.

@@ -1,0 +1,5 @@
+I rewrote `notatka-incydent.md` in place. I didn't run slop-cop on it.
+
+- **Cut:** the chatbot opener ("Oczywiście! Poniżej znajdziesz…"), the "w dzisiejszym dynamicznym świecie" intro, the self-praise, the filler phrases ("Warto zauważyć", "Warto podkreślić"), and the closing lines about lessons and facing challenges.
+- **Reworded:** the cause section now says "Najpewniej zawiniło wdrożenie…" instead of the contradictory "Prawdopodobnie mogło to być…". The closing now says "Pytania proszę kierować do Marty Wójcik."
+- **Unchanged:** the front matter, the error log block, versions (5.2.0, 5.1.4), times (07:12, 07:59), counts (47 minutes, 312 orders, 40→20 connections, 80%), file names, and the URL.

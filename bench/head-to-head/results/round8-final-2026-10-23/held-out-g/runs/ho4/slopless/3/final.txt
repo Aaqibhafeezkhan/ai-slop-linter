@@ -1,0 +1,17 @@
+Saya sudah menulis ulang `status-mingguan.md` langsung di file itu.
+
+Slopless hanya mendukung bahasa Inggris, jadi saya tidak menjalankannya dan menyunting dengan membaca sendiri.
+
+Yang saya buang:
+- Pembuka ala chatbot ("Tentu saja! Berikut adalah...").
+- Kalimat pembuka yang membesar-besarkan ("Di era digital yang serba cepat ini... kemajuan luar biasa").
+- Penutup yang kosong ("berkomitmen untuk memberikan solusi terbaik", "fondasi yang kokoh", "dukungan Anda yang luar biasa").
+- Frasa pengisi seperti "Perlu dicatat bahwa" dan "Dengan demikian".
+
+Kutipan pedagang, ID tiket (WK-904, WK-911, WK-915, WK-920), versi 2.6.0, semua tanggal, format `.xlsx`, jalur `/laporan` dan email <EMAIL> tidak berubah.
+
+Ada dua hal yang saya ubah isinya:
+- "sepertinya sudah mungkin teratasi" saya jadikan "kemungkinan sudah teratasi". Tingkat kepastiannya sama, hanya kalimatnya tidak rancu lagi.
+- Kalimat "Pemindaian barcode kini jauh lebih cepat" saya ubah jadi "jadi lebih cepat". Angkanya sudah menunjukkan seberapa besar bedanya.
+
+Saya juga menulis ulang kalimat tentang versi 2.6.0 supaya tidak terdengar seperti siaran pers. Kalau menurut Anda kalimat itu terlalu pendek, tambahkan konteksnya sendiri.

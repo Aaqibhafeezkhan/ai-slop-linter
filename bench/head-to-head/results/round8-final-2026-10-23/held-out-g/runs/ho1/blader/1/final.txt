@@ -1,0 +1,12 @@
+I rewrote `release-notes.md` in place. I didn't re-read the file or run any check after writing it.
+
+- **Removed:**
+  - The chatbot wrapper ("Certainly! Here is a comprehensive overview… let me know").
+  - The "thrilled to announce / game-changing / fast-paced world" opener.
+  - "It's worth noting" and "plays a crucial role".
+  - The "significant step forward" and "happy syncing!" closers.
+- **Plain wording:** I dropped the stock words "robust", "seamlessly" and "intelligently". I also cut the hedge "potential issue… could possibly stall" to "a bug where the watcher could stall".
+- **Formatting:** The bold-label bullets became short paragraphs, and the dashes are gone.
+- **Added:** A one-sentence summary at the top of "What changed". It uses only facts already in the notes.
+
+The front matter, the `toml` code block, the tester quote, the version numbers, #1482 and the docs URL are unchanged. I only trimmed the sentence around the link ("available at" became "at").

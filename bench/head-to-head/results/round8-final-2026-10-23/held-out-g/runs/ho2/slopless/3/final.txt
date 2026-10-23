@@ -1,0 +1,11 @@
+Reescribí `pr-sms-reintentos.md` en el mismo archivo. No ejecuté Slopless, porque solo analiza inglés y el texto está en español.
+
+- **Quité:**
+  - la apertura de chatbot («¡Claro! Aquí tienes…»);
+  - las frases vacías («solución robusta y escalable», «en el mundo digital actual», «juega un papel fundamental»);
+  - el «realmente impresionantes» y el cierre grandilocuente («marca un antes y un después»).
+- **Añadí:** una frase que explica el problema, que antes el reintento fijo de 3 segundos se rendía a la primera. También añadí una frase bajo la tabla que dice que la latencia p95 sube 0,3 s. Esa frase sale de los números de la tabla, pero el texto original no la decía.
+- **Cambié:** «potencialmente podría causar mensajes duplicados» queda como «podía provocar mensajes duplicados».
+- **Sin tocar:** la tabla, `enviar_con_reintentos()`, `avisos/sms.py`, `SMS_MAX_REINTENTOS`, `tests/test_sms.py`, `avisos-api`, los números (5 reintentos, 2/4/8/16/32 s, 3 s, 14 pruebas), el 8 de octubre de 2026 y el issue #377.
+
+Los títulos de sección también siguen igual.

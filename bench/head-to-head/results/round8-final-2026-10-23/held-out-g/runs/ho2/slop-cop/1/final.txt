@@ -1,0 +1,8 @@
+Reescribí `pr-sms-reintentos.md` en el mismo archivo.
+
+- **Quité lo que sonaba a IA:** el saludo inicial, "solución robusta y escalable", "en el mundo digital actual", "cabe destacar", "realmente impresionantes", "no dudes en" y el cierre de "marca un antes y un después".
+- **Conservé tal cual:** el título, la tabla, `avisos-api`, `enviar_con_reintentos()`, `avisos/sms.py`, `SMS_MAX_REINTENTOS`, `tests/test_sms.py`, los números (5 reintentos, 2/4/8/16/32 s, 3 s, 14 pruebas), el 8 de octubre de 2026 y el issue #377.
+- **Añadí una frase en Resultados:** "Se pierden muchos menos mensajes, a cambio de 0,3 s más de latencia p95". Sale de la diferencia entre 4,1 s y 4,4 s de la tabla.
+- **Cambié un poco la redacción:** pasé el texto a primera persona ("Elimino", "Lo probé"). "Potencialmente podría causar mensajes duplicados" quedó como "podía provocar mensajes duplicados".
+
+Pasé slop-cop sobre el resultado, solo con las reglas locales. Quedan cinco avisos menores que no toqué: la sigla SMS sin definir, dos números pequeños, el formato "2,3 %" y la puntuación de una viñeta. Vienen de reglas pensadas para inglés, y cambiarlos tocaría los números o la tabla que pediste mantener.

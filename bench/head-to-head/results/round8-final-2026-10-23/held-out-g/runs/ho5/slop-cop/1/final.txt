@@ -1,0 +1,8 @@
+Eu já achei o guia bem direto, então só mexi em duas frases. Reescrever mais teria piorado o texto.
+
+- **Acesso ao painel:** a frase tinha a URL no fim e uma segunda frase curta que repetia a ideia. Juntei as duas. Agora diz que o painel fica em https://example.com/chamados, que a aprovação leva até dois dias úteis e que sem ela você não assume chamados.
+- **Prazo da primeira resposta:** troquei "4 horas úteis" por "quatro horas úteis".
+
+Os comandos, a URL, a versão 4.1.3, os nomes, o ramal 5120, o 0800 000 1234 e <EMAIL> ficaram como estavam.
+
+Rodei o `slop-cop` no arquivo antes e depois. Ele apontava quatro itens e agora aponta um: os dois pontos de "https:", que é falso alarme.

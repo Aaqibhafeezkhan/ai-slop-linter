@@ -1,0 +1,12 @@
+I didn't change `guia-integracao.md`. It doesn't have the tells that make text read as AI-written, so a rewrite would only add edits.
+
+- **Linter:** `npx ai-slop-linter --language pt` gave it grade A with 0 findings.
+- **Verify:** `--verify` against a saved copy printed `clean source: no edit is expected` and `verify: ok (unchanged)`.
+- **Reference list:** I read the Portuguese tell list in `references/pt.md` against the text. It has no filler openers, no "não apenas… mas também", no stacked hedges, no closing summary line and no praise words.
+- **Style:** The sentences are short and concrete: dates, hours, names and what to do when something goes wrong. That reads like a person who knows the job.
+
+The Portuguese checks are weaker than the English ones, so this rests partly on my own read. If something in it still sounds off to you, tell me which line and I'll rework it.
+
+The commands, URL, version number, names, phone numbers and email address are all untouched, since the file is byte-identical.
+
+Residuals: none.

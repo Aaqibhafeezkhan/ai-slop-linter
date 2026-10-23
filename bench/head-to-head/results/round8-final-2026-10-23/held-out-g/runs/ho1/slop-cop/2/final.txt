@@ -1,0 +1,8 @@
+I rewrote `release-notes.md` in place. The one `slop-cop` hit left is "game-changer", which is inside the tester's quote, so I left it as is. I ran only the fast checks and skipped the LLM pass.
+
+- **Cut:** the "Certainly! Here is a comprehensive overview…" opener, the "thrilled to announce / game-changing / in today's fast-paced world" paragraph, and the closing "significant step forward… happy syncing!".
+- **Added:** a one-sentence intro saying what the release does.
+- **Removed filler:** words like "intelligently", "plays a crucial role", "robust", "possibly" and "simply".
+- **Reworked the bullets:** the three bold-label bullets are now short plain paragraphs, because the checker flagged the bold-label list pattern.
+- **Link text:** changed "the 3.8 docs" to "Lantern Sync 3.8 documentation". The URL is unchanged.
+- **Kept as they were:** the front matter, the TOML block, the tester quote, the version numbers, #1482 and the URL.

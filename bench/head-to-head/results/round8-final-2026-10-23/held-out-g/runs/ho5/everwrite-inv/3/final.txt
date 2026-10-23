@@ -1,0 +1,1 @@
+Reescrevi o `guia-integracao.md` no próprio arquivo. Variei o ritmo das frases, juntei a frase da aprovação do acesso com o motivo e deixei o tom mais direto. O checker deu 0 hits fortes e 0 fracos antes e depois, porque o texto original já estava limpo. Mantive intactos os comandos, a URL, a versão 4.1.3, os nomes, os telefones e o e-mail.

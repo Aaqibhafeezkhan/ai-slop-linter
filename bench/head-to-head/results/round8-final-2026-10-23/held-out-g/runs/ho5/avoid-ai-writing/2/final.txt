@@ -1,0 +1,12 @@
+Não alterei o `guia-integracao.md`. Não achei nada nele que justificasse uma edição.
+
+O texto é curto e direto, e cada frase traz um fato: prazos, a versão 4.1.3 do cliente de VPN, os turnos, os nomes, os ramais e os comandos. Não há nada do que as regras procuram: vocabulário inflado, aberturas ou fechamentos genéricos, frases de efeito, chavões, afirmações vagas ou estrutura que só enfeita. Mexer nele só para parecer "mais humano" tiraria a clareza e arriscaria inventar um tom que o autor não tem.
+
+**Verificação**
+- **Etapas de edição:** 0 (o limite era 2).
+- **Verificações:** só a revisão do modelo. O detector, o normalizador de aspas e o validador de preservação não rodaram, porque nem os scripts nem o detector estão disponíveis aqui.
+- **Limite das regras:** elas são calibradas para inglês, e o guia está em português. Aplicá-las a outro idioma exigiria regras e evidências específicas. Por isso a conclusão vale como leitura editorial, não como medição.
+- **Resíduos:** nenhum encontrado. Comandos, URL, versão, nomes, telefones e e-mail ficaram intactos.
+- **Motivo da parada:** nenhuma edição justificada restante.
+
+Se algum trecho ainda soa artificial para você, diga qual. Ou me diga o tom que você quer (mais informal, por exemplo), que aí reescrevo nesse registro sem inventar nada além do que está no guia.

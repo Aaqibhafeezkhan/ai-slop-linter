@@ -1,0 +1,18 @@
+## Overview
+
+Updates the authentication layer: removes the `legacy_auth` flag and shortens session lifetime. Closes #311.
+
+### What changed
+
+- Removes the `legacy_auth` flag entirely.
+- Sessions now expire after 12 hours instead of 24.
+- Adds 38 tests.
+- Updates the auth guide to match the new behavior.
+
+### How to migrate
+
+Run the migration before deploying:
+
+```sh
+npm run migrate -- --to 0042
+```

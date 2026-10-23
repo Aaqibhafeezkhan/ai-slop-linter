@@ -1,0 +1,17 @@
+I rewrote `status-mingguan.md` in place and made small cuts rather than a full rewrite. I didn't re-read the file afterwards; the edit tool reported all three edits as applied.
+
+- **Chat opener removed:** I deleted "Tentu saja! Berikut adalah ringkasan komprehensif… Semoga bermanfaat!".
+- **Summary paragraph:** I cut the "era digital" opener, "dengan bangga", "kemajuan luar biasa" and the "tonggak penting" claim. It now opens with the fact: 18 of 21 tickets for Warung Kita 2.6.0, week ending 16 Oktober 2026.
+- **Filler and hedges:** "Perlu dicatat bahwa" is gone. "sepertinya sudah mungkin teratasi" became "sepertinya sudah teratasi", so WK-904 keeps one hedge instead of two.
+- **Closing paragraph:** I removed the commitment boilerplate, the "fondasi yang kokoh" line and the thank-you. What remains is "Pertanyaan bisa dikirim ke Dewi Anggraini di <EMAIL>."
+
+These were already fine and are unchanged:
+- The merchant quote.
+- The ticket IDs (WK-904, WK-911, WK-915, WK-920).
+- The version number and all dates, including the 23 → 30 Oktober 2026 release slip.
+- The `.xlsx` format and the `/laporan` path.
+- The 1,2 vs 3,5 detik figures.
+
+I didn't add any numbers or details that the original lacked.
+
+The WK-904 hedge is a content question for you. If the fix is confirmed, drop "sepertinya". If it isn't, the line should say what is still being checked.

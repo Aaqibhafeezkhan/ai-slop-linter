@@ -1,0 +1,6 @@
+Saya sudah menulis ulang `status-mingguan.md` langsung di file itu.
+
+- **Dibuang:** pembuka ala chatbot ("Tentu saja!", "Semoga bermanfaat!"), kalimat pembuka yang membesar-besarkan ("Di era digital yang serba cepat ini", "tonggak penting", "kemajuan luar biasa"), serta "Perlu dicatat bahwa". Penutup yang berisi klaim kosong ("fondasi yang kokoh", "komitmen untuk solusi terbaik") dan ucapan terima kasih yang berlebihan juga hilang. Tanda hubung panjang (—) diganti dengan tanda baca biasa.
+- **Dipertahankan persis:** kutipan pedagang, tiket WK-904, WK-911, WK-915, WK-920, versi 2.6.0, semua tanggal, format `.xlsx`, jalur `/laporan`, dan <EMAIL>.
+
+Satu hal perlu Anda periksa: kalimat "sepertinya sudah teratasi" untuk WK-904 sebelumnya berbunyi "sepertinya sudah mungkin teratasi". Saya hanya membuang kata "mungkin" yang bertumpuk, tetapi nada ragunya tetap ada. Kalau bug itu sebenarnya sudah dipastikan beres, ubah jadi "sudah teratasi" sebelum dipublikasikan.

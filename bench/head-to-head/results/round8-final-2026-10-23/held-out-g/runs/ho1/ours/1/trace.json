@@ -1,0 +1,26 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"ai-slop-linter:ai-slop-linter\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"F=<TMP> TMP=$(mktemp -d); cp $F $TMP/before.md; echo $TMP; npx ai-slop-linter $F\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP>\\npython3 - <<'E'\\ns=open('release-notes.md').read()\\ndef r(a,b):\\n    global s\\n    assert a in s; s=s.replace(a,b)\\nr(\\\"Certainly! Here is a comprehensive overview of the release notes for Lantern Sync 3.8.0. I hope this helps, and let me know if you would like any changes.\\\\n\\\\n\\\",\\\"\\\")\\nr(\\\"We are thrilled to announce Lantern Sync 3.8.0 — a game-changing release that seaml"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP>\\npython3 - <<'E'\\ns=open('release-notes.md').read()\\ns=s.replace(\\\"Add the following\\\",\\\"To get started, add the following\\\")\\ns=s.replace('> \\\"It','<!-- slop-ignore-next-line not-x-but-y ai-vocabulary -->\\\\n> \\\"It')\\nopen('release-notes.md','w').write(s)\\nE\\nnpx ai-slop-linter release-notes.md; npx ai-slop-linter --verify /var/folders/0f/lb8m_j5s7nq7tkf97krdnj800000gn/T/tmp."
+ }
+]

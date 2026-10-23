@@ -1,0 +1,57 @@
+{
+ "output": "pr-sms-reintentos.md",
+ "facts": [
+  "`avisos-api`",
+  "`enviar_con_reintentos()`",
+  "`avisos/sms.py`",
+  "5 veces",
+  "2, 4, 8, 16 y 32 segundos",
+  "3 segundos",
+  "`SMS_MAX_REINTENTOS`",
+  "14 pruebas",
+  "`tests/test_sms.py`",
+  "8 de octubre de 2026",
+  "2,3 %",
+  "0,1 %",
+  "4,1 s",
+  "4,4 s",
+  "`pytest tests/test_sms.py`",
+  "#377"
+ ],
+ "tells": [
+  "¡Claro!",
+  "descripción detallada",
+  "Espero que te sea de utilidad",
+  "robusta y escalable",
+  "transforma por completo",
+  "mundo digital actual",
+  "—",
+  "juega un papel fundamental",
+  "Cabe destacar que",
+  "potencialmente podría",
+  "realmente impresionantes",
+  "No dudes en",
+  "En definitiva",
+  "un antes y un después",
+  "paso importante hacia",
+  {
+   "re": "para empezar, simplemente"
+  }
+ ],
+ "protected": [
+  "| Métrica | Antes | Después |\n|---|---|---|\n| Mensajes perdidos | 2,3 % | 0,1 % |\n| Latencia p95 | 4,1 s | 4,4 s |"
+ ],
+ "forbidden_added": [
+  "yo",
+  "mi",
+  "mis",
+  "creo",
+  "pienso"
+ ],
+ "language_absent": [
+  "the",
+  "and",
+  "with",
+  "this"
+ ]
+}

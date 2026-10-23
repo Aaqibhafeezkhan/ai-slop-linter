@@ -1,0 +1,9 @@
+I rewrote `pr-sms-reintentos.md` in place. The table, code names, numbers, the 8 October 2026 date and issue #377 are unchanged.
+
+- **Chatbot wrapper:** I removed the "¡Claro! Aquí tienes…" intro and the "Espero que te sea de utilidad" line.
+- **Summary:** I cut the "robusta y escalable", "transforma por completo" and "mundo digital actual" filler, and the dash. It now just says what the PR does.
+- **Changes list:** I removed "Cabe destacar" and the hedge "potencialmente podría". It now says the fixed 3-second retry "podía provocar mensajes duplicados".
+- **Results:** I dropped "realmente impresionantes". I added one line that restates the table: lost messages drop and p95 latency rises 0,3 s.
+- **How to test:** I removed "Para empezar, simplemente", "No dudes en" and the closing line about "un paso importante" and "un antes y un después".
+
+The 0,3 s figure is the difference between the 4,1 s and 4,4 s in the table, so it adds no new data. I left the Spanish as the original language.

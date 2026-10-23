@@ -1,0 +1,1 @@
+Reescrevi `guia-integracao.md` no lugar: variei o ritmo das frases e usei um tom mais direto. Os comandos, a URL, a versão 4.1.3, os nomes, os telefones e o e-mail ficaram como estavam. O verificador deu 0 hits antes e depois, mas ele é voltado para inglês, então o texto em português foi ajustado só por julgamento.

@@ -1,0 +1,22 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"ai-slop-linter:ai-slop-linter\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"TMP=$(mktemp -d) && cp pr-sms-reintentos.md \\\"$TMP/before.md\\\" && echo $TMP && npx ai-slop-linter pr-sms-reintentos.md --language es\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cat > pr-sms-reintentos.md <<'EOF'\\n# Añade reintentos con espera exponencial al envío de SMS\\n\\n## Resumen\\n\\nEsta PR cambia la forma en que `avisos-api` gestiona los fallos del proveedor de SMS: ahora reintenta el envío con espera exponencial.\\n\\n## Cambios\\n\\n- Se añade la función `enviar_con_reintentos()` en `avisos/sms.py`, que reintenta hasta 5 veces con esperas de 2, 4, 8, 16 y"
+ }
+]

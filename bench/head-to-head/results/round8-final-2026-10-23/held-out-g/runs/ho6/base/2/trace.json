@@ -1,0 +1,10 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Commitberichten voor release 1.9.0\\n\\nDit zijn de commits voor release 1.9.0 van de fietsplanner.\\n\\n## Commit 1\\n\\n`feat(boekingen): annuleringstermijn van 48 uur toegevoegd`\\n\\nKlanten kunnen een boeking nu tot 48 uur van tevoren annuleren. Die termijn pas je aan met `ANNULERING_UUR`. Een klant schreef ons eerder:\\n\\n> \\\"Cancelling a booking should not feel l"
+ }
+]

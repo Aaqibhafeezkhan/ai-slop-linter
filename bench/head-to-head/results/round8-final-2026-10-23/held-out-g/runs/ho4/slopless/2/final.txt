@@ -1,0 +1,6 @@
+Saya sudah menulis ulang `status-mingguan.md` di tempat. Kutipan pedagang, ID tiket, versi 2.6.0, tanggal, format `.xlsx` dan alamat email tidak saya ubah.
+
+- **Dihapus:** pembuka bergaya chatbot ("Tentu saja! Berikut adalah…"), "Di era digital yang serba cepat", "tonggak penting", "fondasi yang kokoh" dan penutup yang berbunga-bunga.
+- **Dipersingkat:** frasa seperti "Perlu dicatat bahwa" dan "Penyebabnya adalah".
+- **Hedge:** "sepertinya sudah mungkin teratasi" saya ubah jadi "sepertinya sudah teratasi, tapi kami belum yakin sepenuhnya". Kalau status WK-904 sebenarnya sudah pasti, sesuaikan kalimat itu.
+- **Kalimat baru:** di bagian "Langkah berikutnya" saya menulis "Kami akan mengejar ketiga tiket itu minggu depan". Itu tebakan saya dari konteks, bukan dari dokumen asli. Ganti atau hapus kalau rencananya berbeda.

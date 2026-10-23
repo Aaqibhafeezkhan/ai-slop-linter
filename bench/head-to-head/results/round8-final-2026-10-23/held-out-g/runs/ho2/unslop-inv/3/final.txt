@@ -1,0 +1,11 @@
+Reescribí `pr-sms-reintentos.md` en el sitio y solo toqué los fragmentos que sonaban a IA. No lo volví a abrir después de editar.
+
+- **Saludo de chatbot:** quité "¡Claro! Aquí tienes… Espero que te sea de utilidad."
+- **Resumen:** quité "solución robusta y escalable que transforma por completo", "En el mundo digital actual…" y la frase del "papel fundamental". Ahora dice qué cambia: `avisos-api` reintenta con espera exponencial en lugar de hacer un reintento fijo.
+- **Reintento de 3 segundos:** ahora dice "Se elimina el reintento fijo de 3 segundos, que podía causar mensajes duplicados". Quité "Cabe destacar" y uno de los dos matices ("potencialmente podría").
+- **Resultados:** quité "realmente impresionantes". La frase ahora presenta la tabla con la fecha.
+- **Cierre:** ahora dice "Ejecuta `pytest tests/test_sms.py`. Las dudas, en el issue #377." Quité "Para empezar, simplemente", "No dudes en" y el párrafo final de "paso importante / antes y un después".
+
+Dejé igual la tabla, `enviar_con_reintentos()`, `avisos/sms.py`, `SMS_MAX_REINTENTOS`, los números (5 reintentos, 2/4/8/16/32 s, 14 pruebas, 2,3 %, 0,1 %, 4,1 s, 4,4 s), el 8 de octubre de 2026 y el #377. No añadí ningún dato nuevo.
+
+La latencia p95 sube de 4,1 s a 4,4 s. La tabla ya lo muestra, pero el texto no lo menciona. Si quieres, puedes añadir una frase que lo explique.

@@ -1,0 +1,7 @@
+A verificação que faltava terminou: o arquivo de referência em português do skill saiu na mesma execução em segundo plano, e li as duas listas de tiques (uma sighting e "só quando vários aparecem") contra o texto.
+
+O guia não tem nenhum item: nada de "é importante notar", "vale ressaltar", fechamento genérico, "não apenas… mas também", gerúndio de peso, metáfora de sustentação, hedge empilhado nem transições em fila. O registro é `você` do início ao fim, e a única forma que lembra hedge é "Se não souber a resposta", que é uma condição real.
+
+Então a conclusão não muda: não alterei `guia-integracao.md`. O linter deu A com 0 achados e o `--verify` terminou com `verify: ok (unchanged)`. Os comandos, a URL, a versão 4.1.3, os nomes, os telefones e o e-mail continuam como estavam.
+
+Residuals: none.

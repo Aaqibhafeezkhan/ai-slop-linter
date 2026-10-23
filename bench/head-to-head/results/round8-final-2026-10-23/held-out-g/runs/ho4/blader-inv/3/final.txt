@@ -1,0 +1,20 @@
+I rewrote `status-mingguan.md` in place. It's now much shorter and has no chatbot wrapper.
+
+**What I cut or changed**
+- I removed the chatbot opener ("Tentu saja! Berikut adalah…", "Semoga bermanfaat!").
+- I removed the sales and inflated language, such as "di era digital yang serba cepat", "dengan bangga mengumumkan", "kemajuan luar biasa" and "tonggak penting".
+- I removed the em dash, the filler "Perlu dicatat bahwa", and the closing boilerplate ("terus berkomitmen…", "fondasi yang kokoh…", "dukungan Anda yang luar biasa").
+- I tightened the wording elsewhere, for example "jauh lebih cepat, yaitu…" became "kini 1,2 detik, sebelumnya 3,5 detik".
+- I changed "sepertinya sudah mungkin teratasi" to "sepertinya sudah teratasi", because the original hedge was stacked.
+- I turned the cause of the delay into a plain statement: "Vendor pembayaran terlambat, jadi rilis… mundur".
+
+**What I kept exactly**
+- The merchant quote.
+- Version 2.6.0.
+- Tickets WK-904, WK-911, WK-915 and WK-920.
+- The dates 16, 23 and 30 Oktober 2026.
+- `.xlsx` and `/laporan`.
+- <EMAIL>.
+- The 18 of 21 count.
+
+I kept "sepertinya" because it was in the original and may reflect real doubt about WK-904. If WK-904 is confirmed fixed, you can drop it.

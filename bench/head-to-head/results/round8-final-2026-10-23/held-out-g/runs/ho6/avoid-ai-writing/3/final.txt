@@ -1,0 +1,23 @@
+I rewrote `commitberichten.md` in place. The text is Dutch and the skill's rules are calibrated for English, so I applied them by judgment and made small cuts.
+
+**What changed**
+- **Intro:** I cut "Natuurlijk! Hier is een uitgebreid overzicht… Ik hoop dat dit nuttig is." and left one plain line naming release 1.9.0.
+- **Commit 1:** I removed the filler about a "robuuste oplossing die naadloos aansluit" and the "huidige snelle wereld" sentence. The paragraph now says the commit adds a 48-hour cancellation window to the booking process, and the `ANNULERING_UUR` sentence stays.
+- **Commit 2:** I dropped "Het is belangrijk om op te merken dat" and tightened "Mogelijk zou dit kunnen leiden tot een verlies van omzet" to "Dat kan omzet kosten." The uncertainty is still there.
+- **Commit 3:** I cut "zorgt voor een soepelere en betrouwbaardere verwerking van datums". Nothing in the file backs it up, and I didn't want to invent a replacement. Only the test count remains.
+- **Closing:** I removed "Kortom… belangrijke stap vooruit voor het hele team" and "Laat het gerust weten…".
+
+**Left alone**
+- The commit subject lines in backticks.
+- The customer quote.
+- `ANNULERING_UUR`, `berekenTarief()` and `src/prijzen.ts`.
+- 1.9.0, 2.30.0, 3.6.0 and 37 tests.
+- € 12,50 and € 12,00.
+- The URL.
+- The Commit 4 paragraph and the date, which had nothing to fix.
+
+**Verification**
+- **Editing passes:** 1 (limit 2).
+- **Checks:** model-only. The detector, quote normalizer and preservation validator did not run. The quote normalizer wasn't needed because I changed no quotes or apostrophes.
+- **Residuals:** the customer quote is in English, but I kept it as instructed. Commit 3 no longer says why the date-fns upgrade matters. If you want that, give me the actual reason, such as a bug fix or a deprecation.
+- **Stop reason:** no further justified edit remains. I didn't read the second half of the skill's pattern reference (it was cut off at line 455 of 871), so some rules in it went unchecked.

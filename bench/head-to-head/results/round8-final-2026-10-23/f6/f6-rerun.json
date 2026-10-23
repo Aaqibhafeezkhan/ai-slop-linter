@@ -1,0 +1,362 @@
+[
+ {
+  "set": "g",
+  "task": "ho4",
+  "arm": "avoid-ai-writing",
+  "score": 5
+ },
+ {
+  "set": "g",
+  "task": "ho5",
+  "arm": "base",
+  "score": 4
+ },
+ {
+  "set": "g",
+  "task": "ho6",
+  "arm": "blader",
+  "score": 5
+ },
+ {
+  "set": "g",
+  "task": "ho1",
+  "arm": "blader-inv",
+  "score": 5
+ },
+ {
+  "set": "g",
+  "task": "ho5",
+  "arm": "everwrite",
+  "score": 4
+ },
+ {
+  "set": "g",
+  "task": "ho4",
+  "arm": "everwrite-inv",
+  "score": 5
+ },
+ {
+  "set": "g",
+  "task": "ho3",
+  "arm": "ours",
+  "score": 5
+ },
+ {
+  "set": "g",
+  "task": "ho4",
+  "arm": "slop-cop",
+  "score": 5
+ },
+ {
+  "set": "g",
+  "task": "ho2",
+  "arm": "slopless",
+  "score": 4
+ },
+ {
+  "set": "g",
+  "task": "ho4",
+  "arm": "unslop",
+  "score": 5
+ },
+ {
+  "set": "g",
+  "task": "ho5",
+  "arm": "unslop-inv",
+  "score": 5
+ },
+ {
+  "set": "g",
+  "task": "ho2",
+  "arm": "everwrite-inv",
+  "score": 4
+ },
+ {
+  "set": "g",
+  "task": "ho1",
+  "arm": "everwrite-inv",
+  "score": 5
+ },
+ {
+  "set": "g",
+  "task": "ho1",
+  "arm": "ours",
+  "score": 4
+ },
+ {
+  "set": "g",
+  "task": "ho5",
+  "arm": "unslop",
+  "score": 4
+ },
+ {
+  "set": "g",
+  "task": "ho1",
+  "arm": "everwrite",
+  "score": 5
+ },
+ {
+  "set": "g",
+  "task": "ho5",
+  "arm": "everwrite-inv",
+  "score": 4
+ },
+ {
+  "set": "g",
+  "task": "ho3",
+  "arm": "blader-inv",
+  "score": 5
+ },
+ {
+  "set": "g",
+  "task": "ho6",
+  "arm": "unslop",
+  "score": 5
+ },
+ {
+  "set": "g",
+  "task": "ho1",
+  "arm": "unslop-inv",
+  "score": 5
+ },
+ {
+  "set": "public",
+  "task": "h3",
+  "arm": "avoid-ai-writing",
+  "score": 3
+ },
+ {
+  "set": "public",
+  "task": "h11",
+  "arm": "base",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h14",
+  "arm": "blader",
+  "score": 5
+ },
+ {
+  "set": "public",
+  "task": "h16",
+  "arm": "blader-inv",
+  "score": 5
+ },
+ {
+  "set": "public",
+  "task": "h15",
+  "arm": "everwrite",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h2",
+  "arm": "everwrite-inv",
+  "score": 3
+ },
+ {
+  "set": "public",
+  "task": "h16",
+  "arm": "ours",
+  "score": 5
+ },
+ {
+  "set": "public",
+  "task": "h14",
+  "arm": "slop-cop",
+  "score": 3
+ },
+ {
+  "set": "public",
+  "task": "h11",
+  "arm": "slopless",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h13",
+  "arm": "unslop",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h9",
+  "arm": "unslop-inv",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h1",
+  "arm": "everwrite-inv",
+  "score": 2
+ },
+ {
+  "set": "public",
+  "task": "h10",
+  "arm": "ours",
+  "score": 5
+ },
+ {
+  "set": "public",
+  "task": "h17",
+  "arm": "everwrite-inv",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h18",
+  "arm": "avoid-ai-writing",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h13",
+  "arm": "unslop-inv",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h3",
+  "arm": "slopless",
+  "score": 3
+ },
+ {
+  "set": "public",
+  "task": "h10",
+  "arm": "base",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h16",
+  "arm": "slopless",
+  "score": 5
+ },
+ {
+  "set": "public",
+  "task": "h11",
+  "arm": "unslop-inv",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h9",
+  "arm": "everwrite",
+  "score": 3
+ },
+ {
+  "set": "public",
+  "task": "h2",
+  "arm": "ours",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h1",
+  "arm": "slopless",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h13",
+  "arm": "everwrite",
+  "score": 5
+ },
+ {
+  "set": "public",
+  "task": "h16",
+  "arm": "everwrite-inv",
+  "score": 5
+ },
+ {
+  "set": "public",
+  "task": "h14",
+  "arm": "ours",
+  "score": 5
+ },
+ {
+  "set": "public",
+  "task": "h2",
+  "arm": "unslop",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h16",
+  "arm": "base",
+  "score": 5
+ },
+ {
+  "set": "public",
+  "task": "h17",
+  "arm": "unslop",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h3",
+  "arm": "ours",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h1",
+  "arm": "base",
+  "score": 3
+ },
+ {
+  "set": "public",
+  "task": "h3",
+  "arm": "unslop",
+  "score": 3
+ },
+ {
+  "set": "public",
+  "task": "h13",
+  "arm": "ours",
+  "score": 5
+ },
+ {
+  "set": "public",
+  "task": "h14",
+  "arm": "unslop",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h10",
+  "arm": "slopless",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h3",
+  "arm": "everwrite-inv",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h10",
+  "arm": "slop-cop",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h15",
+  "arm": "everwrite-inv",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h9",
+  "arm": "slop-cop",
+  "score": 4
+ },
+ {
+  "set": "public",
+  "task": "h16",
+  "arm": "everwrite",
+  "score": 5
+ }
+]

@@ -1,0 +1,22 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"everwrite:everwrite\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && cat evergreen.json | head -40; python3 scripts/tells.py ../../../ho6-everwrite-inv-1/commitberichten.md\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Commitberichten voor release 1.9.0\\n\\n## Commit 1\\n\\n`feat(boekingen): annuleringstermijn van 48 uur toegevoegd`\\n\\nKlanten kunnen een boeking nu annuleren tot 48 uur van tevoren. Die termijn stel je in met `ANNULERING_UUR`. Een klant schreef ons eerder:\\n\\n> \\\"Cancelling a booking should not feel like a contract negotiation.\\\"\\n\\n## Commit 2\\n\\n`fix(prijzen): "
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py ../../../ho6-everwrite-inv-1/commitberichten.md\"}"
+ }
+]

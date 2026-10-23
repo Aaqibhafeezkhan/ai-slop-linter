@@ -1,0 +1,11 @@
+Não alterei o `guia-integracao.md`. Achei pouca coisa para corrigir, e reescrever um texto que já está limpo o deixaria mais artificial.
+
+Passei o texto pelos três níveis do skill:
+
+- **Vocabulário:** não achei nenhum dos termos típicos de texto gerado, como "robusto", "fundamental", "alavancar" ou "jornada". Também não há travessões, tríades decorativas nem paralelismos do tipo "não é X, é Y".
+- **Ritmo:** as frases variam de tamanho e usam conectivos normais ("mas só", "Sem esse acesso", "Se não souber"). Não há sequência de frases curtas nem três frases seguidas com a mesma construção.
+- **Estrutura:** o guia não tem abertura genérica, resumo no final, "Fale conosco!" nem lição de moral. Os títulos nomeiam o conteúdo ("Antes do primeiro dia", "Comandos que você vai usar"). Os dados verificáveis estão todos lá: URL, prazo de 2 dias úteis, versão 4.1.3, os 30 minutos, o turno das 8h às 16h, as 4 horas úteis, o ramal 5120 e o 0800.
+
+O que lembra texto de IA é a uniformidade. São parágrafos curtos e arrumados, com tom de instrução. Isso é próprio do formato de guia de integração e não é defeito. Se eu mexesse em frases só para quebrar esse padrão, estaria inventando ruído, e o skill manda não fazer isso.
+
+Se o texto vai ser publicado e você quer mais voz humana, o que falta são detalhes que só você tem. Por exemplo: o que Renata Souza costuma mostrar na segunda-feira, um chamado típico de prioridade baixa, ou por que a VPN antiga cai aos 30 minutos. Eu não posso inventar isso. Se você me passar esses detalhes, eu os encaixo no texto.

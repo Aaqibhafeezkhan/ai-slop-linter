@@ -1,0 +1,30 @@
+{
+ "haiku-5-5": {
+  "public": {
+   "ours": 54,
+   "blader-inv": 52,
+   "base": 43
+  },
+  "publicMax": 57,
+  "g": {
+   "base": 26,
+   "ours": 28,
+   "unslop": 28
+  },
+  "gMax": 30
+ },
+ "opus-5-5": {
+  "public": {
+   "ours": 54,
+   "blader-inv": 54,
+   "base": 45
+  },
+  "publicMax": 57,
+  "g": {
+   "base": 25,
+   "ours": 29,
+   "unslop": 27
+  },
+  "gMax": 30
+ }
+}

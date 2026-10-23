@@ -1,0 +1,14 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"humanizer:humanizer\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"---\\ntitle: Lantern Sync 3.8.0 release notes\\ndate: 2026-09-14\\n---\\n\\n# Lantern Sync 3.8.0\\n\\n## What changed\\n\\nLantern Sync 3.8.0 speeds up large uploads, changes how file conflicts are handled, and fixes a watcher stall on network drives.\\n\\nUploads of files over 1 GiB are now up to 40% faster, thanks to a new chunking strategy. The default chunk size grows f"
+ }
+]

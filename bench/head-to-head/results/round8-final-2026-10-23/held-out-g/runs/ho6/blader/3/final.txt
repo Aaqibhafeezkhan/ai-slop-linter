@@ -1,0 +1,8 @@
+I rewrote `commitberichten.md` in place. The subject lines, the customer quote, `ANNULERING_UUR`, `berekenTarief()`, `src/prijzen.ts`, the version numbers, € 12,50 and € 12,00, the URL and the date are all unchanged.
+
+- **Chat wrapper:** I removed the "Natuurlijk! Hier is…" intro and the closing "Kortom… Laat het gerust weten" paragraph.
+- **Filler:** I cut the "robuuste oplossing die naadloos aansluit", "in de huidige snelle wereld" and "cruciale rol" phrases, plus "Het is belangrijk om op te merken".
+- **Unsupported claim:** I dropped "soepelere en betrouwbaardere verwerking van datums" from commit 3, since the source gave no evidence for it. Only the test result is left.
+- **Dashes:** The dash in commit 1 is gone.
+
+I also added one concrete fact to commit 1: "Klanten kunnen een boeking nu tot 48 uur van tevoren annuleren." The subject line only says "annuleringstermijn van 48 uur", so I'm reading it as 48 hours before the booking starts. If it means something else, change that sentence.

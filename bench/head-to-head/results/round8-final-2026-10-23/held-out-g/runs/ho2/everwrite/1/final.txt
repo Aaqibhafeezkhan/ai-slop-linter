@@ -1,0 +1,7 @@
+I rewrote `pr-sms-reintentos.md` in place. I cut the chatbot opener and closer, the hype, and the dash, and I kept the table, code names, numbers, date and issue #377 as they were. The checker went from 1 strong hit to 0.
+
+Two things I added that weren't in the original:
+- **First sentence:** the new summary says `avisos-api` now retries with growing waits instead of every 3 seconds. That comes straight from the changes list.
+- **Latency sentence:** a line under the table notes that p95 latency rises a few tenths of a second in exchange for far fewer lost messages. It comes from the table, so check you're happy to say that.
+
+I also wrote "Lo probé" ("I tested it") for the staging run, which assumes you ran it yourself. Change it if someone else did.

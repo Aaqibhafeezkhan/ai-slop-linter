@@ -1,0 +1,7 @@
+I rewrote `release-notes.md` in place. The front matter, config code block, tester quote, version numbers, issue number (#1482) and URL are unchanged.
+
+- **Removed:** the chatbot preamble ("Certainly! Here is a comprehensive overview…"), the "thrilled to announce… game-changing" opener, the "fast-paced world" line, and the closing "significant step forward… happy syncing!" sign-off.
+- **Rewritten:** I cut filler words like "robust", "intelligently", "plays a crucial role" and "possibly". The bold-label bullets became short plain paragraphs, and the intro now says what the release does.
+- **Kept:** the facts: up to 40% faster uploads over 1 GiB, the 8 → 16 MiB chunk default, `conflict_policy` defaulting to `keep-both`, the watcher fix, and the macOS 12 requirement.
+
+The slop-cop check still flags "game-changer", but that is inside the quoted tester review, which you said to keep. I skipped the semantic (LLM) pass, so only the client-side rules ran.

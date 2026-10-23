@@ -1,0 +1,22 @@
+I've finished the rewrite of `release-notes.md` and am reporting what changed. I edited it in place and left the structure alone.
+
+**Changes**
+- **Chatbot opener removed:** "Certainly! Here is a comprehensive overview… I hope this helps…" is gone.
+- **Intro replaced:** The "thrilled to announce… game-changing… seamlessly transforms… In today's fast-paced world" paragraph is now one plain sentence saying what the release does.
+- **Filler cut from the bullets:**
+  - "robust" is gone from the chunking bullet.
+  - "It's worth noting that… resolved intelligently… plays a crucial role in deciding" now reads "The new `conflict_policy` setting decides…".
+  - "a potential issue where the watcher could possibly stall" now reads "The watcher could stall… That's fixed." I kept one "could" because the source is uncertain about when the stall happened.
+- **"To get started, simply add" is now "Add".**
+- **Closing flourish removed:** "Overall, this update represents a significant step forward, and we look forward to your feedback" and "— happy syncing!" are gone.
+
+**Left alone**
+- The front matter, the TOML block, the tester quote, the version numbers, #1482 and the URL are untouched.
+- The quote contains "game-changer", which the skill flags. I kept it because it's quoted and you asked me to preserve it.
+- The headings and bold bullet labels stay as they were, since you didn't ask for structural changes.
+
+**Verification**
+- **Editing passes:** 1 of a maximum of 2.
+- **Checks:** model-only. I did not run the detector, the quote normalizer or the preservation validator. I re-read the file afterward and compared it against the original by eye.
+- **Residuals:** none in the editable prose, apart from the quoted "game-changer" above.
+- **Stop reason:** no further justified edit remains.

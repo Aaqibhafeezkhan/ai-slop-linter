@@ -1,0 +1,11 @@
+I rewrote `commitberichten.md` in place, and `--verify` exits 0. The linter reports grade A. The "unrequested edit" lines it printed only list the sentences I cut on purpose.
+
+What I cut:
+- **Opening and closing lines:** the "Natuurlijk! Hier is…" intro and the "Kortom… Laat het gerust weten" closer.
+- **Commit 1:** the "robuuste oplossing… naadloos" and "huidige snelle wereld… cruciale rol" sentences, which stated no facts.
+- **Commit 2:** "Het is belangrijk om op te merken dat…" and the stacked hedge "Mogelijk zou dit kunnen leiden tot". It now reads "…wat omzet kon kosten".
+- **Commit 3:** the "soepelere en betrouwbaardere verwerking" praise sentence. The 37 passing tests stay.
+
+The subject lines, customer quote, code names, versions, amounts, URL and date are unchanged.
+
+Residuals: none. Dutch has no phrase catalog in the linter, so I checked the text against `references/nl.md` by hand.

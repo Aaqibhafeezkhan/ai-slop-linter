@@ -1,0 +1,12 @@
+Przepisałem `notatka-incydent.md` w miejscu. `npx ai-slop-linter --verify` kończy się wynikiem ok (z `--language pl`). Linter nie ma katalogu fraz dla polskiego, więc resztę sprawdziłem czytaniem według `pl.md`.
+
+Zmiany:
+- **Wstęp i zakończenie:** usunąłem „Oczywiście! … Mam nadzieję, że będzie pomocne.” oraz „Nie wahaj się…”. Wyciąłem też „W dzisiejszym dynamicznym świecie… z dumą przedstawia solidną analizę” i dopisek o współpracy i „wyzwaniach”.
+- **Przyczyna:** usunąłem „Warto zauważyć, że” oraz podwójne zastrzeżenie „Prawdopodobnie mogło to być spowodowane”. Zostało jedno „Prawdopodobnie winne jest wdrożenie…”, bo źródło też nie jest pewne.
+- **Wnioski:** zostały dwa zdania z faktami. Alert przy 80% wykorzystania puli zostaje, a pytania kieruję do Marty Wójcik.
+
+Front matter, blok z logiem błędu, numery wersji, godziny, liczby, nazwy plików i URL są bez zmian. Zostawiłem też „Cofnęliśmy”, „Przywróciliśmy” i „zamierzamy”, bo tak pisze oryginał.
+
+Druga runda nie znalazła nic, co trzeba poprawić.
+
+Residuals: „Prawdopodobnie winne jest” zostaje celowo. To pojedyncze zastrzeżenie, a oryginał też nie jest pewny przyczyny.

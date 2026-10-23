@@ -1,0 +1,17 @@
+I rewrote `pr-sms-reintentos.md` in place. I didn't run slop-cop on it, because the file is in Spanish and I assumed the tool's rules are written for English. I did the edit by hand.
+
+**Removed:**
+- The "¡Claro! Aquí tienes…" opener.
+- The "solución robusta y escalable que transforma por completo" and "mundo digital actual" lines.
+- "Cabe destacar".
+- "realmente impresionantes".
+- "No dudes en".
+- The "paso importante… un antes y un después" closer.
+
+**Reworded:**
+- The summary now says what the PR does in two plain sentences.
+- "potencialmente podría causar" became "podía provocar", so the duplicate-message claim is stated directly.
+
+**Added:** I added one derived fact, "la latencia p95 sube solo 0,3 s". It is the difference between 4,1 s and 4,4 s in your table, but it isn't a number you gave me, so delete it if you'd rather not have it.
+
+**Unchanged:** the table, the code names (`enviar_con_reintentos()`, `avisos/sms.py`, `SMS_MAX_REINTENTOS`, `tests/test_sms.py`), the numbers (5 reintentos, the 2/4/8/16/32 s waits, 14 pruebas), the date (8 de octubre de 2026) and issue #377.

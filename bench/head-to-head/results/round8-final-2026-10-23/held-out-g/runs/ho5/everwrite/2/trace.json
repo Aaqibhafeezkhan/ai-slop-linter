@@ -1,0 +1,26 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"everwrite:everwrite\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py ../../../ho5-everwrite-2/guia-integracao.md\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Guia de integração da equipe de suporte\\n\\nEste guia cobre a primeira semana de quem entra na equipe de suporte da Serraria Digital. Última revisão: 12 de outubro de 2026.\\n\\n## Antes do primeiro dia\\n\\nPeça acesso ao painel de chamados em https://example.com/chamados. A aprovação leva até 2 dias úteis, então peça logo. Sem o acesso você não assume chamado nenh"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py ../../../ho5-everwrite-2/guia-integracao.md\"}"
+ }
+]

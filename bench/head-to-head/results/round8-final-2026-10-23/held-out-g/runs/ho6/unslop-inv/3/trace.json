@@ -1,0 +1,30 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"unslop:unslop\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Natuurlijk! Hier is een uitgebreid overzicht van de commitberichten voor release 1.9.0 van de fietsplanner. Ik hoop dat dit nuttig is.\", \"new_string\": \"De vier commits van release 1.9.0 van de fietsplanner.\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Deze commit introduceert een robuuste oplossing die naadloos aansluit op het boekingsproces. In de huidige snelle wereld verwachten klanten flexibiliteit – en deze wijziging speelt daarin een cruciale rol. De termijn\", \"new_string\": \"Boekingen hebben nu een annuleringstermijn van 48 uur. De termijn\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Het is belangrijk om op te merken dat het tarief van € 12,50 per dag werd afgerond naar € 12,00. Mogelijk zou dit kunnen leiden tot een verlies van omzet. De fout\", \"new_string\": \"Het tarief van € 12,50 per dag werd afgerond naar € 12,00, wat tot omzetverlies kon leiden. De fout\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Deze update zorgt voor een soepelere en betrouwbaardere verwerking van datums. Alle\", \"new_string\": \"Alle\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"\\n\\nKortom, deze reeks commits vormt een belangrijke stap vooruit voor het hele team. Laat het gerust weten als je aanpassingen wilt!\\n\", \"new_string\": \"\\n\"}"
+ }
+]

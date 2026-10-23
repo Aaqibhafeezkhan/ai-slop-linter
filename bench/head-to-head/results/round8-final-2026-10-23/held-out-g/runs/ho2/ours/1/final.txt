@@ -1,0 +1,12 @@
+He reescrito `pr-sms-reintentos.md` en su sitio. Pasa `ai-slop-linter --verify` (`verify: ok`) y el linter da A con 0 hallazgos. Lo pasé con `--language es`, así que las reglas de guiones y de títulos en mayúsculas no se aplican a este texto.
+
+Qué cambié:
+- **Quitado:** el saludo y el envoltorio de asistente ("¡Claro! Aquí tienes… Espero que te sea de utilidad"). También las frases de relleno: "solución robusta y escalable que transforma por completo", "En el mundo digital actual… juega un papel fundamental", "Cabe destacar", "realmente impresionantes", "No dudes en" y el cierre "En definitiva… un antes y un después".
+- **Resumen:** ahora dice lo que hace la PR. Cambia el reintento fijo por espera exponencial.
+- **Matiz:** "potencialmente podría causar mensajes duplicados" pasa a "puede causar mensajes duplicados". El texto no daba ninguna razón para el matiz doble, así que lo dejé en la forma simple.
+- **Resultados:** "los resultados son realmente impresionantes" pasa a "los resultados fueron estos".
+- **Cómo probarlo:** "Para empezar, simplemente ejecuta…" pasa a "Ejecuta…", y las dudas van "en el issue #377".
+
+Sin tocar: el título, los encabezados, la tabla, los nombres de código, los números, la fecha (8 de octubre de 2026) y el issue #377.
+
+Residuals: none. La latencia p95 sube de 4,1 s a 4,4 s en la tabla. La dejé tal cual y no añadí ninguna explicación que el original no daba.

@@ -1,0 +1,3 @@
+Przepisałem `notatka-incydent.md` na miejscu. Usunąłem chatbotowe wstępy, patos i zdania o "wspólnym stawianiu czoła wyzwaniom", a poprawiłem też wiszące zdanie z dwoma asekuracjami ("prawdopodobnie mogło"). Checker: 1 strong → 0.
+
+Front matter, blok z logiem, wersje, godziny, liczby, nazwy plików i URL są bez zmian. Alert przy 80% i kontakt do Marty Wójcik zostały.

@@ -1,0 +1,6 @@
+{
+  "overrides": [
+    { "files": ["README.md"], "ignore": ["chatbot"] },
+    { "files": ["docs/de/**/*.md", "docs/fr/**/*.md"], "ignore": ["dash", "title-case-heading"] }
+  ]
+}

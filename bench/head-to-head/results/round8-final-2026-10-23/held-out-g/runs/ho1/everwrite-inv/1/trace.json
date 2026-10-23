@@ -1,0 +1,22 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"everwrite:everwrite\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py <TMP> | tail -40\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"python3 - <<'EOF'\\np='release-notes.md'\\ns=open(p).read()\\na=s.index('Certainly!')\\nb=s.index('One early tester')\\nnew='''## What changed\\n\\nLantern Sync 3.8.0 makes large uploads faster and changes what happens when two devices edit the same file.\\n\\n- Uploads of files over 1 GiB are up to 40% faster. The default chunk size grows from 8 MiB to 16 MiB.\\n- The new `conflict_policy` set"
+ }
+]

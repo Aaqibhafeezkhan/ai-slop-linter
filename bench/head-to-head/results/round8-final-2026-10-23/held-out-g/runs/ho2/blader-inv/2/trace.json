@@ -1,0 +1,14 @@
+[
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"find <TMP> -name pr-sms-reintentos.md 2>/dev/null; ls\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Añade reintentos con espera exponencial al envío de SMS\\n\\n## Resumen\\n\\nEsta PR cambia cómo `avisos-api` gestiona los fallos del proveedor de SMS: ahora reintenta el envío con esperas cada vez más largas en lugar de insistir a intervalos fijos.\\n\\n## Cambios\\n\\n- Se añade la función `enviar_con_reintentos()` en `avisos/sms.py`, que reintenta hasta 5 veces con "
+ }
+]

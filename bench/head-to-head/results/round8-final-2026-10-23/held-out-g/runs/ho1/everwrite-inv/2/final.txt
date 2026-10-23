@@ -1,0 +1,7 @@
+I rewrote `release-notes.md` in place. The checker went from 13 strong hits to 1.
+
+I cut the chat wrapper, the hype opener and the filler. The bold-label bullets are now plain bullets. I replaced "resolved intelligently" with what `conflict_policy` actually does, and dropped the "could possibly" hedge on the watcher bug.
+
+The one remaining hit is the tester's quote, which you asked me to keep verbatim. I didn't add any facts.
+
+Front matter, the code block, the quote, the version numbers, #1482 and the URL are unchanged.

@@ -1,0 +1,8 @@
+I rewrote `status-mingguan.md` in place, and I did not run slop-cop on it. The rewrite is by hand. slop-cop's rules are built around English, so I wasn't sure its report would mean much on Indonesian text.
+
+- **Cut:** the "Tentu saja! … Semoga bermanfaat!" opener, "Di era digital yang serba cepat", "kemajuan luar biasa", "tonggak penting", "Perlu dicatat bahwa", "berkomitmen untuk memberikan solusi terbaik", "fondasi yang kokoh" and the closing thanks.
+- **Tightened:** I turned the stacked hedge "sepertinya sudah mungkin teratasi" into "sepertinya sudah teratasi".
+- **Reworded:** the next-steps paragraph now says what happens next, which is waiting on the payment vendor and aiming for the 30 Oktober 2026 release.
+- **Kept as is:** the merchant quote, WK-904, WK-911, WK-915, WK-920, version 2.6.0, the dates 16, 23 and 30 Oktober 2026, `.xlsx`, `/laporan` and <EMAIL>.
+
+I also inferred two things from the original. "Rilis ini banyak mengubah cara pedagang mengelola stok" softens the original's "benar-benar mengubah". "Kami menunggu vendor pembayaran" follows from the vendor delay but isn't stated outright there. If either is wrong, change those lines before you publish.

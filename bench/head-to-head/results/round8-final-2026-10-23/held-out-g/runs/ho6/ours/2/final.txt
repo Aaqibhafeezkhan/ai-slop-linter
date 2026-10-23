@@ -1,0 +1,13 @@
+I rewrote `commitberichten.md` in place, and `npx ai-slop-linter --verify` now exits 0 (`verify: ok`). The linter has no phrase catalog for Dutch, so I also checked the text by hand against the Dutch reference file.
+
+I cut:
+- the assistant opener ("Natuurlijk! … Ik hoop dat dit nuttig is") and the closer ("Kortom … Laat het gerust weten");
+- the filler about robust, seamless solutions and "de huidige snelle wereld" in commit 1;
+- "Het is belangrijk om op te merken dat" and the stacked hedge "Mogelijk zou dit kunnen leiden tot" in commit 2. It is now "wat omzet kan kosten", so the hedge keeps the same strength.
+- the vague claim about "soepelere en betrouwbaardere" date handling in commit 3, which the source gave no support for.
+
+The subject lines, the customer quote, `ANNULERING_UUR`, `berekenTarief()`, `src/prijzen.ts`, the version numbers, the amounts, the 37 tests, the URL and the date are unchanged.
+
+I added no facts. I did remove the line that restated the 48 hours, since the subject line already says it.
+
+Residuals: none.

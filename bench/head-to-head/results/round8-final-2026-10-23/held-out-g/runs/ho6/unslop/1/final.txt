@@ -1,0 +1,8 @@
+I rewrote `commitberichten.md` in place. I haven't re-read the file since writing it. The subject lines, the customer quote, `ANNULERING_UUR`, `berekenTarief()`, `src/prijzen.ts`, the versions, the amounts, the 37 tests, the URL and the date are unchanged.
+
+- **Intro and outro:** I removed the "Natuurlijk! … Ik hoop dat dit nuttig is" opener and the "Kortom … Laat het gerust weten" closer. They were chat leftovers, and the closer was a generic wrap-up.
+- **Commit 1:** I cut the "robuuste oplossing die naadloos aansluit" and "In de huidige snelle wereld" filler. It now says plainly that bookings have a cancellation window, adjustable via `ANNULERING_UUR`.
+- **Commit 2:** I dropped "Het is belangrijk om op te merken dat" and the stacked "Mogelijk zou dit kunnen leiden". It now reads "wat omzet kan kosten".
+- **Commit 3:** I removed "soepelere en betrouwbaardere verwerking van datums", because nothing in the text backs it up. Only the test result remains.
+
+I didn't add any new facts. If you want the commit 3 entry to say why the date-fns upgrade was done, you'll need to supply that. The same goes for how the 48 hours are counted in commit 1, since the text doesn't say.

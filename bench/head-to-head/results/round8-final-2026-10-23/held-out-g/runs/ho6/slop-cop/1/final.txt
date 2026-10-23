@@ -1,0 +1,7 @@
+I rewrote `commitberichten.md` in place. I didn't run slop-cop on it, because its rules are English-based and the file is Dutch. I checked it by reading it through.
+
+- **Cut:** the opening ("Natuurlijk! Hier is een uitgebreid overzicht…"), the closing ("Kortom… Laat het gerust weten…"), and phrases like "robuuste oplossing", "naadloos", "cruciale rol", "In de huidige snelle wereld" and "Het is belangrijk om op te merken".
+- **Rewritten:** each commit now has short, concrete sentences in place of that filler. I also dropped the hedge "Mogelijk zou dit kunnen leiden tot".
+- **Unchanged:** the four subject lines in backticks, the customer quote, `ANNULERING_UUR`, `berekenTarief()`, `src/prijzen.ts`, the version numbers, the amounts, the URL and the date.
+
+I added one claim that wasn't in the original. Commit 1 now says customers can cancel "kosteloos" (free of charge) up to 48 hours ahead. The original only said a 48-hour cancellation window was added. If cancelling inside that window isn't free, change that word before you publish.

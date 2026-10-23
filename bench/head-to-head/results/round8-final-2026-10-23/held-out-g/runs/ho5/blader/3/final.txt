@@ -1,0 +1,11 @@
+Reescrevi o `guia-integracao.md` no próprio arquivo. O texto já estava bem direto, então as mudanças foram leves.
+
+- **Frases soltas:** troquei algumas construções mais engessadas por frases mais diretas. Por exemplo, "O pedido leva até 2 dias úteis para ser aprovado" virou "A aprovação leva até 2 dias úteis". Também tirei o passivo de "foi revisado pela última vez" e deixei "Última revisão: …".
+- **Tom:** "Não prometa prazos" virou "Evite prometer prazos", e algumas frases passaram a falar direto com quem lê.
+- **O que ficou igual:**
+  - comandos, URL e versão 4.1.3;
+  - nomes (Renata Souza, Bruno Teixeira);
+  - ramal 5120, o 0800 000 1234 e o e-mail <EMAIL>;
+  - a data de revisão e os horários e prazos.
+
+Não houve travessões nem outros sinais típicos de texto gerado por IA para remover.

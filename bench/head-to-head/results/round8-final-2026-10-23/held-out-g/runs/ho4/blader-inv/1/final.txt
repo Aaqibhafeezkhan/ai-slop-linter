@@ -1,0 +1,16 @@
+I rewrote `status-mingguan.md` in place. It's now shorter and plainer, and the Indonesian reads like a person wrote it.
+
+- **Removed:**
+  - The chatbot opener and sign-off ("Tentu saja!", "Semoga bermanfaat!").
+  - The inflated intro ("di era digital…", "tonggak penting").
+  - Filler such as "perlu dicatat" and the generic closing paragraph about commitment and a "fondasi yang kokoh".
+  - The em dash.
+- **Kept exactly as written:**
+  - The merchant quote.
+  - The ticket IDs (WK-904, WK-911, WK-915, WK-920).
+  - Version 2.6.0.
+  - The dates (16, 23 and 30 October 2026).
+  - The `.xlsx` format and the `/laporan` path.
+  - <EMAIL>.
+  - The 18 of 21 tickets count and the barcode timings (1,2 and 3,5 seconds).
+- **One wording change to check:** the WK-904 line said the bug "sepertinya sudah mungkin teratasi", which stacks two hedges. I changed it to "sepertinya sudah teratasi, tapi kami belum yakin sepenuhnya". That keeps the uncertainty, but the "belum yakin sepenuhnya" part is my phrasing. Change or drop it if you'd rather not state the doubt that directly.

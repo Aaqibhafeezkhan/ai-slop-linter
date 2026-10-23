@@ -1,0 +1,13 @@
+I rewrote `release-notes.md` in place. I didn't re-read the file afterward.
+
+- **Chat opener:** I deleted "Certainly! Here is a comprehensive overview… I hope this helps…".
+- **Intro:** I replaced the "thrilled… game-changing… seamlessly transforms… fast-paced world" paragraph with one plain sentence: "Lantern Sync 3.8.0 speeds up large uploads and adds a setting for conflicts."
+- **Faster uploads:** I cut "thanks to a robust new chunking strategy". The 40% figure and the 8 MiB → 16 MiB change are still there.
+- **Conflict handling:** I changed the label from "Smarter conflict handling" to "Conflict handling". I dropped "resolved intelligently" and "plays a crucial role in deciding", so the bullet now says what the setting controls and its default.
+- **Bug fix:** "a potential issue where the watcher could possibly stall" is now "The watcher could stall on network drives (#1482)". That also removes the double hedge.
+- **Configuration:** "To get started, simply add" is now "Add".
+- **Upgrade notes:** I cut "Overall, this update represents a significant step forward…" and "happy syncing!". The macOS 12 requirement and the docs link are unchanged.
+
+The front matter, the TOML block, the tester quote, the version numbers, #1482 and the URL are all untouched.
+
+The tester quote ("It's not just a sync tool, it's a game-changer.") is itself a stock "not X, it's Y" line. You asked me to keep the quote as is, so I did, but you may want to check whether a real quote from the tester would say something more specific.

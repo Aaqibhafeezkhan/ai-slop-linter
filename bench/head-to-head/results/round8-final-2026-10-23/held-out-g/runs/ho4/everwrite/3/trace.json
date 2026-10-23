@@ -1,0 +1,22 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"everwrite:everwrite\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"D=<TMP> cat $D/evergreen.json; python3 $D/scripts/tells.py <TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Pembaruan status mingguan\\n\\n## Ringkasan\\n\\nWarung Kita versi 2.6.0 hampir siap. Pada minggu yang berakhir 16 Oktober 2026, kami menyelesaikan 18 dari 21 tiket. Perubahan terbesarnya ada di cara pedagang mengelola stok.\\n\\nSalah satu pedagang pengguna awal menulis:\\n\\n> \\\"Dengan aplikasi ini, saya tidak lagi menghitung stok sampai larut malam.\\\"\\n\\n## Yang sel"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"python3 <TMP> <TMP>\"}"
+ }
+]

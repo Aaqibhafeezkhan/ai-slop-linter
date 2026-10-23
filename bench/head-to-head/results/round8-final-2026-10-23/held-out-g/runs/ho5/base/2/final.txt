@@ -1,0 +1,5 @@
+I rewrote `guia-integracao.md` in place, in Portuguese, in a more conversational tone.
+
+The commands, the URL, version 4.1.3, the names, the extension (5120), the 0800 number and the email address are all unchanged. So are the dates and times: 12 de outubro de 2026, 2 dias úteis, 30 minutos, 8h às 16h, 4 horas úteis and 24 horas.
+
+I added "faça isso logo" to the access-request step. I also wrote "a Renata" and "o Bruno" with articles, which is how people usually say it. Neither changes a fact.

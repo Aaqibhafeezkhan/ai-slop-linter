@@ -1,0 +1,22 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"ai-slop-linter:ai-slop-linter\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"TMP=$(mktemp -d) && cp notatka-incydent.md \\\"$TMP/before.md\\\" && echo $TMP && npx ai-slop-linter --language pl notatka-incydent.md\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"python3 - <<'E'\\np='notatka-incydent.md'\\ns=open(p,encoding='utf-8').read()\\na=s.index('Oczywiście!'); b=s.index('## Podsumowanie')\\ns=s[:a]+s[b:]\\ns=s.replace(\\\"W dzisiejszym dynamicznym świecie niezawodność systemów zamówień ma kluczowe znaczenie — a nasz zespół z dumą przedstawia solidną analizę tego, co poszło nie tak. 30 września\\\",\\\"30 września\\\")\\ns=s.replace(\\\"Warto zauważyć, "
+ }
+]

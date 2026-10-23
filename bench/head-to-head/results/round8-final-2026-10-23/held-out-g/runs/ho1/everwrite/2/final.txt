@@ -1,0 +1,5 @@
+I rewrote `release-notes.md` in place. The wrapper and hype are gone, along with the "simply" and "happy syncing" filler, the bold labels on every bullet and the closing summary line. The new opening sentence just says what the release does.
+
+I left the front matter, the code block, the tester quote, the versions, #1482 and the URL as they were. The checker still flags 1 strong and 1 weak hit, both inside the quoted review ("It's not just a sync tool, it's a game-changer"). I kept that quote word for word. Before the rewrite the file had many more hits, but I didn't run the checker on the original, so I have no before count.
+
+I didn't add any facts. The 40% figure, the chunk sizes, the `keep-both` default and the macOS 12 requirement are as in the original.

@@ -1,0 +1,3 @@
+Reescrevi o `guia-integracao.md` no próprio arquivo, com poucas mudanças. A versão original já era bem simples. Ajustei o ritmo e deixei as frases mais diretas, como "então peça logo" e "não são seus para prometer". Comandos, URL, versão 4.1.3, nomes, telefones e e-mail ficaram idênticos. O verificador de padrões de texto de IA deu 0 acertos fortes e 0 fracos antes e depois. Ele só confere a lista de padrões, por isso o ajuste de ritmo foi feito à mão.
+
+Acrescentei o "então peça logo" na parte do acesso ao painel. É uma orientação nova que não estava no original. Se não quiser, é só tirar.

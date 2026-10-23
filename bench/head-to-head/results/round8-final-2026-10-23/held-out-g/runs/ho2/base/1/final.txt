@@ -1,0 +1,7 @@
+He reescrito `pr-sms-reintentos.md` en el mismo archivo.
+
+- **Quitado:** la frase de chatbot del principio ("¡Claro! Aquí tienes…"), el relleno ("en el mundo digital actual", "robusta y escalable", "realmente impresionantes") y el cierre grandilocuente ("marca un antes y un después").
+- **Cambiado:** el resumen ahora dice qué hace la PR. También quité el "potencialmente podría" de la viñeta de los duplicados.
+- **Sin tocar:** la tabla, `enviar_con_reintentos()`, `avisos/sms.py`, `SMS_MAX_REINTENTOS`, `tests/test_sms.py`, los números (5 reintentos, 2/4/8/16/32 s, 14 pruebas), la fecha del 8 de octubre de 2026 y el issue #377.
+
+Añadí "Lo probé" en primera persona, así que la PR dice que las pruebas las hizo una sola persona. Si las hizo otra persona o un equipo, cámbialo. Además, "insistir cada 3 segundos" en el resumen es una paráfrasis del reintento fijo de 3 segundos.

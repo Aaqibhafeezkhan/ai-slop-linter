@@ -1,0 +1,11 @@
+Reescribí `pr-sms-reintentos.md` en el propio archivo. No lo volví a leer después de editarlo.
+
+- **Saludo de chatbot:** quité "¡Claro! Aquí tienes una descripción detallada… Espero que te sea de utilidad."
+- **Resumen:** sustituí la solución "robusta y escalable" que "transforma por completo", con su apertura sobre el mundo digital actual, por una frase que dice qué hace la PR. Ahora dice que `avisos-api` reintenta el envío con espera exponencial cuando falla el proveedor de SMS.
+- **Cambios:** "Cabe destacar que… potencialmente podría causar" pasó a "Se elimina el reintento fijo de 3 segundos, que podía provocar mensajes duplicados." Quité un hedge doble y el relleno.
+- **Resultados:** "los resultados son realmente impresionantes" pasó a "Medido en el entorno de preparación el 8 de octubre de 2026:".
+- **Cómo probarlo:** quité "Para empezar, simplemente", "No dudes en" y el cierre de "paso importante… antes y un después". Queda "Ejecuta `pytest tests/test_sms.py`. Las dudas, en el issue #377."
+
+La tabla, los nombres de código, los números, la fecha y el issue #377 están tal cual. Dejé sin tocar las líneas de `enviar_con_reintentos()`, `SMS_MAX_REINTENTOS` y las 14 pruebas, porque ya se leían bien.
+
+No añadí nada que el original no dijera. Por eso el texto no comenta que la latencia p95 sube de 4,1 s a 4,4 s. Si quieres explicarlo, tendrás que aportar tú el motivo.

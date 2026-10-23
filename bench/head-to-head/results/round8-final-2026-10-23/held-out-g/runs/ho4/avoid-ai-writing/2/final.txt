@@ -1,0 +1,9 @@
+I rewrote `status-mingguan.md` in place, with three edits. The merchant quote, WK-904, WK-911, WK-915, WK-920, version 2.6.0, the dates, `.xlsx`, `/laporan` and <EMAIL> are unchanged.
+
+- **Opening:** I cut "Tentu saja! … komprehensif … Semoga bermanfaat!" and the "Di era digital yang serba cepat ini … dengan bangga mengumumkan kemajuan luar biasa … tonggak penting yang benar-benar mengubah cara pedagang mengelola stok" sentence. They are chatbot filler and inflated claims. The file now opens with "Berikut status proyek minggu ini." and "Aplikasi Warung Kita versi 2.6.0 maju minggu ini."
+- **Done list:** I dropped "Perlu dicatat bahwa". I changed "sepertinya sudah mungkin teratasi" to "mungkin sudah teratasi", which keeps one hedge instead of two.
+- **Closing:** I replaced the commitment, "fondasi yang kokoh" and "dukungan Anda yang luar biasa" boilerplate with "Kalau ada pertanyaan, hubungi Dewi Anggraini di <EMAIL>."
+
+I made these edits by judgment, not by checking the file against the full pattern list. The skill's pattern list is calibrated for English and this file is Indonesian. I also read only the first 455 lines of the 871-line reference. No detector or other tool ran, so the check is model-only, and I made one editing pass.
+
+I removed the inflated claim about the release changing how merchants manage stock. The source gave no evidence for it, and the merchant quote still carries that point. I didn't add any detail the file didn't already have.

@@ -1,0 +1,11 @@
+I rewrote `commitberichten.md` in place.
+
+- **Removed:** the chatbot opening ("Natuurlijk! Hier is…"), the closing offer, the "Kortom…" summary, and the filler phrases ("robuuste oplossing", "cruciale rol", "Het is belangrijk om op te merken").
+- **Made concrete:** commit 1 now says what the change does, and commit 2 says the rounding cost us revenue. I dropped the hedging "mogelijk zou dit kunnen".
+- **Left as they were:** the commit subjects in backticks, the customer quote, `ANNULERING_UUR`, `berekenTarief()`, `src/prijzen.ts`, the versions (1.9.0, 2.30.0, 3.6.0), the € 12,50 and € 12,00 amounts, the 37 tests, the URL and the date.
+
+I also added a few things the original didn't say, so check them:
+
+- **Commit 1:** "Klanten kunnen een boeking nu tot 48 uur van tevoren annuleren" is my reading of "annuleringstermijn van 48 uur".
+- **Commit 2:** "waardoor we omzet misliepen" states as fact what the original only hedged ("mogelijk zou dit kunnen leiden tot een verlies van omzet").
+- **Commit 3:** "gaat het werken met datums beter" is vaguer than the original's claim of smoother, more reliable date handling.

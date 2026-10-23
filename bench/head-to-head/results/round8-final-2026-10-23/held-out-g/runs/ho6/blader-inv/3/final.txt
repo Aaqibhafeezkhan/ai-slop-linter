@@ -1,0 +1,10 @@
+I rewrote `commitberichten.md` in place.
+
+- **Removed:** the chatbot opener ("Natuurlijk!… Ik hoop dat dit nuttig is") and the closing offer ("Laat het gerust weten…"). I also cut the "Kortom… belangrijke stap vooruit" paragraph.
+- **Inflated wording:** I cut "robuuste oplossing", "naadloos", "cruciale rol", "In de huidige snelle wereld" and "soepelere en betrouwbaardere". I also dropped "Het is belangrijk om op te merken" and the stacked hedge "Mogelijk zou dit kunnen leiden". Each is now a plain statement.
+- **Dashes:** I removed the em dash.
+- **Kept exactly:** the four subject lines in backticks, the customer quote, `ANNULERING_UUR`, `berekenTarief()`, `src/prijzen.ts`, the version numbers (1.9.0, 2.30.0, 3.6.0), the amounts (€ 12,50 and € 12,00), the 37 tests, the URL and the date.
+
+I made one claim stronger than the source and changed it back. The revenue point now reads "Dat kan omzet kosten", because the original only said it might.
+
+Commit 3 now says only that date-fns "beter verwerkt" datums. The source gave no specifics beyond "soepelere en betrouwbaardere", so I kept it vague.

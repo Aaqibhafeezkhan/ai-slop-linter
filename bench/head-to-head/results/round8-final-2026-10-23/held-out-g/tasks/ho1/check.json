@@ -1,0 +1,62 @@
+{
+ "output": "release-notes.md",
+ "facts": [
+  "Lantern Sync",
+  "3.8.0",
+  "2026-09-14",
+  "1 GiB",
+  "40%",
+  "8 MiB",
+  "16 MiB",
+  "`conflict_policy`",
+  "`keep-both`",
+  "#1482",
+  "`lantern.toml`",
+  "macOS 12",
+  "Windows and Linux",
+  "https://example.com/lantern/docs/3.8",
+  "network drives"
+ ],
+ "tells": [
+  "Certainly!",
+  "comprehensive overview",
+  "I hope this helps",
+  "let me know if you would like",
+  "thrilled to announce",
+  "—",
+  "game-changing",
+  "seamlessly",
+  "fast-paced world",
+  "robust",
+  "worth noting",
+  "plays a crucial role",
+  "could possibly",
+  "significant step forward",
+  "look forward to your feedback",
+  "happy syncing",
+  {
+   "re": "to get started, simply"
+  },
+  {
+   "re": "transforms how your team"
+  }
+ ],
+ "protected": [
+  "title: Lantern Sync 3.8.0 release notes",
+  "> \"It's not just a sync tool, it's a game-changer.\"",
+  "```toml\n[sync]\nchunk_size = \"16MiB\"\nconflict_policy = \"keep-both\"\n```"
+ ],
+ "forbidden_added": [
+  "my",
+  "i'm",
+  "i've",
+  "i'd",
+  "myself"
+ ],
+ "language_absent": [
+  "und",
+  "para",
+  "het",
+  "está"
+ ]
+}

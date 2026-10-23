@@ -1,0 +1,6 @@
+# The slop rules are tuned for English. These patterns are ordinary
+# punctuation in German and French (dashes in quotes, dialogue dashes,
+# colons before a quotation), so skip them for the translated pages.
+[[overrides]]
+paths = ["docs/de/**/*.md", "docs/fr/**/*.md"]
+disable = ["em-dash-pivot", "colon-elaboration", "question-then-answer"]

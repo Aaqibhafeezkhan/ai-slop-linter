@@ -1,0 +1,7 @@
+Saya sudah menulis ulang `status-mingguan.md` di tempat. Slopless tidak saya jalankan karena hanya mendukung bahasa Inggris.
+
+- **Yang dibuang:** pembuka "Tentu saja! Berikut adalah…", kalimat "Di era digital yang serba cepat ini", "tonggak penting", "fondasi yang kokoh", dan penutup yang berlebihan.
+- **Yang tetap sama:** kutipan pedagang, ID tiket (WK-904, WK-911, WK-915, WK-920), versi 2.6.0, semua tanggal, format `.xlsx`, jalur `/laporan`, dan <EMAIL>.
+- **Hal yang perlu Anda cek:**
+  - Soal WK-904, "sepertinya sudah mungkin teratasi" saya ganti menjadi "kemungkinan sudah teratasi. Belum kami pastikan, jadi masih kami pantau." Klaim "masih kami pantau" itu tambahan saya, jadi hapus kalau tidak sesuai.
+  - Di "Langkah berikutnya" saya menulis kalimat baru: fokus minggu depan menyelesaikan tiga tiket begitu vendor pembayaran siap. Itu hanya kesimpulan dari isi dokumen, jadi sesuaikan kalau rencana sebenarnya berbeda.

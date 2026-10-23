@@ -1,0 +1,22 @@
+I rewrote `pr-sms-reintentos.md` in place so it reads like a person wrote it.
+
+**What I cut:**
+- The chatbot opener ("¡Claro! Aquí tienes…").
+- The filler: "solución robusta y escalable", "en el mundo digital actual", "cabe destacar", "realmente impresionantes", "marca un antes y un después", and the em-dash flourish.
+- The closing summary paragraph.
+
+**What I added or changed:**
+- The summary now says what the PR does.
+- The latency line now says the p95 goes up from 4,1 s to 4,4 s and is a fair trade for fewer lost messages.
+- The test and issue instructions are shorter.
+- I turned "potencialmente podría causar" into "podía provocar" so the claim is a single statement.
+
+**What I kept as it was:**
+- The table.
+- `enviar_con_reintentos()`, `avisos/sms.py`, `SMS_MAX_REINTENTOS`, `tests/test_sms.py` and `pytest tests/test_sms.py`.
+- The numbers: 5 retries, waits of 2, 4, 8, 16 and 32 seconds, the 3-second fixed retry, 14 tests, 2,3 % → 0,1 % and 4,1 s → 4,4 s.
+- The date, 8 de octubre de 2026, and issue #377.
+
+The slop-cop rules are written for English. I ran the file through it before rewriting and only some hits applied to Spanish text (the `!` and the em dash). I did the rewrite by hand and did not re-run the check on the result.
+
+I wrote "Lo probé" in the first person, which assumes you ran the staging test yourself. Change it if someone else did.

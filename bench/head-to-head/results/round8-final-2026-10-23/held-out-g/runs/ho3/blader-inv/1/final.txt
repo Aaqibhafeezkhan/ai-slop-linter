@@ -1,0 +1,10 @@
+Przepisałem `notatka-incydent.md` na miejscu. Front matter, blok z logiem błędu, wersje, godziny, liczby, nazwy plików i URL zostały bez zmian.
+
+Zmiany w tekście:
+- **Usunięte:** wstęp w stylu czatbota ("Oczywiście! … Mam nadzieję, że będzie pomocne"), frazy w rodzaju "W dzisiejszym dynamicznym świecie…" i "z dumą przedstawia", "Warto zauważyć", "Warto podkreślić" oraz patetyczne zakończenie o "wyzwaniach" i "cennej lekcji".
+- **Przyczyna:** zamiast podwójnego zastrzeżenia ("Prawdopodobnie mogło to być…") jest jedno ("Prawdopodobnie winne było…").
+- **Wnioski:** zostały dwa fakty. Dodamy alert przy 80% wykorzystania puli, a pytania kieruje się do Marty Wójcik. Zwrot "Nie wahaj się zgłaszać pytań" zmieniłem na "Pytania proszę kierować do…".
+- **Usunięty nagłówek `# Notatka z incydentu`:** powtarzał tytuł z front matter. Jeśli wolisz go zostawić, łatwo przywrócić.
+- **Dodatkowa zmiana:** "następujący błąd" zmieniłem na "taki błąd" w zdaniu przed blokiem z logiem.
+
+Nie dodałem żadnych nowych faktów.

@@ -1,0 +1,10 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Pembaruan Status Mingguan\\n\\n## Ringkasan\\n\\nMinggu ini Warung Kita versi 2.6.0 maju cukup jauh, terutama di bagian pengelolaan stok. Pada minggu yang berakhir 16 Oktober 2026, kami menyelesaikan 18 dari 21 tiket.\\n\\nSalah satu pedagang pengguna awal menulis:\\n\\n> \\\"Dengan aplikasi ini, saya tidak lagi menghitung stok sampai larut malam.\\\"\\n\\n## Yang selesai\\n\\"
+ }
+]

@@ -1,0 +1,14 @@
+I rewrote `release-notes.md` in place. I didn't re-read the file afterward, but all three edits applied cleanly.
+
+**What I cut or changed:**
+- **Chat opener:** I deleted "Certainly! Here is a comprehensive overview… I hope this helps…".
+- **Intro:** The "thrilled / game-changing / seamlessly transforms / fast-paced world" paragraph is now one plain sentence: "Lantern Sync 3.8.0 speeds up large uploads and adds a setting for edit conflicts."
+- **Faster uploads:** I dropped "robust". The 40% figure and the 8 MiB to 16 MiB chunk change are untouched.
+- **Conflict handling:** I removed "Smarter", "intelligently", "It's worth noting" and "plays a crucial role in deciding". It now says the setting decides what happens when two devices edit the same file, and that it defaults to `keep-both`.
+- **Bug fix:** "A potential issue… could possibly stall" became "The watcher no longer stalls on network drives (#1482)." This reads slightly more definite than the original hedge. If you want it softer, say so.
+- **Config intro:** "To get started, simply add the following" became "Add this to `lantern.toml`:".
+- **Closing:** I cut "Overall, this update represents a significant step forward…" and "happy syncing!". The docs sentence now reads "Full docs are in [the 3.8 docs](…)."
+
+**Left exactly as it was:** the front matter, the TOML block, the tester quote, the version numbers, #1482 and the URL.
+
+The tester quote ("It's not just a sync tool, it's a game-changer") has the same pattern I removed elsewhere. I kept it because you said to and because it's attributed third-party text.

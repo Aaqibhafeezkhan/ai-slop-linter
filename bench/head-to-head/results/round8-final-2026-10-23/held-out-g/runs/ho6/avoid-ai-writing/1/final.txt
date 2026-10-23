@@ -1,0 +1,18 @@
+I rewrote `commitberichten.md` in place. The skill's rules are calibrated for English and this file is Dutch, so I applied them by judgment. I didn't re-read the file afterwards, and no detector or other scripts ran, so the check was by eye only.
+
+**Edits**
+- **Intro:** I replaced "Natuurlijk! Hier is een uitgebreid overzicht… Ik hoop dat dit nuttig is." with "De commitberichten voor release 1.9.0 van de fietsplanner." The original was chatbot filler.
+- **Commit 1:** I cut the "robuuste oplossing die naadloos aansluit" and "In de huidige snelle wereld…" sentences, which said nothing specific. They now read "Deze commit voegt een annuleringstermijn van 48 uur toe aan het boekingsproces." The `ANNULERING_UUR` sentence and the quote are untouched.
+- **Commit 2:** I dropped "Het is belangrijk om op te merken dat". "Mogelijk zou dit kunnen leiden tot een verlies van omzet" became "Dat kon omzet kosten." I kept the hedge as a past-tense "kon", so the claim isn't made stronger.
+- **Commit 3:** I replaced "zorgt voor een soepelere en betrouwbaardere verwerking" with "De datumverwerking draait nu op de nieuwe versie." The original praise had no support in the file. The new line says only that the code now runs on the updated library. Please check that it's accurate.
+- **Closing:** I deleted the "Kortom… belangrijke stap vooruit" summary and the "Laat het gerust weten" offer.
+
+**Left alone**
+- All four commit subject lines in backticks.
+- The customer quote.
+- The `ANNULERING_UUR`, `berekenTarief()` and `src/prijzen.ts` code names.
+- Versions 1.9.0, 2.30.0 and 3.6.0.
+- € 12,50 and € 12,00, "37 tests", the date 21 oktober 2026, and the URL.
+- The commit 4 body, which was already plain.
+
+I used one editing pass and found no quote marks that needed normalizing.

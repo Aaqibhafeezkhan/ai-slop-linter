@@ -1,0 +1,79 @@
+[
+ {
+  "name": "ours",
+  "source": "https://github.com/Bubblegunn/ai-slop-linter",
+  "licence": "MIT",
+  "pinned": "a498189eb8ba (product code), run commits d767c0710ca1 (public) and d902627e405f (held-out g)",
+  "invoked": null
+ },
+ {
+  "name": "blader",
+  "source": "https://github.com/blader/humanizer",
+  "licence": "MIT",
+  "pinned": "8c307f367c91bd974002f10f2be2965d642c13df",
+  "invoked": "/humanizer:humanizer"
+ },
+ {
+  "name": "blader-inv",
+  "source": "https://github.com/blader/humanizer",
+  "licence": "MIT",
+  "pinned": "8c307f367c91bd974002f10f2be2965d642c13df",
+  "invoked": "/humanizer:humanizer"
+ },
+ {
+  "name": "unslop",
+  "source": "https://github.com/jlwin/unslop_ai",
+  "licence": "MIT",
+  "pinned": "d65241e66f2b0e0d0b305cb55dadbffac0f9ef52",
+  "invoked": "Use the unslop skill."
+ },
+ {
+  "name": "unslop-inv",
+  "source": "https://github.com/jlwin/unslop_ai",
+  "licence": "MIT",
+  "pinned": "d65241e66f2b0e0d0b305cb55dadbffac0f9ef52",
+  "invoked": "Use the unslop skill."
+ },
+ {
+  "name": "everwrite",
+  "source": "https://github.com/m4bwav/everwrite",
+  "licence": "MIT",
+  "pinned": "38912ce43453129c63eef958bf65faef4833c18e",
+  "invoked": "Use the everwrite skill."
+ },
+ {
+  "name": "everwrite-inv",
+  "source": "https://github.com/m4bwav/everwrite",
+  "licence": "MIT",
+  "pinned": "38912ce43453129c63eef958bf65faef4833c18e",
+  "invoked": "Use the everwrite skill."
+ },
+ {
+  "name": "avoid-ai-writing",
+  "source": "https://github.com/conorbronsdon/avoid-ai-writing",
+  "licence": "MIT",
+  "pinned": "209815cdeb4af942616daec89a5e0a706c804e3a",
+  "invoked": null
+ },
+ {
+  "name": "slopless",
+  "source": "https://github.com/berelevant-ai/slopless",
+  "licence": "MIT",
+  "pinned": "628d89bd63f60e3718bfba0012b90b9629c8842d",
+  "invoked": null
+ },
+ {
+  "name": "slop-cop",
+  "source": "https://github.com/yasyf/slop-cop",
+  "licence": "MIT",
+  "pinned": "c9fc5a6796ef01978f8a1c1bff47361ead13bd7a",
+  "invoked": null
+ },
+ {
+  "name": "base",
+  "source": "no plugin",
+  "licence": null,
+  "pinned": null,
+  "invoked": null
+ }
+]

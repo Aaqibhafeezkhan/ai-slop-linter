@@ -1,0 +1,18 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"ai-slop-linter:ai-slop-linter\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"TMP=$(mktemp -d) && cp status-mingguan.md \\\"$TMP/before.md\\\" && echo $TMP && npx ai-slop-linter --language id status-mingguan.md; cat <TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cat > status-mingguan.md <<'EOF'\\n# Pembaruan Status Mingguan\\n\\n## Ringkasan\\n\\nPada minggu yang berakhir 16 Oktober 2026, kami menyelesaikan 18 dari 21 tiket untuk aplikasi Warung Kita versi 2.6.0, yang mengubah cara pedagang mengelola stok.\\n\\nSalah satu pedagang pengguna awal menulis:\\n\\n> \\\"Dengan aplikasi ini, saya tidak lagi menghitung stok sampai larut malam.\\\"\\n\\n## Yang sele"
+ }
+]

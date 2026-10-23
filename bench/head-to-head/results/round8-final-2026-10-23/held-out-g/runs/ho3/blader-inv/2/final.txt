@@ -1,0 +1,9 @@
+I rewrote `notatka-incydent.md` in place, in Polish. I left the front matter, the error log block, versions, times, counts, file names and the URL exactly as they were.
+
+What I removed or changed:
+- **Chatbot wrapper:** I cut "Oczywiście! … Mam nadzieję, że będzie pomocne" and the "Nie wahaj się zgłaszać pytań" line. The contact for questions is now a plain sentence: "Pytania proszę kierować do Marty Wójcik."
+- **Inflated intro:** I cut the "dynamiczny świat" opening and the "z dumą przedstawia solidną analizę" boast, plus the "stanowi cenną lekcję" and "stawimy czoła każdemu wyzwaniu" closers.
+- **Filler and hedging:** I dropped "Warto zauważyć" and "Warto podkreślić". "Prawdopodobnie mogło to być spowodowane" became "Najpewniej zawiniło". That keeps the uncertainty about the cause without stacking hedges.
+- **Dashes:** I removed the em dash.
+
+I stated the 80% alert plainly. The note gives no date or owner for it, and I didn't invent any.

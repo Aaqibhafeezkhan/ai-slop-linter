@@ -1,0 +1,5 @@
+I rewrote `status-mingguan.md` in place, and the checker went from 1 strong and 2 weak hits to 0.
+
+I cut the chat opener, the filler intro, the hype about the release and the closing paragraph. I also removed the em dash, the stacked hedge "sepertinya sudah mungkin" (now just "sepertinya"), and the unsupported claim that the release "benar-benar mengubah cara pedagang mengelola stok". The title is now in sentence case.
+
+The merchant quote, ticket IDs, version number, dates, `.xlsx`, `/laporan` and <EMAIL> are unchanged.

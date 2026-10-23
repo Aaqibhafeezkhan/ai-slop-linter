@@ -1,0 +1,58 @@
+{
+ "output": "notatka-incydent.md",
+ "facts": [
+  "30 września 2026",
+  "07:12",
+  "`zakwas-orders`",
+  "47 minut",
+  "312",
+  "`pg-main`",
+  "5.2.0",
+  "40",
+  "20",
+  "5.1.4",
+  "07:59",
+  "`config/pool.yml`",
+  "https://example.com/zakwas/admin",
+  "80%",
+  "Marty Wójcik",
+  "pool exhausted"
+ ],
+ "tells": [
+  "Oczywiście!",
+  "kompleksowe podsumowanie",
+  "Mam nadzieję, że będzie pomocne",
+  "dzisiejszym dynamicznym świecie",
+  "kluczowe znaczenie",
+  "—",
+  "z dumą przedstawia",
+  "solidną analizę",
+  "Warto zauważyć, że",
+  "Prawdopodobnie mogło to być",
+  "cenną lekcję",
+  "Warto podkreślić, że",
+  "Nie wahaj się",
+  "stawimy czoła każdemu wyzwaniu",
+  {
+   "re": "stanowi cenną"
+  }
+ ],
+ "protected": [
+  "tytul: Incydent 2026-09-30, awaria kolejki zamówień",
+  "```\nERROR pool exhausted: max=20 waiting=118\n```"
+ ],
+ "forbidden_added": [
+  "ja",
+  "mój",
+  "moje",
+  "uważam",
+  "myślę",
+  "sądzę"
+ ],
+ "language_absent": [
+  "the",
+  "and",
+  "with",
+  "which"
+ ]
+}

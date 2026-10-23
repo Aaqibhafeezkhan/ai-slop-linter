@@ -1,0 +1,18 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Certainly! Here is a comprehensive overview of the release notes for Lantern Sync 3.8.0. I hope this helps, and let me know if you would like any changes.\\n\\n## What changed\\n\\nWe are thrilled to announce Lantern Sync 3.8.0 — a game-changing release that seamlessly transforms how your team syncs files. In today's fast-paced world, reliabl"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"To get started, simply add the following to `lantern.toml`:\", \"new_string\": \"Add this to `lantern.toml`:\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Windows and Linux builds are unchanged. Overall, this update represents a significant step forward, and we look forward to your feedback. Full docs are available at [the 3.8 docs](https://example.com/lantern/docs/3.8) — happy syncing!\", \"new_string\": \"Windows and Linux builds are unchanged. Full docs are in [the 3.8 docs](https://example."
+ }
+]

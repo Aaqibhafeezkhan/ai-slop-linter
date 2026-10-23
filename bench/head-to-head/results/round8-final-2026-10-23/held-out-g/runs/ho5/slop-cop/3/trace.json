@@ -1,0 +1,22 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"slop-cop:slop-cop-prose\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Guia de integração da equipe de suporte\\n\\nEste guia é para quem está começando na equipe de suporte da Serraria Digital e explica o que fazer na primeira semana. A última revisão foi em 12 de outubro de 2026.\\n\\n## Antes do primeiro dia\\n\\nPeça acesso ao painel de chamados em https://example.com/chamados. A aprovação pode levar até 2 dias úteis, e enquanto ela"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> S=plugin-slop-cop/bin/slop-cop; [ -x $S ] || S=slop-cop; $S --version; $S check ho5-slop-cop-3/guia-integracao.md --no-llm --format=compact\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Peça acesso ao painel de chamados em https://example.com/chamados. A aprovação\", \"new_string\": \"Em https://example.com/chamados fica o painel de chamados, e é lá que você pede o seu acesso. A aprovação\"}"
+ }
+]

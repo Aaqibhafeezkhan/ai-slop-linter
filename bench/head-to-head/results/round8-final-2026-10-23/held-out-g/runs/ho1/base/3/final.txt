@@ -1,0 +1,8 @@
+I rewrote `release-notes.md` in place. I didn't re-read the file after editing.
+
+- **Removed:** the chatbot opener ("Certainly! Here is a comprehensive overview…"), the "thrilled to announce / game-changing / fast-paced world" intro, filler like "It's worth noting" and "plays a crucial role", and the "significant step forward… happy syncing!" closer.
+- **Added:** a one-line summary under the title that says what the release does.
+- **Tightened:** the three bullets are now short and plain. The bug fix no longer says "potential issue" and "possibly".
+- **Left exactly as they were:** the front matter, the title, the tester quote, the TOML block, the version numbers, #1482, the macOS 12 requirement and the docs URL.
+
+I wrote the summary line myself from the bullets. Check that it matches how you'd describe the release.

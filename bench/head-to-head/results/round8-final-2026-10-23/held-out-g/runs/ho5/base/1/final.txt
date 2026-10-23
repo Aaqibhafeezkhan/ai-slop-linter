@@ -1,0 +1,9 @@
+Reescrevi o `guia-integracao.md` no próprio arquivo, em português, com um tom mais direto e natural. Mudei só a redação e a ordem das frases em alguns pontos.
+
+Mantive sem alteração:
+- **Comandos:** `suporte listar --antigos` e `suporte pausar <id>`.
+- **URL:** https://example.com/chamados.
+- **Versão:** 4.1.3.
+- **Nomes:** Renata Souza e Bruno Teixeira.
+- **Contatos:** ramal 5120, 0800 000 1234 e <EMAIL>.
+- **Números e datas:** os prazos, os horários e a data de revisão.

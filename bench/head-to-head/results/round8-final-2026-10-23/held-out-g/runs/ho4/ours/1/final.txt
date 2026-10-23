@@ -1,0 +1,14 @@
+Saya menulis ulang `status-mingguan.md` langsung di berkasnya. `--verify` masih keluar dengan kode 1 karena satu hal: kata `Anda` hilang. Kata itu ada di kalimat penutup "Terima kasih atas perhatian dan dukungan Anda yang luar biasa", dan kalimat itu memang saya hapus karena ciri tulisan mesin.
+
+Yang saya buang:
+- Pembuka asisten: "Tentu saja! Berikut adalah ringkasan komprehensif… Semoga bermanfaat!"
+- "Di era digital yang serba cepat ini… dengan bangga mengumumkan kemajuan luar biasa"
+- "Perlu dicatat bahwa"
+- "sepertinya sudah mungkin teratasi", yang saya ringkas jadi "sepertinya sudah teratasi" karena dua kata ragu menumpuk.
+- Penutup berisi janji dan basa-basi: "terus berkomitmen… solusi terbaik", "Jangan ragu untuk", "fondasi yang kokoh", dan ucapan terima kasih.
+
+Yang tidak saya ubah: kutipan pedagang, tiket WK-904, WK-911, WK-915, WK-920, versi 2.6.0, semua tanggal, `.xlsx`, `/laporan`, angka 1,2 dan 3,5 detik, serta <EMAIL>. Kalimat "Tiga tiket belum selesai…" tidak disentuh. `--compare` hanya melaporkan kehilangan `Anda` itu.
+
+Satu hal yang perlu kamu cek: untuk bahasa Indonesia, `--verify` tidak punya katalog frasa dan linter tidak menemukan apa pun di teks aslinya. Jadi pemeriksaan utamanya adalah daftar di `references/id.md` dan saya membacanya sendiri.
+
+Residuals: "kami menyelesaikan" tetap ada karena sumbernya sudah memakai "kami", dan saya tidak menambah orang pertama baru.

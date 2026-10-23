@@ -1,0 +1,14 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"slop-cop check guia-integracao.md 2>&1 | head -40\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"python3 -I - <<'E'\\np='guia-integracao.md'\\ns=open(p).read()\\ns=s.replace(\\\"Peça acesso ao painel de chamados em https://example.com/chamados. O pedido leva até 2 dias úteis para ser aprovado. Sem esse acesso você não consegue assumir nenhum chamado.\\\",\\\"O painel de chamados fica em https://example.com/chamados e você precisa pedir acesso. A aprovação leva até dois dias úteis, e sem e"
+ }
+]

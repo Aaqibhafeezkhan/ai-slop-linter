@@ -1,0 +1,8 @@
+Przepisałem `notatka-incydent.md` w miejscu.
+
+- **Usunięte:** chatbotowe otwarcie ("Oczywiście! Poniżej znajdziesz…"), korporacyjne frazesy ("w dzisiejszym dynamicznym świecie", "z dumą przedstawia"), wypełniacze ("Warto zauważyć", "Warto podkreślić") i patetyczne zakończenie o stawianiu czoła wyzwaniom.
+- **Zmienione:** "Prawdopodobnie mogło to być spowodowane" zastąpiłem krótkim "Najpewniej zawiniło". Przyczyna nadal jest przedstawiona jako przypuszczenie.
+- **Dodane:** w sekcji Wnioski jest zdanie, że nikt nie zauważył spadku limitu o połowę i że nie było alertu na zapełnienie puli. To mój wniosek z samego tekstu, nie fakt z innego źródła. Jeśli się nie zgadza, usuń to zdanie.
+- **Bez zmian:** front matter, blok z logiem błędu, wersje (5.2.0, 5.1.4), godziny, liczby (47 minut, 312 zamówień, limity 40 i 20, próg 80%), nazwy plików, URL i nazwisko Marty Wójcik.
+
+Skill Slopless pominąłem, bo działa tylko po angielsku, a notatka jest po polsku.

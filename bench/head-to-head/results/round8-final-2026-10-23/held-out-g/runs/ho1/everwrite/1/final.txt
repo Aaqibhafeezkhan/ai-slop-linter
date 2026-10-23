@@ -1,0 +1,7 @@
+I rewrote `release-notes.md` in place. The only checker hits left are in the tester quote, which you asked me to keep as written (checker went from 27-ish tells to 1 strong and 1 weak, both in that quote).
+
+- **Cut:** the chatbot opener, the "thrilled / game-changing / fast-paced world" intro, the filler words, the bold label on every bullet, and the closing summary.
+- **Kept:** the front matter, the code block, the quote, the version numbers, #1482 and the URL.
+- **Reworded:** the bug-fix bullet. It said the watcher "could possibly stall", and now it says the watcher could stall on network drives and that this is fixed.
+
+The quote is itself a "not X, it's Y" line, so it will look machine-written to a reader. Consider swapping it for a different tester comment before you publish.

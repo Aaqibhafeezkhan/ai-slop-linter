@@ -1,0 +1,1 @@
+status-mingguan.md is going to be published. It reads like an AI wrote it. Rewrite it in place so it reads like a person wrote it. Keep the merchant quote, ticket IDs, version number, dates, file formats and the email address exactly as they are.

@@ -1,0 +1,26 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"slop-cop:slop-cop-prose\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Commitberichten voor release 1.9.0\\n\\nDit zijn de commitberichten voor release 1.9.0 van de fietsplanner.\\n\\n## Commit 1\\n\\n`feat(boekingen): annuleringstermijn van 48 uur toegevoegd`\\n\\nKlanten kunnen een boeking nu tot 48 uur van tevoren annuleren. Je stelt de termijn in met `ANNULERING_UUR`. Een klant schreef ons eerder:\\n\\n> \\\"Cancelling a booking should no"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"P=\\\"${CLAUDE_PLUGIN_ROOT:-<TMP>\\\"; \\\"$P/bin/slop-cop\\\" check <TMP> --no-llm --format=compact 2>&1 | head -20\", \"description\": \"Run slop-cop check on rewritten file\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"De installatiestappen staan nu op https://example.com/fietsplanner/docs. De wijziging is gemaakt op 21 oktober 2026.\", \"new_string\": \"Op 21 oktober 2026 zijn de installatiestappen verhuisd naar https://example.com/fietsplanner/docs en dat is nu de plek om ze te vinden.\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Op 21 oktober 2026 zijn de installatiestappen verhuisd naar https://example.com/fietsplanner/docs en dat is nu de plek om ze te vinden.\", \"new_string\": \"Sinds 21 oktober 2026 staan de installatiestappen op https://example.com/fietsplanner/docs en niet meer alleen in de README.\"}"
+ }
+]

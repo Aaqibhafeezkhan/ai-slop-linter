@@ -1,0 +1,10 @@
+Reescrevi o `guia-integracao.md` no próprio arquivo, com um tom mais direto e coloquial, e o verificador do everwrite deu 0 achados antes e depois. Esse verificador foi feito para inglês, então o resultado não prova muito para um texto em português.
+
+Os comandos, a URL, a versão 4.1.3, os nomes, os telefones e o e-mail ficaram idênticos ao original. Os números e prazos também não mudaram.
+
+O original já era bem simples, então as mudanças foram pequenas:
+- **Abertura:** a frase "revisado pela última vez" virou "Última revisão: …".
+- **Frases soltas:** juntei ou reescrevi as que soavam formais, como "Sem esse acesso você não consegue assumir nenhum chamado".
+- **Tom:** troquei algumas construções por outras mais faladas, como "na segunda" e "Da quinta em diante".
+
+Acrescentei uma coisa que não estava no original: "então faça isso logo", depois do prazo de 2 dias úteis. Se não quiser esse conselho, é só tirar.

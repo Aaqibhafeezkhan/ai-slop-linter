@@ -1,0 +1,63 @@
+{
+  "tasks": [
+    "hoR1",
+    "hoR2",
+    "hoR3",
+    "hoR4",
+    "hoR5",
+    "hoR6"
+  ],
+  "observed": {
+    "ours": 29,
+    "blader": 24,
+    "blader-inv": 26,
+    "base": 25.666666666666668
+  },
+  "best": "blader-inv",
+  "D": 3,
+  "ci": [
+    2.333333333333332,
+    3.666666666666668
+  ],
+  "deficits": [
+    {
+      "task": "hoR1",
+      "ours": 4,
+      "best": 4,
+      "deficit": 0
+    },
+    {
+      "task": "hoR2",
+      "ours": 5,
+      "best": 4.333333333333333,
+      "deficit": 0
+    },
+    {
+      "task": "hoR3",
+      "ours": 5,
+      "best": 2.6666666666666665,
+      "deficit": 0
+    },
+    {
+      "task": "hoR4",
+      "ours": 5,
+      "best": 5,
+      "deficit": 0
+    },
+    {
+      "task": "hoR5",
+      "ours": 5,
+      "best": 5,
+      "deficit": 0
+    },
+    {
+      "task": "hoR6",
+      "ours": 5,
+      "best": 5,
+      "deficit": 0
+    }
+  ],
+  "taskOk": true,
+  "clear": true
+}
+GATE: clear lead

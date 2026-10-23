@@ -1,0 +1,18 @@
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho1-base-1"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: look forward to your feedback"], "cell": "ho1-ours-1"}
+{"C1": true, "C2": true, "C3": true, "C4": false, "C5": true, "score": 4, "detail": ["code span: `[sync]`"], "cell": "ho1-unslop-1"}
+{"C1": false, "C2": true, "C3": true, "C4": false, "C5": false, "score": 2, "detail": ["missing fact: `pytest tests/test_sms.py`", "number: 0,3", "fenced block changed"], "cell": "ho2-base-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho2-ours-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho2-unslop-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-base-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho3-ours-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": false, "score": 4, "detail": ["heading changed: ## Wnioski"], "cell": "ho3-unslop-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho4-base-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho4-ours-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho4-unslop-1"}
+{"C1": true, "C2": true, "C3": false, "C4": true, "C5": true, "score": 4, "detail": ["protected text changed: Este guia cobre a primeira semana de que"], "cell": "ho5-base-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho5-ours-1"}
+{"C1": true, "C2": true, "C3": false, "C4": true, "C5": true, "score": 4, "detail": ["protected text changed: O pedido leva até 2 dias úteis para ser "], "cell": "ho5-unslop-1"}
+{"C1": true, "C2": true, "C3": true, "C4": false, "C5": true, "score": 4, "detail": ["number: 50"], "cell": "ho6-base-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho6-ours-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "ho6-unslop-1"}

@@ -1,0 +1,9 @@
+Quase não precisei mexer em `guia-integracao.md`. O texto já está em frases curtas e concretas. Não tem os sinais típicos de IA: contrastes do tipo "não só X, mas Y", frases de efeito no fim dos parágrafos, listas de três itens, travessões, negrito decorativo ou linguagem de vendas.
+
+Fiz duas edições:
+- **Revisão:** troquei "Ele foi revisado pela última vez em 12 de outubro de 2026." por "Última revisão: 12 de outubro de 2026."
+- **Título de seção:** "Comandos que você vai usar" virou "Comandos".
+
+Não alterei os comandos, a URL, a versão 4.1.3, os nomes (Renata Souza, Bruno Teixeira), o ramal 5120, o 0800 000 1234 nem o e-mail.
+
+Se o texto soa a IA para você, talvez seja pelo tom geral, que é muito regular e instrucional. Nesse caso, ajudaria um exemplo da sua escrita para eu imitar a voz.

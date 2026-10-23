@@ -933,6 +933,20 @@ Run under "Round 5 measurement protocol" and its amendment A. Evidence folder, w
 
 One-sentence result: on 5 held-out tasks written by an agent that saw no code, across 11 arms with 3 runs each on `claude-sonnet-5-5` through the Agent SDK on 2026-10-22, ours scored 23.33 of 25 (second to blader-inv with 24.33, above base with 21.67) and failed Rule A and Rule B, so the gate does not pass and no first-place claim is made; the public tasks, Haiku and Opus runs and the independent re-grade were not run.
 
+## Results, round 8 final measurement (2026-10-23)
+
+Protocol `docs/FINAL-R8.md` (commit `d767c07`, before the first cell); development gate `docs/DEV-GATE-r8.md` (ours 29.00 of 30 against blader-inv 26.00 on six fresh development tasks). Evidence: `bench/head-to-head/results/round8-final-2026-10-23/` (`SUMMARY.md` first). Scope: Sonnet, 11 arms x 3 runs, public 12 tasks (396 cells) and the previously unread held-out set g (198 cells), CLI on the subscription login, product code `a498189eb8ba`.
+
+- Public: ours 58.67 of 60, blader-inv 56.00, blader 54.67, everwrite-inv 54.33, base 48.67. Ours minus blader-inv 2.67, 95% interval [1.00, 4.33]: claim I1 holds. Rule A passes (lost 1.33 against 4.00, limit 3.20); Rule B fails on h11 and h15 (0.33 behind) and h18 (tie at 4.67); Rule B-prime fails (three tasks).
+- Held-out g: ours 29.67 of 30, unslop 30.00, avoid-ai-writing and unslop-inv 29.67, base 28.67. Ours minus unslop -0.33, interval [-1.00, 0.00]: claim I1 does not hold. The set is saturated. Rule A fails, Rule B fails on ho1 (4.67 against 5.00), Rule B-prime passes.
+- F6-grader passes (33 blind runs re-graded, 0 cells off by more than 1 point, 99.4 percent criterion agreement). F6-runs (descriptive): 38 of 40 public and 19 of 20 held-out re-runs inside the min-max of the original three. F9 (descriptive): see the evidence summary.
+- Consequence: "first in total in each set" is not supported, because set g cannot separate the top arms. What the numbers support: first on the public set with an interval above zero, and level with the best of 11 arms on a saturated held-out set. No directory submission or release claim is made by this repository's documents.
+- Isolation: every cell and grader call ran under /private/tmp (`ISOLATION-AND-COST.md`), none below /Users/efe.
+
+### Resume
+
+State on 2026-10-23, 21:00 Istanbul: the measurement is finished and its evidence folder is committed. Open items for the owner: whether to launch with the public-set claim only; a harder held-out set (the g set is at the ceiling for four arms; ours lost one point in one ho1 run); the Co-Authored-By trailer wording (these commits carry Opus 5.5 as the brief says, earlier ones Sonnet 5.5). If the usage limit hits during any later re-run, the commands in `REPRODUCE.md` resume from the finished cells.
+
 ## How to re-run
 
 One command repeats a round: it pins and clones the competitors, runs all eight arms on every task, scores the runs, and prepares the blind grading.

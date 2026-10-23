@@ -1,0 +1,13 @@
+I rewrote `guia-integracao.md` in place, in Portuguese, with a more conversational tone and shorter phrasing. For example, "Sem esse acesso você não consegue assumir nenhum chamado" became "Sem o acesso, você não pega nenhum chamado". I also added a few small human touches, like "então faça isso logo".
+
+I left these exactly as they were:
+- the URL
+- VPN version 4.1.3
+- both commands
+- the names Renata Souza and Bruno Teixeira
+- ramal 5120
+- 0800 000 1234
+- <EMAIL>
+- the dates and time figures
+
+The original was already fairly plain, so the changes are light. I didn't run any tool that detects AI-written text, so I can't tell you how it would score.

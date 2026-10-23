@@ -1,0 +1,13 @@
+I rewrote `commitberichten.md` in place, and `--verify` exits 0. The linter found nothing in the original, so the edits come from the Dutch reference list.
+
+- **Intro:** the "Natuurlijk! Hier is… Ik hoop dat dit nuttig is" wrapper is now one plain line.
+- **Commit 1:** I cut "robuuste", "naadloos", "In de huidige snelle wereld" and "cruciale rol". What's left says the commit adds the cancellation window to the booking process.
+- **Commit 2:** "Het is belangrijk om op te merken dat" is gone. "Mogelijk zou dit kunnen leiden tot een verlies van omzet" is now "Dat kan omzet kosten."
+- **Commit 3:** I removed the "soepelere en betrouwbaardere verwerking" claim, since the source gave no fact behind it. The 37 passing tests stay.
+- **Closer:** the "Kortom… Laat het gerust weten" ending is gone.
+
+I left the subject lines, the quote, the code names, the version numbers, the amounts, the URL and the date untouched. "Een klant schreef ons eerder" was already in the source, so I kept it.
+
+The "unrequested edit" lines in the verify output are the sentences I cut on purpose. There is no Dutch phrase catalog, so I checked the result against `nl.md` by hand.
+
+Residuals: none.

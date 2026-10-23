@@ -1,0 +1,14 @@
+Rewrote `pr-sms-reintentos.md` in place. I'm now reporting the result.
+
+**Edits made**
+- **Opening line:** removed "¡Claro! Aquí tienes una descripción detallada… Espero que te sea de utilidad."
+- **Resumen:** replaced "solución robusta y escalable que transforma por completo…", "En el mundo digital actual…" and the em dash with one plain sentence. It says the PR makes `avisos-api` retry SMS sends with exponential backoff.
+- **Cambios:** dropped "Cabe destacar que" and the stacked "potencialmente podría", leaving "podría". The duplicate-message risk is still stated as a possibility, not a fact.
+- **Resultados:** "los resultados son realmente impresionantes" is now a neutral lead-in to the table.
+- **Cómo probarlo:** cut "Para empezar, simplemente", "No dudes en comentar" and the closing "paso importante… antes y un después". Left: "Ejecuta `pytest tests/test_sms.py`. Las dudas, en el issue #377."
+
+**Verification**
+- **Editing passes:** 1 of 2 used. I re-read the file and found no further justified edit.
+- **Checks:** model-only. The detector, marks normalizer and preservation validator did not run. The skill's rules are calibrated for English, so I applied them to the Spanish text by judgment. The edited prose has no quotes, so there was nothing to normalize.
+- **Left untouched:** the title, the table, the code names (`avisos-api`, `enviar_con_reintentos()`, `avisos/sms.py`, `SMS_MAX_REINTENTOS`, `tests/test_sms.py`), and the numbers, date (8 de octubre de 2026) and #377. I read them back from the file.
+- **Residual:** the table shows p95 latency rising from 4,1 s to 4,4 s, and the text doesn't mention it. I left it because it's content, not style. You may want to add a line before publishing.

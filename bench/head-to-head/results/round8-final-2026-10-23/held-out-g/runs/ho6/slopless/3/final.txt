@@ -1,0 +1,7 @@
+I rewrote `commitberichten.md` in place. I didn't run the Slopless check on it.
+
+- **Removed:** the chatbot opener ("Natuurlijk! Hier is…"), the closing offer, and the filler like "robuuste oplossing", "cruciale rol" and "belangrijk om op te merken".
+- **Made concrete:** each commit now says what changed in plain sentences.
+- **Kept as they were:** the subject lines in backticks, the customer quote, `ANNULERING_UUR`, `berekenTarief()`, `src/prijzen.ts`, the version numbers, the € amounts, the 37 tests, the URL and the date.
+
+I also changed a few claims. Commit 1 now says customers can cancel up to 48 hours ahead, which I inferred from the subject line. Commit 3's "soepelere en betrouwbaardere verwerking" became "het rekenen met datums gaat beter", which is still a claim about the new version that nothing in the file backs up. Commit 2's "mogelijk … verlies van omzet" became a flat "waardoor we omzet misliepen". Check all three against what the commits actually do.

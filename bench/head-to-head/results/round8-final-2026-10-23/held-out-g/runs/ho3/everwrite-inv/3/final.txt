@@ -1,0 +1,5 @@
+Przepisałem `notatka-incydent.md` w miejscu. Usunąłem chatbotowe wstępy, patos i pochlebne zakończenie. Front matter, blok z błędem, wersje, godziny, liczby, nazwy plików i URL zostały bez zmian. Checker pokazuje 0 strong, 0 weak (wcześniej 1 strong).
+
+Dwie rzeczy do sprawdzenia:
+- Zdanie „Najpewniej zawiniło wdrożenie 5.2.0" ma jedno zastrzeżenie, bo oryginał też nie miał pewności co do przyczyny. Jeśli wiecie na pewno, usuńcie „najpewniej".
+- Checker jest nastawiony na angielski, więc polszczyznę sprawdziłem tylko ręcznie.

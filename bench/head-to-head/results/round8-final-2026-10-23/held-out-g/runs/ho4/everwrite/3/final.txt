@@ -1,0 +1,8 @@
+I rewrote `status-mingguan.md` in place. I cut the chatbot opening and closing, the hype, the dash and the stacked hedge "sepertinya sudah mungkin teratasi". The checker went from 1 strong hit and 2 weak to 0 and 0.
+
+Three changes go beyond wording:
+- **Added claim:** "hampir siap" for 2.6.0 is my own wording. The original only said the version was a milestone, so change it if it's wrong.
+- **Dropped phrases:** "Perlu dicatat bahwa" is gone, and so is the original "fondasi yang kokoh bagi pertumbuhan jangka panjang" line. That last line had no concrete content.
+- **Heading:** the title is now in sentence case.
+
+The merchant quote, ticket IDs, version number, dates, `.xlsx` and `/laporan`, and the email address are unchanged.

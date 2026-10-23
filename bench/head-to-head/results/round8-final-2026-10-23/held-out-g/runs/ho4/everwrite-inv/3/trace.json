@@ -1,0 +1,26 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"everwrite:everwrite\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py ../../../ho4-everwrite-inv-3/status-mingguan.md | tail -30\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Pembaruan status mingguan\\n\\n## Ringkasan\\n\\nWarung Kita versi 2.6.0 mengubah cara pedagang mengelola stok. Pada minggu yang berakhir 16 Oktober 2026, kami menyelesaikan 18 dari 21 tiket.\\n\\nSalah satu pedagang pengguna awal menulis:\\n\\n> \\\"Dengan aplikasi ini, saya tidak lagi menghitung stok sampai larut malam.\\\"\\n\\n## Yang selesai\\n\\n- Pemindaian barcode jadi"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py ../../../ho4-everwrite-inv-3/status-mingguan.md | tail -5\"}"
+ }
+]

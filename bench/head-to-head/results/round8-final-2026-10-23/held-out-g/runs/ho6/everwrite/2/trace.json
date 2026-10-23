@@ -1,0 +1,22 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"everwrite:everwrite\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Commitberichten voor release 1.9.0\\n\\nDe commits van release 1.9.0 van de fietsplanner.\\n\\n## Commit 1\\n\\n`feat(boekingen): annuleringstermijn van 48 uur toegevoegd`\\n\\nKlanten kunnen een boeking nu annuleren binnen een termijn van 48 uur. Die termijn stel je in met `ANNULERING_UUR`. Een klant schreef ons eerder:\\n\\n> \\\"Cancelling a booking should not feel like"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"cd <TMP> && python3 scripts/tells.py ../../../ho6-everwrite-2/commitberichten.md\"}"
+ }
+]

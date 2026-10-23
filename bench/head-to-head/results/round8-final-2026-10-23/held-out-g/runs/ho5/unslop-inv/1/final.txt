@@ -1,0 +1,10 @@
+Não alterei o `guia-integracao.md`. Ele já lê como texto de gente, então reescrever só o deixaria pior.
+
+Rodei o arquivo pelas regras do unslop. As regras são em alemão e inglês, mas os padrões valem para o português.
+
+- **Vocabulário:** não achei palavras de enfeite, transições de efeito nem frases de abertura ou de fecho genéricas. O texto abre dizendo o que o guia cobre e fecha com o contato de quem pode ajudar.
+- **Ritmo e estrutura:** as frases variam de tamanho e as seções têm formas diferentes. Os títulos são rótulos simples ("Antes do primeiro dia", "Quando pedir ajuda"). Não há tríades, paralelismos negativos, aforismos nem resumo repetido.
+- **Fatos concretos:** o texto traz prazos (2 dias úteis, 4 horas úteis, 30 minutos), versão, nomes, ramal, telefone e e-mail. Isso é o que faz um guia parecer escrito por quem conhece o processo.
+- **Instruções diretas:** frases como "Não prometa prazos que dependem do time de desenvolvimento" e "diga isso ao cliente" são o tom de um colega experiente. Se eu as suavizasse, o texto ficaria mais genérico.
+
+Se você notou algum trecho específico que soa artificial, me diga qual e eu olho de novo.

@@ -1,0 +1,10 @@
+I left `guia-integracao.md` as it was. It has no AI tells to remove.
+
+- **Linter:** `npx ai-slop-linter --language pt` gave grade A with 0 findings in 225 words.
+- **Verify:** `--verify` against a saved copy printed "clean source: no edit is expected" and `verify: ok (unchanged)`.
+- **Reference list:** I read the Portuguese tell list by hand and found none of its entries. There are no filler words like "papel crucial" or "vale ressaltar", no hedges stacked on effects, no gerund tails, no closing summary line and no negative parallelisms. The sentences are short, direct instructions, such as "Sem esse acesso você não consegue assumir nenhum chamado", which is how a person writes a guide like this.
+- **Facts:** The commands, the URL, version 4.1.3, the names, the phone numbers and `<EMAIL>` are all untouched.
+
+Rewriting it anyway would have added tells or changed facts, so I didn't. If it still sounds off to you, tell me which passage and I'll look at it.
+
+Residuals: none.

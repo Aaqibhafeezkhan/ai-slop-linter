@@ -1,0 +1,11 @@
+Przepisałem `notatka-incydent.md` na miejscu i nie czytałem pliku ponownie po zapisie. Front matter, blok z błędem, wersje (5.2.0, 5.1.4), godziny, liczby (47 minut, 312 zamówień, 40/20, 80%), nazwy plików i URL są bez zmian.
+
+Zmiany:
+- **Początek:** usunąłem „Oczywiście! … Mam nadzieję, że będzie pomocne”. To pozostałość po czacie.
+- **Podsumowanie:** wyciąłem otwarcie o „dzisiejszym dynamicznym świecie” i zdanie o tym, że zespół „z dumą przedstawia solidną analizę”. Notatka zaczyna się od faktów: data, godzina, aplikacja, czas trwania i liczba zamówień.
+- **Przyczyna:** usunąłem „Warto zauważyć”. Zamiast „Prawdopodobnie mogło to być spowodowane” jest jedno zastrzeżenie: „Prawdopodobnie winne było wdrożenie…”. „Wyczerpanie puli” zamieniłem na „Skończyła się pula”.
+- **Wnioski:** wyciąłem „cenną lekcję”, „jak ważna jest współpraca”, „Warto podkreślić”, „Nie wahaj się” i zakończenie o „stawianiu czoła wyzwaniom”. Zostały dwa konkretne zdania: alert przy 80% i kontakt do Marty Wójcik.
+
+Sekcji „Co zrobiliśmy” nie ruszałem. Wygląda jak pisana przez człowieka.
+
+Skill opisuje reguły dla niemieckiego i angielskiego, więc stosowałem je do polskiego tekstu na podstawie wzorców, nie list słów.

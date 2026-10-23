@@ -1,0 +1,30 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"ai-slop-linter:ai-slop-linter\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"D=<TMP> TMP=$(mktemp -d); cp $D/release-notes.md $TMP/before.md; echo $TMP; npx ai-slop-linter $D/release-notes.md\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"D=<TMP> cd $D && python3 -I - <<'E'\\np='release-notes.md'\\ns=open(p).read()\\ndef r(a,b):\\n    global s\\n    assert a in s,a\\n    s=s.replace(a,b)\\nr(\\\"Certainly! Here is a comprehensive overview of the release notes for Lantern Sync 3.8.0. I hope this helps, and let me know if you would like any changes.\\\\n\\\\n\\\",\\\"\\\")\\nr(\\\"We are thrilled to announce Lantern Sync 3.8.0 — a game-changi"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"D=<TMP> cd $D && python3 -I - <<'E'\\np='release-notes.md'\\ns=open(p).read()\\ns=s.replace(\\\"Add the following to\\\",\\\"To get started, simply add the following to\\\")\\ns=s.replace(\\\"> \\\\\\\"It's not just\\\",\\\"<!-- slop-ignore-next-line not-x-but-y -->\\\\n<!-- slop-ignore-next-line ai-vocabulary -->\\\\n> \\\\\\\"It's not just\\\")\\nopen(p,'w').write(s)\\nE\\nnpx ai-slop-linter release-notes.md; npx ai-"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"D=<TMP> cd $D && python3 -I - <<'E'\\np='release-notes.md'\\ns=open(p).read()\\ns=s.replace(\\\"<!-- slop-ignore-next-line ai-vocabulary -->\\\\n\\\",\\\"\\\").replace(\\\"slop-ignore-next-line not-x-but-y\\\",\\\"slop-ignore-next-line not-x-but-y ai-vocabulary\\\")\\nopen(p,'w').write(s)\\nE\\nnpx ai-slop-linter release-notes.md; npx ai-slop-linter --verify /var/folders/0f/lb8m_j5s7nq7tkf97krdnj800000gn/T/t"
+ }
+]

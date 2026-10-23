@@ -1,0 +1,607 @@
+{
+ "summary": {
+  "cells": 33,
+  "cellsOffByMoreThanOne": 0,
+  "criterionAgreement": 0.9939393939393939,
+  "pass": true,
+  "c5Differences": [
+   "h1-everwrite-inv-1"
+  ]
+ },
+ "cells": [
+  {
+   "key": "h3-avoid-ai-writing-1",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h3-avoid-ai-writing-2",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h3-avoid-ai-writing-3",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h2-everwrite-inv-1",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h2-everwrite-inv-2",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h2-everwrite-inv-3",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h1-everwrite-inv-1",
+   "criteria": {
+    "C1": false,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": false
+   },
+   "regrade": {
+    "C1": false,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 1
+  },
+  {
+   "key": "h1-everwrite-inv-2",
+   "criteria": {
+    "C1": false,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": false,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h1-everwrite-inv-3",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h3-slopless-1",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h3-slopless-2",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h3-slopless-3",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h2-ours-1",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h2-ours-2",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h2-ours-3",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h1-slopless-1",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h1-slopless-2",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h1-slopless-3",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h2-unslop-1",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h2-unslop-2",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h2-unslop-3",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h3-ours-1",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h3-ours-2",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h3-ours-3",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h1-base-1",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h1-base-2",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h1-base-3",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h3-unslop-1",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h3-unslop-2",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h3-unslop-3",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": false,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h3-everwrite-inv-1",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h3-everwrite-inv-2",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  },
+  {
+   "key": "h3-everwrite-inv-3",
+   "criteria": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "regrade": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "C5": true
+   },
+   "diffPts": 0
+  }
+ ]
+}

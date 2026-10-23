@@ -1,0 +1,7 @@
+Reescrevi o `guia-integracao.md` no próprio arquivo.
+
+O texto já era bem simples, então mexi pouco. Troquei as frases mais de manual por um tom mais direto e falado, por exemplo "a Renata Souza", "Chamado com perda de dados vai direto para…" e "Se tiver dúvida…". Também juntei algumas frases curtas e deixei a data de revisão mais enxuta.
+
+Mantive como estavam os dois comandos, a URL, a versão 4.1.3, os nomes, o ramal 5120, o 0800 000 1234 e <EMAIL>.
+
+Não rodei o Slopless nem nenhuma outra checagem automática depois da edição.

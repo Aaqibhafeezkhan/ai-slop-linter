@@ -1,0 +1,8 @@
+Reescribí `pr-sms-reintentos.md` en el mismo archivo. La tabla, los nombres de código, los números, la fecha (8 de octubre de 2026) y el issue #377 están tal cual.
+
+- **Quité lo que sobraba:** la frase de chatbot del inicio ("¡Claro! Aquí tienes…"), la apertura "En el mundo digital actual…", el "realmente impresionantes", el "marca un antes y un después" y el cierre con tono de eslogan.
+- **Cambié el Resumen:** ahora dice qué hace la PR, con esperas cada vez más largas en lugar de repetir el envío a intervalos fijos, en vez de adjetivar.
+- **Ajusté los Cambios:** "Cabe destacar" y "potencialmente podría" pasan a "que podía causar mensajes duplicados". También simplifiqué la redacción pasiva de las otras viñetas.
+- **Añadí una línea bajo la tabla:** dice que los mensajes perdidos bajan mucho a cambio de unas décimas más de latencia p95. Solo lee los números de la tabla, sin dato nuevo.
+- **Redacté en primera persona:** "Probé el cambio…", porque la PR la firma una persona. Si la hizo más de una persona, cámbialo a "Probamos".
+- **Recorté "Cómo probarlo":** quedó en el comando y la referencia al issue.

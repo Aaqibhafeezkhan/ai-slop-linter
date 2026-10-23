@@ -1,0 +1,11 @@
+Reescrevi o `guia-integracao.md` no próprio arquivo.
+
+O texto já era bem simples, com poucos vícios de IA. Não havia travessões, listas em negrito, tríades forçadas nem frases de efeito. Por isso as mudanças foram leves:
+
+- A abertura ficou mais direta: "é para quem está entrando na equipe" no lugar de "cobre a primeira semana de quem entra".
+- Juntei duas frases soltas na seção do painel de chamados: "A aprovação leva até 2 dias úteis, e sem ela você não assume nenhum chamado".
+- Troquei "recebe uma primeira resposta" por "precisa de uma primeira resposta", que diz mais claramente o que se espera.
+- Troquei "mas só chamados de prioridade baixa" por "só que apenas chamados de prioridade baixa". Dá um tom mais falado, mas ficou redundante ("só que apenas"). Se achar estranho, é fácil tirar.
+- Ajustei algumas construções, como "com ela ao seu lado" e "Se tiver dúvidas sobre o guia, escreva para…".
+
+Mantive sem alteração os comandos, a URL, a versão 4.1.3, os nomes (Renata Souza, Bruno Teixeira), o ramal 5120, o 0800 000 1234, o e-mail e as datas e prazos.

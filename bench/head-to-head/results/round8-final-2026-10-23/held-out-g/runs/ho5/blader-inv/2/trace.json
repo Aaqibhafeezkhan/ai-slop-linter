@@ -1,0 +1,10 @@
+[
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"ls && cat guia-integracao.md\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"python3 -I - <<'E'\\np='guia-integracao.md'\\ns=open(p,encoding='utf-8').read()\\ns=s.replace(\\\"Este guia cobre a primeira semana de quem entra na equipe de suporte da Serraria Digital. Ele foi revisado pela última vez em 12 de outubro de 2026.\\\",\\\"Este guia é para quem está entrando na equipe de suporte da Serraria Digital e cobre a primeira semana. Última revisão: 12 de outubro de 2026"
+ }
+]

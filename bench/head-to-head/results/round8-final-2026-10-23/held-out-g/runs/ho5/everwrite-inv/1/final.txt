@@ -1,0 +1,5 @@
+Reescrevi o `guia-integracao.md` no próprio arquivo, com frases de tamanhos mais variados e um tom mais direto. Comandos, URL, versão 4.1.3, nomes, telefones e e-mail ficaram como estavam.
+
+Tirei a abertura "Este guia cobre…" e juntei a data de revisão numa frase curta. Também troquei construções rígidas por outras mais naturais, como "e sem ela você não assume chamado nenhum" e "Evite prometer prazo que dependa do time de desenvolvimento".
+
+O verificador deu 0 alertas fortes e 1 fraco. O fraco é "Na segunda… Na terça… Na quinta", que deixei porque é uma sequência de dias. O verificador é calibrado para inglês, então revi o português à mão.

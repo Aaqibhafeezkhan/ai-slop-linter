@@ -1,0 +1,10 @@
+Não alterei o `guia-integracao.md`. Ele já lê como texto de pessoa, e reescrever mais o deixaria pior.
+
+Procurei os padrões comuns de texto gerado por IA e não achei nenhum que justificasse edição:
+
+- **Vocabulário:** não há palavras de enfeite nem frases de abertura ou fecho genéricas. O texto começa direto no assunto e termina com os contatos.
+- **Ritmo:** as frases variam de tamanho e não há listas de três itens decorativas nem contrastes do tipo "não é X, é Y".
+- **Estrutura:** os títulos são rótulos simples ("Antes do primeiro dia", "Primeira semana", "Quando pedir ajuda"). Não há resumo repetido no fim.
+- **Detalhes concretos:** o texto traz prazo de 2 dias úteis, a versão 4.1.3 e o motivo para usá-la (as antigas caem após 30 minutos). Traz também o turno das 8h às 16h, a resposta em 4 horas úteis, o ramal e o plantão.
+
+Trocar frases que já são claras só para parecer mais "humano" cria outro tipo de marca artificial. Por isso deixei tudo como está. Se você tiver um trecho específico que ainda soa artificial para você, me diga qual e eu ajusto só ele.

@@ -1,0 +1,17 @@
+I rewrote `commitberichten.md` in place.
+
+- **Cut:**
+  - The chatbot opener ("Natuurlijk! … Ik hoop dat dit nuttig is") and the closer ("Kortom … Laat het gerust weten").
+  - The filler phrases ("robuuste oplossing", "naadloos", "cruciale rol", "In de huidige snelle wereld", "Het is belangrijk om op te merken").
+  - The em dash and the stacked hedge ("Mogelijk zou dit kunnen leiden").
+  - The claim that Commit 3 gives "soepelere en betrouwbaardere" date handling. The source gave no evidence for it.
+- **Kept exactly:**
+  - The four subject lines in backticks.
+  - The customer quote.
+  - `ANNULERING_UUR`, `berekenTarief()` and `src/prijzen.ts`.
+  - The versions 2.30.0, 3.6.0 and 1.9.0.
+  - The amounts € 12,50 and € 12,00.
+  - The 37 tests.
+  - The URL.
+  - The date 21 oktober 2026.
+- **One addition to check:** Commit 1 now says customers can cancel up to 48 hours in advance. That is my reading of "annuleringstermijn van 48 uur". If the term works differently, correct that sentence.

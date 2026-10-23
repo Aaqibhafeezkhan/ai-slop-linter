@@ -1,0 +1,5 @@
+Reescrevi o `guia-integracao.md` no próprio arquivo. O texto original já tinha poucos vícios de IA, então as mudanças são pequenas.
+
+- **O que mudou:** o tom ficou mais direto e mais próximo de como uma pessoa da equipe falaria. Por exemplo, o parágrafo inicial agora diz a quem o guia se destina. Ajustei também o ritmo de algumas frases, como a do acesso ao painel e a da quinta-feira.
+- **O que não mudou:** os comandos `suporte listar --antigos` e `suporte pausar <id>`, a URL, a versão 4.1.3, os nomes (Renata Souza, Bruno Teixeira), o ramal 5120, o 0800 000 1234, o e-mail e a data de revisão. Os prazos e horários também continuam iguais.
+- **O que não acrescentei:** nenhum fato novo.

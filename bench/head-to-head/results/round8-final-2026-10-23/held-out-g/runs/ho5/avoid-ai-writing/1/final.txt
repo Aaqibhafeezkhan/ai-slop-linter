@@ -1,0 +1,17 @@
+Não alterei o `guia-integracao.md`. Não achei nada nele que justifique reescrita.
+
+O texto é curto, direto e específico, e não tem os sinais que a ferramenta procura:
+- **Vocabulário e frases feitas:** não há palavras de enfeite, frases de transição nem fechamento genérico.
+- **Marcas de chatbot:** não há "espero ter ajudado" nem convites do tipo "sinta-se à vontade".
+- **Afirmações vagas:** tudo o que o guia diz é concreto: prazos (2 dias úteis, 4 horas úteis, 30 minutos), nomes, o turno das 8h às 16h, os dois comandos e os contatos.
+- **Estrutura:** os parágrafos variam de tamanho e as seções seguem a ordem em que a pessoa vai precisar delas.
+
+Reescrever só para mexer deixaria o texto pior ou mais "enfeitado", e eu teria de inventar detalhes que a fonte não tem.
+
+**Verificação**
+- **Passes de edição:** 0.
+- **Checagens:** só a minha leitura do texto. O detector, o normalizador de aspas e o validador de preservação não rodaram.
+- **Limites da checagem:** o catálogo da ferramenta é calibrado para inglês, então a análise em português é menos confiável. Também li só as primeiras 455 das 871 linhas do arquivo de padrões, porque a parte restante trata de perfis e contextos em inglês.
+- **Pendências:** nenhuma.
+
+Se alguém achou que o guia parece escrito por IA, deve ser pelo tom uniforme e neutro, não por padrões que dê para apontar. Isso só se resolve com detalhes que eu não tenho, como um exemplo real de chamado ou uma dica da Renata. Se você me passar algo assim, eu incluo.

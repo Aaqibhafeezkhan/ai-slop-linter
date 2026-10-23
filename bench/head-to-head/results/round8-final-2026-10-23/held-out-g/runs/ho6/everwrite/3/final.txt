@@ -1,0 +1,1 @@
+I rewrote `commitberichten.md` in place. I removed the chatbot intro and sign-off, the hype ("robuuste oplossing", "cruciale rol") and the claim that date-fns makes date handling smoother. The subject lines, the customer quote, the code names, the versions, the amounts, the URL and the date are unchanged. The checker went from several strong hits to 0.

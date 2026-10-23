@@ -1,0 +1,14 @@
+[
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"ls -la && cat guia-integracao.md\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Este guia cobre a primeira semana de quem entra na equipe de suporte da Serraria Digital. Ele foi revisado pela última vez em 12 de outubro de 2026.\", \"new_string\": \"Este guia cobre a primeira semana de quem entra na equipe de suporte da Serraria Digital. Última revisão: 12 de outubro de 2026.\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"## Comandos que você vai usar\", \"new_string\": \"## Comandos\"}"
+ }
+]

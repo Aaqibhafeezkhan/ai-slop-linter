@@ -1,0 +1,14 @@
+Reescrevi o `guia-integracao.md` no próprio arquivo, em um tom mais direto e falado. O Slopless só analisa inglês e o guia está em português, então não rodei a ferramenta e fiz a edição à mão.
+
+Mantive exatamente como estavam:
+- a URL;
+- a versão 4.1.3 da VPN;
+- os dois comandos `suporte`;
+- os nomes Renata Souza e Bruno Teixeira;
+- o ramal 5120;
+- o 0800 000 1234;
+- o e-mail <EMAIL>.
+
+Também não mexi na data da revisão nem nos prazos de 4 horas úteis, 2 dias úteis, 24 horas e 30 minutos.
+
+Mudei só a redação. Troquei frases como "ele foi revisado pela última vez" por formas mais simples. Acrescentei "Faça o pedido logo" na parte do acesso. Usei "a Renata" e "o Bruno" no lugar do nome seco. Reescrevi algumas frases para soarem como fala.

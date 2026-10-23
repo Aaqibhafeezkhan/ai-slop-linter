@@ -1,0 +1,18 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"slop-cop:slop-cop-prose\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Commitberichten voor release 1.9.0\\n\\nDit zijn de commitberichten van release 1.9.0 van de fietsplanner.\\n\\n## Commit 1\\n\\n`feat(boekingen): annuleringstermijn van 48 uur toegevoegd`\\n\\nKlanten kunnen een boeking nu kosteloos annuleren binnen een termijn die je zelf instelt via `ANNULERING_UUR`. Een klant schreef ons eerder:\\n\\n> \\\"Cancelling a booking should n"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Klanten kunnen een boeking nu kosteloos annuleren binnen een termijn die je zelf instelt via `ANNULERING_UUR`.\", \"new_string\": \"Boekingen hebben nu een annuleringstermijn. Je stelt die in via `ANNULERING_UUR`.\"}"
+ }
+]

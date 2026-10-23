@@ -1,0 +1,9 @@
+I rewrote `release-notes.md` in place. I didn't run the Slopless skill or any other check on it.
+
+- **Removed:** the chatbot opener ("Certainly! Here is a comprehensive overview…"), the "thrilled to announce / game-changing / seamlessly" intro, the "in today's fast-paced world" line, and the closing "significant step forward… happy syncing!". I also dropped filler like "It's worth noting", "plays a crucial role", "robust" and "simply".
+- **Tightened:** the bug-fix line no longer says "potential issue" and "possibly". It now says the watcher could stall on network drives and that this is fixed.
+- **Kept as they were:** the front matter, the TOML code block, the tester quote, the version numbers, #1482 and the docs URL.
+
+I added one short summary sentence under the title, since the opener was gone.
+
+The tester quote is itself pretty clichéd, but you asked me to leave it exactly as is.

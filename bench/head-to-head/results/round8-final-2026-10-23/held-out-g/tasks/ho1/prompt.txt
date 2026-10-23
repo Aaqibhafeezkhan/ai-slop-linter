@@ -1,0 +1,1 @@
+release-notes.md is going to be published. It reads like an AI wrote it. Rewrite it in place so it reads like a person wrote it. Keep the front matter, the code block, the quoted tester review, version numbers, the issue number and the URL exactly as they are.

@@ -1,0 +1,7 @@
+# Only the slop layer: "does this sound like an LLM?". The base and google
+# layers are style-guide rules and flag text that is fine today.
+[[overrides]]
+# These rules are tuned for English punctuation. In German and French the
+# dashes and colons are ordinary quotation and dialogue marks.
+paths = ["docs/de/**/*.md", "docs/fr/**/*.md"]
+disable = ["em-dash-pivot", "colon-elaboration", "question-then-answer"]

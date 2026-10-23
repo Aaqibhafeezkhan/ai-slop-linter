@@ -1,0 +1,7 @@
+I rewrote `pr-sms-reintentos.md` in place.
+
+- **Removed:** the chatbot opener ("¡Claro! Aquí tienes…"), the "mundo digital actual" line, the claim that this "transforma por completo" the SMS handling, and "realmente impresionantes". I also took out the closing paragraph that said the PR "marca un antes y un después", and the em dash.
+- **Changed:** the summary is now one plain sentence about what the PR does. The note on the old 3-second retry now says it "podía provocar mensajes duplicados" instead of "potencialmente podría causar".
+- **Kept as they were:** the table, `enviar_con_reintentos()`, `avisos/sms.py`, `SMS_MAX_REINTENTOS`, `tests/test_sms.py`, `avisos-api`, the 5 retries with 2/4/8/16/32 s waits, the 14 tests, 8 de octubre de 2026, and issue #377.
+
+I didn't add any facts. The table shows p95 latency going from 4,1 s to 4,4 s, and I left that unremarked.

@@ -1,0 +1,72 @@
+{"C1": false, "C2": false, "C3": true, "C4": true, "C5": true, "score": 3, "detail": ["missing fact: około 40 procent", "tell left: Mam nadzieję, że Szufla spełni Twoje oczekiwania"], "cell": "hoR1-base-1"}
+{"C1": false, "C2": false, "C3": true, "C4": true, "C5": true, "score": 3, "detail": ["missing fact: około 40 procent", "tell left: Mam nadzieję, że Szufla spełni Twoje oczekiwania"], "cell": "hoR1-base-2"}
+{"C1": false, "C2": false, "C3": true, "C4": true, "C5": true, "score": 3, "detail": ["missing fact: około 40 procent", "tell left: Mam nadzieję, że Szufla spełni Twoje oczekiwania"], "cell": "hoR1-base-3"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": false, "score": 3, "detail": ["tell left: Mam nadzieję, że Szufla spełni Twoje oczekiwania", "heading changed: # Szufla – szybki import plików CSV"], "cell": "hoR1-blader-1"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": false, "score": 3, "detail": ["tell left: Mam nadzieję, że Szufla spełni Twoje oczekiwania", "heading changed: # Szufla – szybki import plików CSV"], "cell": "hoR1-blader-2"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: Mam nadzieję, że Szufla spełni Twoje oczekiwania"], "cell": "hoR1-blader-3"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: Mam nadzieję, że Szufla spełni Twoje oczekiwania"], "cell": "hoR1-blader-inv-1"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: Mam nadzieję, że Szufla spełni Twoje oczekiwania"], "cell": "hoR1-blader-inv-2"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: Mam nadzieję, że Szufla spełni Twoje oczekiwania"], "cell": "hoR1-blader-inv-3"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: Mam nadzieję, że Szufla spełni Twoje oczekiwania"], "cell": "hoR1-ours-1"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: Mam nadzieję, że Szufla spełni Twoje oczekiwania"], "cell": "hoR1-ours-2"}
+{"C1": true, "C2": false, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["tell left: Mam nadzieję, że Szufla spełni Twoje oczekiwania"], "cell": "hoR1-ours-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR2-base-1"}
+{"C1": true, "C2": true, "C3": true, "C4": false, "C5": true, "score": 4, "detail": ["added word: kami"], "cell": "hoR2-base-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR2-base-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": false, "score": 4, "detail": ["heading changed: # Pembaruan Status Proyek Pelita – Oktober 2026"], "cell": "hoR2-blader-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": false, "score": 4, "detail": ["heading changed: # Pembaruan Status Proyek Pelita – Oktober 2026"], "cell": "hoR2-blader-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": false, "score": 4, "detail": ["heading changed: # Pembaruan Status Proyek Pelita – Oktober 2026"], "cell": "hoR2-blader-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": false, "score": 4, "detail": ["heading changed: # Pembaruan Status Proyek Pelita – Oktober 2026"], "cell": "hoR2-blader-inv-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": false, "score": 4, "detail": ["heading changed: # Pembaruan Status Proyek Pelita – Oktober 2026"], "cell": "hoR2-blader-inv-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR2-blader-inv-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR2-ours-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR2-ours-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR2-ours-3"}
+{"C1": false, "C2": true, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["missing fact: versie 3.2.0"], "cell": "hoR3-base-1"}
+{"C1": false, "C2": true, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["missing fact: versie 3.2.0"], "cell": "hoR3-base-2"}
+{"C1": false, "C2": true, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["missing fact: versie 3.2.0"], "cell": "hoR3-base-3"}
+{"C1": false, "C2": true, "C3": true, "C4": true, "C5": false, "score": 3, "detail": ["missing fact: versie 3.2.0", "heading changed: # Kiezel 3.2.0 – releasenotes"], "cell": "hoR3-blader-1"}
+{"C1": false, "C2": true, "C3": false, "C4": true, "C5": false, "score": 2, "detail": ["missing fact: versie 3.2.0", "protected text changed: “Miniaturen worden nu op de achtergrond ", "heading changed: # Kiezel 3.2.0 – releasenotes"], "cell": "hoR3-blader-2"}
+{"C1": false, "C2": true, "C3": false, "C4": true, "C5": false, "score": 2, "detail": ["missing fact: versie 3.2.0", "protected text changed: “Miniaturen worden nu op de achtergrond ", "heading changed: # Kiezel 3.2.0 – releasenotes"], "cell": "hoR3-blader-3"}
+{"C1": false, "C2": true, "C3": true, "C4": true, "C5": false, "score": 3, "detail": ["missing fact: versie 3.2.0", "heading changed: # Kiezel 3.2.0 – releasenotes"], "cell": "hoR3-blader-inv-1"}
+{"C1": false, "C2": true, "C3": false, "C4": true, "C5": false, "score": 2, "detail": ["missing fact: versie 3.2.0", "protected text changed: “Miniaturen worden nu op de achtergrond ", "heading changed: # Kiezel 3.2.0 – releasenotes"], "cell": "hoR3-blader-inv-2"}
+{"C1": false, "C2": true, "C3": true, "C4": true, "C5": false, "score": 3, "detail": ["missing fact: versie 3.2.0", "heading changed: # Kiezel 3.2.0 – releasenotes"], "cell": "hoR3-blader-inv-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR3-ours-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR3-ours-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR3-ours-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR4-base-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR4-base-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR4-base-3"}
+{"C1": true, "C2": true, "C3": false, "C4": true, "C5": true, "score": 4, "detail": ["protected text changed: “Kuyruk boşken işçiler uyku moduna geçer"], "cell": "hoR4-blader-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR4-blader-2"}
+{"C1": true, "C2": true, "C3": false, "C4": true, "C5": true, "score": 4, "detail": ["protected text changed: “Kuyruk boşken işçiler uyku moduna geçer"], "cell": "hoR4-blader-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR4-blader-inv-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR4-blader-inv-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR4-blader-inv-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR4-ours-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR4-ours-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR4-ours-3"}
+{"C1": false, "C2": true, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["missing fact: aproximadamente el 18 por ciento"], "cell": "hoR5-base-1"}
+{"C1": false, "C2": true, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["missing fact: aproximadamente el 18 por ciento"], "cell": "hoR5-base-2"}
+{"C1": false, "C2": true, "C3": true, "C4": true, "C5": true, "score": 4, "detail": ["missing fact: aproximadamente el 18 por ciento"], "cell": "hoR5-base-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR5-blader-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR5-blader-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR5-blader-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR5-blader-inv-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR5-blader-inv-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR5-blader-inv-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR5-ours-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR5-ours-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR5-ours-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR6-base-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR6-base-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR6-base-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR6-blader-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR6-blader-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR6-blader-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR6-blader-inv-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR6-blader-inv-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR6-blader-inv-3"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR6-ours-1"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR6-ours-2"}
+{"C1": true, "C2": true, "C3": true, "C4": true, "C5": true, "score": 5, "detail": [], "cell": "hoR6-ours-3"}

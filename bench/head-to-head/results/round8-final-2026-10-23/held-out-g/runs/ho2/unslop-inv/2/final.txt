@@ -1,0 +1,11 @@
+Reescribí `pr-sms-reintentos.md` en el sitio y no lo volví a abrir después de editarlo. La tabla, los nombres de código (`avisos-api`, `enviar_con_reintentos()`, `SMS_MAX_REINTENTOS`, las rutas), las cifras, la fecha del 8 de octubre de 2026 y el issue #377 quedan como estaban.
+
+- **Apertura de chatbot:** quité «¡Claro! Aquí tienes una descripción detallada… Espero que te sea de utilidad».
+- **Resumen:** el párrafo sobre «solución robusta y escalable», «el mundo digital actual» y «juega un papel fundamental» no decía nada comprobable. Lo sustituí por una frase con lo que hace la PR: reintenta con espera exponencial en lugar de repetir a intervalos fijos.
+- **Cambios:** quité «Cabe destacar que» y el doble hedge «potencialmente podría». Ahora dice que el reintento fijo de 3 segundos «podía causar mensajes duplicados».
+- **Resultados:** quité «realmente impresionantes». Esa frase era una valoración de la propia PR sobre sus resultados, y los números de la tabla ya los muestran.
+- **Cómo probarlo:** quité «Para empezar, simplemente», «No dudes en…» y el cierre «marca un antes y un después». Ahora son dos frases: el comando de `pytest` y las dudas, en el issue #377.
+
+Las cuatro viñetas de «Cambios» no las toqué, salvo la del reintento fijo. La viñeta de `SMS_MAX_REINTENTOS` y las demás ya leían bien.
+
+Una cosa que decidir: la latencia p95 sube de 4,1 s a 4,4 s y el texto no la menciona. No añadí explicación porque no tengo el dato. Si quieres que figure, tendrás que escribirla tú.

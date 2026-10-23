@@ -1,0 +1,14 @@
+Reescribí `pr-sms-reintentos.md` en el mismo archivo. No he vuelto a leer el resultado completo.
+
+**Qué cambié**
+- **Saludo de chat:** quité «¡Claro! Aquí tienes… Espero que te sea de utilidad.».
+- **Resumen:** quité «solución robusta y escalable que transforma por completo», «En el mundo digital actual» y «juega un papel fundamental». Ahora dice qué hace la PR: `avisos-api` reintenta el envío con espera exponencial cuando falla el proveedor de SMS.
+- **Cambios:** quité «Cabe destacar que» y «potencialmente podría»; queda «que podía causar mensajes duplicados». También cambié «Se han añadido» por «Se añaden», para que los verbos de la lista vayan en el mismo tiempo.
+- **Resultados:** quité «realmente impresionantes» y dejé solo la fecha y la tabla.
+- **Cierre:** quité «Para empezar, simplemente», «No dudes en comentar» y el párrafo final «En definitiva… marca un antes y un después». Quedan el comando de `pytest` y la referencia al issue.
+
+**Sin tocar**
+- La tabla, los nombres de código, los números, la fecha (8 de octubre de 2026) y el issue #377 siguen igual.
+- Tampoco toqué el título ni los encabezados.
+
+La latencia p95 sube de 4,1 s a 4,4 s mientras los mensajes perdidos bajan de 2,3 % a 0,1 %. El texto original no lo comentaba y yo tampoco añadí nada. Si quieres que se mencione ese aumento, necesito que me digas tú la causa.

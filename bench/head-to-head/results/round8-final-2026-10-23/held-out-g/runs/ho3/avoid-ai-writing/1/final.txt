@@ -1,0 +1,17 @@
+Przepisałem `notatka-incydent.md` w miejscu. Zmieniłem tylko to, co brzmiało jak tekst od bota, a resztę zostawiłem.
+
+**Co zmieniłem**
+- **Początek:** usunąłem otwarcie w stylu czatbota („Oczywiście! Poniżej znajdziesz… Mam nadzieję, że będzie pomocne.”).
+- **Podsumowanie:** usunąłem zdanie o „dzisiejszym dynamicznym świecie” i o tym, że zespół „z dumą przedstawia solidną analizę”. Zostały same fakty: data, godzina, 47 minut, 312 zamówień.
+- **Przyczyna:** usunąłem „Warto zauważyć, że”. „Prawdopodobnie mogło to być spowodowane” zamieniłem na „Prawdopodobnie spowodowało to”, bo dwa zastrzeżenia obok siebie się znosiły. Niepewność została, tylko raz.
+- **Wnioski:** usunąłem „cenną lekcję” i „jak ważna jest współpraca”, bo to ogólniki bez treści. Usunąłem też zdanie o tym, że „wspólnie stawimy czoła każdemu wyzwaniu”. Zdanie o alercie przy 80% zostało, ale bez „Warto podkreślić, że”. „Nie wahaj się zgłaszać pytań” zamieniłem na „Pytania proszę kierować do Marty Wójcik.”
+
+**Co zostało bez zmian**
+- Front matter, blok z logiem błędu, wersje (5.2.0, 5.1.4), godziny, liczby (47 min, 312, 40/20, 80%), nazwy plików i URL.
+- Lista „Co zrobiliśmy”, bo już była zwykła i konkretna.
+
+**Weryfikacja**
+- **Sprawdzenia:** model-only. Detektor, narzędzie do normalizacji cudzysłowów i walidator zachowania nie były uruchamiane.
+- **Przebiegi edycji:** jeden.
+- **Plik odczytany po edycji:** nie widzę w nim kolejnych uzasadnionych zmian.
+- **Ograniczenia:** reguły skilla są kalibrowane pod angielski, więc zastosowałem je tu według własnej oceny. Z pliku z wzorcami przeczytałem tylko pierwsze 455 z 871 linii. Główne problemy w tej notatce to ogólniki, nadmiar zastrzeżeń i czatbotowe wtręty. Resztę wzorców zostawiłem nieprzeczytaną.

@@ -1,0 +1,12 @@
+I rewrote `notatka-incydent.md` in place. I haven't re-read the saved file to check it.
+
+- **Cut:**
+  - The chatbot opener ("Oczywiście! Poniżej znajdziesz…") and the "Mam nadzieję, że będzie pomocne" line.
+  - The "w dzisiejszym dynamicznym świecie" and "z dumą przedstawia" sales-style intro.
+  - The "warto zauważyć" and "warto podkreślić" run-ups.
+  - The closing lines about "cenna lekcja" and "stawimy czoła każdemu wyzwaniu".
+- **Hedging:** the source stacked "prawdopodobnie mogło to być". I kept one hedge ("najpewniej"), since the cause is not stated as certain.
+- **Contact line:** "Nie wahaj się zgłaszać pytań do…" became "Pytania proszę kierować do Marty Wójcik."
+- **Left alone:** the front matter, the error log block, the versions 5.2.0 and 5.1.4, the times 07:12 and 07:59, the counts 47, 312, 20 and 40, the file names, the 80% alert threshold, the URL, and the contact name.
+
+I added no new facts. I also kept the `# Notatka z incydentu` heading, since it's body text rather than front matter.

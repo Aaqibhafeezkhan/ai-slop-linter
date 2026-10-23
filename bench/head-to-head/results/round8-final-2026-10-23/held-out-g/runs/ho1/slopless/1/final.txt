@@ -1,0 +1,7 @@
+I rewrote `release-notes.md` in place. I didn't re-read the file afterward to check it.
+
+- **Removed:** the chatbot-style intro ("Certainly! Here is a comprehensive overview…"). I also cut the filler: "thrilled to announce", "game-changing", "seamlessly transforms", "In today's fast-paced world", "It's worth noting", "plays a crucial role", "simply", and the closing "significant step forward… happy syncing!".
+- **Replaced:** the opening is now one plain sentence saying what the release does. The bullets and the upgrade paragraph are shorter and say the same things more directly.
+- **Left alone:** the front matter, the code block, the quoted tester review, all version numbers, #1482 and the docs URL.
+
+I did not run the Slopless skill on the result. The quoted review ("It's not just a sync tool, it's a game-changer.") still sounds like marketing copy, but I kept it as you asked.

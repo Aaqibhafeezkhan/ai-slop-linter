@@ -1,0 +1,6 @@
+I rewrote `status-mingguan.md` in place. The merchant quote, the tickets (WK-904, WK-911, WK-915, WK-920), version 2.6.0, both dates, the `.xlsx` format, the `/laporan` path and <EMAIL> are all unchanged.
+
+- **Removed:** the chatbot-style opener ("Tentu saja! Berikut adalah…"), "Di era digital yang serba cepat ini", "dengan bangga mengumumkan kemajuan luar biasa", and the closing filler about "fondasi yang kokoh" and "dukungan Anda yang luar biasa".
+- **Tightened:** "Perlu dicatat bahwa…" and "Ke depannya, kami akan terus berkomitmen…" now just say the thing directly.
+- **Added a claim you should check:** I changed "sepertinya sudah mungkin teratasi" to "sepertinya sudah teratasi, tapi kami masih memantaunya". The original wording contradicted itself. "Masih memantaunya" is my guess at what's true, so correct it if it isn't.
+- **Added a second claim to check:** the closing line now says you'll finish the three remaining tickets "begitu vendor pembayaran siap". The original didn't say that, so confirm it matches the plan.

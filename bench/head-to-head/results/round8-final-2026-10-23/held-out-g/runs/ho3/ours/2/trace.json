@@ -1,0 +1,22 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"ai-slop-linter:ai-slop-linter\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"TMP=$(mktemp -d) && cp notatka-incydent.md \\\"$TMP/before.md\\\" && echo $TMP && npx ai-slop-linter --language pl notatka-incydent.md; ls <TMP>\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"python3 -I - <<'E'\\np='notatka-incydent.md'\\ns=open(p,encoding='utf-8').read()\\ndef r(a,b):\\n    global s\\n    assert a in s; s=s.replace(a,b)\\nr(\\\"Oczywiście! Poniżej znajdziesz kompleksowe podsumowanie incydentu. Mam nadzieję, że będzie pomocne.\\\\n\\\\n\\\",\\\"\\\")\\nr(\\\"W dzisiejszym dynamicznym świecie niezawodność systemów zamówień ma kluczowe znaczenie — a nasz zespół z dumą przedstawi"
+ }
+]

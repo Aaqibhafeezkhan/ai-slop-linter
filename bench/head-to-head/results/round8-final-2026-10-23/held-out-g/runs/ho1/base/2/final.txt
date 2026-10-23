@@ -1,0 +1,9 @@
+I rewrote `release-notes.md` in place. The front matter, code block, tester quote, version numbers, issue number (#1482) and URL are unchanged.
+
+- **Removed:** the chatbot opener ("Certainly! Here is a comprehensive overview…"), the "thrilled / game-changing / fast-paced world" intro, and the "significant step forward" closer.
+- **Tightened the bullets:** I cut filler like "It's worth noting", "plays a crucial role", "robust" and "intelligently", and "potential issue… possibly stall".
+- **Added two things you didn't give me:**
+  - The conflict bullet now says `keep-both` means neither edit gets lost. That's my reading of the setting name.
+  - The notes end with "If something breaks, tell us."
+
+Check both against what the release actually does, and cut either if it's wrong.

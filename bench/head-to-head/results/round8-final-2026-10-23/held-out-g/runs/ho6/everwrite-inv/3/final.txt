@@ -1,0 +1,3 @@
+Ik heb `commitberichten.md` ter plekke herschreven. De chatintro en -afsluiter, de hype ("robuust", "cruciale rol", "soepelere en betrouwbaardere") en de en-dash zijn weg. De checker ging van 1 strong naar 0. Ik heb de herschreven versie na mijn laatste kleine aanpassing niet opnieuw gecheckt.
+
+De commitonderwerpen, het klantcitaat, `ANNULERING_UUR`, `berekenTarief()`, de versienummers, de bedragen, de datum en de URL zijn ongewijzigd.

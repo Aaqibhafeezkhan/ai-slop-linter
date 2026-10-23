@@ -1,0 +1,5 @@
+I rewrote `pr-sms-reintentos.md` in place. The checker went from 1 strong hit to 0. It's built for English, so I also read the Spanish by hand.
+
+I cut the chatbot opener and closer, the hype ("robusta y escalable", "realmente impresionantes", "un antes y un después") and the dash. I also dropped the hedge on the duplicate-message risk. The table, code names, numbers, date and issue #377 are unchanged.
+
+I added one line under Resultados saying the p95 latency goes up 0,3 s. It comes from the table's 4,1 s and 4,4 s, but it wasn't in the original text.

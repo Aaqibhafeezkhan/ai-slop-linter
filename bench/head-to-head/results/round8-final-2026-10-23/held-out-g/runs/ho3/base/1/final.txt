@@ -1,0 +1,5 @@
+I rewrote `notatka-incydent.md` in place. I removed the chatbot opener, the "dynamic world" intro, the filler phrases ("Warto zauważyć", "Warto podkreślić"), and the motivational closing. The wording is now plain and direct.
+
+The front matter, the error log block, versions 5.2.0 and 5.1.4, the times, the counts (47 minutes, 312 orders, 40→20, 80%), `config/pool.yml`, `zakwas-orders`, `pg-main`, the URL and Marta Wójcik's name are all unchanged.
+
+I made two small content changes beyond style. "Prawdopodobnie mogło to być" had a double hedge, so it's now "Najpewniej zawiniło". The closing line about questions is now a direct request to contact Marta Wójcik.

@@ -1,0 +1,18 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"avoid-ai-writing:avoid-ai-writing\", \"args\": \"Rewrite guia-integracao.md in place. Keep commands, URL, version number, names, phone numbers and email exactly as they are.\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\", \"offset\": 456, \"limit\": 455, \"allow_large\": true}"
+ }
+]

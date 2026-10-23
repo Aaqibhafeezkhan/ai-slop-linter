@@ -1,0 +1,14 @@
+Reescribí `pr-sms-reintentos.md` en su sitio. `npx ai-slop-linter --verify` termina con `verify: ok`, y el linter da A con 0 hallazgos.
+
+Qué quité:
+- **Saludo del asistente:** «¡Claro! Aquí tienes una descripción detallada… Espero que te sea de utilidad.»
+- **Resumen:** quité «solución robusta y escalable que transforma por completo», «En el mundo digital actual…» y «juega un papel fundamental». Ahora dice qué cambió: pasa de un reintento fijo a espera exponencial.
+- **Muletillas:** quité «Cabe destacar que», «realmente impresionantes», «Para empezar, simplemente», «No dudes en» y el cierre «En definitiva… marca un antes y un después».
+
+Una frase cambió de matiz. «Lo que potencialmente podría causar mensajes duplicados» pasó a «que puede causar mensajes duplicados». El texto original no daba ninguna razón para dudar, así que bajé el doble hedge a uno solo sin volverlo una afirmación más fuerte.
+
+Sin cambios: el título, la tabla, los nombres de código, los números, la fecha (8 de octubre de 2026) y el issue #377. El formato `2,3 %` también sigue igual.
+
+`--verify` lista como «edición no pedida» el saludo, la frase de resultados y las otras frases del asistente. Las tres primeras son las que quité a propósito. La de resultados la reescribí solo para quitar «realmente impresionantes».
+
+Residuales: ninguno.

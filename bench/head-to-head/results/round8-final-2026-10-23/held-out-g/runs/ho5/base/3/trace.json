@@ -1,0 +1,10 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Guia de integração da equipe de suporte\\n\\nEste guia é para quem está começando na equipe de suporte da Serraria Digital e quer saber o que esperar da primeira semana. A última revisão foi em 12 de outubro de 2026.\\n\\n## Antes do primeiro dia\\n\\nPeça acesso ao painel de chamados em https://example.com/chamados. A aprovação pode levar até 2 dias úteis, então faç"
+ }
+]

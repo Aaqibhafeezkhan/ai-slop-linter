@@ -1,0 +1,18 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"slop-cop:slop-cop-prose\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Añade reintentos con espera exponencial al envío de SMS\\n\\n## Resumen\\n\\nCuando el proveedor de SMS fallaba, `avisos-api` perdía mensajes. Con esta PR reintenta el envío, esperando cada vez más entre un intento y el siguiente.\\n\\n## Cambios\\n\\n- Nueva función `enviar_con_reintentos()` en `avisos/sms.py`. Reintenta hasta 5 veces, con esperas de 2, 4, 8, 16 y 32 "
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"P=<TMP> \\\"$P/bin/slop-cop\\\" check <TMP> --no-llm --format=compact 2>&1 | head -30\"}"
+ }
+]

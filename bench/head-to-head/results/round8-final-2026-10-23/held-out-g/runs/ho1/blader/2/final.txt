@@ -1,0 +1,7 @@
+I rewrote `release-notes.md` in place. I kept the front matter, the TOML block, the tester quote, the version numbers, #1482 and the URL exactly as they were.
+
+- **Removed:** the "Certainly! Here is a comprehensive overview…" opener, the "thrilled to announce / game-changing / fast-paced world" intro, the "significant step forward" and "happy syncing!" closers, and the em dashes.
+- **Bullets:** the bold labels are gone. I also cut filler words like "intelligently", "plays a crucial role", "robust", "possibly" and "It's worth noting".
+- **Configuration:** "To get started, simply add" is now "Add".
+
+I left the tester quote alone because you asked me to keep it as is. It's the one line that still sounds like marketing copy.

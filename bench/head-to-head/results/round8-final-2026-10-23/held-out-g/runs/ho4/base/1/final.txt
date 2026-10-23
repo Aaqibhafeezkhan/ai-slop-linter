@@ -1,0 +1,6 @@
+I rewrote `status-mingguan.md` in place. It's shorter and plainer now.
+
+- **Cut:** the chatbot opener ("Tentu saja!..."), the "di era digital" and "tonggak penting" lines, and the stock closing phrases ("fondasi yang kokoh", "dukungan Anda yang luar biasa").
+- **Kept as they were:** the merchant quote, WK-904, WK-911, WK-915 and WK-920, version 2.6.0, the dates (16, 23 and 30 Oktober 2026), `.xlsx`, `/laporan`, and <EMAIL>.
+
+I also changed the WK-904 line. The original said "sepertinya sudah mungkin teratasi", which hedges twice. It now reads "sepertinya sudah teratasi, tapi kami masih perlu memastikannya". That keeps the original uncertainty, but I added the "still need to confirm" part myself. Check that it matches where the ticket stands before you publish.

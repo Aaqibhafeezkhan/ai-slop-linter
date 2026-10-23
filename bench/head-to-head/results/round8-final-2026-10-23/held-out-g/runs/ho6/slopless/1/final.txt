@@ -1,0 +1,7 @@
+I rewrote `commitberichten.md` in place. I didn't run the Slopless review skill on it, so I haven't checked the result against it.
+
+- **Removed:** the chatbot opener and closer ("Natuurlijk!", "Ik hoop dat dit nuttig is", "Laat het gerust weten…"). I also removed the filler phrases ("robuuste oplossing die naadloos aansluit", "In de huidige snelle wereld", "Het is belangrijk om op te merken") and the closing summary paragraph.
+- **Made concrete:** each description now says what the change does. For example, customers can cancel up to 48 hours ahead, and the rounding bug cost us revenue.
+- **Left alone:** the subject lines in backticks, the customer quote, `ANNULERING_UUR`, `berekenTarief()`, `src/prijzen.ts`, the version numbers, `€ 12,50` and `€ 12,00`, the 37 tests, the URL and the date.
+
+I added two claims the original didn't state outright. "Tot 48 uur van tevoren" is my reading of "annuleringstermijn van 48 uur". "Waardoor we omzet misliepen" replaces the hedged "mogelijk zou dit kunnen leiden tot een verlies van omzet". Change either if it doesn't match what the code does.

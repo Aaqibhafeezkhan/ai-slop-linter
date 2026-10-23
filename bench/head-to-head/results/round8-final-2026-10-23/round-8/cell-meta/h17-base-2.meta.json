@@ -1,0 +1,13 @@
+{
+  "commit": "d767c0710ca14ff36db634d3bdc43dd9ccfe60ba",
+  "tree": "c715344f895982d81243d156f01ed53c3175e1c4",
+  "benchTree": "d92e8ebf73a1dd3db0a20cd1540632232f194457",
+  "arm": "base",
+  "task": "h17",
+  "iteration": 2,
+  "fixtureSha256": "13aa8b7145b0928beb342973b232ae6c434682ee05e9fc24022f911bdf46067e",
+  "promptSha256": "75da95c902bc0e9044fedd0476ac796da0e5a1574e5ef23ff9ca81db6b0490d0",
+  "pluginManifestSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "model": "claude-sonnet-5-5",
+  "date": "2026-10-23"
+}

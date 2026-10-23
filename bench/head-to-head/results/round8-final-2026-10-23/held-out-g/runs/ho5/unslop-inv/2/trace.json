@@ -1,0 +1,18 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"unslop:unslop\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Este guia cobre a primeira semana de quem entra na equipe de suporte da Serraria Digital. Ele foi revisado pela última vez em 12 de outubro de 2026.\", \"new_string\": \"Este guia cobre a primeira semana de quem entra na equipe de suporte da Serraria Digital (última revisão em 12 de outubro de 2026).\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"O pedido leva até 2 dias úteis para ser aprovado. Sem esse acesso você não consegue assumir nenhum chamado.\", \"new_string\": \"A aprovação leva até 2 dias úteis, e sem ela você não consegue assumir nenhum chamado.\"}"
+ }
+]

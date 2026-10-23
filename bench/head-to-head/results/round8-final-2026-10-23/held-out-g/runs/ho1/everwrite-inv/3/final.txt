@@ -1,0 +1,7 @@
+I rewrote `release-notes.md` in place. The checker went from 13 strong hits to 1. That one is the tester's quote, which you asked me to keep verbatim.
+
+I cut the "Certainly!" wrapper and the hype, and the bold labels, the "crucial role" line, the stacked hedge and the dashes. I also cut the closing "we look forward to your feedback" and "happy syncing". The front matter, code block, quote, version numbers, #1482 and URL are unchanged. The numbers (up to 40%, 8 to 16 MiB, macOS 12) are unchanged too, and I added no new claims.
+
+The new intro line, "speeds up large uploads and adds a setting for what happens when two devices edit the same file", is my summary of the bullets. Check that you're happy with it.
+
+I also dropped "robust" from the chunking strategy, since it carried no information.

@@ -1,0 +1,48 @@
+{
+ "output": "commitberichten.md",
+ "facts": [
+  "1.9.0",
+  "`feat(boekingen): annuleringstermijn van 48 uur toegevoegd`",
+  "`ANNULERING_UUR`",
+  "`fix(prijzen): afrondingsfout bij het weekendtarief`",
+  "€ 12,50",
+  "€ 12,00",
+  "`berekenTarief()`",
+  "`src/prijzen.ts`",
+  "`chore(deps): date-fns bijgewerkt van 2.30.0 naar 3.6.0`",
+  "37",
+  "`docs: README bijgewerkt`",
+  "https://example.com/fietsplanner/docs",
+  "21 oktober 2026"
+ ],
+ "tells": [
+  "Natuurlijk!",
+  "uitgebreid overzicht",
+  "Ik hoop dat dit nuttig is",
+  "robuuste oplossing",
+  "naadloos",
+  "–",
+  "huidige snelle wereld",
+  "cruciale rol",
+  "Het is belangrijk om op te merken dat",
+  "Mogelijk zou dit kunnen",
+  "soepelere en betrouwbaardere",
+  "Kortom",
+  "belangrijke stap vooruit",
+  "Laat het gerust weten"
+ ],
+ "protected": [
+  "> \"Cancelling a booking should not feel like a contract negotiation.\""
+ ],
+ "forbidden_added": [
+  "mijn",
+  "mij",
+  "ikzelf"
+ ],
+ "language_absent": [
+  "the",
+  "and",
+  "with",
+  "which"
+ ]
+}

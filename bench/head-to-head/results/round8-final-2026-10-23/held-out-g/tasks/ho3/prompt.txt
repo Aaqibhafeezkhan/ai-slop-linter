@@ -1,0 +1,1 @@
+notatka-incydent.md is going to be published. It reads like an AI wrote it. Rewrite it in place so it reads like a person wrote it. Keep the front matter, the error log block, the version numbers, times, counts, file names and the URL exactly as they are.

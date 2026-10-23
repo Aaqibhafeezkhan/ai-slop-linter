@@ -1,0 +1,8 @@
+Mexi pouco em `guia-integracao.md`, porque o texto já estava simples e direto. Não encontrei os padrões típicos de texto de IA, como contrastes do tipo "não é X, é Y", fechamentos de efeito, trios forçados, travessões, negrito decorativo ou linguagem de venda. Fiz só duas edições:
+
+- **Abertura:** "Este guia cobre a primeira semana de quem entra… Ele foi revisado pela última vez em…" virou "Este guia é para quem está entrando na equipe de suporte da Serraria Digital e cobre a primeira semana. Última revisão: 12 de outubro de 2026."
+- **Acesso ao painel:** "Sem esse acesso você não consegue assumir nenhum chamado" virou "Sem ele você não assume nenhum chamado."
+
+Não alterei comandos, URL, versão 4.1.3, nomes, ramal 5120, o 0800 000 1234 nem o e-mail.
+
+Se o texto ainda soar artificial para você, diga qual trecho. Também posso soltar mais o tom, mas aí já seria mudar o estilo, não remover marcas de IA.

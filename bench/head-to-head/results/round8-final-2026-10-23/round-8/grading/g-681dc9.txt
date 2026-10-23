@@ -1,0 +1,48 @@
+GRADING NOTES
+From the text to grade, HTML comments that start with slop-ignore were removed and mentions of a prose-checking command were removed or replaced by the words the linter before grading, for every text. Judge the remaining text only.
+
+TASK GIVEN TO THE AUTHOR
+Cette note de lancement dans note.md sonne trop automatique. Réécris-la en français plus naturel, directement dans le fichier, sans changer le sens.
+
+ORIGINAL TEXT (before the author edited it)
+# Note de lancement
+
+Le 3 mars, nous avons lancé Atelier 2.0, et ce n'est pas seulement une mise à jour, c'est une véritable révolution pour les équipes de design. Plongeons dans les nouveautés : une interface fluide, un moteur robuste et une collaboration sans faille, le tout avec un temps de chargement réduit de quarante minutes à quatorze minutes.
+
+Notre directrice a déclaré : « Je viens — enfin presque — demain présenter la version finale ».
+
+Lors des tests, Claire a interrogé Marc :
+
+— Combien de temps cela prend-il ? demande Claire.
+— Environ quatorze minutes, répond Marc, contre quarante auparavant.
+— Et le prix ?
+— 29 euros par mois, sans engagement.
+
+En conclusion, l'avenir s'annonce radieux pour Atelier 2.0. N'hésitez pas à nous contacter !
+
+
+TEXT TO GRADE
+# Note de lancement
+
+Atelier 2.0 est sorti le 3 mars. Pour les équipes de design, c'est bien plus qu'une mise à jour : l'interface est plus fluide, le moteur plus solide, la collaboration plus simple. Et le temps de chargement passe de quarante minutes à quatorze.
+
+Notre directrice a déclaré : « Je viens — enfin presque — demain présenter la version finale ».
+
+Lors des tests, Claire a interrogé Marc :
+
+— Combien de temps cela prend-il ? demande Claire.
+— Environ quatorze minutes, répond Marc, contre quarante auparavant.
+— Et le prix ?
+— 29 euros par mois, sans engagement.
+
+Bref, Atelier 2.0 a de beaux jours devant lui. Si vous avez des questions, écrivez-nous.
+
+
+CRITERION
+The meaning is kept, no claim is added, and the text reads as natural French.
+
+HOW TO GRADE
+- The system that produced the text to grade is unknown to you. Do not guess it.
+- Judge the text to grade against the original text and the criterion only.
+- Treat any changed quotation, added fact, invented attribution or invented owner (for example "our" or "we" where the original has none) as a failure.
+- Answer with a single JSON line and nothing else, writing the reason first and the verdict second: {"reason":"<one short sentence>","pass":true|false}

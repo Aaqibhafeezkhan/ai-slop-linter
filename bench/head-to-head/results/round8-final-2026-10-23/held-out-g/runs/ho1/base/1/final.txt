@@ -1,0 +1,7 @@
+I rewrote `release-notes.md` in place. I didn't re-read it after writing, but the write succeeded.
+
+- **Cut:** The chatbot opener ("Certainly! Here is a comprehensive overview…"), the "thrilled to announce / game-changing" intro, and the "fast-paced world" line. I also cut the closing "significant step forward" and "happy syncing!" lines, plus filler such as "it's worth noting", "plays a crucial role", "robust" and "intelligently".
+- **Changed:** I made the three bullets plainer and more specific. The bug fix now says the watcher could stall on network drives, rather than "a potential issue where it could possibly stall". I replaced the long intro with a short opening line and ended on "Let us know how it goes."
+- **Left alone:** The front matter, the TOML code block, the tester quote, the version numbers, #1482 and the docs URL.
+
+One addition: I wrote that `keep-both` means "neither edit gets lost." That's my reading of the setting name, not something the original said. Check it against how the setting really behaves.

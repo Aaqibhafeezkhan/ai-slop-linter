@@ -1,0 +1,5 @@
+# The slop layer's punctuation rules are tuned for English. German and French
+# use dashes, colons and dialogue marks as ordinary punctuation.
+[[overrides]]
+paths = ["docs/de/**/*.md", "docs/fr/**/*.md"]
+disable = ["em-dash-pivot", "colon-elaboration", "question-then-answer"]

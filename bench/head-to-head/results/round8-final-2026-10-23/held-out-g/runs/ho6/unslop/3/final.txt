@@ -1,0 +1,12 @@
+I rewrote `commitberichten.md` in place. I didn't re-read the file after the last edits, so I haven't seen the final text.
+
+- **Intro:** I removed "Natuurlijk! … Ik hoop dat dit nuttig is." What's left is one plain line saying what the file contains.
+- **Commit 1:** I cut "robuuste oplossing die naadloos…", the "huidige snelle wereld" opener and "cruciale rol". The text now states the 48-hour cancellation period and `ANNULERING_UUR`.
+- **Commit 2:** I cut "Het is belangrijk om op te merken" and the double hedge "Mogelijk zou dit kunnen leiden". It now says the rate was rounded from € 12,50 to € 12,00 and that this could cost revenue. The hedge keeps its original strength.
+- **Commit 3:** I removed "soepelere en betrouwbaardere verwerking", which was a claim with no source. Only the fact that all 37 tests passed remains.
+- **Commit 4:** I left it as it was, apart from removing the closing paragraph below.
+- **Closing:** I deleted the "Kortom… belangrijke stap vooruit" paragraph and the "Laat het gerust weten" line.
+
+The commit subject lines, the customer quote, `ANNULERING_UUR`, `berekenTarief()`, `src/prijzen.ts`, the versions, the amounts, the URL and the date are unchanged.
+
+I didn't add anything the original didn't say. The text no longer explains why the date-fns update matters, because the original gave no support for it. If you can say what 3.6.0 actually fixed or changed, that would be worth adding to Commit 3.

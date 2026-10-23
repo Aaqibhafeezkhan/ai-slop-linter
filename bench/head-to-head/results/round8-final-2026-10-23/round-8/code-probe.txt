@@ -1,0 +1,5 @@
+PASS version: cli --version 0.1.10 equals package.json at d767c0710ca14ff36db634d3bdc43dd9ccfe60ba
+PASS compare: --help mentions --compare
+PASS language: French sample with --language auto: language fr, 0 dash findings
+PASS dash: English line with an em dash: 1 dash finding(s)
+PASS skill: skills/ai-slop-linter/SKILL.md is byte-identical to the one at d767c0710ca14ff36db634d3bdc43dd9ccfe60ba

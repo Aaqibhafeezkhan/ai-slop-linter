@@ -1,0 +1,3 @@
+Aku sudah menulis ulang `status-mingguan.md` di tempat. Aku membuang kalimat pembuka chatbot, kalimat hype, penutup basa-basi, dan tanda pisah (—). Aku juga memangkas hedge ganda di WK-904 menjadi satu ("sepertinya sudah teratasi"). Skor checker turun dari 1 strong dan 2 weak menjadi 0.
+
+Kutipan pedagang, ID tiket, versi 2.6.0, semua tanggal, `.xlsx`, `/laporan` dan <EMAIL> tidak berubah. Satu-satunya perubahan lain: judul jadi huruf kecil di kata kedua dan ketiga ("Pembaruan status mingguan").

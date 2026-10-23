@@ -1,0 +1,26 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"unslop:unslop\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"¡Claro! Aquí tienes una descripción detallada de la pull request. Espero que te sea de utilidad.\\n\\n## Resumen\\n\\nEsta PR introduce una solución robusta y escalable que transforma por completo la forma en que `avisos-api` gestiona los fallos del proveedor de SMS. En el mundo digital actual, la fiabilidad de las notificaciones es más impor"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"- Cabe destacar que se ha eliminado el reintento fijo de 3 segundos, lo que potencialmente podría causar mensajes duplicados.\", \"new_string\": \"- Se elimina el reintento fijo de 3 segundos, que podía provocar mensajes duplicados.\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Tras las pruebas en el entorno de preparación el 8 de octubre de 2026, los resultados son realmente impresionantes:\", \"new_string\": \"Medido en el entorno de preparación el 8 de octubre de 2026:\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Para empezar, simplemente ejecuta `pytest tests/test_sms.py`. No dudes en comentar cualquier duda en el issue #377. En definitiva, esta PR representa un paso importante hacia un sistema más fiable y marca un antes y un después para el equipo.\", \"new_string\": \"Ejecuta `pytest tests/test_sms.py`. Las dudas, en el issue #377.\"}"
+ }
+]

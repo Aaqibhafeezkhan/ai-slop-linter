@@ -1,0 +1,7 @@
+I rewrote `status-mingguan.md` in place. The quote, ticket IDs, version, dates, file formats and email address are unchanged.
+
+- **Cut:** the chatbot opener ("Tentu saja! Berikut adalah…"), the "di era digital" intro, "tonggak penting" and the other inflated phrases. I also cut the closing boilerplate ("berkomitmen… fondasi yang kokoh… dukungan Anda yang luar biasa"). "Perlu dicatat bahwa" is gone too.
+- **Simplified:** "Langkah berikutnya" is now one plain line telling readers to contact Dewi Anggraini with questions.
+- **Hedge:** I trimmed "sepertinya sudah mungkin teratasi" to "sepertinya sudah teratasi" for WK-904. If that fix is confirmed, drop "sepertinya" too.
+
+I ran the slop-cop check on the draft. After I rewrote one sentence it still flags the three-item "Yang selesai" list (`listicle-instinct`). I left that, since a status list is meant to be a list. I did not re-run the check after the last edit.

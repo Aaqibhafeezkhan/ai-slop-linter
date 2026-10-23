@@ -1,0 +1,9 @@
+Przepisałem `notatka-incydent.md` w miejscu. Po edycjach nie czytałem pliku ponownie. Front matter, blok z logiem, wersje, godziny, liczby, nazwy plików i URL zostały bez zmian.
+
+Zmiany:
+- **Początek:** usunąłem „Oczywiście! … Mam nadzieję, że będzie pomocne.” To zwrot z czatu, a nie część notatki.
+- **Podsumowanie:** usunąłem akapit wstępny o „dzisiejszym dynamicznym świecie” i o zespole, który „z dumą przedstawia solidną analizę”. Notatka zaczyna się teraz od faktu: 30 września o 07:12 kolejka przestała przyjmować wiadomości.
+- **Przyczyna:** wyciąłem „Warto zauważyć” i „następujący”. Z podwójnego zastrzeżenia („Prawdopodobnie mogło to być spowodowane”) zostało jedno: „Prawdopodobnie spowodowało je wdrożenie…”. Hipoteza nadal jest przedstawiona jako hipoteza.
+- **Wnioski:** usunąłem zdania o „cennej lekcji”, o współpracy i o „stawianiu czoła wyzwaniom”. Zostały dwa konkretne: alert przy 80% wykorzystania puli i adresat pytań, Marta Wójcik. Zmieniłem też „Nie wahaj się zgłaszać pytań” na „Pytania proszę kierować do”. Pierwotna wersja zwracała się do czytelnika per „ty”, a „Wprowadzimy” brzmi spójnie z resztą notatki.
+
+Sekcji „Co zrobiliśmy” nie ruszałem, bo była już rzeczowa. Niczego nie dopisywałem. Nie wiem, czemu zespół zmienił limit z 40 na 20 w wersji 5.2.0, więc w notatce tego nie ma. Jeśli ta informacja jest, warto ją tam dodać.

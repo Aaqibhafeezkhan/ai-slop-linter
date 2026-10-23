@@ -1,0 +1,12 @@
+Ik heb `commitberichten.md` ter plekke herschreven en de wijzigingen niet teruggelezen. De subjectregels in backticks, het klantcitaat, `ANNULERING_UUR`, `berekenTarief()` en `src/prijzen.ts`, de versienummers, de bedragen en de URL staan nog zoals ze waren.
+
+**Gewijzigd**
+- **Opening:** "Natuurlijk! Hier is een uitgebreid overzicht… Ik hoop dat dit nuttig is." was chatpraat van een assistent. Het is nu "De vier commits van release 1.9.0 van de fietsplanner."
+- **Commit 1:** de zinnen over een "robuuste oplossing" en "de huidige snelle wereld" zeiden niets en zijn weg. In plaats daarvan staat er "Boekingen hebben nu een annuleringstermijn van 48 uur."
+- **Commit 2:** "Het is belangrijk om op te merken dat…" is geschrapt, en de dubbele voorbehouden ("Mogelijk zou dit kunnen leiden") zijn er één geworden: "…wat tot omzetverlies kon leiden."
+- **Commit 3:** de zin over een "soepelere en betrouwbaardere verwerking van datums" is weggehaald. De bron geeft er geen bewijs voor en de subjectregel noemt de update al. De zin over de 37 geslaagde tests staat er nog.
+- **Slot:** "Kortom… belangrijke stap vooruit…" en "Laat het gerust weten…" zijn geschrapt.
+
+**Ongemoeid:** Commit 4, de kopjes en de zin over de datum van 21 oktober 2026.
+
+**Let op:** als de nieuwe date-fns-versie echt iets verbetert, zet dat er dan zelf bij. Dat feit staat niet in de bron en ik heb het niet verzonnen.

@@ -1,0 +1,11 @@
+Saya sudah menulis ulang `status-mingguan.md` di tempat. Linter memberi nilai A. `--verify` masih keluar dengan satu masalah: kata "Anda" hilang, karena ada di kalimat penutup yang saya buang. Pesan "clean source" dari `--verify` tidak cocok, karena sumbernya jelas punya banyak tanda tulisan mesin.
+
+Yang saya ubah:
+- **Pembuka:** "Tentu saja! Berikut adalah ringkasan komprehensif… Semoga bermanfaat!" saya hapus.
+- **Ringkasan:** "Di era digital yang serba cepat ini… dengan bangga mengumumkan kemajuan luar biasa… tonggak penting" saya ganti dengan satu kalimat berisi fakta. Kalimatnya: "Pada minggu yang berakhir 16 Oktober 2026, kami menyelesaikan 18 dari 21 tiket untuk aplikasi Warung Kita versi 2.6.0."
+- **Yang selesai:** "Perlu dicatat bahwa" saya cabut. "sepertinya sudah mungkin teratasi" jadi "sepertinya sudah teratasi", karena dua pelunak sekaligus tanpa alasan di sumber.
+- **Penutup:** "Ke depannya… solusi terbaik", "fondasi yang kokoh", "Jangan ragu" dan ucapan terima kasih saya buang. Yang tersisa: "Pertanyaan bisa dikirim ke Dewi Anggraini di <EMAIL>."
+
+Kutipan pedagang, ID tiket (WK-904, WK-911, WK-915, WK-920), versi 2.6.0, semua tanggal, `.xlsx`, `/laporan` dan alamat email tidak berubah. Angka 1,2 dan 3,5 detik, serta 18 dari 21 tiket, juga tetap.
+
+Residuals: tidak ada. "Anda" yang hilang berasal dari kalimat penutup yang sengaja dibuang. Tidak ada direktif `slop-ignore` yang saya pasang.

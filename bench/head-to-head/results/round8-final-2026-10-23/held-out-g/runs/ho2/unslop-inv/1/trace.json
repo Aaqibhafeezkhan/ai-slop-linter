@@ -1,0 +1,18 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"unslop:unslop\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Añade reintentos con espera exponencial al envío de SMS\\n\\n## Resumen\\n\\nCuando el proveedor de SMS falla, `avisos-api` ahora reintenta el envío con espera exponencial en lugar de repetirlo una sola vez a intervalo fijo.\\n\\n## Cambios\\n\\n- Se añade la función `enviar_con_reintentos()` en `avisos/sms.py`, que reintenta hasta 5 veces con esperas de 2, 4, 8, 16 y "
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"ahora reintenta el envío con espera exponencial en lugar de repetirlo una sola vez a intervalo fijo.\", \"new_string\": \"ahora reintenta el envío con espera exponencial en lugar de con un reintento fijo.\"}"
+ }
+]

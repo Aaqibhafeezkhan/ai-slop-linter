@@ -1,0 +1,5 @@
+Saya sudah menulis ulang `status-mingguan.md` di tempat. Isinya sekarang lebih pendek dan lugas. Pemeriksa gaya menunjukkan hit kuat turun dari 1 ke 0. Satu peringatan lemah tersisa di judul, yang sengaja tidak saya ubah. Setelah edit terakhir (satu kalimat pembuka), pemeriksa belum saya jalankan lagi.
+
+Yang saya buang: sapaan pembuka, kalimat promosi, frasa penutup standar, dan tanda pisah (—). Saya juga merapikan dua keraguan yang menumpuk pada WK-904 menjadi satu ("sepertinya sudah teratasi"). Klaim "benar-benar mengubah cara pedagang mengelola stok" juga saya hapus, karena tidak ada dasarnya di sumber.
+
+Kutipan pedagang, ID tiket, nomor versi, tanggal, format `.xlsx` dan alamat email tidak berubah.

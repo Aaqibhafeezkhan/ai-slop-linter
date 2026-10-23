@@ -1,0 +1,7 @@
+Não alterei o `guia-integracao.md`. Ele quase não tem os padrões de texto gerado por IA.
+
+- Não há contrastes do tipo "não só X, mas Y", frases de efeito, tríades forçadas, travessões, negrito decorativo, linguagem de vendas ou resquícios de chatbot.
+- As frases são curtas e concretas, com prazos, nomes, ramal e comandos específicos.
+- Reescrever só para mudar a cara do texto tiraria essa objetividade e correria o risco de mexer em prazos, nomes ou números.
+
+Se algum trecho específico soa artificial para você, me diga qual e eu ajusto só ele.

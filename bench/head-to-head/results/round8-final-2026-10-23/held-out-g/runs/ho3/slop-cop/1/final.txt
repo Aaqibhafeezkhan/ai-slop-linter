@@ -1,0 +1,7 @@
+I rewrote `notatka-incydent.md` in place. I didn't run slop-cop or any other check on it.
+
+- **Removed:** the chatbot opener ("Oczywiście! Poniżej znajdziesz…"), the "w dzisiejszym dynamicznym świecie" intro, the self-praise, the "Warto zauważyć" and "Warto podkreślić" filler, and the motivational closing lines.
+- **Cause:** the hedge "Prawdopodobnie mogło to być spowodowane" is now "Najpewniej zawiniło".
+- **Unchanged:** the front matter, the error log block, the version numbers (5.2.0, 5.1.4), the times, the counts (47 minutes, 312 orders, limits 40 and 20, 80%), the file name `config/pool.yml`, the URL, and the name Marta Wójcik.
+
+The "Co zrobiliśmy" bullets were already plain, so I left them as they were.

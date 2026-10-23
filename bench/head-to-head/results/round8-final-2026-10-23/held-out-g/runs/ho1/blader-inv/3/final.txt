@@ -1,0 +1,8 @@
+I rewrote `release-notes.md` in place. The front matter, the `lantern.toml` code block, the tester quote, the version numbers, #1482 and the docs URL are unchanged.
+
+- **Chatbot wrapper:** I removed the "Certainly! Here is a comprehensive overview… I hope this helps" paragraph.
+- **Intro:** I replaced the "thrilled to announce… game-changing… fast-paced world" opener with one sentence on what the release does.
+- **List:** I turned the bold-labeled list into short plain paragraphs. I also dropped the filler "robust", "intelligently", "plays a crucial role" and "it's worth noting", and the hedged "potential issue… could possibly stall" from the bug fix line.
+- **Dashes and closers:** I removed the em dash and the "significant step forward… happy syncing!" sign-off, and cut "simply" from the configuration step.
+
+I left the tester's "not just… game-changer" line as it was, since you asked to keep the quote exactly.

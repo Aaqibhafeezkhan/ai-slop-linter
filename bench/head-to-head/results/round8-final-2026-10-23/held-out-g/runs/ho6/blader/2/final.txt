@@ -1,0 +1,7 @@
+I rewrote `commitberichten.md` in place. The subject lines, the customer quote, `ANNULERING_UUR`, `berekenTarief()`, `src/prijzen.ts`, the version numbers, € 12,50 and € 12,00, the 37 tests, the URL and the date are all unchanged.
+
+- **Chatbot wrapper:** I removed the "Natuurlijk! Hier is…" intro and the closing "Kortom… Laat het gerust weten" paragraph.
+- **Filler and inflated claims:** I cut "robuuste oplossing die naadloos aansluit", "In de huidige snelle wereld… cruciale rol", "Het is belangrijk om op te merken" and "soepelere en betrouwbaardere verwerking". None of them said anything specific.
+- **Hedging:** "Mogelijk zou dit kunnen leiden tot een verlies van omzet" became "wat omzet kon kosten".
+
+I didn't add any facts to replace what I cut. The Commit 1 text is now short, and Commit 3 only says the tests pass.

@@ -1,0 +1,3 @@
+That notification is just the first lint command I started in the background finishing. It isn't a message from you, and I don't need to act on it. That command ran before my edit and had already copied the original. The rewrite and its `--verify` pass, which exited with `verify: ok`, are the results that count.
+
+`notatka-incydent.md` is rewritten in place, as I described above.

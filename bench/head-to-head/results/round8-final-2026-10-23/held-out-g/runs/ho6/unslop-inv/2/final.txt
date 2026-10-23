@@ -1,0 +1,15 @@
+Ik heb `commitberichten.md` herschreven. De subjectregels in backticks, het klantcitaat, `ANNULERING_UUR`, `berekenTarief()`, `src/prijzen.ts`, de versienummers, de bedragen, het aantal tests, de datum en de URL staan er nog precies zo in. Ik heb de herschreven versie niet opnieuw gelezen.
+
+**Wat ik eruit heb gehaald**
+- De chatopeners en -afsluiters: "Natuurlijk! … Ik hoop dat dit nuttig is." en "Kortom … Laat het gerust weten".
+- Vulzinnen zonder inhoud: "robuuste oplossing die naadloos aansluit", "In de huidige snelle wereld", "cruciale rol" en "Het is belangrijk om op te merken".
+- Commit 2 had twee hedges achter elkaar ("Mogelijk zou dit kunnen leiden tot"). Dat is nu één: "wat omzet kan hebben gekost".
+- Bij commit 3 heb ik de zin over "soepelere en betrouwbaardere verwerking van datums" geschrapt. Er stond geen bewijs bij, en de geslaagde tests zeggen al wat er te zeggen valt.
+
+**Wat ik heb laten staan:** de koppen, de volgorde en de zin over de datum bij commit 4.
+
+**Let op voor publicatie:** bij commit 1 en commit 3 ontbreekt nog wat concreets. Ik heb niets verzonnen om dat op te vullen.
+- Commit 1: de tekst zegt niet of klanten tot 48 uur vóór de boeking kunnen annuleren of dat het een andere termijn is.
+- Commit 3: de tekst zegt niet wat er in date-fns 3.6.0 verandert dat voor jullie telt.
+
+Als je die feiten hebt, zet ze erbij.

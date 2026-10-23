@@ -1,0 +1,23 @@
+I rewrote `status-mingguan.md` in place. The merchant quote, WK-904, WK-911, WK-915, WK-920, version 2.6.0, all the dates, `.xlsx`, `/laporan` and <EMAIL> are unchanged.
+
+**What changed**
+- **Opening:** I deleted "Tentu saja! Berikut adalah ringkasan komprehensif… Semoga bermanfaat!", which is a chatbot greeting and sign-off.
+- **Ringkasan:**
+  - I cut "Di era digital yang serba cepat ini", "dengan bangga mengumumkan kemajuan luar biasa" and "tonggak penting yang benar-benar mengubah cara pedagang mengelola stok".
+  - The paragraph now opens with the fact: 18 of 21 tickets done in the week ending 16 Oktober 2026, for Warung Kita 2.6.0.
+  - I removed the "changes how merchants manage stock" claim because nothing in the file supports it.
+- **Yang selesai:**
+  - I dropped "Perlu dicatat bahwa" from the `.xlsx` bullet.
+  - "sepertinya sudah mungkin teratasi" became "sepertinya sudah teratasi". I kept one hedge so the uncertainty about WK-904 stays.
+- **Langkah berikutnya:**
+  - I cut the generic closing ("terus berkomitmen…", "fondasi yang kokoh…", "dukungan Anda yang luar biasa").
+  - What's left is "Kalau ada pertanyaan, hubungi Dewi Anggraini di <EMAIL>."
+
+**Verification**
+- **Editing passes:** 1 of 2 used.
+- **Checks:** The check was model-only. I re-read the edits against the original, but I did not run the detector, the quote normalizer or the preservation validator. The normalizer wasn't needed, since the only quotation is the protected merchant quote.
+- **Residuals:**
+  - The skill's rules are calibrated for English, so I applied only the language-independent patterns (chatbot artifacts, inflated openings and closers, hedge stacking, filler).
+  - The "Langkah berikutnya" section now holds only a contact line and no actual next steps. The release delay is already covered under "Yang belum selesai". I left the heading alone because renaming or restructuring is outside a wording cleanup. You may want to rename or merge it.
+  - The "Yang belum selesai" paragraph and the barcode bullet were already plain, so I left them.
+- **Stop reason:** No further justified edit remains.

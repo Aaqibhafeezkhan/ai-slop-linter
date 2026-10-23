@@ -1,0 +1,5 @@
+Saya sudah menulis ulang `status-mingguan.md` di tempat. Intro chatbot, kalimat promosi, dan penutup basa-basi dibuang, dan kalimat panjang dipecah. Hasil pemeriksaan: dari 1 temuan kuat dan 2 lemah menjadi 0.
+
+- **Tidak diubah:** kutipan pedagang, tiket WK-904/911/915/920, versi 2.6.0, semua tanggal, `.xlsx`, `/laporan`, dan <EMAIL>.
+- **Dibuang:** klaim "mengubah cara pedagang mengelola stok" dan "fondasi yang kokoh bagi pertumbuhan jangka panjang". Tidak ada sumbernya di dokumen.
+- **Hedge:** "sepertinya sudah mungkin teratasi" jadi "sepertinya sudah teratasi", karena dua hedge bertumpuk.

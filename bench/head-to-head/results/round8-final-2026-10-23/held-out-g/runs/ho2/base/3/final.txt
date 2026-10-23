@@ -1,0 +1,7 @@
+I rewrote `pr-sms-reintentos.md` in place. The table, code names, numbers, date and issue number are unchanged.
+
+I removed the chatbot opener ("¡Claro! Aquí tienes…"), the filler ("en el mundo digital actual", "realmente impresionantes", "marca un antes y un después") and the closing summary. The text is now short and first-person.
+
+I made two small content changes beyond style. The summary now says plainly what the PR does. I also added one sentence after the table saying the 0,3 s rise in p95 latency is a fair trade for fewer lost messages. That sentence is my own judgment, so delete it if you disagree.
+
+I also changed "potencialmente podría causar" to "podía provocar" for the duplicate messages.

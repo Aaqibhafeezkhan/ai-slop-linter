@@ -1,0 +1,12 @@
+I rewrote `pr-sms-reintentos.md` in place. The table, the code names (`avisos-api`, `enviar_con_reintentos()`, `SMS_MAX_REINTENTOS`, the file paths), the numbers, the date (8 de octubre de 2026) and issue #377 are unchanged.
+
+What I took out:
+- **Chatbot opener and closer:** "¡Claro! Aquí tienes…" and the "En definitiva… marca un antes y un después" ending.
+- **Inflated or sales-style phrasing:** "solución robusta y escalable", "transforma por completo", "En el mundo digital actual", "realmente impresionantes", and the em dash.
+- **Filler:** "Cabe destacar", "potencialmente podría", "Para empezar, simplemente", and "No dudes en…".
+
+I also made two small additions:
+- I changed the summary to say the old retries ran at fixed intervals, which follows from the removed 3-second fixed retry.
+- I added one line under the table: "Los mensajes perdidos bajan mucho y la latencia p95 sube 0,3 s." The old text called the results impressive without mentioning that latency went up. The 0,3 s is just 4,4 − 4,1.
+
+I also changed "Tras las pruebas… los resultados son…" to the first person ("Lo probé en el entorno de preparación"). The original didn't say who ran the tests, so check that it's right.

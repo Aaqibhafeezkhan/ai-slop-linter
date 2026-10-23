@@ -1,0 +1,602 @@
+[
+ {
+  "set": "g",
+  "task": "ho4",
+  "arm": "avoid-ai-writing",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "g",
+  "task": "ho5",
+  "arm": "base",
+  "original": [
+   4,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "g",
+  "task": "ho6",
+  "arm": "blader",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "g",
+  "task": "ho1",
+  "arm": "blader-inv",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "g",
+  "task": "ho5",
+  "arm": "everwrite",
+  "original": [
+   4,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "g",
+  "task": "ho4",
+  "arm": "everwrite-inv",
+  "original": [
+   5,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "g",
+  "task": "ho3",
+  "arm": "ours",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "g",
+  "task": "ho4",
+  "arm": "slop-cop",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "g",
+  "task": "ho2",
+  "arm": "slopless",
+  "original": [
+   4,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "g",
+  "task": "ho4",
+  "arm": "unslop",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "g",
+  "task": "ho5",
+  "arm": "unslop-inv",
+  "original": [
+   5,
+   4,
+   5
+  ]
+ },
+ {
+  "set": "g",
+  "task": "ho2",
+  "arm": "everwrite-inv",
+  "original": [
+   5,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "g",
+  "task": "ho1",
+  "arm": "everwrite-inv",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "g",
+  "task": "ho1",
+  "arm": "ours",
+  "original": [
+   5,
+   5,
+   4
+  ]
+ },
+ {
+  "set": "g",
+  "task": "ho5",
+  "arm": "unslop",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "g",
+  "task": "ho1",
+  "arm": "everwrite",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "g",
+  "task": "ho5",
+  "arm": "everwrite-inv",
+  "original": [
+   4,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "g",
+  "task": "ho3",
+  "arm": "blader-inv",
+  "original": [
+   4,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "g",
+  "task": "ho6",
+  "arm": "unslop",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "g",
+  "task": "ho1",
+  "arm": "unslop-inv",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h3",
+  "arm": "avoid-ai-writing",
+  "original": [
+   4,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h11",
+  "arm": "base",
+  "original": [
+   4,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h14",
+  "arm": "blader",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h16",
+  "arm": "blader-inv",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h15",
+  "arm": "everwrite",
+  "original": [
+   4,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h2",
+  "arm": "everwrite-inv",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h16",
+  "arm": "ours",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h14",
+  "arm": "slop-cop",
+  "original": [
+   4,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h11",
+  "arm": "slopless",
+  "original": [
+   4,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h13",
+  "arm": "unslop",
+  "original": [
+   4,
+   3,
+   3
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h9",
+  "arm": "unslop-inv",
+  "original": [
+   4,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h1",
+  "arm": "everwrite-inv",
+  "original": [
+   2,
+   3,
+   5
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h10",
+  "arm": "ours",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h17",
+  "arm": "everwrite-inv",
+  "original": [
+   4,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h18",
+  "arm": "avoid-ai-writing",
+  "original": [
+   4,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h13",
+  "arm": "unslop-inv",
+  "original": [
+   4,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h3",
+  "arm": "slopless",
+  "original": [
+   4,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h10",
+  "arm": "base",
+  "original": [
+   3,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h16",
+  "arm": "slopless",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h11",
+  "arm": "unslop-inv",
+  "original": [
+   4,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h9",
+  "arm": "everwrite",
+  "original": [
+   4,
+   4,
+   3
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h2",
+  "arm": "ours",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h1",
+  "arm": "slopless",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h13",
+  "arm": "everwrite",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h16",
+  "arm": "everwrite-inv",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h14",
+  "arm": "ours",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h2",
+  "arm": "unslop",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h16",
+  "arm": "base",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h17",
+  "arm": "unslop",
+  "original": [
+   4,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h3",
+  "arm": "ours",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h1",
+  "arm": "base",
+  "original": [
+   5,
+   4,
+   5
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h3",
+  "arm": "unslop",
+  "original": [
+   4,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h13",
+  "arm": "ours",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h14",
+  "arm": "unslop",
+  "original": [
+   4,
+   4,
+   3
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h10",
+  "arm": "slopless",
+  "original": [
+   4,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h3",
+  "arm": "everwrite-inv",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h10",
+  "arm": "slop-cop",
+  "original": [
+   5,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h15",
+  "arm": "everwrite-inv",
+  "original": [
+   4,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h9",
+  "arm": "slop-cop",
+  "original": [
+   3,
+   4,
+   4
+  ]
+ },
+ {
+  "set": "public",
+  "task": "h16",
+  "arm": "everwrite",
+  "original": [
+   5,
+   5,
+   5
+  ]
+ }
+]

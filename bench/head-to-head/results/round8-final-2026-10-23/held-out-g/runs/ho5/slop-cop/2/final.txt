@@ -1,0 +1,8 @@
+Reescrevi o `guia-integracao.md` no próprio arquivo, com um tom mais direto e de conversa. Não rodei o slop-cop, porque as regras dele são para inglês e o guia está em português. A revisão foi manual.
+
+Mantive exatamente como estavam os dois comandos (`suporte listar --antigos` e `suporte pausar <id>`), a URL, a versão 4.1.3 e a data de revisão. Também não mexi nos nomes (Serraria Digital, Renata Souza, Bruno Teixeira), no ramal 5120, no 0800 000 1234 nem no e-mail <EMAIL>.
+
+O que mudou foi só o texto:
+- **Frases:** troquei construções como "Este guia cobre…" e "Ele foi revisado…" por frases mais naturais, e deixei os avisos mais diretos, como "Peça logo o acesso".
+- **Detalhes:** tirei trechos que só deixavam o texto mais formal e juntei o aviso sobre perda de dados com o contato.
+- **Fatos:** os prazos, horários e regras são os mesmos.

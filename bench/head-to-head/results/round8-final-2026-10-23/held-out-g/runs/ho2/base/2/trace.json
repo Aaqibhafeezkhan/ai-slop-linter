@@ -1,0 +1,10 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"# Añade reintentos con espera exponencial al envío de SMS\\n\\n## Resumen\\n\\nCuando el proveedor de SMS fallaba, `avisos-api` reintentaba una sola vez a los 3 segundos y se rendía. Con esta PR los reintentos usan espera exponencial, así que se pierden bastantes menos mensajes.\\n\\n## Cambios\\n\\n- Nueva función `enviar_con_reintentos()` en `avisos/sms.py`. Reintenta "
+ }
+]

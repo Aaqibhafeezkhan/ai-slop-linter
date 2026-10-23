@@ -1,0 +1,10 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"python3 - <<'EOF'\\ns=open('release-notes.md').read()\\ndef r(a,b):\\n    global s\\n    assert a in s\\n    s=s.replace(a,b)\\nr(\\\"Certainly! Here is a comprehensive overview of the release notes for Lantern Sync 3.8.0. I hope this helps, and let me know if you would like any changes.\\\\n\\\\n\\\",\\\"\\\")\\nr(\\\"We are thrilled to announce Lantern Sync 3.8.0 — a game-changing release that seamlessl"
+ }
+]

@@ -1,0 +1,10 @@
+Przepisałem `notatka-incydent.md` na miejscu, ale nie czytałem pliku ponownie po edycji. Front matter, blok z logiem błędu, numery wersji, godziny, liczby, nazwy plików i URL zostały bez zmian.
+
+- **Otwarcie:** usunąłem „Oczywiście! Poniżej znajdziesz… Mam nadzieję, że będzie pomocne.”, bo to zostawiony ślad czatu.
+- **Podsumowanie:** wyciąłem wstęp o „dzisiejszym dynamicznym świecie” i zespole, który „z dumą przedstawia solidną analizę”. Notatka zaczyna się teraz od faktu: 30 września, 07:12, `zakwas-orders`.
+- **Przyczyna:** usunąłem „Warto zauważyć” i zostawiłem jedno zastrzeżenie zamiast dwóch („Prawdopodobnie mogło to być spowodowane” zmieniło się w „Prawdopodobnie spowodowało to”). Przyczyna nadal jest podana jako prawdopodobna, nie pewna.
+- **Wnioski:** wyciąłem „cenną lekcję”, „jak ważna jest współpraca” i końcowe „stawimy czoła każdemu wyzwaniu”. Alert przy 80% i kontakt do Marty Wójcik zostały, ale krócej: „Wprowadzimy alert…”, „Pytania proszę kierować do…”.
+
+Sekcja „Co zrobiliśmy” była już w porządku, więc jej nie ruszałem.
+
+Przy okazji: wersja 5.2.0 zmieniła limit z 40 na 20, a w logu jest `max=20`, więc to się zgadza. Nie ma tam jednak niczego, co potwierdzałoby, że to właśnie wdrożenie było przyczyną. Zostawiłem „prawdopodobnie”, bo notatka nie podaje dowodu. Jeśli go macie, warto dopisać jedno zdanie.

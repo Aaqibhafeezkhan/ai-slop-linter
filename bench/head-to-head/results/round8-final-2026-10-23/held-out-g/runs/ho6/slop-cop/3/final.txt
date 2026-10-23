@@ -1,0 +1,6 @@
+I rewrote `commitberichten.md` in place. I didn't run the slop-cop check on the result, because I edited the Dutch text by hand.
+
+- **Removed:** the "Natuurlijk! Hier is…" opener, the closing "Kortom…" paragraph, and the filler phrases ("robuuste oplossing", "naadloos", "cruciale rol", "Het is belangrijk om op te merken"). I also dropped the unsupported claim that the date-fns update makes date handling "soepelere en betrouwbaardere".
+- **Kept exactly as they were:** the four subject lines in backticks, the customer quote, `ANNULERING_UUR`, `berekenTarief()`, `src/prijzen.ts`, the versions (1.9.0, 2.30.0, 3.6.0), € 12,50 and € 12,00, the 37 tests, the URL and the date.
+- **Changed:** Commit 1 now says there's a cancellation window you set with `ANNULERING_UUR`. The 48 hours appear only in the subject line.
+- **Added:** I changed the date sentence in Commit 4 to "Ik heb dit op 21 oktober 2026 aangepast". That puts the changes in the first person, which the original didn't do. Change it if you'd rather keep it neutral.

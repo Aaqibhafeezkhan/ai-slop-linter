@@ -1,0 +1,8 @@
+I rewrote `commitberichten.md` in place. The commit subject lines, the customer quote, `ANNULERING_UUR`, `berekenTarief()`, `src/prijzen.ts`, the version numbers, the € 12,50 and € 12,00 amounts, the test count, the date and the URL are all unchanged.
+
+- **Chat wrapper:** I removed the "Natuurlijk! Hier is een uitgebreid overzicht… Ik hoop dat dit nuttig is" opener and the "Laat het gerust weten…" sign-off.
+- **Summary paragraph:** I cut the closing "Kortom… een belangrijke stap vooruit" paragraph.
+- **Filler and puffery:** I cut "robuuste oplossing die naadloos aansluit", "In de huidige snelle wereld", "cruciale rol", "Het is belangrijk om op te merken" and the stacked hedge "Mogelijk zou dit kunnen leiden".
+- **Dashes:** The em dash in Commit 1 is gone.
+- **Commit 1:** I replaced the vague claim with what the change does: customers can cancel up to 48 hours ahead. I took that from the subject line.
+- **Commit 3:** I dropped "soepelere en betrouwbaardere verwerking van datums". The source gave no support for it, so only the passing tests remain.

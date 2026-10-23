@@ -1,0 +1,11 @@
+Przepisałem `notatka-incydent.md` na miejscu. Nie czytałem pliku ponownie po edycjach.
+
+**Zmiany**
+- **Wstęp:** usunąłem „Oczywiście! Poniżej znajdziesz… Mam nadzieję, że będzie pomocne.”. To był ślad rozmowy z czatem.
+- **Podsumowanie:** usunąłem „W dzisiejszym dynamicznym świecie… z dumą przedstawia solidną analizę”. Sekcja zaczyna się teraz od faktu: data, godzina, `zakwas-orders`, 47 minut, 312 zamówień.
+- **Przyczyna:** skreśliłem „Warto zauważyć, że”. Zamiast podwójnego zastrzeżenia („Prawdopodobnie mogło to być spowodowane”) zostało jedno: „Prawdopodobnie spowodowało je wdrożenie…”.
+- **Wnioski:** usunąłem „cenną lekcję… współpraca” i końcowe „stawimy czoła każdemu wyzwaniu”. Zostały dwa zdania: „Wprowadzimy alert przy 80% wykorzystania puli. Pytania proszę kierować do Marty Wójcik.”
+
+**Bez zmian:** front matter, blok z logiem błędu, wersje 5.2.0 i 5.1.4, godziny 07:12 i 07:59, liczby (47, 312, 40/20, 118), `pg-main`, `config/pool.yml` i URL. Lista „Co zrobiliśmy” była już w porządku, więc jej nie ruszałem.
+
+Przyczyna nadal jest opisana jako prawdopodobna, bo tak było w oryginale. Jeśli wdrożenie 5.2.0 jest potwierdzone, usuń „Prawdopodobnie”. Tego nie mogłem sprawdzić.

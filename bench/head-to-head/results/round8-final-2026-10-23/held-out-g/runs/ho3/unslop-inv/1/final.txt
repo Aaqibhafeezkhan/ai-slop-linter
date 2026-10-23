@@ -1,0 +1,13 @@
+Przepisałem `notatka-incydent.md` w miejscu. Po edycji nie czytałem pliku jeszcze raz.
+
+**Zmiany:**
+- **Początek:** usunąłem „Oczywiście! … Mam nadzieję, że będzie pomocne.” To pozostałość po czacie.
+- **Podsumowanie:** usunąłem otwarcie „W dzisiejszym dynamicznym świecie…” razem z „z dumą przedstawia solidną analizę”. Sekcja zaczyna się teraz od faktu: 30 września 2026, 07:12.
+- **Przyczyna:** usunąłem „Warto zauważyć, że”. Zamiast „Prawdopodobnie mogło to być spowodowane” jest „Prawdopodobnie wywołało je wdrożenie…”. Zostało jedno zastrzeżenie zamiast dwóch, nadal jako przypuszczenie.
+- **Wnioski:**
+  - Usunąłem „cenną lekcję”, „jak ważna jest współpraca” i końcowe „stawimy czoła każdemu wyzwaniu”.
+  - Zostały dwa konkretne zdania: „Wprowadzimy alert przy 80% wykorzystania puli. Pytania proszę kierować do Marty Wójcik.”
+
+**Bez zmian:** front matter, blok z logiem, wersje 5.2.0 i 5.1.4, godziny 07:12 i 07:59, liczby 47 minut, 312 zamówień, 40, 20 i 80%, `zakwas-orders`, `pg-main`, `config/pool.yml` oraz URL. Sekcja „Co zrobiliśmy” też została, bo już brzmiała po ludzku.
+
+Niczego nie dopisywałem. Notatka nie podaje, dlaczego limit zmieniono na 20, więc o tym nie ma ani słowa. Jeśli wiecie, dlaczego, to jedno zdanie o tym warto dodać.

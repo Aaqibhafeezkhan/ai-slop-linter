@@ -1,0 +1,14 @@
+He reescrito `pr-sms-reintentos.md` en el sitio. No lo he vuelto a leer después de guardarlo.
+
+**Lo que quité o cambié**
+- **Apertura de chat:** fuera "¡Claro! Aquí tienes… Espero que te sea de utilidad."
+- **Resumen:** ahora dice solo lo que hace la PR. Quité "solución robusta y escalable que transforma por completo", la frase sobre "el mundo digital actual" y lo de "paso importante… antes y un después".
+- **Cambios:** "Cabe destacar que… potencialmente podría causar" ahora es "que podía causar". Era un doble matiz de duda que no hacía falta.
+- **Resultados:** quité "realmente impresionantes". La tabla y la fecha quedan como estaban.
+- **Cómo probarlo:** quité "Para empezar, simplemente" y "No dudes en comentar".
+
+**Lo que no toqué**
+- La tabla, los nombres de código, las cifras, la fecha (8 de octubre de 2026) y el issue #377 siguen igual.
+- Las viñetas de Cambios ya sonaban a persona, así que las dejé tal cual, salvo el matiz de duda.
+
+No añadí ningún dato ni anécdota que el original no tuviera. La latencia p95 sube de 4,1 s a 4,4 s, y el texto ya no la presenta como un resultado "impresionante". Si quieres explicar ese aumento, hace falta que me lo des tú, porque el original no lo explica.

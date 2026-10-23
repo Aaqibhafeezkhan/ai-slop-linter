@@ -1,0 +1,10 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"unslop:unslop\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ }
+]

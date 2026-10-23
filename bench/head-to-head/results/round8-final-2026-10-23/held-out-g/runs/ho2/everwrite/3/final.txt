@@ -1,0 +1,9 @@
+Reescribí `pr-sms-reintentos.md` en su sitio. Quité el saludo del chatbot, el relleno de hype y el cierre grandilocuente, y puse la descripción en primera persona. El comprobador pasó de 1 hallazgo fuerte a 0.
+
+Dejé intactos la tabla, los nombres de código, las cifras, la fecha (8 de octubre de 2026) y el issue #377.
+
+Añadí dos cosas que no estaban en el original:
+- Una frase que dice que la latencia p95 sube 0,3 s, "lo esperable al esperar entre reintentos". Es la parte que conviene que revises.
+- Una afirmación en el resumen de que el cambio sustituye los intervalos fijos por esperas cada vez más largas. Se deduce de los cambios que ya listaba la PR.
+
+Además cambié "potencialmente podría causar mensajes duplicados" por "podía provocar mensajes duplicados".

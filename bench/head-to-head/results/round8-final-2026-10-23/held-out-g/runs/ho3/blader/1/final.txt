@@ -1,0 +1,9 @@
+I rewrote `notatka-incydent.md` in place. The front matter, the error log block, the versions, times, counts, file names and the URL are unchanged.
+
+- **Chatbot wrapper:** I removed "Oczywiście! Poniżej znajdziesz…" and "Mam nadzieję, że będzie pomocne."
+- **Padding and sales language:** I cut the "w dzisiejszym dynamicznym świecie… z dumą przedstawia" opener, "Warto zauważyć" and "Warto podkreślić". I also cut the closing lines about a "cenna lekcja", "współpraca" and "stawimy czoła każdemu wyzwaniu".
+- **Stacked hedges:** "Prawdopodobnie mogło to być spowodowane" became "Najpewniej zawiniło". I kept one hedge because the original didn't state the cause as certain.
+- **Dashes:** The em dash in the summary is gone.
+- **Plainer wording:** The cause now says the pool ran out ("Skończyła się pula połączeń"). The last section is two sentences: the 80% alert, and questions go to Marta Wójcik.
+
+I didn't add any facts. I did turn "Nie wahaj się zgłaszać pytań" into "Pytania proszę kierować do", which is a bit more formal. Change it back if you want the original tone.

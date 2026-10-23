@@ -1,0 +1,6 @@
+I rewrote `pr-sms-reintentos.md` in place. The table, code names, numbers, the date and issue #377 are unchanged.
+
+- **Removed:** the chatbot opener ("¡Claro! Aquí tienes…"), the filler about "el mundo digital actual", and the sales language ("robusta y escalable", "realmente impresionantes", "marca un antes y un después"). I also cut the closing line about "un paso importante" and the dashes, and dropped "Cabe destacar" and "potencialmente".
+- **Added:** one sentence under the table saying mensajes perdidos fall a lot and p95 latency rises 0,3 s. That 0,3 s is just 4,4 − 4,1 from your table.
+- **Changed:** the summary now says the PR replaces the fixed retry with exponential backoff. The old text only implied this. It follows from the changes list.
+- **Reworded:** "podía causar mensajes duplicados" no longer hedges with "potencialmente".

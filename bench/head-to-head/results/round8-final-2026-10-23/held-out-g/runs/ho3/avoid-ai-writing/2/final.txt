@@ -1,0 +1,19 @@
+I've finished the edits and re-read the file. Here's the report.
+
+**Edits made** in `notatka-incydent.md`:
+- **Chatbot opener removed.** I cut "Oczywiście! Poniżej znajdziesz kompleksowe podsumowanie… Mam nadzieję, że będzie pomocne."
+- **Podsumowanie:** I cut the generic opening ("W dzisiejszym dynamicznym świecie… z dumą przedstawia solidną analizę…"). The section now starts with the date, time, 47 minutes and 312 orders.
+- **Przyczyna:**
+  - "Warto zauważyć, że przyczyną było" → "Przyczyną było".
+  - "Prawdopodobnie mogło to być spowodowane" → "Prawdopodobnie spowodowało je". That drops the stacked hedge and keeps one, so the uncertainty about the cause stays.
+- **Wnioski:**
+  - I cut "Ten incydent stanowi cenną lekcję…" and the closing line about facing every challenge together.
+  - "Warto podkreślić, że zamierzamy wprowadzić alert…" → "Zamierzamy wprowadzić alert…".
+  - "Nie wahaj się zgłaszać pytań do Marty Wójcik" → "Pytania można kierować do Marty Wójcik".
+
+**Verification**
+- **Editing passes:** 1 of 2 allowed.
+- **Checks:** model-only. I did not run the detector, the quote normalizer or the preservation validator. The normalizer had nothing to do, since the text has no quotes or apostrophes.
+- **Residuals:** none found. The front matter, error log block, versions (5.2.0, 5.1.4), times (07:12, 07:59), counts (47, 312, 40, 20, 80%), file names, `pg-main` and the URL are unchanged. The bullet list in "Co zrobiliśmy" is plain and I left it alone.
+- **Caveat:** the skill's rules are calibrated for English, and this note is in Polish. I limited the edits to patterns that carry over clearly, like chatbot filler, empty openers and closers, and filler phrases. I couldn't check the Polish wording against a Polish detector.
+- **Stop reason:** no further justified edit remains.

@@ -1,0 +1,7 @@
+Przepisałem `notatka-incydent.md` w tym samym pliku. Nic poza treścią nie zmieniałem.
+
+- **Usunięte:** chatbotowe wstępy i zakończenia ("Oczywiście! Poniżej znajdziesz…", "Mam nadzieję, że będzie pomocne", "W dzisiejszym dynamicznym świecie…", "z dumą przedstawia"), wypełniacze w rodzaju "Warto zauważyć" i "Warto podkreślić" oraz moralizujące zakończenie o współpracy i wyzwaniach.
+- **Uproszczone:** "Prawdopodobnie mogło to być spowodowane" brzmi teraz "Najpewniej zawiniło". Przy bloku z logiem jest krótkie "W logach było to widać tak:".
+- **Bez zmian:** front matter, blok z logiem, wersje (5.2.0, 5.1.4), godziny, liczby (47 minut, 312 zamówień, 40 → 20, 80%), nazwy plików, URL i nazwisko Marty Wójcik.
+
+Jedna rzecz do sprawdzenia. W oryginale przyczyna była podana ostrożnie ("prawdopodobnie"), więc zostawiłem "najpewniej". Jeśli wiecie na pewno, że to wdrożenie 5.2.0, zamieńcie to na stwierdzenie wprost.

@@ -1,0 +1,1 @@
+commitberichten.md is going to be published. It reads like an AI wrote it. Rewrite it in place so it reads like a person wrote it. Keep the commit subject lines in backticks, the customer quote, code names, version numbers, amounts and the URL exactly as they are.

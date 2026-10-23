@@ -1,0 +1,15 @@
+Mexi pouco em `guia-integracao.md`, porque o texto já lia como escrito por uma pessoa. Fiz só duas edições:
+
+- **Linha 3:** juntei as duas frases de abertura em uma, com a data de revisão entre parênteses: "…da Serraria Digital (última revisão em 12 de outubro de 2026)."
+- **Linha 7:** troquei "O pedido leva até 2 dias úteis para ser aprovado. Sem esse acesso…" por "A aprovação leva até 2 dias úteis, e sem ela você não consegue assumir nenhum chamado."
+
+O resto ficou como estava. Não encontrei abertura genérica, fecho de efeito, tríades, paralelismos negativos ou frases só de enfeite. Os prazos, os nomes e os comandos já eram específicos. Mantive tudo isto exatamente igual:
+
+- a URL
+- a versão 4.1.3
+- Renata Souza e Bruno Teixeira
+- o ramal 5120 e o 0800 000 1234
+- <EMAIL>
+- os comandos `suporte listar --antigos` e `suporte pausar <id>`
+
+O skill é feito para alemão e inglês. Apliquei os princípios dele ao português, mas as listas de palavras não valem para este idioma.

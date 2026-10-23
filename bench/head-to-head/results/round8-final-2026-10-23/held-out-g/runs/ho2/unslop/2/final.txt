@@ -1,0 +1,12 @@
+Reescribí `pr-sms-reintentos.md` en el sitio. La tabla, los nombres de código (`enviar_con_reintentos()`, `avisos/sms.py`, `SMS_MAX_REINTENTOS`, `tests/test_sms.py`), las cifras, la fecha (8 de octubre de 2026) y el issue #377 están tal cual. No ejecuté ninguna comprobación; solo reescribí el texto.
+
+**Qué cambié**
+- **Saludo del asistente:** quité "¡Claro! Aquí tienes… Espero que te sea de utilidad."
+- **Resumen:** quité la frase de "solución robusta y escalable", "el mundo digital actual" y "juega un papel fundamental". Ahora dice qué hace la PR.
+- **Cambios:** quité "Cabe destacar" y "potencialmente podría". Ahora dice que el reintento fijo "podía causar mensajes duplicados".
+- **Resultados:** quité "realmente impresionantes", que además no encajaba con el p95, que sube de 4,1 s a 4,4 s. La frase de apertura ahora solo indica cuándo y dónde se midió.
+- **Cierre:** quité "Para empezar, simplemente", "No dudes en" y el remate de "un antes y un después para el equipo".
+
+**Sin cambios:** la estructura de secciones y los 4 puntos de "Cambios", porque ya leían como texto técnico normal.
+
+No expliqué por qué sube la latencia p95, porque el original no lo dice y no quise inventarlo. Si lo sabes, vale la pena añadir una línea.

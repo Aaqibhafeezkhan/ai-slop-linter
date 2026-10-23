@@ -1,0 +1,3 @@
+I rewrote `notatka-incydent.md` in place. I cut the chatbot opener and closer, the hype, the dash and the stacked hedges, and the checker went from 1 strong hit to 0. The front matter, error log block, versions, times, counts, file names and URL are unchanged.
+
+I also cut the "Ten incydent stanowi cenną lekcję…" sentence and the closing line about facing every challenge together. They had no facts in them.

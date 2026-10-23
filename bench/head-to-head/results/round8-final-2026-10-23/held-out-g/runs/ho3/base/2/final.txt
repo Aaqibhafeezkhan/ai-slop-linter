@@ -1,0 +1,6 @@
+Przepisałem `notatka-incydent.md` w miejscu.
+
+- **Usunięte:** chatbotowe otwarcie ("Oczywiście! Poniżej znajdziesz…"), frazy w rodzaju "w dzisiejszym dynamicznym świecie", "z dumą przedstawia", "warto zauważyć" i "cenna lekcja" oraz moralizatorskie zakończenie.
+- **Zostawione bez zmian:** front matter, blok z błędem, wersje (5.2.0, 5.1.4), godziny, liczby (47 minut, 312 zamówień, limity 40 i 20), `config/pool.yml`, URL i nazwy (`zakwas-orders`, `pg-main`).
+- **Przyczyna:** zamiast "prawdopodobnie mogło to być spowodowane" jest teraz "najpewniej zawiniło". Przyczyna dalej jest podana jako domniemana, tak jak w oryginale.
+- **Wnioski:** zostały tylko alert przy 80% i kontakt do Marty Wójcik.

@@ -1,0 +1,18 @@
+I've rewritten `release-notes.md` in place and re-read it. The remaining work is this summary.
+
+**Changes**
+- I cut the opening chatbot paragraph ("Certainly! Here is a comprehensive overview… I hope this helps…").
+- I replaced the "thrilled to announce… game-changing… seamlessly transforms" intro and the "In today's fast-paced world" sentence with one plain summary of the three changes.
+- "Robust new chunking strategy" is now "new chunking strategy".
+- I removed "It's worth noting that", "intelligently" and "plays a crucial role in deciding". The conflict bullet now says what `conflict_policy` does and what it defaults to. Its label is "Conflict handling" instead of "Smarter conflict handling".
+- The bug bullet had "potential issue… could possibly stall". It now reads "The watcher could stall on network drives (#1482)."
+- I dropped "To get started, simply" before the config block.
+- I cut "Overall, this update represents a significant step forward, and we look forward to your feedback" and the "— happy syncing!" sign-off.
+
+**Verification**
+- **Editing passes:** 1 used (limit 2).
+- **Checks:** model-only. The detector, the quote normalizer and the preservation validator did not run. The edited prose had no curly quotes to normalize.
+- **Residuals:** the tester quote still contains "It's not just a sync tool, it's a game-changer". I left it because you asked me to keep the quote exactly as written.
+- **Stop reason:** no further justified edit remains in the editable prose.
+
+The front matter, code block, quote, version numbers, `#1482` and the URL are unchanged.

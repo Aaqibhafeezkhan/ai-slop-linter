@@ -1,0 +1,16 @@
+I rewrote `notatka-incydent.md` in place. I didn't re-read the saved file or diff it against the original.
+
+**Removed**
+- The chatbot opener ("Oczywiście! Poniżej znajdziesz…") and the closing pleasantries ("Mam nadzieję…", "Nie wahaj się…").
+- The "w dzisiejszym dynamicznym świecie… z dumą przedstawia" run-up.
+- The moralizing close about collaboration and "stawimy czoła każdemu wyzwaniu".
+- Filler such as "Warto zauważyć" and "Warto podkreślić".
+- The stacked hedge "Prawdopodobnie mogło to być spowodowane". It is now a single "Najpewniej zawiniło".
+
+**Kept exactly**
+- The front matter, the error log block, versions 5.2.0 and 5.1.4, and the times 07:12 and 07:59.
+- The counts (47 minutes, 312 orders, limits 40 and 20, the 80% alert threshold).
+- The file names `config/pool.yml`, `zakwas-orders` and `pg-main`, and the URL.
+- Marta Wójcik as the contact.
+
+I added no facts, and the text has no dashes.

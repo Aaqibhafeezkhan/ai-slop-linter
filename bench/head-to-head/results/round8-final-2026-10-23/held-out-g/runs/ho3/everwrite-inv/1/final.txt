@@ -1,0 +1,5 @@
+Przepisałem `notatka-incydent.md` na miejscu. Usunąłem wstęp chatbota, patos, dash, zbędne asekuracje i zakończenie o "wyzwaniach"; checker: 1 strong → 0. Front matter, blok z logiem, wersje, godziny, liczby, nazwy plików i URL zostały bez zmian.
+
+Dwie rzeczy do sprawdzenia:
+- **Przyczyna:** zdanie o wdrożeniu 5.2.0 zostawiłem z jedną asekuracją ("najpewniej"), bo oryginał też nie był tego pewien.
+- **Wnioski:** zdanie o alercie przy 80% jest teraz w czasie przyszłym ("Dodamy alert"). Jeśli alert już działa, trzeba to poprawić.

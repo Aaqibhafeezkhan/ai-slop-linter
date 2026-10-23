@@ -1,0 +1,10 @@
+I rewrote `notatka-incydent.md` in place. `npx ai-slop-linter --verify` exits 0. The linter reported 0 findings on the original, so the edits come from the Polish reference list and my read-through. The linter has no Polish phrase catalog, and `--verify` printed an "unrequested edit" line for each sentence I cut. Those are the sentences listed below.
+
+- **Cut the assistant wrapper:** I removed "Oczywiście! … Mam nadzieję, że będzie pomocne."
+- **Cut the opener:** I removed "W dzisiejszym dynamicznym świecie … z dumą przedstawia solidną analizę". The summary now starts with the date and time.
+- **Cause:** I dropped "Warto zauważyć, że". I also turned "Prawdopodobnie mogło to być spowodowane" into "Prawdopodobnie spowodowało je", so the hedge is one word instead of two.
+- **Conclusions:** I cut the "cenną lekcję / współpraca" sentence, "Warto podkreślić, że" and the closing "Mamy nadzieję … wyzwaniu". "Nie wahaj się zgłaszać pytań do Marty Wójcik" became "Pytania można zgłaszać do Marty Wójcik."
+
+I left the front matter, the error log block, the versions 5.1.4 and 5.2.0, the times 07:12 and 07:59, the counts (47, 312, 40, 20, 80%), the file names and the URL as they were. "Cofnęliśmy" and "Zamierzamy" were already in the source, so I kept them and added no first person.
+
+Residuals: "Prawdopodobnie" stays because the source hedges the cause.

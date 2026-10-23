@@ -1,0 +1,6 @@
+I rewrote `guia-integracao.md` in place. It's in a more conversational Portuguese now, with a couple of small additions of my own.
+
+- **Kept exactly:** the URL, `4.1.3`, both commands, Renata Souza, Bruno Teixeira, ramal 5120, `0800 000 1234`, `<EMAIL>`, and the 12 de outubro de 2026 revision date.
+- **Reworded:** I broke up the stiff, evenly paced sentences (for example "Este guia cobre…", "Ele foi revisado…", "Sem esse acesso você não consegue…"). I also joined some short sentences and made the tone more direct.
+- **Added:** I added a short reason for not promising deadlines ("porque isso não é você quem decide"). I also added "sentada ao seu lado" for Renata, which implies she sits beside the new hire. Delete either if you'd rather not have them.
+- **Checker result:** slop-cop's rules are written for English, so I only partly trusted its report on this Portuguese text. Its last run flagged the URL's trailing period, a colon in the URL, and the numerals `2` and `4`. I reworded the URL sentence so it no longer ends with the URL, and I didn't re-run the check after that edit. I left the numerals alone because they're part of the facts.

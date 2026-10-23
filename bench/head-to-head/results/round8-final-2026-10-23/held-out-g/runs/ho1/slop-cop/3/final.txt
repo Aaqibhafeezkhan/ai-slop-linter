@@ -1,0 +1,7 @@
+I rewrote `release-notes.md` in place so it reads like a person wrote it. The only check that still fires is on the tester's "game-changer" quote, which you told me to keep word for word. I ran slop-cop's client-side check only, and skipped its slower LLM-backed pass.
+
+- **Removed:** the "Certainly! Here is…" preamble, the "thrilled to announce / game-changing / fast-paced world" opener, the filler ("It's worth noting", "plays a crucial role", "simply", "possibly"), and the closing "significant step forward… happy syncing!".
+- **Changed:** the bold-label bullets are now short plain paragraphs, which stopped the check flagging them as a listicle. The intro is one sentence saying what the release does.
+- **Kept exactly as they were:** the front matter, the quoted tester review, the TOML code block, the version numbers, the issue number (#1482) and the URL.
+
+I trimmed the last line to "The full docs are at [the 3.8 docs](…). Tell us what you think." Change the wording if you'd rather it said something else.

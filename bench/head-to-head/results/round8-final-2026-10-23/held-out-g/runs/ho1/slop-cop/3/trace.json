@@ -1,0 +1,26 @@
+[
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"slop-cop:slop-cop-prose\"}"
+ },
+ {
+  "tool": "Write",
+  "input": "{\"file_path\": \"<TMP>\", \"content\": \"---\\ntitle: Lantern Sync 3.8.0 release notes\\ndate: 2026-09-14\\n---\\n\\n# Lantern Sync 3.8.0\\n\\n## What changed\\n\\nLantern Sync 3.8.0 makes large uploads faster and changes what happens when two devices edit the same file.\\n\\n- **Faster uploads:** Uploads of files over 1 GiB are up to 40% faster. The default chunk size grows from 8 MiB to 16 MiB.\\n- **Conflict han"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"P=<TMP> \\\"$P\\\" --version && \\\"$P\\\" check <TMP> --no-llm --format=compact\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"- **Faster uploads:** Uploads of files over 1 GiB are up to 40% faster. The default chunk size grows from 8 MiB to 16 MiB.\\n- **Conflict handling:** The new `conflict_policy` setting controls what happens when two devices edit the same file. It defaults to `keep-both`.\\n- **Fixed a bug:** The watcher could stall on network drives. That's "
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"P=<TMP> \\\"$P\\\" check <TMP> --no-llm --format=compact\"}"
+ }
+]

@@ -1,0 +1,10 @@
+Reescribí `pr-sms-reintentos.md` en su sitio. No usé Slopless: solo analiza inglés y este texto está en español.
+
+- **Quité el relleno de IA.** Ya no están el "¡Claro! Aquí tienes…", "solución robusta y escalable", "en el mundo digital actual", "realmente impresionantes", "marca un antes y un después" ni el resto de frases de ese tipo.
+- **Dejé el texto directo.** Ahora dice qué fallaba antes: un solo reintento fijo a los 3 s. Después dice qué hace la PR y cómo probarla.
+- **No toqué lo que pediste.** La tabla, `enviar_con_reintentos()`, `avisos/sms.py`, `SMS_MAX_REINTENTOS`, `tests/test_sms.py`, los números, el 8 de octubre de 2026 y el issue #377 siguen igual.
+
+Hice dos cambios más allá del tono:
+
+- **Mensajes duplicados.** Cambié "potencialmente podría causar mensajes duplicados" por "podía provocar mensajes duplicados".
+- **Dos frases nuevas.** Añadí "Lo probé en el entorno de preparación…", que da por hecho que la prueba la hizo quien firma la PR. También añadí "la latencia p95 sube apenas 0,3 s", que sale de la diferencia entre 4,1 s y 4,4 s. Revisa si esas dos frases te sirven tal cual.

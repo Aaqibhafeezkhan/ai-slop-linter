@@ -1,0 +1,16 @@
+I rewrote `release-notes.md` in place. The linter now grades it A with no findings, and `--verify` passes.
+
+- **Removed:**
+  - The "Certainly! … I hope this helps" chatbot opener.
+  - The "thrilled / game-changing / seamlessly / fast-paced world" intro, replaced with two plain sentences saying what the release does.
+  - The bold labels on the bullets.
+  - "robust", "intelligently", "crucial role" and "It's worth noting".
+  - The hedge in "potential issue … could possibly stall", now "a bug where the watcher could stall".
+  - The closing "significant step forward … happy syncing!" and both em dashes.
+- **Left as it was:** the front matter, the heading, the TOML block, the tester quote, version numbers, `#1482` and the URL.
+- **Added:** one directive comment above the quote, `<!-- slop-ignore-next-line not-x-but-y ai-vocabulary -->`. The linter flags "game-changer" and "not just X but Y" in the tester's words, and I didn't edit them.
+- **Verify note:** `--verify` still prints "unrequested edit" for the line "To get started, simply add the following to `lantern.toml`:". I dropped only "simply", which is filler. That is the one edit it lists, and it didn't block.
+
+I wrote the new intro sentence myself. It says only what the bullets already say.
+
+Residuals: the quoted "It's not just a sync tool, it's a game-changer." stays because it's the tester's own words.

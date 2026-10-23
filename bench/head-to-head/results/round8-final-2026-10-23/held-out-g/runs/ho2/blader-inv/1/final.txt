@@ -1,0 +1,7 @@
+I rewrote `pr-sms-reintentos.md` in place. The table, code names, numbers, date and issue #377 are unchanged.
+
+- **Cut:** I removed the chatbot opener ("¡Claro! … Espero que te sea de utilidad"), the "mundo digital actual" filler, and the closing paragraph about "un paso importante" and "un antes y un después". I also took out the "realmente impresionantes" and "robusta y escalable" praise, the "Cabe destacar" and "potencialmente" hedging, and the em dash.
+- **Reworded:** The summary now says what the PR does. The duplicate-messages line now says the fixed retry "podía causar mensajes duplicados" instead of "potencialmente podría". The testing and issue lines are plain instructions.
+- **Added:** The summary now says the new retries wait longer each time, where the old fixed retry repeated at the same interval. This comes from the 2/4/8/16/32 s waits and the removed fixed 3 s retry, not from new facts.
+
+I didn't run `pytest` or check any of the numbers against the code or the staging results.

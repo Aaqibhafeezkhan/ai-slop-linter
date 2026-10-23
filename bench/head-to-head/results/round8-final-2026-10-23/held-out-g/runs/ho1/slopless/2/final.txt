@@ -1,0 +1,8 @@
+I rewrote `release-notes.md` in place. I didn't re-read the file or run Slopless on it afterward.
+
+- **Removed:** the chatbot preamble ("Certainly! Here is a comprehensive overview…"), the "thrilled to announce / game-changing / fast-paced world" intro, and the closing "significant step forward… happy syncing!".
+- **Rewritten:** the intro is now one plain sentence about what the release does. The three bullets lost their filler ("robust", "intelligently", "plays a crucial role", "potential issue… possibly"). The bug fix now just says the watcher no longer stalls on network drives.
+- **Changed:** "To get started, simply add" became "To set these explicitly, add", since the values shown are the defaults.
+- **Left exactly as they were:** the front matter, the TOML block, the tester quote, the version numbers, #1482 and the docs URL.
+
+The tester quote ("It's not just a sync tool, it's a game-changer.") still sounds like marketing copy, but you asked me to keep it verbatim.

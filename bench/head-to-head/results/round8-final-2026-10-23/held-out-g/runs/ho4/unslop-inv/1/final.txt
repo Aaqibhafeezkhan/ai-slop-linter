@@ -1,0 +1,12 @@
+Aku sudah menulis ulang `status-mingguan.md` di tempat. Kutipan pedagang, ID tiket, versi 2.6.0, semua tanggal, format `.xlsx` dan alamat email tidak berubah.
+
+**Yang diubah**
+- **Pembuka dan penutup chatbot:** "Tentu saja! Berikut adalah ringkasan komprehensif… Semoga bermanfaat!" dihapus. Kalimat penutup "komitmen untuk solusi terbaik", "fondasi yang kokoh" dan "dukungan Anda yang luar biasa" juga dihapus.
+- **Ringkasan:** "Di era digital yang serba cepat ini… dengan bangga mengumumkan kemajuan luar biasa… tonggak penting yang benar-benar mengubah cara pedagang mengelola stok" diganti dengan fakta: 18 dari 21 tiket selesai pada minggu yang berakhir 16 Oktober 2026. Klaim "mengubah cara pedagang mengelola stok" tidak punya bukti di teks, jadi kuganti dengan "berfokus pada pengelolaan stok oleh pedagang".
+- **Bagian "Yang selesai":** "Perlu dicatat bahwa" dihapus. "sepertinya sudah mungkin teratasi" jadi "sepertinya sudah teratasi", karena dua kata ragu dalam satu kalimat berlebihan.
+- **Bagian "Yang belum selesai":** "Penyebabnya adalah keterlambatan dari vendor pembayaran" jadi "Vendor pembayaran terlambat". Daftar tiketnya kini diawali titik dua.
+- **Langkah berikutnya:** isinya tinggal satu kalimat, yaitu siapa yang dihubungi.
+
+**Yang perlu kamu cek**
+- Tanggal rilis lama di teks adalah 23 Oktober 2026, yaitu hari ini. Kalau dokumen ini terbit hari ini atau sesudahnya, rencana "mundur ke 30 Oktober" mungkin perlu dikonfirmasi ulang.
+- Kata "sepertinya" pada WK-904 kubiarkan. Kalau statusnya sudah pasti, atau masih belum jelas, sebaiknya diganti dengan status yang sebenarnya.

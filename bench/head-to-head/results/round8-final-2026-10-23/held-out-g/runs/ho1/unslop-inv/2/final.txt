@@ -1,0 +1,19 @@
+I rewrote `release-notes.md` in place. I didn't re-read the file afterwards.
+
+**What I changed**
+- **Chat artifact:** I deleted the "Certainly! Here is a comprehensive overview… I hope this helps" paragraph.
+- **Intro:** I replaced the "thrilled / game-changing / seamlessly transforms / today's fast-paced world" opener with one plain sentence saying what the release does.
+- **Bullets:**
+  - I dropped "robust" and "resolved intelligently".
+  - I dropped "plays a crucial role in", "It's worth noting" and the stacked "potential… could possibly" hedge. The fix bullet now just says the watcher "could stall".
+  - I relabelled two bullets, "Smarter conflict handling" to "Conflict policy" and "Fixed a bug" to "Watcher fix". The new labels name the content.
+- **Config intro:** "To get started, simply add" is now "Add".
+- **Closer:** I cut "this update represents a significant step forward… we look forward to your feedback" and "happy syncing!". The em dash went with them. The docs sentence stays.
+
+**What I left exactly as it was**
+- The front matter.
+- The `toml` code block.
+- The tester quote. It's generic ("game-changer"), but it's a quoted third-party line, so I didn't touch it.
+- The versions, #1482, the URL, and the 40%, 1 GiB and 8→16 MiB figures.
+
+The "up to 40% faster" claim has no benchmark behind it in the text. I left it as written, but you may want to name the test setup before you publish.

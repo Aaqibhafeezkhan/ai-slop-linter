@@ -1,0 +1,3 @@
+Aku sudah menulis ulang `status-mingguan.md` di tempat. Pembuka chatbot, kalimat hype, penutup basa-basi, dan tanda pisah panjang sudah dibuang, dan "sepertinya sudah mungkin teratasi" jadi satu kata hedge saja. Hasil cek: 1 strong dan 2 weak jadi 0 dan 0.
+
+Kutipan pedagang, ID tiket, versi 2.6.0, tanggal, format `.xlsx` dan alamat email tidak berubah. Klaim "mengubah cara pedagang mengelola stok" kuganti jadi pernyataan netral bahwa versi ini berfokus pada pengelolaan stok, karena sumbernya tidak mendukung klaim aslinya.

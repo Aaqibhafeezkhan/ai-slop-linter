@@ -1,0 +1,22 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"unslop:unslop\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Oczywiście! Poniżej znajdziesz kompleksowe podsumowanie incydentu. Mam nadzieję, że będzie pomocne.\\n\\n## Podsumowanie\\n\\nW dzisiejszym dynamicznym świecie niezawodność systemów zamówień ma kluczowe znaczenie — a nasz zespół z dumą przedstawia solidną analizę tego, co poszło nie tak. 30 września 2026 roku o 07:12 kolejka\", \"new_string\": \""
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Warto zauważyć, że przyczyną było wyczerpanie puli połączeń do bazy `pg-main`. Prawdopodobnie mogło to być spowodowane wdrożeniem wersji 5.2.0, które zmieniło limit z 40 na 20 połączeń.\", \"new_string\": \"Przyczyną było wyczerpanie puli połączeń do bazy `pg-main`. Prawdopodobnie wywołało je wdrożenie wersji 5.2.0, które zmieniło limit z 40 "
+ },
+ {
+  "tool": "Edit",
+  "input": "{\"replace_all\": false, \"file_path\": \"<TMP>\", \"old_string\": \"Ten incydent stanowi cenną lekcję i pokazuje, jak ważna jest współpraca. Warto podkreślić, że zamierzamy wprowadzić alert przy 80% wykorzystania puli. Nie wahaj się zgłaszać pytań do Marty Wójcik. Mamy nadzieję, że wspólnie stawimy czoła każdemu wyzwaniu.\", \"new_string\": \"Wprowadzimy alert przy 80% wykorzystania puli. Pytania proszę kiero"
+ }
+]

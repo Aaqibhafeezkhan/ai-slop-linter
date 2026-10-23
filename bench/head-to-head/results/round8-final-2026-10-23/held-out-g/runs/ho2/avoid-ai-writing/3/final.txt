@@ -1,0 +1,13 @@
+I rewrote `pr-sms-reintentos.md` in place. The skill's rules are tuned for English, so I applied them to the Spanish text by judgment. The detector, the quote normalizer and the preservation validator didn't run, so every check was by hand. I only cut or tightened phrases and added no new claims.
+
+- **Chatbot opener:** I deleted "¡Claro! Aquí tienes una descripción detallada… Espero que te sea de utilidad."
+- **Resumen:** I replaced "solución robusta y escalable que transforma por completo…", the "mundo digital actual" line and the em dash with one sentence. It says the PR changes how `avisos-api` handles SMS provider failures, now with retries and exponential backoff.
+- **Duplicate-message bullet:** "Cabe destacar que… potencialmente podría causar" became "Se elimina el reintento fijo de 3 segundos, que podría causar mensajes duplicados." I kept the "podría", since it is a real uncertainty.
+- **Resultados:** "realmente impresionantes" became "estos son los resultados". The date is unchanged.
+- **Cómo probarlo:** I cut "Para empezar, simplemente" and "No dudes en…". The closing "paso importante… antes y un después" is gone. What remains is the `pytest` command and "Las dudas, en el issue #377."
+
+I didn't touch the table, `enviar_con_reintentos()`, `avisos/sms.py`, `SMS_MAX_REINTENTOS`, `tests/test_sms.py`, the numbers (5, 2/4/8/16/32 s, 3 s, 14), the date, or #377.
+
+I used one editing pass and re-read the file afterwards. I don't see any further edits that are justified.
+
+I left the Latencia p95 row alone. It went from 4,1 s to 4,4 s, so latency got slightly worse. If you want that mentioned in the prose, you would need to say so, because I didn't add anything the source didn't state.

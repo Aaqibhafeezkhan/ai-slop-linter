@@ -1,0 +1,13 @@
+{
+  "commit": "d767c0710ca14ff36db634d3bdc43dd9ccfe60ba",
+  "tree": "c715344f895982d81243d156f01ed53c3175e1c4",
+  "benchTree": "d92e8ebf73a1dd3db0a20cd1540632232f194457",
+  "arm": "everwrite-inv",
+  "task": "h3",
+  "iteration": 3,
+  "fixtureSha256": "7a5aa5f49c8a590e136bf4005a76b888e6a97f0b34ef502ca117df8ccafe2ba6",
+  "promptSha256": "8c88e1d388aa6d745dc9421c1e7ca6b5a38f6f1469db4875d91369cf01158ca1",
+  "pluginManifestSha256": "15a93ee0c86867727046d2628b5508c4cbdb9731eb7db1af64a6592305244279",
+  "model": "claude-sonnet-5-5",
+  "date": "2026-10-23"
+}

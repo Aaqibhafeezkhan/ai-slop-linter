@@ -1,0 +1,11 @@
+I've rewritten `commitberichten.md` in place. I didn't re-read the file after the edits.
+
+- **Intro:** I removed the chat-style opener ("Natuurlijk! … Ik hoop dat dit nuttig is") and left a one-line description of the release.
+- **Commit 1:** I cut the filler about a "robuuste oplossing", the "snelle wereld" and the "cruciale rol". It now says plainly that bookings have a 48-hour cancellation window, still configurable via `ANNULERING_UUR`.
+- **Commit 2:** I dropped "Het is belangrijk om op te merken" and the stacked hedge "Mogelijk zou dit kunnen leiden tot". It now reads "…wat omzet kan kosten."
+- **Commit 3:** I removed the vague claim about smoother, more reliable date handling, since the text gave no evidence for it. The only fact left is that all 37 tests passed.
+- **Closing:** I removed the "Kortom…" summary and the "Laat het gerust weten" line.
+
+I left Commit 4 alone, along with the subject lines, the customer quote, the code names, the version numbers, the amounts and the URL.
+
+I didn't add any new facts. The Commit 3 body no longer says what the upgrade changes. If you want that, tell me what it actually improved.

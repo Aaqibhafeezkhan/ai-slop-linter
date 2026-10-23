@@ -1,0 +1,10 @@
+I rewrote `release-notes.md` in place. The front matter, the TOML block, the tester quote, the version numbers, #1482 and the URL are unchanged.
+
+- **Chatbot wrapper:** I removed the "Certainly! Here is a comprehensive overview… I hope this helps" paragraph.
+- **Hype and filler:** I cut "thrilled to announce," "game-changing," "seamlessly transforms," the "fast-paced world" line, "It's worth noting," "plays a crucial role," "robust," and "significant step forward." I also cut "happy syncing!" and "simply."
+- **Dashes:** I removed the em dashes.
+- **Bold-label bullets:** I turned them into short plain paragraphs, and the opening line now says what the release does.
+- **Bug fix line:** I changed "a potential issue where the watcher could possibly stall" to "the watcher stalling." The hedging was stacked and the fix itself is stated plainly.
+- **Quote:** The tester's "not just… game-changer" line stays as written, since you asked me to keep it.
+
+I dropped "up to" nowhere and added no new facts. The "intelligently" claim about conflicts is gone because it wasn't supported by anything specific.

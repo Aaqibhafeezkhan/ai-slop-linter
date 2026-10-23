@@ -1,0 +1,14 @@
+I rewrote `release-notes.md` in place. The front matter, code block, tester quote, version numbers, issue number (#1482) and URL are unchanged.
+
+- **Removed:**
+  - The chatbot wrapper ("Certainly! Here is a comprehensive overview… let me know").
+  - The launch-announcement opener ("thrilled to announce", "game-changing", "fast-paced world").
+  - The sign-off ("significant step forward", "happy syncing!").
+- **Reworded:**
+  - The bold-label bullets are now plain bullets.
+  - Filler like "robust", "intelligently", "plays a crucial role", "It's worth noting" and "could possibly" is gone.
+  - The conflict-handling bullet now says what the `conflict_policy` setting does, without the praise.
+  - "To get started, simply add" is now "Add".
+- **Added:** I wrote one new opening sentence under "What changed" that summarizes the release (faster large uploads, new conflict handling). It only restates points from the bullets.
+
+The tester quote is kept as you asked. It's the one line that still sounds like marketing copy.

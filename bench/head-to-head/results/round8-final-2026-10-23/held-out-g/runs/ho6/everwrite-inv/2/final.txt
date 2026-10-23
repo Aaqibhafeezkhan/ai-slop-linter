@@ -1,0 +1,7 @@
+Ik heb `commitberichten.md` herschreven. Ik heb de chatinleiding, de hype, de slotzin en de en-dash weggehaald. De checker ging van 1 strong naar 0.
+
+Twee zinnen zijn nieuw en niet van jou:
+- **Commit 1:** "kosteloos annuleren tot 48 uur van tevoren" is mijn lezing van wat de termijn betekent.
+- **Commit 2:** "elke dag 50 cent te weinig" heb ik uitgerekend uit € 12,50 en € 12,00.
+
+Controleer of beide kloppen. Ik heb ook de bewering over "soepelere en betrouwbaardere datumverwerking" geschrapt, omdat daar geen bron voor was.

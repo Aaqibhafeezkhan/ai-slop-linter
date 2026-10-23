@@ -1,0 +1,52 @@
+{
+ "output": "status-mingguan.md",
+ "facts": [
+  "Warung Kita",
+  "2.6.0",
+  "16 Oktober 2026",
+  "18 dari 21 tiket",
+  "1,2 detik",
+  "3,5 detik",
+  "`.xlsx`",
+  "`/laporan`",
+  "WK-904",
+  "WK-911",
+  "WK-915",
+  "WK-920",
+  "23 Oktober 2026",
+  "30 Oktober 2026",
+  "Dewi Anggraini",
+  "dewi@example.com"
+ ],
+ "tells": [
+  "Tentu saja!",
+  "ringkasan komprehensif",
+  "Semoga bermanfaat",
+  "era digital yang serba cepat",
+  "dengan bangga mengumumkan",
+  "—",
+  "tonggak penting",
+  "benar-benar mengubah",
+  "Perlu dicatat bahwa",
+  "sepertinya sudah mungkin teratasi",
+  "terus berkomitmen untuk memberikan solusi terbaik",
+  "Jangan ragu untuk",
+  "Dengan demikian, kami yakin",
+  "fondasi yang kokoh",
+  "perhatian dan dukungan Anda yang luar biasa"
+ ],
+ "protected": [
+  "> \"Dengan aplikasi ini, saya tidak lagi menghitung stok sampai larut malam.\""
+ ],
+ "forbidden_added": [
+  "aku",
+  "gue",
+  "kupikir"
+ ],
+ "language_absent": [
+  "the",
+  "and",
+  "with",
+  "which"
+ ]
+}

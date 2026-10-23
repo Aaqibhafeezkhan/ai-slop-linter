@@ -1,0 +1,12 @@
+Ik heb `commitberichten.md` ter plekke herschreven. Ik heb het bestand daarna niet opnieuw ingelezen; elke bewerking is wel bevestigd.
+
+**Wat ik heb gewijzigd**
+- **Intro:** "Natuurlijk! Hier is een uitgebreid overzicht… Ik hoop dat dit nuttig is." is nu "De commitberichten voor release 1.9.0 van de fietsplanner."
+- **Commit 1:** de zinnen over een "robuuste oplossing", "de huidige snelle wereld" en een "cruciale rol" zijn vervangen door "Boekingen hebben nu een annuleringstermijn van 48 uur."
+- **Commit 2:** "Het is belangrijk om op te merken…" en "Mogelijk zou dit kunnen leiden…" zijn één zin geworden: "Het tarief van € 12,50 per dag werd afgerond naar € 12,00, wat omzet kon kosten." Eén voorbehoud in plaats van twee.
+- **Commit 3:** de zin over een "soepelere en betrouwbaardere verwerking van datums" is geschrapt.
+- **Slot:** de afsluitende alinea ("Kortom… Laat het gerust weten…") is geschrapt.
+
+**Onaangetast:** de subject lines in backticks, het klantcitaat, `ANNULERING_UUR`, `berekenTarief()` en `src/prijzen.ts`, de versienummers, de bedragen, de URL, de 37 tests en de datum in commit 4.
+
+**Open punt:** bij commit 3 staat nu alleen nog dat de 37 tests slagen. Er staat niet waarom de upgrade naar date-fns 3.6.0 nodig was. Dat staat niet in de bron, dus ik heb het niet verzonnen. Als je een reden hebt, zoals een bugfix of een EOL, hoort die daar.

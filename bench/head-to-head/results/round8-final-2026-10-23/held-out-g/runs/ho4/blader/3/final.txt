@@ -1,0 +1,23 @@
+I rewrote `status-mingguan.md` in place. I didn't re-read the saved file afterward.
+
+**Removed**
+- The chatbot opener ("Tentu saja! … Semoga bermanfaat!").
+- The sales language and inflated claims: "Di era digital yang serba cepat", "dengan bangga mengumumkan", "kemajuan luar biasa", "tonggak penting yang benar-benar mengubah".
+- "Perlu dicatat bahwa".
+- The closing boilerplate: "terus berkomitmen…", "fondasi yang kokoh…", "dukungan Anda yang luar biasa".
+- The em dash.
+
+**Changed**
+- The stacked hedge "sepertinya sudah mungkin teratasi" is now "sepertinya sudah teratasi". I kept one hedge because the original was unsure whether WK-904 was fixed.
+- The explanation of the delay now says directly that the vendor was late.
+
+**Kept as they were**
+- The merchant quote.
+- The ticket IDs WK-904, WK-911, WK-915 and WK-920.
+- Version 2.6.0.
+- The dates 16, 23 and 30 October 2026.
+- `.xlsx` and `/laporan`.
+- <EMAIL>.
+- The figures: 1,2 detik, 3,5 detik, and 18 dari 21 tiket.
+
+I wrote "Rilis ini mengubah cara pedagang mengelola stok" as a plain statement. The original had that claim in inflated wording, and I kept the claim without adding anything to it.

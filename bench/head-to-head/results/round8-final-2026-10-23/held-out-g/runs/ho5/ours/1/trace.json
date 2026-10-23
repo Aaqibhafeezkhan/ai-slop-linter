@@ -1,0 +1,22 @@
+[
+ {
+  "tool": "Skill",
+  "input": "{\"skill\": \"ai-slop-linter:ai-slop-linter\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"D=<TMP> TMP=$(mktemp -d); cp $D/guia-integracao.md $TMP/before.md; echo $TMP; npx ai-slop-linter --language pt $D/guia-integracao.md\"}"
+ },
+ {
+  "tool": "Read",
+  "input": "{\"file_path\": \"<TMP>\"}"
+ },
+ {
+  "tool": "Bash",
+  "input": "{\"command\": \"D=<TMP> npx ai-slop-linter --language pt --verify /var/folders/0f/lb8m_j5s7nq7tkf97krdnj800000gn/T/tmp.BI6yoOn0tU/before.md $D/guia-integracao.md\"}"
+ }
+]

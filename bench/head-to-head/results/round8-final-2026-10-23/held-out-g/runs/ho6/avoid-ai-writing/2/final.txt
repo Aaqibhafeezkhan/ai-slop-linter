@@ -1,0 +1,15 @@
+Ik heb `commitberichten.md` aangepast en daarna teruggelezen. Dit is het resultaat.
+
+**Wat is veranderd**
+- **Intro:** "Natuurlijk! Hier is een uitgebreid overzicht… Ik hoop dat dit nuttig is." is nu "Dit zijn de commitberichten voor release 1.9.0 van de fietsplanner."
+- **Commit 1:** "robuuste oplossing die naadloos aansluit", "In de huidige snelle wereld" en "cruciale rol" zijn weg. De tekst zegt nu gewoon dat de commit een annuleringstermijn van 48 uur toevoegt. De zin over flexibiliteit staat er nog, maar korter.
+- **Commit 2:** "Het is belangrijk om op te merken" en "Mogelijk zou dit kunnen leiden tot een verlies van omzet" zijn ingekort tot "wat omzet kan kosten". De onzekerheid ("kan") is behouden.
+- **Slot:** de afsluitende alinea ("Kortom… belangrijke stap vooruit… Laat het gerust weten als je aanpassingen wilt!") is verwijderd.
+
+**Ongewijzigd**
+- Alle subjectregels in backticks, het klantcitaat, `ANNULERING_UUR`, `berekenTarief()`, `src/prijzen.ts`, de versienummers, de bedragen, de URL en de datum.
+
+**Kanttekeningen**
+- De regels van de skill zijn voor Engels geschreven. Ik heb ze hier op oordeel toegepast, alleen op duidelijke Nederlandse equivalenten. Er is geen detector gedraaid, dus de controle is op het oog.
+- In commit 3 staat nog "soepelere en betrouwbaardere verwerking van datums". Dat is een claim zonder onderbouwing in de tekst. Ik heb hem laten staan omdat ik geen feiten mag verzinnen. Als je een concreet verschil kent, zoals een bug die is opgelost, kun je dat beter noemen.
+- Het citaat in commit 1 is Engels in een verder Nederlandse tekst. Dat is zo gelaten.

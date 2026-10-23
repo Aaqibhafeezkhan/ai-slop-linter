@@ -1,0 +1,5 @@
+Ik heb `commitberichten.md` ter plekke herschreven. De checker gaf eerst 1 sterke treffer en nu 0.
+
+Ik heb de chatinleiding en de slotzin weggehaald, evenals de reclametaal en de onbewezen claims over soepelere datumverwerking. De subject lines, het klantcitaat, `ANNULERING_UUR`, `berekenTarief()`, de versienummers, de bedragen, de datum en de URL staan er nog precies zo in.
+
+Eén ding om te controleren: in Commit 1 staat nu "tot 48 uur van tevoren", wat ik uit de subject line heb afgeleid. Klopt dat met wat de code doet?

@@ -1,0 +1,1 @@
+Unser Team betreut seit 2023 rund 40 Mittelständler, meist mit knappen IT-Ressourcen. Letzten Monat rief ein Geschäftsführer an, Herr Krause, seit 20 Jahren Inhaber eines Familienbetriebs. Er war zunächst skeptisch. Wir zeigten ihm das System, er testete es und unterschrieb. Heute läuft alles stabil, und das Team ist zufrieden.

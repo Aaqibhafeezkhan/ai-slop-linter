@@ -1,0 +1,13 @@
+I rewrote `notatka-incydent.md` in place. I did not re-read the file afterwards, and none of the skill's tools (detector, quote normalizer, preservation validator) ran, so the check was by eye only.
+
+**What I changed**
+- **Chatbot intro:** I deleted "Oczywiście! Poniżej znajdziesz kompleksowe podsumowanie… Mam nadzieję, że będzie pomocne."
+- **Podsumowanie:** I deleted the opening sentence about "dzisiejszy dynamiczny świat" and the team presenting a "solidna analiza" with pride. The section now starts at "30 września 2026 roku o 07:12…".
+- **Przyczyna:** "Warto zauważyć, że przyczyną było…" became "Przyczyną było…". "Prawdopodobnie mogło to być spowodowane wdrożeniem…" became "Prawdopodobnie spowodowało je wdrożenie…". That removes the doubled hedge but keeps the uncertainty about the cause.
+- **Wnioski:** I deleted "cenną lekcję… współpraca" and "wspólnie stawimy czoła każdemu wyzwaniu". "Warto podkreślić, że zamierzamy…" became "Zamierzamy wprowadzić alert przy 80%…". "Nie wahaj się zgłaszać pytań do Marty Wójcik" became "Pytania proszę kierować do Marty Wójcik."
+
+**What I left alone**
+- The front matter, the error log block, `5.2.0`/`5.1.4`, the times, 47 minutes, 312 orders, `config/pool.yml`, `zakwas-orders`, `pg-main` and the URL are all untouched.
+- The three bullets under "Co zrobiliśmy" were already plain, so I didn't touch them.
+
+The skill's rules and word lists are written for English. I applied them to the Polish text by judgment, so the cleanup is limited to the clear cases.

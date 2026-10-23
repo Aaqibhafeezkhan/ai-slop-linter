@@ -1,0 +1,1 @@
+guia-integracao.md is going to be published. It reads like an AI wrote it. Rewrite it in place so it reads like a person wrote it. Keep the commands, the URL, the version number, the names, the phone numbers and the email address exactly as they are.

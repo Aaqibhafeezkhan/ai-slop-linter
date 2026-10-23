@@ -1,0 +1,5 @@
+{
+  "overrides": [
+    { "files": ["docs/de/**", "docs/fr/**"], "ignore": ["dash", "title-case-heading"] }
+  ]
+}

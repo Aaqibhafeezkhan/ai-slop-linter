@@ -1,0 +1,1 @@
+pr-sms-reintentos.md is going to be published. It reads like an AI wrote it. Rewrite it in place so it reads like a person wrote it. Keep the table, the code names, the numbers, the date and the issue number exactly as they are.

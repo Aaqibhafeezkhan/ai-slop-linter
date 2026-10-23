@@ -1,0 +1,16 @@
+Saya sudah menulis ulang `status-mingguan.md` langsung di berkasnya. Saya tidak membaca ulang berkas setelah diedit, jadi hasil akhirnya belum saya periksa.
+
+**Perubahan**
+- **Pembuka chatbot:** "Tentu saja! Berikut adalah ringkasan komprehensif… Semoga bermanfaat!" saya hapus.
+- **Ringkasan:** pembuka "Di era digital yang serba cepat ini… dengan bangga mengumumkan kemajuan luar biasa… tonggak penting" saya ganti dengan satu kalimat berisi fakta: 18 dari 21 tiket selesai untuk Warung Kita 2.6.0, minggu yang berakhir 16 Oktober 2026. Klaim "mengubah cara pedagang mengelola stok" ikut hilang karena tidak ada buktinya di teks.
+- **Yang selesai:**
+  - "jauh lebih cepat, yaitu…" jadi "lebih cepat: 1,2 detik, dari sebelumnya 3,5 detik".
+  - "Perlu dicatat bahwa" saya hapus.
+  - "sepertinya sudah mungkin teratasi" jadi "sepertinya sudah teratasi", karena dua kata ragu dalam satu klaim terlalu banyak.
+- **Langkah berikutnya:** "berkomitmen memberikan solusi terbaik", "fondasi yang kokoh bagi pertumbuhan jangka panjang", dan ucapan terima kasih yang berlebihan saya hapus. Yang tersisa: "Pertanyaan bisa dikirim ke Dewi Anggraini di <EMAIL>."
+
+**Tidak diubah**
+- Kutipan pedagang, tiket WK-904, WK-911, WK-915, dan WK-920, versi 2.6.0, semua tanggal, format `.xlsx`, `/laporan`, dan alamat email.
+- Bagian "Yang belum selesai", karena sudah terbaca seperti tulisan orang.
+
+Di bagian "Yang selesai", WK-904 hanya "sepertinya" teratasi. Kalau statusnya sebenarnya sudah pasti atau masih belum jelas, sebaiknya kalimat itu disesuaikan sebelum terbit.

@@ -1,0 +1,14 @@
+I rewrote `commitberichten.md` in place. I didn't re-read the saved file or compare it against the original after writing.
+
+- **Removed:**
+  - The chatbot opener ("Natuurlijk! Hier is een uitgebreid overzicht…") and the closing paragraph ("Kortom… Laat het gerust weten").
+  - The filler in commit 1 ("robuuste oplossing", "naadloos", "In de huidige snelle wereld", "cruciale rol").
+  - "Het is belangrijk om op te merken" and the hedge "Mogelijk zou dit kunnen leiden" in commit 2.
+  - The "soepelere en betrouwbaardere verwerking van datums" line in commit 3, which the source never backed up.
+- **Left exactly as they were:**
+  - The four subject lines in backticks.
+  - The customer quote.
+  - `ANNULERING_UUR`, `berekenTarief()` and `src/prijzen.ts`.
+  - The version numbers (1.9.0, 2.30.0, 3.6.0), the amounts (€ 12,50 and € 12,00), the 37 tests, the URL and the date.
+
+I didn't add any new facts. I did drop the claim that the new date-fns "zorgt voor een soepelere… verwerking", because nothing in the file supported it.

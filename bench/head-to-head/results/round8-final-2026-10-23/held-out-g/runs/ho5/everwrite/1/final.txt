@@ -1,0 +1,1 @@
+Reescrevi o `guia-integracao.md` no lugar. Mantive o tom mais direto e variei o ritmo das frases, e o verificador deu 0 achados antes e depois (ele já não via nada no original). Os comandos, a URL, a versão 4.1.3, os nomes, o ramal 5120, o 0800 000 1234 e o e-mail ficaram exatamente como estavam.

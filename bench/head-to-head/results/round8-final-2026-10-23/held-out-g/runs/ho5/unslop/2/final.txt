@@ -1,0 +1,10 @@
+Não alterei o `guia-integracao.md`. Eu o li de ponta a ponta e ele já soa como texto escrito por uma pessoa.
+
+- **Não há marcas típicas de IA.** Não achei abertura genérica, fecho de efeito, paralelismo negativo, tríades decorativas, metáforas de "sustentação" ou vocabulário inflado.
+- **O texto é concreto.** Ele traz nomes (Renata Souza, Bruno Teixeira), prazos (2 dias úteis, 4 horas úteis, 30 minutos), horário de turno, ramal, comandos e versão. Qualquer frase poderia ser checada.
+- **O tom é direto e prático.** As instruções são curtas, como "Não prometa prazos que dependem do time de desenvolvimento". Os títulos dizem o que há na seção.
+- **O ritmo varia.** Os parágrafos têm tamanhos diferentes e não há introdução que anuncie o conteúdo nem resumo no fim.
+
+Reescrever só para mudar alguma coisa deixaria o texto mais artificial. Se eu tivesse que apontar algo, seria só a frase "Ele foi revisado pela última vez em 12 de outubro de 2026", um pouco burocrática na voz passiva. Ela não é um defeito e prefiro não mexer nela, mas posso trocá-la por "Última revisão: 12 de outubro de 2026." se você quiser.
+
+Comandos, URL, versão, nomes, telefones e e-mail continuam exatamente como estavam.

@@ -1,0 +1,9 @@
+I rewrote `release-notes.md` in place. The front matter, code block, tester quote, version numbers, #1482 and the URL are unchanged.
+
+- **Chat wrapper:** I removed the "Certainly! Here is a comprehensive overview… I hope this helps" paragraph.
+- **Intro:** The "thrilled to announce… game-changing… fast-paced world" opener is now one plain sentence saying what the release does.
+- **Bullets:** I turned the bold-labeled list into short paragraphs. I also dropped "robust", "intelligently", "plays a crucial role", "it's worth noting" and "potential/possibly" from the bug-fix line.
+- **Upgrade notes:** I cut the closing "significant step forward… happy syncing!" and the "simply" in the configuration intro.
+- **Dashes:** I removed the em dashes.
+
+I left the tester's "not just a sync tool, it's a game-changer" line alone, since you asked for it to stay as is.

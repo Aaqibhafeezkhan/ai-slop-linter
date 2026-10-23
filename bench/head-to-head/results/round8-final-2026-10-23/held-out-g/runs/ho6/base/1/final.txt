@@ -1,0 +1,5 @@
+I rewrote `commitberichten.md` in place. I cut the AI-sounding parts: the "Natuurlijk!" opener, the filler phrases ("robuuste oplossing", "cruciale rol", "Het is belangrijk om op te merken") and the closing summary and offer. What's left is short and plain.
+
+The subject lines in backticks, the customer quote, the code names, the version numbers, the amounts and the URL are unchanged.
+
+I added one detail that wasn't in the original. Commit 1 now says customers can cancel for free up to 48 hours ahead. The original only said "annuleringstermijn van 48 uur", so please check that "gratis" and "tot 48 uur van tevoren" match what the feature does, and change them if not.

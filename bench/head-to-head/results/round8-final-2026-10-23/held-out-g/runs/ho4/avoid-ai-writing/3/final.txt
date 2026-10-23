@@ -1,0 +1,19 @@
+I rewrote `status-mingguan.md` in place. The ticket IDs, version number, dates, `.xlsx`, `/laporan`, the merchant quote and <EMAIL> are all unchanged.
+
+**Edits**
+- **Opening:** I deleted "Tentu saja! Berikut adalah ringkasan komprehensif… Semoga bermanfaat!", which is chatbot filler.
+- **Ringkasan:** I cut the "Di era digital yang serba cepat ini… dengan bangga mengumumkan kemajuan luar biasa… tonggak penting yang benar-benar mengubah cara pedagang mengelola stok" build-up. The paragraph now starts with the facts: "Pada minggu yang berakhir 16 Oktober 2026, kami menyelesaikan 18 dari 21 tiket untuk aplikasi Warung Kita versi 2.6.0."
+- **Yang selesai:**
+  - "Perlu dicatat bahwa laporan stok harian…" is now "Laporan stok harian…".
+  - "sepertinya sudah mungkin teratasi" is now "sepertinya sudah teratasi". It still says the fix is not certain, but with one hedge instead of two.
+- **Langkah berikutnya:** I removed the "terus berkomitmen… solusi terbaik" line, the "fondasi yang kokoh" claim and the closing thanks. What's left is "Pertanyaan bisa dikirim ke Dewi Anggraini di <EMAIL>."
+
+**Verification**
+- **Editing passes:** 1 of a maximum of 2.
+- **Checks:** The audit was done by hand. I read the file back after editing, and the detector, the quote normalizer and the preservation validator did not run. I skipped the quote normalizer because none of the edited text has quotation marks or apostrophes.
+- **Language caveat:** The skill's rules are calibrated for English and this file is Indonesian, so I applied the general patterns (chatbot filler, inflated openings and closers, stacked hedges) rather than its word lists.
+- **Left alone:** The "Yang selesai" bullets (apart from the two edits above) and "Yang belum selesai" were already plain, so I didn't touch them. Both release dates there are original text.
+- **Quote:** The merchant quote is protected, so I left it exactly as written. I found no AI patterns in it.
+- **Stop reason:** No further edit seemed justified.
+
+"Langkah berikutnya" now holds only the contact line. The file gives no concrete next steps, so I didn't invent any. If you want this section to say something more, you'd need to supply it.
