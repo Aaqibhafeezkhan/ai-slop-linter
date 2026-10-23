@@ -5,7 +5,7 @@
 # clean up, polish, proofread or humanize existing prose, in English or in another language, it prints one
 # JSON object whose hookSpecificOutput.additionalContext tells the agent to use the ai-slop-linter skill
 # and carries its guardrails (no added first person or claim, numbers and qualifiers kept, the reference
-# file for fr/de/es, --compare until exit 0), so they hold even when the skill is not loaded.
+# file for the language, --compare until exit 0), so they hold even when the skill is not loaded.
 # On every other prompt it prints nothing. It never blocks a prompt and always exits 0, also on malformed
 # input. POSIX sh, sed, tr and grep only: no network, no file writes, no jq.
 #
@@ -14,8 +14,8 @@
 #   strong   a verb or phrase that only applies to prose (proofread, humanize, rephrase, "sound less like
 #            AI", "tone down", reformule) triggers on its own;
 #   generic  an editing verb that also applies to code (rewrite, clean up, polish, fix, réécris, reescribe,
-#            schreib um, yeniden yaz, düzelt) triggers only together with a prose noun (paragraph, email,
-#            README, docs, texte, párrafo, Absatz, metin, a .md file).
+#            schreib um, yeniden yaz, düzelt, przepisz, tulis ulang) triggers only together with a prose noun
+#            (paragraph, email, README, docs, texte, párrafo, Absatz, metin, akapit, teks, a .md file).
 # test/prompt-hook.test.mjs measures it on test/fixtures/prompt-hook.json.
 
 LC_ALL=C
@@ -53,19 +53,25 @@ strong=" (humani[sz]$W|dehumani[sz]$W|proof ?read$W|copy ?edit$W|reword$W|rephra
  for (tone|grammar|spelling|typos|style|flow) |\
  do${H}al (hale|yap|bir)|daha (sade|do${H}al|ak${I}c${I}) |\
  (em|en) dash$W |plain (english|language) |proof (this|it|my) |nat${U}rlicher|menschlicher|\
- (sonne|suene|suena|sonar|klingt|klingen|duruyor|soe|suoni|klinkt)$W [a-z$B ]{0,30}(robot|ia|ai|ki|yapay|natural|naturel|nat${U}rlich|artificial|human|humain|menschlich|insan|pub|publicit)"
+ (sonne|suene|suena|sonar|klingt|klingen|duruyor|soe|suoni|klinkt)$W [a-z$B ]{0,30}(robot|ia|ai|ki|yapay|natural|naturel|nat${U}rlich|artificial|human|humain|menschlich|insan|pub|publicit)|\
+ (brzmi jak (ai|robot)|brzmi naturalniej|bardziej naturalnie|mniej sztucznie|korekta|zredaguj tekst) |\
+ (terdengar seperti (ai|robot)|lebih alami|kurang kaku|humanisasi|periksa tata bahasa) "
 
 generic=" (rewrit$W|re write$W|redo|rework$W|clean|cleanup|clean up|tidy$W|polish$W|tighten$W|edit|edits|editing|fix|fixes|fixing|correct|correcting|improv$W|smooth$W|simplif$W|revis$W|shorten$W|trim|condense|touch up|punch up|tweak$W|\
 r${E}${E}cri$W|r${E}${E}crire|corr${I}g$W|correg$W|formulier$W|am${E}lior$W|retravaill$W|r${E}vis$W|reescrib$W|reescrev$W|mejor$W|melhor$W|pule|pulir|pula|\
 umschreib$W|umzuschreiben|schreib$W [a-z$B ]*um|${U}berarbeit$W|verbesser$W|korrigier$W|gl${A}tt$W|\
-yeniden yaz$W|d${U}zelt$W|d${U}zenle$W|iyile${H}tir$W|toparla$W|riscriv$W|correggi$W|miglior$W|herschrijf$W|herschrijven|verbeter$W) "
+yeniden yaz$W|d${U}zelt$W|d${U}zenle$W|iyile${H}tir$W|toparla$W|riscriv$W|correggi$W|miglior$W|herschrijf$W|herschrijven|verbeter$W|\
+przepisz$W|przepisa$W|przeredaguj$W|zredaguj$W|popraw$W|wyg${H}ad$W|dopracuj$W|skr${H}$W|upro${H}$W|uproszcz$W|\
+tulis ulang|tuliskan ulang|perbaiki$W|rapikan$W|haluskan$W|sempurnakan$W|ringkas$W|sederhanakan$W) "
 
 noun=" (text|texts|prose|paragraph$W|sentence$W|wording|phrasing|copy|draft|drafts|essay$W|article$W|e ?mail|e ?mails|letter$W|readme|doc|docs|documentation|description$W|intro|introduction$W|announcement$W|release notes|changelog|commit message$W|pr message|bio|abstract|summary|chapter$W|tone|grammar|spelling|typos|writing|newsletter$W|speech|caption$W|tweet$W|linkedin|(blog|linkedin|forum|social|this|my|the) post|blog|md|mdx|txt|rst|adoc|docx|odt|headline$W|tagline$W|slogan$W|blurb$W|personal statement|privacy policy|faq|faqs|job posting$W|job ad$W|(slack|chat|discord|teams|linkedin|welcome|reply|this|my) messages?|the language (in|of)|\
 texte|textes|paragraphe$W|phrase$W|courriel$W|lettre$W|billet$W|r${E}sum${E}|fautes|orthographe|r${E}daction|\
 texto$W|p${A}rrafo$W|descripci${O}n$W|descri${C}${A}o$W|frase$W|correo$W|art${I}culo$W|carta$W|redacci${O}n|introducci${O}n|ortograf$W|par${A}grafo$W|artigo$W|reda${C}${A}o|\
 absatz|abs${A}tze|satz|s${A}tze|einleitung|[a-z$B]*beitrag$W|brief|artikel|formulierung$W|rechtschreibung|anschreiben|bewerbung$W|lebenslauf|\
 metin|metni$W|paragraf$W|c${U}mle$W|yaz${I}$W|e posta$W|makale$W|mektu$W|a${C}${I}klama$W|\
-testo|paragrafo|articolo|lettera|tekst$W|alinea|zin|zinnen) "
+testo|paragrafo|articolo|lettera|tekst$W|alinea|zin|zinnen|\
+tekst$W|akapit$W|artyku$W|opis$W|wiadomo$W|list$W|wpis$W|notatk$W|\
+teks$W|kalimat$W|deskripsi$W|pesan$W|surat$W|tulisan$W|catatan$W|pengumuman$W|unggahan$W) "
 
 # A prose noun used as the name of a build, a folder or a site is not prose ("fix the docs build",
 # "clean up the docs folder"): such a prompt needs a strong match.
@@ -73,7 +79,8 @@ notprose=" (doc|docs|documentation|readme|blog|changelog|summary|description|cop
 
 # A pasted text after "rewrite this:" names no noun; it counts when the text after the first colon has at
 # least six words and no character that marks code.
-pasted="(^| )(rewrite|re-write|redo|rework|polish|tighten|edit|improve|fix|clean up|tidy up|smooth out|simplify|revise|shorten|trim|r${E}${E}cris|corrige|reescribe|${U}berarbeite|yeniden yaz|d${U}zelt)( this| it| the following| the text below| below)( please)? ?:"
+pasted="(^| )(rewrite|re-write|redo|rework|polish|tighten|edit|improve|fix|clean up|tidy up|smooth out|simplify|revise|shorten|trim|r${E}${E}cris|corrige|reescribe|${U}berarbeite|yeniden yaz|d${U}zelt)( this| it| the following| the text below| below)( please)? ?:|\
+(^| )(przepisz|popraw|przeredaguj|zredaguj|tulis ulang|tuliskan ulang|perbaiki|rapikan|sederhanakan|sempurnakan)( to| ten| ini| itu| berikut| tekst| teks)( please)? ?:"
 
 hit=no
 if printf '%s\n' "$p" | grep -Eq "$strong"; then
@@ -89,6 +96,6 @@ elif printf '%s\n' "$raw" | grep -Eq "$pasted"; then
 fi
 
 if [ "$hit" = yes ]; then
-  printf '%s\n' '{"hookSpecificOutput":{"hookEventName":"UserPromptSubmit","additionalContext":"ai-slop-linter: this prompt asks to rewrite or edit prose. Use the ai-slop-linter skill: keep a copy of the original and lint it with `npx ai-slop-linter`; for French, German or Spanish also read the skill file references/<lang>.md (fr.md, de.md, es.md), because the linter has almost no rules for those languages. Add no we, our or I and no claim or fact the source lacks; keep every number with its qualifier (about, up to, at least) and every hedge or condition. After the rewrite run `npx ai-slop-linter --compare <original> <rewrite>`; a failing compare is blocking, fix every line it reports and run it again until it exits 0 before you answer."}}'
+  printf '%s\n' '{"hookSpecificOutput":{"hookEventName":"UserPromptSubmit","additionalContext":"ai-slop-linter: this prompt asks to rewrite or edit prose. Use the ai-slop-linter skill: keep a copy of the original and lint it with `npx ai-slop-linter`; for French, German, Spanish, Portuguese, Dutch, Polish, Indonesian or Turkish also read the skill file references/<lang>.md (fr.md, de.md, es.md, pt.md, nl.md, pl.md, id.md, tr.md), because the linter has few rules for those languages, and pass --language <tag> for text that is not English. Add no we, our or I and no claim or fact the source lacks; keep every number with its qualifier (about, up to, at least) and every hedge or condition. After the rewrite run `npx ai-slop-linter --compare <original> <rewrite>`; a failing compare is blocking, fix every line it reports and run it again until it exits 0 before you answer."}}'
 fi
 exit 0
