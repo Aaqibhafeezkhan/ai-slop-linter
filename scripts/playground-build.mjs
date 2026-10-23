@@ -34,6 +34,7 @@ const ENGINE = [
   "index.js",
   "doc.js",
   "compare.js",
+  "units.js",
   "frontmatter.js",
   "lang.js",
   "rules/dashes.js",

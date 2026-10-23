@@ -61,6 +61,7 @@ test("the assembled page carries the engine and nothing that needs Node", () => 
       "engine/rules/reference-markup.js",
       "engine/rules/residue.js",
       "engine/rules/vocabulary.js",
+      "engine/units.js",
       "index.html",
       "llms-full.txt",
       "llms.txt",

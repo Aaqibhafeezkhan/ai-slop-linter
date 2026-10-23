@@ -48,7 +48,7 @@
  */
 
 import { detectLanguage, frontMatterLanguage, guessCompareLanguage } from "./lang.js";
-import { UNIT_WORDS } from "./hedge.js";
+import { UNIT_WORDS } from "./units.js";
 
 export type FactKind = "unit" | "number" | "version" | "date" | "url" | "reference" | "quote" | "code" | "name" | "person" | "claim" | "qualifier";
 
