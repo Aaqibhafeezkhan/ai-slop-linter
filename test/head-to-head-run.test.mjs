@@ -958,7 +958,7 @@ test("bwrap backend: the mounts go from wide to narrow, so the run directory is 
   const repo = realpathSync(ROOT);
   const pairs = {
     root: at("--ro-bind", "/", "/"),
-    tmp: at("--bind", "/tmp", "/tmp"),
+    tmp: at("--bind", realpathSync("/tmp"), realpathSync("/tmp")), // /tmp is /private/tmp on macOS
     home: at("--ro-bind", fakeHome, fakeHome),
     projects: at("--tmpfs", join(fakeHome, ".claude", "projects")),
     hidden: at("--tmpfs", join(work, "scratch")),
@@ -1782,7 +1782,9 @@ test("run-one.sh uses an existing export when H2H_PLUGINS_EXPORTED=1 and makes i
   assert.equal(existsSync(join(out, "plugin-base", "sentinel.txt")), false, "a standalone run exports afresh");
 });
 
-function renderProbe(extraEnv = {}) {
+// `profileText` renders the sandbox-exec profile on any platform (stand-in `sandbox-exec` on PATH, backend forced):
+// for the tests that read the profile text. The tests that run a command in the real sandbox render natively.
+function renderProbe(extraEnv = {}, profileText = false) {
   const work = tmp("sbprobe");
   const out = join(work, "out");
   mkdirSync(out);
@@ -1790,7 +1792,7 @@ function renderProbe(extraEnv = {}) {
   writeFileSync(join(out, "run-b", "theirs.txt"), "sibling output");
   const fakeHome = join(realpathSync(work), "fakehome");
   mkdirSync(fakeHome, { recursive: true });
-  const r = spawnSync("bash", ["-c", `. "${RUN}/sandbox.sh"; render_sandbox "${out}" probe "${out}/run-a"`], { encoding: "utf8", env: { ...process.env, HOME: fakeHome, ...extraEnv } });
+  const r = spawnSync("bash", ["-c", `. "${RUN}/sandbox.sh"; render_sandbox "${out}" probe "${out}/run-a"`], { encoding: "utf8", env: { ...process.env, HOME: fakeHome, ...(profileText ? { H2H_SANDBOX_BACKEND: "sandbox-exec", PATH: `${fakeSandboxExec(work)}${delimiter}${process.env.PATH}` } : {}), ...extraEnv } });
   return { r, work, out, fakeHome, profile: join(out, "sandbox-probe.sb") };
 }
 
@@ -1859,18 +1861,20 @@ test("sandbox profile: no machine-specific file is named, and H2H_SANDBOX_EXTRA_
   const b = join(realpathSync(work), "secret-b");
   mkdirSync(a);
   mkdirSync(b);
-  const { r, profile } = renderProbe({ H2H_SANDBOX_EXTRA_DENY: `${a}:${b}` });
+  const { r, profile: textProfile } = renderProbe({ H2H_SANDBOX_EXTRA_DENY: `${a}:${b}` }, true);
   assert.equal(r.status, 0, r.stderr);
-  const text = readFileSync(profile, "utf8");
+  const text = readFileSync(textProfile, "utf8");
   assert.ok(text.includes(`(subpath "${a}")`) && text.includes(`(subpath "${b}")`));
   assert.doesNotMatch(text, /\.vaara|RTK|@EXTRA_DENY@/);
   if (HAS_SANDBOX) {
-    const sb = sandboxed(profile);
+    const native = renderProbe({ H2H_SANDBOX_EXTRA_DENY: `${a}:${b}` });
+    assert.equal(native.r.status, 0, native.r.stderr);
+    const sb = sandboxed(native.profile);
     assert.notEqual(sb(`touch "${a}/x"`).status, 0, "extra path a is write-denied");
     assert.notEqual(sb(`touch "${b}/x"`).status, 0, "extra path b is write-denied");
     assert.equal(sb(`touch "${tmp("ok")}/x"`).status, 0, "other temp paths stay writable");
   }
-  const plain = renderProbe();
+  const plain = renderProbe({}, true);
   assert.doesNotMatch(readFileSync(plain.profile, "utf8"), /secret-a/);
   for (const bad of ["relative/path", `${a}"x`]) {
     const refused = renderProbe({ H2H_SANDBOX_EXTRA_DENY: bad });
@@ -1953,7 +1957,7 @@ test("H2H_SANDBOX_EXTRA_DENY paths are resolved with realpath", () => {
   mkdirSync(real);
   const link = join(realpathSync(work), "link-dir");
   symlinkSync(real, link);
-  const { r, profile } = renderProbe({ H2H_SANDBOX_EXTRA_DENY: link });
+  const { r, profile } = renderProbe({ H2H_SANDBOX_EXTRA_DENY: link }, true);
   assert.equal(r.status, 0, r.stderr);
   const text = readFileSync(profile, "utf8");
   assert.ok(text.includes(`(subpath "${real}")`) && !text.includes(`(subpath "${link}")`), "the symlink target is denied, not the link name");

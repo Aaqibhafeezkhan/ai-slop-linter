@@ -686,11 +686,22 @@ test("an ours cell without a record cannot be tied to the code and is refused li
 });
 
 // The sandbox profile covers the working repository and the code copy.
-function render(codeDir) {
+// With `profileText` the macOS sandbox-exec profile is rendered on any platform (a stand-in `sandbox-exec` is put on
+// PATH and the backend is forced): the tests that read the profile text do not need the real tool. The tests that
+// run a command inside the real sandbox render with the platform's own backend.
+function render(codeDir, profileText = false) {
   const work = tmp("sb");
   const out = join(work, "out");
   mkdirSync(join(out, "run-a"), { recursive: true });
   const env = { ...cleanEnv(), HOME: join(work, "home") };
+  if (profileText) {
+    const bin = join(work, "sbbin");
+    mkdirSync(bin);
+    writeFileSync(join(bin, "sandbox-exec"), "#!/bin/sh\nexit 0\n");
+    chmodSync(join(bin, "sandbox-exec"), 0o755);
+    env.PATH = `${bin}${delimiter}${env.PATH ?? process.env.PATH}`;
+    env.H2H_SANDBOX_BACKEND = "sandbox-exec";
+  }
   if (codeDir) env.H2H_CODE_DIR = codeDir;
   mkdirSync(env.HOME);
   const r = spawnSync("bash", ["-c", `. "${RUN}/sandbox.sh"; render_sandbox "${out}" probe "${out}/run-a"`], { encoding: "utf8", env });
@@ -701,7 +712,7 @@ function render(codeDir) {
 test("the sandbox profile denies writes to, and reads of the answer key in, the code copy as well as the repository", () => {
   const parent = tmp("sb-code");
   const code = fakeCode(parent, "copyS");
-  const text = readFileSync(render(code), "utf8");
+  const text = readFileSync(render(code, true), "utf8");
   const repo = realpathSync(ROOT);
   for (const root of [repo, code]) {
     assert.ok(text.includes(`(subpath "${root}")`), `write deny covers ${root}`);
@@ -709,7 +720,7 @@ test("the sandbox profile denies writes to, and reads of the answer key in, the 
     assert.ok(text.includes(`(allow file-read* (subpath "${root}/bench/head-to-head/run/bin-ours"))`), `shims of ${root} stay readable`);
   }
   assert.doesNotMatch(text, /@CODE@/);
-  const without = readFileSync(render(""), "utf8");
+  const without = readFileSync(render("", true), "utf8");
   assert.doesNotMatch(without, /@CODE@/, "without a copy the placeholder falls back to the repository");
 });
 

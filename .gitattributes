@@ -1,0 +1,13 @@
+# Text files are stored and checked out with LF on every platform: tests read repository files
+# byte for byte, and a Windows checkout with core.autocrlf would otherwise turn them into CRLF.
+* text=auto eol=lf
+*.png binary
+*.gif binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.vsix binary
+*.tgz binary
+*.woff binary
+*.woff2 binary
+*.pdf binary
