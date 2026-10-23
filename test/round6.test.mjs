@@ -129,9 +129,9 @@ test("hedge class 2: an evidential with a vague link in one clause is a hit in e
 });
 
 test("hedge: a modal alone, seems alone, a month and a far or separate adverb are never hits", () => {
-  assert.deepEqual(hedge("en", "The change could improve cold starts. It may rain. It seems fine. The spike seems to be the cache."), []);
+  assert.deepEqual(hedge("en", "The change can improve cold starts. It may rain. It seems fine. The spike seems to be the cache."), []);
   assert.deepEqual(hedge("en", "We ship in May possibly, but the build could run long and then possibly fail."), []);
-  assert.deepEqual(hedge("en", "The change could help. Possibly the cache is stale."), []);
+  assert.deepEqual(hedge("en", "The change can help. Possibly the cache is stale."), []);
   assert.deepEqual(hedge("pt", "Ela pode ajudar. Parece estar certo. Parece estar em casa."), []);
   assert.deepEqual(hedge("es", "Puede ayudar. Parece estar bien. Parece ser rápido."), []);
   assert.deepEqual(hedge("fr", "Il peut aider. Il semble être prêt. Il semble lent."), []);
@@ -186,10 +186,11 @@ test("pt is guessed from its function words", () => {
 
 test("SKILL.md carries the round 6 rules", () => {
   assert.match(skill, /Every pattern in the reference files holds in every language\. Translate the construction, not only the word/);
-  assert.match(skill, /A language with no reference file is still checked for the classes in the recall step/);
-  assert.match(skill, /Scope hedges and a real uncertainty the source states|So are scope hedges and a real uncertainty the source states/);
+  assert.match(skill, /A language with no reference file is still checked for the classes in the read-back step/);
+  assert.match(skill, /Scope hedges and a real uncertainty the source states|keep scope hedges/);
   assert.match(skill, /`could cut load times` becomes `can cut load times`/);
-  assert.match(skill, /Do not delete the hedge, and do not turn it into a certain claim\. The rule holds in every language/);
+  assert.match(skill, /Hedge-support test, the same in every language/);
+  assert.match(skill, /Never strengthen it to a certain claim, and never add a fact to justify it/);
   assert.match(skill, /rebuild the sentence, and split it where the clauses are separate points/);
   assert.match(skill, /modal hedges on effects, vague-link evidentials, hedge adverbs such as `hopefully`, reassurance qualifiers on a stated fact, counted-list openers, stacked intensifiers, assistant wrappers/);
   assert.match(skill, /Skip quoted text, dialogue, and legal, medical or safety text where a hedge is content/);

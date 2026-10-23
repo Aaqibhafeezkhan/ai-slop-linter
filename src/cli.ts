@@ -14,6 +14,7 @@ import { commitRules, lintCommitMessage } from "./commits.js";
 import { compareFacts, type Fact } from "./compare.js";
 import { scanCatalog } from "./catalog.js";
 import { scanHedge } from "./hedge.js";
+import { chainedSentences } from "./chain.js";
 import { prepare } from "./doc.js";
 import { structureProblems } from "./structure.js";
 import { alignment, alignmentLines, lengthProblem } from "./rewrite-guard.js";
@@ -386,10 +387,18 @@ function verifyCommand(o: Options): number {
   {
     const source = lintText(display, before, { ignore: [...per.ignore, ...o.ignore], only: o.only.length ? o.only : per.only, languages, ...(language ? { language } : {}) });
     const sourceDoc = prepare(display, before);
-    const hits = [...scanCatalog(sourceDoc, source.language), ...([...per.ignore, ...o.ignore].includes("hedge") ? [] : scanHedge(sourceDoc, source.language))];
+    const catalogHits = scanCatalog(sourceDoc, source.language);
+    const hedgeHits = [...per.ignore, ...o.ignore].includes("hedge") ? [] : scanHedge(sourceDoc, source.language);
+    const hits = [...catalogHits, ...hedgeHits];
     if (source.findings.length === 0 && hits.length === 0) lines.push("clean source: no edit is expected");
     const flagged = new Set([...source.findings.map((f) => f.line), ...hits.map((h) => h.line)]);
     if (before !== after) lines.push(...alignmentLines(alignment(before, after, flagged)));
+    // Information only: a chained sentence that holds a finding may be rebuilt or split. Never a problem.
+    lines.push(...chainedSentences(sourceDoc, [
+      ...source.findings.map((f) => ({ line: f.line, column: f.column, label: `${f.rule} ${f.excerpt.replace(/\s+/g, " ")}`.trim() })),
+      ...catalogHits.map((h) => ({ line: h.line, column: h.column, label: `catalog ${h.phrase.replace(/\s+/g, " ")}` })),
+      ...hedgeHits.map((h) => ({ line: h.line, column: h.column, label: `hedge ${h.phrase.replace(/\s+/g, " ")}` })),
+    ]));
   }
   lines.push(problems > 0 ? `verify: ${problems} problem(s)` : before === after ? "verify: ok (unchanged)" : "verify: ok");
   console.log(lines.join("\n"));

@@ -22,9 +22,9 @@ Each stands in for a claim. Say what happens, or cut it. Every detail you name (
 
 ### Modal and vague-link hedges
 
-- A modal hedge on what a feature does, in publishable text (release notes, README, PR text, status text, incident notes): `poderia melhorar o desempenho`, `pode potencialmente reduzir`, `poderia eventualmente`. Soften to the plain form that keeps the degree (`pode melhorar`), or state the result when the source states it. Do not delete the hedge and do not turn it into a certain claim.
+- A modal hedge on what a feature does, in publishable text (release notes, README, PR text, status text, incident notes): `poderia melhorar o desempenho`, `pode potencialmente reduzir`, `poderia eventualmente`. When the source names no reason for the uncertainty, soften to the plain form that keeps the degree (`pode melhorar`), or state the result when the source states it; when it names one (a condition, a cause, a measured range), keep the hedge. Never turn it into a certain claim.
 - A vague link on a stated cause: `parece estar relacionado a`, `parece estar ligado a`, `parece ser associado a`. Write `parece ser` plus the cause only when the source names one; otherwise keep the source's degree and drop the vague link.
-- Scope, legal, medical and safety hedges, and a real uncertainty the source states, stay word for word.
+- Scope, legal, medical and safety hedges, and a real uncertainty the source states with its reason, stay word for word.
 - `tende a` and `talvez` are more typical of human writing, according to the Portuguese Wikipedia page. They are not tells; leave them.
 
 ### Load-bearing metaphors

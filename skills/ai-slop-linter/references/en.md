@@ -66,7 +66,7 @@ Each of these is normal in human writing. Several in one paragraph, or one next 
 - Synonym cycling: `the tool`, `the platform`, `the solution` for one thing. Pick one name and repeat it.
 - Repeated openings: three sentences in a row that start the same way. Merge them or vary the subject.
 - Uniform rhythm: a paragraph where every sentence runs 8 to 20 words with the same shape. Cutting words makes it worse. Join two sentences, let one run long, let one be short.
-- Stacked qualifiers: `could potentially`, `may possibly`, `it could be argued that`. One hedge, and only where the source is unsure. Keep a hedge the source has: it is content.
+- Stacked qualifiers: `could potentially`, `may possibly`, `it could be argued that`. One hedge, and only where the source is unsure. Keep a hedge only when the source names a reason for it in the same or the next sentence; otherwise it is a habit (hedge-support test in SKILL.md).
 - Stacked transitions: `Moreover,`, `Furthermore,`, `Additionally,`, `Notably,` at the start of sentences in a row. Use `also` or `and`, or nothing.
 - Vague association: `associated with`, `linked to`, `in connection with` where the source names the relation. Use the relation.
 - A heading restated by the first sentence under it (`## Install` then `To install it, ...`): start with the content the heading promises.
