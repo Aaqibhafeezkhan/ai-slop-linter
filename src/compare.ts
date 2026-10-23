@@ -62,8 +62,24 @@ export interface Fact {
 /** Each extractor blanks what it has taken, so a later one cannot count the same text twice. */
 const blank = (s: string) => s.replace(/[^\n]/g, " ");
 
-const MONTHS =
-  "january|february|march|april|may|june|july|august|september|october|november|december|janvier|f[ée]vrier|mars|avril|mai|juin|juillet|ao[uû]t|septembre|octobre|novembre|d[ée]cembre";
+// Full month names only, never abbreviations. Each language is one space-separated list; the Set drops repeats
+// across languages (mai, juni, august, september, ...). Entries are regex fragments, so fr keeps its accents optional.
+const MONTH_LISTS = [
+  "january february march april may june july august september october november december", // en
+  "janvier f[ée]vrier mars avril mai juin juillet ao[uû]t septembre octobre novembre d[ée]cembre", // fr
+  "enero febrero marzo abril mayo junio julio agosto septiembre setiembre octubre noviembre diciembre", // es
+  "janeiro fevereiro março abril maio junho julho agosto setembro outubro novembro dezembro", // pt
+  "januar jänner februar märz april mai juni juli august september oktober november dezember", // de
+  "januari februari maart april mei juni juli augustus september oktober november december", // nl
+  "gennaio febbraio marzo aprile maggio giugno luglio agosto settembre ottobre novembre dicembre", // it
+  "stycznia lutego marca kwietnia maja czerwca lipca sierpnia września października listopada grudnia", // pl (genitive)
+  "januari februari maret april mei juni juli agustus september oktober november desember", // id
+  "ocak şubat mart nisan mayıs haziran temmuz ağustos eylül ekim kasım aralık", // tr
+  "января февраля марта апреля мая июня июля августа сентября октября ноября декабря", // ru (genitive)
+].join(" ").split(" ");
+const MONTHS = [...new Set(MONTH_LISTS)].join("|");
+// Particles that may stand between a day and its month, and between the month and the year.
+const DATE_PARTICLE = "(?:de|del|of|van)[ \\u00a0]+";
 
 /** Function words that are capitalised at the start of a sentence and are not names. */
 const STOPWORDS = new Set(
@@ -175,8 +191,19 @@ export function extractFacts(text: string, options: { names?: boolean; multiWord
     return blank(m);
   });
   // A trailing year is part of the date: "14 September, 2024" is one fact, not a date and a number.
-  rest = rest.replace(new RegExp(`(?<![\\p{L}\\d])\\d{1,2}[ \\u00a0]+(?:${MONTHS})(?:,?[ \\u00a0]+\\d{4}(?!\\d))?(?![\\p{L}])`, "giu"), (m) => {
-    add("date", m.replace(/,/g, "").replace(/\s+/g, " "));
+  // The day may end in a dot ("3. Oktober"), and particles may stand before the month and before the year.
+  rest = rest.replace(new RegExp(`(?<![\\p{L}\\d])\\d{1,2}\\.?[ \\u00a0]+(?:${DATE_PARTICLE})?(?:${MONTHS})(?:,?[ \\u00a0]+(?:${DATE_PARTICLE})?\\d{4}(?!\\d))?(?![\\p{L}])`, "giu"), (m) => {
+    // The value drops the comma, the day's dot and the particles, and normalises the spaces. Case is kept here;
+    // `keyOf` compares dates case-insensitively, because existing callers read the value as written.
+    add(
+      "date",
+      m
+        .replace(/,/g, "")
+        .split(/\s+/)
+        .map((t) => t.replace(/^(\d{1,2})\.$/, "$1"))
+        .filter((t) => !/^(?:de|del|of|van)$/i.test(t))
+        .join(" "),
+    );
     return blank(m);
   });
 
@@ -551,7 +578,8 @@ export function languageOf(before: string, after: string, language?: string): st
   return declared ?? frontMatterLanguage(before) ?? frontMatterLanguage(after) ?? detectLanguage(before).tag ?? detectLanguage(after).tag ?? null;
 }
 
-const keyOf = (f: Fact) => `${f.kind}\u0000${f.value}`;
+// A date is compared case-insensitively: `3 November 2026` and `3 november 2026` are the same date.
+const keyOf = (f: Fact) => `${f.kind}\u0000${f.kind === "date" ? f.value.toLowerCase() : f.value}`;
 
 const order = (a: Fact, b: Fact) => (a.kind < b.kind ? -1 : a.kind > b.kind ? 1 : a.value < b.value ? -1 : a.value > b.value ? 1 : 0);
 

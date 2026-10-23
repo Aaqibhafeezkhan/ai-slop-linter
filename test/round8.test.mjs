@@ -75,3 +75,108 @@ test("numbers: a plain space never joins digits, mixed marks are two numbers, a 
 test("numbers: two different group marks in a row are two numbers", () => {
   assert.deepEqual(facts("1,000 000"), ["number:1000", "number:000"]);
 });
+
+// dates (T2, G4): full month names in nine languages, particles between day, month and year, case-insensitive
+// comparison, and no date without a day number in front of the month.
+test("dates: a changed Spanish month with particles is one lost and one added date", () => {
+  assert.deepEqual(cmp("Cierre el 3 de noviembre de 2026.", "Cierre el 3 de diciembre de 2026.", "es"), {
+    lost: ["date:3 noviembre 2026"],
+    added: ["date:3 diciembre 2026"],
+  });
+  assert.deepEqual(cmp("Cierre el 3 de noviembre de 2026.", "Cierre el 3 de noviembre de 2026.", "es"), { lost: [], added: [] });
+  assert.deepEqual(facts("3 de noviembre de 2026"), ["date:3 noviembre 2026"]);
+});
+
+test("dates: a changed Portuguese month is reported, and the same month in other case is not", () => {
+  assert.deepEqual(cmp("Entrega em 3 de março de 2026.", "Entrega em 3 de abril de 2026.", "pt"), {
+    lost: ["date:3 março 2026"],
+    added: ["date:3 abril 2026"],
+  });
+  assert.deepEqual(cmp("Entrega em 3 de março de 2026.", "Entrega em 3 de Março de 2026.", "pt"), { lost: [], added: [] });
+});
+
+test("dates: a German day with its dot is a date, and the dot is not part of the value", () => {
+  assert.deepEqual(cmp("Release am 3. Oktober 2026.", "Release am 3. November 2026.", "de"), {
+    lost: ["date:3 Oktober 2026"],
+    added: ["date:3 November 2026"],
+  });
+  assert.deepEqual(cmp("Release am 3. Oktober 2026.", "Release am 3 Oktober 2026.", "de"), { lost: [], added: [] });
+  assert.deepEqual(cmp("Release am 3. oktober 2026.", "Release am 3 Oktober 2026.", "de"), { lost: [], added: [] });
+});
+
+test("dates: a changed Dutch month is reported, and a capital letter alone changes nothing", () => {
+  assert.deepEqual(cmp("Lancering op 3 mei.", "Lancering op 3 juni.", "nl"), { lost: ["date:3 mei"], added: ["date:3 juni"] });
+  assert.deepEqual(cmp("Lancering op 3 december 2026.", "Lancering op 3 December 2026.", "nl"), { lost: [], added: [] });
+});
+
+test("dates: a changed Italian month is reported, and the same month is kept", () => {
+  assert.deepEqual(cmp("Uscita il 3 marzo 2026.", "Uscita il 3 aprile 2026.", "it"), {
+    lost: ["date:3 marzo 2026"],
+    added: ["date:3 aprile 2026"],
+  });
+  assert.deepEqual(cmp("Uscita il 3 marzo 2026.", "Uscita il 3 marzo 2026.", "it"), { lost: [], added: [] });
+});
+
+test("dates: a Polish genitive month changes the date, and the same date in other case does not", () => {
+  assert.deepEqual(cmp("Zamknięte od 3 listopada.", "Zamknięte od 3 grudnia.", "pl"), {
+    lost: ["date:3 listopada"],
+    added: ["date:3 grudnia"],
+  });
+  assert.deepEqual(cmp("Zamknięte od 3 listopada.", "Zamknięte Od 3 Listopada.", "pl"), { lost: [], added: [] });
+});
+
+test("dates: a changed Indonesian month is reported, and a capital letter alone changes nothing", () => {
+  assert.deepEqual(cmp("Rilis pada 3 Maret 2026.", "Rilis pada 3 April 2026.", "id"), {
+    lost: ["date:3 Maret 2026"],
+    added: ["date:3 April 2026"],
+  });
+  assert.deepEqual(cmp("Rilis pada 3 Desember 2026.", "Rilis pada 3 desember 2026.", "id"), { lost: [], added: [] });
+});
+
+test("dates: a changed Turkish month is reported, and Ş and ş match as one letter", () => {
+  assert.deepEqual(cmp("Yayın 3 Mayıs 2026.", "Yayın 3 Haziran 2026.", "tr"), {
+    lost: ["date:3 Mayıs 2026"],
+    added: ["date:3 Haziran 2026"],
+  });
+  assert.deepEqual(cmp("Yayın 3 Mayıs 2026.", "Yayın 3 mayıs 2026.", "tr"), { lost: [], added: [] });
+  assert.deepEqual(facts("Yayın 3 ŞUBAT 2026."), ["date:3 ŞUBAT 2026"]);
+  assert.deepEqual(cmp("Yayın 3 Şubat 2026.", "Yayın 3 ŞUBAT 2026.", "tr"), { lost: [], added: [] });
+  // A capital I folds to i in JavaScript, not to the dotless ı, so the upper-case form of Mayıs is not read.
+  assert.deepEqual(facts("Yayın 3 MAYIS 2026.").filter((f) => f.startsWith("date:")), []);
+});
+
+test("dates: a changed Russian genitive month is reported, and a capital letter alone changes nothing", () => {
+  assert.deepEqual(cmp("Релиз 3 марта 2026.", "Релиз 3 апреля 2026.", "ru"), {
+    lost: ["date:3 марта 2026"],
+    added: ["date:3 апреля 2026"],
+  });
+  assert.deepEqual(cmp("Релиз 3 января 2026.", "Релиз 3 Января 2026.", "ru"), { lost: [], added: [] });
+});
+
+test("dates: of between day and month, and between month and year, is a particle and not a word of the date", () => {
+  assert.deepEqual(cmp("Shipped 3 of March 2026.", "Shipped 3 of April 2026.", "en"), {
+    lost: ["date:3 March 2026"],
+    added: ["date:3 April 2026"],
+  });
+  assert.deepEqual(facts("3 of March 2026"), ["date:3 March 2026"]);
+});
+
+test("dates: a month name with no day number in front of it is not a date", () => {
+  assert.deepEqual(facts("In March we ship").filter((f) => f.startsWith("date:")), []);
+  assert.deepEqual(facts("Mayıs ayında yayınlayacağız").filter((f) => f.startsWith("date:")), []);
+  assert.deepEqual(facts("Wir liefern im Oktober aus").filter((f) => f.startsWith("date:")), []);
+});
+
+test("dates: en and fr keep their dates, and a case change alone reports nothing", () => {
+  assert.deepEqual(cmp("3 November 2026", "3 november 2026"), { lost: [], added: [] });
+  assert.deepEqual(cmp("Due 3 November 2026.", "Due 3 December 2026.", "en"), {
+    lost: ["date:3 November 2026"],
+    added: ["date:3 December 2026"],
+  });
+  assert.deepEqual(facts("14 September, 2024"), ["date:14 September 2024"]);
+  assert.deepEqual(facts("Sortie le 3 mars 2026."), ["date:3 mars 2026"]);
+  assert.deepEqual(cmp("Sortie le 3 mars 2026.", "Sortie le 3 avril 2026.", "fr"), {
+    lost: ["date:3 mars 2026"],
+    added: ["date:3 avril 2026"],
+  });
+});
