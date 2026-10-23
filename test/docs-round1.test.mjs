@@ -24,14 +24,15 @@ const H2H_START = "<!-- h2h:start -->";
 const H2H_END = "<!-- h2h:end -->";
 const block = (text) => text.slice(text.indexOf(H2H_START) + H2H_START.length, text.indexOf(H2H_END)).trim();
 
-test("the README comparison block points to the round-1 results", () => {
+test("the README comparison block states the round 8 result and points to its evidence", () => {
   assert.equal(
     block(read("README.md")),
-    "The round-1 results, including that the win rule was not met, are in docs/HEAD-TO-HEAD.md; the tasks, criteria and harness are public in bench/head-to-head/.",
+    "Round 8 (2026-10-23, Sonnet 5.5, 11 arms, 3 runs each): on the 12 public tasks this linter scored 58.67 of 60 and the best other arm (Humanizer, called by name) 56.00; the 95% bootstrap interval of the difference is [1.00, 4.33]. On 6 held-out tasks written by an author who had not read the code, four arms scored 29.67 or more of 30 (this linter 29.67, unslop 30.00), so that set does not separate them. Every cell, the departures from the frozen protocol and a recompute step are in bench/head-to-head/results/round8-final-2026-10-23/; the rounds and rulings are in docs/HEAD-TO-HEAD.md; the tasks, criteria and harness are public in bench/head-to-head/.",
   );
   assert.equal(block(read("llms-full.txt")), block(read("README.md")));
   assert.match(block(read("README.tr.md")), /docs\/HEAD-TO-HEAD\.md/);
   assert.match(block(read("README.tr.md")), /bench\/head-to-head\//);
+  assert.match(block(read("README.tr.md")), /round8-final-2026-10-23/);
 });
 
 test("docs/HEAD-TO-HEAD.md keeps the fact that round 0 existed and found T1 and T5 saturated, without scores", () => {

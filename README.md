@@ -110,10 +110,10 @@ A qualifier next to a number is part of the fact. When the rewrite keeps the num
 
 ## How it compares
 
-A head-to-head benchmark against Humanizer, unslop and everwrite, on twelve editing tasks scored by scripted checks and blind grading. It is a result on those tasks, not a general ranking.
+A head-to-head benchmark against six other Claude Code skills (Humanizer, unslop, everwrite, slopless, avoid-ai-writing and slop-cop; the first three also called by name) and Claude with no plugin, on editing tasks scored by scripted checks and blind grading. It is a result on those tasks, not a general ranking.
 
 <!-- h2h:start -->
-The round-1 results, including that the win rule was not met, are in docs/HEAD-TO-HEAD.md; the tasks, criteria and harness are public in bench/head-to-head/.
+Round 8 (2026-10-23, Sonnet 5.5, 11 arms, 3 runs each): on the 12 public tasks this linter scored 58.67 of 60 and the best other arm (Humanizer, called by name) 56.00; the 95% bootstrap interval of the difference is [1.00, 4.33]. On 6 held-out tasks written by an author who had not read the code, four arms scored 29.67 or more of 30 (this linter 29.67, unslop 30.00), so that set does not separate them. Every cell, the departures from the frozen protocol and a recompute step are in bench/head-to-head/results/round8-final-2026-10-23/; the rounds and rulings are in docs/HEAD-TO-HEAD.md; the tasks, criteria and harness are public in bench/head-to-head/.
 <!-- h2h:end -->
 
 ## Use it

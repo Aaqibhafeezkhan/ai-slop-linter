@@ -98,10 +98,10 @@ OK: no fact lost or added
 
 ## Karşılaştırma
 
-Humanizer, unslop ve everwrite ile on iki düzenleme görevinde, betik denetimleri ve kör değerlendirmeyle yapılan bir karşılaştırma. Bu görevlerdeki bir sonuçtur, genel bir sıralama değildir.
+Altı başka Claude Code skill'i (Humanizer, unslop, everwrite, slopless, avoid-ai-writing ve slop-cop; ilk üçü ayrıca adıyla çağrılarak) ve eklentisiz Claude ile düzenleme görevlerinde, betik denetimleri ve kör değerlendirmeyle yapılan bir karşılaştırma. Bu görevlerdeki bir sonuçtur, genel bir sıralama değildir.
 
 <!-- h2h:start -->
-Birinci turun sonuçları, kazanma kuralının karşılanmadığı da dahil, docs/HEAD-TO-HEAD.md dosyasındadır; görevler, ölçütler ve harness bench/head-to-head/ içinde herkese açıktır.
+Round 8 (2026-10-23, Sonnet 5.5, 11 kol, her biri 3 koşu): 12 public görevde bu linter 60 üzerinden 58.67, en iyi diğer kol (adıyla çağrılan Humanizer) 56.00 aldı; farkın %95 bootstrap aralığı [1.00, 4.33]. Kodu okumamış bir yazarın yazdığı 6 held-out görevde dört kol 30 üzerinden 29.67 ya da üstünde aldı (bu linter 29.67, unslop 30.00); bu set onları ayırmıyor. Bütün hücreler, dondurulmuş protokolden sapmalar ve yeniden hesaplama adımı bench/head-to-head/results/round8-final-2026-10-23/ içinde; turlar ve kararlar docs/HEAD-TO-HEAD.md dosyasında; görevler, ölçütler ve harness bench/head-to-head/ içinde herkese açıktır.
 <!-- h2h:end -->
 
 ## Diğer komutlar
