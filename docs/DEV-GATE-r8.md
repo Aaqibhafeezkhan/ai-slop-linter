@@ -32,4 +32,13 @@ Spec section 2b. Public set (12 tasks) plus the unread held-out set g (6 tasks, 
 
 ## Results
 
-(filled after the run)
+Run 2026-10-23 on commit \`a6418de5f15f\` (protocol commit; product code \`a498189eb8ba\`), 72 cells, 0 failed, 0 re-runs, subscription login (init \`apiKeySource: none\`), parallelism 3. Evidence: \`bench/head-to-head/results/round8-dev-gate-2026-10-23/\` (\`cells.jsonl\` from the scorer, \`judge.json\`, \`SUMMARY.md\`).
+
+| arm | hoR1 | hoR2 | hoR3 | hoR4 | hoR5 | hoR6 | total of 30 |
+|---|---|---|---|---|---|---|---|
+| ours | 4/4/4 | 5/5/5 | 5/5/5 | 5/5/5 | 5/5/5 | 5/5/5 | 29.00 |
+| blader | 3/3/4 | 4/4/4 | 3/2/2 | 4/5/4 | 5/5/5 | 5/5/5 | 24.00 |
+| blader-inv | 4/4/4 | 4/4/5 | 3/2/3 | 5/5/5 | 5/5/5 | 5/5/5 | 26.00 |
+| base | 3/3/3 | 5/4/5 | 4/4/4 | 5/5/5 | 4/4/4 | 5/5/5 | 25.67 |
+
+Best rival blader-inv. D = 3.00, 95% bootstrap interval [2.33, 3.67], no task where ours trails the best rival (hoR1 ties at 4.00). By the frozen rule this is a clear lead. What it does not show: the set is small (6 tasks, 3 runs), written by one author, shared with no other set, and the product was developed knowing only the languages of the new held-out set, not the dev tasks. It decides only that the final measurement may run.
