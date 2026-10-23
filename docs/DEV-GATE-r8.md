@@ -32,7 +32,7 @@ Spec section 2b. Public set (12 tasks) plus the unread held-out set g (6 tasks, 
 
 ## Results
 
-Run 2026-10-23 on commit \`a6418de5f15f\` (protocol commit; product code \`a498189eb8ba\`), 72 cells, 0 failed, 0 re-runs, subscription login (init \`apiKeySource: none\`), parallelism 3. Evidence: \`bench/head-to-head/results/round8-dev-gate-2026-10-23/\` (\`cells.jsonl\` from the scorer, \`judge.json\`, \`SUMMARY.md\`).
+Run 2026-10-23 on commit `a6418de5f15f` (protocol commit; product code `a498189eb8ba`), 72 cells, 0 failed, 0 re-runs, subscription login (init `apiKeySource: none`), parallelism 3. Evidence: `bench/head-to-head/results/round8-dev-gate-2026-10-23/` (`cells.jsonl` from the scorer, `judge.json`, `SUMMARY.md`).
 
 | arm | hoR1 | hoR2 | hoR3 | hoR4 | hoR5 | hoR6 | total of 30 |
 |---|---|---|---|---|---|---|---|
