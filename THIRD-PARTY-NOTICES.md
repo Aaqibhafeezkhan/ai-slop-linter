@@ -173,12 +173,32 @@ SOFTWARE.
 
 - Sources, licence CC BY-SA 4.0: https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing, https://de.wikipedia.org/wiki/Wikipedia:Anzeichen_für_KI-generierte_Inhalte, https://fr.wikipedia.org/wiki/Aide:Identifier_l'usage_d'une_IA_générative, https://pt.wikipedia.org/wiki/Wikipédia:Sinais_de_texto_gerado_por_inteligência_artificial, and the Spanish editors' list at https://es.wikipedia.org/wiki/Wikipedia:Café/Portal/Archivo/Propuestas/2025/03.
 - What was used (round 6): facts about patterns only (that a phrase or construction is a sign of generated text), as short phrases and regular expressions of our own in `skills/ai-slop-linter/references/{en,de,fr,es,pt}.tells.txt`, in `references/pt.md` and in the `hedge` check of `src/hedge.ts`. No sentence of these pages is copied, so no part of this project is a derivative work of their text. Attribution: Wikipedia contributors, under CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/).
+- What was used (round 8): the mid-2026 corrective-framing family of `skills/ai-slop-linter/references/en.md` (the phrases `should be treated as X rather than Y`, `does not establish`, `should not be confused with`, `is not merely X`). The phrases are facts about patterns, written in our own wording; no sentence of the page is copied. Attribution: Wikipedia contributors, under CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/).
 
 ## ai-34-languages (Juzek 2026)
 
 - Source: https://github.com/tjuzek/ai-34-languages, commit 0cf18ff2458007fe51a14059a73d9e7468ed4da9; paper: Thomas Stephan Juzek, "AI-Associated Lexical Shifts Across 34 Languages: Cross-Lingual Convergence and Diachronic Uptake in News Writing", arXiv:2605.25358 (2026).
 - Licence: code MIT-0, data CC0 1.0 Universal (`LICENSE-DATA`). No attribution is required; it is given as a courtesy.
 - What was used: the second-tier word lists ("Act only when several appear") of `skills/ai-slop-linter/references/fr.md`, `skills/ai-slop-linter/references/de.md` and `skills/ai-slop-linter/references/es.md` add words from `lexa-index/csv_files/news/las-gpt4.1-mini/policy=quantile_trim=no_M=1_K=12_jitter=no/{fr,de,es}/las_word_{fr,de,es}.csv`, ranked by the ratio of model to human counts per lemma (adjectives, verbs, nouns and adverbs, at least 40 model occurrences) and picked by hand for generic praise, emphasis and process words; topic words of the news register were left out. The measurement is news text and one model family (GPT-4.1-mini), so the words sit only in the tier that needs several together, and none is a linter rule.
+## empios/humanizer-polish
+
+- Source: https://github.com/empios/humanizer-polish (Polish). Licence as stated in the repository metadata when it was read (2026-10-20): MIT. The LICENSE file was not copied into this repository because no code or text of the project is copied.
+- What was adapted (ideas only, round 8): the fact-comparison ideas of `scripts/porownaj_wersje.py`, used to write the Polish number, month and unit handling of `src/compare.ts`: spelled-out numbers with their inflected forms read as the same value as the digits, month names of several languages in a table, and unit words as synonyms. The code in `src/compare.ts` is our own; no line, table or word list of the project is copied.
+
+## Vladimir-Human/humanizer-ru
+
+- Source: https://github.com/Vladimir-Human/humanizer-ru (Russian). Licence as stated in the repository metadata when it was read (2026-10-21): MIT. No code or text of the project is copied.
+- What was adapted (ideas only, round 8): the fact-check ideas of `skills/humanizer-ru/scripts/check_facts.py`, the same ones as above, for the number, month and unit handling of `src/compare.ts`: spelled-out numbers read by value, month names in a table, and unit words as synonyms. The implementation is ours; no line or word list of the project is copied.
+
+## Corpus frequency counts (id and tr reference files)
+
+The phrases in `skills/ai-slop-linter/references/id.md` and `tr.md` were found by counting word and phrase frequencies in human and machine texts. The corpora were used only for those counts. No text of any corpus is included in this repository, and each phrase in the two files is a short connector or evaluative word of our own choosing; the Source line of each file says which entries follow the corpora and which are our additions. The licences below are the uploaders' metadata strings as read on 2026-10-23; the originals were not checked, and we have not assessed the share-alike and copyleft questions they may raise for an MIT project.
+
+- tum-nlp/neural-news-benchmark (Turkish): https://huggingface.co/datasets/tum-nlp/neural-news-benchmark, licence `openrail++` (metadata). Counted: the Turkish human and GPT-4 news rows.
+- aycabostancioglu/Arabic-English-Turkish-AI-Human-Text (Turkish): https://huggingface.co/datasets/aycabostancioglu/Arabic-English-Turkish-AI-Human-Text, licence `gpl-3.0` (metadata). Counted: the Turkish human and AI rows. Authorship and the origin of its human texts were not verified.
+- PlatinaSB/ai-and-human-text-classification (Indonesian): https://huggingface.co/datasets/PlatinaSB/ai-and-human-text-classification, licence `cc-by-sa-4.0` (metadata). Counted: the Indonesian rows.
+- shouwiku/detectai-indonesian (Indonesian): https://huggingface.co/datasets/shouwiku/detectai-indonesian, licence `mit` (metadata). Counted: the Indonesian rows.
+
 
 ## Corpus texts
 

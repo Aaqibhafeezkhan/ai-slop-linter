@@ -57,6 +57,10 @@ The entries come in two tiers. The first tier is a tell on one sighting: fix it 
 - Docs that describe the previous version (`This replaces the old approach of ...`) outside a changelog. Describe what it does now.
 - Text about itself: `In this section we will look at`, `This guide covers`. Start with the content.
 
+### Corrective framing
+
+- A denial of a claim nobody made, then the point: `should be treated as X rather than Y`, `does not establish`, `should not be confused with`, `is not merely X`. State the point from the source directly, or cut the sentence. Added 2026 from the mid-2026 section of the Wikipedia page "Signs of AI writing" (CC BY-SA 4.0; the phrases are facts about patterns, the wording is ours). The third phrase is also ordinary in a text that really separates two things: keep it there.
+
 ## Act only when several appear
 
 Each of these is normal in human writing. Several in one paragraph, or one next to a first-tier entry, make a pattern; then fix the ones that do no work and keep the rest.

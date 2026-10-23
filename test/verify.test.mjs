@@ -125,3 +125,29 @@ test("the chatbot-residue forms named in SKILL.md are in the catalogs", () => {
   assert.ok(hit("es", "No dudes en escribir. Sumérgete en el tema."));
   assert.ok(!hit("fr", "La Révolution française date de 1789."));
 });
+
+// A fresh Polish paragraph with no tells (written for this test). pl has no phrase catalog, so
+// --verify says so on stdout; the exit code does not change.
+const PL = "Pierwsza wersja systemu obsługiwała 1500 zapytań dziennie i zapisywała je w jednej bazie danych. Zespół podzielił ten przepływ na dwie kolejki, dzięki czemu każde zapytanie trafia najpierw do małej usługi sprawdzającej poprawność. Dopiero potem wynik zapisuje główny serwer. Pomiary z zeszłego tygodnia pokazały, że czas odpowiedzi spadł z dwóch sekund do ośmiuset milisekund.\n";
+
+test("verify: a language with no phrase catalog prints the note and keeps exit 0", () => {
+  const r = verify(PL, PL, "--language", "pl");
+  assert.equal(r.status, 0, r.out + r.err);
+  assert.match(r.out, /^note: no tell catalog for pl; the read-back by class and the reference file are the check$/m);
+  assert.match(r.out, /^verify: ok \(unchanged\)$/m);
+  assert.ok(r.out.indexOf("note: ") < r.out.lastIndexOf("verify: "), "the note comes before the verdict line");
+});
+
+test("verify: a language with a phrase catalog prints no note", () => {
+  const r = verify(CLEAN, CLEAN);
+  assert.equal(r.status, 0, r.out + r.err);
+  assert.doesNotMatch(r.out, /^note: /m);
+});
+
+test("verify: a lost Polish number exits 1, and the note is still printed", () => {
+  const r = verify(PL, PL.replace("1500 zapytań", "150 zapytań"), "--language", "pl");
+  assert.equal(r.status, 1, r.out + r.err);
+  assert.match(r.out, /lost\s+number\s+1500/);
+  assert.match(r.out, /^note: no tell catalog for pl;/m);
+  assert.match(r.out, /^verify: \d+ problem\(s\)$/m);
+});

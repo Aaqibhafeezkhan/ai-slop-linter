@@ -12,7 +12,7 @@ import { applyBaseline, createBaseline, parseBaseline } from "./baseline.js";
 import { renderSarif } from "./sarif.js";
 import { commitRules, lintCommitMessage } from "./commits.js";
 import { compareFacts, type Fact } from "./compare.js";
-import { scanCatalog } from "./catalog.js";
+import { loadCatalog, scanCatalog } from "./catalog.js";
 import { scanHedge } from "./hedge.js";
 import { chainedSentences } from "./chain.js";
 import { prepare } from "./doc.js";
@@ -400,6 +400,9 @@ function verifyCommand(o: Options): number {
       ...hedgeHits.map((h) => ({ line: h.line, column: h.column, label: `hedge ${h.phrase.replace(/\s+/g, " ")}` })),
     ]));
   }
+  // A clean pass on a language with no phrase catalog proves less; say so. Information only: the exit code is unchanged.
+  const tell = lint.language.split(/[-_]/)[0]!.toLowerCase();
+  if (loadCatalog(tell).length === 0) lines.push(`note: no tell catalog for ${tell}; the read-back by class and the reference file are the check`);
   lines.push(problems > 0 ? `verify: ${problems} problem(s)` : before === after ? "verify: ok (unchanged)" : "verify: ok");
   console.log(lines.join("\n"));
   return problems;
