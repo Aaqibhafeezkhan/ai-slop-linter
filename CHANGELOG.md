@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1 (unreleased)
+
+**A study design for measuring other prose linters on the corpus.** [bench/EXTERNAL-TOOLS.md](bench/EXTERNAL-TOOLS.md) fixes, before any number exists, how `vale-ai-tells`, `slop-guard` and SlopMonster will be run next to this tool on the ten files of `bench/corpus`: the inputs, the version and command to record for each tool, findings per 1,000 words per file and per set, native scores kept in their own columns, a repeat run from a clean environment, and what a higher, a lower or a zero rate would and would not mean. It reports no results, and it rules out an accuracy score, a winner and a leaderboard. The design is by [@Aaqibhafeezkhan](https://github.com/Aaqibhafeezkhan) ([#73](https://github.com/Bubblegunn/ai-slop-linter/pull/73), issue [#19](https://github.com/Bubblegunn/ai-slop-linter/issues/19), which stays open until the run is published).
+
 ## 0.2.0 (2026-10-24)
 
 **`--compare` reads more facts in more languages, and `--verify` says when a language has no tell catalog.** `--compare` now reads grouped and currency-glued numbers, spelled-out numbers (read by value, so `three` matches `3`), month names of eleven languages, and the person, claim, qualifier and unit words of Dutch, Portuguese, Italian, Polish, Indonesian and Turkish. The agent skill's prompt hook fires on rewrite requests in Polish and Indonesian. The skill has reference files for Dutch, Polish, Indonesian and Turkish, and a step that audits the claims of the source against the rewrite. `--verify` prints a `note:` line when the text's language has no phrase catalog, so a clean pass there is not read as a full check; the exit code does not change.
