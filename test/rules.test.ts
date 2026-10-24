@@ -21,6 +21,24 @@ test("the clean fixture has no error-severity findings and grades A", () => {
   assert.equal(r.grade, "A", `score ${r.score}: ${JSON.stringify(r.findings)}`);
 });
 
+test("bold-label: keeps its existing matches; CV role lists use the documented ignore escape hatch", () => {
+  const roles = fixture("cv-role-list.md");
+  const roleFindings = lintText("profile.md", roles).findings.filter((f) => f.rule === "bold-label");
+  assert.equal(roleFindings.length, 3);
+
+  const ignoredRoles = roles.replace(/^(- .+)$/gm, "<!-- slop-ignore-next-line bold-label -->\n$1");
+  assert.deepEqual(lintText("profile.md", ignoredRoles).findings.filter((f) => f.rule === "bold-label"), []);
+
+  const labels = [
+    "- **Fast:** Leverages a cutting-edge execution engine.",
+    "- **Region affinity**: Requests are served from the nearest region.",
+    "- **Removed:**\n  - the filler",
+    "- **⚡ Vitesse fulgurante** Leverage a fast execution engine.",
+    "1. **Instala** the package before running it.",
+  ].join("\n");
+  assert.equal(lintText("machine.md", labels).findings.filter((f) => f.rule === "bold-label").length, 5);
+});
+
 test("reference markup: every alternative is covered individually and masked tokens stay ignored", () => {
   const cases = [
     "The answer left :contentReference[oaicite:0]{index=0} in the prose.",

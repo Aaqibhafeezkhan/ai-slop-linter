@@ -150,6 +150,17 @@ Some readers have learned these tells: the em dash, `not just X but Y`, `I hope 
 | VS Code extension | a `.vsix` built from `vscode/`, see [its README](vscode/README.md) | not yet on the Marketplace <!-- release-status --> |
 | Browser | [the playground](https://bubblegunn.github.io/ai-slop-linter/) | live |
 
+### A structural use of bold that is not a mini-heading
+
+A short CV-style role list can bold the role or linked company because that is the entity each row describes:
+
+```markdown
+- **Founder, [LILA](https://hellolila.app)** (Feb 2026 to present): a proactive personal AI product.
+- **Founding engineer, [Cendra](https://cendra.ai)** (Aug 2025 to Jul 2026): primary author of the frontend.
+```
+
+There is no dependable signal in the bold span alone that separates this structural use from a mini-heading. The `bold-label` rule therefore keeps its existing pattern rather than guessing from punctuation or list shape. If a legitimate role list is flagged, put `<!-- slop-ignore-next-line RULE -->` immediately before each affected item, or `<!-- slop-ignore RULE -->` before the section. Replace `RULE` with `bold-label` in the directive.
+
 ## What it looks like
 
 Real output on [`test/fixtures/sloppy.md`](test/fixtures/sloppy.md), a 290-word file
