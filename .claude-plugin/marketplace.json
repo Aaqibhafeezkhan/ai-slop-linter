@@ -2,7 +2,7 @@
   "name": "ai-slop-linter",
   "owner": {
     "name": "Efe Genc",
-    "url": "https://efe-genc-portfolio.vercel.app"
+    "url": "https://efegenc.me"
   },
   "description": "Linter for AI-sounding phrases and em dashes in commit messages, pull request descriptions and Markdown docs, packaged as a Claude Code skill.",
   "plugins": [

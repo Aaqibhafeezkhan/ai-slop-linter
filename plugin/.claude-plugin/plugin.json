@@ -5,7 +5,7 @@
   "description": "Lints prose for AI-sounding phrases and em dashes. Makes the agent check its commit messages, pull request descriptions and docs before it ships them.",
   "author": {
     "name": "Efe Genc",
-    "url": "https://efe-genc-portfolio.vercel.app"
+    "url": "https://efegenc.me"
   },
   "homepage": "https://github.com/Bubblegunn/ai-slop-linter",
   "repository": "https://github.com/Bubblegunn/ai-slop-linter",
