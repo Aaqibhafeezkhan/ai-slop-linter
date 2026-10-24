@@ -1,3 +1,4 @@
+import { fileURLToPath } from "node:url";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
@@ -236,7 +237,7 @@ import { join as joinR } from "node:path";
 import { test as testR } from "node:test";
 import assertR from "node:assert/strict";
 
-const cliR = new URL("../dist/src/cli.js", import.meta.url).pathname;
+const cliR = fileURLToPath(new URL("../dist/src/cli.js", import.meta.url));
 function verifyR(before, after, extra = []) {
   const d = mkdtempR(joinR(tmpdirR(), "r6fix-"));
   writeR(joinR(d, "b.md"), before); writeR(joinR(d, "a.md"), after);

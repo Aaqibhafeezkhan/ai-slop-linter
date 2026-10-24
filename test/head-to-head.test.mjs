@@ -7,6 +7,9 @@ import { spawnSync } from "node:child_process";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
+// The h6 and h15 command checks run a POSIX shell, npm and `ln`-style tools in a scratch repository; Windows has none of them.
+const WIN = process.platform === "win32" ? { skip: "needs a POSIX shell" } : {};
+
 // The frozen head-to-head tasks: their prompts, the scripted checks, and the golden outputs
 // that must pass those checks. Nothing here calls the linter; the checks are plain Node.
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -71,7 +74,7 @@ test("every prompt appears verbatim in docs/HEAD-TO-HEAD.md", () => {
   }
 });
 
-test("golden outputs pass every script criterion and leave blind criteria to a grader", () => {
+test("golden outputs pass every script criterion and leave blind criteria to a grader", WIN, () => {
   for (const task of load().tasks) {
     const res = runCheck(task.id, join(BENCH, "golden", task.id));
     for (const c of task.criteria) {
@@ -612,7 +615,7 @@ function runEdited(c) {
 
 for (const c of CASES) {
   const verb = c.expect ? "stays true" : "goes false";
-  test(`${c.id} ${c.crit} ${verb} when the output ${c.what}`, () => {
+  test(`${c.id} ${c.crit} ${verb} when the output ${c.what}`, c.id === "h6" || c.id === "h15" ? WIN : {}, () => {
     const res = runEdited(c);
     assert.equal(res[c.crit], c.expect, `${c.id} ${c.crit}: ${JSON.stringify(res)}`);
   });
@@ -644,7 +647,7 @@ test("h6 C2 judges the restored French note: a slop-ignore comment added to docs
   assert.equal(res.C2, false, JSON.stringify(res));
 });
 
-test("h6 C1 and C3 also run on the restored French note, not on the arm's copy", () => {
+test("h6 C1 and C3 also run on the restored French note, not on the arm's copy", WIN, () => {
   // The lint exits 1 only when docs/fr/notes.md carries the comment, so only an unrestored copy passes C1 and C3.
   const res = h6Gamed((t) => `import { readFileSync } from "node:fs";\nprocess.exit(readFileSync("docs/fr/notes.md", "utf8").includes("slop-ignore") ? 1 : 0);\n// ${t.length}\n`);
   assert.equal(res.C1, false, JSON.stringify(res));
@@ -654,7 +657,7 @@ test("h6 C1 and C3 also run on the restored French note, not on the arm's copy",
 
 // ---- h6 check-time symmetry: an installed copy of the linter in the arm's node_modules/.bin is deleted ----
 for (const tool of ["ai-slop-linter", "slop"]) {
-  test(`h6 ignores the arm's own node_modules/.bin/${tool}: an installed copy that always exits 0 gets no free pass`, () => {
+  test(`h6 ignores the arm's own node_modules/.bin/${tool}: an installed copy that always exits 0 gets no free pass`, WIN, () => {
     const dir = mkdtempSync(join(tmpdir(), "h2h-h6-bin-"));
     const fake = mkdtempSync(join(tmpdir(), "h2h-h6-shim-"));
     try {
@@ -984,7 +987,7 @@ test("h14 golden keeps the front matter, the foreign lines and the code block, a
   assert.ok(rest.every((l) => !l.includes("—")));
 });
 
-test("h15 fixture: a repository with the legitimate dashes, quotes and languages that the task names", () => {
+test("h15 fixture: a repository with the legitimate dashes, quotes and languages that the task names", WIN, () => {
   const dir = join(BENCH, "fixtures", "h15");
   const files = listFiles(dir).map((f) => relative(dir, f)).sort();
   assert.deepEqual(files, [".github/workflows/ci.yml", "CHANGELOG.md", "README.md", "docs/de/anleitung.md", "docs/fr/notes.md", "docs/guide.md", "docs/guides/setup.md", "package.json"]);
@@ -1029,7 +1032,7 @@ function h15WithLog(edit, setup = () => {}) {
 // Makes the lint script append every scanned file to the log named by H2H_TEST_LOG.
 const withScanLog = (t) => t.replace('let found = 0;', 'import { appendFileSync } from "node:fs";\nlet found = 0;\nfor (const f of files) if (process.env.H2H_TEST_LOG) appendFileSync(process.env.H2H_TEST_LOG, `${f}\\n`);');
 
-test("h15 invents a different directory and file name for the dirty case on every check", () => {
+test("h15 invents a different directory and file name for the dirty case on every check", WIN, () => {
   const a = h15WithLog(withScanLog);
   const b = h15WithLog(withScanLog);
   const invented = (seen) => [...new Set(seen.filter((f) => /^docs\/section-[0-9a-f]{8}\/page-[0-9a-f]{8}\.md$/.test(f)))];
@@ -1059,7 +1062,7 @@ test("h15 judges the restored protected files: an arm that deletes the blockquot
   assert.equal(french.res.C1, false, JSON.stringify(french.res));
 });
 
-test("h15 C1 judges the clean state only: the arm's own docs/guide.md is replaced by a clean guide", () => {
+test("h15 C1 judges the clean state only: the arm's own docs/guide.md is replaced by a clean guide", WIN, () => {
   const { res } = h15WithLog((t) => t, (dir) => writeFileSync(join(dir, "docs", "guide.md"), read("fixtures", "h15", "docs", "guide.md")));
   assert.equal(res.C1, true, JSON.stringify(res));
 });
@@ -1203,7 +1206,7 @@ test("the document names the retired and the new tasks, the history path and the
   }
 });
 
-test("h15 judges the appended README paragraph on the restored README: a skip marker in the arm's own README gains nothing", () => {
+test("h15 judges the appended README paragraph on the restored README: a skip marker in the arm's own README gains nothing", WIN, () => {
   const { res } = h15WithLog(
     (s) => s.replace(`...(existsSync("README.md") ? ["README.md"] : [])`, `...(existsSync("README.md") && !readFileSync("README.md", "utf8").includes("lint-skip") ? ["README.md"] : [])`),
     (dir) => writeFileSync(join(dir, "README.md"), `${readFileSync(join(dir, "README.md"), "utf8")}\n<!-- lint-skip -->\n`),

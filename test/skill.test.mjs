@@ -150,7 +150,7 @@ function setup() {
 }
 const lint = (dir) => spawnSync("npm", ["run", "lint:prose"], { cwd: dir, encoding: "utf8" }).status;
 
-test("the CI recipe, run literally on the h15 files: clean files exit 0, a new bad file or a bad README exit 1", () => {
+test("the CI recipe, run literally on the h15 files: clean files exit 0, a new bad file or a bad README exit 1", { skip: process.platform === "win32" ? "the recipe is an npm script run by a POSIX shell" : false }, () => {
   const dir = setup();
   try {
     assert.equal(lint(dir), 0, "the legitimate files pass");

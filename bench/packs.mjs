@@ -10,12 +10,13 @@
  * limit that decides which rules may ship is in bench/packs-lib.mjs and is enforced by
  * test/packs.test.mjs for every pack.
  */
+import { fileURLToPath } from "node:url";
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { languageRules } from "../dist/src/index.js";
 import { corpusFor, measure, MIN_HUMAN_WORDS, MIN_MACHINE_WORDS, wordsIn } from "./packs-lib.mjs";
 
-const root = new URL("..", import.meta.url).pathname;
+const root = fileURLToPath(new URL("..", import.meta.url));
 const output = join(root, "bench", "PACKS.md");
 
 /** The languages whose corpora are measured even before a pack exists for them. */

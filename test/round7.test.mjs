@@ -102,7 +102,7 @@ test("hedge class 3: the grammar lists are 12 effect stems or more per language 
 // The clean corpus: the goldens, the after folders and the fixtures that are byte-identical to their golden
 // (a fixture that differs from its golden carries tells on purpose). No held-out or task path.
 const walk = (dir) => readdirSync(dir).flatMap((name) => {
-  const path = join(dir, name);
+  const path = `${dir}/${name}`; // forward slashes on every platform: the paths are compared and replaced as text
   return statSync(path).isDirectory() ? walk(path) : [path];
 });
 const allowed = (p) => !/\/ho|heldout|tasks\/ho/.test(`/${p}`) && /\.(?:md|txt)$/.test(p);

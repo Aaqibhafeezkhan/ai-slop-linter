@@ -3,11 +3,12 @@
  * bench/packs.mjs (which writes bench/PACKS.md) and test/packs.test.mjs (which
  * enforces the limit for every registered pack).
  */
+import { fileURLToPath } from "node:url";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { prepare, suppressed } from "../dist/src/doc.js";
 
-const root = new URL("..", import.meta.url).pathname;
+const root = fileURLToPath(new URL("..", import.meta.url));
 
 /** A corpus must carry at least this many words before its rates mean anything. */
 export const MIN_HUMAN_WORDS = 500;

@@ -95,13 +95,17 @@ test("check_slop_file reads a file, and a missing file or a directory is a tool 
   }
 });
 
-test("check_slop_file refuses a device that is not a regular file instead of reading it", () => {
+test("check_slop_file refuses a device that is not a regular file instead of reading it", { skip: process.platform === "win32" ? "/dev/null is POSIX" : false }, () => {
   const r = callTool("check_slop_file", { file_path: "/dev/null" }).result;
   assert.equal(r.isError, true);
   assert.match(r.content[0].text, /path is not a regular file: \/dev\/null/);
 });
 
 test("check_slop_file reports a file it cannot read as a tool error", (t) => {
+  if (process.platform === "win32") {
+    t.skip("chmod 000 does not make a file unreadable on Windows");
+    return;
+  }
   if (process.getuid?.() === 0) {
     t.skip("root can read a chmod 000 file");
     return;

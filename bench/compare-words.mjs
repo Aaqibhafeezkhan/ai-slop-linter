@@ -12,6 +12,7 @@
  * of the honest rewrites of the head-to-head, in the language of the rewrite. Each direction of a
  * person word (added, lost) is judged on its own. Claim words are judged for additions only.
  */
+import { fileURLToPath } from "node:url";
 import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import {
@@ -25,7 +26,7 @@ import {
   languageOf,
 } from "../dist/src/compare.js";
 
-const root = new URL("..", import.meta.url).pathname;
+const root = fileURLToPath(new URL("..", import.meta.url));
 const hh = join(root, "bench", "head-to-head");
 const output = join(root, "bench", "COMPARE-WORDS.md");
 const LIMIT = 0.05;

@@ -1,4 +1,9 @@
 import { test } from "node:test";
+// The benchmark harness this file tests (run-all.sh, rerun.sh, the sandbox and the shims) is bash and POSIX paths; it is never run on Windows.
+if (process.platform === "win32") {
+  console.log("skipped on Windows: POSIX benchmark harness");
+  process.exit(0);
+}
 import assert from "node:assert/strict";
 import { chmodSync, cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, realpathSync, rmSync, statSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
@@ -1877,7 +1882,7 @@ test("sandbox profile: no machine-specific file is named, and H2H_SANDBOX_EXTRA_
   const plain = renderProbe({}, true);
   assert.doesNotMatch(readFileSync(plain.profile, "utf8"), /secret-a/);
   for (const bad of ["relative/path", `${a}"x`]) {
-    const refused = renderProbe({ H2H_SANDBOX_EXTRA_DENY: bad });
+    const refused = renderProbe({ H2H_SANDBOX_EXTRA_DENY: bad }, true);
     assert.notEqual(refused.r.status, 0, `refused: ${bad}`);
     assert.match(refused.r.stderr, /H2H_SANDBOX_EXTRA_DENY/);
   }

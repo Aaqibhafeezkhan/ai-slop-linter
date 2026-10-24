@@ -7,13 +7,14 @@
  *
  * Not run in CI: it needs network and the clones. test/commit-rules.test.mjs covers the counting.
  */
+import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { candidateRules, commitRules, EXCLUDED, NOT_ADOPTED } from "../dist/src/commits.js";
 import { alreadyFlagged, hitsPerRule, splitMachine, tokenHits } from "./commit-rules-lib.mjs";
 
-const root = new URL("..", import.meta.url).pathname;
+const root = fileURLToPath(new URL("..", import.meta.url));
 const { sources } = JSON.parse(readFileSync(join(root, "bench", "commit-human.json"), "utf8"));
 const git = (dir, ...args) => execFileSync("git", ["-C", dir, ...args], { encoding: "utf8", maxBuffer: 1 << 28 });
 

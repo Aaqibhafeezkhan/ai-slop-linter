@@ -12,11 +12,12 @@
  * per 1,000 words, the same measure bench/precision.mjs uses, so the numbers in
  * the two files can be read side by side.
  */
+import { fileURLToPath } from "node:url";
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { lintText, rules } from "../dist/src/index.js";
 
-const root = new URL("..", import.meta.url).pathname;
+const root = fileURLToPath(new URL("..", import.meta.url));
 const dir = join(root, "bench", "typography");
 const output = join(root, "bench", "TYPOGRAPHY.md");
 

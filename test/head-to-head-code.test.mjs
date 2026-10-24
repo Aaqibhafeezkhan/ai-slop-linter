@@ -1,4 +1,9 @@
 import { test } from "node:test";
+// The benchmark harness this file tests (prepare-code.sh, run-all.sh and the sandbox) is bash and POSIX paths; it is never run on Windows.
+if (process.platform === "win32") {
+  console.log("skipped on Windows: POSIX benchmark harness");
+  process.exit(0);
+}
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { chmodSync, cpSync, existsSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, realpathSync, rmSync, statSync, writeFileSync } from "node:fs";

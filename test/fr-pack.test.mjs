@@ -1,3 +1,4 @@
+import { fileURLToPath } from "node:url";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
@@ -7,7 +8,7 @@ import { lintText, languageRules, checkLanguagePack } from "../dist/src/index.js
 import { prepare } from "../dist/src/doc.js";
 import { corpusFor } from "../bench/packs-lib.mjs";
 
-const root = new URL("..", import.meta.url).pathname;
+const root = fileURLToPath(new URL("..", import.meta.url));
 const fr = () => languageRules.fr;
 const ruleById = (id) => fr().find((r) => r.id === id);
 const firing = (id, text) => ruleById(id).check(prepare("x.md", text));

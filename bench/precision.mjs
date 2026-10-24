@@ -9,11 +9,12 @@
  * The numbers are rates per 1,000 words, not detection accuracy. See the method
  * note in the generated file for what they do and do not support.
  */
+import { fileURLToPath } from "node:url";
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, relative } from "node:path";
 import { lintText, rules } from "../dist/src/index.js";
 
-const root = new URL("..", import.meta.url).pathname;
+const root = fileURLToPath(new URL("..", import.meta.url));
 const corpus = join(root, "bench", "corpus");
 const output = join(root, "bench", "PRECISION.md");
 

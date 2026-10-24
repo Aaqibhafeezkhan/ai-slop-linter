@@ -15,11 +15,12 @@
  * skill, whatever its scores: the scores file is absent from the cloud copy of the branch, and a set
  * that also holds the failed runs can only make the rule stricter. The script prints counts only.
  */
+import { fileURLToPath } from "node:url";
 import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { QUALIFIER_CANDIDATES, QUALIFIERS, languageOf, qualifierChanges, qualifiedNumbers } from "../dist/src/compare.js";
 
-const root = new URL("..", import.meta.url).pathname;
+const root = fileURLToPath(new URL("..", import.meta.url));
 const hh = join(root, "bench", "head-to-head");
 const output = join(root, "bench", "COMPARE-QUALIFIERS.md");
 const own = JSON.parse(readFileSync(join(root, "test", "fixtures", "compare-qualifiers.json"), "utf8"));

@@ -75,7 +75,7 @@ test("the context line carries the guardrails: no added person or claim, numbers
   assert.match(lint.stdout, /0 findings/, lint.stdout + lint.stderr);
 });
 
-test("every prompt exits 0, and malformed input prints nothing and exits 0", () => {
+test("every prompt exits 0, and malformed input prints nothing and exits 0", { skip: process.platform === "win32" ? "the hook is a POSIX sh script; Windows bash warns about the null byte" : false }, () => {
   for (const p of [...fixture.related, ...fixture.unrelated]) assert.equal(run(p).status, 0, p);
   for (const input of ["", "not json", "{", '{"prompt":', '{"prompt":"polish this paragraph', '{"prompt":42}', "\u0000\u0001", '{"cwd":"/rewrite/this/paragraph"}']) {
     const r = runRaw(input);
@@ -118,6 +118,6 @@ test("the script uses POSIX tools only: no network, no writes, no jq or node", (
   for (const bad of [/\bcurl\b/, /\bwget\b/, /\bjq\b/, /\bnode\b/, /\bpython/, /\bnc\b/, /\btee\b/, /\bmktemp\b/, /\bsed -i\b/, /\bcp\b/, /\bmv\b/]) assert.doesNotMatch(src, bad, String(bad));
   const redirects = src.match(/\d*>+\s*[^\s)]+/g) ?? [];
   assert.deepEqual(redirects.filter((r) => !/^2>\/dev\/null$/.test(r)), [], "the only redirect is 2>/dev/null");
-  assert.ok(statSync(script).mode & 0o111, "executable");
+  if (process.platform !== "win32") assert.ok(statSync(script).mode & 0o111, "executable");
   assert.deepEqual(readdirSync(join(root, "hooks")).sort(), ["hooks.json", "rewrite-prompt.sh"]);
 });

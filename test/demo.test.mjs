@@ -26,7 +26,7 @@ test("the tape records docs/demo.gif and types only real commands", () => {
   }
 });
 
-test("the shim runs the build in this repository", () => {
+test("the shim runs the build in this repository", { skip: process.platform === "win32" ? "the executable bit is POSIX" : false }, () => {
   const shim = "scripts/vhs-bin/ai-slop-linter";
   assert.equal(readFileSync(shim, "utf8"), '#!/bin/sh\nexec node "$(dirname "$0")/../../dist/src/cli.js" "$@"\n');
   assert.ok(statSync(shim).mode & 0o111, "the shim is not executable");

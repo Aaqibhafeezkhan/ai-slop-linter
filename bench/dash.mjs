@@ -6,11 +6,12 @@
  *   node bench/dash.mjs           regenerate the memo
  *   node bench/dash.mjs --check   fail if the committed memo is stale
  */
+import { fileURLToPath } from "node:url";
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { measure, render } from "./dash-lib.mjs";
 
-const root = new URL("..", import.meta.url).pathname;
+const root = fileURLToPath(new URL("..", import.meta.url));
 const output = join(root, "bench", "DASH-DEFAULT.md");
 const md = render(measure(join(root, "bench", "corpus")));
 
