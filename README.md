@@ -507,6 +507,8 @@ f.text;               // fixed text
 f.applied;            // number of fixes
 ```
 
+`endLine` and `endColumn` mark the first position after a finding (1-based, UTF-16 code units, end exclusive); the `github` format adds `endColumn` when the finding ends on its own line. The end positions were added by [@Nitjsefnie](https://github.com/Nitjsefnie) ([#76](https://github.com/Bubblegunn/ai-slop-linter/pull/76)).
+
 ## Measured on a fixed corpus
 
 `npm run bench` runs every rule over five texts written before 2021 and five pieces of unedited model

@@ -156,3 +156,27 @@ test("the mcp findings carry the end position", () => {
   assert.equal(dash.endLine, 1);
   assert.equal(dash.endColumn, 17);
 });
+
+test("on the sloppy fixture a finding without a fix ends inside the text its excerpt shows", () => {
+  const text = readFileSync(sloppy, "utf8");
+  const doc = prepare("sloppy.md", text);
+  const flat = (s: string) => s.replace(/\s+/g, " ").trim();
+  let checked = 0;
+  for (const f of lintDoc(doc).findings) {
+    if (f.fix) continue;
+    const { endLine, endColumn } = endOf(f);
+    const start = offsetAt(doc, f.line, f.column);
+    const end = offsetAt(doc, endLine, endColumn);
+    if (f.rule === "hyphen-density") {
+      // A whole-document finding: its excerpt is a count, so the oracle is the end of the text.
+      assert.equal(end, text.length, "hyphen-density ends at the end of the document");
+      continue;
+    }
+    // The excerpt is a window around the match, trimmed and possibly ellipsised, so it
+    // contains the matched text without being equal to it.
+    const excerpt = flat(f.excerpt.replace(/^\u2026|\u2026$/g, ""));
+    assert.ok(excerpt.includes(flat(text.slice(start, end))), `${f.rule}: the range at line ${f.line} is not inside the excerpt`);
+    checked++;
+  }
+  assert.ok(checked > 10, "the fixture must have findings without a fix, or the property is never checked");
+});
