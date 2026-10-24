@@ -10,7 +10,7 @@ npx ai-slop-linter README.md
 
 The recording is the unedited output of the build in this repository. The file it lints is a model-written sample from `bench/corpus`, not a real pull request. The command exits 1 when a file has an error-severity finding or a score above `--max-score` (default 10). Run on this README, the same command prints grade A.
 
-Benchmark: [round 8 result](#how-it-compares).
+Benchmark: [round 8 result](#how-it-compares). Write-up: [Humanizer has about 60,000 stars. On 12 public tasks my linter plugin scored 2.67 higher](https://dev.to/efe_genc/humanizer-has-about-60000-stars-on-12-public-tasks-my-linter-plugin-scored-267-higher-2cdg).
 
 <p align="center">English | <a href="README.tr.md">Türkçe</a></p>
 
@@ -113,6 +113,8 @@ A qualifier next to a number is part of the fact. When the rewrite keeps the num
 ## How it compares
 
 A head-to-head benchmark against six other Claude Code skills (Humanizer, unslop, everwrite, slopless, avoid-ai-writing and slop-cop; the first three also called by name) and Claude with no plugin, on editing tasks scored by scripted checks and blind grading. It is a result on those tasks, not a general ranking.
+
+Full write-up: [Humanizer has about 60,000 stars. On 12 public tasks my linter plugin scored 2.67 higher](https://dev.to/efe_genc/humanizer-has-about-60000-stars-on-12-public-tasks-my-linter-plugin-scored-267-higher-2cdg).
 
 ![Benchmark round 8. Public set: ai-slop-linter 58.67 of 60, first of 11 arms. Held-out set: four arms at 29.67 or more of 30, a near-tie.](docs/benchmark-round8.png)
 
