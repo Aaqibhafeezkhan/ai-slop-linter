@@ -5,14 +5,14 @@ import { spawnSync } from "node:child_process";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 
-// skills/ai-slop-linter/SKILL.md is the text an agent loads. Its description is pinned by
+// plugin/skills/ai-slop-linter/SKILL.md is the text an agent loads. Its description is pinned by
 // docs/LISTINGS.md and test/listings.test.mjs, so this file checks the body and the frontmatter
 // shape, and that the skill itself passes the linter it teaches.
-const skill = readFileSync("skills/ai-slop-linter/SKILL.md", "utf8");
+const skill = readFileSync("plugin/skills/ai-slop-linter/SKILL.md", "utf8");
 const listings = readFileSync("docs/LISTINGS.md", "utf8");
 // The CI recipe moved to references/ci.md in round 3 so the rewrite steps carry more weight in SKILL.md;
 // SKILL.md keeps a pointer section. The CI tests below read the recipe from there.
-const ci = readFileSync("skills/ai-slop-linter/references/ci.md", "utf8");
+const ci = readFileSync("plugin/skills/ai-slop-linter/references/ci.md", "utf8");
 
 test("SKILL.md frontmatter names the skill and keeps the listed description", () => {
   const name = /^name: (.+)$/m.exec(skill)?.[1];
@@ -42,7 +42,7 @@ test("SKILL.md has no em dash or en dash", () => {
 });
 
 test("the linter passes on SKILL.md with exit 0", () => {
-  const run = spawnSync(process.execPath, ["dist/src/cli.js", "skills/ai-slop-linter/SKILL.md"], { encoding: "utf8" });
+  const run = spawnSync(process.execPath, ["dist/src/cli.js", "plugin/skills/ai-slop-linter/SKILL.md"], { encoding: "utf8" });
   assert.equal(run.status, 0, run.stdout + run.stderr);
 });
 
@@ -110,7 +110,7 @@ test("SKILL.md keeps a CI pointer section that sends the agent to references/ci.
 });
 
 test("references/ci.md lints clean", () => {
-  const run = spawnSync(process.execPath, ["dist/src/cli.js", "--warn", "skills/ai-slop-linter/references/ci.md"], { encoding: "utf8" });
+  const run = spawnSync(process.execPath, ["dist/src/cli.js", "--warn", "plugin/skills/ai-slop-linter/references/ci.md"], { encoding: "utf8" });
   assert.match(run.stdout, /, 0 findings\)/, run.stdout + run.stderr);
 });
 
@@ -202,7 +202,7 @@ test("the CI section covers the README, the CHANGELOG and a README that quotes a
 
 // The reference files the skill makes the agent read after the linter (round 2 plan item 3). The agent
 // reads one on every rewrite, so each stays small, names its source, and passes the linter it serves.
-const REFERENCES = ["en", "fr", "de", "es", "pt", "nl", "pl", "id", "tr"].map((l) => `skills/ai-slop-linter/references/${l}.md`);
+const REFERENCES = ["en", "fr", "de", "es", "pt", "nl", "pl", "id", "tr"].map((l) => `plugin/skills/ai-slop-linter/references/${l}.md`);
 
 test("SKILL.md names every reference file, says when to read it and that a failing compare blocks", () => {
   for (const file of ["references/", "en.md", "fr.md", "de.md", "es.md", "pt.md", "nl.md", "pl.md", "id.md", "tr.md"]) {
@@ -235,8 +235,8 @@ for (const file of REFERENCES) {
 test("the reference files adapted from a competitor name its commit in the source note and in the notices", () => {
   const notices = readFileSync("THIRD-PARTY-NOTICES.md", "utf8");
   for (const [file, commit] of [
-    ["skills/ai-slop-linter/references/en.md", "38912ce43453129c63eef958bf65faef4833c18e"],
-    ["skills/ai-slop-linter/references/de.md", "d65241e66f2b0e0d0b305cb55dadbffac0f9ef52"],
+    ["plugin/skills/ai-slop-linter/references/en.md", "38912ce43453129c63eef958bf65faef4833c18e"],
+    ["plugin/skills/ai-slop-linter/references/de.md", "d65241e66f2b0e0d0b305cb55dadbffac0f9ef52"],
   ]) {
     assert.ok(readFileSync(file, "utf8").split("\n")[2].includes(commit), `${file} does not name ${commit}`);
     assert.ok(notices.includes(file), `THIRD-PARTY-NOTICES.md does not name ${file}`);
@@ -264,7 +264,7 @@ test("How to work asks for the minimal edit, an outline for long texts and a sec
 // Round 3 plan items 5 to 8 and 14: two tiers per reference file, the load-bearing metaphor family in
 // all four, participle and gerund tails in fr/de/es, and the CC0 words (Juzek 2026) in the second tier.
 for (const lang of ["en", "fr", "de", "es"]) {
-  const file = `skills/ai-slop-linter/references/${lang}.md`;
+  const file = `plugin/skills/ai-slop-linter/references/${lang}.md`;
   test(`${file} has the two tiers, in order, and the load-bearing metaphor family with literal uses kept`, () => {
     const text = readFileSync(file, "utf8");
     const one = text.indexOf("\n## Act on one sighting\n");
@@ -283,7 +283,7 @@ for (const lang of ["en", "fr", "de", "es"]) {
 
 test("the reference files quote every tell in backticks: the CLI with no --warn filter finds nothing in them", () => {
   for (const lang of ["en", "fr", "de", "es", "pt", "nl", "pl", "id", "tr"]) {
-    const run = spawnSync(process.execPath, ["dist/src/cli.js", "--language", "en", `skills/ai-slop-linter/references/${lang}.md`], { encoding: "utf8" });
+    const run = spawnSync(process.execPath, ["dist/src/cli.js", "--language", "en", `plugin/skills/ai-slop-linter/references/${lang}.md`], { encoding: "utf8" });
     assert.equal(run.status, 0, run.stdout + run.stderr);
   }
 });

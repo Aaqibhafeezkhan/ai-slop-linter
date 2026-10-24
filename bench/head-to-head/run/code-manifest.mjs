@@ -21,7 +21,7 @@ export function listFiles(dir, rel = "") {
 }
 
 const sha = (buf) => createHash("sha256").update(buf).digest("hex");
-const matters = (r) => (r.startsWith("dist/") && r.endsWith(".js")) || r.startsWith("skills/") || r.startsWith("hooks/") || r.startsWith(".claude-plugin/");
+const matters = (r) => (r.startsWith("dist/") && r.endsWith(".js")) || r.startsWith("skills/") || r.startsWith("plugin/") || r.startsWith("hooks/") || r.startsWith(".claude-plugin/");
 
 export function manifest(dir, all = false) {
   const files = listFiles(dir).filter((r) => all || matters(r)).sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));

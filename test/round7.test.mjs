@@ -171,7 +171,7 @@ test("rebuild hint: clean text and short sentences with a finding never get it",
 });
 
 // E1, E4, E5, E6: SKILL.md.
-const skill = readFileSync("skills/ai-slop-linter/SKILL.md", "utf8");
+const skill = readFileSync("plugin/skills/ai-slop-linter/SKILL.md", "utf8");
 test("SKILL.md round 7: support test, read-back, clean-text rule and first action are written", () => {
   assert.match(skill, /names a (?:concrete )?reason/i);
   assert.match(skill, /read-back|read back/i);

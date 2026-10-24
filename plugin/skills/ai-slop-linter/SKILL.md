@@ -1,6 +1,7 @@
 ---
 name: ai-slop-linter
 description: Use whenever you write, edit, rewrite, clean up, polish, proofread or "make ready to ship" any prose a person will read, in any language (commit message, PR description, README, docs, release notes, launch notes, article), or for réécris, reescribe, schreib um, yeniden yaz. Run `npx ai-slop-linter` on it and fix every finding. Also use when text "reads like an AI wrote it", "sounds like ChatGPT" or sounds robotic, to humanize or de-slop it, to make it sound natural or more human, to remove em dashes, or to set up a CI check on prose or docs.
+license: MIT
 ---
 
 # ai-slop-linter

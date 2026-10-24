@@ -46,9 +46,13 @@ EN_RES="$(printf '%s' "$EN_OUT" | node -e 'let s="";process.stdin.on("data",d=>s
 if [ "$EN_RES" != "unreadable" ] && [ "$EN_RES" -ge 1 ] 2>/dev/null; then record PASS dash "English line with an em dash: $EN_RES dash finding(s)"
 else record FAIL dash "English line with an em dash gave '$EN_RES' (want at least 1)"; fi
 
-if git -C "$REPO" show "$SHA:skills/ai-slop-linter/SKILL.md" 2>/dev/null | cmp -s - "$CODE/skills/ai-slop-linter/SKILL.md"; then
-  record PASS skill "skills/ai-slop-linter/SKILL.md is byte-identical to the one at $SHA"
-else record FAIL skill "skills/ai-slop-linter/SKILL.md differs from the one at $SHA (or is missing)"; fi
+SKILL_PATH="skills/ai-slop-linter/SKILL.md"
+if git -C "$REPO" cat-file -e "$SHA:plugin/$SKILL_PATH" 2>/dev/null; then SKILL_PATH="plugin/$SKILL_PATH"; fi
+CODE_SKILL="$SKILL_PATH"
+if [ ! -e "$CODE/$CODE_SKILL" ] && [ -e "$CODE/skills/ai-slop-linter/SKILL.md" ]; then CODE_SKILL="skills/ai-slop-linter/SKILL.md"; fi
+if git -C "$REPO" show "$SHA:$SKILL_PATH" 2>/dev/null | cmp -s - "$CODE/$CODE_SKILL"; then
+  record PASS skill "$SKILL_PATH is byte-identical to the one at $SHA"
+else record FAIL skill "$SKILL_PATH differs from the one at $SHA (or is missing)"; fi
 
 if [ "$FAILED" -ne 0 ]; then
   echo "verify-code: the copy $CODE is not the build under test:" >&2

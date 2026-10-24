@@ -24,7 +24,7 @@ Browser playground (runs the same engine in your tab, no install): https://bubbl
 - [commitlint plugin](integrations/commitlint/index.mjs): rule `ai-slop-linter/tells`; config at `ai-slop-linter/commitlint/config`
 - [textlint rule](textlint-rule-ai-slop/README.md): package `textlint-rule-ai-slop`
 - [VS Code extension](vscode/README.md)
-- [Skill](skills/ai-slop-linter/SKILL.md): the rules in prose, for an agent that has no shell
+- [Skill](plugin/skills/ai-slop-linter/SKILL.md): the rules in prose, for an agent that has no shell
 - [API](src/index.ts): lintText, fixText, rules, gradeFor, prepare
 - [Contributing](CONTRIBUTING.md): tests, adding a rule, severities, releasing
 

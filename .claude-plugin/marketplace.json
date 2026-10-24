@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "ai-slop-linter",
-      "source": "./",
+      "source": "./plugin",
       "description": "Lints prose for AI-sounding phrases and em dashes. Makes the agent check its commit messages, pull request descriptions and docs before it ships them.",
       "category": "writing",
       "keywords": ["ai-slop", "humanizer", "writing", "commits", "pull-requests", "em-dash"]

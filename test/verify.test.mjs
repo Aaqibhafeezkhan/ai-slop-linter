@@ -106,12 +106,12 @@ test("verify: takes two files and does not combine with --compare or --json", ()
 
 test("the tells files exist for en, de, fr and es, parse, and ship in the package", async () => {
   const pkg = JSON.parse((await import("node:fs")).readFileSync("package.json", "utf8"));
-  assert.ok(pkg.files.includes("skills"));
+  assert.ok(pkg.files.includes("plugin/skills"));
   for (const lang of ["en", "de", "fr", "es"]) assert.ok(loadCatalog(lang).length > 10, lang);
   // every regex entry compiles (loadCatalog skips a broken one silently, so count the lines)
   const { readFileSync } = await import("node:fs");
   for (const lang of ["en", "de", "fr", "es"]) {
-    const lines = readFileSync(`skills/ai-slop-linter/references/${lang}.tells.txt`, "utf8").split("\n").filter((l) => l.trim() && !l.startsWith("#"));
+    const lines = readFileSync(`plugin/skills/ai-slop-linter/references/${lang}.tells.txt`, "utf8").split("\n").filter((l) => l.trim() && !l.startsWith("#"));
     assert.equal(loadCatalog(lang).length, lines.length, `${lang}: an entry did not compile`);
   }
 });

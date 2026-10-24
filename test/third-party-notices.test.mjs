@@ -8,7 +8,7 @@ import { readFileSync } from "node:fs";
 // named in the notices too.
 const notices = readFileSync("THIRD-PARTY-NOTICES.md", "utf8");
 const candidates = readFileSync("bench/packs/CANDIDATES.md", "utf8");
-const skill = readFileSync("skills/ai-slop-linter/SKILL.md", "utf8");
+const skill = readFileSync("plugin/skills/ai-slop-linter/SKILL.md", "utf8");
 
 const COPYRIGHT = [
   "Copyright (c) 2026 Jean-Luc Winkler", // unslop

@@ -74,7 +74,7 @@ test("docs/HEAD-TO-HEAD.md discloses its known limits and has a criteria-repairs
 
 test("the skill's CI recipe installs @latest and states the 0.2.0 requirement", () => {
   // The recipe moved from SKILL.md to references/ci.md in round 3.
-  const skill = read("skills/ai-slop-linter/references/ci.md");
+  const skill = read("plugin/skills/ai-slop-linter/references/ci.md");
   assert.ok(skill.includes("npm install --save-dev ai-slop-linter@latest"));
   assert.match(skill, /`--compare`, per-file language detection and the French rule need ai-slop-linter 0\.2\.0 or later/);
   assert.match(read("README.md"), /Its `--compare`, per-file language detection and French rule need ai-slop-linter 0\.2\.0 or later/);

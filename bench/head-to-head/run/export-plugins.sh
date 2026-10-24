@@ -15,9 +15,11 @@ export_plugin() {
   rm -rf "$dest" || return 1
   mkdir -p "$dest" || return 1
   if [ "$arm" = "ours" ]; then
-    local item
+    local item base="$src"
+    # Layout since 0.2.1: the plugin lives in plugin/. Older commits keep it at the repository root.
+    if [ -e "$src/plugin/.claude-plugin" ]; then base="$src/plugin"; fi
     for item in .claude-plugin skills hooks; do
-      if [ -e "$src/$item" ]; then cp -R "$src/$item" "$dest/$item" || return 1; fi
+      if [ -e "$base/$item" ]; then cp -R "$base/$item" "$dest/$item" || return 1; fi
     done
   else
     (cd "$src" && tar --exclude=.git -cf - .) | (cd "$dest" && tar -xf -) || return 1

@@ -1,5 +1,5 @@
 /**
- * The machine-readable tell catalogs behind `--verify`: `skills/ai-slop-linter/references/<lang>.tells.txt`.
+ * The machine-readable tell catalogs behind `--verify`: `plugin/skills/ai-slop-linter/references/<lang>.tells.txt`.
  * One entry per line, a case-insensitive phrase or `re:<pattern>`; `#` starts a comment.
  * A scan reads the document's masked text (code, front matter, URLs and comments already blanked
  * by `prepare`) and also blanks quoted text and dialogue lines, so a quoted tell is never a hit.
@@ -18,7 +18,7 @@ export interface CatalogHit {
 const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 /** Where the catalogs live, relative to dist/src/ in the installed package. */
-export const REFERENCES_DIR = fileURLToPath(new URL("../../skills/ai-slop-linter/references/", import.meta.url));
+export const REFERENCES_DIR = fileURLToPath(new URL("../../plugin/skills/ai-slop-linter/references/", import.meta.url));
 
 /** The compiled entries for one language tag; a missing or unreadable file gives none. */
 export function loadCatalog(tag: string, dir: string = REFERENCES_DIR): RegExp[] {

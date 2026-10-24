@@ -62,7 +62,7 @@
   "files": [
     "dist/src",
     "integrations",
-    "skills",
+    "plugin/skills",
     "README.md",
     "THIRD-PARTY-NOTICES.md",
     "LICENSE"

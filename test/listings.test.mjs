@@ -50,13 +50,13 @@ test("the VS Code listing matches vscode/package.json", () => {
 });
 
 test("the skills.sh description is the SKILL.md description, unchanged", () => {
-  const front = /^description: (.+)$/m.exec(readFileSync("skills/ai-slop-linter/SKILL.md", "utf8"));
+  const front = /^description: (.+)$/m.exec(readFileSync("plugin/skills/ai-slop-linter/SKILL.md", "utf8"));
   assert.equal(field("skills.sh", "Description"), front[1]);
 });
 
 test("the Claude Code plugin listing matches plugin.json and marketplace.json", () => {
   const text = field("Claude Code plugin directory", "Short description");
-  assert.equal(json(".claude-plugin/plugin.json").description, text);
+  assert.equal(json("plugin/.claude-plugin/plugin.json").description, text);
   assert.equal(json(".claude-plugin/marketplace.json").plugins[0].description, text);
-  assert.deepEqual(list(field("Claude Code plugin directory", "Keywords")), json(".claude-plugin/plugin.json").keywords);
+  assert.deepEqual(list(field("Claude Code plugin directory", "Keywords")), json("plugin/.claude-plugin/plugin.json").keywords);
 });
