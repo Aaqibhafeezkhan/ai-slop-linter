@@ -1,6 +1,6 @@
 {
   "name": "textlint-rule-ai-slop",
-  "version": "0.1.10",
+  "version": "0.2.0",
   "description": "textlint rule that flags AI-sounding phrases and em dashes in Markdown and text, with line numbers and safe fixes. Runs the ai-slop-linter rules.",
   "keywords": ["textlint", "textlintrule", "ai-slop", "ai-writing", "lint-ai-writing", "detect-ai-writing", "em-dash", "markdown", "prose-linter", "linter"],
   "license": "MIT",
@@ -16,7 +16,7 @@
   "main": "index.mjs",
   "exports": { ".": "./index.mjs" },
   "files": ["index.mjs", "README.md", "LICENSE"],
-  "dependencies": { "ai-slop-linter": "^0.1.10" },
+  "dependencies": { "ai-slop-linter": "^0.2.0" },
   "peerDependencies": { "textlint": ">=13" },
   "publishConfig": { "access": "public", "provenance": true }
 }

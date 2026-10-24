@@ -2,7 +2,7 @@
   "name": "ai-slop-linter-vscode",
   "displayName": "AI Slop Linter",
   "description": "Flags AI-sounding phrases and em dashes in Markdown, plain text and commit messages while you type, with safe quick fixes.",
-  "version": "0.1.10",
+  "version": "0.2.0",
   "publisher": "bubblegunn",
   "license": "MIT",
   "author": "Efe Genc",

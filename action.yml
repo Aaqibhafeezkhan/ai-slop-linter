@@ -32,7 +32,7 @@ inputs:
   version:
     description: ai-slop-linter version to run.
     required: false
-    default: "0.1.10"
+    default: "0.2.0"
   package:
     description: For testing this Action. An npm package spec to run in place of the published `version`, such as a directory or a tarball from `npm pack`. Leave empty.
     required: false

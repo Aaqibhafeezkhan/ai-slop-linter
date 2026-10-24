@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.0 (unreleased)
+## 0.2.0 (2026-10-24)
 
 **`--compare` reads more facts in more languages, and `--verify` says when a language has no tell catalog.** `--compare` now reads grouped and currency-glued numbers, spelled-out numbers (read by value, so `three` matches `3`), month names of eleven languages, and the person, claim, qualifier and unit words of Dutch, Portuguese, Italian, Polish, Indonesian and Turkish. The agent skill's prompt hook fires on rewrite requests in Polish and Indonesian. The skill has reference files for Dutch, Polish, Indonesian and Turkish, and a step that audits the claims of the source against the rewrite. `--verify` prints a `note:` line when the text's language has no phrase catalog, so a clean pass there is not read as a full check; the exit code does not change.
 
