@@ -1,5 +1,6 @@
 {
   "name": "ai-slop-linter",
+  "displayName": "ai-slop-linter",
   "version": "0.2.0",
   "description": "Lints prose for AI-sounding phrases and em dashes. Makes the agent check its commit messages, pull request descriptions and docs before it ships them.",
   "author": {
@@ -18,5 +19,9 @@
     "em-dash",
     "commit-messages"
   ],
+  "documentationUrl": "https://github.com/Bubblegunn/ai-slop-linter#readme",
+  "supportUrl": "https://github.com/Bubblegunn/ai-slop-linter/issues",
+  "privacyPolicyUrl": "https://github.com/Bubblegunn/ai-slop-linter/blob/main/PRIVACY.md",
+  "termsOfServiceUrl": "https://github.com/Bubblegunn/ai-slop-linter/blob/main/LICENSE",
   "skills": "./skills"
 }
