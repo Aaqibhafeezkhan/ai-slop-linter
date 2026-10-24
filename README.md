@@ -251,7 +251,7 @@ To silence a finding you have judged wrong:
 
 ## Commit message rules
 
-`--commit`, `--commit-msg` and `--pr` also run these rules, which only a commit message or a pull request description gets. The phrase lists are adapted from [tbhb/vale-ai-tells](https://github.com/tbhb/vale-ai-tells) by Tony Burns (MIT); `commit-procedural-assurance` comes from Wikipedia's Signs of AI writing page. `bench/COMMIT-RULES.md` shows how each was measured on commits written before 2021.
+`--commit`, `--commit-msg` and `--pr` also run these rules, which only a commit message or a pull request description gets. The phrase lists are adapted from [tbhb/vale-ai-tells](https://github.com/tbhb/vale-ai-tells) by Tony Burns (MIT); `commit-procedural-assurance` comes from Wikipedia's Signs of AI writing page and was written by [@Nitjsefnie](https://github.com/Nitjsefnie) ([#75](https://github.com/Bubblegunn/ai-slop-linter/pull/75)). `bench/COMMIT-RULES.md` shows how each was measured on commits written before 2021.
 
 | rule | what it flags |
 |---|---|

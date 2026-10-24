@@ -2,6 +2,8 @@
 
 ## 0.2.1 (unreleased)
 
+**A commit-message rule for procedural assurances.** `commit-procedural-assurance` (warning) flags `while preserving|retaining|maintaining|ensuring` and `without changing|breaking|altering` in a commit message or pull request description, because the promise names no fact a reader can check. The bare verbs, inline code and trailer lines are not read. On 4,000 commit messages written before 2021 (django and flask) it has no hit, and none on the 4 machine messages of `bench/COMMIT-RULES.md`; the evidence is English only. The rule is by [@Nitjsefnie](https://github.com/Nitjsefnie), their first contribution here ([#75](https://github.com/Bubblegunn/ai-slop-linter/pull/75), issue [#57](https://github.com/Bubblegunn/ai-slop-linter/issues/57)).
+
 **A study design for measuring other prose linters on the corpus.** [bench/EXTERNAL-TOOLS.md](bench/EXTERNAL-TOOLS.md) fixes, before any number exists, how `vale-ai-tells`, `slop-guard` and SlopMonster will be run next to this tool on the ten files of `bench/corpus`: the inputs, the version and command to record for each tool, findings per 1,000 words per file and per set, native scores kept in their own columns, a repeat run from a clean environment, and what a higher, a lower or a zero rate would and would not mean. It reports no results, and it rules out an accuracy score, a winner and a leaderboard. The design is by [@Aaqibhafeezkhan](https://github.com/Aaqibhafeezkhan) ([#73](https://github.com/Bubblegunn/ai-slop-linter/pull/73), issue [#19](https://github.com/Bubblegunn/ai-slop-linter/issues/19), which stays open until the run is published).
 
 ## 0.2.0 (2026-10-24)
