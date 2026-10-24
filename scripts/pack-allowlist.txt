@@ -63,6 +63,8 @@ integrations/commitlint/index.mjs
 integrations/textlint/index.d.mts
 integrations/textlint/index.mjs
 package.json
+plugin/LICENSE
+plugin/README.md
 plugin/skills/ai-slop-linter/SKILL.md
 plugin/skills/ai-slop-linter/references/ci.md
 plugin/skills/ai-slop-linter/references/de.md
