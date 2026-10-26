@@ -1,6 +1,6 @@
 {
   "name": "ai-slop-linter",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "ai-slop-linter is a linter that flags AI-sounding phrases and em dashes in commit messages, pull request descriptions and Markdown docs, and runs in CI.",
   "keywords": [
     "ai-slop",

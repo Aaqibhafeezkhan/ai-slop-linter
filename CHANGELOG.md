@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.1 (unreleased)
+## 0.2.1 (2026-10-26)
 
 **Why CT² cannot serve as a pre-2021 Hindi control.** [docs/hindi-ct2-publication-dates.md](docs/hindi-ct2-publication-dates.md) records that the CT² Hindi dataset (1,762 BBC Hindi and 5,281 NDTV human articles) has no publication-date field, so a date split inside it cannot be justified and an independent pre-2021 corpus is needed; it notes the register mismatch if Hindi Wikipedia is used instead, and links the open question to the CT² authors. The Hindi negative result links it from "What would have changed the answer". Written by [@shivam-070208](https://github.com/shivam-070208) ([#71](https://github.com/Bubblegunn/ai-slop-linter/pull/71)); in review the note moved from `bench/` to `docs/`, and a date range taken from analysis output nothing in the repository reproduces was removed.
 

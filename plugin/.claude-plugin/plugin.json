@@ -1,7 +1,7 @@
 {
   "name": "ai-slop-linter",
   "displayName": "ai-slop-linter",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Lints prose for AI-sounding phrases and em dashes. Makes the agent check its commit messages, pull request descriptions and docs before it ships them.",
   "author": {
     "name": "Efe Genc",
