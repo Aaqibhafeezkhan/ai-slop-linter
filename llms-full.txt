@@ -570,6 +570,10 @@ answers are written down whether or not they flattered the tool.
   against the CT² Hindi corpus (7,043 human articles, five models); every one rejected, with the
   reason stated. A frequency ratio is not a tell, and a pattern strong in one model is a fact
   about that model.
+  Whether CT² itself could serve as a pre-2021 control is answered in
+  [CT² Hindi publication dates](docs/hindi-ct2-publication-dates.md), also by
+  [@shivam-070208](https://github.com/shivam-070208): its metadata cannot establish when the
+  articles were published, so it cannot.
 
 ## Cite this
 
@@ -586,6 +590,23 @@ limits are in [docs/SARIF.md](docs/SARIF.md).
 Adding a rule is one function, one fixture sentence and one table row; see
 [CONTRIBUTING.md](CONTRIBUTING.md), which also describes the one-command release. Zero runtime
 dependencies, Node 20 or newer, tests with `node:test`.
+
+## Contributors
+
+Outside contributions, by the people who wrote them:
+
+- [@Aaqibhafeezkhan](https://github.com/Aaqibhafeezkhan): SARIF output and valid artifact URIs
+  ([#41](https://github.com/Bubblegunn/ai-slop-linter/pull/41), [#63](https://github.com/Bubblegunn/ai-slop-linter/pull/63)),
+  the `reference-markup` rule ([#46](https://github.com/Bubblegunn/ai-slop-linter/pull/46)), the pre-commit hooks
+  ([#27](https://github.com/Bubblegunn/ai-slop-linter/pull/27)), the `bold-label` role-list documentation
+  ([#72](https://github.com/Bubblegunn/ai-slop-linter/pull/72)) and the external-tools study design
+  ([#73](https://github.com/Bubblegunn/ai-slop-linter/pull/73)).
+- [@Nitjsefnie](https://github.com/Nitjsefnie): the `commit-procedural-assurance` rule
+  ([#75](https://github.com/Bubblegunn/ai-slop-linter/pull/75)) and the end position of every finding
+  ([#76](https://github.com/Bubblegunn/ai-slop-linter/pull/76)).
+- [@shivam-070208](https://github.com/shivam-070208): the Hindi negative result
+  ([#24](https://github.com/Bubblegunn/ai-slop-linter/pull/24)) and the CT² publication-date note
+  ([#71](https://github.com/Bubblegunn/ai-slop-linter/pull/71)).
 
 ## Licence
 
