@@ -594,8 +594,9 @@ Outside contributions, by the people who wrote them:
   ([#72](https://github.com/Bubblegunn/ai-slop-linter/pull/72)) and the external-tools study design
   ([#73](https://github.com/Bubblegunn/ai-slop-linter/pull/73)).
 - [@Nitjsefnie](https://github.com/Nitjsefnie): the `commit-procedural-assurance` rule
-  ([#75](https://github.com/Bubblegunn/ai-slop-linter/pull/75)) and the end position of every finding
-  ([#76](https://github.com/Bubblegunn/ai-slop-linter/pull/76)).
+  ([#75](https://github.com/Bubblegunn/ai-slop-linter/pull/75)), the end position of every finding
+  ([#76](https://github.com/Bubblegunn/ai-slop-linter/pull/76)) and a documentation page per rule, linked from SARIF
+  ([#77](https://github.com/Bubblegunn/ai-slop-linter/pull/77)).
 - [@shivam-070208](https://github.com/shivam-070208): the Hindi negative result
   ([#24](https://github.com/Bubblegunn/ai-slop-linter/pull/24)) and the CT² publication-date note
   ([#71](https://github.com/Bubblegunn/ai-slop-linter/pull/71)).
