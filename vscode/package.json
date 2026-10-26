@@ -110,5 +110,8 @@
     "ai-slop-linter": "file:..",
     "esbuild": "0.28.2",
     "typescript": "7.0.2"
+  },
+  "overrides": {
+    "@azure/msal-node": "7.1.0"
   }
 }
