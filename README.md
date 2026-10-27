@@ -16,7 +16,7 @@ Benchmark: [round 8 result](#how-it-compares). Write-up: [Humanizer has about 60
 
 <p align="center">
   <a href="https://www.npmjs.com/package/ai-slop-linter"><img src="https://img.shields.io/npm/v/ai-slop-linter?style=flat-square&color=111111&label=npm" alt="npm version"></a>
-  <a href="https://www.npmjs.com/package/ai-slop-linter"><img src="https://img.shields.io/npm/dm/ai-slop-linter?style=flat-square&color=111111" alt="npm downloads per month"></a>
+  <a href="https://www.npmjs.com/package/ai-slop-linter"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FBubblegunn%2Fai-slop-linter%2Fmetrics%2Fbadges%2Fnpm-week.json&style=flat-square" alt="npm downloads per week"></a>
   <a href="https://github.com/Bubblegunn/ai-slop-linter/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/Bubblegunn/ai-slop-linter/ci.yml?style=flat-square&color=111111&label=ci" alt="ci"></a>
   <img src="https://img.shields.io/badge/dependencies-0-111111?style=flat-square" alt="zero dependencies">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-111111?style=flat-square" alt="MIT licence"></a>

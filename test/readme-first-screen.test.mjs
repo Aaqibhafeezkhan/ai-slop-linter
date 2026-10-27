@@ -21,7 +21,10 @@ test("the recording sits on the first screen and is referenced by a relative pat
   const img = lines.slice(0, 20).findIndex((l) => /^!\[[^\]]+\]\(docs\/demo\.gif\)$/.test(l));
   assert.ok(img >= 0, "no ![...](docs/demo.gif) in the first twenty lines");
   const images = [...readme.matchAll(/!\[[^\]]*\]\(([^)\s]+)\)|<img[^>]*\bsrc="([^"]+)"/g)].map((m) => m[1] ?? m[2]);
-  assert.deepEqual(images.filter((u) => /raw\.githubusercontent\.com/.test(u)), [], "an image uses a raw.githubusercontent.com URL");
+  // The image itself must not be served from raw.githubusercontent.com. A shields endpoint badge
+  // carries such a URL as its ?url= parameter, but the image comes from img.shields.io.
+  const host = (u) => (/^https?:/.test(u) ? new URL(u.replace(/&amp;/g, "&")).host : "");
+  assert.deepEqual(images.filter((u) => host(u) === "raw.githubusercontent.com"), [], "an image uses a raw.githubusercontent.com URL");
 });
 
 test("no star badge, and no badge that shows a single-digit count", () => {
