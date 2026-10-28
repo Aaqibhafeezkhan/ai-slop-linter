@@ -8,6 +8,8 @@ dist/src/catalog.d.ts
 dist/src/catalog.js
 dist/src/chain.d.ts
 dist/src/chain.js
+dist/src/rules/chatbot-tracking.d.ts
+dist/src/rules/chatbot-tracking.js
 dist/src/cli.d.ts
 dist/src/cli.js
 dist/src/commit-phrases.d.ts

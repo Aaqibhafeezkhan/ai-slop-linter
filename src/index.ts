@@ -5,6 +5,7 @@ import { notXButY, triad, reveal, ingTail, inflated } from "./rules/construction
 import { aiVocabulary, sales, filler } from "./rules/vocabulary.js";
 import { chatbot, announcing, closer, challenges, vagueSource, cutoff } from "./rules/residue.js";
 import { referenceMarkup } from "./rules/reference-markup.js";
+import { chatbotTracking } from "./rules/chatbot-tracking.js";
 import { frRules } from "./rules/fr.js";
 import { boldLabel, titleCase, emoji, curlyQuotes, hyphenDensity, invisibleCharacter } from "./rules/formatting.js";
 import { PARAGRAPH_DETECT, detectLanguage, frontMatterLanguage, splitParagraphs } from "./lang.js";
@@ -37,6 +38,7 @@ export const rules: Rule[] = [
   challenges,
   hyphenDensity,
   referenceMarkup,
+  chatbotTracking,
   invisibleCharacter,
 ];
 

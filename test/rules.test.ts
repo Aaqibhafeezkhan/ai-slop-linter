@@ -85,6 +85,47 @@ test("reference markup: every alternative is covered individually and masked tok
 });
 
 
+
+test("chatbot-tracking: each parameter is detected in inline links, reference definitions and bare URLs", () => {
+  const lines = [
+    "[openai inline](https://example.com/?utm_source=openai)",
+    "[chatgpt inline](https://example.com/?utm_source=chatgpt.com)",
+    "[copilot inline](https://example.com/?utm_source=copilot.com)",
+    "[grok inline](https://example.com/?referrer=grok.com)",
+    "[openai-ref]: https://example.com/?utm_source=openai",
+    "[chatgpt-ref]: https://example.com/?utm_source=chatgpt.com",
+    "[copilot-ref]: https://example.com/?utm_source=copilot.com",
+    "[grok-ref]: https://example.com/?referrer=grok.com",
+    "https://example.com/?utm_source=openai",
+    "https://example.com/?utm_source=chatgpt.com",
+    "https://example.com/?utm_source=copilot.com",
+    "https://example.com/?referrer=grok.com",
+  ];
+  const findings = lintText("tracking.md", lines.join("\n")).findings.filter((f) => f.rule === "chatbot-tracking");
+  assert.equal(findings.length, lines.length);
+  assert.deepEqual(findings.map((f) => f.message.match(/"(.*?)"/)?.[1]), [
+    "utm_source=openai", "utm_source=chatgpt.com", "utm_source=copilot.com", "referrer=grok.com",
+    "utm_source=openai", "utm_source=chatgpt.com", "utm_source=copilot.com", "referrer=grok.com",
+    "utm_source=openai", "utm_source=chatgpt.com", "utm_source=copilot.com", "referrer=grok.com",
+  ]);
+});
+
+test("chatbot-tracking: markers in inline and fenced code are ignored", () => {
+  const text = [
+    "Inline `https://example.com/?utm_source=openai` stays unchanged.",
+    "Inline `https://example.com/?utm_source=chatgpt.com` stays unchanged.",
+    "Inline `https://example.com/?utm_source=copilot.com` stays unchanged.",
+    "Inline `https://example.com/?referrer=grok.com` stays unchanged.",
+    "```text",
+    "https://example.com/?utm_source=openai",
+    "https://example.com/?utm_source=chatgpt.com",
+    "https://example.com/?utm_source=copilot.com",
+    "https://example.com/?referrer=grok.com",
+    "```",
+  ].join("\n");
+  assert.deepEqual(lintText("tracking.md", text).findings.filter((f) => f.rule === "chatbot-tracking"), []);
+});
+
 // Round 3 plan item 17: invisible characters, an idea from everwrite's scripts/tells.py (MIT); our code.
 test("invisible-character: each invisible character in Latin-script prose is one finding, named, and --fix deletes it", () => {
   const found = (text: string) => lintText("invisible.md", text).findings.filter((f) => f.rule === "invisible-character");
@@ -138,7 +179,7 @@ test("masking: patterns inside code blocks, inline code, URLs and front matter a
   sloppy.split("\n").forEach((l, i) => {
     if (/this — is code|code — with a dash|example\.com|^title:/.test(l)) codeLines.add(i + 1);
   });
-  for (const f of r.findings) assert.ok(!codeLines.has(f.line) || f.rule === "dash" && !/code|example|title/.test(f.excerpt), `${f.rule} fired on masked line ${f.line}: ${f.excerpt}`);
+  for (const f of r.findings) assert.ok(!codeLines.has(f.line) || f.rule === "dash" && !/code|example|title/.test(f.excerpt) || f.rule === "chatbot-tracking" && /utm_source=chatgpt\.com/.test(f.excerpt), `${f.rule} fired on masked line ${f.line}: ${f.excerpt}`);
   // the fenced block line with "let's dive in" must not produce an announcing finding
   assert.ok(!r.findings.some((f) => f.rule === "announcing" && f.excerpt.includes("is code")));
 });

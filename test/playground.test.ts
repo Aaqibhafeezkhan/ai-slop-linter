@@ -59,6 +59,7 @@ test("the assembled page carries the engine and nothing that needs Node", () => 
       "engine/index.js",
       "engine/lang.js",
       "engine/meta.js",
+      "engine/rules/chatbot-tracking.js",
       "engine/rules/constructions.js",
       "engine/rules/dashes.js",
       "engine/rules/formatting.js",
@@ -147,7 +148,7 @@ test("the page states the version and rule set it is actually running", async ()
     const pkg = JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8")) as { version: string };
     assert.equal(meta.VERSION, pkg.version, "the page would advertise a version it is not running");
     const engine = await import(pathToFileURL(join(site, "engine", "index.js")).href);
-    assert.equal(engine.rules.length, 22);
+    assert.equal(engine.rules.length, 23);
     // Every rule the page can show a panel for carries the material that panel needs.
     for (const r of engine.rules) {
       assert.ok(r.why && r.source && r.ignoreWhen && r.example?.before && r.example?.after, `${r.id} is missing --explain material`);
