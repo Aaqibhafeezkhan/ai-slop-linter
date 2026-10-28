@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { execFileSync, spawnSync } from "node:child_process";
 import { mkdtemp, writeFile, readFile, rm, mkdir } from "node:fs/promises";
-import { readFileSync } from "node:fs";
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { lintText, rules } from "../src/index.js";
@@ -346,4 +346,19 @@ test("--rules lists the commit rules and --explain explains one", () => {
   const e = run(["--explain", "commit-hedging"]);
   assert.equal(e.code, 0);
   assert.match(e.out, /^commit-hedging {2}warning/);
+});
+
+test("a failing run piped to stdout keeps the whole report (issue #78)", () => {
+  const dir = mkdtempSync(join(tmpdir(), "slop-pipe-"));
+  try {
+    const big = join(dir, "big.md");
+    writeFileSync(big, readFileSync(join(fixtures, "sloppy.md"), "utf8").repeat(60));
+    // A large buffer: the report is over 1 MiB now, and spawnSync's default would kill the child.
+    const r = spawnSync("node", [cli, "--format", "json", big], { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
+    assert.equal(r.status, 1);
+    assert.ok(r.stdout.length > 65536, `stdout cut at ${r.stdout.length} bytes`);
+    assert.doesNotThrow(() => JSON.parse(r.stdout));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
 });

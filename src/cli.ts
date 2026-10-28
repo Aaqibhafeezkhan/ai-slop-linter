@@ -574,7 +574,7 @@ async function main() {
       console.error(err instanceof Error ? err.message : String(err));
       process.exit(2);
     }
-    if (problems > 0) process.exit(1);
+    if (problems > 0) process.exitCode = 1;
     return;
   }
   if (o.compare) {
@@ -585,7 +585,7 @@ async function main() {
       console.error(err instanceof Error ? err.message : String(err));
       process.exit(2);
     }
-    if (differs) process.exit(1);
+    if (differs) process.exitCode = 1;
     return;
   }
   if (o.init !== undefined) {
@@ -702,7 +702,8 @@ async function main() {
   const failing = results.filter((r) => r.errors > 0 || (r.score !== null && r.score > limitFor(r.path)));
   const exitCode = failing.length && !o.warn ? 1 : 0;
   maybeStarHint(process.env, process.stdout, starHintArgs(o, results, exitCode), realFs);
-  if (exitCode !== 0) process.exit(1);
+  // Set the code and return: process.exit would drop piped stdout that Node has not flushed yet.
+  process.exitCode = exitCode;
 }
 
 const withoutFix = (f: Finding) => ({ rule: f.rule, severity: f.severity, line: f.line, column: f.column, endLine: f.endLine, endColumn: f.endColumn, excerpt: f.excerpt, message: f.message, fixable: !!f.fix });
