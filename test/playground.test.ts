@@ -18,7 +18,7 @@ import { cpSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, stat
 import { tmpdir } from "node:os";
 import { join, relative, sep } from "node:path";
 import { pathToFileURL } from "node:url";
-import { lintText } from "../src/index.js";
+import { lintText, rules } from "../src/index.js";
 
 const ROOT = process.cwd();
 const BUILD = join(ROOT, "scripts", "playground-build.mjs");
@@ -148,7 +148,7 @@ test("the page states the version and rule set it is actually running", async ()
     const pkg = JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8")) as { version: string };
     assert.equal(meta.VERSION, pkg.version, "the page would advertise a version it is not running");
     const engine = await import(pathToFileURL(join(site, "engine", "index.js")).href);
-    assert.equal(engine.rules.length, 23);
+    assert.equal(engine.rules.length, rules.length);
     // Every rule the page can show a panel for carries the material that panel needs.
     for (const r of engine.rules) {
       assert.ok(r.why && r.source && r.ignoreWhen && r.example?.before && r.example?.after, `${r.id} is missing --explain material`);

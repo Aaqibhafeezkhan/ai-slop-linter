@@ -35,4 +35,4 @@ The pasted answer hid a zero-width space​ inside this sentence.
 
 The migration ships while preserving the original meaning.
 
-The copied link kept https://example.com/guide?utm_source=chatgpt.com after sharing.
+The copied link kept https://docs.test/guide?utm_source=chatgpt.com after sharing.
