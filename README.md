@@ -163,18 +163,18 @@ There is no dependable signal in the bold span alone that separates this structu
 
 ## What it looks like
 
-Real output on [`test/fixtures/sloppy.md`](test/fixtures/sloppy.md), a 290-word file
-written to trip every rule once (first eleven of fifty-two findings):
+Real output on [`test/fixtures/sloppy.md`](test/fixtures/sloppy.md), a 296-word file
+written to trip every rule once (first eleven of fifty-three findings):
 
 ```
-test/fixtures/sloppy.md  F (score 187.2, 290 words, 52 findings)
+test/fixtures/sloppy.md  F (score 193.6, 296 words, 53 findings)
      5:1   info    title-case-heading   Title Case heading; sentence case reads as written by a person
      7:1   warning announcing           "Let's dive into": make the point instead of announcing it
      7:26  error   dash                 em dash
      7:32  warning inflated             "is a testament to": say what happened; let the reader judge the importance
      7:37  warning ai-vocabulary        "testament": a word models reach for; use the plain one
      7:72  warning ai-vocabulary        "In today's fast-paced": a word models reach for; use the plain one
-     7:83  info    hyphen-density       7.2 hyphenated compounds per 100 words; drop the hyphen after the noun ("the report is high quality")
+     7:83  info    hyphen-density       7.1 hyphenated compounds per 100 words; drop the hyphen after the noun ("the report is high quality")
      7:115 warning inflated             "stands as a": say what happened; let the reader judge the importance
      7:127 warning inflated             "pivotal moment": say what happened; let the reader judge the importance
      7:127 warning ai-vocabulary        "pivotal": a word models reach for; use the plain one
@@ -191,7 +191,7 @@ column means: [docs/SCORING.md](docs/SCORING.md).
 
 ## The rules
 
-Twenty-two rules. Most come from the Wikipedia page
+Twenty-three rules. Most come from the Wikipedia page
 [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing),
 written by editors who review thousands of machine-written edits; the three marked "house"
 are ours. Run `npx ai-slop-linter --rules` for the same list from the binary, and
@@ -246,6 +246,7 @@ actually trips the rule it illustrates.
 | `challenges-section` | info | a `Challenges and future outlook` section | |
 | `hyphen-density` | info | more than three hyphenated compounds per hundred words | |
 | `reference-markup` | error | internal citation and rendering residue such as `contentReference`, `oaicite`, `turn0search0`, `grok_card`, `attached_file` and related markers | |
+| `chatbot-tracking` | error (house) | chatbot-added URL parameters: `utm_source=openai`, `utm_source=chatgpt.com`, `utm_source=copilot.com` and `referrer=grok.com` | |
 | `invisible-character` | warning (house) | zero-width spaces and joiners, direction controls and Unicode tag characters in Latin-script text (joined emoji, flags, other scripts, a leading byte order mark and right-to-left lines are left alone) | deleted |
 
 `reference-markup` was written by [@Aaqibhafeezkhan](https://github.com/Aaqibhafeezkhan) ([#46](https://github.com/Bubblegunn/ai-slop-linter/pull/46)), with one test line per marker so that deleting any of them fails the suite.
@@ -545,7 +546,7 @@ The tool is run on the READMEs of the author's five repositories. The dated resu
   says the tells are absent; it says nothing about who typed.
 - Meaning. It cannot tell a hollow paragraph from a good one when the hollow one
   avoids every listed phrase. Text that passes can still be empty.
-- Style outside the list. Twenty-two rules cover the patterns editors flag most; a
+- Style outside the list. Twenty-three rules cover the patterns editors flag most; a
   writer with a different tell passes. Add a rule when you find one.
 - Other languages. The vocabulary rules are English, and the structural ones work anywhere. Outside English the `dash` and `title-case-heading` rules stand down. There is one provisional French rule and no Spanish or German rule, because no candidate passed the shipping limit, so the tool does not claim to detect model text in those languages. Hindi has since been tested against a corpus rather than assumed, and produced no rule worth shipping: see [the Hindi negative result](docs/hindi-rules-negative-result.md). See [CONTRIBUTING.md](CONTRIBUTING.md) and issue #1.
 
