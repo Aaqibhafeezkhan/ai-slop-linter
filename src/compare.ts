@@ -354,6 +354,7 @@ export function extractFacts(text: string, options: { names?: boolean; multiWord
     // Emphasis markers are not text: "- **Faster rollouts:** Rollouts" starts a sentence after the colon.
     const before = rest.slice(lineStart, offset).replace(/[*_~]+/g, "").trimEnd();
     // Only list, heading, emoji, digit or dialogue marks before the word: it starts the line or a list item.
+    // biome-ignore lint/suspicious/noMisleadingCharacterClass: the class lists code points one by one, including the variation selector
     const onlyMarks = /^[\s\p{Extended_Pictographic}\uFE0F#>+\-\d.)¿¡—–"“„«]*$/u.test(before);
     // A sentence-ending mark before the word: the word starts the next sentence. A table-cell
     // border counts too: the first word of a cell starts that cell's text.

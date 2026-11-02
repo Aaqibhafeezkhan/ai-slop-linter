@@ -199,6 +199,7 @@ test("the MCP check_slop result carries language and languageSource", () => {
     JSON.stringify({ jsonrpc: "2.0", id: 1, method: "tools/call", params: { name: "check_slop", arguments: { text: H1 } } }),
     "test",
   );
+  // biome-ignore lint/correctness/noUnsafeOptionalChaining: a missing reply throws here, which is the failure this test wants
   const payload = (reply?.result as { structuredContent: { language: string; languageSource: string } }).structuredContent;
   assert.equal(payload.language, "fr");
   assert.equal(payload.languageSource, "detected");

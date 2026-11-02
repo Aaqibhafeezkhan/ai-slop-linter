@@ -35,6 +35,7 @@ export function expand(root: string, globs: string[]): string[] {
     }
     for (const name of entries) {
       const full = join(dir, name);
+      // biome-ignore lint/suspicious/noImplicitAnyLet: assigned in the try below; tsc strict infers and checks the type
       let st;
       try {
         st = statSync(full);

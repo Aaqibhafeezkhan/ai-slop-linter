@@ -1088,6 +1088,7 @@ function saturation(scores, task) {
   for (const [key, row] of Object.entries(scores)) {
     const m = /^(h\d+)-(.+)-(\d+)$/.exec(key);
     if (m[1] !== task) continue;
+    // biome-ignore lint/suspicious/noAssignInExpressions: create-and-push for a map entry
     (byArm[m[2]] ??= []).push(scriptedCriteria(task).filter((c) => row[c] === true).length);
   }
   const means = Object.fromEntries(Object.entries(byArm).map(([arm, l]) => [arm, l.reduce((a, b) => a + b, 0) / l.length]));

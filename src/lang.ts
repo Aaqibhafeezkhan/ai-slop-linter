@@ -117,6 +117,7 @@ export function looksForeign(text: string, minTokens = 8): boolean {
     if (token === "") continue;
     words++;
     if (KNOWN_WORDS.has(token)) return false;
+    // biome-ignore lint/suspicious/noControlCharactersInRegex: the range is printable ASCII written from \x00 on purpose
     if (/[^\u0000-\u007f]/.test(token)) nonAscii = true;
   }
   return words >= minTokens && nonAscii;
@@ -161,6 +162,7 @@ export function detectLanguage(text: string, limits: number | DetectOptions = MI
       if (lang !== undefined) {
         hits.set(lang, (hits.get(lang) ?? 0) + 1);
         let seen = distinct.get(lang);
+        // biome-ignore lint/suspicious/noAssignInExpressions: create-and-keep for a map entry
         if (!seen) distinct.set(lang, (seen = new Set()));
         seen.add(token);
       }

@@ -135,6 +135,7 @@ function notEnglishProse(doc: Doc, index: number): boolean {
   // stands. One English function word is not enough to call a line English when it also has a
   // letter outside ASCII: the Polish "Skąd pan to wie?" has "to", which is also English.
   const hits = Math.round(share * guess.words);
+  // biome-ignore lint/suspicious/noControlCharactersInRegex: the range is all of ASCII on purpose
   return hits === 0 || (hits === 1 && /[^\u0000-\u007f]/.test(paragraph.replace(/[^\p{L}]/gu, "")));
 }
 

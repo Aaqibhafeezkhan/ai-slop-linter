@@ -180,6 +180,7 @@ function invisibleHasAJob(text: string, start: number, end: number): boolean {
   if (start === 0) return true;
   const prev = String.fromCodePoint(text.codePointAt(start - 1 >= 1 && /[\uDC00-\uDFFF]/.test(text[start - 1]!) ? start - 2 : start - 1) ?? 32);
   const next = String.fromCodePoint(text.codePointAt(end) ?? 32);
+  // biome-ignore lint/suspicious/noMisleadingCharacterClass: the class lists code points one by one, including the keycap mark
   const emojiPart = /[\p{Extended_Pictographic}\p{Emoji_Modifier}\p{Regional_Indicator}️⃣]/u;
   if (emojiPart.test(prev) || emojiPart.test(next)) return true;
   const otherScript = (c: string) => /[\p{L}\p{M}]/u.test(c) && !/\p{Script=Latin}/u.test(c);

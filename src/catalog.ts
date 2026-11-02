@@ -15,6 +15,7 @@ export interface CatalogHit {
   phrase: string;
 }
 
+// biome-ignore lint/suspicious/noShadowRestrictedNames: local helper; the global escape() is not used in this module
 const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 /** Where the catalogs live, relative to dist/src/ in the installed package. */
