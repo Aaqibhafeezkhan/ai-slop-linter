@@ -294,6 +294,17 @@ test("dash rule: a nested list marker is a bullet, not a dash", () => {
   assert.equal(prose.length, 2, JSON.stringify(prose));
 });
 
+test("bold-label: a lowercase bold term with the colon outside is a definition list, a capitalised label is still a tell", () => {
+  const n = (text: string) => lintText("b.md", text).findings.filter((f) => f.rule === "bold-label").length;
+  // The jQuery build-module list: a name, then what it contains. The rule's own note exempts it.
+  assert.equal(n("- **ajax**: All AJAX functionality.\n- **ajax/xhr**: The transport only.\n- **css/showHide**: Show and hide.\n"), 0);
+  // The AI shape stays reported: capitalised, with the colon inside or outside the bold.
+  assert.equal(n("- **Fast:** the parser runs in one pass.\n"), 1);
+  assert.equal(n("- **Reduced latency**: Cached responses are served quickly.\n"), 1);
+  assert.equal(n("- **Configurable**: Users can tailor the cache.\n"), 1);
+  assert.equal(n("- **fast:** the parser runs in one pass.\n"), 1);
+});
+
 test("dash rule: a real em or en dash is an error, a spaced hyphen or double hyphen is a warning", () => {
   // ASCII " - " and "--" are common in human READMEs (a name followed by a tagline, a key and its
   // action), so they count towards the score but do not fail a run by themselves.

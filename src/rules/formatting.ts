@@ -14,13 +14,19 @@ export const boldLabel: Rule = {
     after: "- The parser runs in one pass.\n",
   },
   ignoreWhen:
-    "The list is a glossary or an options table, where the label is the term being defined. A bold name followed by an e-mail address (`- **Ada Lovelace** <ada@example.org>`) is a contributor list, not a label, and is not reported.",
+    "The list is a glossary or an options table, where the label is the term being defined. A lowercase bold term with the colon outside the bold (`- **ajax/xhr**: ...`) is a definition list and is not reported. A bold name followed by an e-mail address (`- **Ada Lovelace** <ada@example.org>`) is a contributor list, not a label, and is not reported.",
   check(doc) {
     // A bold name followed by an address (`**Ada Lovelace** <ada@example.org>`) is a people list. The
     // address is an HTML tag, so the masked text has spaces there; read the raw text after the match.
+    // A definition list names a module, option or key in lowercase and puts the colon outside the bold
+    // (`- **ajax/xhr**: ...`). The label tells are capitalised (`**Fast:**`, `**Reduced latency**:`), so a
+    // single lowercase token with the colon outside is exempt. Measured on 16 pre-2021 READMEs and the
+    // bench corpus: the 17 jQuery module-list lines are the only lines this changes.
     return scan(doc, boldLabel, /^[ \t]*(?:[-*+]|\d+\.)\s+\*\*[^*\n]{1,60}?:?\*\*:?\s/gm, () => "bold label with a colon; write the item as a sentence").filter((f) => {
+      const start = doc.lineStarts[f.line - 1]! + f.column - 1;
       const end = doc.lineStarts[f.endLine - 1]! + f.endColumn - 1;
-      return !/^(?:<|&lt;)/.test(doc.text.slice(end, end + 4));
+      if (/^(?:<|&lt;)/.test(doc.text.slice(end, end + 4))) return false;
+      return !/\*\*[a-z][\w./-]*\*\*:\s$/.test(doc.text.slice(start, end));
     });
   },
 };
