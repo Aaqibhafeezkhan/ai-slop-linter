@@ -63,8 +63,8 @@ label, a list marker or an emoji have nothing to match, whatever language they a
 | `corpus/human/austen-pride-and-prejudice.md` | 1120 | A | 0 | 0 |
 | `corpus/human/darwin-origin-of-species.md` | 1198 | B | 5 | 2 |
 | `corpus/human/douglass-narrative.md` | 1202 | B | 5.8 | 3 |
-| `corpus/human/pep-257-docstrings.md` | 1174 | A | 2.6 | 1 |
-| `corpus/human/pep-8-style-guide.md` | 1230 | B | 3.3 | 2 |
+| `corpus/human/pep-257-docstrings.md` | 1174 | A | 0.9 | 1 |
+| `corpus/human/pep-8-style-guide.md` | 1230 | A | 1.6 | 2 |
 | `typography/de-eichendorff-taugenichts.md` | 1338 | A | 0 | 0 |
 | `typography/es-pardo-bazan-insolacion.md` | 1119 | A | 0 | 0 |
 | `typography/fi-haanpaa-karavaani.md` | 1094 | A | 0 | 0 |
@@ -73,7 +73,7 @@ label, a list marker or an emoji have nothing to match, whatever language they a
 | `typography/it-manzoni-promessi-sposi.md` | 1105 | A | 0 | 0 |
 | `typography/ja-akutagawa-rashomon.md` | 1572 | A | 0 | 0 |
 | `typography/nl-multatuli-max-havelaar.md` | 1181 | A | 0 | 0 |
-| `typography/pl-doyle-baskerville.md` | 1048 | F | 200.4 | 70 |
+| `typography/pl-doyle-baskerville.md` | 1048 | F | 66.8 | 70 |
 | `typography/pt-eca-de-queiros-ramires.md` | 1216 | A | 0 | 0 |
 | `typography/ru-chekhov-dama-s-sobachkoy.md` | 1084 | A | 0 | 0 |
 | `typography/tr-omer-seyfettin-kasagi.md` | 561 | A | 0 | 0 |
