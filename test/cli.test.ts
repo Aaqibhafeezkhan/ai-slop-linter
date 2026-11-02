@@ -362,3 +362,25 @@ test("a failing run piped to stdout keeps the whole report (issue #78)", () => {
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+test("no arguments in a directory with no Markdown prints the usage on stderr and exits 2; a directory with Markdown is still linted", async () => {
+  const empty = await mkdtemp(join(tmpdir(), "slop-noargs-"));
+  try {
+    const none = run([], { cwd: empty });
+    assert.equal(none.code, 2);
+    assert.equal(none.out, "", "nothing on stdout, so a pipe never receives usage text as a result");
+    assert.match(none.err, /no Markdown files found/);
+    assert.match(none.err, /^usage: slop /m);
+    assert.match(none.err, /npx ai-slop-linter README\.md/);
+    // The same refusal for a glob that matches nothing is unchanged: a named target is not "no arguments".
+    const named = run(["nope.md"], { cwd: empty });
+    assert.equal(named.code, 2);
+    assert.match(named.err, /nothing to lint/);
+    // Documented behaviour that --init and .slop.json rely on: no targets lints the repository's Markdown.
+    await writeFile(join(empty, "a.md"), "Certainly! A thing.\n");
+    const some = run([], { cwd: empty });
+    assert.match(some.out, /a\.md/);
+  } finally {
+    await rm(empty, { recursive: true, force: true });
+  }
+});

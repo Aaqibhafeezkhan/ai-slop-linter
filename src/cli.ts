@@ -646,7 +646,16 @@ async function main() {
   }
   const inputs = collect(o, config);
   if (!inputs.length) {
-    console.error("nothing to lint (no files matched)");
+    // `npx ai-slop-linter` with nothing to read, in a folder with no Markdown: the first run of a new
+    // user. Say what to do instead of a bare "no files matched". Exit 2 as for every usage error, and
+    // stderr only, so a pipe never takes usage text for a result. A run that names a target, or uses
+    // --commit, --commit-msg or --pr, keeps the short message. No-target runs that find Markdown
+    // still lint it: .slop.json "include" and `--init` rely on that.
+    if (process.argv.length <= 2) {
+      console.error(`no Markdown files found under ${o.cwd}.\n\n${HELP}\n\nTry: npx ai-slop-linter README.md`);
+    } else {
+      console.error("nothing to lint (no files matched)");
+    }
     process.exit(2);
   }
   let results: (LintResult & { baselined?: number })[] = [];
