@@ -27,7 +27,7 @@ Benchmark: [round 8 result](#how-it-compares). Write-up: [Humanizer has about 60
   <a href="https://github.com/marketplace/actions/ai-slop-linter"><img src="https://img.shields.io/badge/GitHub_Marketplace-ai--slop--linter-111111?style=flat-square&logo=github" alt="GitHub Marketplace"></a>
 </p>
 
-The `dash` rule is an error today, so one em dash fails a run. Turn it off with `--ignore dash`. Whether it should stay an error by default has not been decided; the measurement is in [bench/DASH-DEFAULT.md](bench/DASH-DEFAULT.md).
+A real em dash or en dash is an `error` and fails a run, because models use it far more than most writers do. A spaced hyphen (` - `) or `--` is only a `warning`. Turn the rule off with `--ignore dash`. This is a maintainer choice, not a question settled for readers; the measurement is in [bench/DASH-DEFAULT.md](bench/DASH-DEFAULT.md).
 
 The first line paraphrases what users wrote in public issues. The sources are in [docs/PAIN.md](docs/PAIN.md).
 
@@ -228,7 +228,7 @@ actually trips the rule it illustrates.
 
 | rule | severity | what it catches | fix |
 |---|---|---|---|
-| `dash` | error | em dash or en dash used as a dash (ranges like 2019–2021 are left alone) | comma, full stop, or removed after punctuation |
+| `dash` | error (em and en dash), warning (` - `, `--`) | em dash or en dash used as a dash (ranges like 2019–2021 are left alone) | comma, full stop, or removed after punctuation |
 | `chatbot` | error | `I hope this helps`, `Certainly!`, `Let me know if`, `As an AI` | |
 | `cutoff-disclaimer` | error | `as of my last update`, `as of [date], I cannot` | |
 | `not-x-but-y` | warning | `not just X but Y`, `It's not X. It's Y.`, `not because A, because B` | |

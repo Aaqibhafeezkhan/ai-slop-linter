@@ -18,10 +18,10 @@ function corpus() {
   return dir;
 }
 
-test("reassess with today's severity gives exactly what lintText gives", () => {
+test("reassess with the linter's own severity (split) gives exactly what lintText gives", () => {
   for (const text of [readFileSync("test/fixtures/sloppy.md", "utf8"), readFileSync("test/fixtures/clean.md", "utf8"), "short — text\n"]) {
     const r = lintText("x.md", text);
-    assert.deepEqual(reassess(r, "error"), { findings: r.findings.length, errors: r.errors, score: r.score });
+    assert.deepEqual(reassess(r, "split"), { findings: r.findings.length, errors: r.errors, score: r.score });
   }
 });
 
@@ -33,7 +33,8 @@ test("a dash as a warning stops failing a file that has nothing else wrong, and 
     assert.deepEqual(by.error.human["10"].failing, ["human/h.md"]);
     assert.deepEqual(by.warning.human["10"].failing, [], "one warning in 200 words scores 5, under the limit of 10");
     assert.deepEqual(by.off.human["10"].failing, []);
-    for (const id of ["error", "warning", "off"]) assert.deepEqual(by[id].machine["10"].failing, ["machine/m.md"], `${id}: the chatbot error still fails the machine file`);
+    assert.deepEqual(by.split.human["10"].failing, ["human/h.md"], "a real em dash still fails the file");
+    for (const id of ["error", "split", "warning", "off"]) assert.deepEqual(by[id].machine["10"].failing, ["machine/m.md"], `${id}: the chatbot error still fails the machine file`);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
@@ -60,12 +61,14 @@ test("the threshold table counts files by dashes per 1,000 words", () => {
   }
 });
 
-test("the memo changes no default and leaves the decision open", () => {
+test("the memo states the decision, that real em dashes still fail, and does not call the question settled", () => {
   const dir = corpus();
   try {
     const md = render(measure(dir));
-    assert.match(md, /Decision: pending\./);
-    assert.match(md, /No default has been changed/);
+    assert.match(md, /Decided on 2 November 2026/);
+    assert.match(md, /a real em dash \(U\+2014\) or en dash used as a dash stays an `error`, so it still fails a run/);
+    assert.match(md, /not a claim that the question is settled for readers/);
+    assert.match(md, /--ignore dash/);
     assert.equal(md.includes("—"), false);
   } finally {
     rmSync(dir, { recursive: true, force: true });

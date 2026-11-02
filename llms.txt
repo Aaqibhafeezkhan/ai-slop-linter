@@ -18,7 +18,7 @@ Browser playground (runs the same engine in your tab, no install): https://bubbl
 - [Measurement](docs/MEASUREMENT.md): how the rules were measured on pre-2021 human text and on model output
 - [Rule precision](bench/PRECISION.md): generated; the rate of each rule on the human corpus next to model output, and every finding on the human side
 - [Commit message rules](bench/COMMIT-RULES.md): generated; how each commit-message rule was measured on commits written before 2021
-- [The `dash` default](bench/DASH-DEFAULT.md): generated; what each severity choice would do on the corpus. The decision is pending.
+- [The `dash` default](bench/DASH-DEFAULT.md): generated; what each severity choice does on the corpus, and what was decided.
 - [MCP server](docs/mcp.md): `npx --yes ai-slop-linter --mcp`, tools `check_slop`, `check_slop_file` and `explain_rule`
 - [SARIF and code scanning](docs/SARIF.md)
 - [commitlint plugin](integrations/commitlint/index.mjs): rule `ai-slop-linter/tells`; config at `ai-slop-linter/commitlint/config`
@@ -34,7 +34,7 @@ Browser playground (runs the same engine in your tab, no install): https://bubbl
 - Twenty-three rules for prose, plus six that only a commit message or pull request description gets. Every rule names its source. Nineteen of the prose rules come from Wikipedia's "Signs of AI writing" page and four are marked house rules. Five of the commit-message rules are adapted from tbhb/vale-ai-tells (MIT), and `commit-procedural-assurance` comes from Wikipedia's Signs of AI writing page.
 - The score is weighted findings per 1,000 words (error 3, warning 1, info 0.3). Grades: A under 3, B under 8, C under 15, D under 30, else F. A text under 50 words is not graded.
 - It is a linter, not a detector. A clean pass means the text has none of the listed tells, nothing more.
-- `dash` has severity `error`, so one em dash fails a run. Whether that should stay the default has not been decided (bench/DASH-DEFAULT.md). `--ignore dash` turns the rule off.
+- A real em dash or en dash is an `error` and fails a run; a spaced hyphen or `--` is a `warning`. This is a maintainer choice, not a settled question (bench/DASH-DEFAULT.md). `--ignore dash` turns the rule off.
 - Fixes only swap characters or delete filler; nothing that changes meaning is auto-fixed.
 - `--format` is text, json, github (annotations plus an error line per failing text), markdown (the table the Action posts as its one review comment) or sarif.
 - A baseline (`--baseline-write`, `--baseline`) keys findings by file, rule and sentence, not line number; only findings outside it fail.

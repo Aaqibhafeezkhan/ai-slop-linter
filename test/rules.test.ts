@@ -294,6 +294,18 @@ test("dash rule: a nested list marker is a bullet, not a dash", () => {
   assert.equal(prose.length, 2, JSON.stringify(prose));
 });
 
+test("dash rule: a real em or en dash is an error, a spaced hyphen or double hyphen is a warning", () => {
+  // ASCII " - " and "--" are common in human READMEs (a name followed by a tagline, a key and its
+  // action), so they count towards the score but do not fail a run by themselves.
+  const sev = (text: string) => lintText("s.md", text).findings.filter((f) => f.rule === "dash").map((f) => `${f.message}:${f.severity}`);
+  assert.deepEqual(sev("Rates rose \u2014 sharply in May.\n"), ["em dash:error"]);
+  assert.deepEqual(sev("Rates rose \u2013 sharply in May.\n"), ["en dash used as a dash:error"]);
+  assert.deepEqual(sev("Rates rose - sharply in May.\n"), ["spaced hyphen used as a dash:warning"]);
+  assert.deepEqual(sev("Rates rose -- sharply in May.\n"), ["double hyphen used as a dash:warning"]);
+  const only = lintText("s.md", "Git - fast, scalable.\n\nPress `Ctrl + S` -- to save.\n");
+  assert.equal(only.errors, 0, JSON.stringify(only.findings));
+});
+
 test("fixes are idempotent: fixing twice equals fixing once", () => {
   const once = fixText("s.md", sloppy);
   const twice = fixText("s.md", once.text);

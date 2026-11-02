@@ -6,6 +6,8 @@ const WIKI = "Wikipedia, Signs of AI writing: Em dashes";
 
 /**
  * Em dashes, en dashes used as dashes, spaced hyphens and double hyphens.
+ * Severity: a real em or en dash is an error (the rule's severity). A spaced ASCII hyphen or a
+ * double hyphen is a warning, set per finding in check().
  * En dashes between digits (2019–2021) are ranges and are left alone.
  * Fix: a dash between words becomes a comma; a dash after sentence-final
  * punctuation is dropped.
@@ -17,6 +19,8 @@ const WIKI = "Wikipedia, Signs of AI writing: Em dashes";
  * not exempt. Known trade-off: a glued English dash ("word—word") on such a raya line is exempt
  * too.
  */
+const ASCII_DASH = new Set(["spaced hyphen used as a dash", "double hyphen used as a dash"]);
+
 export const dashes: Rule = {
   id: "dash",
   title: "Em dash or en dash used as a dash",
@@ -62,7 +66,11 @@ export const dashes: Rule = {
     const quoted = quotedOffsets(doc);
     foreignOffsets(doc, quoted);
     const dialogue = dialogueLines(doc);
-    return em.filter((f) => !isRange(doc, f) && !isListMarker(doc, f) && !dialogue.has(f.line) && !quoted[doc.lineStarts[f.line - 1]! + f.column - 1]);
+    return em
+      .filter((f) => !isRange(doc, f) && !isListMarker(doc, f) && !dialogue.has(f.line) && !quoted[doc.lineStarts[f.line - 1]! + f.column - 1])
+      // The rule's own severity is `error`, which is what a real em or en dash keeps. ASCII " - " and
+      // "--" are ordinary punctuation in human READMEs (bench/DASH-DEFAULT.md), so they are warnings.
+      .map((f) => (ASCII_DASH.has(f.message) ? { ...f, severity: "warning" as const } : f));
   },
 };
 

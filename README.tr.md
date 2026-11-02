@@ -12,7 +12,7 @@ Kayıt, bu depodaki derlemenin düzenlenmemiş çıktısıdır. Lint edilen dosy
 
 <p align="center"><a href="README.md">English</a> | Türkçe</p>
 
-`dash` kuralı bugün error düzeyinde, yani tek bir uzun tire çalıştırmayı düşürür. `--ignore dash` ile kapatılır. Varsayılan olarak error kalıp kalmayacağına henüz karar verilmedi; ölçüm [bench/DASH-DEFAULT.md](bench/DASH-DEFAULT.md) içinde.
+Gerçek bir uzun tire (em dash) veya en dash `error` sayılır ve çalıştırmayı düşürür, çünkü modeller bunu çoğu yazardan çok daha sık kullanır. Boşluklu tire (` - `) ve `--` yalnızca `warning` olur. Kural `--ignore dash` ile kapatılır. Bu bir bakımcı kararıdır, okurlar için çözülmüş bir soru değildir; ölçüm [bench/DASH-DEFAULT.md](bench/DASH-DEFAULT.md) içinde.
 
 İlk cümle, kullanıcıların herkese açık issue'larda yazdıklarının bir yorumudur. Kaynaklar [docs/PAIN.md](docs/PAIN.md) içinde, İngilizce.
 

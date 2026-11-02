@@ -48,7 +48,16 @@ test("no personal e-mail address in the documents readers see", () => {
   }
 });
 
-test("the dash default is not described as decided", () => {
-  assert.match(readme, /has not been decided/);
-  assert.ok(!/we decided|was decided|default is now/i.test(readme));
+test("the dash severity split, the off switch and the not-settled caveat are on the first screen of both READMEs", () => {
+  const head = (text) => text.split("\n").slice(0, 30).join("\n");
+  const en = head(readme);
+  assert.match(en, /real em dash or en dash is an `error`/);
+  assert.match(en, /spaced hyphen/);
+  assert.match(en, /--ignore dash/);
+  assert.match(en, /not a question settled for readers/);
+  const tr = head(readFileSync("README.tr.md", "utf8"));
+  assert.match(tr, /`error`/);
+  assert.match(tr, /` - `/);
+  assert.match(tr, /--ignore dash/);
+  assert.ok(!/we decided|default is now/i.test(readme));
 });

@@ -31,7 +31,7 @@ Linting reads the files you name and calls no model. `--pr` runs the `gh` comman
 
 ## Humans use em dashes. Why does it flag them?
 
-It flags a character, not an author. The `dash` rule has severity `error`, so one em dash fails a run. That is the current default, and whether it should stay has not been decided. [bench/DASH-DEFAULT.md](../bench/DASH-DEFAULT.md) measures the alternatives on the corpus and ends with "Decision: pending". Turn the rule off with `--ignore dash`, or for part of a file with an ignore comment, described under [Configuration](../README.md#configuration).
+It flags a character, not an author. A real em dash or en dash is an `error`, so one fails a run; a spaced hyphen or `--` is a `warning`. That is a maintainer choice and not a settled question. [bench/DASH-DEFAULT.md](../bench/DASH-DEFAULT.md) measures the alternatives on the corpus and records what was decided. Turn the rule off with `--ignore dash`, or for part of a file with an ignore comment, described under [Configuration](../README.md#configuration).
 
 ## How many false alarms does it raise?
 
