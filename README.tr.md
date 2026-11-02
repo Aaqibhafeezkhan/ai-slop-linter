@@ -28,7 +28,7 @@ Kuralların çoğu Wikipedia'nın [Signs of AI writing](https://en.wikipedia.org
 
 Üç yol, tek kural seti.
 
-- Komut satırı: `npx ai-slop-linter README.md`, npm'den. npm'deki sürüm 0.1.10'dur. Bu sürüm `--language` alır, ama bir dosyanın dilini kendisi algılamaz, diyaloğu muaf tutmaz ve `--compare` içermez; bunlar yayımlanmamış 0.2.0 sürümündedir. <!-- release-status -->
+- Komut satırı: `npx ai-slop-linter README.md`, npm'den. Her dosyanın dilini algılar, diyaloğu muaf tutar, `--compare` ve `--mcp` içerir (0.2.0 ve sonrası). <!-- release-status -->
 - Ajan becerisi: `npx skills add Bubblegunn/ai-slop-linter`. Beceri, bir ajanın yazdığı metni kendisinin denetlemesini ve her yeniden yazımdan sonra gerçekleri karşılaştırmasını sağlar.
 - Claude Code eklentisi: `/plugin marketplace add Bubblegunn/ai-slop-linter`, ardından `/plugin install ai-slop-linter@ai-slop-linter`.
 

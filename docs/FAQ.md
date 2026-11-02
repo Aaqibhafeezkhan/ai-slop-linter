@@ -11,7 +11,7 @@ Check the text before it ships, and make the check run without anyone rememberin
 - Lint the last commit message with `npx ai-slop-linter --commit`.
 - Install the `commit-msg` hook, which refuses a message that has an error-severity tell: `curl -fsSL https://raw.githubusercontent.com/Bubblegunn/ai-slop-linter/main/scripts/install-hook.sh | sh`.
 - Add the GitHub Action. It lints the pull request title, its description and every changed Markdown file, and keeps one comment on the pull request. Setup is in [In a repository](../README.md#in-a-repository).
-- Install the agent skill with `npx skills add Bubblegunn/ai-slop-linter`, or the MCP server with `npx --yes ai-slop-linter --mcp`, so the agent lints its own text before it hands it over. The MCP server is in the unreleased 0.2.0. <!-- release-status -->
+- Install the agent skill with `npx skills add Bubblegunn/ai-slop-linter`, or the MCP server with `npx --yes ai-slop-linter --mcp`, so the agent lints its own text before it hands it over. The MCP server is on npm since 0.2.0. <!-- release-status -->
 
 ## How do I lint commit messages and pull request descriptions for AI-sounding phrases?
 
@@ -51,7 +51,7 @@ Run `npx ai-slop-linter --compare before.md after.md`. It lists each number, ver
 
 ## Can an AI agent use it directly?
 
-Two ways. The agent skill tells an agent to lint its own commit messages, pull request descriptions and docs before it finishes: `npx skills add Bubblegunn/ai-slop-linter`. The MCP server gives an agent three tools, `check_slop`, `check_slop_file` and `explain_rule`, that return findings as JSON with the line, the column and the exact range of each safe fix. [mcp.md](mcp.md) has setup commands for Claude Code and Codex, and says that they were not run against those clients. The MCP server is in the unreleased 0.2.0. <!-- release-status -->
+Two ways. The agent skill tells an agent to lint its own commit messages, pull request descriptions and docs before it finishes: `npx skills add Bubblegunn/ai-slop-linter`. The MCP server gives an agent three tools, `check_slop`, `check_slop_file` and `explain_rule`, that return findings as JSON with the line, the column and the exact range of each safe fix. [mcp.md](mcp.md) has setup commands for Claude Code and Codex, and says that they were not run against those clients. The MCP server is on npm since 0.2.0. <!-- release-status -->
 
 ## Does it work with textlint, VS Code, commitlint and pre-commit?
 

@@ -57,7 +57,7 @@ The description is the `description` field of `plugin/skills/ai-slop-linter/SKIL
 - Run command: `npx --yes ai-slop-linter --mcp`
 - Keywords: `mcp, mcp-server, linter, ai-writing, em-dash, commit-messages, markdown`
 
-The MCP server is in the unreleased 0.2.0, so no registry entry can be made before that release is on npm. The owner reads each registry's current submission rules on the day of submission, because the required fields differ and change.
+The MCP server has been on npm since 0.2.0. The owner reads each registry's current submission rules on the day of submission, because the required fields differ and change.
 
 ## Codex and Cursor plugin directories
 

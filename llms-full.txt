@@ -47,8 +47,8 @@ Most of the rules are built from the Wikipedia page [Signs of AI writing](https:
 
 Three routes, one set of rules.
 
-- Command line: `npx ai-slop-linter README.md`, from npm. The npm version is 0.1.10. It takes `--language` but does not detect the language of a file, does not exempt dialogue, and has no `--compare`; those are in the unreleased 0.2.0. <!-- release-status -->
-- Agent skill: `npx skills add Bubblegunn/ai-slop-linter`. The skill makes an agent lint what it writes and compare the facts after each rewrite. Its `--compare`, per-file language detection and French rule need ai-slop-linter 0.2.0 or later, so until 0.2.0 is on npm the skill's `npx` commands run the older version. <!-- release-status -->
+- Command line: `npx ai-slop-linter README.md`, from npm. It detects the language of each file, exempts dialogue, and has `--compare` and `--mcp` (0.2.0 and later). <!-- release-status -->
+- Agent skill: `npx skills add Bubblegunn/ai-slop-linter`. The skill makes an agent lint what it writes and compare the facts after each rewrite. Its `--compare`, per-file language detection and French rule need ai-slop-linter 0.2.0 or later; `npx` fetches the current npm release, so this holds. <!-- release-status -->
 - Claude Code plugin: `/plugin marketplace add Bubblegunn/ai-slop-linter`, then `/plugin install ai-slop-linter@ai-slop-linter`.
 
 ## Before and after
@@ -156,7 +156,7 @@ Some readers have learned these tells: the em dash, `not just X but Y`, `I hope 
 | commit-msg hook, pre-commit, commitlint | [In a repository](#in-a-repository) | available from this repository |
 | Agent skill | `npx skills add Bubblegunn/ai-slop-linter`, see [For agents](#for-agents) | available from this repository |
 | Claude Code plugin | `/plugin marketplace add Bubblegunn/ai-slop-linter` | available from this repository |
-| MCP server | `npx --yes ai-slop-linter --mcp`, see [docs/mcp.md](docs/mcp.md) | in the unreleased 0.2.0 <!-- release-status --> |
+| MCP server | `npx --yes ai-slop-linter --mcp`, see [docs/mcp.md](docs/mcp.md) | on npm since 0.2.0 <!-- release-status --> |
 | textlint rule | package `textlint-rule-ai-slop`, see [its README](textlint-rule-ai-slop/README.md) | in this repository, not yet on npm <!-- release-status --> |
 | VS Code extension | a `.vsix` built from `vscode/`, see [its README](vscode/README.md) | not yet on the Marketplace <!-- release-status --> |
 | Browser | [the playground](https://bubblegunn.github.io/ai-slop-linter/) | live |
@@ -634,7 +634,7 @@ Check the text before it ships, and make the check run without anyone rememberin
 - Lint the last commit message with `npx ai-slop-linter --commit`.
 - Install the `commit-msg` hook, which refuses a message that has an error-severity tell: `curl -fsSL https://raw.githubusercontent.com/Bubblegunn/ai-slop-linter/main/scripts/install-hook.sh | sh`.
 - Add the GitHub Action. It lints the pull request title, its description and every changed Markdown file, and keeps one comment on the pull request. Setup is in [In a repository](../README.md#in-a-repository).
-- Install the agent skill with `npx skills add Bubblegunn/ai-slop-linter`, or the MCP server with `npx --yes ai-slop-linter --mcp`, so the agent lints its own text before it hands it over. The MCP server is in the unreleased 0.2.0. <!-- release-status -->
+- Install the agent skill with `npx skills add Bubblegunn/ai-slop-linter`, or the MCP server with `npx --yes ai-slop-linter --mcp`, so the agent lints its own text before it hands it over. The MCP server is on npm since 0.2.0. <!-- release-status -->
 
 ## How do I lint commit messages and pull request descriptions for AI-sounding phrases?
 
@@ -674,7 +674,7 @@ Run `npx ai-slop-linter --compare before.md after.md`. It lists each number, ver
 
 ## Can an AI agent use it directly?
 
-Two ways. The agent skill tells an agent to lint its own commit messages, pull request descriptions and docs before it finishes: `npx skills add Bubblegunn/ai-slop-linter`. The MCP server gives an agent three tools, `check_slop`, `check_slop_file` and `explain_rule`, that return findings as JSON with the line, the column and the exact range of each safe fix. [mcp.md](mcp.md) has setup commands for Claude Code and Codex, and says that they were not run against those clients. The MCP server is in the unreleased 0.2.0. <!-- release-status -->
+Two ways. The agent skill tells an agent to lint its own commit messages, pull request descriptions and docs before it finishes: `npx skills add Bubblegunn/ai-slop-linter`. The MCP server gives an agent three tools, `check_slop`, `check_slop_file` and `explain_rule`, that return findings as JSON with the line, the column and the exact range of each safe fix. [mcp.md](mcp.md) has setup commands for Claude Code and Codex, and says that they were not run against those clients. The MCP server is on npm since 0.2.0. <!-- release-status -->
 
 ## Does it work with textlint, VS Code, commitlint and pre-commit?
 
