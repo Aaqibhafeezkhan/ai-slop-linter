@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.0 (unreleased)
+
+**`dash` separates a real dash from an ASCII one (behaviour change).** A real em dash or en dash stays an error. A spaced hyphen (` - `) and a double hyphen (`--`) are now warnings, because people who never touched a model have typed them for decades. A build with `--fail-on warning` still fails on them. In 16 READMEs written before 2021, `dash` errors went from 18 to 7 and warnings from 0 to 11.
+
+**`bold-label` stops flagging two ordinary human forms.** A bold name followed by an e-mail address, and a lowercase bold term with the colon outside the bold (a definition list), no longer fire. The same 16 READMEs went from 30 findings to 13.
+
+**A folder with no Markdown gets an answer.** `slop` with no arguments, in a folder with no Markdown, prints the usage and a first command to stderr and exits 2.
+
+**Version claims are checked.** The docs named old versions as the current one. They are corrected, and `test/version-claims.test.mjs` fails on a stale claim.
+
+The human corpus went from 4 of 5 failing to 2 of 5. The machine corpus still fails 5 of 5. READMEs written before 2021 can still score F: numpy and requests do. The head-to-head figures were not re-run for this release.
+
 ## 0.2.1 (2026-10-26)
 
 **Why CT² cannot serve as a pre-2021 Hindi control.** [docs/hindi-ct2-publication-dates.md](docs/hindi-ct2-publication-dates.md) records that the CT² Hindi dataset (1,762 BBC Hindi and 5,281 NDTV human articles) has no publication-date field, so a date split inside it cannot be justified and an independent pre-2021 corpus is needed; it notes the register mismatch if Hindi Wikipedia is used instead, and links the open question to the CT² authors. The Hindi negative result links it from "What would have changed the answer". Written by [@shivam-070208](https://github.com/shivam-070208) ([#71](https://github.com/Bubblegunn/ai-slop-linter/pull/71)); in review the note moved from `bench/` to `docs/`, and a date range taken from analysis output nothing in the repository reproduces was removed.
