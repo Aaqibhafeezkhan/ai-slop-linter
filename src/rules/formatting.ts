@@ -14,9 +14,14 @@ export const boldLabel: Rule = {
     after: "- The parser runs in one pass.\n",
   },
   ignoreWhen:
-    "The list is a glossary or an options table, where the label is the term being defined.",
+    "The list is a glossary or an options table, where the label is the term being defined. A bold name followed by an e-mail address (`- **Ada Lovelace** <ada@example.org>`) is a contributor list, not a label, and is not reported.",
   check(doc) {
-    return scan(doc, boldLabel, /^[ \t]*(?:[-*+]|\d+\.)\s+\*\*[^*\n]{1,60}?:?\*\*:?\s/gm, () => "bold label with a colon; write the item as a sentence");
+    // A bold name followed by an address (`**Ada Lovelace** <ada@example.org>`) is a people list. The
+    // address is an HTML tag, so the masked text has spaces there; read the raw text after the match.
+    return scan(doc, boldLabel, /^[ \t]*(?:[-*+]|\d+\.)\s+\*\*[^*\n]{1,60}?:?\*\*:?\s/gm, () => "bold label with a colon; write the item as a sentence").filter((f) => {
+      const end = doc.lineStarts[f.endLine - 1]! + f.endColumn - 1;
+      return !/^(?:<|&lt;)/.test(doc.text.slice(end, end + 4));
+    });
   },
 };
 

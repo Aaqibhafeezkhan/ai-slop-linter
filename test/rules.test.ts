@@ -39,6 +39,14 @@ test("bold-label: keeps its existing matches; CV role lists use the documented i
   assert.equal(lintText("machine.md", labels).findings.filter((f) => f.rule === "bold-label").length, 5);
 });
 
+test("bold-label: a bold name followed by an e-mail address is a people list, not a label", () => {
+  // Found on the Node.js README of 2020 (pre-2021, human): 25 of its 49 bold-label findings were
+  // collaborator entries of the form `* **Name** <address>`.
+  const people = ["* **Ada Lovelace** <ada@example.org>", "* **Alan Turing** &lt;alan@example.org&gt;", "- **Fast:** one pass."].join("\n");
+  const hits = lintText("README.md", people).findings.filter((f) => f.rule === "bold-label");
+  assert.deepEqual(hits.map((f) => f.line), [3]);
+});
+
 test("reference markup: every alternative is covered individually and masked tokens stay ignored", () => {
   const cases = [
     "The answer left :contentReference[oaicite:0]{index=0} in the prose.",
