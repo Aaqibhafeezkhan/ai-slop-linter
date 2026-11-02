@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.3.0 (unreleased)
+## 0.3.0 (2026-11-02)
 
 **`dash` separates a real dash from an ASCII one (behaviour change).** A real em dash or en dash stays an error. A spaced hyphen (` - `) and a double hyphen (`--`) are now warnings, because people who never touched a model have typed them for decades. A build with `--fail-on warning` still fails on them. In 16 READMEs written before 2021, `dash` errors went from 18 to 7 and warnings from 0 to 11.
 
